@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "A short description of ChineseGirl.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/wanjiehuizhaofang/ChineseGirl",
+  "homepage": "www.baidu.com",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "wanjiehuizhaofang": "wanjie@huizhaofang.com"
   },
   "source": {
-    "git": "https://github.com/wanjiehuizhaofang/ChineseGirl.git",
+    "git": "https://github.com/Wallenone/ChineseGirl.git",
     "tag": "0.1.0"
   },
   "platforms": {

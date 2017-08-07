@@ -1,7 +1,9 @@
-use_frameworks!
-
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, ‘8.0‘
 target 'ChineseGirl_Example' do
   pod 'ChineseGirl', :path => '../'
-
-
+  pod 'UIFastTabBarController'
+  pod 'WJFastDialogView'
+  pod 'RouterManager'
+  pod 'UIFastTableView'
 end

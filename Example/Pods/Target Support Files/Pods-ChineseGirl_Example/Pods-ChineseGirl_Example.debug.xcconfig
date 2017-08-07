@@ -1,8 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ChineseGirl"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/ChineseGirl/ChineseGirl.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "ChineseGirl"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ChineseGirl" "${PODS_ROOT}/Headers/Public/MJRefresh" "${PODS_ROOT}/Headers/Public/RouterManager" "${PODS_ROOT}/Headers/Public/UIFastTabBarController" "${PODS_ROOT}/Headers/Public/UIFastTableView" "${PODS_ROOT}/Headers/Public/WJFastDialogView"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ChineseGirl" "$PODS_CONFIGURATION_BUILD_DIR/MJRefresh" "$PODS_CONFIGURATION_BUILD_DIR/RouterManager" "$PODS_CONFIGURATION_BUILD_DIR/UIFastTabBarController" "$PODS_CONFIGURATION_BUILD_DIR/UIFastTableView" "$PODS_CONFIGURATION_BUILD_DIR/WJFastDialogView"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ChineseGirl" -isystem "${PODS_ROOT}/Headers/Public/MJRefresh" -isystem "${PODS_ROOT}/Headers/Public/RouterManager" -isystem "${PODS_ROOT}/Headers/Public/UIFastTabBarController" -isystem "${PODS_ROOT}/Headers/Public/UIFastTableView" -isystem "${PODS_ROOT}/Headers/Public/WJFastDialogView"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"ChineseGirl" -l"MJRefresh" -l"RouterManager" -l"UIFastTabBarController" -l"UIFastTableView" -l"WJFastDialogView"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
