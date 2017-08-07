@@ -3,12 +3,5 @@ use_frameworks!
 target 'ChineseGirl_Example' do
   pod 'ChineseGirl', :path => '../'
 
-  target 'ChineseGirl_Tests' do
-    inherit! :search_paths
 
-    pod 'Specta'
-  pod 'Expecta'
-  pod 'FBSnapshotTestCase'
-  pod 'Expecta+Snapshots'
-  end
 end

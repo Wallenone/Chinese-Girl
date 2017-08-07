@@ -1,0 +1,6 @@
+framework module Pods_ChineseGirl_Tests {
+  umbrella header "Pods-ChineseGirl_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
