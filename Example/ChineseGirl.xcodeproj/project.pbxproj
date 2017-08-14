@@ -23,6 +23,10 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		E568016A1F39915B00415A65 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56801691F39915B00415A65 /* IndexViewController.m */; };
+		E568016D1F39917E00415A65 /* DriftBottleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568016C1F39917E00415A65 /* DriftBottleViewController.m */; };
+		E56801701F3991BB00415A65 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568016F1F3991BB00415A65 /* NewsViewController.m */; };
+		E56801731F3991CA00415A65 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56801721F3991CA00415A65 /* MineViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		316E80916C6CF72CE7A385BD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		316E80916C6CF72CE7A385BD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		42FA0950B1EA4E1BB940138C /* Pods-ChineseGirl_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseGirl_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChineseGirl_Example/Pods-ChineseGirl_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4589C979392A46F34685E73D /* libPods-ChineseGirl_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChineseGirl_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		528AD7C7967D905AD3551C4D /* ChineseGirl.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ChineseGirl.podspec; path = ../ChineseGirl.podspec; sourceTree = "<group>"; };
+		528AD7C7967D905AD3551C4D /* ChineseGirl.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ChineseGirl.podspec; path = ../ChineseGirl.podspec; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ChineseGirl_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChineseGirl_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,7 +66,15 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB82E5B9B0C14A6C085BB2E9 /* Pods_ChineseGirl_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChineseGirl_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDE47200CF11454084840064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E56801681F39915B00415A65 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
+		E56801691F39915B00415A65 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
+		E568016B1F39917E00415A65 /* DriftBottleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriftBottleViewController.h; sourceTree = "<group>"; };
+		E568016C1F39917E00415A65 /* DriftBottleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriftBottleViewController.m; sourceTree = "<group>"; };
+		E568016E1F3991BB00415A65 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		E568016F1F3991BB00415A65 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		E56801711F3991CA00415A65 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		E56801721F3991CA00415A65 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		EDE47200CF11454084840064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FBA77A7CBE9FFE2BA1642376 /* Pods-ChineseGirl_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseGirl_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChineseGirl_Example/Pods-ChineseGirl_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +140,7 @@
 		6003F593195388D20070C39A /* Example for ChineseGirl */ = {
 			isa = PBXGroup;
 			children = (
+				E56801671F39912800415A65 /* Class */,
 				6003F59C195388D20070C39A /* CGAppDelegate.h */,
 				6003F59D195388D20070C39A /* CGAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -188,6 +201,21 @@
 				42FA0950B1EA4E1BB940138C /* Pods-ChineseGirl_Example.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E56801671F39912800415A65 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				E56801681F39915B00415A65 /* IndexViewController.h */,
+				E56801691F39915B00415A65 /* IndexViewController.m */,
+				E568016B1F39917E00415A65 /* DriftBottleViewController.h */,
+				E568016C1F39917E00415A65 /* DriftBottleViewController.m */,
+				E568016E1F3991BB00415A65 /* NewsViewController.h */,
+				E568016F1F3991BB00415A65 /* NewsViewController.m */,
+				E56801711F3991CA00415A65 /* MineViewController.h */,
+				E56801721F3991CA00415A65 /* MineViewController.m */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,8 +369,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* CGAppDelegate.m in Sources */,
+				E56801731F3991CA00415A65 /* MineViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				E56801701F3991BB00415A65 /* NewsViewController.m in Sources */,
+				E568016D1F39917E00415A65 /* DriftBottleViewController.m in Sources */,
+				E568016A1F39915B00415A65 /* IndexViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,14 +7,79 @@
 //
 
 #import "CGAppDelegate.h"
-
+#import "LCTabBarController.h"
+#import "IndexViewController.h"
+#import "DriftBottleViewController.h"
+#import "NewsViewController.h"
+#import "MineViewController.h"
+@interface CGAppDelegate()<UITabBarControllerDelegate>
+@property(nonatomic,strong)LCTabBarController *tabBarC;
+@end
 @implementation CGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    //1.创建Window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+         //a.初始化一个tabBar控制器
+    UITabBarController *tb=[[UITabBarController alloc]init];
+    tb.delegate=self;
+    //设置控制器为Window的根控制器
+    self.window.rootViewController=tb;
+    
+    //b.创建子控制器
+    UIViewController *c1=[[UIViewController alloc]init];
+    c1.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    c1.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    c1.tabBarItem.badgeValue=@"123";
+    c1.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    
+    UIViewController *c2=[[UIViewController alloc]init];
+    c2.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    c2.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    c2.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    
+    UIViewController *c3=[[UIViewController alloc]init];
+    c3.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    c3.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    c3.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    
+    UIViewController *c4=[[UIViewController alloc]init];
+    c4.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    c4.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    c4.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    
+    //c.添加子控制器到ITabBarController中
+    //c.1第一种方式
+    //    [tb addChildViewController:c1];
+    //    [tb addChildViewController:c2];
+    
+    //c.2第二种方式
+    tb.viewControllers=@[c1,c2,c3,c4];
+    
+    
+    
+   
+    
+    //2.设置Window为主窗口并显示出来
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
+
+-(UIImage *)scaleImageToSize:(UIImage *)img size:(CGSize)size
+{
+    UIGraphicsBeginImageContext(size);
+    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
