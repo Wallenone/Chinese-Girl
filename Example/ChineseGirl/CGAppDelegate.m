@@ -31,26 +31,29 @@
     self.window.rootViewController=tb;
     
     //b.创建子控制器
-    UIViewController *c1=[[UIViewController alloc]init];
-    c1.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    c1.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
-    c1.tabBarItem.badgeValue=@"123";
-    c1.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
-    UIViewController *c2=[[UIViewController alloc]init];
-    c2.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    c2.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
-    c2.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
-    UIViewController *c3=[[UIViewController alloc]init];
-    c3.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    c3.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
-    c3.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
-    UIViewController *c4=[[UIViewController alloc]init];
-    c4.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    c4.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
-    c4.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    IndexViewController *indeVC=[[IndexViewController alloc] init];
+    indeVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    indeVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    indeVC.tabBarItem.badgeValue=@"123";
+    indeVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    
+    DriftBottleViewController *driftVC=[[DriftBottleViewController alloc] init];
+    driftVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    driftVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    driftVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    
+    NewsViewController *newsVC=[[NewsViewController alloc] init];
+    newsVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    newsVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    newsVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    
+    MineViewController *mineVC=[[MineViewController alloc] init];
+    mineVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    mineVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    mineVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     //c.添加子控制器到ITabBarController中
     //c.1第一种方式
@@ -58,6 +61,12 @@
     //    [tb addChildViewController:c2];
     
     //c.2第二种方式
+    
+    UINavigationController *c1=[[UINavigationController alloc]initWithRootViewController:indeVC];
+    UINavigationController *c2=[[UINavigationController alloc]initWithRootViewController:driftVC];
+    UINavigationController *c3=[[UINavigationController alloc]initWithRootViewController:newsVC];
+    UINavigationController *c4=[[UINavigationController alloc]initWithRootViewController:mineVC];
+    
     tb.viewControllers=@[c1,c2,c3,c4];
     
     

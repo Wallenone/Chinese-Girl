@@ -23,6 +23,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		E541FE901F4150560002A8C1 /* UIViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E541FE8F1F4150560002A8C1 /* UIViewController+NavigationBar.m */; };
 		E568016A1F39915B00415A65 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56801691F39915B00415A65 /* IndexViewController.m */; };
 		E568016D1F39917E00415A65 /* DriftBottleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568016C1F39917E00415A65 /* DriftBottleViewController.m */; };
 		E56801701F3991BB00415A65 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568016F1F3991BB00415A65 /* NewsViewController.m */; };
@@ -66,6 +67,8 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB82E5B9B0C14A6C085BB2E9 /* Pods_ChineseGirl_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChineseGirl_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E541FE8E1F4150560002A8C1 /* UIViewController+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationBar.h"; sourceTree = "<group>"; };
+		E541FE8F1F4150560002A8C1 /* UIViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationBar.m"; sourceTree = "<group>"; };
 		E56801681F39915B00415A65 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
 		E56801691F39915B00415A65 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		E568016B1F39917E00415A65 /* DriftBottleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriftBottleViewController.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				E568016F1F3991BB00415A65 /* NewsViewController.m */,
 				E56801711F3991CA00415A65 /* MineViewController.h */,
 				E56801721F3991CA00415A65 /* MineViewController.m */,
+				E541FE8E1F4150560002A8C1 /* UIViewController+NavigationBar.h */,
+				E541FE8F1F4150560002A8C1 /* UIViewController+NavigationBar.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E541FE901F4150560002A8C1 /* UIViewController+NavigationBar.m in Sources */,
 				6003F59E195388D20070C39A /* CGAppDelegate.m in Sources */,
 				E56801731F3991CA00415A65 /* MineViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,

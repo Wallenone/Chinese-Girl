@@ -14,13 +14,16 @@
 
 @implementation IndexViewController
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.navigationController setNavigationBarHidden:YES animated:TRUE];
-    
-    
-    // Do any additional setup after loading the view.
+     [self setUpNavWithTitle:@"我的消息" leftIcon:@"返回按钮" rightIcon:nil leftTitle:nil rightTitle:nil delegate:nil];
 }
 
 - (void)didReceiveMemoryWarning {
