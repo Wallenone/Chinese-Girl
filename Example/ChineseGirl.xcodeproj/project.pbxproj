@@ -28,6 +28,10 @@
 		E568016D1F39917E00415A65 /* DriftBottleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568016C1F39917E00415A65 /* DriftBottleViewController.m */; };
 		E56801701F3991BB00415A65 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568016F1F3991BB00415A65 /* NewsViewController.m */; };
 		E56801731F3991CA00415A65 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56801721F3991CA00415A65 /* MineViewController.m */; };
+		E5EB8CA01F41B8AB00D6C52C /* IndexCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB8C9F1F41B8AB00D6C52C /* IndexCollectionView.m */; };
+		E5EB8CA71F41B8FD00D6C52C /* WSCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB8CA21F41B8FD00D6C52C /* WSCollectionCell.m */; };
+		E5EB8CA81F41B8FD00D6C52C /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB8CA41F41B8FD00D6C52C /* CellModel.m */; };
+		E5EB8CA91F41B8FD00D6C52C /* WSLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB8CA61F41B8FD00D6C52C /* WSLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,14 @@
 		E568016F1F3991BB00415A65 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		E56801711F3991CA00415A65 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		E56801721F3991CA00415A65 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		E5EB8C9E1F41B8AB00D6C52C /* IndexCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexCollectionView.h; sourceTree = "<group>"; };
+		E5EB8C9F1F41B8AB00D6C52C /* IndexCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexCollectionView.m; sourceTree = "<group>"; };
+		E5EB8CA11F41B8FD00D6C52C /* WSCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCollectionCell.h; sourceTree = "<group>"; };
+		E5EB8CA21F41B8FD00D6C52C /* WSCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCollectionCell.m; sourceTree = "<group>"; };
+		E5EB8CA31F41B8FD00D6C52C /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		E5EB8CA41F41B8FD00D6C52C /* CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
+		E5EB8CA51F41B8FD00D6C52C /* WSLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLayout.h; sourceTree = "<group>"; };
+		E5EB8CA61F41B8FD00D6C52C /* WSLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLayout.m; sourceTree = "<group>"; };
 		EDE47200CF11454084840064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FBA77A7CBE9FFE2BA1642376 /* Pods-ChineseGirl_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseGirl_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChineseGirl_Example/Pods-ChineseGirl_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +221,12 @@
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E5EB8CA11F41B8FD00D6C52C /* WSCollectionCell.h */,
+				E5EB8CA21F41B8FD00D6C52C /* WSCollectionCell.m */,
+				E5EB8CA31F41B8FD00D6C52C /* CellModel.h */,
+				E5EB8CA41F41B8FD00D6C52C /* CellModel.m */,
+				E5EB8CA51F41B8FD00D6C52C /* WSLayout.h */,
+				E5EB8CA61F41B8FD00D6C52C /* WSLayout.m */,
 				E56801681F39915B00415A65 /* IndexViewController.h */,
 				E56801691F39915B00415A65 /* IndexViewController.m */,
 				E568016B1F39917E00415A65 /* DriftBottleViewController.h */,
@@ -219,6 +237,8 @@
 				E56801721F3991CA00415A65 /* MineViewController.m */,
 				E541FE8E1F4150560002A8C1 /* UIViewController+NavigationBar.h */,
 				E541FE8F1F4150560002A8C1 /* UIViewController+NavigationBar.m */,
+				E5EB8C9E1F41B8AB00D6C52C /* IndexCollectionView.h */,
+				E5EB8C9F1F41B8AB00D6C52C /* IndexCollectionView.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -374,11 +394,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E541FE901F4150560002A8C1 /* UIViewController+NavigationBar.m in Sources */,
+				E5EB8CA81F41B8FD00D6C52C /* CellModel.m in Sources */,
+				E5EB8CA71F41B8FD00D6C52C /* WSCollectionCell.m in Sources */,
 				6003F59E195388D20070C39A /* CGAppDelegate.m in Sources */,
 				E56801731F3991CA00415A65 /* MineViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E56801701F3991BB00415A65 /* NewsViewController.m in Sources */,
+				E5EB8CA01F41B8AB00D6C52C /* IndexCollectionView.m in Sources */,
+				E5EB8CA91F41B8FD00D6C52C /* WSLayout.m in Sources */,
 				E568016D1F39917E00415A65 /* DriftBottleViewController.m in Sources */,
 				E568016A1F39915B00415A65 /* IndexViewController.m in Sources */,
 			);

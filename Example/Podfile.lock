@@ -1,31 +1,56 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - ChineseGirl (0.1.0)
   - MJRefresh (3.1.12)
   - RouterManager (0.1.3)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
   - UIFastTabBarController (0.1.1)
   - UIFastTableView (0.1.6):
     - MJRefresh
   - WJFastDialogView (0.1.0)
+  - WJFastScrollViewPoint (0.1.1):
+    - SDWebImage
 
 DEPENDENCIES:
+  - AFNetworking (= 3.1)
   - ChineseGirl (from `../`)
   - RouterManager
   - UIFastTabBarController
   - UIFastTableView
   - WJFastDialogView
+  - WJFastScrollViewPoint
 
 EXTERNAL SOURCES:
   ChineseGirl:
     :path: ../
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   ChineseGirl: 074949ea06d312a68609792afc54536f65dd0790
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   RouterManager: 5fae26a349743cefff30c44336c500169d8ac30c
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   UIFastTabBarController: 88a01f27ff0eaca1277622c2fffcd5881447f2ab
   UIFastTableView: fd509fc7d278bf4010a2ee950c59f589b82a3f26
   WJFastDialogView: f376833e8c248066ec04626421e4539e9c1233d5
+  WJFastScrollViewPoint: 1cdba392da20c0b9cb1f4a2b61af24d78a75e312
 
-PODFILE CHECKSUM: 2129c52ca19d0d25410b7e31f6beb774f1bc377c
+PODFILE CHECKSUM: 3381ccf662a0eda5d3df98daed4ccc4efc228316
 
 COCOAPODS: 1.2.1
