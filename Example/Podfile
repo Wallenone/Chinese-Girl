@@ -7,5 +7,4 @@ target 'ChineseGirl_Example' do
   pod 'RouterManager'
   pod 'UIFastTableView'
   pod 'WJFastScrollViewPoint'
-  pod 'AFNetworking','3.1'
 end
