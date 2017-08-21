@@ -12,11 +12,13 @@
 #import "WSCollectionCell.h"
 #import "WSLayout.h"
 #import "MJRefresh.h"
+#import "MyIndexViewController.h"
 
 @interface IndexCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate>{
     NSMutableArray *modelCollectionArray;
     NSMutableArray *modelArray;
     NSInteger t_page;
+    CellSelectedIndexBlock cellSelectedIndexBlock;
 }
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) WSLayout *wslayout;
@@ -24,8 +26,10 @@
 
 @implementation IndexCollectionView
 
-- (id)initWithFrame:(CGRect)frame{
+- (id)initWithFrame:(CGRect)frame onCellSelected:(CellSelectedIndexBlock)block{
     if (self=[super initWithFrame:frame]) {
+        cellSelectedIndexBlock=block;
+        self.backgroundColor=[UIColor blackColor];
         [self setData];
         [self setUI];
     }
@@ -46,6 +50,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSString *urlStr = [[NSString stringWithFormat:@"http://image.baidu.com/channel/listjson?pn=%ld&rn=50&tag1=美女&tag2=全部&ie=utf8",(long)page] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
     
     [manager GET:urlStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // NSLog(@"%@",responseObject);
@@ -87,12 +92,12 @@
     //self.edgesForExtendedLayout = UIRectEdgeNone;
     // 不透明时用这个属性
     //self.extendedLayoutIncludesOpaqueBars = YES;
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, self.frame.size.width, self.frame.size.height-64) collectionViewLayout:self.wslayout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) collectionViewLayout:self.wslayout];
     
     [self.collectionView registerClass:[WSCollectionCell class] forCellWithReuseIdentifier:@"collectionCell"];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    //self.collectionView.backgroundColor = [UIColor lightGrayColor];
     
     [self getCollectionData:t_page];
     
@@ -107,7 +112,7 @@
         CGFloat oldHeight = model.imgHeight;
         
         CGFloat newWidth = width;
-        CGFloat newHeigth = 263;
+        CGFloat newHeigth = 200;
         return newHeigth;
     }];
     
@@ -153,7 +158,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (cellSelectedIndexBlock) {
+        cellSelectedIndexBlock(indexPath);
+    }
+    
     NSLog(@"选中了第%ld个item",indexPath.row);
+
 }
 
 

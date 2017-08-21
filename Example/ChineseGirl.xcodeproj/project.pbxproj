@@ -38,6 +38,8 @@
 		E538D76C1F429BE80079AE94 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7621F429BE80079AE94 /* MineViewController.m */; };
 		E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7651F429BE80079AE94 /* NewsViewController.m */; };
 		E538D7701F429C060079AE94 /* UIViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D76F1F429C060079AE94 /* UIViewController+NavigationBar.m */; };
+		E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */; };
+		E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC8331F4936730078F856 /* UIColor+getColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,10 @@
 		E538D76E1F429C060079AE94 /* UIViewController+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationBar.h"; sourceTree = "<group>"; };
 		E538D76F1F429C060079AE94 /* UIViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationBar.m"; sourceTree = "<group>"; };
 		E538D7731F429D7E0079AE94 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexViewController.h; sourceTree = "<group>"; };
+		E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexViewController.m; sourceTree = "<group>"; };
+		E5EFC8321F4936730078F856 /* UIColor+getColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+getColor.h"; sourceTree = "<group>"; };
+		E5EFC8331F4936730078F856 /* UIColor+getColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+getColor.m"; sourceTree = "<group>"; };
 		EDE47200CF11454084840064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FBA77A7CBE9FFE2BA1642376 /* Pods-ChineseGirl_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseGirl_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChineseGirl_Example/Pods-ChineseGirl_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +249,8 @@
 		E538D73A1F429ACC0079AE94 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				E5EFC8321F4936730078F856 /* UIColor+getColor.h */,
+				E5EFC8331F4936730078F856 /* UIColor+getColor.m */,
 				E538D76E1F429C060079AE94 /* UIViewController+NavigationBar.h */,
 				E538D76F1F429C060079AE94 /* UIViewController+NavigationBar.m */,
 				E538D73B1F429ACC0079AE94 /* AFNetworking */,
@@ -284,6 +292,8 @@
 			children = (
 				E538D7561F429BE80079AE94 /* IndexViewController.h */,
 				E538D7571F429BE80079AE94 /* IndexViewController.m */,
+				E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */,
+				E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */,
 				E538D7531F429BE80079AE94 /* cell */,
 				E538D7581F429BE80079AE94 /* Model */,
 				E538D75B1F429BE80079AE94 /* View */,
@@ -507,6 +517,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */,
+				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
 				E538D7701F429C060079AE94 /* UIViewController+NavigationBar.m in Sources */,

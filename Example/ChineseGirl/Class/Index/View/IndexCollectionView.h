@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^CellSelectedIndexBlock)(NSIndexPath *);
 @interface IndexCollectionView : UIView
-- (id)initWithFrame:(CGRect)frame;
+- (id)initWithFrame:(CGRect)frame onCellSelected:(CellSelectedIndexBlock)block;
 @end

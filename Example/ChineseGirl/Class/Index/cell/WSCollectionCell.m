@@ -18,7 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.backgroundColor=[UIColor clearColor];
         [self creatSubView];
         
     }
@@ -32,16 +32,16 @@
     [self addSubview:imgV];
     
     
-    UIVisualEffectView *visulEffectView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
-    visulEffectView.tag = 20;
-    [self addSubview:visulEffectView];
-    
-    UILabel *label = [[UILabel alloc]init];
-    label.tag = 30;
-    label.font = [UIFont systemFontOfSize:10];
-    label.textColor = [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    [visulEffectView addSubview:label];
+//    UIVisualEffectView *visulEffectView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+//    visulEffectView.tag = 20;
+//    [self addSubview:visulEffectView];
+//    
+//    UILabel *label = [[UILabel alloc]init];
+//    label.tag = 30;
+//    label.font = [UIFont systemFontOfSize:10];
+//    label.textColor = [UIColor whiteColor];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [visulEffectView addSubview:label];
 }
 
 
@@ -57,6 +57,8 @@
     
     [imgV sd_setImageWithURL:[NSURL URLWithString:_model.imgURL]];
     label.text = _model.title;
+    
+    imgV.layer.cornerRadius=6*SCREEN_RADIO;
     
 }
 

@@ -10,6 +10,7 @@
 #import "BHInfiniteScrollView.h"
 #import "EZJFastTableView.h"
 #import "IndexCollectionView.h"
+#import "MyIndexViewController.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate>
 @property (nonatomic, strong) BHInfiniteScrollView* infinitePageView;
 @property (nonatomic, strong) IndexCollectionView *indexCollectionView;
@@ -21,7 +22,6 @@
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (void)viewDidLoad {
@@ -73,7 +73,10 @@
 }
 
 -(void)setTableView{
-    self.indexCollectionView=[[IndexCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.infinitePageView.frame), self.view.frame.size.width, self.view.frame.size.height)];
+    self.indexCollectionView=[[IndexCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.infinitePageView.frame), self.view.frame.size.width, self.view.frame.size.height) onCellSelected:^(NSIndexPath  *indexPath) {
+        MyIndexViewController *index=[[MyIndexViewController alloc] init];
+        [self.navigationController pushViewController:index animated:NO];
+    }];
     [self.view addSubview:self.indexCollectionView];
 }
 
