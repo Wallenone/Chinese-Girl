@@ -8,6 +8,9 @@
 
 #import "MyIndexViewController.h"
 #import "EZJFastTableView.h"
+#import "MyIndexModel.h"
+#import "MyIndexCell.h"
+#import "myHeaderViewCell.h"
 #define MJRandomData [NSString stringWithFormat:@"随机数据---%d", arc4random_uniform(1000000)]
 
 @interface MyIndexViewController ()
@@ -16,15 +19,7 @@
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIButton *rightBtn;
-@property(nonatomic,strong)UIScrollView *contentScrollView;
 @property(nonatomic,strong)UIView *infoView;
-@property(nonatomic,strong)UIImageView *AvatarImgView;
-@property(nonatomic,strong)UILabel *nickName;
-@property(nonatomic,strong)UILabel *address;
-@property(nonatomic,strong)UIImageView *addressIcon;
-@property(nonatomic,strong)UIButton *talkBtn;
-@property(nonatomic,strong)UIButton *followingBtn;
-@property(nonatomic,strong)UIView *infoLinView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @end
 
@@ -56,16 +51,9 @@
     [self.headerView addSubview:self.leftIcon];
     [self.headerView addSubview:self.leftBtn];
     [self.headerView addSubview:self.rightBtn];
-    [self.view addSubview:self.contentScrollView];
-    [self.contentScrollView addSubview:self.infoView];
-    [self.infoView addSubview:self.AvatarImgView];
-    [self.infoView addSubview:self.nickName];
-    [self.infoView addSubview:self.addressIcon];
-    [self.infoView addSubview:self.address];
-    [self.infoView addSubview:self.talkBtn];
-    [self.infoView addSubview:self.followingBtn];
-    [self.infoView addSubview:self.infoLinView];
-    [self.contentScrollView addSubview:self.tbv];
+    [self.view addSubview:self.tbv];
+    
+    
 }
 
 -(void)back{
@@ -80,13 +68,7 @@
 
 }
 
--(void)followingClick{
 
-}
-
--(void)talkClick{
-    
-}
 
 -(void)EditClick{
 
@@ -106,14 +88,6 @@
     return _headerView;
 }
 
--(UIImageView *)AvatarImgView{
-    if (!_AvatarImgView) {
-        _AvatarImgView=[[UIImageView alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, 21*SCREEN_RADIO, 115*SCREEN_RADIO, 115*SCREEN_RADIO)];
-        _AvatarImgView.image=[UIImage imageNamed:@"Avatar"];
-    }
-    
-    return _AvatarImgView;
-}
 
 
 -(UIButton *)leftIcon{
@@ -161,14 +135,6 @@
     return _rightBtn;
 }
 
--(UIScrollView *)contentScrollView{
-    if(!_contentScrollView){
-        _contentScrollView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame), screen_width, screen_height)];
-        _contentScrollView.contentSize=CGSizeMake(screen_width, screen_height*2);
-    }
-    
-    return _contentScrollView;
-}
 
 -(UIView *)infoView{
     if(!_infoView){
@@ -179,104 +145,101 @@
     return _infoView;
 }
 
--(UILabel *)nickName{
-    if (!_nickName) {
-        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+24*SCREEN_RADIO, 31*SCREEN_RADIO, 0, 27*SCREEN_RADIO)];
-        _nickName.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
-        _nickName.text=@"Victoria Phillips";
-        _nickName.textColor=[UIColor getColor:@"232627"];
-        [_nickName sizeToFit];
-    }
-    return _nickName;
-}
 
--(UILabel *)address{
-    if (!_address) {
-        _address=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.addressIcon.frame)+7.5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+6.5*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _address.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
-        _address.textColor=[UIColor getColor:@"575E62"];
-        _address.text=@"MOSCOW, RUSSIA";
-        [_address sizeToFit];
+
+-(CGFloat)getCellHeightWithModel:(MyIndexModel*)model{
+    CGFloat _height=125*SCREEN_RADIO;
+    if(model.content.length>0){
+        CGSize constraint = CGSizeMake(screen_width-30*SCREEN_RADIO, 99999.0f);
+        CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:17.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        _height+=size.height;
     }
     
-    return _address;
-}
-
--(UIImageView *)addressIcon{
-    if (!_addressIcon) {
-        _addressIcon=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+52*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+7*SCREEN_RADIO, 9*SCREEN_RADIO, 12.5*SCREEN_RADIO)];
-        _addressIcon.image=[UIImage imageNamed:@"myindex_pin"];
-    }
-    return _addressIcon;
-}
-
--(UIButton *)talkBtn{
-    if (!_talkBtn) {
-        _talkBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.AvatarImgView.frame)+63*SCREEN_RADIO, CGRectGetMinY(self.AvatarImgView.frame)+76.5*SCREEN_RADIO, 52*SCREEN_RADIO, 52*SCREEN_RADIO)];
-        [_talkBtn setBackgroundImage:[UIImage imageNamed:@"Writemessage"] forState:UIControlStateNormal];
-        [_talkBtn addTarget:self action:@selector(talkClick) forControlEvents:UIControlEventTouchUpInside];
+    if (model.pictures.count>0) {
+        NSUInteger row = model.pictures.count/3;
+        CGFloat picHeight= (screen_width-42*SCREEN_RADIO)/3;
+        _height+=row*(picHeight+6*SCREEN_RADIO);
+        if (model.pictures.count%3>0) {
+            _height+=picHeight;
+        }
         
     }
     
-    return _talkBtn;
-}
-
-
-
--(UIButton *)followingBtn{
-    if (!_followingBtn) {
-        _followingBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.talkBtn.frame)+19*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+19*SCREEN_RADIO, 180*SCREEN_RADIO, 52*SCREEN_RADIO)];
-        [_followingBtn setBackgroundImage:[UIImage imageNamed:@"FlatBlue"] forState:UIControlStateNormal];
-        [_followingBtn addTarget:self action:@selector(followingClick) forControlEvents:UIControlEventTouchUpInside];
-        
-    }
     
-    return _followingBtn;
-}
-
--(UIView *)infoLinView{
-    if(!_infoLinView){
-        _infoLinView=[[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.infoView.frame)-0.5, screen_width, 0.5)];
-        _infoLinView.backgroundColor=[UIColor getColor:@"CED7DB"];
-    }
-    
-    return _infoLinView;
+    return _height;
 }
 
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
         
         
-        CGRect tbvFrame = CGRectMake(0, CGRectGetMaxY(self.infoView.frame)+19*SCREEN_RADIO, self.view.frame.size.width, self.view.frame.size.height);
+        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO  , self.view.frame.size.width, screen_height-64*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
-        
+        _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         NSMutableArray *arrays =[[NSMutableArray alloc] init];
-        for (int i = 0; i<6; i++) {
-            [arrays insertObject:MJRandomData atIndex:0];
-        }
+        MyIndexModel *model = [MyIndexModel new];
+        model.icon=@"Avatar";
+        model.nickName=@"Jacob Stephens";
+        model.timeDate=@"TODAY, 06:12. PUBLISHED POST";
+        model.content=@"asdhapdhpashadpfjasfjsaojf;jpiahfpiafhiapfhpaishdpsiaoodhfiaphfpihafipah  asihdiaoh";
+        model.pictures=@[@"http://ww4.sinaimg.cn/thumbnail/7f8c1087gw1e9g06pc68ug20ag05y4qq.gif",
+                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr0nly5j20pf0gygo6.jpg",
+                         @"http://ww4.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1d0vyj20pf0gytcj.jpg",
+                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1xydcj20gy0o9q6s.jpg",
+                         @"http://ww2.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr2n1jjj20gy0o9tcc.jpg",
+                         @"http://ww2.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr39ht9j20gy0o6q74.jpg",
+                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr3xvtlj20gy0obadv.jpg"];
+        model.likes=@"11";
+        model.comments=@"123";
         
+        MyIndexModel *model2 = [MyIndexModel new];
+        model2.icon=@"Avatar";
+        model2.nickName=@"Wallen";
+        model2.timeDate=@"China beijing";
+        model2.content=@"";
+        model2.pictures=@[@"http://ww4.sinaimg.cn/thumbnail/7f8c1087gw1e9g06pc68ug20ag05y4qq.gif",
+                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr0nly5j20pf0gygo6.jpg",
+                         @"http://ww4.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1d0vyj20pf0gytcj.jpg",
+                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1xydcj20gy0o9q6s.jpg"];
+        model2.likes=@"11";
+        model2.comments=@"123";
+
+        
+        MyIndexModel *model1 = [MyIndexModel new];
+        
+        [arrays addObject:model1];
+        [arrays addObject:model];
+        [arrays addObject:model2];
         //给tableview赋值
          [_tbv setDataArray:arrays];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            UITableViewCell *cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-            cell.userInteractionEnabled = true;
-            cell.textLabel.text = cellData;
-            return cell;
+            NSLog(@"row:=%ld",(long)index.row);
+            NSLog(@"section:=%ld",(long)index.section);
+            if (index.row ==0) {
+                myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
+                
+                return (UITableViewCell *)myHeaderCell;
+            }else{
+                MyIndexCell *myIndexCell = [[MyIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
+                myIndexCell.userInteractionEnabled = true;
+               // myIndexCell.backgroundColor=[UIColor purpleColor];
+                return (UITableViewCell *)myIndexCell;
+            }
+            
+            
+            
         }];
         
         //动态改变
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
-            
-            if (indexPath.row==1) {
-                return 100.0;
+            if (indexPath.row==0) {
+                return 164.5*SCREEN_RADIO;
             }
-            if (indexPath.row==4) {
-                return 80.0;
-            }
-            return _tbv.rowHeight;
+            CGFloat _height=[self getCellHeightWithModel:cellData];
+            return _height;
         }];
         
         

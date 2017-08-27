@@ -54,7 +54,7 @@
     imgV.frame = self.bounds;
     visulEffectView.frame = CGRectMake(0, self.frame.size.height-16, self.frame.size.width, 16);
     label.frame = CGRectMake(0, 3, CGRectGetWidth(visulEffectView.frame), 10);
-    
+
     [imgV sd_setImageWithURL:[NSURL URLWithString:_model.imgURL]];
     label.text = _model.title;
     
