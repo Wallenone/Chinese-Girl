@@ -34,7 +34,7 @@ static const void *naviDelegateKey = &naviDelegateKey;
     self.navigationItem.title = title;
     
     if (leftIcon != nil || leftTitle != nil) {
-        UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 10, 19)];
         btn.tag = 222;
         [btn setContentMode:UIViewContentModeCenter];
         if (leftTitle !=nil){
@@ -62,7 +62,7 @@ static const void *naviDelegateKey = &naviDelegateKey;
             btn.titleLabel.font = [UIFont systemFontOfSize: 16];
         }
         if (rigthIcon !=nil){
-            [btn setFrame:CGRectMake(0, 0, 30, 30)];
+            [btn setFrame:CGRectMake(0, 0, 23, 23)];
             [btn setImage:[UIImage imageNamed:rigthIcon] forState:UIControlStateNormal];
         }
         UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];

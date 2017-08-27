@@ -37,6 +37,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         total_height=0;
+        self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.backgroundColor=[UIColor clearColor];
         self.myIndexModel = indexModel;
         [self creatSubView];
@@ -205,8 +206,8 @@
 
 -(UIImageView *)likeImgView{
     if (!_likeImgView) {
-        _likeImgView=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width/2+15*SCREEN_RADIO, total_height+14.5*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
-        _likeImgView.image=[UIImage imageNamed:@"Writemessage"];
+        _likeImgView=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width/2+80*SCREEN_RADIO, total_height+14.5*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
+        _likeImgView.image=[UIImage imageNamed:@"Likecell"];
     }
     
     return _likeImgView;
@@ -215,7 +216,7 @@
 -(UILabel *)likeLabel{
     if (!_likeLabel) {
         _likeLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, total_height+16*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
-        _likeLabel.text=@"LIKE";
+        _likeLabel.text=self.myIndexModel.likes;
         _likeLabel.textColor=[UIColor getColor:@"99A3A9"];
         _likeLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
         [_likeLabel sizeToFit];
@@ -227,8 +228,8 @@
 
 -(UIImageView *)commentImgView{
     if (!_commentImgView) {
-        _commentImgView=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+54*SCREEN_RADIO, total_height+14.5*SCREEN_RADIO, 17*SCREEN_RADIO, 16.25*SCREEN_RADIO)];
-        _commentImgView.image=[UIImage imageNamed:@"Writemessage"];
+        _commentImgView=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+35*SCREEN_RADIO, total_height+14.5*SCREEN_RADIO, 17*SCREEN_RADIO, 16.25*SCREEN_RADIO)];
+        _commentImgView.image=[UIImage imageNamed:@"Commentcell"];
     }
     
     return _commentImgView;
@@ -237,7 +238,7 @@
 -(UILabel *)commentLabel{
     if (!_commentLabel) {
         _commentLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.commentImgView.frame)+8.5*SCREEN_RADIO, total_height+16*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
-        _commentLabel.text=@"COMMENT";
+        _commentLabel.text=self.myIndexModel.comments;
         _commentLabel.textColor=[UIColor getColor:@"99A3A9"];
         _commentLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
         [_commentLabel sizeToFit];
