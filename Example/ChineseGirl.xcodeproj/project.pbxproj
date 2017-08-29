@@ -49,6 +49,9 @@
 		E538D76C1F429BE80079AE94 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7621F429BE80079AE94 /* MineViewController.m */; };
 		E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7651F429BE80079AE94 /* NewsViewController.m */; };
 		E538D7701F429C060079AE94 /* UIViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D76F1F429C060079AE94 /* UIViewController+NavigationBar.m */; };
+		E53C9D651F55871F0069D663 /* NewsMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C9D641F55871F0069D663 /* NewsMessageController.m */; };
+		E53C9D681F558AAA0069D663 /* NewsInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C9D671F558AAA0069D663 /* NewsInfoModel.m */; };
+		E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C9D6A1F558B700069D663 /* NewsInfoCellTableViewCell.m */; };
 		E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CD2E31F4F15B600CF913D /* MyIndexModel.m */; };
 		E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */; };
 		E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */; };
@@ -147,6 +150,12 @@
 		E538D76E1F429C060079AE94 /* UIViewController+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationBar.h"; sourceTree = "<group>"; };
 		E538D76F1F429C060079AE94 /* UIViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationBar.m"; sourceTree = "<group>"; };
 		E538D7731F429D7E0079AE94 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		E53C9D631F55871F0069D663 /* NewsMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsMessageController.h; sourceTree = "<group>"; };
+		E53C9D641F55871F0069D663 /* NewsMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsMessageController.m; sourceTree = "<group>"; };
+		E53C9D661F558AAA0069D663 /* NewsInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsInfoModel.h; sourceTree = "<group>"; };
+		E53C9D671F558AAA0069D663 /* NewsInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfoModel.m; sourceTree = "<group>"; };
+		E53C9D691F558B700069D663 /* NewsInfoCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsInfoCellTableViewCell.h; sourceTree = "<group>"; };
+		E53C9D6A1F558B700069D663 /* NewsInfoCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfoCellTableViewCell.m; sourceTree = "<group>"; };
 		E53CD2E21F4F15B600CF913D /* MyIndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexModel.h; sourceTree = "<group>"; };
 		E53CD2E31F4F15B600CF913D /* MyIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexModel.m; sourceTree = "<group>"; };
 		E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexCell.m; sourceTree = "<group>"; };
@@ -430,11 +439,13 @@
 		E538D7631F429BE80079AE94 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				E538D7641F429BE80079AE94 /* NewsViewController.h */,
+				E538D7651F429BE80079AE94 /* NewsViewController.m */,
+				E53C9D631F55871F0069D663 /* NewsMessageController.h */,
+				E53C9D641F55871F0069D663 /* NewsMessageController.m */,
 				E5C0119F1F526D38003FB906 /* cell */,
 				E5C011A01F526D38003FB906 /* Model */,
 				E5C011A11F526D38003FB906 /* View */,
-				E538D7641F429BE80079AE94 /* NewsViewController.h */,
-				E538D7651F429BE80079AE94 /* NewsViewController.m */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -461,6 +472,8 @@
 		E5C0119F1F526D38003FB906 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				E53C9D691F558B700069D663 /* NewsInfoCellTableViewCell.h */,
+				E53C9D6A1F558B700069D663 /* NewsInfoCellTableViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -468,6 +481,8 @@
 		E5C011A01F526D38003FB906 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E53C9D661F558AAA0069D663 /* NewsInfoModel.h */,
+				E53C9D671F558AAA0069D663 /* NewsInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -534,6 +549,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = wanjiehuizhaofang;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 9LKXW763RU;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -651,6 +669,7 @@
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
+				E53C9D681F558AAA0069D663 /* NewsInfoModel.m in Sources */,
 				E538D76A1F429BE80079AE94 /* IndexCollectionView.m in Sources */,
 				E538D76C1F429BE80079AE94 /* MineViewController.m in Sources */,
 				E504AB981F507C0100E1F48C /* MJPhotoView.m in Sources */,
@@ -661,6 +680,7 @@
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E538D74E1F429ACC0079AE94 /* AFURLSessionManager.m in Sources */,
 				E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */,
+				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
 				E538D74D1F429ACC0079AE94 /* AFURLResponseSerialization.m in Sources */,
 				E504AB921F507C0100E1F48C /* MJPhoto.m in Sources */,
@@ -669,6 +689,7 @@
 				E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */,
 				E538D7671F429BE80079AE94 /* WSCollectionCell.m in Sources */,
 				E538D7681F429BE80079AE94 /* IndexViewController.m in Sources */,
+				E53C9D651F55871F0069D663 /* NewsMessageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +817,7 @@
 			baseConfigurationReference = FBA77A7CBE9FFE2BA1642376 /* Pods-ChineseGirl_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9LKXW763RU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
@@ -811,6 +833,7 @@
 			baseConfigurationReference = 42FA0950B1EA4E1BB940138C /* Pods-ChineseGirl_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9LKXW763RU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";

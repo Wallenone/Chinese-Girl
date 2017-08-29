@@ -32,6 +32,7 @@
     DragUpBlock dragUpBlock;
     DragDownBlock dragDownBlock;
     AutoChangeCellHeightBlock autoChangeCellHeightBlock;
+    Cellediting cellediting;
 }
 //@synthesize customerViewName,columnNumber,reFreshPage;
 //@synthesize leftMargin,apartMargin,cellWidth;
@@ -91,6 +92,12 @@
     }
 }
 
+- (void)onCellediting:(Cellediting)block{
+    if (block) {
+        cellediting=block;
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (autoChangeCellHeightBlock) {
@@ -126,6 +133,28 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(cellediting){
+        return YES;
+    }else{
+        return NO;
+    }
+    
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [arrayDatas removeObjectAtIndex:indexPath.row];
+        [self deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+    }
 }
 
 

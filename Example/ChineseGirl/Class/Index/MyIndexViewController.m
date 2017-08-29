@@ -173,7 +173,7 @@
     if (!_tbv) {
         
         
-        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO  , self.view.frame.size.width, screen_height-64*SCREEN_RADIO);
+        CGRect tbvFrame = CGRectMake(0, 64, self.view.frame.size.width, screen_height-64);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];

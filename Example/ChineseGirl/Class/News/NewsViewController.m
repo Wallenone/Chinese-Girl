@@ -7,9 +7,12 @@
 //
 
 #import "NewsViewController.h"
-#import "NewsBottomMessage.h"
+#import "EZJFastTableView.h"
+#import "NewsInfoModel.h"
+#import "NewsInfoCellTableViewCell.h"
+#import "NewsMessageController.h"
 @interface NewsViewController ()
-@property(nonatomic,strong)NewsBottomMessage *messageView;
+@property(nonatomic,strong)EZJFastTableView *tbv;
 @end
 
 @implementation NewsViewController
@@ -36,33 +39,75 @@
 }
 
 -(void)setHeaderView{
-    [self setUpNavWithTitle:@"Chat" leftIcon:@"Newsleft" rightIcon:@"NewsAdd" leftTitle:nil rightTitle:nil delegate:nil];
+    [self setUpNavWithTitle:@"Activity" leftIcon:@"news_Menu" rightIcon:@"" leftTitle:nil rightTitle:nil delegate:nil];
 }
 
 -(void)addSubViews{
-    [self.view addSubview:self.messageView];
+    [self.view addSubview:self.tbv];
 }
 
-
--(NewsBottomMessage *)messageView{
-    if (!_messageView) {
-        _messageView=[[NewsBottomMessage alloc] initWithFrame:CGRectMake(0, (screen_height-64)-59*SCREEN_RADIO, screen_width, 59*SCREEN_RADIO) withDidBeginEditing:^(UITextView *textView) {
-            //CGRect frame = textView.frame;
-            int offset = (59*SCREEN_RADIO+216.0+64);//键盘高度216
+-(EZJFastTableView *)tbv{
+    if (!_tbv) {
+        
+        
+        CGRect tbvFrame = CGRectMake(0, 0, self.view.frame.size.width, screen_height);
+        //初始化
+        
+        _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
+        _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        NSMutableArray *arrays =[[NSMutableArray alloc] init];
+        
+        NewsInfoModel *model = [[NewsInfoModel alloc] init];
+        model.icon = @"Avatar";
+        model.nickName = @"Randy Young";
+        model.content = @"This is a book！";
+        
+        NewsInfoModel *model1 = [[NewsInfoModel alloc] init];
+        model1.icon = @"Avatar";
+        model1.nickName = @"Randy Young1";
+        model1.content = @"This is a book！1";
+        
+        NewsInfoModel *model2 = [[NewsInfoModel alloc] init];
+        model2.icon = @"Avatar";
+        model2.nickName = @"Randy Young2";
+        model2.content = @"This is a book！2";
+        //给tableview赋值
+        [arrays addObject:model];
+        [arrays addObject:model1];
+        [arrays addObject:model2];
+        [_tbv setDataArray:arrays];
+        
+        [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
+            NewsInfoCellTableViewCell *cell =[[NewsInfoCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
             
-            [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+            return cell;
             
-            [UIView setAnimationDuration:0.30f];//动画持续时间
-            
-            if (offset>0) {
-                //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
-                self.messageView.frame = CGRectMake(0.0f, screen_height-offset, screen_width, 59*SCREEN_RADIO);
-            }
-            [UIView commitAnimations];
         }];
+        
+       
+        
+        //动态改变
+        [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
+            
+            return 82*SCREEN_RADIO;
+        }];
+        
+    
+        
+        //设置选中事件 block设置方式
+        //indexPath  是当前行对象 indexPath.row(获取行数)
+        //cellData 是当前行的数据
+        
+        [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
+            NSLog(@"click");
+            NewsMessageController *messageVC=[[NewsMessageController alloc] init];
+            [self.navigationController pushViewController:messageVC animated:YES];
+        }];
+        
     }
     
-    return _messageView;
+    return _tbv;
 }
+
 
 @end
