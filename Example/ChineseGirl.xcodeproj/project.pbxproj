@@ -59,6 +59,9 @@
 		E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011BE1F52771F003FB906 /* UIMessageCustom.m */; };
 		E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */; };
 		E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC8331F4936730078F856 /* UIColor+getColor.m */; };
+		E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */; };
+		E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */; };
+		E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +173,12 @@
 		E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexViewController.m; sourceTree = "<group>"; };
 		E5EFC8321F4936730078F856 /* UIColor+getColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+getColor.h"; sourceTree = "<group>"; };
 		E5EFC8331F4936730078F856 /* UIColor+getColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+getColor.m"; sourceTree = "<group>"; };
+		E5F0A3E81F57F7FD0051699B /* CGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginViewController.h; sourceTree = "<group>"; };
+		E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginViewController.m; sourceTree = "<group>"; };
+		E5F0A3ED1F57F8750051699B /* CGLoginIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginIndexView.h; sourceTree = "<group>"; };
+		E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginIndexView.m; sourceTree = "<group>"; };
+		E5F0A3F01F5803860051699B /* CGLoginIndexCustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginIndexCustomTextField.h; sourceTree = "<group>"; };
+		E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginIndexCustomTextField.m; sourceTree = "<group>"; };
 		EDE47200CF11454084840064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FBA77A7CBE9FFE2BA1642376 /* Pods-ChineseGirl_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseGirl_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChineseGirl_Example/Pods-ChineseGirl_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -461,6 +470,7 @@
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E5F0A3E61F57F7FD0051699B /* Login */,
 				E538D7521F429BE80079AE94 /* Index */,
 				E538D74F1F429BE80079AE94 /* DriftBottle */,
 				E538D7601F429BE80079AE94 /* Mine */,
@@ -494,6 +504,43 @@
 				E5C011A31F526D57003FB906 /* NewsBottomMessage.m */,
 				E5C011BD1F52771F003FB906 /* UIMessageCustom.h */,
 				E5C011BE1F52771F003FB906 /* UIMessageCustom.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5F0A3E61F57F7FD0051699B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E5F0A3E81F57F7FD0051699B /* CGLoginViewController.h */,
+				E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */,
+				E5F0A3E71F57F7FD0051699B /* Cell */,
+				E5F0A3EA1F57F7FD0051699B /* Model */,
+				E5F0A3EB1F57F7FD0051699B /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E5F0A3E71F57F7FD0051699B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E5F0A3EA1F57F7FD0051699B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5F0A3EB1F57F7FD0051699B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5F0A3ED1F57F8750051699B /* CGLoginIndexView.h */,
+				E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */,
+				E5F0A3F01F5803860051699B /* CGLoginIndexCustomTextField.h */,
+				E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -671,6 +718,8 @@
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
 				E53C9D681F558AAA0069D663 /* NewsInfoModel.m in Sources */,
 				E538D76A1F429BE80079AE94 /* IndexCollectionView.m in Sources */,
+				E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */,
+				E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */,
 				E538D76C1F429BE80079AE94 /* MineViewController.m in Sources */,
 				E504AB981F507C0100E1F48C /* MJPhotoView.m in Sources */,
 				E504AB951F507C0100E1F48C /* MJPhotoLoadingView.m in Sources */,
@@ -682,6 +731,7 @@
 				E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */,
 				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
+				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
 				E538D74D1F429ACC0079AE94 /* AFURLResponseSerialization.m in Sources */,
 				E504AB921F507C0100E1F48C /* MJPhoto.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
