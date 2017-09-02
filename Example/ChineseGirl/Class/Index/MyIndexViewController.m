@@ -11,6 +11,7 @@
 #import "MyIndexModel.h"
 #import "MyIndexCell.h"
 #import "myHeaderViewCell.h"
+#import "MyCommitSViewController.h"
 #define MJRandomData [NSString stringWithFormat:@"随机数据---%d", arc4random_uniform(1000000)]
 
 @interface MyIndexViewController ()
@@ -172,7 +173,7 @@
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
         
-        
+        __weak typeof(self) weakSelf = self;
         CGRect tbvFrame = CGRectMake(0, 64, self.view.frame.size.width, screen_height-64);
         //初始化
         
@@ -234,11 +235,12 @@
         }];
         
         //动态改变
+        
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
             if (indexPath.row==0) {
                 return 164.5*SCREEN_RADIO;
             }
-            CGFloat _height=[self getCellHeightWithModel:cellData];
+            CGFloat _height=[weakSelf getCellHeightWithModel:cellData];
             return _height;
         }];
         
@@ -261,6 +263,8 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
+            MyCommitSViewController *commitVC=[[MyCommitSViewController alloc] init];
+            [weakSelf.navigationController pushViewController:commitVC animated:NO];
         }];
         
     }
