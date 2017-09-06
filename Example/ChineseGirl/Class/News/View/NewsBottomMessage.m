@@ -18,7 +18,7 @@
     SubmitEdit submitEdit;
 }
 
-
+@property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIView *toplineView;
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIMessageCustom *messageView;
@@ -30,6 +30,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor=[UIColor getColor:@"FFFFFF"];
+//        self.layer.borderWidth=0.5;
+//        self.layer.borderColor=[UIColor getColor:@"CED7DB"].CGColor;
         ScreenH=self.frame.size.height;
         ScreenW=self.frame.size.width;
         didBeginEditing=block;
@@ -40,6 +43,7 @@
 }
 
 -(void)addSubViews{
+    [self addSubview:self.bgView];
     [self addSubview:self.toplineView];
     [self addSubview:self.leftBtn];
     [self addSubview:self.messageView];
@@ -51,12 +55,7 @@
 }
 
 -(void)rightBtnClick{
-    if (submitEdit) {
-        if (self.messageView.text.length>0) {
-            [self.messageView resignFirstResponder];
-            submitEdit(self.messageView.text);
-        }
-    }
+    [self setresignFirstResponderAction];
 }
 
 
@@ -75,16 +74,24 @@
    // self.frame = CGRectMake(0, 0, ScreenW, ScreenH);
 }
 
+-(void)setresignFirstResponderAction{  //释放键盘
+    if (submitEdit) {
+        if (self.messageView.text.length>0) {
+            [self.messageView resignFirstResponder];
+            submitEdit(self.messageView.text);
+            self.messageView.text=@"";
+            self.messageView.frame=CGRectMake(CGRectGetMaxX(self.leftBtn.frame)+13.6*SCREEN_RADIO, 7.5*SCREEN_RADIO, screen_width-110*SCREEN_RADIO, 44*SCREEN_RADIO);
+            self.bgView.frame=CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+            self.toplineView.frame=CGRectMake(0, 0, screen_width, 0.5);
+        }
+    }
+}
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
     if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
         
-        if (submitEdit) {
-            if (textView.text.length>0) {
-                [textView resignFirstResponder];
-                submitEdit(textView.text);
-            }
-        }
+        [self setresignFirstResponderAction];
         //在这里做你响应return键的代码
         return NO; //这里返回NO，就代表return键值失效，即页面上按下return，不会出现换行，如果为yes，则输入页面会换行
     }
@@ -107,6 +114,7 @@
         CGFloat _textY = messgaeY-size.height;
         // 动态的改变输入框的尺寸
         textView.frame =CGRectMake(frame.origin.x, _textY, frame.size.width, size.height);
+        self.bgView.frame=CGRectMake(0, _textY-7.5*SCREEN_RADIO, self.frame.size.width, size.height);
         self.toplineView.frame=CGRectMake(0, _textY-7.5*SCREEN_RADIO, screen_width, 0.5);
     }];
     
@@ -123,6 +131,15 @@
                                         context:nil];
     float textHeight = size.size.height + 23.0*SCREEN_RADIO;
     return textHeight;
+}
+
+-(UIView *)bgView{
+    if (!_bgView) {
+        _bgView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        _bgView.backgroundColor=[UIColor whiteColor];
+    }
+    
+    return _bgView;
 }
 
 -(UIView *)toplineView{

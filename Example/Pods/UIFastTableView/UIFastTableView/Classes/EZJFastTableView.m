@@ -116,6 +116,23 @@
     }
 }
 
+- (void)scrollToTop:(BOOL)animated {
+    [self setContentOffset:CGPointMake(0,0) animated:animated];
+}
+
+- (void)scrollToBottom:(BOOL)animated {
+    NSUInteger sectionCount = [self numberOfSections];
+    if (sectionCount) {
+        NSUInteger rowCount = [self numberOfRowsInSection:0];
+        if (rowCount) {
+            NSUInteger ii[2] = {0, rowCount-1};
+            NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
+            [self scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom
+                                animated:animated];
+        }
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (autoChangeCellHeightBlock) {

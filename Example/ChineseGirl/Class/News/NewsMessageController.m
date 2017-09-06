@@ -12,6 +12,7 @@
 #import "NewsContentModel.h"
 #import "NewsContentTableViewCell.h"
 @interface NewsMessageController ()
+@property(nonatomic,strong)UIImageView *newsContentbg;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)NewsBottomMessage *messageView;
 @end
@@ -20,6 +21,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [self.tabBarController.tabBar setHidden:YES];
     [super viewWillAppear:animated];
@@ -44,19 +46,47 @@
 }
 
 -(void)addSubViews{
+    [self.view addSubview:self.newsContentbg];
     [self.view addSubview:self.tbv];
     [self.view addSubview:self.messageView];
+}
+
+-(CGFloat)getCellHeight:(NewsContentModel*)model{
+    CGFloat _cellHeight=0;
+    if (model.text.length>0) {
+        
+        CGFloat maxWidth =screen_width-164*SCREEN_RADIO;
+        
+        CGSize constraint = CGSizeMake(maxWidth, 99999.0f);
+        CGSize size = [model.text sizeWithFont:[UIFont systemFontOfSize:22*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        
+        
+        _cellHeight=size.height+54*SCREEN_RADIO;
+    }
+    
+    return _cellHeight;
+}
+
+-(UIImageView *)newsContentbg{
+    if (!_newsContentbg) {
+        _newsContentbg=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
+        _newsContentbg.image=[UIImage imageNamed:@"newsContentbg"];
+    }
+    
+    return _newsContentbg;
 }
 
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
         
-        
+        __weak __typeof(self)weakSelf = self;
+
         CGRect tbvFrame = CGRectMake(0, 0, self.view.frame.size.width, screen_height-120*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _tbv.backgroundColor=[UIColor clearColor];
         NSMutableArray *arrays =[[NSMutableArray alloc] init];
 
         [_tbv setDataArray:arrays];
@@ -78,7 +108,7 @@
         //动态改变
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
             
-            return 82*SCREEN_RADIO;
+            return [weakSelf getCellHeight:cellData];
         }];
         
         
@@ -121,13 +151,16 @@
             NewsContentModel *model = [[NewsContentModel alloc] init];
             model.icon=@"Avatar";
             model.text=text;
+            model.timeDate=@"08:11";
             [weakSelf.tbv insertData:model];
-            
+            [weakSelf.tbv scrollToBottom:YES];
             weakSelf.messageView.frame = CGRectMake(0, (screen_height-64)-59*SCREEN_RADIO, screen_width, 59*SCREEN_RADIO);
         }];
     }
     
     return _messageView;
 }
+
+
 
 @end

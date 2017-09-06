@@ -17,4 +17,5 @@ typedef enum{
 @property(nonatomic,copy)NSString *icon;
 @property(nonatomic,copy)NSString *text;
 @property(nonatomic,assign)NewsContentType type;
+@property(nonatomic,copy)NSString *timeDate;
 @end
