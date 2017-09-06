@@ -15,6 +15,7 @@
     CGFloat ScreenW;
     CGFloat messgaeY;
     DidBeginEditing didBeginEditing;
+    SubmitEdit submitEdit;
 }
 
 
@@ -25,13 +26,14 @@
 @end
 @implementation NewsBottomMessage
 
-- (instancetype)initWithFrame:(CGRect)frame withDidBeginEditing:(DidBeginEditing)block
+- (instancetype)initWithFrame:(CGRect)frame withDidBeginEditing:(DidBeginEditing)block withDidSubmitEdit:(SubmitEdit)submitBlock
 {
     self = [super initWithFrame:frame];
     if (self) {
         ScreenH=self.frame.size.height;
         ScreenW=self.frame.size.width;
         didBeginEditing=block;
+        submitEdit=submitBlock;
         [self addSubViews];
     }
     return self;
@@ -49,7 +51,12 @@
 }
 
 -(void)rightBtnClick{
-
+    if (submitEdit) {
+        if (self.messageView.text.length>0) {
+            [self.messageView resignFirstResponder];
+            submitEdit(self.messageView.text);
+        }
+    }
 }
 
 
@@ -69,6 +76,18 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
+        
+        if (submitEdit) {
+            if (textView.text.length>0) {
+                [textView resignFirstResponder];
+                submitEdit(textView.text);
+            }
+        }
+        //在这里做你响应return键的代码
+        return NO; //这里返回NO，就代表return键值失效，即页面上按下return，不会出现换行，如果为yes，则输入页面会换行
+    }
     
     // 规定输入框最大高度。
     CGFloat maxHeight =120.0f;
@@ -90,6 +109,8 @@
         textView.frame =CGRectMake(frame.origin.x, _textY, frame.size.width, size.height);
         self.toplineView.frame=CGRectMake(0, _textY-7.5*SCREEN_RADIO, screen_width, 0.5);
     }];
+    
+    
     
     return YES;
 }

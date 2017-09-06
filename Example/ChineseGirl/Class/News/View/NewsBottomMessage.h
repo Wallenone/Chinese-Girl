@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void (^DidBeginEditing)(UITextView *);
+typedef void (^SubmitEdit)(NSString *);
 @interface NewsBottomMessage : UIView
-- (instancetype)initWithFrame:(CGRect)frame withDidBeginEditing:(DidBeginEditing)block;
+- (instancetype)initWithFrame:(CGRect)frame withDidBeginEditing:(DidBeginEditing)block withDidSubmitEdit:(SubmitEdit)submitBlock;
 @end

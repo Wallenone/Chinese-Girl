@@ -82,6 +82,8 @@ typedef void (^Cellediting)(void);
 
 - (void)updateData:(NSArray *)arr;
 
+- (void)insertData:(id)data;
+
 - (void)onCellediting:(Cellediting)block;
 
 @end
