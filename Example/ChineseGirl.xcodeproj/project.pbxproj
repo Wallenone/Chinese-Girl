@@ -56,6 +56,10 @@
 		E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C9D6A1F558B700069D663 /* NewsInfoCellTableViewCell.m */; };
 		E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CD2E31F4F15B600CF913D /* MyIndexModel.m */; };
 		E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */; };
+		E54FAA571F5A9E21006C65AF /* MyCommitSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA561F5A9E21006C65AF /* MyCommitSViewController.m */; };
+		E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */; };
+		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
+		E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */; };
 		E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */; };
 		E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011A31F526D57003FB906 /* NewsBottomMessage.m */; };
 		E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011BE1F52771F003FB906 /* UIMessageCustom.m */; };
@@ -64,6 +68,8 @@
 		E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */; };
 		E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */; };
 		E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */; };
+		E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */; };
+		E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA64161F5865C70032D1BB /* CGRegisterIndexViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +175,14 @@
 		E53CD2E31F4F15B600CF913D /* MyIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexModel.m; sourceTree = "<group>"; };
 		E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexCell.m; sourceTree = "<group>"; };
 		E53CD2E61F4F17DC00CF913D /* MyIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexCell.h; sourceTree = "<group>"; };
+		E54FAA551F5A9E21006C65AF /* MyCommitSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitSViewController.h; sourceTree = "<group>"; };
+		E54FAA561F5A9E21006C65AF /* MyCommitSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommitSViewController.m; sourceTree = "<group>"; };
+		E54FAA581F5A9E71006C65AF /* MyCommitHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitHeaderView.h; sourceTree = "<group>"; };
+		E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommitHeaderView.m; sourceTree = "<group>"; };
+		E54FAA5B1F5A9F52006C65AF /* MycommitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MycommitModel.h; sourceTree = "<group>"; };
+		E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MycommitModel.m; sourceTree = "<group>"; };
+		E54FAA5E1F5AA90A006C65AF /* myCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCommitCell.h; sourceTree = "<group>"; };
+		E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCommitCell.m; sourceTree = "<group>"; };
 		E59F2EA61F511DB600A238CE /* myHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myHeaderViewCell.h; sourceTree = "<group>"; };
 		E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myHeaderViewCell.m; sourceTree = "<group>"; };
 		E5C011A21F526D57003FB906 /* NewsBottomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsBottomMessage.h; sourceTree = "<group>"; };
@@ -185,6 +199,10 @@
 		E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginIndexView.m; sourceTree = "<group>"; };
 		E5F0A3F01F5803860051699B /* CGLoginIndexCustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginIndexCustomTextField.h; sourceTree = "<group>"; };
 		E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginIndexCustomTextField.m; sourceTree = "<group>"; };
+		E5FA64121F585ED80032D1BB /* CGRegisterIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRegisterIndexView.h; sourceTree = "<group>"; };
+		E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRegisterIndexView.m; sourceTree = "<group>"; };
+		E5FA64151F5865C70032D1BB /* CGRegisterIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRegisterIndexViewController.h; sourceTree = "<group>"; };
+		E5FA64161F5865C70032D1BB /* CGRegisterIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRegisterIndexViewController.m; sourceTree = "<group>"; };
 		EDE47200CF11454084840064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FBA77A7CBE9FFE2BA1642376 /* Pods-ChineseGirl_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseGirl_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChineseGirl_Example/Pods-ChineseGirl_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -400,6 +418,8 @@
 				E538D7571F429BE80079AE94 /* IndexViewController.m */,
 				E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */,
 				E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */,
+				E54FAA551F5A9E21006C65AF /* MyCommitSViewController.h */,
+				E54FAA561F5A9E21006C65AF /* MyCommitSViewController.m */,
 				E538D7531F429BE80079AE94 /* cell */,
 				E538D7581F429BE80079AE94 /* Model */,
 				E538D75B1F429BE80079AE94 /* View */,
@@ -410,6 +430,8 @@
 		E538D7531F429BE80079AE94 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				E54FAA5E1F5AA90A006C65AF /* myCommitCell.h */,
+				E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */,
 				E53CD2E61F4F17DC00CF913D /* MyIndexCell.h */,
 				E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */,
 				E538D7541F429BE80079AE94 /* WSCollectionCell.h */,
@@ -427,6 +449,8 @@
 				E538D75A1F429BE80079AE94 /* CellModel.m */,
 				E53CD2E21F4F15B600CF913D /* MyIndexModel.h */,
 				E53CD2E31F4F15B600CF913D /* MyIndexModel.m */,
+				E54FAA5B1F5A9F52006C65AF /* MycommitModel.h */,
+				E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,6 +462,8 @@
 				E538D75D1F429BE80079AE94 /* IndexCollectionView.m */,
 				E538D75E1F429BE80079AE94 /* WSLayout.h */,
 				E538D75F1F429BE80079AE94 /* WSLayout.m */,
+				E54FAA581F5A9E71006C65AF /* MyCommitHeaderView.h */,
+				E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,6 +549,8 @@
 			children = (
 				E5F0A3E81F57F7FD0051699B /* CGLoginViewController.h */,
 				E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */,
+				E5FA64151F5865C70032D1BB /* CGRegisterIndexViewController.h */,
+				E5FA64161F5865C70032D1BB /* CGRegisterIndexViewController.m */,
 				E5F0A3E71F57F7FD0051699B /* Cell */,
 				E5F0A3EA1F57F7FD0051699B /* Model */,
 				E5F0A3EB1F57F7FD0051699B /* View */,
@@ -547,6 +575,8 @@
 		E5F0A3EB1F57F7FD0051699B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E5FA64121F585ED80032D1BB /* CGRegisterIndexView.h */,
+				E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */,
 				E5F0A3ED1F57F8750051699B /* CGLoginIndexView.h */,
 				E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */,
 				E5F0A3F01F5803860051699B /* CGLoginIndexCustomTextField.h */,
@@ -724,6 +754,7 @@
 				E538D76B1F429BE80079AE94 /* WSLayout.m in Sources */,
 				E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
+				E54FAA571F5A9E21006C65AF /* MyCommitSViewController.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
 				E53C9D681F558AAA0069D663 /* NewsInfoModel.m in Sources */,
@@ -734,9 +765,12 @@
 				E504AB981F507C0100E1F48C /* MJPhotoView.m in Sources */,
 				E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */,
 				E504AB951F507C0100E1F48C /* MJPhotoLoadingView.m in Sources */,
+				E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */,
 				E504AB971F507C0100E1F48C /* MJPhotoToolbar.m in Sources */,
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
+				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
 				E538D7661F429BE80079AE94 /* DriftBottleViewController.m in Sources */,
+				E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E538D74E1F429ACC0079AE94 /* AFURLSessionManager.m in Sources */,
 				E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */,
@@ -748,8 +782,10 @@
 				E504AB921F507C0100E1F48C /* MJPhoto.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
+				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
 				E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */,
 				E538D7671F429BE80079AE94 /* WSCollectionCell.m in Sources */,
+				E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */,
 				E538D7681F429BE80079AE94 /* IndexViewController.m in Sources */,
 				E53C9D651F55871F0069D663 /* NewsMessageController.m in Sources */,
 			);
