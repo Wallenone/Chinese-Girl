@@ -13,6 +13,7 @@
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)NewsContentCustomLabel *textCentent;
 @property(nonatomic,strong)UILabel *timeLabel;
+@property(nonatomic,strong)UIImageView *MessageBgImgView;
 @end
 @implementation NewsContentTableViewCell
 
@@ -31,6 +32,7 @@
 -(void)creatSubView{
     [self addSubview:self.iconImgView];
     [self addSubview:self.timeLabel];
+    [self addSubview:self.MessageBgImgView];
     [self addSubview:self.textCentent];
 }
 
@@ -64,7 +66,7 @@
         _textCentent.clipsToBounds = YES;
         _textCentent.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
         _textCentent.textColor = [UIColor getColor:@"ffffff"];
-        _textCentent.backgroundColor=[UIColor getColor:@"2979FF"];
+        //_textCentent.backgroundColor=[UIColor getColor:@"2979FF"];
         _textCentent.userInteractionEnabled=NO;
         _textCentent.text=self.newsContentModel.text;
         _textCentent.layer.borderColor=[UIColor clearColor].CGColor;
@@ -84,6 +86,32 @@
     }
     
     return _timeLabel;
+}
+
+-(UIImageView *)MessageBgImgView{
+    CGFloat _textWidth;
+    CGFloat maxWidth =screen_width-164*SCREEN_RADIO;
+    
+    CGSize constraint = CGSizeMake(maxWidth, 99999.0f);
+    CGSize size = [self.newsContentModel.text sizeWithFont:[UIFont systemFontOfSize:22*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+    
+    if (size.width<maxWidth) {
+        _textWidth = size.width +24*SCREEN_RADIO;
+    }else{
+        _textWidth = maxWidth;
+    }
+    
+    if (!_MessageBgImgView) {
+        _MessageBgImgView=[[UIImageView alloc] initWithFrame:CGRectMake((80+(maxWidth-size.width))*SCREEN_RADIO, 15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO))];
+        
+
+        UIImage * backImage;
+        backImage = [UIImage imageNamed:@"MessageBg"];
+        backImage = [backImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 10, 10, 25)];
+        _MessageBgImgView.image=backImage;
+    }
+    
+    return _MessageBgImgView;
 }
 
 @end
