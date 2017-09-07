@@ -106,8 +106,7 @@
         
 
         UIImage * backImage;
-        backImage = [UIImage imageNamed:@"MessageBg"];
-        backImage = [backImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 10, 10, 25)];
+        backImage = [[UIImage imageNamed:@"MessageBg"] stretchableImageWithLeftCapWidth:21 topCapHeight:14];
         _MessageBgImgView.image=backImage;
     }
     
