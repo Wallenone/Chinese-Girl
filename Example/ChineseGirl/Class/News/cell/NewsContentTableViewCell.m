@@ -107,7 +107,7 @@
         _MessageBgImgView=[[ShapedImageView alloc] initWithDirectionRight:YES];
         _MessageBgImgView.frame=CGRectMake((80+(maxWidth-size.width))*SCREEN_RADIO, 15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO));
         _MessageBgImgView.image = [UIImage imageNamed:@"MessageBg"];
-        
+
     }
     
     return _MessageBgImgView;
