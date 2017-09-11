@@ -8,12 +8,14 @@
 
 #import "NewsContentTableViewCell.h"
 #import "NewsContentCustomLabel.h"
+#import "ShapedImageView.h"
+#import "UIImage+Color.h"
 @interface NewsContentTableViewCell()
 @property(nonatomic,strong)NewsContentModel *newsContentModel;
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)NewsContentCustomLabel *textCentent;
 @property(nonatomic,strong)UILabel *timeLabel;
-@property(nonatomic,strong)UIImageView *MessageBgImgView;
+@property(nonatomic,strong)ShapedImageView *MessageBgImgView;
 @end
 @implementation NewsContentTableViewCell
 
@@ -88,7 +90,7 @@
     return _timeLabel;
 }
 
--(UIImageView *)MessageBgImgView{
+-(ShapedImageView *)MessageBgImgView{
     CGFloat _textWidth;
     CGFloat maxWidth =screen_width-164*SCREEN_RADIO;
     
@@ -102,13 +104,10 @@
     }
     
     if (!_MessageBgImgView) {
-        _MessageBgImgView=[[UIImageView alloc] initWithFrame:CGRectMake((80+(maxWidth-size.width))*SCREEN_RADIO, 15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO))];
+        _MessageBgImgView=[[ShapedImageView alloc] initWithDirectionRight:YES];
+        _MessageBgImgView.frame=CGRectMake((80+(maxWidth-size.width))*SCREEN_RADIO, 15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO));
+        _MessageBgImgView.image = [UIImage imageNamed:@"MessageBg"];
         
-
-        UIImage * backImage;
-        backImage = [UIImage imageNamed:@"MessageBg"];
-        backImage = [backImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 10, 10, 25)];
-        _MessageBgImgView.image=backImage;
     }
     
     return _MessageBgImgView;

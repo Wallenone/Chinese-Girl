@@ -60,6 +60,10 @@
 		E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */; };
 		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
 		E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */; };
+		E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D53D1F66987A00FD9A28 /* ShapedImageView.m */; };
+		E581D5411F66989000FD9A28 /* icon_bubble_left.png in Resources */ = {isa = PBXBuildFile; fileRef = E581D53F1F66989000FD9A28 /* icon_bubble_left.png */; };
+		E581D5421F66989000FD9A28 /* icon_bubble_right.png in Resources */ = {isa = PBXBuildFile; fileRef = E581D5401F66989000FD9A28 /* icon_bubble_right.png */; };
+		E581D5451F669A5200FD9A28 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D5441F669A5200FD9A28 /* UIImage+Color.m */; };
 		E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */; };
 		E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */; };
 		E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011A31F526D57003FB906 /* NewsBottomMessage.m */; };
@@ -184,6 +188,12 @@
 		E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MycommitModel.m; sourceTree = "<group>"; };
 		E54FAA5E1F5AA90A006C65AF /* myCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCommitCell.h; sourceTree = "<group>"; };
 		E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCommitCell.m; sourceTree = "<group>"; };
+		E581D53C1F66987A00FD9A28 /* ShapedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapedImageView.h; sourceTree = "<group>"; };
+		E581D53D1F66987A00FD9A28 /* ShapedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapedImageView.m; sourceTree = "<group>"; };
+		E581D53F1F66989000FD9A28 /* icon_bubble_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_left.png; sourceTree = "<group>"; };
+		E581D5401F66989000FD9A28 /* icon_bubble_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_right.png; sourceTree = "<group>"; };
+		E581D5431F669A5200FD9A28 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Color.h"; path = "MJPhotoBrowser/UIImage+Color.h"; sourceTree = "<group>"; };
+		E581D5441F669A5200FD9A28 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Color.m"; path = "MJPhotoBrowser/UIImage+Color.m"; sourceTree = "<group>"; };
 		E59F2EA61F511DB600A238CE /* myHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myHeaderViewCell.h; sourceTree = "<group>"; };
 		E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myHeaderViewCell.m; sourceTree = "<group>"; };
 		E5A513B41F60328100B4AC1F /* NewsContentCustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentCustomLabel.h; sourceTree = "<group>"; };
@@ -291,6 +301,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E581D53F1F66989000FD9A28 /* icon_bubble_left.png */,
+				E581D5401F66989000FD9A28 /* icon_bubble_right.png */,
 				6003F595195388D20070C39A /* ChineseGirl-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -374,10 +386,12 @@
 		E538D73A1F429ACC0079AE94 /* Third */ = {
 			isa = PBXGroup;
 			children = (
-				E504AB6B1F507C0100E1F48C /* MBProgressHUD */,
-				E504AB711F507C0100E1F48C /* MJPhotoBrowser */,
+				E581D5431F669A5200FD9A28 /* UIImage+Color.h */,
+				E581D5441F669A5200FD9A28 /* UIImage+Color.m */,
 				E5EFC8321F4936730078F856 /* UIColor+getColor.h */,
 				E5EFC8331F4936730078F856 /* UIColor+getColor.m */,
+				E504AB6B1F507C0100E1F48C /* MBProgressHUD */,
+				E504AB711F507C0100E1F48C /* MJPhotoBrowser */,
 				E538D76E1F429C060079AE94 /* UIViewController+NavigationBar.h */,
 				E538D76F1F429C060079AE94 /* UIViewController+NavigationBar.m */,
 				E538D73B1F429ACC0079AE94 /* AFNetworking */,
@@ -539,6 +553,8 @@
 		E5C011A11F526D38003FB906 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E581D53C1F66987A00FD9A28 /* ShapedImageView.h */,
+				E581D53D1F66987A00FD9A28 /* ShapedImageView.m */,
 				E5C011A21F526D57003FB906 /* NewsBottomMessage.h */,
 				E5C011A31F526D57003FB906 /* NewsBottomMessage.m */,
 				E5C011BD1F52771F003FB906 /* UIMessageCustom.h */,
@@ -674,8 +690,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
+				E581D5421F66989000FD9A28 /* icon_bubble_right.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				E581D5411F66989000FD9A28 /* icon_bubble_left.png in Resources */,
 				E504AB901F507C0100E1F48C /* MBProgressHUD.bundle in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -748,6 +766,7 @@
 				E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
+				E581D5451F669A5200FD9A28 /* UIImage+Color.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
 				E538D7701F429C060079AE94 /* UIViewController+NavigationBar.m in Sources */,
 				E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */,
@@ -784,6 +803,7 @@
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
 				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
 				E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */,
+				E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */,
 				E538D74D1F429ACC0079AE94 /* AFURLResponseSerialization.m in Sources */,
 				E504AB921F507C0100E1F48C /* MJPhoto.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
