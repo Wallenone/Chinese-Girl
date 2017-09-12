@@ -62,14 +62,14 @@
         }
         
         _textCentent=[[NewsContentCustomLabel alloc] initWithFrame:CGRectMake((80+(maxWidth-size.width))*SCREEN_RADIO, 15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO))];
-        _textCentent.layer.cornerRadius=_textCentent.frame.size.height*0.1;
+        //_textCentent.layer.cornerRadius=_textCentent.frame.size.height*0.1;
         _textCentent.clipsToBounds = YES;
         _textCentent.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
         _textCentent.textColor = [UIColor getColor:@"ffffff"];
         //_textCentent.backgroundColor=[UIColor getColor:@"2979FF"];
         _textCentent.userInteractionEnabled=NO;
         _textCentent.text=self.newsContentModel.text;
-        _textCentent.layer.borderColor=[UIColor clearColor].CGColor;
+        //_textCentent.layer.borderColor=[UIColor clearColor].CGColor;
         _textCentent.numberOfLines=0;
     }
     
@@ -106,7 +106,7 @@
         
 
         UIImage * backImage;
-        backImage = [[UIImage imageNamed:@"MessageBg"] stretchableImageWithLeftCapWidth:21 topCapHeight:14];
+        backImage = [[UIImage imageNamed:@"MessageBg"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
         _MessageBgImgView.image=backImage;
     }
     
