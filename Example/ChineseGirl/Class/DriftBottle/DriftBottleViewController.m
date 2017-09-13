@@ -7,12 +7,13 @@
 //
 
 #import "DriftBottleViewController.h"
-
+#import "CGPickBottleContentView.h"
 @interface DriftBottleViewController (){
     BOOL touchState;
 }
 @property(nonatomic,strong)UIImageView *bgImgView;
 @property(nonatomic,strong)UIImageView *menuImgView;
+@property(nonatomic,strong)UIView *menuView;
 @property(nonatomic,strong)UIButton *drogBtn;
 @property(nonatomic,strong)UIButton *pickBtn;
 @property(nonatomic,strong)UIButton *myBottleBtn;
@@ -20,6 +21,8 @@
 @property(nonatomic,strong)UILabel *pickLabel;
 @property(nonatomic,strong)UILabel *myBottleLabel;
 @property(nonatomic,strong)UIImageView *whImgView;   //浪花
+@property(nonatomic,strong)UIButton *getBottle;   //捡到的瓶子
+@property(nonatomic,strong)CGPickBottleContentView *bottleContentView;
 @end
 
 @implementation DriftBottleViewController
@@ -54,14 +57,16 @@
 
 -(void)addSubViews{
     [self.view addSubview:self.bgImgView];
-    [self.view addSubview:self.menuImgView];
-    [self.view addSubview:self.drogBtn];
-    [self.view addSubview:self.pickBtn];
-    [self.view addSubview:self.myBottleBtn];
-    [self.view addSubview:self.drogLabel];
-    [self.view addSubview:self.pickLabel];
-    [self.view addSubview:self.myBottleLabel];
+    [self.view addSubview:self.menuView];
+    [self.menuView addSubview:self.menuImgView];
+    [self.menuView addSubview:self.drogBtn];
+    [self.menuView addSubview:self.pickBtn];
+    [self.menuView addSubview:self.myBottleBtn];
+    [self.menuView addSubview:self.drogLabel];
+    [self.menuView addSubview:self.pickLabel];
+    [self.menuView addSubview:self.myBottleLabel];
     [self.view addSubview:self.whImgView];
+    [self.view addSubview:self.getBottle];
 }
 
 
@@ -81,25 +86,42 @@
 }
 
 -(void)startAnimaction{
-    
+    CGFloat y = [self getRandomNumber:-30 to:60];
+    CGFloat x = [self getRandomNumber:-50 to:100];
+    self.whImgView.frame=CGRectMake(screen_width/2-35*SCREEN_RADIO+x, screen_height/2+y, 103*SCREEN_RADIO, 73*SCREEN_RADIO);
     [self.whImgView startAnimating];
     [self.whImgView performSelector:@selector(stopAnimating) withObject:nil afterDelay:1];
+    [self performSelector:@selector(clearnImgView:) withObject:[NSValue valueWithCGSize:CGSizeMake(screen_width/2-35*SCREEN_RADIO+x, screen_height/2+y)] afterDelay:1.1];
+    
+}
+
+-(void)clearnImgView:(NSValue *)size{
+    CGSize _size=[size CGSizeValue];
+    int index=arc4random() %3+1;
+    self.getBottle.frame=CGRectMake(_size.width+20*SCREEN_RADIO, _size.height+20*SCREEN_RADIO, 156/2, 114/2);
+    self.getBottle.hidden=NO;
+    [self.getBottle setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"bottle_vw%d",index]] forState:UIControlStateNormal];
+    
+}
+
+-(void)getBottleClick{  //捡起来的瓶子
+    self.getBottle.hidden=YES;
+    [self.view addSubview:self.bottleContentView];
+    
+}
+
+-(int)getRandomNumber:(int)from to:(int)to
+{
+    return (int)(from + (arc4random() % (to-from + 1)));
 }
 
 //触摸事件
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-    
-}
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
 
-}
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     touchState=!touchState;
     [self setTouchHiddenNav:touchState];
 }
-- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
 
-}
 
 -(UIImageView *)bgImgView{
     if (!_bgImgView) {
@@ -110,9 +132,17 @@
     return _bgImgView;
 }
 
+-(UIView *)menuView{
+    if (!_menuView) {
+        _menuView=[[UIView alloc] initWithFrame:CGRectMake(0, screen_height-93*SCREEN_RADIO, screen_width, 93*SCREEN_RADIO)];
+    }
+    
+    return _menuView;
+}
+
 -(UIImageView *)menuImgView{
     if (!_menuImgView) {
-        _menuImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-44.5, SCREEN_WIDTH, 44.5)];
+        _menuImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 48.5*SCREEN_RADIO, SCREEN_WIDTH, 44.5)];
         _menuImgView.image=[UIImage imageNamed:@"bottle_vg"];
     }
     
@@ -122,7 +152,7 @@
 
 -(UIButton *)drogBtn{
     if (!_drogBtn) {
-        _drogBtn=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, screen_height-93*SCREEN_RADIO, 73*SCREEN_RADIO, 88*SCREEN_RADIO)];
+        _drogBtn=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 0, 73*SCREEN_RADIO, 88*SCREEN_RADIO)];
         [_drogBtn setBackgroundImage:[UIImage imageNamed:@"bottle_vm"] forState:UIControlStateNormal];
         [_drogBtn addTarget:self action:@selector(drogClick) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -147,7 +177,7 @@
 
 -(UIButton *)pickBtn{
     if (!_pickBtn) {
-        _pickBtn=[[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-44*SCREEN_RADIO, screen_height-93*SCREEN_RADIO, 73*SCREEN_RADIO, 88*SCREEN_RADIO)];
+        _pickBtn=[[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-44*SCREEN_RADIO, 0, 73*SCREEN_RADIO, 88*SCREEN_RADIO)];
         [_pickBtn setBackgroundImage:[UIImage imageNamed:@"bottle_vi"] forState:UIControlStateNormal];
         [_pickBtn addTarget:self action:@selector(pickClick) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -170,7 +200,7 @@
 
 -(UIButton *)myBottleBtn{
     if (!_myBottleBtn) {
-        _myBottleBtn=[[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-(20+73)*SCREEN_RADIO, screen_height-93*SCREEN_RADIO, 73*SCREEN_RADIO, 88*SCREEN_RADIO)];
+        _myBottleBtn=[[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-(20+73)*SCREEN_RADIO,0, 73*SCREEN_RADIO, 88*SCREEN_RADIO)];
         [_myBottleBtn setBackgroundImage:[UIImage imageNamed:@"bottle_vk"] forState:UIControlStateNormal];
         [_myBottleBtn addTarget:self action:@selector(myBottleClick) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -188,6 +218,17 @@
     }
     
     return _myBottleLabel;
+}
+
+-(UIButton *)getBottle{
+    if (!_getBottle) {
+        _getBottle=[[UIButton alloc] init];
+      //  [_getBottle setBackgroundImage:[UIImage imageNamed:@"bottle_vw"] forState:UIControlStateNormal];
+        [_getBottle addTarget:self action:@selector(getBottleClick) forControlEvents:UIControlEventTouchUpInside];
+        _getBottle.hidden=YES;
+    }
+    
+    return _getBottle;
 }
 
 -(UIImageView *)whImgView{
@@ -209,6 +250,15 @@
     }
     
     return _whImgView;
+}
+
+-(CGPickBottleContentView *)bottleContentView{
+    if (!_bottleContentView) {
+        _bottleContentView=[[CGPickBottleContentView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
+        
+    }
+    
+    return _bottleContentView;
 }
 
 

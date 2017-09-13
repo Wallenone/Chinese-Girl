@@ -36,6 +36,7 @@
 		E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E504AB9A1F507C3B00E1F48C /* UIImageView+MJWebCache.m */; };
 		E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DB1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m */; };
 		E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */; };
+		E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */; };
 		E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D73D1F429ACC0079AE94 /* AFHTTPSessionManager.m */; };
 		E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7401F429ACC0079AE94 /* AFNetworkReachabilityManager.m */; };
 		E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7421F429ACC0079AE94 /* AFSecurityPolicy.m */; };
@@ -139,6 +140,8 @@
 		E51ED2DB1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentTableViewCell.m; sourceTree = "<group>"; };
 		E51ED2DD1F6000130080BBA1 /* NewsContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentModel.h; sourceTree = "<group>"; };
 		E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentModel.m; sourceTree = "<group>"; };
+		E5260ED81F69698E001824F1 /* CGPickBottleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPickBottleContentView.h; sourceTree = "<group>"; };
+		E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPickBottleContentView.m; sourceTree = "<group>"; };
 		E538D73C1F429ACC0079AE94 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		E538D73D1F429ACC0079AE94 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		E538D73E1F429ACC0079AE94 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -386,6 +389,15 @@
 			path = MJPhotoBrowser;
 			sourceTree = "<group>";
 		};
+		E5260ED71F696966001824F1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E5260ED81F69698E001824F1 /* CGPickBottleContentView.h */,
+				E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		E538D73A1F429ACC0079AE94 /* Third */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +437,7 @@
 		E538D74F1F429BE80079AE94 /* DriftBottle */ = {
 			isa = PBXGroup;
 			children = (
+				E5260ED71F696966001824F1 /* view */,
 				E538D7501F429BE80079AE94 /* DriftBottleViewController.h */,
 				E538D7511F429BE80079AE94 /* DriftBottleViewController.m */,
 			);
@@ -782,6 +795,7 @@
 				E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */,
 				E538D76B1F429BE80079AE94 /* WSLayout.m in Sources */,
 				E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */,
+				E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
 				E54FAA571F5A9E21006C65AF /* MyCommitSViewController.m in Sources */,
