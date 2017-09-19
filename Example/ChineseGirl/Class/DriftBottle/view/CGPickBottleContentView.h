@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^DrogBlock)(void);
 @interface CGPickBottleContentView : UIView
-
+-(instancetype)initWithFrame:(CGRect)frame withDrogBlock:(DrogBlock)block;
 @end

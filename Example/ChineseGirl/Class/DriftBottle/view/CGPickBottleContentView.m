@@ -8,7 +8,9 @@
 
 #import "CGPickBottleContentView.h"
 
-@interface CGPickBottleContentView()
+@interface CGPickBottleContentView(){
+    DrogBlock drogBlock;
+}
 @property(nonatomic,strong)UIImageView *icon;
 @property(nonatomic,strong)UIImageView *sex;
 @property(nonatomic,strong)UILabel *address;
@@ -20,9 +22,10 @@
 @end
 @implementation CGPickBottleContentView
 
--(instancetype)initWithFrame:(CGRect)frame{
+-(instancetype)initWithFrame:(CGRect)frame withDrogBlock:(DrogBlock)block{
     if (self=[super initWithFrame:frame]) {
         self.backgroundColor=[UIColor blackColor];
+        drogBlock=block;
         [self addSubviews];
     }
     
@@ -41,6 +44,9 @@
 }
 
 -(void)drogUpClick{
+    if (drogBlock) {
+        drogBlock();
+    }
     [self removeFromSuperview];
 }
 
