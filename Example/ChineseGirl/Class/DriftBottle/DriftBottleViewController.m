@@ -403,20 +403,23 @@
     // 设定动画起始帧和结束帧
     move.fromValue = [NSValue valueWithCGPoint:CGPointMake(_x, _y)]; // 起始点
     move.toValue = [NSValue valueWithCGPoint:CGPointMake(screen_width/2, screen_height/2+50*SCREEN_RADIO)]; // 终了点
-   // move.duration = 1.0;
     move.repeatCount = 1;
 
-//    [imageView.layer addAnimation:animation forKey:nil];
-//    [imageView.layer addAnimation:move forKey:nil];
     
+    // 设定为缩放
+    CABasicAnimation *scale = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scale.repeatCount = 1; // 重复次数
+    
+    // 缩放倍数
+    scale.fromValue = [NSNumber numberWithFloat:2.0]; // 开始时的倍率
+    scale.toValue = [NSNumber numberWithFloat:0.7]; // 结束时的倍率
     
     
     CAAnimationGroup *animaGroup = [CAAnimationGroup animation];
     animaGroup.duration = 1.0f;
     animaGroup.fillMode = kCAFillModeForwards;
     animaGroup.removedOnCompletion = NO;
-    animaGroup.animations = @[animation,move];
-    //animaGroup.speed=2;
+    animaGroup.animations = @[animation,move,scale];
     [imageView.layer addAnimation:animaGroup forKey:@"Animation"];
     
     [self performSelector:@selector(clearnPickImg) withObject:nil afterDelay:1];
