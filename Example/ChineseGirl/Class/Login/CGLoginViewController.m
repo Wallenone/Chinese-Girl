@@ -10,6 +10,7 @@
 #import "CGLoginIndexView.h"
 #import "CGRegisterIndexView.h"
 #import "CGRegisterIndexViewController.h"
+#import "CGForgetPasswordViewController.h"
 @interface CGLoginViewController ()
 @property(nonatomic,strong)CGLoginIndexView *loginIndexView;
 
@@ -48,7 +49,8 @@
             CGRegisterIndexViewController *regVC=[[CGRegisterIndexViewController alloc]init];
             [weakSelf.navigationController pushViewController:regVC animated:NO];
         } onForgotPasswordClick:^{
-            
+            CGForgetPasswordViewController *forgetVC=[[CGForgetPasswordViewController alloc] init];
+            [weakSelf.navigationController pushViewController:forgetVC animated:NO];
         } onSignInClick:^{
             
         } onGooleClick:^{
