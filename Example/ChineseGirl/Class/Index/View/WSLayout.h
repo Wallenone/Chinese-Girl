@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef CGFloat(^HeightBlock)(NSIndexPath *indexPath , CGFloat width);
 
-@interface WSLayout : UICollectionViewLayout
+@interface WSLayout : UICollectionViewFlowLayout
 
 /**
  *  列数

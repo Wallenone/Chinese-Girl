@@ -12,6 +12,9 @@
 #import "NewsContentModel.h"
 #import "NewsContentTableViewCell.h"
 @interface NewsMessageController ()
+@property(nonatomic,strong)UIView *headerView;
+@property(nonatomic,strong)UILabel *titleLable;
+@property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIImageView *newsContentbg;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)NewsBottomMessage *messageView;
@@ -21,31 +24,36 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self.tabBarController.tabBar setHidden:YES];
     [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [self.tabBarController.tabBar setHidden:NO];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    [self setHeaderView];
     [self addSubViews];
+    [self setHeaderView];
+}
+
+-(void)backClick{
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 -(void)setHeaderView{
-    [self setUpNavWithTitle:@"Chat" leftIcon:@"Newsleft" rightIcon:@"NewsAdd" leftTitle:nil rightTitle:nil delegate:nil];
+    [self.view addSubview:self.headerView];
+    [self.headerView addSubview:self.titleLable];
+    [self.headerView addSubview:self.leftBtn];
 }
 
 -(void)addSubViews{
+    
     [self.view addSubview:self.newsContentbg];
     [self.view addSubview:self.tbv];
     [self.view addSubview:self.messageView];
@@ -67,6 +75,35 @@
     return _cellHeight;
 }
 
+-(UIView *)headerView{
+    if (!_headerView) {
+        _headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 64)];
+        _headerView.backgroundColor=[UIColor whiteColor];
+    }
+    return _headerView;
+}
+
+-(UILabel *)titleLable{
+    if (!_titleLable) {
+        _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
+        _titleLable.text=@"Wallen";
+        _titleLable.textColor=[UIColor getColor:@"232627"];
+        _titleLable.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
+        _titleLable.textAlignment=NSTextAlignmentCenter;
+    }
+    return _titleLable;
+}
+
+-(UIButton *)leftBtn{
+    if (!_leftBtn) {
+        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        [_leftBtn setBackgroundImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
+        [_leftBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _leftBtn;
+}
+
 -(UIImageView *)newsContentbg{
     if (!_newsContentbg) {
         _newsContentbg=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
@@ -81,7 +118,7 @@
         
         __weak __typeof(self)weakSelf = self;
 
-        CGRect tbvFrame = CGRectMake(0, 0, self.view.frame.size.width, screen_height-120*SCREEN_RADIO);
+        CGRect tbvFrame = CGRectMake(0, 64, self.view.frame.size.width, screen_height-120*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
@@ -133,9 +170,9 @@
 -(NewsBottomMessage *)messageView{
     if (!_messageView) {
         __weak __typeof(self)weakSelf = self;
-        _messageView=[[NewsBottomMessage alloc] initWithFrame:CGRectMake(0, (screen_height-64)-60*SCREEN_RADIO, screen_width, 60*SCREEN_RADIO) withDidBeginEditing:^(UITextView *textView) {
+        _messageView=[[NewsBottomMessage alloc] initWithFrame:CGRectMake(0, screen_height-60*SCREEN_RADIO, screen_width, 60*SCREEN_RADIO) withDidBeginEditing:^(UITextView *textView) {
             //CGRect frame = textView.frame;
-            int offset = (59*SCREEN_RADIO+216.0+64);//键盘高度216
+            int offset = (59*SCREEN_RADIO+216.0);//键盘高度216
             
             [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
             
@@ -154,7 +191,7 @@
             model.timeDate=@"08:11";
             [weakSelf.tbv insertData:model];
             [weakSelf.tbv scrollToBottom:YES];
-            weakSelf.messageView.frame = CGRectMake(0, (screen_height-64)-59*SCREEN_RADIO, screen_width, 59*SCREEN_RADIO);
+            weakSelf.messageView.frame = CGRectMake(0, screen_height-59*SCREEN_RADIO, screen_width, 59*SCREEN_RADIO);
         }];
     }
     

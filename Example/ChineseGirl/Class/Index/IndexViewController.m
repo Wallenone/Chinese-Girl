@@ -13,14 +13,16 @@
 #import "MyIndexViewController.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate>
 @property (nonatomic, strong) UIView* infinitePageView;
-@property (nonatomic,strong)UIImageView *infiniteImgView;
-@property (nonatomic, strong) IndexCollectionView *indexCollectionView;
+@property (nonatomic, strong)UIImageView *infiniteImgView;
+@property (nonatomic, strong)IndexCollectionView *indexCollectionView;
+@property (nonatomic, strong)UIScrollView *verScrollview;
 @end
 
 @implementation IndexViewController
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
 }
@@ -28,9 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    self.view.backgroundColor=[UIColor colorWithRed:239 green:239 blue:243 alpha:1];
+    [self addSubViews];
     [self setHeaderView];
-    [self setScrollViewPoint];
     [self setTableView];
 }
 
@@ -38,16 +40,13 @@
     [self setUpNavWithTitle:@"onLine" leftIcon:nil rightIcon:nil leftTitle:nil rightTitle:nil delegate:nil];
 }
 
--(void)setScrollViewPoint{
-    self.infinitePageView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 200*SCREEN_RADIO)];
-    self.infiniteImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 200*SCREEN_RADIO)];
-    self.infiniteImgView.image=[UIImage imageNamed:@"https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2231522172,3198791950&fm=173&s=5527965541A1E9475A19147B0300D072&w=640&h=364&img.JPG"];
-    [self.infinitePageView addSubview:self.infiniteImgView];
-    [self.view addSubview:self.infinitePageView];
+-(void)addSubViews{
+    [self.view addSubview:self.indexCollectionView];
 }
 
+
 -(void)setTableView{
-    self.indexCollectionView=[[IndexCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.infinitePageView.frame), self.view.frame.size.width, self.view.frame.size.height) onCellSelected:^(NSIndexPath  *indexPath) {
+    self.indexCollectionView=[[IndexCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) onCellSelected:^(NSIndexPath  *indexPath) {
         MyIndexViewController *index=[[MyIndexViewController alloc] init];
         [self.navigationController pushViewController:index animated:NO];
     }];
@@ -68,6 +67,11 @@
     //NSLog(@"did select item at index %ld", index);
 }
 
-
-
+-(UIScrollView *)verScrollview{
+    if (!_verScrollview) {
+        _verScrollview=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
+    }
+    
+    return _verScrollview;
+}
 @end

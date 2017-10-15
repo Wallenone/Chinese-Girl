@@ -11,5 +11,6 @@
 @interface NewsInfoModel : NSObject
 @property(nonatomic,copy)NSString *icon;
 @property(nonatomic,copy)NSString *nickName;
+@property(nonatomic,copy)NSString *timeDate;
 @property(nonatomic,copy)NSString *content;
 @end

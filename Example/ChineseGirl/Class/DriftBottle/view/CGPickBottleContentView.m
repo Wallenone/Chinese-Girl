@@ -24,7 +24,7 @@
 
 -(instancetype)initWithFrame:(CGRect)frame withDrogBlock:(DrogBlock)block{
     if (self=[super initWithFrame:frame]) {
-        self.backgroundColor=[UIColor blackColor];
+        self.backgroundColor=[UIColor clearColor];
         drogBlock=block;
         [self addSubviews];
     }
@@ -97,7 +97,7 @@
 
 -(UIView *)contentView{
     if (!_contentView) {
-        _contentView=[[UIView alloc] initWithFrame:CGRectMake(25*SCREEN_RADIO, CGRectGetMaxY(self.autograph.frame)+12*SCREEN_RADIO, screen_width-50*SCREEN_RADIO, screen_height-230*SCREEN_RADIO)];
+        _contentView=[[UIView alloc] initWithFrame:CGRectMake(25*SCREEN_RADIO, CGRectGetMaxY(self.autograph.frame)+12*SCREEN_RADIO, screen_width-50*SCREEN_RADIO, 320*SCREEN_RADIO)];
         _contentView.backgroundColor=[UIColor whiteColor];
         _contentView.layer.cornerRadius=2*SCREEN_RADIO;
     }
@@ -120,7 +120,7 @@
 
 -(UIButton *)drogUpBtn{
     if (!_drogUpBtn) {
-        _drogUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-60*SCREEN_RADIO, screen_width/2-35*SCREEN_RADIO, 35*SCREEN_RADIO)];
+        _drogUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.contentView.frame)+20*SCREEN_RADIO, screen_width/2-35*SCREEN_RADIO, 35*SCREEN_RADIO)];
         _drogUpBtn.backgroundColor=[UIColor getColor:@"2979FF"];
         [_drogUpBtn setTitle:@"扔回海里" forState:UIControlStateNormal];
         [_drogUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -134,7 +134,7 @@
 
 -(UIButton *)RespondBtn{
     if (!_RespondBtn) {
-        _RespondBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2+5*SCREEN_RADIO, screen_height-60*SCREEN_RADIO, screen_width/2-35*SCREEN_RADIO, 35*SCREEN_RADIO)];
+        _RespondBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2+5*SCREEN_RADIO, CGRectGetMaxY(self.contentView.frame)+20*SCREEN_RADIO, screen_width/2-35*SCREEN_RADIO, 35*SCREEN_RADIO)];
         _RespondBtn.backgroundColor=[UIColor getColor:@"2979FF"];
         [_RespondBtn setTitle:@"回应" forState:UIControlStateNormal];
         [_RespondBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

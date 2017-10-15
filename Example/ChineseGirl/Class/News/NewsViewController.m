@@ -19,15 +19,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [self.tabBarController.tabBar setHidden:YES];
     [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [self.tabBarController.tabBar setHidden:NO];
 }
 
 - (void)viewDidLoad {
@@ -39,7 +37,7 @@
 }
 
 -(void)setHeaderView{
-    [self setUpNavWithTitle:@"Activity" leftIcon:@"news_Menu" rightIcon:@"" leftTitle:nil rightTitle:nil delegate:nil];
+    [self setUpNavWithTitle:@"聊天" leftIcon:@"" rightIcon:@"" leftTitle:nil rightTitle:nil delegate:nil];
 }
 
 -(void)addSubViews{
@@ -61,16 +59,19 @@
         model.icon = @"Avatar";
         model.nickName = @"Randy Young";
         model.content = @"This is a book！";
+        model.timeDate=@"12:37";
         
         NewsInfoModel *model1 = [[NewsInfoModel alloc] init];
         model1.icon = @"Avatar";
         model1.nickName = @"Randy Young1";
         model1.content = @"This is a book！1";
+        model1.timeDate=@"12:39";
         
         NewsInfoModel *model2 = [[NewsInfoModel alloc] init];
         model2.icon = @"Avatar";
         model2.nickName = @"Randy Young2";
         model2.content = @"This is a book！2";
+        model2.timeDate=@"12:30";
         //给tableview赋值
         [arrays addObject:model];
         [arrays addObject:model1];
@@ -94,7 +95,7 @@
         //动态改变
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
             
-            return 82*SCREEN_RADIO;
+            return 72*SCREEN_RADIO;
         }];
         
     
@@ -106,7 +107,7 @@
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
             NewsMessageController *messageVC=[[NewsMessageController alloc] init];
-            [self.navigationController pushViewController:messageVC animated:YES];
+            [self.navigationController pushViewController:messageVC animated:NO];
         }];
         
     }

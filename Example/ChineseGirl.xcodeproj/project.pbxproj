@@ -69,6 +69,10 @@
 		E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */; };
 		E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011A31F526D57003FB906 /* NewsBottomMessage.m */; };
 		E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011BE1F52771F003FB906 /* UIMessageCustom.m */; };
+		E5C960821F93132C00EB654A /* WSCollectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960811F93132C00EB654A /* WSCollectionHeaderCell.m */; };
+		E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960861F93507500EB654A /* MySettingTableViewCell.m */; };
+		E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C9608D1F935F8900EB654A /* MineSettingTextView.m */; };
+		E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960901F93622700EB654A /* MineSettingTextViewController.m */; };
 		E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */; };
 		E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4E1F68099600844B2F /* icon_bubble_right.png */; };
 		E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */; };
@@ -209,6 +213,14 @@
 		E5C011A31F526D57003FB906 /* NewsBottomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsBottomMessage.m; sourceTree = "<group>"; };
 		E5C011BD1F52771F003FB906 /* UIMessageCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMessageCustom.h; sourceTree = "<group>"; };
 		E5C011BE1F52771F003FB906 /* UIMessageCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMessageCustom.m; sourceTree = "<group>"; };
+		E5C960801F93132C00EB654A /* WSCollectionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCollectionHeaderCell.h; sourceTree = "<group>"; };
+		E5C960811F93132C00EB654A /* WSCollectionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCollectionHeaderCell.m; sourceTree = "<group>"; };
+		E5C960851F93507500EB654A /* MySettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewCell.h; sourceTree = "<group>"; };
+		E5C960861F93507500EB654A /* MySettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewCell.m; sourceTree = "<group>"; };
+		E5C9608C1F935F8900EB654A /* MineSettingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSettingTextView.h; sourceTree = "<group>"; };
+		E5C9608D1F935F8900EB654A /* MineSettingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextView.m; sourceTree = "<group>"; };
+		E5C9608F1F93622700EB654A /* MineSettingTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSettingTextViewController.h; sourceTree = "<group>"; };
+		E5C960901F93622700EB654A /* MineSettingTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextViewController.m; sourceTree = "<group>"; };
 		E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_left.png; sourceTree = "<group>"; };
 		E5D04A4E1F68099600844B2F /* icon_bubble_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_right.png; sourceTree = "<group>"; };
 		E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexViewController.h; sourceTree = "<group>"; };
@@ -476,6 +488,8 @@
 				E538D7551F429BE80079AE94 /* WSCollectionCell.m */,
 				E59F2EA61F511DB600A238CE /* myHeaderViewCell.h */,
 				E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */,
+				E5C960801F93132C00EB654A /* WSCollectionHeaderCell.h */,
+				E5C960811F93132C00EB654A /* WSCollectionHeaderCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -509,8 +523,13 @@
 		E538D7601F429BE80079AE94 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				E5C960881F9351DE00EB654A /* Model */,
+				E5C960831F93502C00EB654A /* Cell */,
+				E5C960841F93502C00EB654A /* View */,
 				E538D7611F429BE80079AE94 /* MineViewController.h */,
 				E538D7621F429BE80079AE94 /* MineViewController.m */,
+				E5C9608F1F93622700EB654A /* MineSettingTextViewController.h */,
+				E5C960901F93622700EB654A /* MineSettingTextViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -584,6 +603,31 @@
 				E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E5C960831F93502C00EB654A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5C960851F93507500EB654A /* MySettingTableViewCell.h */,
+				E5C960861F93507500EB654A /* MySettingTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E5C960841F93502C00EB654A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5C9608C1F935F8900EB654A /* MineSettingTextView.h */,
+				E5C9608D1F935F8900EB654A /* MineSettingTextView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5C960881F9351DE00EB654A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E5F0A3E61F57F7FD0051699B /* Login */ = {
@@ -789,6 +833,7 @@
 				E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
+				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
 				E581D5451F669A5200FD9A28 /* UIImage+Color.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
 				E538D7701F429C060079AE94 /* UIViewController+NavigationBar.m in Sources */,
@@ -804,6 +849,7 @@
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
 				E54FAA571F5A9E21006C65AF /* MyCommitSViewController.m in Sources */,
+				E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
 				E53C9D681F558AAA0069D663 /* NewsInfoModel.m in Sources */,
@@ -816,6 +862,7 @@
 				E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */,
 				E504AB951F507C0100E1F48C /* MJPhotoLoadingView.m in Sources */,
 				E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */,
+				E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */,
 				E504AB971F507C0100E1F48C /* MJPhotoToolbar.m in Sources */,
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
@@ -836,6 +883,7 @@
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
 				E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */,
+				E5C960821F93132C00EB654A /* WSCollectionHeaderCell.m in Sources */,
 				E538D7671F429BE80079AE94 /* WSCollectionCell.m in Sources */,
 				E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */,
 				E538D7681F429BE80079AE94 /* IndexViewController.m in Sources */,

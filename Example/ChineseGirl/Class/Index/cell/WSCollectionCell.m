@@ -18,7 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor=[UIColor clearColor];
+        self.backgroundColor=[UIColor grayColor];
         [self creatSubView];
         
     }
@@ -27,39 +27,50 @@
 
 - (void)creatSubView {
     
-    UIImageView *imgV = [[UIImageView alloc]init];
+    UIImageView *imgV = [[UIImageView alloc]initWithFrame:CGRectMake(10*SCREEN_RADIO, 5*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 380*SCREEN_RADIO)];
     imgV.tag = 10;
+    //imgV.layer.cornerRadius=5*SCREEN_RADIO;
+    //imgV.layer.masksToBounds = YES;
+    
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:imgV.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(5*SCREEN_RADIO,5*SCREEN_RADIO)];
+    
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    
+    maskLayer.frame = imgV.bounds;
+    
+    maskLayer.path = maskPath.CGPath;
+    
+    imgV.layer.mask = maskLayer;
+
     [self addSubview:imgV];
+
     
     
-//    UIVisualEffectView *visulEffectView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
-//    visulEffectView.tag = 20;
-//    [self addSubview:visulEffectView];
-//    
-//    UILabel *label = [[UILabel alloc]init];
-//    label.tag = 30;
-//    label.font = [UIFont systemFontOfSize:10];
-//    label.textColor = [UIColor whiteColor];
-//    label.textAlignment = NSTextAlignmentCenter;
-//    [visulEffectView addSubview:label];
+    
+    UIView *menuView=[[UIView alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO, CGRectGetMaxY(imgV.frame), screen_width-20*SCREEN_RADIO, 35*SCREEN_RADIO)];
+    menuView.backgroundColor=[UIColor whiteColor];
+    
+    UIBezierPath *maskPath1 = [UIBezierPath bezierPathWithRoundedRect:menuView.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(5*SCREEN_RADIO,5*SCREEN_RADIO)];
+    
+    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
+    
+    maskLayer1.frame = menuView.bounds;
+    
+    maskLayer1.path = maskPath1.CGPath;
+    
+    menuView.layer.mask = maskLayer1;
+    
+    [self addSubview:menuView];
+    
+    
 }
 
 
 -(void)setModel:(CellModel *)model {
     _model = model;
     UIImageView *imgV = (UIImageView *)[self viewWithTag:10];
-    UIVisualEffectView *visulEffectView = (UIVisualEffectView *)[self viewWithTag:20];
-    UILabel *label = (UILabel *)[self viewWithTag:30];
-
-    imgV.frame = self.bounds;
-    visulEffectView.frame = CGRectMake(0, self.frame.size.height-16, self.frame.size.width, 16);
-    label.frame = CGRectMake(0, 3, CGRectGetWidth(visulEffectView.frame), 10);
-
     [imgV sd_setImageWithURL:[NSURL URLWithString:_model.imgURL]];
-    label.text = _model.title;
-    
-    imgV.layer.cornerRadius=6*SCREEN_RADIO;
-    
 }
 
 @end

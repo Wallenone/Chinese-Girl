@@ -13,7 +13,7 @@
 #import "WSLayout.h"
 #import "MJRefresh.h"
 #import "MyIndexViewController.h"
-
+#import "WSCollectionHeaderCell.h"
 @interface IndexCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate>{
     NSMutableArray *modelCollectionArray;
     NSMutableArray *modelArray;
@@ -39,6 +39,7 @@
 
 -(void)setData{
     modelCollectionArray=[NSMutableArray array];
+    [modelCollectionArray addObject:@"headerView"];
     t_page=0;
 }
 
@@ -83,9 +84,9 @@
 - (void)_creatSubView {
     
     self.wslayout = [[WSLayout alloc] init];
-    self.wslayout.lineNumber = 3; //列数
-    self.wslayout.rowSpacing = 1; //行间距
-    self.wslayout.lineSpacing = 1; //列间距
+    self.wslayout.lineNumber = 1; //列数
+    self.wslayout.rowSpacing = 0; //行间距
+    self.wslayout.lineSpacing = 0; //列间距
     self.wslayout.sectionInset = UIEdgeInsetsMake(1, 0, 1, 0);
     
     // 透明时用这个属性(保证collectionView 不会被遮挡, 也不会向下移)
@@ -95,6 +96,8 @@
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) collectionViewLayout:self.wslayout];
     
     [self.collectionView registerClass:[WSCollectionCell class] forCellWithReuseIdentifier:@"collectionCell"];
+    [self.collectionView registerClass:[WSCollectionHeaderCell class] forCellWithReuseIdentifier:@"collectionCellHeaderView"];
+
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor whiteColor];
@@ -106,9 +109,12 @@
     
     //返回每个cell的高   对应indexPath
     [self.wslayout computeIndexCellHeightWithWidthBlock:^CGFloat(NSIndexPath *indexPath, CGFloat width) {
+        CGFloat newHeigth = 425*SCREEN_RADIO;
+       // CellModel *model = modelCollectionArray[indexPath.row];
+        if (indexPath.row==0) {
+            newHeigth=90*SCREEN_RADIO;
+        }
         
-        CellModel *model = modelCollectionArray[indexPath.row];
-        CGFloat newHeigth = 135*SCREEN_RADIO;
         return newHeigth;
     }];
     
@@ -144,12 +150,21 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *inCell;
+    if (indexPath.row==0) {
+        WSCollectionHeaderCell *cell = (WSCollectionHeaderCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCellHeaderView" forIndexPath:indexPath];
+        
+        return cell;
+    }else{
+        WSCollectionCell *cell = (WSCollectionCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
+        
+        cell.model = modelCollectionArray[indexPath.row];
+        
+        return cell;
+    }
     
-    WSCollectionCell *cell = (WSCollectionCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
     
-    cell.model = modelCollectionArray[indexPath.row];
-    
-    return cell;
+    return (UICollectionViewCell *)inCell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

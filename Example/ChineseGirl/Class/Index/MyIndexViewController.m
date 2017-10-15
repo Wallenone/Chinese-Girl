@@ -17,7 +17,6 @@
 @interface MyIndexViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *leftIcon;
-@property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)UIView *infoView;
@@ -50,11 +49,8 @@
     [self.view addSubview:self.headerView];
     [self.headerView addSubview:self.titleLabel];
     [self.headerView addSubview:self.leftIcon];
-    [self.headerView addSubview:self.leftBtn];
     [self.headerView addSubview:self.rightBtn];
     [self.view addSubview:self.tbv];
-    
-    
 }
 
 -(void)back{
@@ -98,18 +94,6 @@
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftIcon;
-}
-
--(UIButton *)leftBtn{
-    if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftIcon.frame)+8*SCREEN_RADIO, 29*SCREEN_RADIO, 45*SCREEN_RADIO, 29*SCREEN_RADIO)];
-        [_leftBtn setTitle:@"Back" forState:UIControlStateNormal];
-        [_leftBtn setTitleColor:[UIColor getColor:@"232627"] forState:UIControlStateNormal];
-        _leftBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        [_leftBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _leftBtn;
 }
 
 -(UILabel *)titleLabel{

@@ -26,15 +26,15 @@ static const void *naviDelegateKey = &naviDelegateKey;
     UINavigationBar * bar = self.navigationController.navigationBar;
     bar.translucent = NO;
     [self.navigationController.navigationBar setBarTintColor:[self getColor:@"ffffff"]];
-    bar.tintColor = [UIColor blackColor];
-    NSDictionary *att = @{NSFontAttributeName:[UIFont systemFontOfSize:19.0],
+    bar.tintColor = [UIColor getColor:@"232627"];
+    NSDictionary *att = @{NSFontAttributeName:[UIFont systemFontOfSize:18.0*SCREEN_RADIO],
                           NSForegroundColorAttributeName:[UIColor blackColor]};
     bar.titleTextAttributes = att;
     
     self.navigationItem.title = title;
     
     if (leftIcon != nil || leftTitle != nil) {
-        UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 10, 19)];
+        UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 10, 18*SCREEN_RADIO)];
         btn.tag = 222;
         [btn setContentMode:UIViewContentModeCenter];
         if (leftTitle !=nil){
