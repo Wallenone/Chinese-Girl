@@ -12,7 +12,8 @@
 #import "IndexCollectionView.h"
 #import "MyIndexViewController.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate>
-@property (nonatomic, strong) BHInfiniteScrollView* infinitePageView;
+@property (nonatomic, strong) UIView* infinitePageView;
+@property (nonatomic,strong)UIImageView *infiniteImgView;
 @property (nonatomic, strong) IndexCollectionView *indexCollectionView;
 @end
 
@@ -38,38 +39,11 @@
 }
 
 -(void)setScrollViewPoint{
-    NSArray* urlsArray = @[
-                           @"http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1602/26/c0/18646722_1456498424671_800x600.jpg",
-                           @"http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1602/26/c0/18646649_1456498410838_800x600.jpg",
-                           @"http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1602/26/c0/18646706_1456498430419_800x600.jpg",
-                           @"http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1602/26/c0/18646723_1456498427059_800x600.jpg",
-                           @"http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1602/26/c0/18646705_1456498422529_800x600.jpg"
-                           ];
-    
-    
-    NSArray* titlesArray = @[@"欢迎使用BHInfiniteScrollView无限轮播图",
-                             @"如果你在使用过程中遇到什么疑问",
-                             @"可以添加QQ群：206177395",
-                             @"我会及时修复bug",
-                             @"为你解答问题",
-                             ];
-    
-    
-    self.infinitePageView = [BHInfiniteScrollView
-                                               infiniteScrollViewWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100) Delegate:self ImagesArray:urlsArray];
-    self.infinitePageView.backgroundColor=[UIColor redColor];
-    self.infinitePageView.titlesArray = titlesArray;
-    self.infinitePageView.dotSize = 10;
-    self.infinitePageView.pageControlAlignmentOffset = CGSizeMake(0, 20);
-    self.infinitePageView.titleView.textColor = [UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.24];
-    self.infinitePageView.dotColor = [UIColor redColor];
-    self.infinitePageView.titleView.margin = 30;
-    self.infinitePageView.titleView.hidden = YES;
-    self.infinitePageView.scrollTimeInterval = 2;
-    self.infinitePageView.autoScrollToNextPage = YES;
-    self.infinitePageView.delegate = self;
+    self.infinitePageView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 200*SCREEN_RADIO)];
+    self.infiniteImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 200*SCREEN_RADIO)];
+    self.infiniteImgView.image=[UIImage imageNamed:@"https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2231522172,3198791950&fm=173&s=5527965541A1E9475A19147B0300D072&w=640&h=364&img.JPG"];
+    [self.infinitePageView addSubview:self.infiniteImgView];
     [self.view addSubview:self.infinitePageView];
-    
 }
 
 -(void)setTableView{

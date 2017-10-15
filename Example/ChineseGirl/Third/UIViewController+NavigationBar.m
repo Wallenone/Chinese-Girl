@@ -25,10 +25,10 @@ static const void *naviDelegateKey = &naviDelegateKey;
     
     UINavigationBar * bar = self.navigationController.navigationBar;
     bar.translucent = NO;
-    [self.navigationController.navigationBar setBarTintColor:[self getColor:@"141515"]];
-    bar.tintColor = [self getColor:@"ffffff"];
+    [self.navigationController.navigationBar setBarTintColor:[self getColor:@"ffffff"]];
+    bar.tintColor = [UIColor blackColor];
     NSDictionary *att = @{NSFontAttributeName:[UIFont systemFontOfSize:19.0],
-                          NSForegroundColorAttributeName:[self getColor:@"ffffff"]};
+                          NSForegroundColorAttributeName:[UIColor blackColor]};
     bar.titleTextAttributes = att;
     
     self.navigationItem.title = title;

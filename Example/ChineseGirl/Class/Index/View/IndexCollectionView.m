@@ -29,7 +29,7 @@
 - (id)initWithFrame:(CGRect)frame onCellSelected:(CellSelectedIndexBlock)block{
     if (self=[super initWithFrame:frame]) {
         cellSelectedIndexBlock=block;
-        self.backgroundColor=[UIColor blackColor];
+        self.backgroundColor=[UIColor whiteColor];
         [self setData];
         [self setUI];
     }
@@ -83,10 +83,10 @@
 - (void)_creatSubView {
     
     self.wslayout = [[WSLayout alloc] init];
-    self.wslayout.lineNumber = 2; //列数
-    self.wslayout.rowSpacing = 5; //行间距
-    self.wslayout.lineSpacing = 5; //列间距
-    self.wslayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    self.wslayout.lineNumber = 3; //列数
+    self.wslayout.rowSpacing = 1; //行间距
+    self.wslayout.lineSpacing = 1; //列间距
+    self.wslayout.sectionInset = UIEdgeInsetsMake(1, 0, 1, 0);
     
     // 透明时用这个属性(保证collectionView 不会被遮挡, 也不会向下移)
     //self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -97,7 +97,7 @@
     [self.collectionView registerClass:[WSCollectionCell class] forCellWithReuseIdentifier:@"collectionCell"];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    //self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
     [self getCollectionData:t_page];
     
@@ -108,11 +108,7 @@
     [self.wslayout computeIndexCellHeightWithWidthBlock:^CGFloat(NSIndexPath *indexPath, CGFloat width) {
         
         CellModel *model = modelCollectionArray[indexPath.row];
-        CGFloat oldWidth = model.imgWidth;
-        CGFloat oldHeight = model.imgHeight;
-        
-        CGFloat newWidth = width;
-        CGFloat newHeigth = 200;
+        CGFloat newHeigth = 135*SCREEN_RADIO;
         return newHeigth;
     }];
     

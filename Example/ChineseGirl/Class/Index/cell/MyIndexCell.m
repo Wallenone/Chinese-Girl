@@ -58,7 +58,7 @@
 - (void)creatSubView {
     [self addSubview:self.iconImageView];
     [self addSubview:self.nickNameLabel];
-    [self addSubview:self.timeDateLabel];
+   // [self addSubview:self.timeDateLabel];
     [self addSubview:self.contentLabel];
     total_height=CGRectGetMaxY(self.contentLabel.frame);
     [self setImgBrower];
@@ -136,9 +136,9 @@
 
 -(UIImageView *)iconImageView{
     if (!_iconImageView) {
-        _iconImageView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 52*SCREEN_RADIO, 52*SCREEN_RADIO)];
+        _iconImageView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
         _iconImageView.image=[UIImage imageNamed:self.myIndexModel.icon];
-        _iconImageView.layer.cornerRadius = 26*SCREEN_RADIO;
+        _iconImageView.layer.cornerRadius = 19*SCREEN_RADIO;
     }
     
     return _iconImageView;
@@ -146,10 +146,10 @@
 
 -(UILabel *)nickNameLabel{
     if (!_nickNameLabel) {
-        _nickNameLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame)+15*SCREEN_RADIO, 17*SCREEN_RADIO, 200*SCREEN_RADIO, 27*SCREEN_RADIO)];
+        _nickNameLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame)+15*SCREEN_RADIO, 23*SCREEN_RADIO, 200*SCREEN_RADIO, 27*SCREEN_RADIO)];
         _nickNameLabel.text=self.myIndexModel.nickName;
         _nickNameLabel.textColor=[UIColor getColor:@"232627"];
-        _nickNameLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
+        _nickNameLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
     }
     
     return _nickNameLabel;
