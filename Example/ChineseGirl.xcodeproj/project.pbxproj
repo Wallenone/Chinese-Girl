@@ -75,6 +75,18 @@
 		E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960901F93622700EB654A /* MineSettingTextViewController.m */; };
 		E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */; };
 		E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4E1F68099600844B2F /* icon_bubble_right.png */; };
+		E5E0FE321F9AEBD700B5228E /* RkyExtendedHitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE311F9AEBD700B5228E /* RkyExtendedHitButton.m */; };
+		E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE351F9AF15700B5228E /* CityData.plist */; };
+		E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE371F9AF15700B5228E /* NicknameViewController.m */; };
+		E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE391F9AF15700B5228E /* SignatureViewController.m */; };
+		E5E0FE491F9AF15700B5228E /* WYBirthdayPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE3B1F9AF15700B5228E /* WYBirthdayPickerView.m */; };
+		E5E0FE4A1F9AF15700B5228E /* WYCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE3D1F9AF15700B5228E /* WYCityPickerView.m */; };
+		E5E0FE4B1F9AF15700B5228E /* WYGenderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE3F1F9AF15700B5228E /* WYGenderPickerView.m */; };
+		E5E0FE4C1F9AF15700B5228E /* WYHeightPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE411F9AF15700B5228E /* WYHeightPickerView.m */; };
+		E5E0FE4D1F9AF15700B5228E /* WYLongTextInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE431F9AF15700B5228E /* WYLongTextInputView.m */; };
+		E5E0FE4E1F9AF15700B5228E /* 返回@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE441F9AF15700B5228E /* 返回@2x.png */; };
+		E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE451F9AF15700B5228E /* 返回@3x.png */; };
+		E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E35D351F9B426600322F9D /* UICustomPickImgView.m */; };
 		E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */; };
 		E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC8331F4936730078F856 /* UIColor+getColor.m */; };
 		E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */; };
@@ -223,6 +235,27 @@
 		E5C960901F93622700EB654A /* MineSettingTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextViewController.m; sourceTree = "<group>"; };
 		E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_left.png; sourceTree = "<group>"; };
 		E5D04A4E1F68099600844B2F /* icon_bubble_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_right.png; sourceTree = "<group>"; };
+		E5E0FE311F9AEBD700B5228E /* RkyExtendedHitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RkyExtendedHitButton.m; sourceTree = "<group>"; };
+		E5E0FE331F9AEBFC00B5228E /* RkyExtendedHitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RkyExtendedHitButton.h; sourceTree = "<group>"; };
+		E5E0FE351F9AF15700B5228E /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
+		E5E0FE361F9AF15700B5228E /* NicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NicknameViewController.h; sourceTree = "<group>"; };
+		E5E0FE371F9AF15700B5228E /* NicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NicknameViewController.m; sourceTree = "<group>"; };
+		E5E0FE381F9AF15700B5228E /* SignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureViewController.h; sourceTree = "<group>"; };
+		E5E0FE391F9AF15700B5228E /* SignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureViewController.m; sourceTree = "<group>"; };
+		E5E0FE3A1F9AF15700B5228E /* WYBirthdayPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYBirthdayPickerView.h; sourceTree = "<group>"; };
+		E5E0FE3B1F9AF15700B5228E /* WYBirthdayPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYBirthdayPickerView.m; sourceTree = "<group>"; };
+		E5E0FE3C1F9AF15700B5228E /* WYCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYCityPickerView.h; sourceTree = "<group>"; };
+		E5E0FE3D1F9AF15700B5228E /* WYCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYCityPickerView.m; sourceTree = "<group>"; };
+		E5E0FE3E1F9AF15700B5228E /* WYGenderPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYGenderPickerView.h; sourceTree = "<group>"; };
+		E5E0FE3F1F9AF15700B5228E /* WYGenderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYGenderPickerView.m; sourceTree = "<group>"; };
+		E5E0FE401F9AF15700B5228E /* WYHeightPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYHeightPickerView.h; sourceTree = "<group>"; };
+		E5E0FE411F9AF15700B5228E /* WYHeightPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYHeightPickerView.m; sourceTree = "<group>"; };
+		E5E0FE421F9AF15700B5228E /* WYLongTextInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYLongTextInputView.h; sourceTree = "<group>"; };
+		E5E0FE431F9AF15700B5228E /* WYLongTextInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYLongTextInputView.m; sourceTree = "<group>"; };
+		E5E0FE441F9AF15700B5228E /* 返回@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回@2x.png"; sourceTree = "<group>"; };
+		E5E0FE451F9AF15700B5228E /* 返回@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回@3x.png"; sourceTree = "<group>"; };
+		E5E35D341F9B426600322F9D /* UICustomPickImgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomPickImgView.h; sourceTree = "<group>"; };
+		E5E35D351F9B426600322F9D /* UICustomPickImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomPickImgView.m; sourceTree = "<group>"; };
 		E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexViewController.h; sourceTree = "<group>"; };
 		E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexViewController.m; sourceTree = "<group>"; };
 		E5EFC8321F4936730078F856 /* UIColor+getColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+getColor.h"; sourceTree = "<group>"; };
@@ -418,6 +451,9 @@
 		E538D73A1F429ACC0079AE94 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				E5E0FE341F9AF15700B5228E /* WYPickerViews */,
+				E5E0FE331F9AEBFC00B5228E /* RkyExtendedHitButton.h */,
+				E5E0FE311F9AEBD700B5228E /* RkyExtendedHitButton.m */,
 				E581D5431F669A5200FD9A28 /* UIImage+Color.h */,
 				E581D5441F669A5200FD9A28 /* UIImage+Color.m */,
 				E5EFC8321F4936730078F856 /* UIColor+getColor.h */,
@@ -427,6 +463,8 @@
 				E538D76E1F429C060079AE94 /* UIViewController+NavigationBar.h */,
 				E538D76F1F429C060079AE94 /* UIViewController+NavigationBar.m */,
 				E538D73B1F429ACC0079AE94 /* AFNetworking */,
+				E5E35D341F9B426600322F9D /* UICustomPickImgView.h */,
+				E5E35D351F9B426600322F9D /* UICustomPickImgView.m */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -630,6 +668,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E5E0FE341F9AF15700B5228E /* WYPickerViews */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0FE351F9AF15700B5228E /* CityData.plist */,
+				E5E0FE361F9AF15700B5228E /* NicknameViewController.h */,
+				E5E0FE371F9AF15700B5228E /* NicknameViewController.m */,
+				E5E0FE381F9AF15700B5228E /* SignatureViewController.h */,
+				E5E0FE391F9AF15700B5228E /* SignatureViewController.m */,
+				E5E0FE3A1F9AF15700B5228E /* WYBirthdayPickerView.h */,
+				E5E0FE3B1F9AF15700B5228E /* WYBirthdayPickerView.m */,
+				E5E0FE3C1F9AF15700B5228E /* WYCityPickerView.h */,
+				E5E0FE3D1F9AF15700B5228E /* WYCityPickerView.m */,
+				E5E0FE3E1F9AF15700B5228E /* WYGenderPickerView.h */,
+				E5E0FE3F1F9AF15700B5228E /* WYGenderPickerView.m */,
+				E5E0FE401F9AF15700B5228E /* WYHeightPickerView.h */,
+				E5E0FE411F9AF15700B5228E /* WYHeightPickerView.m */,
+				E5E0FE421F9AF15700B5228E /* WYLongTextInputView.h */,
+				E5E0FE431F9AF15700B5228E /* WYLongTextInputView.m */,
+				E5E0FE441F9AF15700B5228E /* 返回@2x.png */,
+				E5E0FE451F9AF15700B5228E /* 返回@3x.png */,
+			);
+			path = WYPickerViews;
+			sourceTree = "<group>";
+		};
 		E5F0A3E61F57F7FD0051699B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,7 +787,7 @@
 				ORGANIZATIONNAME = wanjiehuizhaofang;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = 9LKXW763RU;
+						ProvisioningStyle = Automatic;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -761,9 +823,12 @@
 				E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */,
 				E504AB901F507C0100E1F48C /* MBProgressHUD.bundle in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				E5E0FE4E1F9AF15700B5228E /* 返回@2x.png in Resources */,
+				E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +896,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */,
+				E5E0FE491F9AF15700B5228E /* WYBirthdayPickerView.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
@@ -850,6 +916,7 @@
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
 				E54FAA571F5A9E21006C65AF /* MyCommitSViewController.m in Sources */,
 				E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */,
+				E5E0FE4C1F9AF15700B5228E /* WYHeightPickerView.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
 				E53C9D681F558AAA0069D663 /* NewsInfoModel.m in Sources */,
@@ -858,6 +925,7 @@
 				E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */,
 				E538D76C1F429BE80079AE94 /* MineViewController.m in Sources */,
 				E504AB981F507C0100E1F48C /* MJPhotoView.m in Sources */,
+				E5E0FE4A1F9AF15700B5228E /* WYCityPickerView.m in Sources */,
 				E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */,
 				E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */,
 				E504AB951F507C0100E1F48C /* MJPhotoLoadingView.m in Sources */,
@@ -866,12 +934,15 @@
 				E504AB971F507C0100E1F48C /* MJPhotoToolbar.m in Sources */,
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
+				E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */,
+				E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */,
 				E538D7661F429BE80079AE94 /* DriftBottleViewController.m in Sources */,
 				E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */,
 				E508B1B71F714C750048C378 /* CGBottleTextView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E538D74E1F429ACC0079AE94 /* AFURLSessionManager.m in Sources */,
 				E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */,
+				E5E0FE4B1F9AF15700B5228E /* WYGenderPickerView.m in Sources */,
 				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
 				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
@@ -879,9 +950,12 @@
 				E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */,
 				E538D74D1F429ACC0079AE94 /* AFURLResponseSerialization.m in Sources */,
 				E504AB921F507C0100E1F48C /* MJPhoto.m in Sources */,
+				E5E0FE4D1F9AF15700B5228E /* WYLongTextInputView.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
+				E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */,
+				E5E0FE321F9AEBD700B5228E /* RkyExtendedHitButton.m in Sources */,
 				E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */,
 				E5C960821F93132C00EB654A /* WSCollectionHeaderCell.m in Sources */,
 				E538D7671F429BE80079AE94 /* WSCollectionCell.m in Sources */,
@@ -970,7 +1044,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1003,7 +1077,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1015,10 +1089,12 @@
 			baseConfigurationReference = FBA77A7CBE9FFE2BA1642376 /* Pods-ChineseGirl_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9LKXW763RU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1031,10 +1107,12 @@
 			baseConfigurationReference = 42FA0950B1EA4E1BB940138C /* Pods-ChineseGirl_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9LKXW763RU;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
