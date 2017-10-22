@@ -14,7 +14,7 @@
 
 typedef UITableViewCell * (^BuildCellBlock)(id,NSString *,NSIndexPath *);
 typedef void (^CellSelectedBlock)(id,id);
-typedef NSArray* (^DragUpBlock)(int);
+typedef void (^DragUpBlock)(int);
 typedef void (^DragDownBlock)();
 typedef CGFloat (^AutoChangeCellHeightBlock)(id,id);
 typedef NSArray*(^TitleForHeaderInSection)(void);
@@ -83,6 +83,11 @@ typedef void (^Cellediting)(void);
 
 //插入数据
 - (void)insertData:(id)data;
+//用在上啦加载中
+- (void)addData:(NSArray *)arr;
+
+//用在普通加数据上
+- (void)addContentData:(NSArray *)arr;
 
 //右滑动删除
 - (void)onCellediting:(Cellediting)block;
@@ -92,6 +97,8 @@ typedef void (^Cellediting)(void);
 
 //滚动到底部
 - (void)scrollToBottom:(BOOL)animated;
+
+- (void)noMoreData;
 @end
 
 

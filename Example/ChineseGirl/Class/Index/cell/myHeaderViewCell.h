@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MyIndexModel.h"
+typedef void (^TalkCallBack)(void);
 @interface myHeaderViewCell : UITableViewCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel withTalkCallBack:(TalkCallBack)block;
 @end

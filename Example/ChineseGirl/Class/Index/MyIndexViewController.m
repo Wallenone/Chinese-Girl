@@ -11,14 +11,16 @@
 #import "MyIndexModel.h"
 #import "MyIndexCell.h"
 #import "myHeaderViewCell.h"
+#import "MyCommitSViewController.h"
+#import "NewsMessageController.h"
 #define MJRandomData [NSString stringWithFormat:@"随机数据---%d", arc4random_uniform(1000000)]
 
 @interface MyIndexViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
-@property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)UIView *infoView;
+@property(nonatomic,strong)UIView *bottomLine;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @end
 
@@ -27,7 +29,6 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -46,9 +47,9 @@
 
 -(void)addSubViews{
     [self.view addSubview:self.headerView];
+    [self.view addSubview:self.bottomLine];
     [self.headerView addSubview:self.titleLabel];
     [self.headerView addSubview:self.leftIcon];
-    [self.headerView addSubview:self.rightBtn];
     [self.view addSubview:self.tbv];
 }
 
@@ -56,19 +57,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)editClick{
-    
-}
 
 -(void)loveClick{
 
 }
 
-
-
--(void)EditClick{
-
-}
 
 -(void)setTableView{
 
@@ -106,19 +99,6 @@
     return _titleLabel;
 }
 
--(UIButton *)rightBtn{
-    if (!_rightBtn) {
-        _rightBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-150*SCREEN_RADIO, 29*SCREEN_RADIO, 135*SCREEN_RADIO, 24*SCREEN_RADIO)];
-        [_rightBtn setTitle:@"Edit" forState:UIControlStateNormal];
-        [_rightBtn setTitleColor:[UIColor getColor:@"232627"] forState:UIControlStateNormal];
-        _rightBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        _rightBtn.contentHorizontalAlignment=UIControlContentHorizontalAlignmentRight;
-        [_rightBtn addTarget:self action:@selector(EditClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _rightBtn;
-}
-
 
 -(UIView *)infoView{
     if(!_infoView){
@@ -127,6 +107,16 @@
     }
     
     return _infoView;
+}
+
+
+-(UIView *)bottomLine{
+    if (!_bottomLine) {
+        _bottomLine=[[UIView alloc] initWithFrame:CGRectMake(0, 63.5, screen_width, 0.5)];
+        _bottomLine.backgroundColor=[UIColor getColor:@"CED7DB"];
+    }
+    
+    return _bottomLine;
 }
 
 
@@ -202,12 +192,19 @@
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             NSLog(@"row:=%ld",(long)index.row);
             NSLog(@"section:=%ld",(long)index.section);
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
             if (index.row ==0) {
-                myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
+                myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withTalkCallBack:^{
+                    NewsMessageController *newsMessageVC=[[NewsMessageController alloc] init];
+                    [weakSelf.navigationController pushViewController:newsMessageVC animated:NO];
+                }];
                 
                 return (UITableViewCell *)myHeaderCell;
             }else{
-                MyIndexCell *myIndexCell = [[MyIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
+                MyIndexCell *myIndexCell = [[MyIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withCommitClick:^{
+                    MyCommitSViewController *myCommitVC=[[MyCommitSViewController alloc] init];
+                    [strongSelf.navigationController pushViewController:myCommitVC animated:NO];
+                }];
                 myIndexCell.userInteractionEnabled = true;
                // myIndexCell.backgroundColor=[UIColor purpleColor];
                 return (UITableViewCell *)myIndexCell;

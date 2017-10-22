@@ -42,6 +42,19 @@
     return self;
 }
 
+-(void)setFirstResponderAction{
+    [self.messageView resignFirstResponder];
+}
+
+-(BOOL)getIsFirstResponder{
+    return self.messageView.isFirstResponder;
+}
+
+-(void)setBeResponderAction{
+    [self.messageView becomeFirstResponder];
+}
+
+
 -(void)addSubViews{
     [self addSubview:self.bgView];
     [self addSubview:self.toplineView];

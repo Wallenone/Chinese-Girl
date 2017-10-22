@@ -27,14 +27,13 @@
     
          //a.初始化一个tabBar控制器
     UITabBarController *tb=[[UITabBarController alloc]init];
+    tb.tabBar.barTintColor=[UIColor getColor:@"333333"];
+    tb.tabBar.translucent=YES;
     tb.delegate=self;
     //设置控制器为Window的根控制器
     self.window.rootViewController=tb;
     
     //b.创建子控制器
-    
-    
-    
     IndexViewController *indeVC=[[IndexViewController alloc] init];
     indeVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
     indeVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];

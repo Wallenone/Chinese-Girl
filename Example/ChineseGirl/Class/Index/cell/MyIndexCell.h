@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MyIndexModel.h"
+typedef void (^CommitClick)(void);
+
 @interface MyIndexCell : UITableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel withCommitClick:(CommitClick)block;
 @end

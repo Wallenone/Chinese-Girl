@@ -11,9 +11,9 @@
 #import "UIImageView+MJWebCache.h"
 #import "MJPhotoBrowser.h"
 #import "MJPhoto.h"
-
 @interface MyIndexCell(){
     CGFloat total_height;
+    CommitClick commitClick;
 }
 @property(nonatomic,strong)MyIndexModel *myIndexModel;
 @property(nonatomic,strong)UIImageView *iconImageView;
@@ -21,22 +21,24 @@
 @property(nonatomic,strong)UILabel *timeDateLabel;
 @property(nonatomic,strong)UITextView *contentLabel;
 @property(nonatomic,strong)UIImageView *picImgView;
-@property(nonatomic,strong)UIImageView *giftImgView;
+@property(nonatomic,strong)UIButton *giftImgView;
 @property(nonatomic,strong)UILabel *giftLabel;
-@property(nonatomic,strong)UIImageView *likeImgView;
+@property(nonatomic,strong)UIButton *likeImgView;
 @property(nonatomic,strong)UILabel *likeLabel;
 @property(nonatomic,strong)NSMutableArray *imgViewArr;
-@property(nonatomic,strong)UIView *commitView;
+@property(nonatomic,strong)UIButton *commitView;
 @property(nonatomic,strong)UIImageView *avaterCommit;
 @property(nonatomic,strong)UIButton *allCommit;
 @property(nonatomic,strong)UILabel *allCommitLabel;
+@property(nonatomic,strong)UIView *bottomLine;
 @end
 @implementation MyIndexCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel withCommitClick:(CommitClick)block{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         total_height=0;
+        commitClick=block;
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.backgroundColor=[UIColor clearColor];
         self.myIndexModel = indexModel;
@@ -70,6 +72,7 @@
     [self addSubview:self.allCommitLabel];
     [self addSubview:self.allCommit];
     [self addSubview:self.commitView];
+    [self addSubview:self.bottomLine];
     [self setCommitUI];
 }
 
@@ -136,12 +139,20 @@
 }
 
 -(void)allCommitClick{
+    if (commitClick) {
+        commitClick();
+    }
+}
 
+-(void)giftClick{
+    
+}
+
+-(void)likeClick{
+    
 }
 
 -(void)setCommitUI{
-
-    
     for (int i=0; i<3; i++) {
         UILabel *nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, 0, 14*SCREEN_RADIO)];
         nickName.text=@"wallen";
@@ -200,6 +211,7 @@
         _contentLabel.textColor=[UIColor getColor:@"575E62"];
         _contentLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
         [_contentLabel setEditable:NO];
+        _contentLabel.userInteractionEnabled=NO;
        // [_contentLabel sizeToFit];
     }
     
@@ -207,10 +219,11 @@
     return _contentLabel;
 }
 
--(UIImageView *)giftImgView{
+-(UIButton *)giftImgView{
     if (!_giftImgView) {
-        _giftImgView=[[UIImageView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 17*SCREEN_RADIO, 17*SCREEN_RADIO)];
-        _giftImgView.image=[UIImage imageNamed:@"Commentcell"];
+        _giftImgView=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 17*SCREEN_RADIO, 17*SCREEN_RADIO)];
+        [_giftImgView setImage:[UIImage imageNamed:@"Commentcell"] forState:UIControlStateNormal];
+        [_giftImgView addTarget:self action:@selector(giftClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _giftImgView;
@@ -229,10 +242,11 @@
     return _giftLabel;
 }
 
--(UIImageView *)likeImgView{
+-(UIButton *)likeImgView{
     if (!_likeImgView) {
-        _likeImgView=[[UIImageView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.giftImgView.frame)+10*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
-        _likeImgView.image=[UIImage imageNamed:@"Likecell"];
+        _likeImgView=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.giftImgView.frame)+10*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
+        [_likeImgView setImage:[UIImage imageNamed:@"Likecell"] forState:UIControlStateNormal];
+        [_likeImgView addTarget:self action:@selector(likeClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _likeImgView;
@@ -272,13 +286,23 @@
 }
 
 
--(UIView *)commitView{
+-(UIButton *)commitView{
     if (!_commitView) {
-        _commitView=[[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.allCommit.frame), screen_width, 80*SCREEN_RADIO)];
+        _commitView=[[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.allCommit.frame), screen_width, 80*SCREEN_RADIO)];
         _commitView.backgroundColor=[UIColor clearColor];
+        [_commitView addTarget:self action:@selector(allCommitClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _commitView;
+}
+
+-(UIView *)bottomLine{
+    if (!_bottomLine) {
+        _bottomLine=[[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.commitView.frame), screen_width, 0.5)];
+        _bottomLine.backgroundColor=[UIColor getColor:@"CED7DB"];
+    }
+    
+    return _bottomLine;
 }
 
 @end

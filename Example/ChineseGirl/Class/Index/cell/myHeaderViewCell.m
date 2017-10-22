@@ -7,8 +7,9 @@
 //
 
 #import "myHeaderViewCell.h"
-
-@interface myHeaderViewCell()
+@interface myHeaderViewCell(){
+    TalkCallBack talkCallBack;
+}
 @property(nonatomic,strong)MyIndexModel *myIndexModel;
 @property(nonatomic,strong)UIImageView *AvatarImgView;
 @property(nonatomic,strong)UILabel *nickName;
@@ -20,9 +21,10 @@
 @end
 @implementation myHeaderViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel withTalkCallBack:(TalkCallBack)block{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        talkCallBack=block;
         self.backgroundColor=[UIColor clearColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.myIndexModel = indexModel;
@@ -44,7 +46,9 @@
 }
 
 -(void)talkClick{
-    
+    if (talkCallBack) {
+        talkCallBack();
+    }
 }
 
 -(void)followingClick{
