@@ -11,7 +11,6 @@
 #import "MyIndexModel.h"
 #import "MyIndexCell.h"
 #import "myHeaderViewCell.h"
-#import "MyCommitSViewController.h"
 #define MJRandomData [NSString stringWithFormat:@"随机数据---%d", arc4random_uniform(1000000)]
 
 @interface MyIndexViewController ()
@@ -133,7 +132,7 @@
 
 
 -(CGFloat)getCellHeightWithModel:(MyIndexModel*)model{
-    CGFloat _height=125*SCREEN_RADIO;
+    CGFloat _height=235*SCREEN_RADIO;
     if(model.content.length>0){
         CGSize constraint = CGSizeMake(screen_width-30*SCREEN_RADIO, 99999.0f);
         CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:17.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
@@ -247,8 +246,7 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
-            MyCommitSViewController *commitVC=[[MyCommitSViewController alloc] init];
-            [weakSelf.navigationController pushViewController:commitVC animated:NO];
+            
         }];
         
     }

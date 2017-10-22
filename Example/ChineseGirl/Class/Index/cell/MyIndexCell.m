@@ -25,11 +25,11 @@
 @property(nonatomic,strong)UILabel *giftLabel;
 @property(nonatomic,strong)UIImageView *likeImgView;
 @property(nonatomic,strong)UILabel *likeLabel;
-@property(nonatomic,strong)UIImageView *commentImgView;
-@property(nonatomic,strong)UILabel *commentLabel;
-@property(nonatomic,strong)UIView *bottomLineView;
 @property(nonatomic,strong)NSMutableArray *imgViewArr;
-
+@property(nonatomic,strong)UIView *commitView;
+@property(nonatomic,strong)UIImageView *avaterCommit;
+@property(nonatomic,strong)UIButton *allCommit;
+@property(nonatomic,strong)UILabel *allCommitLabel;
 @end
 @implementation MyIndexCell
 
@@ -67,9 +67,10 @@
     [self addSubview:self.giftLabel];
     [self addSubview:self.likeImgView];
     [self addSubview:self.likeLabel];
-    [self addSubview:self.commentImgView];
-    [self addSubview:self.commentLabel];
-    [self addSubview:self.bottomLineView];
+    [self addSubview:self.allCommitLabel];
+    [self addSubview:self.allCommit];
+    [self addSubview:self.commitView];
+    [self setCommitUI];
 }
 
 -(void)setImgBrower{
@@ -134,6 +135,29 @@
     [browser show];
 }
 
+-(void)allCommitClick{
+
+}
+
+-(void)setCommitUI{
+
+    
+    for (int i=0; i<3; i++) {
+        UILabel *nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, 0, 14*SCREEN_RADIO)];
+        nickName.text=@"wallen";
+        nickName.textColor=[UIColor getColor:@"274E6E"];
+        nickName.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
+        [nickName sizeToFit];
+        [self.commitView addSubview:nickName];
+        
+        UILabel *commitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(nickName.frame)+10*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, screen_width-52*SCREEN_RADIO, 17*SCREEN_RADIO)];
+        commitLabel.text=@"XXXXXXXXXXXXXX";
+        commitLabel.textColor=[UIColor getColor:@"99A3A9"];
+        commitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
+        [self.commitView addSubview:commitLabel];
+    }
+}
+
 -(UIImageView *)iconImageView{
     if (!_iconImageView) {
         _iconImageView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
@@ -185,8 +209,8 @@
 
 -(UIImageView *)giftImgView{
     if (!_giftImgView) {
-        _giftImgView=[[UIImageView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, total_height+ 14.5*SCREEN_RADIO, 17*SCREEN_RADIO, 17*SCREEN_RADIO)];
-        _giftImgView.image=[UIImage imageNamed:@"Writemessage"];
+        _giftImgView=[[UIImageView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 17*SCREEN_RADIO, 17*SCREEN_RADIO)];
+        _giftImgView.image=[UIImage imageNamed:@"Commentcell"];
     }
     
     return _giftImgView;
@@ -195,10 +219,11 @@
 
 -(UILabel *)giftLabel{
     if (!_giftLabel) {
-        _giftLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.giftImgView.frame)+8.5*SCREEN_RADIO, total_height+16*SCREEN_RADIO, 50*SCREEN_RADIO, 18*SCREEN_RADIO)];
-        _giftLabel.text=@"GIFT";
-        _giftLabel.textColor=[UIColor getColor:@"99A3A9"];
-        _giftLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
+        _giftLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.giftImgView.frame)+8.5*SCREEN_RADIO, total_height+10*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
+        _giftLabel.text=@"100 gifts";
+        _giftLabel.textColor=[UIColor getColor:@"274E6E"];
+        _giftLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
+        [_giftLabel sizeToFit];
     }
     
     return _giftLabel;
@@ -206,7 +231,7 @@
 
 -(UIImageView *)likeImgView{
     if (!_likeImgView) {
-        _likeImgView=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width/2+80*SCREEN_RADIO, total_height+14.5*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
+        _likeImgView=[[UIImageView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.giftImgView.frame)+10*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
         _likeImgView.image=[UIImage imageNamed:@"Likecell"];
     }
     
@@ -215,10 +240,10 @@
 
 -(UILabel *)likeLabel{
     if (!_likeLabel) {
-        _likeLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, total_height+16*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
-        _likeLabel.text=self.myIndexModel.likes;
-        _likeLabel.textColor=[UIColor getColor:@"99A3A9"];
-        _likeLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
+        _likeLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.giftImgView.frame)+10*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
+        _likeLabel.text=[NSString stringWithFormat:@"%@ likes",self.myIndexModel.likes];
+        _likeLabel.textColor=[UIColor getColor:@"274E6E"];
+        _likeLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
         [_likeLabel sizeToFit];
     }
     
@@ -226,33 +251,34 @@
 }
 
 
--(UIImageView *)commentImgView{
-    if (!_commentImgView) {
-        _commentImgView=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+35*SCREEN_RADIO, total_height+14.5*SCREEN_RADIO, 17*SCREEN_RADIO, 16.25*SCREEN_RADIO)];
-        _commentImgView.image=[UIImage imageNamed:@"Commentcell"];
+-(UIButton *)allCommit{
+    if (!_allCommit) {
+        _allCommit=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.likeImgView.frame)+10*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 14*SCREEN_RADIO)];
+        [_allCommit addTarget:self action:@selector(allCommitClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    return _commentImgView;
+    return _allCommit;
 }
 
--(UILabel *)commentLabel{
-    if (!_commentLabel) {
-        _commentLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.commentImgView.frame)+8.5*SCREEN_RADIO, total_height+16*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
-        _commentLabel.text=self.myIndexModel.comments;
-        _commentLabel.textColor=[UIColor getColor:@"99A3A9"];
-        _commentLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
-        [_commentLabel sizeToFit];
+-(UILabel *)allCommitLabel{
+    if (!_allCommitLabel) {
+        _allCommitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.likeImgView.frame)+10*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 14*SCREEN_RADIO)];
+        _allCommitLabel.text=[NSString stringWithFormat:@"view all %@ commits",self.myIndexModel.comments];
+        _allCommitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
+        _allCommitLabel.textColor=[UIColor getColor:@"B1B1B1"];
     }
     
-    return _commentLabel;
+    return _allCommitLabel;
 }
 
--(UIView *)bottomLineView{
-    if (!_bottomLineView) {
-        _bottomLineView=[[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.commentLabel.frame)+14*SCREEN_RADIO, screen_width, 0.5)];
-        _bottomLineView.backgroundColor=[UIColor getColor:@"CED7DB"];
+
+-(UIView *)commitView{
+    if (!_commitView) {
+        _commitView=[[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.allCommit.frame), screen_width, 80*SCREEN_RADIO)];
+        _commitView.backgroundColor=[UIColor clearColor];
     }
     
-    return _bottomLineView;
+    return _commitView;
 }
+
 @end

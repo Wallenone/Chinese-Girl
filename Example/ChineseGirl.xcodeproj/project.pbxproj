@@ -58,7 +58,6 @@
 		E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C9D6A1F558B700069D663 /* NewsInfoCellTableViewCell.m */; };
 		E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CD2E31F4F15B600CF913D /* MyIndexModel.m */; };
 		E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */; };
-		E54FAA571F5A9E21006C65AF /* MyCommitSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA561F5A9E21006C65AF /* MyCommitSViewController.m */; };
 		E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */; };
 		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
 		E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */; };
@@ -203,8 +202,6 @@
 		E53CD2E31F4F15B600CF913D /* MyIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexModel.m; sourceTree = "<group>"; };
 		E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexCell.m; sourceTree = "<group>"; };
 		E53CD2E61F4F17DC00CF913D /* MyIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexCell.h; sourceTree = "<group>"; };
-		E54FAA551F5A9E21006C65AF /* MyCommitSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitSViewController.h; sourceTree = "<group>"; };
-		E54FAA561F5A9E21006C65AF /* MyCommitSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommitSViewController.m; sourceTree = "<group>"; };
 		E54FAA581F5A9E71006C65AF /* MyCommitHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitHeaderView.h; sourceTree = "<group>"; };
 		E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommitHeaderView.m; sourceTree = "<group>"; };
 		E54FAA5B1F5A9F52006C65AF /* MycommitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MycommitModel.h; sourceTree = "<group>"; };
@@ -506,8 +503,6 @@
 				E538D7571F429BE80079AE94 /* IndexViewController.m */,
 				E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */,
 				E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */,
-				E54FAA551F5A9E21006C65AF /* MyCommitSViewController.h */,
-				E54FAA561F5A9E21006C65AF /* MyCommitSViewController.m */,
 				E538D7531F429BE80079AE94 /* cell */,
 				E538D7581F429BE80079AE94 /* Model */,
 				E538D75B1F429BE80079AE94 /* View */,
@@ -914,7 +909,6 @@
 				E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
-				E54FAA571F5A9E21006C65AF /* MyCommitSViewController.m in Sources */,
 				E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */,
 				E5E0FE4C1F9AF15700B5228E /* WYHeightPickerView.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
