@@ -11,15 +11,19 @@
 #import "CGRegisterIndexView.h"
 #import "CGRegisterIndexViewController.h"
 #import "CGForgetPasswordViewController.h"
+#import "MineViewController.h"
+#import "CGSingleCommitData.h"
 @interface CGLoginViewController ()
 @property(nonatomic,strong)CGLoginIndexView *loginIndexView;
-
 @end
 
 @implementation CGLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapView)];
+    [self.view addGestureRecognizer:tap];
+ 
     [self addSubViews];
 }
 
@@ -37,6 +41,19 @@
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+-(void)tapView{
+    [self checkRespons];
+}
+
+-(void)checkRespons{
+    [self.loginIndexView checkRespons];
+}
+
+-(void)setUerData{
+    [CGSingleCommitData sharedInstance].uid=@"0";
+    [CGSingleCommitData sharedInstance].nickName=@"wanjie";
+}
+
 
 -(void)addSubViews{
     [self.view addSubview:self.loginIndexView];
@@ -52,18 +69,23 @@
             CGForgetPasswordViewController *forgetVC=[[CGForgetPasswordViewController alloc] init];
             [weakSelf.navigationController pushViewController:forgetVC animated:NO];
         } onSignInClick:^{
-            
+            [weakSelf dismissViewControllerAnimated:NO completion:nil];
+            [weakSelf setUerData];
         } onGooleClick:^{
             
         } onFacebookClick:^{
             
         } onwitterClick:^{
             
+        } onCanCelClick:^{
+            [weakSelf dismissViewControllerAnimated:NO completion:nil];
+            weakSelf.tabBarController.selectedIndex=0;
         }];
     }
     
     return _loginIndexView;
 }
+
 
 
 

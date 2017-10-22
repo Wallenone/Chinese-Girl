@@ -16,9 +16,12 @@
 #import "WYHeightPickerView.h"
 #import "WYCityPickerView.h"
 #import "UICustomPickImgView.h"
+#import "CGSingleCommitData.h"
+#import "CGLoginViewController.h"
 @interface MineViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
 }
 @property(nonatomic,strong)UIView *headerView;
+@property(nonatomic,strong)UIButton *outBtn;
 @property(nonatomic,strong)UIImageView *headerImgView;
 @property(nonatomic,strong)UIButton *AvatarImgView;
 @property(nonatomic,strong)UILabel *nickName;
@@ -34,6 +37,7 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    [self setData];
 }
 
 - (void)viewDidLoad {
@@ -44,10 +48,21 @@
     [self addBodyView];
 }
 
+-(void)setData{
+    self.nickName.text=[CGSingleCommitData sharedInstance].nickName;
+    for (int i=0; i<5; i++) {
+        MySettingTableViewCell *cell = [self.tbv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if (i==0) {   //nickName
+            [cell updateCellContent:[CGSingleCommitData sharedInstance].nickName];
+        }
+    }
+}
+
 -(void)addHeaderView{
     [self.view addSubview:self.headerView];
     [self.headerView addSubview:self.headerImgView];
     [self.headerView addSubview:self.AvatarImgView];
+    [self.headerView addSubview:self.outBtn];
     [self.headerView addSubview:self.nickName];
 }
 
@@ -75,6 +90,22 @@
         weakSelf.imgsNum++;
     }];
     [self.view addSubview:customVC];
+}
+
+-(void)outClick{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定要退出吗" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(self) weakSelf = self;
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[CGSingleCommitData sharedInstance] logout];
+        CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
+        [weakSelf presentViewController:loginVC animated:NO completion:nil];
+    }]];
+    
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 
@@ -123,6 +154,17 @@
         _headerView.backgroundColor=[UIColor getColor:@"2979FF"];
     }
     return _headerView;
+}
+
+-(UIButton *)outBtn{
+    if (!_outBtn) {
+        _outBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2+100*SCREEN_RADIO, 31.5*SCREEN_RADIO, 100*SCREEN_RADIO, 17*SCREEN_RADIO)];
+        [_outBtn setTitle:@"退出" forState:UIControlStateNormal];
+        [_outBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
+        _outBtn.titleLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
+        [_outBtn addTarget:self action:@selector(outClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _outBtn;
 }
 
 -(UIImageView *)headerImgView{
@@ -238,11 +280,15 @@
                 };
                 
                 [strongSelf.view addSubview:customPickerSex];
-
-                
-                
             }else if ([cellData isEqualToString:@"城市"]){
-            
+                MineSettingTextViewController *citykVC=[[MineSettingTextViewController alloc] init];
+                citykVC.titleText=@"城市";
+                citykVC.textStr=[cell getContent];
+                [citykVC onTextBlock:^(NSString *text) {
+                    [cell updateCellContent:text];
+                }];
+                
+                [strongSelf.navigationController pushViewController:citykVC animated:NO];
             }else if ([cellData isEqualToString:@"生日"]){
                 strongSelf.tabBarController.tabBar.hidden=YES;
                 WYBirthdayPickerView *birthdayPickerView = [[WYBirthdayPickerView alloc] initWithInitialDate:@"1990-01-01"];
@@ -254,9 +300,6 @@
                 };
                 
                 [strongSelf.view addSubview:birthdayPickerView];
-                
-            
-                
             }else if ([cellData isEqualToString:@"关于我"]){
                 MineSettingTextViewController *aboutVC=[[MineSettingTextViewController alloc] init];
                 aboutVC.titleText=@"关于我";

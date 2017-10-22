@@ -15,7 +15,9 @@
     GooleClickBlock gooleClickBlock;
     FacebookClickBlock facebookClickBlock;
     TwitterClickBlock twitterClickBlock;
+    CanCelClickBlock canCelClickBlock;
 }
+@property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UIImageView *bgImgView;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIButton *SignupBtn;
@@ -31,7 +33,7 @@
 @implementation CGLoginIndexView
 
 
-- (id)initWithFrame:(CGRect)frame onSingUpClick:(SingUpClickBlock)singUpBlock onForgotPasswordClick:(ForgotPasswordClickBlock)forgotPasswordBlock onSignInClick:(SignInClickBlock)signInkBlock onGooleClick:(GooleClickBlock)gooleBlock  onFacebookClick:(FacebookClickBlock)facebookBlock onwitterClick:(TwitterClickBlock)witterBlock{
+- (id)initWithFrame:(CGRect)frame onSingUpClick:(SingUpClickBlock)singUpBlock onForgotPasswordClick:(ForgotPasswordClickBlock)forgotPasswordBlock onSignInClick:(SignInClickBlock)signInkBlock onGooleClick:(GooleClickBlock)gooleBlock  onFacebookClick:(FacebookClickBlock)facebookBlock onwitterClick:(TwitterClickBlock)witterBlock onCanCelClick:(CanCelClickBlock)canCelClick{
     self.backgroundColor=[UIColor clearColor];
     if (self=[super initWithFrame:frame]) {
         singUpClickBlock = singUpBlock;
@@ -40,7 +42,7 @@
         gooleClickBlock = gooleBlock;
         facebookClickBlock= facebookBlock;
         twitterClickBlock = witterBlock;
-        
+        canCelClickBlock = canCelClick;
         [self addSubViews];
     }
     
@@ -54,6 +56,7 @@
     UIView *_view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     _view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     [self.bgImgView addSubview:_view];
+    [self addSubview:self.leftIcon];
     [self addSubview:self.titleLabel];
     [self addSubview:self.SignupBtn];
     [self addSubview:self.userNameField];
@@ -64,6 +67,12 @@
     [self addSubview:self.googleBtn];
     [self addSubview:self.facebookBtn];
     [self addSubview:self.twitterBtn];
+}
+
+-(void)back{
+    if (canCelClickBlock) {
+        canCelClickBlock();
+    }
 }
 
 
@@ -80,8 +89,10 @@
 }
 
 -(void)signInClick{
-    if (signInClickBlock) {
-        signInClickBlock();
+    if(self.userNameField.text.length>0 && self.passwordField.text.length>0){
+        if (signInClickBlock) {
+            signInClickBlock();
+        }
     }
 }
 
@@ -102,6 +113,28 @@
         twitterClickBlock();
     }
 }
+
+-(void)checkRespons{
+    if (self.userNameField.isFirstResponder) {
+        [self.userNameField resignFirstResponder];
+    }
+    
+    if (self.passwordField.isFirstResponder) {
+        [self.passwordField resignFirstResponder];
+    }
+}
+
+-(UIButton *)leftIcon{
+    if (!_leftIcon) {
+        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        [_leftIcon setImage:[UIImage imageNamed:@"Arrowleft"] forState:UIControlStateNormal];
+        [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _leftIcon;
+}
+
+
+
 
 -(UIImageView *)bgImgView{
     if (!_bgImgView) {

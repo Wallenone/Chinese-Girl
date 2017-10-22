@@ -12,6 +12,9 @@
 #import "DriftBottleViewController.h"
 #import "NewsViewController.h"
 #import "MineViewController.h"
+#import "CGSingleCommitData.h"
+#import "MineViewController.h"
+#import "CGLoginViewController.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 @end
@@ -87,6 +90,26 @@
     UIGraphicsEndImageContext();
     return scaledImage;
 }
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    NSLog(@"index:=%lu",(unsigned long)tabBarController.selectedIndex);
+    if (tabBarController.selectedIndex==3) {
+        if ([CGSingleCommitData sharedInstance].uid.length>0) {
+            MineViewController *mineVC=[[MineViewController alloc] init];
+            [viewController.navigationController pushViewController:mineVC animated:NO];
+            
+           
+        }else{
+            CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
+            UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:loginVC];
+            [viewController presentViewController:navi animated:NO completion:nil];
+            
+        }
+    }
+    
+    
+}
+
 
 
 
