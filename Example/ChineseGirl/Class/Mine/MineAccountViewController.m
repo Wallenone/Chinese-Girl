@@ -1,0 +1,168 @@
+//
+//  MineAccountViewController.m
+//  ChineseGirl
+//
+//  Created by Wallen on 2017/10/23.
+//  Copyright © 2017年 wanjiehuizhaofang. All rights reserved.
+//
+
+#import "MineAccountViewController.h"
+#import "EZJFastTableView.h"
+#import "MySettingTableViewCell.h"
+#import "MinePasswordViewController.h"
+#import "CGLoginViewController.h"
+@interface MineAccountViewController ()
+@property(nonatomic,strong)UIView *headerView;
+@property(nonatomic,strong)UILabel *titleLable;
+@property(nonatomic,strong)UIButton *leftBtn;
+@property(nonatomic,strong)EZJFastTableView *tbv;
+@property(nonatomic,strong)UIButton *logoutBtn;
+@end
+
+@implementation MineAccountViewController
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor=[UIColor getColor:@"F8F8F8"];
+    [self addHeaderView];
+    [self addBodyView];
+}
+
+-(void)addHeaderView{
+    [self.view addSubview:self.headerView];
+    [self.headerView addSubview:self.titleLable];
+    [self.headerView addSubview:self.leftBtn];
+}
+
+-(void)addBodyView{
+    [self.view addSubview:self.tbv];
+    [self.view addSubview:self.logoutBtn];
+}
+-(void)backClick{
+    [self.navigationController popViewControllerAnimated:NO];
+}
+
+-(void)logoutClick{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定要退出吗" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(self) weakSelf = self;
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[CGSingleCommitData sharedInstance] logout];
+        CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
+        [weakSelf presentViewController:loginVC animated:NO completion:nil];
+    }]];
+    
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
+
+-(UIView *)headerView{
+    if (!_headerView) {
+        _headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 64)];
+        _headerView.backgroundColor=[UIColor whiteColor];
+    }
+    return _headerView;
+}
+
+-(UILabel *)titleLable{
+    if (!_titleLable) {
+        _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
+        _titleLable.text=@"我的账户";
+        _titleLable.textColor=[UIColor getColor:@"232627"];
+        _titleLable.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
+        _titleLable.textAlignment=NSTextAlignmentCenter;
+    }
+    return _titleLable;
+}
+
+-(UIButton *)leftBtn{
+    if (!_leftBtn) {
+        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        [_leftBtn setBackgroundImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
+        [_leftBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _leftBtn;
+}
+
+-(EZJFastTableView *)tbv{
+    if (!_tbv) {
+        
+        __weak typeof(self) weakSelf = self;
+        CGRect tbvFrame = CGRectMake(16*SCREEN_RADIO, 80*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 49.5*5*SCREEN_RADIO);
+        //初始化
+        
+        _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
+        _tbv.scrollEnabled=NO;
+        _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _tbv.layer.cornerRadius=6;
+        _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
+        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:@"修改密码",nil];
+        
+        //给tableview赋值
+        [_tbv setDataArray:arrays];
+        
+        [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
+            MySettingTableViewCell *cell=[[MySettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData];
+            return cell;
+            
+        }];
+        
+        //动态改变
+        
+        [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
+            
+            return 49.5*SCREEN_RADIO;
+        }];
+        
+        //设置选中事件 block设置方式
+        //indexPath  是当前行对象 indexPath.row(获取行数)
+        //cellData 是当前行的数据
+        
+        [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
+            
+            if ([cellData isEqualToString:@"修改密码"]) {
+                MinePasswordViewController *passwordVC=[[MinePasswordViewController alloc] init];
+                [weakSelf.navigationController pushViewController:passwordVC animated:NO];
+            }
+        }];
+        
+    }
+    
+    return _tbv;
+}
+
+
+-(UIButton *)logoutBtn{
+    if (!_logoutBtn) {
+        _logoutBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, screen_height-90*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
+        [_logoutBtn setTitleColor:[UIColor getColor:@"2979FF"] forState:UIControlStateNormal];
+        [_logoutBtn setTitle:@"退出当前账号" forState:UIControlStateNormal];
+        _logoutBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
+        _logoutBtn.layer.cornerRadius=21*SCREEN_RADIO;
+        _logoutBtn.layer.borderWidth=1;
+        _logoutBtn.layer.borderColor=[UIColor getColor:@"2979FF"].CGColor;
+        [_logoutBtn addTarget:self action:@selector(logoutClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _logoutBtn;
+}
+
+
+@end

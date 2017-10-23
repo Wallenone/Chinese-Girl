@@ -93,20 +93,6 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     NSLog(@"index:=%lu",(unsigned long)tabBarController.selectedIndex);
-    if (tabBarController.selectedIndex==3) {
-        if ([CGSingleCommitData sharedInstance].uid.length>0) {
-            MineViewController *mineVC=[[MineViewController alloc] init];
-            [viewController.navigationController pushViewController:mineVC animated:NO];
-            
-           
-        }else{
-            CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
-            UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:loginVC];
-            [viewController presentViewController:navi animated:NO completion:nil];
-            
-        }
-    }
-    
     
 }
 

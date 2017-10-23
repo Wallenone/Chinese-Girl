@@ -85,7 +85,7 @@
 -(UIView *)lineView{
     if (!_lineView) {
         _lineView=[[UIView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 49*SCREEN_RADIO, screen_width-72*SCREEN_RADIO, 0.5)];
-        _lineView.backgroundColor=[UIColor getColor:@"979797"];
+        _lineView.backgroundColor=[UIColor getColor:@"CED7DB"];
         if ([_title isEqualToString:@"关于我"]) {
             _lineView.hidden=YES;
         }

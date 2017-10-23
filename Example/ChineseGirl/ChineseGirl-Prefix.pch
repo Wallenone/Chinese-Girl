@@ -20,3 +20,4 @@
 #import "UIViewController+NavigationBar.h"
 #import "Macro.h"
 #import "UIColor+getColor.h"
+#import "CGSingleCommitData.h"
