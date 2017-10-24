@@ -7,4 +7,5 @@ target 'ChineseGirl_Example' do
   pod 'RouterManager'
   pod 'UIFastTableView'
   pod 'WJFastScrollViewPoint'
+  pod 'IQKeyboardManager'
 end

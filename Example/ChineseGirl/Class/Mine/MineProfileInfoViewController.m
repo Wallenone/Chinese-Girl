@@ -176,13 +176,12 @@
     if (!_tbv) {
         
         __weak typeof(self) weakSelf = self;
-        CGRect tbvFrame = CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.bodyView.frame)+15*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 49.5*5*SCREEN_RADIO);
+        CGRect tbvFrame = CGRectMake(0, CGRectGetMaxY(self.bodyView.frame)+15*SCREEN_RADIO, screen_width, 49.5*5*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.scrollEnabled=NO;
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
-        _tbv.layer.cornerRadius=6;
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
         NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:@"昵称",@"性别",@"城市",@"生日",@"关于我",nil];
         
@@ -190,7 +189,11 @@
         [_tbv setDataArray:arrays];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            MySettingTableViewCell *cell=[[MySettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData];
+            BOOL state=NO;
+            if (index.row==arrays.count-1) {
+                state=YES;
+            }
+            MySettingTableViewCell *cell=[[MySettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withLineHidden:state];
             return cell;
             
         }];

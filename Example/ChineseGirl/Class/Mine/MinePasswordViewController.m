@@ -8,13 +8,16 @@
 
 #import "MinePasswordViewController.h"
 #import "CGLoginIndexCustomTextField.h"
-@interface MinePasswordViewController ()
+@interface MinePasswordViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLable;
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIView *line;
-@property(nonatomic,strong)CGLoginIndexCustomTextField *passwordField;
-@property(nonatomic,strong)CGLoginIndexCustomTextField *newpasswordField;
+@property(nonatomic,strong)UITextField *passwordField;
+@property(nonatomic,strong)UIView *lineView;
+@property(nonatomic,strong)UITextField *newpasswordField;
+@property(nonatomic,strong)UILabel *passwordContent;
+@property(nonatomic,strong)UIButton *conformBtn;
 @end
 
 @implementation MinePasswordViewController
@@ -33,6 +36,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldPasswordChanged:) name:UITextFieldTextDidChangeNotification object:self.passwordField];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldNewPasswordChanged:) name:UITextFieldTextDidChangeNotification object:self.newpasswordField];
     [self addHeaderView];
     [self addBodyView];
 }
@@ -46,11 +51,38 @@
 
 -(void)addBodyView{
     [self.view addSubview:self.passwordField];
+    [self.view addSubview:self.lineView];
     [self.view addSubview:self.newpasswordField];
+    [self.view addSubview:self.passwordContent];
+    [self.view addSubview:self.conformBtn];
 }
 
 -(void)backClick{
     [self.navigationController popViewControllerAnimated:NO];
+}
+
+- (void)textFieldPasswordChanged:(UITextField *)sender{
+    NSLog(@"textaa:=%@",self.passwordField.text);
+    [self setConformStatus];
+}
+
+-(void)textFieldNewPasswordChanged:(UITextField *)sender{
+    NSLog(@"textbb:=%@",self.newpasswordField.text);
+    [self setConformStatus];
+}
+
+-(void)setConformStatus{
+    if (self.passwordField.text.length>=6 && self.newpasswordField.text.length>=6) {
+        self.conformBtn.backgroundColor=[UIColor getColor:@"2979FF"];
+        self.conformBtn.userInteractionEnabled=YES;
+    }else{
+        self.conformBtn.backgroundColor=[UIColor getColor:@"c8d3d2"];
+        self.conformBtn.userInteractionEnabled=NO;
+    }
+}
+
+-(void)conformsClick{
+    
 }
 
 -(UIView *)headerView{
@@ -91,47 +123,73 @@
     return _line;
 }
 
--(CGLoginIndexCustomTextField *)passwordField{
+-(UITextField *)passwordField{
     if (!_passwordField) {
-        _passwordField=[[CGLoginIndexCustomTextField alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, 80*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
-        _passwordField.layer.cornerRadius=45/2*SCREEN_RADIO;
-        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-        // 设置富文本对象的颜色
-        attributes[NSForegroundColorAttributeName] = [UIColor getColor:@"5E7785"];
-        // 设置UITextField的占位文字
-        _passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attributes];
-        _passwordField.textColor=[UIColor getColor:@"5E7785"];
-        _passwordField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
-        UIImageView *imageViewPassword=[[UIImageView alloc]initWithFrame:CGRectMake(44*SCREEN_RADIO, 13*SCREEN_RADIO, 23*SCREEN_RADIO, 19*SCREEN_RADIO)];
-        imageViewPassword.image=[UIImage imageNamed:@"login_Password"];
-        _passwordField.leftView=imageViewPassword;
-        _passwordField.leftViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
-        _passwordField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _passwordField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _passwordField=[[UITextField alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 74*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 49.5*SCREEN_RADIO)];
+        _passwordField.placeholder=@"当前密码";
+        [_passwordField setValue:[UIColor getColor:@"c9c9c9"] forKeyPath:@"_placeholderLabel.textColor"];
+        [_passwordField setValue:[UIFont systemFontOfSize:16*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
+        _passwordField.textColor=[UIColor getColor:@"565656"];
+        _passwordField.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        _passwordField.secureTextEntry=NO;
+        _passwordField.delegate=self;
     }
     
     return _passwordField;
 }
 
--(CGLoginIndexCustomTextField *)newpasswordField{
+-(UIView *)lineView{
+    if (!_lineView) {
+        _lineView=[[UIView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.passwordField.frame), screen_width-16*SCREEN_RADIO, 0.5)];
+        _lineView.backgroundColor=[UIColor getColor:@"FDFDFD"];
+    }
+    return _lineView;
+}
+
+-(UITextField *)newpasswordField{
     if (!_newpasswordField) {
-        _newpasswordField=[[CGLoginIndexCustomTextField alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, CGRectGetMaxY(self.passwordField.frame)+15*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
-        _newpasswordField.layer.cornerRadius=45/2*SCREEN_RADIO;
-        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-        // 设置富文本对象的颜色
-        attributes[NSForegroundColorAttributeName] = [UIColor getColor:@"5E7785"];
-        // 设置UITextField的占位文字
-        _newpasswordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attributes];
-        _newpasswordField.textColor=[UIColor getColor:@"5E7785"];
-        _newpasswordField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
-        UIImageView *imageViewPassword=[[UIImageView alloc]initWithFrame:CGRectMake(44*SCREEN_RADIO, 13*SCREEN_RADIO, 23*SCREEN_RADIO, 19*SCREEN_RADIO)];
-        imageViewPassword.image=[UIImage imageNamed:@"login_Password"];
-        _newpasswordField.leftView=imageViewPassword;
-        _newpasswordField.leftViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
-        _newpasswordField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _newpasswordField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _newpasswordField=[[UITextField alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.lineView.frame), screen_width-32*SCREEN_RADIO, 49.5*SCREEN_RADIO)];
+        _newpasswordField.placeholder=@"新密码";
+        [_newpasswordField setValue:[UIColor getColor:@"c9c9c9"] forKeyPath:@"_placeholderLabel.textColor"];
+        [_newpasswordField setValue:[UIFont systemFontOfSize:16*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
+        _newpasswordField.textColor=[UIColor getColor:@"565656"];
+        _newpasswordField.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        _newpasswordField.secureTextEntry=NO;
+        _newpasswordField.delegate=self;
     }
     
     return _newpasswordField;
 }
+
+-(UILabel *)passwordContent{
+    if (!_passwordContent) {
+        _passwordContent=[[UILabel alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.newpasswordField.frame)+8*SCREEN_RADIO, 0, 8*SCREEN_RADIO)];
+        _passwordContent.text=@"请输入6~16位数字加字母组合密码";
+        _passwordContent.font=[UIFont systemFontOfSize:8*SCREEN_RADIO];
+        _passwordContent.textColor=[UIColor getColor:@"9c9c9c"];
+        [_passwordContent sizeToFit];
+    }
+    return _passwordContent;
+}
+
+-(UIButton *)conformBtn{
+    if (!_conformBtn) {
+        _conformBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, CGRectGetMaxY(self.passwordContent.frame)+20*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
+        [_conformBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [_conformBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
+        _conformBtn.backgroundColor=[UIColor getColor:@"c8d3d2"];
+        _conformBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
+        _conformBtn.layer.cornerRadius=21*SCREEN_RADIO;
+        [_conformBtn addTarget:self action:@selector(conformsClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _conformBtn;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+}
+
+
 @end

@@ -9,6 +9,7 @@
 #import "MySettingTableViewCell.h"
 @interface MySettingTableViewCell(){
     NSString *_title;
+    BOOL _lineState;
 }
 @property(nonatomic,strong)UILabel *leftLabel;
 @property(nonatomic,strong)UILabel *rightLabel;
@@ -17,12 +18,13 @@
 @end
 @implementation MySettingTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(NSString *)model{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(NSString *)model withLineHidden:(BOOL)state{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         _title=model;
+        _lineState=state;
         [self addSubViews];
     }
     
@@ -54,7 +56,7 @@
     if (!_leftLabel) {
         _leftLabel=[[UILabel alloc] initWithFrame:CGRectMake(17*SCREEN_RADIO, 18*SCREEN_RADIO, 0, 20*SCREEN_RADIO)];
         _leftLabel.text=_title;
-        _leftLabel.textColor=[UIColor getColor:@"5E7785"];
+        _leftLabel.textColor=[UIColor getColor:@"686868"];
         _leftLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         [_leftLabel sizeToFit];
     }
@@ -74,7 +76,7 @@
 
 -(UIButton *)allowBtn{
     if (!_allowBtn) {
-        _allowBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-32*SCREEN_RADIO-20*SCREEN_RADIO, 18.5*SCREEN_RADIO, 6*SCREEN_RADIO, 11*SCREEN_RADIO)];
+        _allowBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-16*SCREEN_RADIO, 18.5*SCREEN_RADIO, 6*SCREEN_RADIO, 11*SCREEN_RADIO)];
         [_allowBtn setBackgroundImage:[UIImage imageNamed:@"myAllowLeft"] forState:UIControlStateNormal];
         _allowBtn.userInteractionEnabled=NO;
     }
@@ -84,11 +86,10 @@
 
 -(UIView *)lineView{
     if (!_lineView) {
-        _lineView=[[UIView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 49*SCREEN_RADIO, screen_width-72*SCREEN_RADIO, 0.5)];
-        _lineView.backgroundColor=[UIColor getColor:@"CED7DB"];
-        if ([_title isEqualToString:@"关于我"]) {
-            _lineView.hidden=YES;
-        }
+        _lineView=[[UIView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 49*SCREEN_RADIO, screen_width-16*SCREEN_RADIO, 0.5)];
+        _lineView.backgroundColor=[UIColor getColor:@"FDFDFD"];
+        _lineView.hidden=_lineState;
+        
     }
     
     return _lineView;

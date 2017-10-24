@@ -15,6 +15,7 @@
 #import "CGSingleCommitData.h"
 #import "MineViewController.h"
 #import "CGLoginViewController.h"
+#import "IQKeyboardManager.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 @end
@@ -23,6 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //1.创建Window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
