@@ -102,13 +102,18 @@
         __unsafe_unretained MJPhotoView *photoView = self;
         __unsafe_unretained MJPhotoLoadingView *loading = _photoLoadingView;
 
-        [_imageView sd_setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-            if (receivedSize > kMinProgress) {
-                loading.progress = (float)receivedSize/expectedSize;
-            }
-        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            [photoView photoDidFinishLoadWithImage:image];
-        }];
+        if ([CGCommonString isBlankString:[_photo.url absoluteString]]) {
+            loading.progress = 1;
+            _imageView.image=_photo.srcImageView.image;
+        }else{
+            [_imageView sd_setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+                if (receivedSize > kMinProgress) {
+                    loading.progress = (float)receivedSize/expectedSize;
+                }
+            } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                [photoView photoDidFinishLoadWithImage:image];
+            }];
+        }
         
     }
 }
@@ -126,7 +131,10 @@
         }
     } else {
         [self addSubview:_photoLoadingView];
-        [_photoLoadingView showFailure];
+        if(![CGCommonString isBlankString:[_photo.url absoluteString]]){
+            [_photoLoadingView showFailure];
+        }
+        
     }
     
     // 设置缩放比例

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef void (^SingUpClickBlock)(void);
 typedef void (^ForgotPasswordClickBlock)(void);
-typedef void (^SignInClickBlock)(void);
+typedef void (^SignInClickBlock)(BOOL,NSString *);
 typedef void (^GooleClickBlock)(void);
 typedef void (^FacebookClickBlock)(void);
 typedef void (^TwitterClickBlock)(void);

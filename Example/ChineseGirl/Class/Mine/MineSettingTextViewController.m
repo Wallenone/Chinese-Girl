@@ -51,8 +51,10 @@
 }
 
 -(void)back{
-    if (settingTextBlock) {
-        settingTextBlock(self.textViewStr);
+    if (self.textViewStr.length>0) {
+        if (settingTextBlock) {
+            settingTextBlock(self.textViewStr);
+        }
     }
     [self.navigationController popViewControllerAnimated:NO];
 }

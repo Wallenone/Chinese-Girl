@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^CancelClickBlock)(void);
-typedef void (^SingUpClickBlock)(void);
+typedef void (^RegSingUpClickBlock)(BOOL,NSString *);
 @interface CGRegisterIndexView : UIView
-- (id)initWithFrame:(CGRect)frame onCancelClick:(CancelClickBlock)cancelBlock onSingUpClick:(SingUpClickBlock)singUpBlock;
+- (id)initWithFrame:(CGRect)frame onCancelClick:(CancelClickBlock)cancelBlock onSingUpClick:(RegSingUpClickBlock)singUpBlock;
 @end

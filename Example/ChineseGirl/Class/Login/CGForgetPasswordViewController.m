@@ -99,6 +99,7 @@
         _EmailField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _EmailField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _EmailField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _EmailField.autocapitalizationType=UITextAutocapitalizationTypeNone;
     }
     
     return _EmailField;

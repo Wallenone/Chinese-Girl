@@ -1,11 +1,13 @@
 PODS:
   - ChineseGirl (0.1.0)
-  - IQKeyboardManager (5.0.4)
-  - MJRefresh (3.1.14.1)
+  - IQKeyboardManager (5.0.5)
+  - MJRefresh (3.1.15)
   - RouterManager (0.1.3)
-  - SDWebImage (4.1.2):
-    - SDWebImage/Core (= 4.1.2)
-  - SDWebImage/Core (4.1.2)
+  - SDWebImage (4.2.1):
+    - SDWebImage/Core (= 4.2.1)
+  - SDWebImage/Core (4.2.1)
+  - SVProgressHUD (2.2.2)
+  - UICommonTools (0.1.3)
   - UIFastTabBarController (0.1.1)
   - UIFastTableView (0.2.1):
     - MJRefresh
@@ -17,6 +19,8 @@ DEPENDENCIES:
   - ChineseGirl (from `../`)
   - IQKeyboardManager
   - RouterManager
+  - SVProgressHUD
+  - UICommonTools
   - UIFastTabBarController
   - UIFastTableView
   - WJFastDialogView
@@ -28,15 +32,17 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ChineseGirl: 074949ea06d312a68609792afc54536f65dd0790
-  IQKeyboardManager: 1df9c0f147af1681cfb2d9977bc30309d45a7e76
-  MJRefresh: 238e6a37e2dba12160ee3b79f6d2a2b26abcab42
+  IQKeyboardManager: 99e4a3574d1e58aba6bc0e83120af25419c1fb0d
+  MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
   RouterManager: 5fae26a349743cefff30c44336c500169d8ac30c
-  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  SDWebImage: 1fa4c9edf525b744f002db89f3f5a38b3cd4c541
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  UICommonTools: fdbd51caf72cab6205f065aa4e014d5beaf37a5e
   UIFastTabBarController: 88a01f27ff0eaca1277622c2fffcd5881447f2ab
   UIFastTableView: c76eb8013bf986e72e150fd2221be1b688d9fb6c
   WJFastDialogView: f376833e8c248066ec04626421e4539e9c1233d5
   WJFastScrollViewPoint: 1cdba392da20c0b9cb1f4a2b61af24d78a75e312
 
-PODFILE CHECKSUM: 14017f5abcf54fc66a3a7bc3fe86b1ceb4c9d601
+PODFILE CHECKSUM: 783a2adf361af704f40d3bca574b02d0272ed48a
 
 COCOAPODS: 1.2.1

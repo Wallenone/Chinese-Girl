@@ -61,7 +61,10 @@
 #pragma mark - action
 
 - (void)cancelButtonAction:(UIButton *)button {
-    self.confirmBlock(self.selectedDate);
+    if (self.selectedDate.length>0) {
+       self.confirmBlock(self.selectedDate);
+    }
+    
     self.bottomView.frame = CGRectMake(0, kScreenHeight - 216 - 44 - 64, kScreenWidth, 216 + 44);
     [UIView animateWithDuration:0.25 animations:^{
         
@@ -77,7 +80,9 @@
 
 - (void)confirmButtonAction:(UIButton *)button {
     
-    self.confirmBlock(self.selectedDate);
+    if (self.selectedDate.length>0) {
+        self.confirmBlock(self.selectedDate);
+    }
     
     self.bottomView.frame = CGRectMake(0, kScreenHeight - 216 - 44 - 64, kScreenWidth, 216 + 44);
     [UIView animateWithDuration:0.25 animations:^{

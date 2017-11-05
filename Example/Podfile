@@ -8,4 +8,6 @@ target 'ChineseGirl_Example' do
   pod 'UIFastTableView'
   pod 'WJFastScrollViewPoint'
   pod 'IQKeyboardManager'
+  pod 'UICommonTools'
+  pod 'SVProgressHUD'
 end

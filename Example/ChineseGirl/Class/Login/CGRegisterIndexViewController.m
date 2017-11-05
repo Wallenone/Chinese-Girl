@@ -42,8 +42,13 @@
         __weak typeof(self) weakSelf = self;
         _registerIndexView=[[CGRegisterIndexView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height) onCancelClick:^{
             [weakSelf.navigationController popViewControllerAnimated:NO];
-        } onSingUpClick:^{
-            [weakSelf.navigationController popViewControllerAnimated:NO];
+        } onSingUpClick:^(BOOL state,NSString *warningsText){
+            if (state) {
+                [SVProgressHUD showSuccessWithStatus:warningsText];
+                [weakSelf.navigationController dismissViewControllerAnimated:NO completion:nil];
+            }else{
+                [SVProgressHUD showErrorWithStatus:warningsText];
+            }
         }];
     }
     

@@ -89,11 +89,21 @@
 }
 
 -(void)signInClick{
-    if(self.userNameField.text.length>0 && self.passwordField.text.length>0){
-        if (signInClickBlock) {
-            signInClickBlock();
+    NSLog(@"email:=%@",[CGSingleCommitData sharedInstance].email);
+    NSLog(@"password:=%@",[CGSingleCommitData sharedInstance].password);
+        if ([self.userNameField.text isEqualToString:[CGSingleCommitData sharedInstance].email] && [self.passwordField.text isEqualToString:[CGSingleCommitData sharedInstance].password]) {
+            if (signInClickBlock) {
+                [CGSingleCommitData sharedInstance].uid=@"10000";
+                [CGSingleCommitData sharedInstance].email=self.userNameField.text;
+                [CGSingleCommitData sharedInstance].password=self.passwordField.text;
+                signInClickBlock(YES,@"登录成功");
+            }
+        }else{
+            if (signInClickBlock) {
+                signInClickBlock(NO,@"用户名或密码错误");
+            }
         }
-    }
+    
 }
 
 -(void)gooleClick{
@@ -188,6 +198,7 @@
         _userNameField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _userNameField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _userNameField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _userNameField.autocapitalizationType=UITextAutocapitalizationTypeNone;
     }
     
     return _userNameField;
@@ -210,6 +221,7 @@
         _passwordField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _passwordField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _passwordField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _passwordField.autocapitalizationType=UITextAutocapitalizationTypeNone;
     }
     
     return _passwordField;
@@ -314,4 +326,7 @@
     return newImage;
     
 }
+
+
+
 @end

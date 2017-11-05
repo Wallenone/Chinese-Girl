@@ -10,6 +10,7 @@
 
 @implementation CGLoginIndexCustomTextField
 
+
 // 修改文本展示区域，一般跟editingRectForBounds一起重写
 - (CGRect)textRectForBounds:(CGRect)bounds
 {

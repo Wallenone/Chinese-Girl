@@ -18,17 +18,27 @@
 @end
 @implementation MySettingTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(NSString *)model withLineHidden:(BOOL)state{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(id)reuseIdentifier withModel:(id)model withLineHidden:(BOOL)state{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
-        _title=model;
         _lineState=state;
+        [self setData:model];
         [self addSubViews];
     }
     
     return self;
+}
+
+-(void)setData:(id)model{
+    if ([model isKindOfClass:[NSDictionary class]]) {
+        _title=[model objectForKey:@"left"];
+        [self updateCellContent:[model objectForKey:@"right"]];
+    }else{
+        _title=model;
+    }
+
 }
 
 -(void)addSubViews{
@@ -54,7 +64,7 @@
 
 -(UILabel *)leftLabel{
     if (!_leftLabel) {
-        _leftLabel=[[UILabel alloc] initWithFrame:CGRectMake(17*SCREEN_RADIO, 18*SCREEN_RADIO, 0, 20*SCREEN_RADIO)];
+        _leftLabel=[[UILabel alloc] initWithFrame:CGRectMake(17*SCREEN_RADIO, 14*SCREEN_RADIO, 0, 20*SCREEN_RADIO)];
         _leftLabel.text=_title;
         _leftLabel.textColor=[UIColor getColor:@"686868"];
         _leftLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
@@ -65,7 +75,7 @@
 
 -(UILabel *)rightLabel{
     if (!_rightLabel) {
-        _rightLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 11.5*SCREEN_RADIO, 303*SCREEN_RADIO, 20*SCREEN_RADIO)];
+        _rightLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 14*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 20*SCREEN_RADIO)];
         //_rightLabel.text=self.settigModel.rightItem;
         _rightLabel.textColor=[UIColor getColor:@"5E7785"];
         _rightLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];

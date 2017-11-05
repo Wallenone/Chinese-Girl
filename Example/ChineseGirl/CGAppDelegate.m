@@ -74,10 +74,6 @@
     
     tb.viewControllers=@[c1,c2,c3,c4];
     
-    
-    
-   
-    
     //2.设置Window为主窗口并显示出来
     [self.window makeKeyAndVisible];
     
@@ -97,9 +93,6 @@
     NSLog(@"index:=%lu",(unsigned long)tabBarController.selectedIndex);
     
 }
-
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

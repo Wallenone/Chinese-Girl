@@ -66,7 +66,6 @@
 		E56826131F9E31130099F363 /* MineAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56826121F9E31130099F363 /* MineAccountViewController.m */; };
 		E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56826151F9E32600099F363 /* MinePasswordViewController.m */; };
 		E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D53D1F66987A00FD9A28 /* ShapedImageView.m */; };
-		E581D5451F669A5200FD9A28 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D5441F669A5200FD9A28 /* UIImage+Color.m */; };
 		E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */; };
 		E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */; };
 		E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */; };
@@ -79,7 +78,6 @@
 		E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960901F93622700EB654A /* MineSettingTextViewController.m */; };
 		E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */; };
 		E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4E1F68099600844B2F /* icon_bubble_right.png */; };
-		E5E0FE321F9AEBD700B5228E /* RkyExtendedHitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE311F9AEBD700B5228E /* RkyExtendedHitButton.m */; };
 		E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE351F9AF15700B5228E /* CityData.plist */; };
 		E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE371F9AF15700B5228E /* NicknameViewController.m */; };
 		E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE391F9AF15700B5228E /* SignatureViewController.m */; };
@@ -92,7 +90,6 @@
 		E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE451F9AF15700B5228E /* 返回@3x.png */; };
 		E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E35D351F9B426600322F9D /* UICustomPickImgView.m */; };
 		E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */; };
-		E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC8331F4936730078F856 /* UIColor+getColor.m */; };
 		E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */; };
 		E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */; };
 		E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */; };
@@ -223,8 +220,6 @@
 		E56826151F9E32600099F363 /* MinePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePasswordViewController.m; sourceTree = "<group>"; };
 		E581D53C1F66987A00FD9A28 /* ShapedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapedImageView.h; sourceTree = "<group>"; };
 		E581D53D1F66987A00FD9A28 /* ShapedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapedImageView.m; sourceTree = "<group>"; };
-		E581D5431F669A5200FD9A28 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Color.h"; path = "MJPhotoBrowser/UIImage+Color.h"; sourceTree = "<group>"; };
-		E581D5441F669A5200FD9A28 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Color.m"; path = "MJPhotoBrowser/UIImage+Color.m"; sourceTree = "<group>"; };
 		E59F2EA61F511DB600A238CE /* myHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myHeaderViewCell.h; sourceTree = "<group>"; };
 		E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myHeaderViewCell.m; sourceTree = "<group>"; };
 		E5A513B41F60328100B4AC1F /* NewsContentCustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentCustomLabel.h; sourceTree = "<group>"; };
@@ -247,8 +242,6 @@
 		E5C960901F93622700EB654A /* MineSettingTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextViewController.m; sourceTree = "<group>"; };
 		E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_left.png; sourceTree = "<group>"; };
 		E5D04A4E1F68099600844B2F /* icon_bubble_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_right.png; sourceTree = "<group>"; };
-		E5E0FE311F9AEBD700B5228E /* RkyExtendedHitButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RkyExtendedHitButton.m; sourceTree = "<group>"; };
-		E5E0FE331F9AEBFC00B5228E /* RkyExtendedHitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RkyExtendedHitButton.h; sourceTree = "<group>"; };
 		E5E0FE351F9AF15700B5228E /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
 		E5E0FE361F9AF15700B5228E /* NicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NicknameViewController.h; sourceTree = "<group>"; };
 		E5E0FE371F9AF15700B5228E /* NicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NicknameViewController.m; sourceTree = "<group>"; };
@@ -270,8 +263,6 @@
 		E5E35D351F9B426600322F9D /* UICustomPickImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomPickImgView.m; sourceTree = "<group>"; };
 		E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexViewController.h; sourceTree = "<group>"; };
 		E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexViewController.m; sourceTree = "<group>"; };
-		E5EFC8321F4936730078F856 /* UIColor+getColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+getColor.h"; sourceTree = "<group>"; };
-		E5EFC8331F4936730078F856 /* UIColor+getColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+getColor.m"; sourceTree = "<group>"; };
 		E5F0A3E81F57F7FD0051699B /* CGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginViewController.h; sourceTree = "<group>"; };
 		E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginViewController.m; sourceTree = "<group>"; };
 		E5F0A3ED1F57F8750051699B /* CGLoginIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginIndexView.h; sourceTree = "<group>"; };
@@ -464,12 +455,6 @@
 			isa = PBXGroup;
 			children = (
 				E5E0FE341F9AF15700B5228E /* WYPickerViews */,
-				E5E0FE331F9AEBFC00B5228E /* RkyExtendedHitButton.h */,
-				E5E0FE311F9AEBD700B5228E /* RkyExtendedHitButton.m */,
-				E581D5431F669A5200FD9A28 /* UIImage+Color.h */,
-				E581D5441F669A5200FD9A28 /* UIImage+Color.m */,
-				E5EFC8321F4936730078F856 /* UIColor+getColor.h */,
-				E5EFC8331F4936730078F856 /* UIColor+getColor.m */,
 				E504AB6B1F507C0100E1F48C /* MBProgressHUD */,
 				E504AB711F507C0100E1F48C /* MJPhotoBrowser */,
 				E538D76E1F429C060079AE94 /* UIViewController+NavigationBar.h */,
@@ -915,12 +900,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EFC8341F4936730078F856 /* UIColor+getColor.m in Sources */,
 				E5E0FE491F9AF15700B5228E /* WYBirthdayPickerView.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
-				E581D5451F669A5200FD9A28 /* UIImage+Color.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
 				E538D7701F429C060079AE94 /* UIViewController+NavigationBar.m in Sources */,
 				E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */,
@@ -979,7 +962,6 @@
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
 				E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */,
-				E5E0FE321F9AEBD700B5228E /* RkyExtendedHitButton.m in Sources */,
 				E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */,
 				E5C960821F93132C00EB654A /* WSCollectionHeaderCell.m in Sources */,
 				E538D7671F429BE80079AE94 /* WSCollectionCell.m in Sources */,

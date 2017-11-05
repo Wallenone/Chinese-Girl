@@ -49,10 +49,6 @@
     [self.loginIndexView checkRespons];
 }
 
--(void)setUerData{
-    [CGSingleCommitData sharedInstance].uid=@"0";
-    [CGSingleCommitData sharedInstance].nickName=@"wanjie";
-}
 
 
 -(void)addSubViews{
@@ -68,9 +64,14 @@
         } onForgotPasswordClick:^{
             CGForgetPasswordViewController *forgetVC=[[CGForgetPasswordViewController alloc] init];
             [weakSelf.navigationController pushViewController:forgetVC animated:NO];
-        } onSignInClick:^{
-            [weakSelf dismissViewControllerAnimated:NO completion:nil];
-            [weakSelf setUerData];
+        } onSignInClick:^(BOOL state,NSString *warningText){
+            if (state) {
+                [SVProgressHUD showSuccessWithStatus:warningText];
+                [weakSelf dismissViewControllerAnimated:NO completion:nil];
+            }else{
+                [SVProgressHUD showErrorWithStatus:warningText];
+            }
+
         } onGooleClick:^{
             
         } onFacebookClick:^{

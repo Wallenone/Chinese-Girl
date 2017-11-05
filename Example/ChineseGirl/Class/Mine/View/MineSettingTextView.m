@@ -90,7 +90,6 @@
         _cutomView.textColor=[UIColor blackColor];
         _cutomView.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _cutomView.delegate=self;
-        _cutomView.layer.cornerRadius=5;
         _cutomView.text=_textStr;
         
     }

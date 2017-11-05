@@ -63,8 +63,7 @@
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[CGSingleCommitData sharedInstance] logout];
-        CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
-        [weakSelf presentViewController:loginVC animated:NO completion:nil];
+        [weakSelf.navigationController popToRootViewControllerAnimated:NO];
     }]];
     
     

@@ -10,7 +10,7 @@
 #import "CGLoginIndexCustomTextField.h"
 @interface CGRegisterIndexView(){
     CancelClickBlock cancelClickBlock;
-    SingUpClickBlock singUpClickBlock;
+    RegSingUpClickBlock regSingUpClickBlock;
 }
 @property(nonatomic,strong)UIImageView *bgImgView;
 @property(nonatomic,strong)UIButton *cancelBtn;
@@ -18,18 +18,18 @@
 @property(nonatomic,strong)CGLoginIndexCustomTextField *userNameField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *EmailField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *passwordField;
-@property(nonatomic,strong)CGLoginIndexCustomTextField *confirmPasswordField;
+@property(nonatomic,strong)CGLoginIndexCustomTextField *cityField;
 @property(nonatomic,strong)UILabel *AgreementLabel;
 @property(nonatomic,strong)UIButton *signUpBtn;
 @end
 @implementation CGRegisterIndexView
 
 
-- (id)initWithFrame:(CGRect)frame onCancelClick:(CancelClickBlock)cancelBlock onSingUpClick:(SingUpClickBlock)singUpBlock{
+- (id)initWithFrame:(CGRect)frame onCancelClick:(CancelClickBlock)cancelBlock onSingUpClick:(RegSingUpClickBlock)singUpBlock{
     self.backgroundColor=[UIColor clearColor];
     if (self=[super initWithFrame:frame]) {
         cancelClickBlock = cancelBlock;
-        singUpClickBlock = singUpBlock;
+        regSingUpClickBlock = singUpBlock;
         
         [self addSubViews];
     }
@@ -48,16 +48,53 @@
     [self addSubview:self.userNameField];
     [self addSubview:self.EmailField];
     [self addSubview:self.passwordField];
-    [self addSubview:self.confirmPasswordField];
+    [self addSubview:self.cityField];
     [self addSubview:self.AgreementLabel];
     [self addSubview:self.signUpBtn];
 }
 
 
 -(void)singUpClick{
-    if (singUpClickBlock) {
-        singUpClickBlock();
+    if (self.userNameField.text.length>0) {
+        if ([self isValidateEmail:self.EmailField.text]) {
+            if (self.passwordField.text.length>=6) {
+                
+                if (self.cityField.text.length>0) {
+                    [CGSingleCommitData sharedInstance].uid=@"10000";
+                    [CGSingleCommitData sharedInstance].nickName=self.userNameField.text;
+                    [CGSingleCommitData sharedInstance].email=self.EmailField.text;
+                    [CGSingleCommitData sharedInstance].password=self.passwordField.text;
+                    [CGSingleCommitData sharedInstance].cityName=self.cityField.text;
+                    if (regSingUpClickBlock) {
+                        regSingUpClickBlock(YES,@"注册成功");
+                    }
+                }else{
+                    if (regSingUpClickBlock) {
+                        regSingUpClickBlock(NO,@"城市不能为空");
+                    }
+                }
+                
+            }else{
+                
+                if (regSingUpClickBlock) {
+                    regSingUpClickBlock(NO,@"密码少于6个字符");
+                }
+            }
+            
+            
+        }else{
+            if (regSingUpClickBlock) {
+                regSingUpClickBlock(NO,@"邮箱格式不正确");
+            }
+        }
+    }else{
+        if (regSingUpClickBlock) {
+            regSingUpClickBlock(NO,@"用户名不能为空");
+        }
     }
+    
+    
+    
 }
 
 -(void)cancelClick{
@@ -116,6 +153,7 @@
         _userNameField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _userNameField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _userNameField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _userNameField.autocapitalizationType=UITextAutocapitalizationTypeNone;
     }
     
     return _userNameField;
@@ -138,6 +176,7 @@
         _EmailField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _EmailField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _EmailField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _EmailField.autocapitalizationType=UITextAutocapitalizationTypeNone;
     }
     
     return _EmailField;
@@ -160,38 +199,40 @@
         _passwordField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _passwordField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _passwordField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _passwordField.autocapitalizationType=UITextAutocapitalizationTypeNone;
     }
     
     return _passwordField;
 }
 
--(CGLoginIndexCustomTextField *)confirmPasswordField{
-    if (!_confirmPasswordField) {
-        _confirmPasswordField=[[CGLoginIndexCustomTextField alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, CGRectGetMaxY(self.passwordField.frame)+15*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
-        _confirmPasswordField.layer.cornerRadius=45/2*SCREEN_RADIO;
+-(CGLoginIndexCustomTextField *)cityField{
+    if (!_cityField) {
+        _cityField=[[CGLoginIndexCustomTextField alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, CGRectGetMaxY(self.passwordField.frame)+15*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        _cityField.layer.cornerRadius=45/2*SCREEN_RADIO;
         NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
         // 设置富文本对象的颜色
         attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
         // 设置UITextField的占位文字
-        _confirmPasswordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Confirm Password" attributes:attributes];
-        _confirmPasswordField.textColor=[UIColor whiteColor];
-        _confirmPasswordField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
+        _cityField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Your City" attributes:attributes];
+        _cityField.textColor=[UIColor whiteColor];
+        _cityField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
         UIImageView *imageViewPassword=[[UIImageView alloc]initWithFrame:CGRectMake(44*SCREEN_RADIO, 13*SCREEN_RADIO, 23*SCREEN_RADIO, 19*SCREEN_RADIO)];
         imageViewPassword.image=[UIImage imageNamed:@"reg_Ok"];
-        _confirmPasswordField.rightView=imageViewPassword;
-        _confirmPasswordField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
-        _confirmPasswordField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _confirmPasswordField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _cityField.rightView=imageViewPassword;
+        _cityField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
+        _cityField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _cityField.autocorrectionType = UITextAutocorrectionTypeNo;
+        _cityField.autocapitalizationType=UITextAutocapitalizationTypeNone;
     }
     
-    return _confirmPasswordField;
+    return _cityField;
 }
 
 
 
 -(UILabel *)AgreementLabel{
     if (!_AgreementLabel) {
-        _AgreementLabel=[[UILabel alloc] initWithFrame:CGRectMake(57*SCREEN_RADIO, CGRectGetMaxY(self.confirmPasswordField.frame)+25*SCREEN_RADIO, screen_width-113.5*SCREEN_RADIO, 0)];
+        _AgreementLabel=[[UILabel alloc] initWithFrame:CGRectMake(57*SCREEN_RADIO, CGRectGetMaxY(self.cityField.frame)+25*SCREEN_RADIO, screen_width-113.5*SCREEN_RADIO, 0)];
         _AgreementLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         _AgreementLabel.textColor=[UIColor getColor:@"99A3A9"];
         _AgreementLabel.text=@"You further agree with the terms and conditions set forth in this Agreement.";
@@ -250,5 +291,11 @@
 
     return newImage;
     
+}
+
+- (BOOL)isValidateEmail:(NSString *)email{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
 }
 @end

@@ -82,6 +82,13 @@
 }
 
 -(void)conformsClick{
+    if ([[CGSingleCommitData sharedInstance].password isEqualToString:self.passwordField.text]) {
+        [CGSingleCommitData sharedInstance].password=self.newpasswordField.text;
+        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+        [self.navigationController popToRootViewControllerAnimated:NO];
+    }else{
+        [SVProgressHUD showErrorWithStatus:@"当前密码不正确"];
+    }
     
 }
 
@@ -133,6 +140,7 @@
         _passwordField.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _passwordField.secureTextEntry=NO;
         _passwordField.delegate=self;
+        _passwordField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     }
     
     return _passwordField;
@@ -156,6 +164,7 @@
         _newpasswordField.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _newpasswordField.secureTextEntry=NO;
         _newpasswordField.delegate=self;
+        _newpasswordField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     }
     
     return _newpasswordField;

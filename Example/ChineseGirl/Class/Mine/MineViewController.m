@@ -36,6 +36,7 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    [self setData];
 }
 
 - (void)viewDidLoad {
@@ -43,7 +44,7 @@
     self.view.backgroundColor=[UIColor getColor:@"F5F5F5"];
     [self addHeaderView];
     [self addBodyView];
-    [self setData];
+    
 }
 
 
@@ -62,9 +63,11 @@
     if ([CGSingleCommitData sharedInstance].uid.length<=0) {
         [self.nickName setTitle:@"注册/登录" forState:UIControlStateNormal];
         self.nickName.userInteractionEnabled=YES;
+        [self.AvatarImgView setImage:[UIImage imageNamed:@"myindex_Icon"] forState:UIControlStateNormal];
     }else{
         self.nickName.userInteractionEnabled=NO;
         [self.nickName setTitle:[CGSingleCommitData sharedInstance].nickName forState:UIControlStateNormal];
+        [self.AvatarImgView setImage:[CGSingleCommitData sharedInstance].avatar forState:UIControlStateNormal];
     }
     
 }
@@ -80,6 +83,7 @@
     UICustomPickImgView *customVC=[[UICustomPickImgView alloc] init];
     [customVC onGetImg:^(UIImage *ava) {
         [weakSelf.AvatarImgView setImage:ava forState:UIControlStateNormal];
+        [CGSingleCommitData sharedInstance].avatar=ava;
     }];
     [self.view addSubview:customVC];
    
@@ -107,7 +111,7 @@
 -(UIButton *)AvatarImgView{
     if (!_AvatarImgView) {
         _AvatarImgView=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-47*SCREEN_RADIO, 51.5*SCREEN_RADIO, 94*SCREEN_RADIO, 94*SCREEN_RADIO)];
-        [_AvatarImgView setImage:[UIImage imageNamed:@"Avatar"] forState:UIControlStateNormal];
+        //[_AvatarImgView setImage:[UIImage imageNamed:@"Avatar"] forState:UIControlStateNormal];
         _AvatarImgView.layer.cornerRadius=47*SCREEN_RADIO;
         _AvatarImgView.layer.masksToBounds=YES;
         [_AvatarImgView addTarget:self action:@selector(chooseImg) forControlEvents:UIControlEventTouchUpInside];
@@ -171,11 +175,24 @@
            // MySettingTableViewCell *cell = [weakSelf.tbv cellForRowAtIndexPath:indexPath];
             
             if ([cellData isEqualToString:@"账号信息"]) {
-                MineAccountViewController *accountVC=[[MineAccountViewController alloc] init];
-                [weakSelf.navigationController pushViewController:accountVC animated:NO];
+                
+                if ([CGCommonString isBlankString:[CGSingleCommitData sharedInstance].uid]) {
+                    CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
+                    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:loginVC];
+                    [self.navigationController presentViewController:nav animated:NO completion:nil];
+                }else{
+                    MineAccountViewController *accountVC=[[MineAccountViewController alloc] init];
+                    [weakSelf.navigationController pushViewController:accountVC animated:NO];
+                }
             }else if ([cellData isEqualToString:@"个人信息"]){
-                MineProfileInfoViewController *profileInfoVC=[[MineProfileInfoViewController alloc] init];
-                [weakSelf.navigationController pushViewController:profileInfoVC animated:NO];
+                if ([CGCommonString isBlankString:[CGSingleCommitData sharedInstance].uid]) {
+                    CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
+                    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:loginVC];
+                    [self.navigationController presentViewController:nav animated:NO completion:nil];
+                }else{
+                    MineProfileInfoViewController *profileInfoVC=[[MineProfileInfoViewController alloc] init];
+                    [weakSelf.navigationController pushViewController:profileInfoVC animated:NO];
+                }
                 
             }else if ([cellData isEqualToString:@"我的钻石"]){
                 

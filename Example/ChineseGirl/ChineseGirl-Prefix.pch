@@ -21,3 +21,5 @@
 #import "Macro.h"
 #import "UIColor+getColor.h"
 #import "CGSingleCommitData.h"
+#import "CGPch.h"
+#import "SVProgressHUD.h"

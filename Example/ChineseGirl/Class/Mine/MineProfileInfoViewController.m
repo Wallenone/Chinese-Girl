@@ -13,6 +13,8 @@
 #import "WYGenderPickerView.h"
 #import "WYBirthdayPickerView.h"
 #import "UICustomPickImgView.h"
+#import "MJPhoto.h"
+#import "MJPhotoBrowser.h"
 @interface MineProfileInfoViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLable;
@@ -21,9 +23,19 @@
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)UIButton *addImgs;
 @property(nonatomic,assign)NSInteger imgsNum;
+@property(nonatomic,strong)NSMutableArray *imgViewArr;
+@property(nonatomic,strong)UIView *bodyCellView;
 @end
 
 @implementation MineProfileInfoViewController
+
+-(NSMutableArray *)imgViewArr{
+    if (!_imgViewArr) {
+        _imgViewArr=[NSMutableArray new];
+    }
+    
+    return _imgViewArr;
+}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -40,9 +52,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor=[UIColor getColor:@"F5F5F5"];
+    [self setData];
     [self addHeaderView];
     [self addBodyView];
-    [self setData];
 }
 
 -(void)addHeaderView{
@@ -54,19 +67,18 @@
 -(void)addBodyView{
     [self.view addSubview:self.bodyView];
     [self.view addSubview:self.tbv];
+    [self.bodyView addSubview:self.bodyCellView];
     [self.bodyView addSubview:self.addImgs];
+    NSArray *albums=[CGSingleCommitData sharedInstance].albumS;
+    for (NSData *imgData in albums) {
+        [self setImgsUIView:[UIImage imageWithData:imgData]];
+        self.imgsNum++;
+    }
 }
 
 
 -(void)setData{
     _imgsNum=0;
-    self.view.backgroundColor=[UIColor getColor:@"F8F8F8"];
-//    for (int i=0; i<5; i++) {
-//        MySettingTableViewCell *cell = [self.tbv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-//        if (i==0) {   //nickName
-//            [cell updateCellContent:[CGSingleCommitData sharedInstance].nickName];
-//        }
-//    }
 }
 
 -(void)backClick{
@@ -78,6 +90,7 @@
     __weak typeof(self) weakSelf = self;
     UICustomPickImgView *customVC=[[UICustomPickImgView alloc] init];
     [customVC onGetImg:^(UIImage *ava) {
+        [[CGSingleCommitData sharedInstance] addAlbumS:ava];
         [weakSelf setImgsUIView:ava];
         weakSelf.imgsNum++;
     }];
@@ -112,7 +125,10 @@
     btn.layer.cornerRadius=5*SCREEN_RADIO;
     btn.layer.masksToBounds=YES;
     [btn setImage:img forState:UIControlStateNormal];
-    [self.bodyView addSubview:btn];
+    btn.tag=self.imgsNum;
+    [btn addTarget:self action:@selector(editPhotosClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.imgViewArr addObject:btn.imageView];
+    [self.bodyCellView addSubview:btn];
     
     if (_imgsNum>6) {
         self.addImgs.hidden=YES;
@@ -120,6 +136,77 @@
         self.addImgs.hidden=NO;
     }
     self.addImgs.frame=CGRectMake(_addWidth, _addHeight, 79*SCREEN_RADIO, 79*SCREEN_RADIO);
+}
+
+-(void)editPhotosClick:(UIButton *)sender{
+    __weak typeof(self) weakSelf = self;
+    UIAlertController *alterVC=[UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alterVC addAction:[UIAlertAction actionWithTitle:@"查看原图" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf setCheckPhotos:sender.tag];
+    }]];
+    [alterVC addAction:[UIAlertAction actionWithTitle:@"替换图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf changePhotowithSener:sender];
+    }]];
+    [alterVC addAction:[UIAlertAction actionWithTitle:@"删除图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf deletePhoto:sender];
+    }]];
+    [alterVC addAction:[UIAlertAction actionWithTitle:@"设为头像" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf setAvater:sender];
+    }]];
+    [alterVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [self presentViewController:alterVC animated:YES completion:nil];
+}
+
+-(void)setCheckPhotos:(NSInteger)_tag{
+    NSUInteger count = self.imgsNum;
+    // 1.封装图片数据
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i<count; i++) {
+        // 替换为中等尺寸图片
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.srcImageView = self.imgViewArr[i]; // 来源于哪个UIImageView
+        [photos addObject:photo];
+    }
+    
+    // 2.显示相册
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = _tag; // 弹出相册时显示的第一张图片是？
+    browser.photos = photos; // 设置所有的图片
+    [browser show];
+}
+
+-(void)changePhotowithSener:(UIButton *)sender{
+    UICustomPickImgView *customVC=[[UICustomPickImgView alloc] init];
+    [customVC onGetImg:^(UIImage *ava) {
+        if (ava) {
+            [[CGSingleCommitData sharedInstance] replaceAlbumS:ava withTag:sender.tag];
+            [sender setImage:ava forState:UIControlStateNormal];
+        }
+        
+    }];
+    [self.view addSubview:customVC];
+}
+
+-(void)deletePhoto:(UIButton *)sender{
+    self.imgsNum=0;
+    for (UIView *objView in [self.bodyCellView subviews]) {
+        [objView removeFromSuperview];
+    }
+    [self.imgViewArr removeObjectAtIndex:sender.tag];
+    [[CGSingleCommitData sharedInstance] deleteAlbumwithTag:sender.tag];
+    NSArray *albums=[CGSingleCommitData sharedInstance].albumS;
+    for (NSData *imgData in albums) {
+        [self setImgsUIView:[UIImage imageWithData:imgData]];
+        self.imgsNum++;
+    }
+}
+
+-(void)setAvater:(UIButton *)sender{
+    UIImageView *avaImgView=[self.imgViewArr objectAtIndex:sender.tag];
+    [CGSingleCommitData sharedInstance].avatar=avaImgView.image;
 }
 
 -(UIView *)headerView{
@@ -183,8 +270,14 @@
         _tbv.scrollEnabled=NO;
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
-        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:@"昵称",@"性别",@"城市",@"生日",@"关于我",nil];
         
+        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:
+                                            @{@"left":@"昵称",@"right":[CGSingleCommitData sharedInstance].nickName},
+                                            @{@"left":@"性别",@"right":[CGSingleCommitData sharedInstance].sex},
+                                            @{@"left":@"城市",@"right":[CGSingleCommitData sharedInstance].cityName},
+                                            @{@"left":@"生日",@"right":[CGSingleCommitData sharedInstance].birthDay},
+                                            @{@"left":@"关于我",@"right":[CGSingleCommitData sharedInstance].aboutUs},
+                                            nil];
         //给tableview赋值
         [_tbv setDataArray:arrays];
         
@@ -215,50 +308,55 @@
             
             MySettingTableViewCell *cell = [strongSelf.tbv cellForRowAtIndexPath:indexPath];
             
-            if ([cellData isEqualToString:@"昵称"]) {
+            if ([[cellData objectForKey:@"left"] isEqualToString:@"昵称"]) {
                 MineSettingTextViewController *nickVC=[[MineSettingTextViewController alloc] init];
                 nickVC.titleText=@"昵称";
                 nickVC.textStr=[cell getContent];
                 [nickVC onTextBlock:^(NSString *text) {
+                    [CGSingleCommitData sharedInstance].nickName=text;
                     [cell updateCellContent:text];
                 }];
                 
                 [strongSelf.navigationController pushViewController:nickVC animated:NO];
-            }else if ([cellData isEqualToString:@"性别"]){
+            }else if ([[cellData objectForKey:@"left"] isEqualToString:@"性别"]){
                 strongSelf.tabBarController.tabBar.hidden=YES;
                 WYGenderPickerView *customPickerSex=[[WYGenderPickerView alloc] initWithInitialGender:@"男"];
                 customPickerSex.confirmBlock = ^(NSString *selectedGender){
+                    [CGSingleCommitData sharedInstance].sex=selectedGender;
                     strongSelf.tabBarController.tabBar.hidden=NO;
                     [cell updateCellContent:selectedGender];
                     
                 };
                 
                 [strongSelf.view addSubview:customPickerSex];
-            }else if ([cellData isEqualToString:@"城市"]){
+            }else if ([[cellData objectForKey:@"left"] isEqualToString:@"城市"]){
                 MineSettingTextViewController *citykVC=[[MineSettingTextViewController alloc] init];
                 citykVC.titleText=@"城市";
                 citykVC.textStr=[cell getContent];
                 [citykVC onTextBlock:^(NSString *text) {
+                    [CGSingleCommitData sharedInstance].cityName=text;
                     [cell updateCellContent:text];
                 }];
                 
                 [strongSelf.navigationController pushViewController:citykVC animated:NO];
-            }else if ([cellData isEqualToString:@"生日"]){
+            }else if ([[cellData objectForKey:@"left"] isEqualToString:@"生日"]){
                 strongSelf.tabBarController.tabBar.hidden=YES;
                 WYBirthdayPickerView *birthdayPickerView = [[WYBirthdayPickerView alloc] initWithInitialDate:@"1990-01-01"];
                 
                 // 选择日期完成之后的回调 : 按自己的要求做相应的处理就可以了
                 birthdayPickerView.confirmBlock = ^(NSString *selectedDate) {
+                    [CGSingleCommitData sharedInstance].birthDay=selectedDate;
                     strongSelf.tabBarController.tabBar.hidden=NO;
                     [cell updateCellContent:selectedDate];
                 };
                 
                 [strongSelf.view addSubview:birthdayPickerView];
-            }else if ([cellData isEqualToString:@"关于我"]){
+            }else if ([[cellData objectForKey:@"left"] isEqualToString:@"关于我"]){
                 MineSettingTextViewController *aboutVC=[[MineSettingTextViewController alloc] init];
                 aboutVC.titleText=@"关于我";
                 aboutVC.textStr=[cell getContent];
                 [aboutVC onTextBlock:^(NSString *text) {
+                    [CGSingleCommitData sharedInstance].aboutUs=text;
                     [cell updateCellContent:text];
                 }];
                 [strongSelf.navigationController pushViewController:aboutVC animated:NO];
@@ -271,6 +369,16 @@
     return _tbv;
 }
 
+
+-(UIView *)bodyCellView{
+    if (!_bodyCellView) {
+        _bodyCellView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width-32*SCREEN_RADIO, 173*SCREEN_RADIO)];
+        _bodyCellView.backgroundColor=[UIColor getColor:@"ffffff"];
+        _bodyCellView.layer.cornerRadius=6;
+    }
+    
+    return _bodyCellView;
+}
 
 
 //代理方法
