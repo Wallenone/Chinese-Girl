@@ -78,7 +78,7 @@ static CGSingleCommitData *_instance = nil;
         if (![CGCommonString isBlankString:sex]) {
             self.sex = sex;
         }else{
-            self.sex=@"男";
+            self.sex=NSLocalizedString(@"sex_man", nil);
         }
         
         NSString *cityName = [[NSUserDefaults standardUserDefaults] stringForKey:kCityNameKey];

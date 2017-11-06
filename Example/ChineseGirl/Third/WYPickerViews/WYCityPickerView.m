@@ -194,7 +194,7 @@
         _cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 12, 44, 20)];
         _cancelButton.backgroundColor = [UIColor clearColor];
         
-        [_cancelButton setTitle:@"取消" forState:(UIControlStateNormal)];
+        [_cancelButton setTitle:NSLocalizedString(@"cancel", nil) forState:(UIControlStateNormal)];
         _cancelButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [_cancelButton setTitleColor:[UIColor colorWithRed:195 / 255.0 green:195 / 255.0 blue:195 / 255.0 alpha:1] forState:(UIControlStateNormal)];
         
@@ -211,7 +211,7 @@
         _confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 44 - 20, 12, 44, 20)];
         _confirmButton.backgroundColor = [UIColor clearColor];
         
-        [_confirmButton setTitle:@"完成" forState:(UIControlStateNormal)];
+        [_confirmButton setTitle:NSLocalizedString(@"done", nil) forState:(UIControlStateNormal)];
         _confirmButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [_confirmButton setTitleColor:[UIColor colorWithRed:195 / 255.0 green:195 / 255.0 blue:195 / 255.0 alpha:1] forState:(UIControlStateNormal)];
         

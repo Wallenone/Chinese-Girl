@@ -12,9 +12,6 @@
     SingUpClickBlock singUpClickBlock;
     ForgotPasswordClickBlock forgotPasswordClickBlock;
     SignInClickBlock signInClickBlock;
-    GooleClickBlock gooleClickBlock;
-    FacebookClickBlock facebookClickBlock;
-    TwitterClickBlock twitterClickBlock;
     CanCelClickBlock canCelClickBlock;
 }
 @property(nonatomic,strong)UIButton *leftIcon;
@@ -25,23 +22,16 @@
 @property(nonatomic,strong)CGLoginIndexCustomTextField *passwordField;
 @property(nonatomic,strong)UIButton *forgotPassword;
 @property(nonatomic,strong)UIButton *signInBtn;
-@property(nonatomic,strong)UILabel *acccoutLabel;  //第三方
-@property(nonatomic,strong)UIButton *googleBtn;
-@property(nonatomic,strong)UIButton *facebookBtn;
-@property(nonatomic,strong)UIButton *twitterBtn;
 @end
 @implementation CGLoginIndexView
 
 
-- (id)initWithFrame:(CGRect)frame onSingUpClick:(SingUpClickBlock)singUpBlock onForgotPasswordClick:(ForgotPasswordClickBlock)forgotPasswordBlock onSignInClick:(SignInClickBlock)signInkBlock onGooleClick:(GooleClickBlock)gooleBlock  onFacebookClick:(FacebookClickBlock)facebookBlock onwitterClick:(TwitterClickBlock)witterBlock onCanCelClick:(CanCelClickBlock)canCelClick{
+- (id)initWithFrame:(CGRect)frame onSingUpClick:(SingUpClickBlock)singUpBlock onForgotPasswordClick:(ForgotPasswordClickBlock)forgotPasswordBlock onSignInClick:(SignInClickBlock)signInkBlock onCanCelClick:(CanCelClickBlock)canCelClick{
     self.backgroundColor=[UIColor clearColor];
     if (self=[super initWithFrame:frame]) {
         singUpClickBlock = singUpBlock;
         forgotPasswordClickBlock = forgotPasswordBlock;
         signInClickBlock = signInkBlock;
-        gooleClickBlock = gooleBlock;
-        facebookClickBlock= facebookBlock;
-        twitterClickBlock = witterBlock;
         canCelClickBlock = canCelClick;
         [self addSubViews];
     }
@@ -63,10 +53,6 @@
     [self addSubview:self.passwordField];
     [self addSubview:self.forgotPassword];
     [self addSubview:self.signInBtn];
-    [self addSubview:self.acccoutLabel];
-    [self addSubview:self.googleBtn];
-    [self addSubview:self.facebookBtn];
-    [self addSubview:self.twitterBtn];
 }
 
 -(void)back{
@@ -96,33 +82,16 @@
                 [CGSingleCommitData sharedInstance].uid=@"10000";
                 [CGSingleCommitData sharedInstance].email=self.userNameField.text;
                 [CGSingleCommitData sharedInstance].password=self.passwordField.text;
-                signInClickBlock(YES,@"登录成功");
+                signInClickBlock(YES,NSLocalizedString(@"login_success", nil));
             }
         }else{
             if (signInClickBlock) {
-                signInClickBlock(NO,@"用户名或密码错误");
+                signInClickBlock(NO,NSLocalizedString(@"ERROR_Incorrect_username_or_password", nil));
             }
         }
     
 }
 
--(void)gooleClick{
-    if (gooleClickBlock) {
-        gooleClickBlock();
-    }
-}
-
--(void)facebookClick{
-    if (facebookClickBlock) {
-        facebookClickBlock();
-    }
-}
-
--(void)twitterClick{
-    if (twitterClickBlock) {
-        twitterClickBlock();
-    }
-}
 
 -(void)checkRespons{
     if (self.userNameField.isFirstResponder) {
@@ -161,7 +130,7 @@
         _titleLabel.textAlignment=NSTextAlignmentCenter;
         _titleLabel.textColor=[UIColor getColor:@"F4F8FA"];
         _titleLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
-        NSString *cg_text=@"Have no account yet? ";
+        NSString *cg_text=NSLocalizedString(@"new_user", nil);
         _titleLabel.text=cg_text;
         [_titleLabel sizeToFit];
     }
@@ -172,7 +141,7 @@
 -(UIButton *)SignupBtn{
     if (!_SignupBtn) {
         _SignupBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.titleLabel.frame), 166*SCREEN_RADIO, 100, 26*SCREEN_RADIO)];
-        [_SignupBtn setTitle:@"Signup" forState:UIControlStateNormal];
+        [_SignupBtn setTitle:NSLocalizedString(@"signup", nil) forState:UIControlStateNormal];
         [_SignupBtn setTitleColor:[UIColor getColor:@"F4F8FA"] forState:UIControlStateNormal];
         _SignupBtn.titleLabel.font=[UIFont boldSystemFontOfSize:24*SCREEN_RADIO];
          [_SignupBtn addTarget:self action:@selector(singUpClick) forControlEvents:UIControlEventTouchUpInside];
@@ -212,7 +181,7 @@
         // 设置富文本对象的颜色
         attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
         // 设置UITextField的占位文字
-        _passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attributes];
+        _passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"password", nil) attributes:attributes];
         _passwordField.textColor=[UIColor whiteColor];
         _passwordField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
         UIImageView *imageViewPassword=[[UIImageView alloc]initWithFrame:CGRectMake(44*SCREEN_RADIO, 13*SCREEN_RADIO, 23*SCREEN_RADIO, 19*SCREEN_RADIO)];
@@ -232,7 +201,7 @@
         _forgotPassword=[[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.passwordField.frame)+25*SCREEN_RADIO, screen_width, 22*SCREEN_RADIO)];
         _forgotPassword.titleLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_forgotPassword setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_forgotPassword setTitle:@"Forgot your Password?" forState:UIControlStateNormal];
+        [_forgotPassword setTitle:NSLocalizedString(@"forgot_your_password", nil) forState:UIControlStateNormal];
         [_forgotPassword addTarget:self action:@selector(forgotPasswordClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -242,7 +211,7 @@
 -(UIButton *)signInBtn{
     if (!_signInBtn) {
         _signInBtn=[[UIButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.forgotPassword.frame)+39*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
-        [_signInBtn setTitle:@"Sign In" forState:UIControlStateNormal];
+        [_signInBtn setTitle:NSLocalizedString(@"signin", nil) forState:UIControlStateNormal];
         [_signInBtn addTarget:self action:@selector(signInClick) forControlEvents:UIControlEventTouchUpInside];
         _signInBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
         [_signInBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -254,47 +223,7 @@
     return _signInBtn;
 }
 
--(UILabel *)acccoutLabel{
-    if (!_acccoutLabel) {
-        _acccoutLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.signInBtn.frame)+30*SCREEN_RADIO, screen_width, 22*SCREEN_RADIO)];
-        _acccoutLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
-        _acccoutLabel.textColor=[UIColor getColor:@"99A3A9"];
-        _acccoutLabel.text=@"OR SIGN WITH A SOCIAL ACCOUNT";
-        _acccoutLabel.textAlignment=NSTextAlignmentCenter;
-    }
-    
-    return _acccoutLabel;
-}
 
--(UIButton *)googleBtn{
-    if (!_googleBtn) {
-        _googleBtn=[[UIButton alloc] initWithFrame:CGRectMake(105*SCREEN_RADIO, CGRectGetMaxY(self.acccoutLabel.frame)+13*SCREEN_RADIO, 45*SCREEN_RADIO, 45*SCREEN_RADIO)];
-        [_googleBtn setBackgroundImage:[UIImage imageNamed:@"login_Google+"] forState:UIControlStateNormal];
-        [_googleBtn addTarget:self action:@selector(gooleClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _googleBtn;
-}
-
--(UIButton *)facebookBtn{
-    if (!_facebookBtn) {
-        _facebookBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.googleBtn.frame)+15*SCREEN_RADIO, CGRectGetMaxY(self.acccoutLabel.frame)+13*SCREEN_RADIO, 45*SCREEN_RADIO, 45*SCREEN_RADIO)];
-        [_facebookBtn setBackgroundImage:[UIImage imageNamed:@"login_Facebook"] forState:UIControlStateNormal];
-        [_facebookBtn addTarget:self action:@selector(facebookClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _facebookBtn;
-}
-
--(UIButton *)twitterBtn{
-    if (!_twitterBtn) {
-        _twitterBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.facebookBtn.frame)+15*SCREEN_RADIO, CGRectGetMaxY(self.acccoutLabel.frame)+13*SCREEN_RADIO, 45*SCREEN_RADIO, 45*SCREEN_RADIO)];
-        [_twitterBtn setBackgroundImage:[UIImage imageNamed:@"login_Twitter"] forState:UIControlStateNormal];
-        [_twitterBtn addTarget:self action:@selector(twitterClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _twitterBtn;
-}
 
 /**
  *  设置图片透明度

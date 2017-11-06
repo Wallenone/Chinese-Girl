@@ -141,19 +141,19 @@
 -(void)editPhotosClick:(UIButton *)sender{
     __weak typeof(self) weakSelf = self;
     UIAlertController *alterVC=[UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [alterVC addAction:[UIAlertAction actionWithTitle:@"查看原图" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alterVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"full_image", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf setCheckPhotos:sender.tag];
     }]];
-    [alterVC addAction:[UIAlertAction actionWithTitle:@"替换图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alterVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"replace_photo", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf changePhotowithSener:sender];
     }]];
-    [alterVC addAction:[UIAlertAction actionWithTitle:@"删除图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alterVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"delete_photo", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf deletePhoto:sender];
     }]];
-    [alterVC addAction:[UIAlertAction actionWithTitle:@"设为头像" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alterVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"set_as_profile_photo", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf setAvater:sender];
     }]];
-    [alterVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alterVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
     
@@ -220,7 +220,7 @@
 -(UILabel *)titleLable{
     if (!_titleLable) {
         _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLable.text=@"个人中心";
+        _titleLable.text=NSLocalizedString(@"profile_info", nil);
         _titleLable.textColor=[UIColor getColor:@"232627"];
         _titleLable.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLable.textAlignment=NSTextAlignmentCenter;
@@ -272,11 +272,11 @@
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
         
         NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:
-                                            @{@"left":@"昵称",@"right":[CGSingleCommitData sharedInstance].nickName},
-                                            @{@"left":@"性别",@"right":[CGSingleCommitData sharedInstance].sex},
-                                            @{@"left":@"城市",@"right":[CGSingleCommitData sharedInstance].cityName},
-                                            @{@"left":@"生日",@"right":[CGSingleCommitData sharedInstance].birthDay},
-                                            @{@"left":@"关于我",@"right":[CGSingleCommitData sharedInstance].aboutUs},
+                                            @{@"left":NSLocalizedString(@"nickname", nil),@"right":[CGSingleCommitData sharedInstance].nickName},
+                                            @{@"left":NSLocalizedString(@"gender", nil),@"right":[CGSingleCommitData sharedInstance].sex},
+                                            @{@"left":NSLocalizedString(@"city", nil),@"right":[CGSingleCommitData sharedInstance].cityName},
+                                            @{@"left":NSLocalizedString(@"birthday", nil),@"right":[CGSingleCommitData sharedInstance].birthDay},
+                                            @{@"left":NSLocalizedString(@"about", nil),@"right":[CGSingleCommitData sharedInstance].aboutUs},
                                             nil];
         //给tableview赋值
         [_tbv setDataArray:arrays];
@@ -308,9 +308,9 @@
             
             MySettingTableViewCell *cell = [strongSelf.tbv cellForRowAtIndexPath:indexPath];
             
-            if ([[cellData objectForKey:@"left"] isEqualToString:@"昵称"]) {
+            if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"nickname", nil)]) {
                 MineSettingTextViewController *nickVC=[[MineSettingTextViewController alloc] init];
-                nickVC.titleText=@"昵称";
+                nickVC.titleText=NSLocalizedString(@"nickname", nil);
                 nickVC.textStr=[cell getContent];
                 [nickVC onTextBlock:^(NSString *text) {
                     [CGSingleCommitData sharedInstance].nickName=text;
@@ -318,9 +318,9 @@
                 }];
                 
                 [strongSelf.navigationController pushViewController:nickVC animated:NO];
-            }else if ([[cellData objectForKey:@"left"] isEqualToString:@"性别"]){
+            }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"gender", nil)]){
                 strongSelf.tabBarController.tabBar.hidden=YES;
-                WYGenderPickerView *customPickerSex=[[WYGenderPickerView alloc] initWithInitialGender:@"男"];
+                WYGenderPickerView *customPickerSex=[[WYGenderPickerView alloc] initWithInitialGender:NSLocalizedString(@"sex_man", nil)];
                 customPickerSex.confirmBlock = ^(NSString *selectedGender){
                     [CGSingleCommitData sharedInstance].sex=selectedGender;
                     strongSelf.tabBarController.tabBar.hidden=NO;
@@ -329,9 +329,9 @@
                 };
                 
                 [strongSelf.view addSubview:customPickerSex];
-            }else if ([[cellData objectForKey:@"left"] isEqualToString:@"城市"]){
+            }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"city", nil)]){
                 MineSettingTextViewController *citykVC=[[MineSettingTextViewController alloc] init];
-                citykVC.titleText=@"城市";
+                citykVC.titleText=NSLocalizedString(@"city", nil);
                 citykVC.textStr=[cell getContent];
                 [citykVC onTextBlock:^(NSString *text) {
                     [CGSingleCommitData sharedInstance].cityName=text;
@@ -339,7 +339,7 @@
                 }];
                 
                 [strongSelf.navigationController pushViewController:citykVC animated:NO];
-            }else if ([[cellData objectForKey:@"left"] isEqualToString:@"生日"]){
+            }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"birthday", nil)]){
                 strongSelf.tabBarController.tabBar.hidden=YES;
                 WYBirthdayPickerView *birthdayPickerView = [[WYBirthdayPickerView alloc] initWithInitialDate:@"1990-01-01"];
                 
@@ -351,9 +351,9 @@
                 };
                 
                 [strongSelf.view addSubview:birthdayPickerView];
-            }else if ([[cellData objectForKey:@"left"] isEqualToString:@"关于我"]){
+            }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"about", nil)]){
                 MineSettingTextViewController *aboutVC=[[MineSettingTextViewController alloc] init];
-                aboutVC.titleText=@"关于我";
+                aboutVC.titleText=NSLocalizedString(@"about", nil);
                 aboutVC.textStr=[cell getContent];
                 [aboutVC onTextBlock:^(NSString *text) {
                     [CGSingleCommitData sharedInstance].aboutUs=text;

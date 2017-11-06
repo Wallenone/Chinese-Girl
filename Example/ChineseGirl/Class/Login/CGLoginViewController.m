@@ -72,13 +72,7 @@
                 [SVProgressHUD showErrorWithStatus:warningText];
             }
 
-        } onGooleClick:^{
-            
-        } onFacebookClick:^{
-            
-        } onwitterClick:^{
-            
-        } onCanCelClick:^{
+        }onCanCelClick:^{
             [weakSelf dismissViewControllerAnimated:NO completion:nil];
             weakSelf.tabBarController.selectedIndex=0;
         }];

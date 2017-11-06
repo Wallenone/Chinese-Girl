@@ -1,0 +1,60 @@
+/*
+ DemoRemind.strings
+ MegLiveDemo
+ 
+ Created by megviio on 2017/5/26.
+ Copyright © megvii. All rights reserved.
+ */
+
+"sex_man" = "Male";    //男
+"sex_woman" = "Female";  //女
+"nickname" = "Name";    //昵称
+"personalized_signature" = "Personalized signature";   //个性签名
+"cancel" = "Cancel";   //取消
+"done" = "Done";    //完成
+"picture_download_failed" = "Picture download failed";  //图片下载失败
+"save_failed" = "Save failed";    //保存失败
+"save_to_album_successfully" = "Save to album successfully";  //成功保存到相册
+"choose_existing" = "Choose Existing";      //"从相册中选取"
+"take_photo" = "Take Photo";    //拍照
+"password_recovery" = "PASSWORD \nRECOVERY";    //恢复密码
+"recover" = "Recover";     //恢复
+"online" = "onLine";     //在线
+"profile" = "Profile";   //主页
+"activity" = "Activity";    //活动
+"register" = "Register";    //注册
+"login" = "Login";     //登陆
+"settings" = "Settings";    //设置
+"account" = "My Account";   //个人信息
+"my_favorite" = "Favorites";   //我的关注
+"full_image" = "Full Image";    //查看原图
+"replace_photo" = "Replace Photo";   //替换图片
+"delete_photo" = "Delete Photo";    //删除图片
+"set_as_profile_photo" = "Set as Profile Photo";  //设为头像
+"profile_info" = "Profile Info";     //个人中心
+"gender" = "Gender";    //性别
+"city" = "City";     //城市
+"birthday" = "Birthday";    //生日
+"About" = "About";      //关于我
+"change_password" = "Change Password";    //修改密码
+"log_out" = "Log Out";     //退出当前账号
+"current_password" = "Current Password";   //当前密码
+"new_password" = "New Password";    //新密码
+"only_password_letters" = "6-16 characters,letters and numbers only.";     //请输入6~16位数字加字母组合密码
+"save" = "Save";      //确定或者保存
+"messages" = "Messages";   //聊天或者信息
+"register_success" = "Register Success";     //注册成功
+"city_can_not_be_empty" = "City can not be empty";  //城市不能为空
+"password_no_less_than_6_characters" = "Password no less than 6 characters";   //密码不少于6个字符
+"the_mailbox_format_is_incorrect" = "The mailbox format is incorrect"; //邮箱格式不正确
+"username_cannot_be_empty" = "Username cannot be empty";     //用户名不能为空
+"login_success" = "Login Success";   //登录成功
+"ERROR_Incorrect_username_or_password" = "ERROR Incorrect username or password";    //用户名或密码错误
+"new_user" = "New User";      //新用户
+"signup" = "Signup";      //注册
+"password" = "Password";    //密码
+"forgot_your_password" = "Forgot your Password?";   //忘记密码
+"signin" = "Sign In";   //登陆
+"reply" = "Reply";   //回复
+
+

@@ -37,7 +37,7 @@
 }
 
 -(void)setHeaderView{
-    [self setUpNavWithTitle:@"onLine" leftIcon:nil rightIcon:nil leftTitle:nil rightTitle:nil delegate:nil];
+    [self setUpNavWithTitle:NSLocalizedString(@"online", nil) leftIcon:nil rightIcon:nil leftTitle:nil rightTitle:nil delegate:nil];
 }
 
 -(void)addSubViews{

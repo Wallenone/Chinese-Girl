@@ -91,7 +91,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=@"Profile";
+        _titleLabel.text=NSLocalizedString(@"profile", nil);
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textColor=[UIColor getColor:@"232627"];
         _titleLabel.textAlignment=NSTextAlignmentCenter;

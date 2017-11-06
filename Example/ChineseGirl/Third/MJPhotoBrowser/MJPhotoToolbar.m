@@ -66,12 +66,12 @@
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if (error) {
-        [MBProgressHUD showSuccess:@"保存失败" toView:nil];
+        [MBProgressHUD showSuccess:NSLocalizedString(@"save_failed", nil) toView:nil];
     } else {
         MJPhoto *photo = _photos[_currentPhotoIndex];
         photo.save = YES;
         _saveImageBtn.enabled = NO;
-        [MBProgressHUD showSuccess:@"成功保存到相册" toView:nil];
+        [MBProgressHUD showSuccess:NSLocalizedString(@"save_to_album_successfully", nil) toView:nil];
     }
 }
 
@@ -80,7 +80,7 @@
     _currentPhotoIndex = currentPhotoIndex;
     
     // 更新页码
-    _indexLabel.text = [NSString stringWithFormat:@"%d / %d", _currentPhotoIndex + 1, _photos.count];
+    _indexLabel.text = [NSString stringWithFormat:@"%lu / %lu", _currentPhotoIndex + 1, (unsigned long)_photos.count];
     
     MJPhoto *photo = _photos[_currentPhotoIndex];
     // 按钮

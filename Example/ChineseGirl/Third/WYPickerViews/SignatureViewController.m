@@ -35,7 +35,7 @@
     }
     
     // 导航栏
-    self.navigationItem.title = @"个性签名";
+    self.navigationItem.title = NSLocalizedString(@"personalized_signature", nil);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"返回"] style:(UIBarButtonItemStylePlain) target:self action:@selector(leftBarButtonItemAction:)];
     
     // longText : 已存在的个性签名, number : 可输入的最大字符数, color : 超出字数限制时的警告色

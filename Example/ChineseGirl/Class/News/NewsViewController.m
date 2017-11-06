@@ -37,7 +37,7 @@
 }
 
 -(void)setHeaderView{
-    [self setUpNavWithTitle:@"聊天" leftIcon:@"" rightIcon:@"" leftTitle:nil rightTitle:nil delegate:nil];
+    [self setUpNavWithTitle:NSLocalizedString(@"messages", nil) leftIcon:@"" rightIcon:@"" leftTitle:nil rightTitle:nil delegate:nil];
 }
 
 -(void)addSubViews{

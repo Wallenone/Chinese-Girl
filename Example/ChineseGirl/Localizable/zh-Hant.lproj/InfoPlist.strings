@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  MegLiveDemo
+
+  Created by megviio on 2017/5/26.
+  Copyright © megvii. All rights reserved.
+*/
+
+"NSMicrophoneUsageDescription" = "App需要您的同意，才能訪問您的麥克風";
+"NSCameraUsageDescription" = "App需要您的同意，才能訪問您的相機";
+"NSPhotoLibraryUsageDescription" = "App需要您的同意，才能访问您的相册";

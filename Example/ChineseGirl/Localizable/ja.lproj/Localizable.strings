@@ -1,0 +1,59 @@
+/*
+ DemoRemind.strings
+ MegLiveDemo
+ 
+ Created by megviio on 2017/5/26.
+ Copyright © megvii. All rights reserved.
+ */
+
+"sex_man" = "男";    //男
+"sex_woman" = "女";  //女
+"nickname" = "ニックネーム";    //昵称
+"personalized_signature" = "個性署名";   //个性签名
+"cancel" = "キャンセル";   //取消
+"done" = "完成";    //完成
+"picture_download_failed" = "はダウンロードして失敗して";  //图片下载失败
+"save_failed" = "失败を保存する";    //保存失败
+"save_to_album_successfully" = "アルバムには成功保存";  //成功保存到相册
+"choose_existing" = "アルバムの中から";      //从相册中选取
+"take_photo" = "写真を撮る";    //拍照
+"password_recovery" = "パスワード \n取り戻す";    //找回密码
+"recover" = "取り戻す";     //恢复
+"online" = "オンライン";     //在线
+"profile" = "ホームページ";   //主页
+"activity" = "活動";    //活动
+"register" = "登録";    //注册
+"login" = "上陸";     //登陆
+"settings" = "設置";    //设置
+"account" = "個人情報";//个人信息
+"my_favorite" = "私の関心は";   //我的关注
+"full_image" = "原図原図";    //查看原图
+"replace_photo" = "写真を入れ替わっ";   //替换图片
+"delete_photo" = "画像の削除";    //删除图片
+"set_as_profile_photo" = "頭にして";  //设为头像
+"profile_info" = "個人センター";     //个人中心
+"gender" = "性別";    //性别
+"city" = "都市";     //城市
+"birthday" = "誕生日";    //生日
+"About" = "私について";      //关于我
+"change_password" = "パスワードを改正する";    //修改密码
+"log_out" = "名目";     //退出
+"current_password" = "現在のパスワード";   //当前密码
+"new_password" = "新しいパスワード";    //新密码
+"only_password_letters" = "6～16桁の数字を入力してパスワードを入力して下さい.";     //请输入6~16位数字加字母组合密码
+"save" = "保存";      //确定或者保存
+"messages" = "チャット";   //聊天或者信息
+"register_success" = "登録が成功する";     //注册成功
+"city_can_not_be_empty" = "町は空っぽにならない";  //城市不能为空
+"password_no_less_than_6_characters" = "パスワードは6つのキャラクターを下らない";   //密码不少于6个字符
+"the_mailbox_format_is_incorrect" = "郵便箱のフォーマットは正しくありません"; //邮箱格式不正确
+"username_cannot_be_empty" = "ユーザー名は空っぽにならない";     //用户名不能为空
+"login_success" = "ログイン成功";   //登录成功
+"ERROR_Incorrect_username_or_password" = "ユーザ名またはパスワードエラー";    //用户名或密码错误
+"new_user" = "ニューユーザー";      //新用户
+"signup" = "登録";      //注册
+"password" = "パスワード";    //密码
+"forgot_your_password" = "パスワードを忘れて?";   //忘记密码
+"signin" = "上陸";   //登陆
+"reply" = "回復";   //回复
+

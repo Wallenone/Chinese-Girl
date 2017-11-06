@@ -61,7 +61,7 @@
 
 -(void)setData{
     if ([CGSingleCommitData sharedInstance].uid.length<=0) {
-        [self.nickName setTitle:@"注册/登录" forState:UIControlStateNormal];
+        [self.nickName setTitle:[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"register", nil),NSLocalizedString(@"login", nil)] forState:UIControlStateNormal];
         self.nickName.userInteractionEnabled=YES;
         [self.AvatarImgView setImage:[UIImage imageNamed:@"myindex_Icon"] forState:UIControlStateNormal];
     }else{
@@ -143,7 +143,7 @@
         _tbv.scrollEnabled=NO;
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
-        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:@"账号信息",@"个人信息",@"我的钻石",@"关注",nil];
+        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"settings", nil),NSLocalizedString(@"account", nil),@"VIP",NSLocalizedString(@"my_favorite", nil),nil];
         
         //给tableview赋值
         [_tbv setDataArray:arrays];
@@ -174,7 +174,7 @@
 
            // MySettingTableViewCell *cell = [weakSelf.tbv cellForRowAtIndexPath:indexPath];
             
-            if ([cellData isEqualToString:@"账号信息"]) {
+            if ([cellData isEqualToString:NSLocalizedString(@"settings", nil)]) {
                 
                 if ([CGCommonString isBlankString:[CGSingleCommitData sharedInstance].uid]) {
                     CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
@@ -184,7 +184,7 @@
                     MineAccountViewController *accountVC=[[MineAccountViewController alloc] init];
                     [weakSelf.navigationController pushViewController:accountVC animated:NO];
                 }
-            }else if ([cellData isEqualToString:@"个人信息"]){
+            }else if ([cellData isEqualToString:NSLocalizedString(@"account", nil)]){
                 if ([CGCommonString isBlankString:[CGSingleCommitData sharedInstance].uid]) {
                     CGLoginViewController *loginVC=[[CGLoginViewController alloc] init];
                     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:loginVC];
@@ -194,9 +194,9 @@
                     [weakSelf.navigationController pushViewController:profileInfoVC animated:NO];
                 }
                 
-            }else if ([cellData isEqualToString:@"我的钻石"]){
+            }else if ([cellData isEqualToString:@"VIP"]){
                 
-            }else if ([cellData isEqualToString:@"关注"]){
+            }else if ([cellData isEqualToString:NSLocalizedString(@"my_favorite", nil)]){
                 
             }
          

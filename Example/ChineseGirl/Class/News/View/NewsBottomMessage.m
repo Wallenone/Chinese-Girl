@@ -179,7 +179,7 @@
         _messageView=[[UIMessageCustom alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftBtn.frame)+13.6*SCREEN_RADIO, 7.5*SCREEN_RADIO, screen_width-110*SCREEN_RADIO, 44*SCREEN_RADIO)];
         messgaeY=_messageView.frame.size.height+_messageView.frame.origin.y;
         _messageView.layer.cornerRadius=22*SCREEN_RADIO;
-        _messageView.placeholder=@"Message";
+        _messageView.placeholder=NSLocalizedString(@"messages", nil);
         _messageView.placeholderFont=[UIFont systemFontOfSize:17*SCREEN_RADIO];
         _messageView.placeholderColor=[UIColor getColor:@"232627s"];
         _messageView.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];

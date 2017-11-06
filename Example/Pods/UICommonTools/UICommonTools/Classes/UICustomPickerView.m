@@ -69,7 +69,7 @@
     
     
     RkyExtendedHitButton *cancelBtn = [[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(42*SCREEN_RADIO, 5*SCREEN_RADIO, 30*SCREEN_RADIO, 20*SCREEN_RADIO)];
-    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelBtn setTitle:NSLocalizedString(@"cancel", nil) forState:UIControlStateNormal];
     [cancelBtn setTitleColor:[UIColor getColor:@"666666"] forState:UIControlStateNormal];
     cancelBtn.titleLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
     [cancelBtn addTarget:self action:@selector(toolBarCanelClick) forControlEvents:UIControlEventTouchUpInside];

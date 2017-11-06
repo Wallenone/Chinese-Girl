@@ -103,7 +103,7 @@
 -(UILabel *)titleLable{
     if (!_titleLable) {
         _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLable.text=@"修改密码";
+        _titleLable.text=NSLocalizedString(@"change_password", nil);
         _titleLable.textColor=[UIColor getColor:@"232627"];
         _titleLable.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLable.textAlignment=NSTextAlignmentCenter;
@@ -133,7 +133,7 @@
 -(UITextField *)passwordField{
     if (!_passwordField) {
         _passwordField=[[UITextField alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 74*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 49.5*SCREEN_RADIO)];
-        _passwordField.placeholder=@"当前密码";
+        _passwordField.placeholder=NSLocalizedString(@"current_password", nil);
         [_passwordField setValue:[UIColor getColor:@"c9c9c9"] forKeyPath:@"_placeholderLabel.textColor"];
         [_passwordField setValue:[UIFont systemFontOfSize:16*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
         _passwordField.textColor=[UIColor getColor:@"565656"];
@@ -157,7 +157,7 @@
 -(UITextField *)newpasswordField{
     if (!_newpasswordField) {
         _newpasswordField=[[UITextField alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.lineView.frame), screen_width-32*SCREEN_RADIO, 49.5*SCREEN_RADIO)];
-        _newpasswordField.placeholder=@"新密码";
+        _newpasswordField.placeholder=NSLocalizedString(@"new_password", nil);
         [_newpasswordField setValue:[UIColor getColor:@"c9c9c9"] forKeyPath:@"_placeholderLabel.textColor"];
         [_newpasswordField setValue:[UIFont systemFontOfSize:16*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
         _newpasswordField.textColor=[UIColor getColor:@"565656"];
@@ -173,7 +173,7 @@
 -(UILabel *)passwordContent{
     if (!_passwordContent) {
         _passwordContent=[[UILabel alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.newpasswordField.frame)+8*SCREEN_RADIO, 0, 8*SCREEN_RADIO)];
-        _passwordContent.text=@"请输入6~16位数字加字母组合密码";
+        _passwordContent.text=NSLocalizedString(@"only_password_letters", nil);
         _passwordContent.font=[UIFont systemFontOfSize:8*SCREEN_RADIO];
         _passwordContent.textColor=[UIColor getColor:@"9c9c9c"];
         [_passwordContent sizeToFit];
@@ -184,7 +184,7 @@
 -(UIButton *)conformBtn{
     if (!_conformBtn) {
         _conformBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, CGRectGetMaxY(self.passwordContent.frame)+20*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
-        [_conformBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [_conformBtn setTitle:NSLocalizedString(@"save", nil) forState:UIControlStateNormal];
         [_conformBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _conformBtn.backgroundColor=[UIColor getColor:@"c8d3d2"];
         _conformBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];

@@ -72,7 +72,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(50*SCREEN_RADIO, CGRectGetMaxY(self.backBtn.frame)+12*SCREEN_RADIO, screen_width-100*SCREEN_RADIO, 174*SCREEN_RADIO)];
-        _titleLabel.text=@"PASSWORD \nRECOVERY";
+        _titleLabel.text=NSLocalizedString(@"password_recovery", nil);
         _titleLabel.textColor=[UIColor getColor:@"FFFFFF"];
         _titleLabel.font=[UIFont systemFontOfSize:32*SCREEN_RADIO];
         _titleLabel.numberOfLines=0;
@@ -108,7 +108,7 @@
 -(UIButton *)recoverBtn{
     if (!_recoverBtn) {
         _recoverBtn=[[UIButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.EmailField.frame)+139*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
-        [_recoverBtn setTitle:@"Recover" forState:UIControlStateNormal];
+        [_recoverBtn setTitle:NSLocalizedString(@"recover", nil) forState:UIControlStateNormal];
         [_recoverBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _recoverBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
         _recoverBtn.layer.cornerRadius=26*SCREEN_RADIO;

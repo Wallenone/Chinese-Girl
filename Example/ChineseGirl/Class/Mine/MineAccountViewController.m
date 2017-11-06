@@ -56,19 +56,8 @@
 }
 
 -(void)logoutClick{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定要退出吗" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    __weak typeof(self) weakSelf = self;
-    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }]];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[CGSingleCommitData sharedInstance] logout];
-        [weakSelf.navigationController popToRootViewControllerAnimated:NO];
-    }]];
-    
-    
-    [self presentViewController:alertController animated:YES completion:nil];
-
+    [[CGSingleCommitData sharedInstance] logout];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(UIView *)headerView{
@@ -82,7 +71,7 @@
 -(UILabel *)titleLable{
     if (!_titleLable) {
         _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLable.text=@"我的账户";
+        _titleLable.text=NSLocalizedString(@"settings", nil);
         _titleLable.textColor=[UIColor getColor:@"232627"];
         _titleLable.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLable.textAlignment=NSTextAlignmentCenter;
@@ -111,7 +100,7 @@
         _tbv.scrollEnabled=NO;
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
-        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:@"修改密码",nil];
+        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"change_password", nil),nil];
         
         //给tableview赋值
         [_tbv setDataArray:arrays];
@@ -139,7 +128,7 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             
-            if ([cellData isEqualToString:@"修改密码"]) {
+            if ([cellData isEqualToString:NSLocalizedString(@"change_password", nil)]) {
                 MinePasswordViewController *passwordVC=[[MinePasswordViewController alloc] init];
                 [weakSelf.navigationController pushViewController:passwordVC animated:NO];
             }
@@ -155,7 +144,7 @@
     if (!_logoutBtn) {
         _logoutBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, screen_height-90*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
         [_logoutBtn setTitleColor:[UIColor getColor:@"2979FF"] forState:UIControlStateNormal];
-        [_logoutBtn setTitle:@"退出当前账号" forState:UIControlStateNormal];
+        [_logoutBtn setTitle:NSLocalizedString(@"log_out", nil) forState:UIControlStateNormal];
         _logoutBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _logoutBtn.layer.cornerRadius=21*SCREEN_RADIO;
         _logoutBtn.layer.borderWidth=1;

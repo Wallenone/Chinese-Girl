@@ -1,0 +1,60 @@
+/*
+ DemoRemind.strings
+ MegLiveDemo
+ 
+ Created by megviio on 2017/5/26.
+ Copyright © megvii. All rights reserved.
+ */
+
+"sex_man" = "男";    //男
+"sex_woman" = "女";  //女
+"nickname" = "昵稱";    //昵称
+"personalized_signature" = "個性簽名";   //个性签名
+"cancel" = "取消";   //取消
+"done" = "完成";    //完成
+"picture_download_failed" = "圖片下載失敗";  //图片下载失败
+"save_failed" = "保存失敗";    //保存失败
+"save_to_album_successfully" = "成功保存到相册";  //成功保存到相册
+"choose_existing" = "從相册中選取";      //"从相册中选取"
+"take_photo" = "拍照";    //拍照
+"password_recovery" = "密碼 \n找回";    //找回密码
+"recover" = "找回";     //找回
+"online" = "線上";     //在线
+"profile" = "主頁";   //主页
+"activity" = "活動";    //活动
+"register" = "注册";    //注册
+"login" = "登入";     //登陆
+"settings" = "設定";    //设置
+"account" = "個人資訊";    //个人信息
+"my_favorite" = "我的關注";   //我的关注
+"full_image" = "查看原圖";    //查看原图
+"replace_photo" = "替換圖片";   //替换图片
+"delete_photo" = "删除圖片";    //删除图片
+"set_as_profile_photo" = "設為頭像";  //设为头像
+"profile_info" = "个人中心";     //个人中心
+"gender" = "性别";    //性别
+"city" = "都市";     //城市
+"birthday" = "生日";    //生日
+"About" = "關於我";      //关于我
+"change_password" = "修改密碼";    //修改密码
+"log_out" = "退出";     //退出
+"current_password" = "當前密碼";   //当前密码
+"new_password" = "新密碼";    //新密码
+"only_password_letters" = "請輸入6~16比特數位加字母組合密碼.";     //请输入6~16位数字加字母组合密码
+"save" = "保存";      //保存
+"messages" = "聊天";   //聊天
+"register_success" = "注册成功";     //注册成功
+"city_can_not_be_empty" = "都市不能為空";  //城市不能为空
+"password_no_less_than_6_characters" = "密碼不少於6個字元";   //密码不少于6个字符
+"the_mailbox_format_is_incorrect" = "郵箱格式不正確"; //邮箱格式不正确
+"username_cannot_be_empty" = "用戶名不能為空";     //用户名不能为空
+"login_success" = "登入成功";   //登录成功
+"ERROR_Incorrect_username_or_password" = "用戶名或密碼錯誤";    //用户名或密码错误
+"new_user" = "新用戶";      //新用户
+"signup" = "注册";      //注册
+"password" = "密碼";    //密码
+"forgot_your_password" = "忘記密碼?";   //忘记密码
+"signin" = "登入";   //登陆
+"reply" = "回復";   //回复
+
+

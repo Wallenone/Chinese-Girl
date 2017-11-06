@@ -66,30 +66,30 @@
                     [CGSingleCommitData sharedInstance].password=self.passwordField.text;
                     [CGSingleCommitData sharedInstance].cityName=self.cityField.text;
                     if (regSingUpClickBlock) {
-                        regSingUpClickBlock(YES,@"注册成功");
+                        regSingUpClickBlock(YES,NSLocalizedString(@"register_success", nil));
                     }
                 }else{
                     if (regSingUpClickBlock) {
-                        regSingUpClickBlock(NO,@"城市不能为空");
+                        regSingUpClickBlock(NO,NSLocalizedString(@"city_can_not_be_empty", nil));
                     }
                 }
                 
             }else{
                 
                 if (regSingUpClickBlock) {
-                    regSingUpClickBlock(NO,@"密码少于6个字符");
+                    regSingUpClickBlock(NO,NSLocalizedString(@"password_no_less_than_6_characters", nil));
                 }
             }
             
             
         }else{
             if (regSingUpClickBlock) {
-                regSingUpClickBlock(NO,@"邮箱格式不正确");
+                regSingUpClickBlock(NO,NSLocalizedString(@"the_mailbox_format_is_incorrect", nil));
             }
         }
     }else{
         if (regSingUpClickBlock) {
-            regSingUpClickBlock(NO,@"用户名不能为空");
+            regSingUpClickBlock(NO,NSLocalizedString(@"username_cannot_be_empty", nil));
         }
     }
     

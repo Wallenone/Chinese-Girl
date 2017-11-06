@@ -39,7 +39,7 @@
         //支持访问相机与相册情况
         alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"从相册中选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"choose_existing", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             NSLog(@"点击从相册中选取");
             //相册
@@ -56,7 +56,7 @@
             [[self getCurrentVC] presentViewController:imagePickerController animated:YES completion:nil];
         }]];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"take_photo", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             NSLog(@"点击拍照");
             //相机
@@ -73,7 +73,7 @@
             [[self getCurrentVC] presentViewController:imagePickerController animated:YES completion:nil];
         }]];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
             NSLog(@"点击取消");
             // 取消
@@ -87,7 +87,7 @@
         //只支持访问相册情况
         alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"从相册中选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"choose_existing", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             NSLog(@"点击从相册中选取");
             //相册
@@ -106,7 +106,7 @@
             }];
         }]];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
             NSLog(@"点击取消");
             // 取消

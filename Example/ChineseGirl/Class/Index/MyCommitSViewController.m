@@ -181,7 +181,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=@"Activity";
+        _titleLabel.text=NSLocalizedString(@"activity", nil);
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textColor=[UIColor getColor:@"232627"];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -222,7 +222,7 @@
             t_model.icon=@"Avatar";
             t_model.nickName=@"Wallen";
             t_model.date=@"2017.9.1 14:30:21";
-            t_model.content=[NSString stringWithFormat:@"回复%@:%@",weakSelf.TouchModel.nickName,text];
+            t_model.content=[NSString stringWithFormat:@"%@%@:%@",NSLocalizedString(@"reply", nil),weakSelf.TouchModel.nickName,text];
             [arr addObject:t_model];
             
             

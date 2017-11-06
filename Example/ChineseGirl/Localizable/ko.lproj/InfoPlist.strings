@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  MegLiveDemo
+
+  Created by megviio on 2017/5/26.
+  Copyright © megvii. All rights reserved.
+*/
+
+"NSMicrophoneUsageDescription" = "App당신은 동의가 필요하신 액세스할 수 마이크";
+"NSCameraUsageDescription" = "App당신은 동의가 필요하신 액세스할 수 카메라";
+"NSPhotoLibraryUsageDescription" = "App당신은 동의가 필요하신 액세스할 수 있는 앨범";
