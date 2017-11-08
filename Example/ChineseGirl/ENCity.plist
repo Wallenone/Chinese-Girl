@@ -1,0 +1,3156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Albania</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Algeria</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Andorra</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Angola</key>
+		<array>
+			<string>Bengo</string>
+			<string>Benguela</string>
+			<string>Bie</string>
+			<string>Cabinda</string>
+			<string>Cuando Cubango</string>
+			<string>Cuanza Norte</string>
+			<string>Cuanza Sul</string>
+			<string>Cunene</string>
+			<string>Huambo</string>
+			<string>Huila</string>
+			<string>Luanda</string>
+			<string>Lunda Norte</string>
+			<string>Lunda Sul</string>
+			<string>Malanje</string>
+			<string>Moxico</string>
+			<string>Namibe</string>
+			<string>Uige</string>
+			<string>Zaire</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Antigua and Barbuda</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Argentina</key>
+		<array>
+			<string>Bahia Blanca</string>
+			<string>Buenos Aires</string>
+			<string>Catamarca</string>
+			<string>Comodoro Rivadavia</string>
+			<string>Concordia</string>
+			<string>Cordoba</string>
+			<string>Corrientes</string>
+			<string>Formosa</string>
+			<string>Jujuy</string>
+			<string>La Plata</string>
+			<string>La Rioja</string>
+			<string>Mar del Plata</string>
+			<string>Mendoza</string>
+			<string>Neuquen</string>
+			<string>Parana</string>
+			<string>Posadas</string>
+			<string>Rawson</string>
+			<string>Resistencia</string>
+			<string>Rio Cuarto</string>
+			<string>Rio Gallegos</string>
+			<string>Rosario</string>
+			<string>Salta</string>
+			<string>San Juan</string>
+			<string>San Luis</string>
+			<string>San Miguel de Tucuman</string>
+			<string>San Nicolas</string>
+			<string>San Rafael</string>
+			<string>Santa Fe</string>
+			<string>Santa Rosa</string>
+			<string>Santiago del Estero</string>
+			<string>Trelew</string>
+			<string>Ushuaia</string>
+			<string>Viedma</string>
+			<string>Villa Krause</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Armenia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Aruba</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Australia</key>
+		<array>
+			<string>Canberra</string>
+			<string>New South Wales</string>
+			<string>Newcastle</string>
+			<string>Sydney</string>
+			<string>Wollongong</string>
+			<string>Northern Territory</string>
+			<string>Darwin</string>
+			<string>Palmerston</string>
+			<string>Queensland</string>
+			<string>Brisbane</string>
+			<string>Cairns</string>
+			<string>Caloundra</string>
+			<string>Gold Coast</string>
+			<string>Toowoomba</string>
+			<string>Townsville</string>
+			<string>South Australia</string>
+			<string>Adelaide</string>
+			<string>Mount Gambier</string>
+			<string>Murray Bridge</string>
+			<string>Port Augusta</string>
+			<string>Port Lincoln</string>
+			<string>Port Pirie</string>
+			<string>Victor Harbor</string>
+			<string>Whyalla</string>
+			<string>Tasmania</string>
+			<string>Burnie</string>
+			<string>Devonport</string>
+			<string>Hobart</string>
+			<string>Launceston</string>
+			<string>Victoria</string>
+			<string>Geelong</string>
+			<string>Melbourne</string>
+			<string>Western Australia</string>
+			<string>Albany</string>
+			<string>Bunbury</string>
+			<string>Fremantle</string>
+			<string>Geraldton</string>
+			<string>Kalgoorlie</string>
+			<string>Mandurah</string>
+			<string>Perth</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Austria</key>
+		<array>
+			<string>Burgenland</string>
+			<string>Carinthia</string>
+			<string>Lower Austria</string>
+			<string>Salzburg</string>
+			<string>Styria</string>
+			<string>Tyrol</string>
+			<string>Upper Austria</string>
+			<string>Vienna</string>
+			<string>Vorarlberg</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Azerbaijan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Bahamas</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Bahrain</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Bangladesh</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Barbados</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Belgium</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Benin</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Bermuda</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Bhutan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Bolivia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Botswana</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Brazil</key>
+		<array>
+			<string>Acre</string>
+			<string>Alagoas</string>
+			<string>Amapa</string>
+			<string>Amazonas</string>
+			<string>Bahia</string>
+			<string>Brasilia</string>
+			<string>Ceara</string>
+			<string>Espirito Santo</string>
+			<string>Goias</string>
+			<string>Maranhao</string>
+			<string>Mato Grosso</string>
+			<string>Mato Grosso do Sul</string>
+			<string>Minas Gerais</string>
+			<string>Para</string>
+			<string>Paraiba</string>
+			<string>Parana</string>
+			<string>Pernambuco</string>
+			<string>Piaui</string>
+			<string>Rio Grande do Norte</string>
+			<string>Rio Grande do Sul</string>
+			<string>Rio de Janeiro</string>
+			<string>Rondonia</string>
+			<string>Roraima</string>
+			<string>Santa Catarina</string>
+			<string>Sao Paulo</string>
+			<string>Sergipe</string>
+			<string>Tocantins</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Brunei</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Bulgaria</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Burundi</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Cambodia</key>
+		<array>
+			<string>Banteay Mean Chey</string>
+			<string>Bat Dambang</string>
+			<string>Kampong Cham</string>
+			<string>Kampong Chhnang</string>
+			<string>Kampong Spoe</string>
+			<string>Kampong Thum</string>
+			<string>Kampot</string>
+			<string>Kandal</string>
+			<string>Kaoh Kong</string>
+			<string>Kracheh</string>
+			<string>Krong Keb</string>
+			<string>Krong Pailin</string>
+			<string>Krong Preah</string>
+			<string>Mondol Kiri</string>
+			<string>Otdar  Mean  Chey</string>
+			<string>Phnum Penh</string>
+			<string>Pouth  sat</string>
+			<string>Preah Vihear</string>
+			<string>Prey Veng</string>
+			<string>Rotanak Kiri</string>
+			<string>Siem Reab</string>
+			<string>Stoeng Treng</string>
+			<string>Svay Rieng</string>
+			<string>Takev</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Cameroon</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Canada</key>
+		<array>
+			<string>Abbotsford</string>
+			<string>Barrie</string>
+			<string>Brampton</string>
+			<string>Calgary</string>
+			<string>Cape Breton</string>
+			<string>Charlottetown</string>
+			<string>Edmonton</string>
+			<string>Fredericton</string>
+			<string>Guelph</string>
+			<string>Halifax</string>
+			<string>Hamilton</string>
+			<string>Iqaluit</string>
+			<string>Kelowna</string>
+			<string>Kingston</string>
+			<string>London</string>
+			<string>Montreal</string>
+			<string>Oshawa</string>
+			<string>Ottawa</string>
+			<string>Quebec</string>
+			<string>Regina</string>
+			<string>Saint-John's</string>
+			<string>Saskatoon</string>
+			<string>Sherbrooke</string>
+			<string>St. Catharines</string>
+			<string>Sudbury</string>
+			<string>Thunder Bay</string>
+			<string>Toronto</string>
+			<string>Trois-Rivieres</string>
+			<string>Vancouver</string>
+			<string>Victoria</string>
+			<string>Whitehorse</string>
+			<string>Windsor</string>
+			<string>Winnipeg</string>
+			<string>Yellowknife</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Cayman Islands</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Central African Republic</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Chile</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>China</key>
+		<array>
+			<string>Anhui</string>
+			<string>Anqing</string>
+			<string>Bengbu</string>
+			<string>Bozhou</string>
+			<string>Chaohu</string>
+			<string>Chizhou</string>
+			<string>Chuzhou</string>
+			<string>Fuyang</string>
+			<string>Hefei</string>
+			<string>Huaibei</string>
+			<string>Huainan</string>
+			<string>Huangshan</string>
+			<string>Luan</string>
+			<string>MOS</string>
+			<string>Suzhou</string>
+			<string>Tongling</string>
+			<string>Wuhu</string>
+			<string>Xuancheng</string>
+			<string>Beijing</string>
+			<string>Changping</string>
+			<string>Chaoyang</string>
+			<string>Daxing</string>
+			<string>East</string>
+			<string>Fangshan</string>
+			<string>Fengtai</string>
+			<string>Haidian</string>
+			<string>Huairou</string>
+			<string>Mentougou</string>
+			<string>Miyun</string>
+			<string>Pinggu</string>
+			<string>Shijingshan</string>
+			<string>Shunyi</string>
+			<string>Tongzhou</string>
+			<string>West</string>
+			<string>Yanqing</string>
+			<string>Chongqing</string>
+			<string>Aikawa</string>
+			<string>Banan</string>
+			<string>Beibei</string>
+			<string>Bishan</string>
+			<string>Chengkou</string>
+			<string>Dadukou</string>
+			<string>Dazu</string>
+			<string>Dianjiang</string>
+			<string>Fengdu</string>
+			<string>Fengjie</string>
+			<string>Fuling</string>
+			<string>Jiangbei</string>
+			<string>Jiangjin</string>
+			<string>Jiulongpo</string>
+			<string>Kaixian</string>
+			<string>Liangping</string>
+			<string>Nanchuan</string>
+			<string>Pengshui</string>
+			<string>Pine Valley</string>
+			<string>Qianjiang</string>
+			<string>Qijiang</string>
+			<string>Rongchang</string>
+			<string>Shapingba</string>
+			<string>Shuangqiao</string>
+			<string>South Bank</string>
+			<string>Tongliang</string>
+			<string>Tongnan</string>
+			<string>Two Rivers</string>
+			<string>Wanzhou</string>
+			<string>Wulong</string>
+			<string>Wushan</string>
+			<string>Wuxi</string>
+			<string>Xiushan</string>
+			<string>Yongchuan</string>
+			<string>Youyang</string>
+			<string>Yubei</string>
+			<string>Yunyang</string>
+			<string>Yuzhong</string>
+			<string>Zhongxian</string>
+			<string>columns</string>
+			<string>longevity</string>
+			<string>Fujian</string>
+			<string>Fuzhou</string>
+			<string>Longyan</string>
+			<string>Nanping</string>
+			<string>Ningde</string>
+			<string>Putian</string>
+			<string>Quanzhou</string>
+			<string>Sanming</string>
+			<string>Xiamen</string>
+			<string>Zhangzhou</string>
+			<string>Gansu</string>
+			<string>Dingxi</string>
+			<string>Gannan</string>
+			<string>Jiayuguan</string>
+			<string>Jinchang</string>
+			<string>Jiuquan</string>
+			<string>Lanzhou</string>
+			<string>Linxia</string>
+			<string>Longnan</string>
+			<string>Pingliang</string>
+			<string>Qingyang</string>
+			<string>Silver</string>
+			<string>Tin Shui</string>
+			<string>Wuwei</string>
+			<string>Zhangye</string>
+			<string>Guangdong</string>
+			<string>Chaozhou</string>
+			<string>Dongguan</string>
+			<string>Foshan</string>
+			<string>Guangzhou</string>
+			<string>Heyuan</string>
+			<string>Huizhou</string>
+			<string>Jiangmen</string>
+			<string>Jieyang</string>
+			<string>Maoming</string>
+			<string>Meizhou</string>
+			<string>Qingyuan</string>
+			<string>Shantou</string>
+			<string>Shanwei</string>
+			<string>Shaoguan</string>
+			<string>Shenzhen</string>
+			<string>Yangjiang</string>
+			<string>Yunfu</string>
+			<string>Zhanjiang</string>
+			<string>Zhaoqing</string>
+			<string>Zhongshan</string>
+			<string>Zhuhai</string>
+			<string>Guangxi</string>
+			<string>Baise</string>
+			<string>Beihai</string>
+			<string>Chongzuo</string>
+			<string>Chow</string>
+			<string>Fangchenggang</string>
+			<string>Guigang</string>
+			<string>Guilin</string>
+			<string>Hechi</string>
+			<string>Hezhou</string>
+			<string>Liuzhou</string>
+			<string>Nanning</string>
+			<string>Wuzhou</string>
+			<string>Yulin</string>
+			<string>guests</string>
+			<string>Guizhou</string>
+			<string>Anshun</string>
+			<string>Bijie</string>
+			<string>Guiyang</string>
+			<string>Lawrence</string>
+			<string>Liupanshui</string>
+			<string>South Guizhou</string>
+			<string>Southeast</string>
+			<string>Southwest Guizhou</string>
+			<string>Tongren</string>
+			<string>Hainan</string>
+			<string>Baoting</string>
+			<string>Changjiang</string>
+			<string>Chengmai</string>
+			<string>Danzhou</string>
+			<string>East</string>
+			<string>Fingers</string>
+			<string>Haikou</string>
+			<string>Honour</string>
+			<string>Lingshui</string>
+			<string>Manning</string>
+			<string>Music East</string>
+			<string>Nansha</string>
+			<string>Pro High</string>
+			<string>Qionghai</string>
+			<string>Qiongzhong</string>
+			<string>Sanya</string>
+			<string>Tunchang</string>
+			<string>Wenchang</string>
+			<string>White Sands</string>
+			<string>Xisha</string>
+			<string>in the sand</string>
+			<string>Hebei</string>
+			<string>Baoding</string>
+			<string>Cangzhou</string>
+			<string>Chengde</string>
+			<string>Handan</string>
+			<string>Hengshui</string>
+			<string>Langfang</string>
+			<string>Qinhuangdao</string>
+			<string>Shijiazhuang</string>
+			<string>Tangshan</string>
+			<string>Xingtai</string>
+			<string>Zhangjiakou</string>
+			<string>Heilongjiang</string>
+			<string>Daqing</string>
+			<string>Harbin</string>
+			<string>Hegang</string>
+			<string>Heihe</string>
+			<string>Jiamusi</string>
+			<string>Jixi</string>
+			<string>Mountains</string>
+			<string>Mudanjiang</string>
+			<string>Qiqihar</string>
+			<string>Qitaihe</string>
+			<string>Shuangyashan</string>
+			<string>Suihua</string>
+			<string>Yichun</string>
+			<string>Henan</string>
+			<string>Anyang</string>
+			<string>Hebi</string>
+			<string>Jiaozuo</string>
+			<string>Jiyuan</string>
+			<string>Kaifeng</string>
+			<string>Luohe</string>
+			<string>Luoyang</string>
+			<string>Nanyang</string>
+			<string>Puyang</string>
+			<string>Sanmenxia</string>
+			<string>Shangqiu</string>
+			<string>Xinxiang</string>
+			<string>Xinyang</string>
+			<string>Xuchang</string>
+			<string>Zhengzhou</string>
+			<string>Zhoukou</string>
+			<string>Zhumadian</string>
+			<string>mesa</string>
+			<string>Hong Kong</string>
+			<string>Central and Western</string>
+			<string>Eastern</string>
+			<string>Islands</string>
+			<string>Kowloon City</string>
+			<string>Kwai Tsing</string>
+			<string>Kwun Tong</string>
+			<string>North</string>
+			<string>Sai Kung</string>
+			<string>Sha Tin</string>
+			<string>Sham Shui Po</string>
+			<string>Southern</string>
+			<string>Tai Po</string>
+			<string>Tsuen Wan</string>
+			<string>Tuen Mun</string>
+			<string>Wan Chai</string>
+			<string>Wong Tai Sin</string>
+			<string>Yau Tsim Mong</string>
+			<string>Yuen Long</string>
+			<string>Hubei</string>
+			<string>Bristol</string>
+			<string>Enshi</string>
+			<string>Ezhou</string>
+			<string>Huanggang</string>
+			<string>Jingmen</string>
+			<string>Jingzhou</string>
+			<string>Qianjiang</string>
+			<string>Shennongjia</string>
+			<string>Shiyan</string>
+			<string>Suizhou</string>
+			<string>Tianmen</string>
+			<string>Wuhan</string>
+			<string>Xianning</string>
+			<string>Xiaogan</string>
+			<string>Xiangyang</string>
+			<string>Yellowstone</string>
+			<string>Yichang</string>
+			<string>Hunan</string>
+			<string>Changde</string>
+			<string>Changsha</string>
+			<string>Chenzhou</string>
+			<string>Hengyang</string>
+			<string>Huaihua</string>
+			<string>Loudi</string>
+			<string>Shaoyang</string>
+			<string>Xiangtan</string>
+			<string>Xiangxi</string>
+			<string>Yiyang</string>
+			<string>Yongzhou</string>
+			<string>Yueyang</string>
+			<string>Zhangjiajie</string>
+			<string>Zhuzhou</string>
+			<string>Inner Mongolia</string>
+			<string>Alxa</string>
+			<string>Baotou</string>
+			<string>Bayannur</string>
+			<string>Bu</string>
+			<string>Chifeng</string>
+			<string>Erdos</string>
+			<string>Gol</string>
+			<string>Hohhot</string>
+			<string>Hulunbeier</string>
+			<string>Tongliao</string>
+			<string>Wuhai</string>
+			<string>Xing</string>
+			<string>Jiangsu</string>
+			<string>Changzhou</string>
+			<string>Huaian</string>
+			<string>Lianyungang</string>
+			<string>Nanjing</string>
+			<string>Nantong</string>
+			<string>Suqian</string>
+			<string>Suzhou</string>
+			<string>Taizhou</string>
+			<string>Wuxi</string>
+			<string>Xuzhou</string>
+			<string>Yancheng</string>
+			<string>Yangzhou</string>
+			<string>Zhenjiang</string>
+			<string>Jiangxi</string>
+			<string>Fuzhou</string>
+			<string>Ganzhou</string>
+			<string>Jian</string>
+			<string>Jingdezhen</string>
+			<string>Jiujiang</string>
+			<string>Nanchang</string>
+			<string>Pingxiang</string>
+			<string>Shangrao</string>
+			<string>Xinyu</string>
+			<string>Yichun</string>
+			<string>Yingtan</string>
+			<string>Jilin</string>
+			<string>Changchun</string>
+			<string>Jilin</string>
+			<string>Liaoyuan</string>
+			<string>Matsubara</string>
+			<string>Siping</string>
+			<string>Tonghua</string>
+			<string>White City</string>
+			<string>White Mountains</string>
+			<string>Yanbian</string>
+			<string>Liaoning</string>
+			<string>Anshan</string>
+			<string>Benxi</string>
+			<string>Chaoyang</string>
+			<string>Dalian</string>
+			<string>Dandong</string>
+			<string>Fushun</string>
+			<string>Fuxin</string>
+			<string>Huludao</string>
+			<string>Jinzhou</string>
+			<string>Liaoyang</string>
+			<string>Panjin</string>
+			<string>Shenyang</string>
+			<string>Tieling</string>
+			<string>Yingkou</string>
+			<string>Macau</string>
+			<string>Cathedral</string>
+			<string>Coloane</string>
+			<string>Fatima</string>
+			<string>St. Anthony</string>
+			<string>St. Lawrence</string>
+			<string>St. Lazarus</string>
+			<string>Taipa</string>
+			<string>Ningxia</string>
+			<string>Guyuan</string>
+			<string>Shizuishan</string>
+			<string>Wuzhong</string>
+			<string>Yinchuan</string>
+			<string>Zhongwei</string>
+			<string>Qinghai</string>
+			<string>Guoluo</string>
+			<string>Haidong</string>
+			<string>Hainan</string>
+			<string>Hercynian</string>
+			<string>Huangnan</string>
+			<string>Xining</string>
+			<string>Yushu</string>
+			<string>rambling</string>
+			<string>Shaanxi</string>
+			<string>Ankang</string>
+			<string>Baoji</string>
+			<string>Hanzhong</string>
+			<string>Shangluo</string>
+			<string>Tongchuan</string>
+			<string>Weinan</string>
+			<string>Xi'an</string>
+			<string>Xianyang</string>
+			<string>Yanan</string>
+			<string>Yulin</string>
+			<string>Shandong</string>
+			<string>Binzhou</string>
+			<string>Dongying</string>
+			<string>Heze</string>
+			<string>Jinan</string>
+			<string>Jining</string>
+			<string>Laiwu</string>
+			<string>Liaocheng</string>
+			<string>Linyi</string>
+			<string>Qingdao</string>
+			<string>Rizhao</string>
+			<string>Taian</string>
+			<string>Dezhou</string>
+			<string>Weifang</string>
+			<string>Weihai</string>
+			<string>Yantai</string>
+			<string>Zaozhuang</string>
+			<string>Zibo</string>
+			<string>Shanghai</string>
+			<string>Baoshan</string>
+			<string>Changning</string>
+			<string>Chongming</string>
+			<string>Fengxian</string>
+			<string>Hongkou</string>
+			<string>Huangpu</string>
+			<string>Jiading</string>
+			<string>Jing</string>
+			<string>Jinshan</string>
+			<string>Luwan</string>
+			<string>Minhang</string>
+			<string>Po</string>
+			<string>Pudong New District</string>
+			<string>Qingpu</string>
+			<string>Songjiang</string>
+			<string>Xuhui</string>
+			<string>Yangpu</string>
+			<string>Zhabei</string>
+			<string>Shanxi</string>
+			<string>Changzhi</string>
+			<string>Datong</string>
+			<string>Jincheng</string>
+			<string>Jinzhong</string>
+			<string>Linfen</string>
+			<string>Luliang</string>
+			<string>Shuozhou</string>
+			<string>Taiyuan</string>
+			<string>Xinzhou</string>
+			<string>Yangquan</string>
+			<string>Yuncheng</string>
+			<string>Sichuan</string>
+			<string>Aba</string>
+			<string>Chengdu</string>
+			<string>Deyang</string>
+			<string>Florida</string>
+			<string>Ganzi</string>
+			<string>Guangyuan</string>
+			<string>Kwong</string>
+			<string>Leshan</string>
+			<string>Liangshan</string>
+			<string>Luzhou</string>
+			<string>Meishan</string>
+			<string>Mianyang</string>
+			<string>Nanchong</string>
+			<string>Neijiang</string>
+			<string>Pakistan</string>
+			<string>Panzhihua</string>
+			<string>Suining</string>
+			<string>Yaan</string>
+			<string>Yibin</string>
+			<string>Zigong</string>
+			<string>Ziyang</string>
+			<string>Taiwan</string>
+			<string>Changhua County</string>
+			<string>Chiayi City</string>
+			<string>Chiayi County</string>
+			<string>Hsinchu City</string>
+			<string>Hsinchu County</string>
+			<string>Hualien County</string>
+			<string>Kaohsiung City</string>
+			<string>Keelung City</string>
+			<string>Kinmen County</string>
+			<string>Lianjiang County</string>
+			<string>Miaoli County</string>
+			<string>Nantou County</string>
+			<string>New Taipei City</string>
+			<string>Penghu County</string>
+			<string>Pingtung County</string>
+			<string>Taichung City</string>
+			<string>Tainan City</string>
+			<string>Taipei</string>
+			<string>Taitung County</string>
+			<string>Taoyuan County</string>
+			<string>Yilan County</string>
+			<string>Yunlin County</string>
+			<string>Tianjin</string>
+			<string>Baodi</string>
+			<string>Binhai New Area</string>
+			<string>Hebei</string>
+			<string>Jinghai</string>
+			<string>Jinnan</string>
+			<string>Jixian</string>
+			<string>Nankai</string>
+			<string>Ninghe</string>
+			<string>North Star</string>
+			<string>Peace</string>
+			<string>Red Bridge</string>
+			<string>Toray</string>
+			<string>West Green</string>
+			<string>Wuqing</string>
+			<string>east</string>
+			<string>west</string>
+			<string>Tibet</string>
+			<string>Ali</string>
+			<string>Lhasa</string>
+			<string>Nagqu</string>
+			<string>Nyingchi</string>
+			<string>Qamdo</string>
+			<string>Shannan</string>
+			<string>Shigatse</string>
+			<string>Xinjiang</string>
+			<string>Aksu</string>
+			<string>Altay</string>
+			<string>Arar</string>
+			<string>Bayingolin</string>
+			<string>Bortala</string>
+			<string>Changji</string>
+			<string>Figure wooden Shook</string>
+			<string>Hamilton</string>
+			<string>Hotan</string>
+			<string>Ili</string>
+			<string>Karamay</string>
+			<string>Kashgar</string>
+			<string>Kizilsu</string>
+			<string>Shihezi</string>
+			<string>Tacheng</string>
+			<string>Turpan</string>
+			<string>Urumqi</string>
+			<string>Wujiaqu</string>
+			<string>Yunnan</string>
+			<string>Baoshan</string>
+			<string>Chuxiong</string>
+			<string>Dali</string>
+			<string>Devon</string>
+			<string>Diqing</string>
+			<string>Kunming</string>
+			<string>Lijiang</string>
+			<string>Lincang</string>
+			<string>Nu</string>
+			<string>Pu'er</string>
+			<string>Qujing</string>
+			<string>Red</string>
+			<string>Wenshan</string>
+			<string>Xishuangbanna</string>
+			<string>Yuxi</string>
+			<string>Zhaotong</string>
+			<string>Zhejiang</string>
+			<string>Hangzhou</string>
+			<string>Huzhou</string>
+			<string>Jiaxing</string>
+			<string>Jinhua</string>
+			<string>Lishui</string>
+			<string>Ningbo</string>
+			<string>Quzhou</string>
+			<string>Shaoxing</string>
+			<string>Taizhou</string>
+			<string>Wenzhou</string>
+			<string>Zhoushan</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Colombia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Congo(DRC)</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Costa Rica</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Croatia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Cuba</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Czech Republic</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Denmark</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Djibouti</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Dominican Republic</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Ecuador</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Egypt</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Eritrea</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Ethiopia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Fiji Islands</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Finland</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>France</key>
+		<array>
+			<string>Aix-en-Provence</string>
+			<string>Ajaccio</string>
+			<string>Amiens</string>
+			<string>Arles</string>
+			<string>Besancon</string>
+			<string>Caen</string>
+			<string>Chalons-en-Champagne</string>
+			<string>Dijon</string>
+			<string>Fréjus</string>
+			<string>Lille</string>
+			<string>Limoges</string>
+			<string>Lyon</string>
+			<string>Marseille</string>
+			<string>Metz</string>
+			<string>Montpellier</string>
+			<string>Nantes</string>
+			<string>Nice</string>
+			<string>Orleans</string>
+			<string>Paris</string>
+			<string>Rennes</string>
+			<string>Rouen</string>
+			<string>Toulouse</string>
+			<string>Valence</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Gambia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Georgia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Germany</key>
+		<array>
+			<string>Ansbach</string>
+			<string>Arnsberg</string>
+			<string>Augsburg</string>
+			<string>Bayreuth</string>
+			<string>Berlin</string>
+			<string>Bielefeld</string>
+			<string>Bochum</string>
+			<string>Bremen</string>
+			<string>Brunswick</string>
+			<string>Chemnitz</string>
+			<string>Cologne</string>
+			<string>Darmstadt</string>
+			<string>Dessau</string>
+			<string>Detmold</string>
+			<string>Dresden</string>
+			<string>Dusseldorf</string>
+			<string>Erfurt</string>
+			<string>Frankfurt</string>
+			<string>Freiburg</string>
+			<string>GieBen</string>
+			<string>Halle</string>
+			<string>Hamburg</string>
+			<string>Hannover</string>
+			<string>Karlsruhe</string>
+			<string>Kassel</string>
+			<string>Kiel</string>
+			<string>Koblenz</string>
+			<string>Landshut</string>
+			<string>Leipzig</string>
+			<string>Luneburg</string>
+			<string>Magdeburg</string>
+			<string>Mainz</string>
+			<string>Mannheim</string>
+			<string>Muenster</string>
+			<string>Munich</string>
+			<string>Nuremberg</string>
+			<string>Potsdam</string>
+			<string>Schwerin</string>
+			<string>Stuttgart</string>
+			<string>Trier</string>
+			<string>Wiesbaden</string>
+			<string>Wuerzburg</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Ghana</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Gibraltar</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Greece</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Greenland</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Grenada</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Guam</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Guatemala</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Guernsey</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Haiti</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Honduras</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Hong Kong</key>
+		<array>
+			<string>Central and Western</string>
+			<string>Eastern</string>
+			<string>Islands</string>
+			<string>Kowloon City</string>
+			<string>Kwai Tsing</string>
+			<string>Kwun Tong</string>
+			<string>North</string>
+			<string>Sai Kung</string>
+			<string>Sha Tin</string>
+			<string>Sham Shui Po</string>
+			<string>Southern</string>
+			<string>Tai Po</string>
+			<string>Tsuen Wan</string>
+			<string>Tuen Mun</string>
+			<string>Wan Chai</string>
+			<string>Wong Tai Sin</string>
+			<string>Yau Tsim Mong</string>
+			<string>Yuen Long</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Hungary</key>
+		<array>
+			<string>Bacs-Kiskun</string>
+			<string>Baranya</string>
+			<string>Bekes</string>
+			<string>Borsod-Abauj-Zemplen</string>
+			<string>Budapest</string>
+			<string>Csongrad</string>
+			<string>Fejer</string>
+			<string>Gyor-Moson-Sopron</string>
+			<string>Hajdú-Bihar</string>
+			<string>Heves</string>
+			<string>Jasz-Nagykun-Szolnok</string>
+			<string>Komarom-Esztergom</string>
+			<string>Nograd</string>
+			<string>Pest</string>
+			<string>Somogy</string>
+			<string>Szabolcs-Szatmar-Bereg</string>
+			<string>Tolna</string>
+			<string>Vas</string>
+			<string>Veszprem</string>
+			<string>Zala</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Iceland</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>India</key>
+		<array>
+			<string>Agartala</string>
+			<string>Agra</string>
+			<string>Ahmedabad</string>
+			<string>Aizawl</string>
+			<string>Aligarh</string>
+			<string>Allahabad</string>
+			<string>Amritsar</string>
+			<string>Aurangabad</string>
+			<string>Bangalore</string>
+			<string>Baroda</string>
+			<string>Bhopal</string>
+			<string>Bhubaneswar</string>
+			<string>Bokaro</string>
+			<string>Chandigarh</string>
+			<string>Chennai</string>
+			<string>Cochin</string>
+			<string>Coimbatore</string>
+			<string>Cuttack</string>
+			<string>Dehradun</string>
+			<string>Dimapur</string>
+			<string>Durgapur</string>
+			<string>Faridabad</string>
+			<string>Gandhinagar</string>
+			<string>Ghaziabad</string>
+			<string>Goa</string>
+			<string>Gurgaon</string>
+			<string>Guwahati</string>
+			<string>Gwalior</string>
+			<string>Hyderabad</string>
+			<string>Imphal</string>
+			<string>Indore</string>
+			<string>Jabalpur</string>
+			<string>Jaipur</string>
+			<string>Jammu</string>
+			<string>Jamnagar</string>
+			<string>Jamshedpur</string>
+			<string>Jodhpur</string>
+			<string>Jullundhar</string>
+			<string>Kanpur</string>
+			<string>Kolhapur</string>
+			<string>Kolkata</string>
+			<string>Lucknow</string>
+			<string>Ludhiana</string>
+			<string>Madurai</string>
+			<string>Mangalore</string>
+			<string>Margao</string>
+			<string>Mumbai</string>
+			<string>Mysore</string>
+			<string>Nagpur</string>
+			<string>Nasik</string>
+			<string>New Delhi</string>
+			<string>Noida</string>
+			<string>Panjim</string>
+			<string>Patna</string>
+			<string>Pondicherry</string>
+			<string>Pune</string>
+			<string>Raipur</string>
+			<string>Rajkot</string>
+			<string>Ranchi</string>
+			<string>Rourkela</string>
+			<string>Salem</string>
+			<string>Secunderabad</string>
+			<string>Shillong</string>
+			<string>Siliguri</string>
+			<string>Srinagar</string>
+			<string>Sura</string>
+			<string>Thane</string>
+			<string>Thiruvananthapuram</string>
+			<string>Tiruchirappalli</string>
+			<string>Udaipur</string>
+			<string>Varanasi</string>
+			<string>Vellore</string>
+			<string>Vijayawada</string>
+			<string>Visakhapatnam</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Indonesia</key>
+		<array>
+			<string>Aceh</string>
+			<string>Bali</string>
+			<string>Banten</string>
+			<string>Bengkulu</string>
+			<string>Daerah Istimewa Yogyakarta</string>
+			<string>Daerah Tingkat I Kalimantan Barat</string>
+			<string>Irian Jaya</string>
+			<string>Jakarta Raya</string>
+			<string>Jambi</string>
+			<string>Java Barat</string>
+			<string>Java Tengah</string>
+			<string>Java Timur</string>
+			<string>Kalimantan Selatan</string>
+			<string>Kalimantan Tengah</string>
+			<string>Kalimantan Timur</string>
+			<string>Kepulauan Bangka Belitung</string>
+			<string>Lampung</string>
+			<string>Maluku</string>
+			<string>Nusa Tenggara Barat</string>
+			<string>Nusa Tenggara Timur</string>
+			<string>Riau</string>
+			<string>Sulawesi Selatan</string>
+			<string>Sulawesi Tengah</string>
+			<string>Sulawesi Tenggara</string>
+			<string>Sulawesi Utara</string>
+			<string>Sumatera Barat</string>
+			<string>Sumatera Selatan</string>
+			<string>Sumatera Utara</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Iran</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Iraq</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Ireland</key>
+		<array>
+			<string>Carlow</string>
+			<string>Cavan</string>
+			<string>Clare</string>
+			<string>Cork</string>
+			<string>Donegal</string>
+			<string>Dublin</string>
+			<string>Galway</string>
+			<string>Kerry</string>
+			<string>Kildare</string>
+			<string>Kilkenny</string>
+			<string>Laois</string>
+			<string>Leitrim</string>
+			<string>Limerick</string>
+			<string>Longford</string>
+			<string>Louth</string>
+			<string>Mayo</string>
+			<string>Meath</string>
+			<string>Monaghan</string>
+			<string>Offaly</string>
+			<string>Roscommon</string>
+			<string>Sligo</string>
+			<string>Tipperary</string>
+			<string>Waterford</string>
+			<string>Westmeath</string>
+			<string>Wexford</string>
+			<string>Wicklow</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Israel</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Italy</key>
+		<array>
+			<string>Alessandria</string>
+			<string>Ancona</string>
+			<string>Aosta</string>
+			<string>Ascoli Piceno</string>
+			<string>Asti</string>
+			<string>Bari</string>
+			<string>Benevento</string>
+			<string>Bergamo</string>
+			<string>Biella</string>
+			<string>Bologna</string>
+			<string>Brescia</string>
+			<string>Brindisi</string>
+			<string>Cagliari</string>
+			<string>Campobasso</string>
+			<string>Caserta</string>
+			<string>Catania</string>
+			<string>Catanzaro</string>
+			<string>Como</string>
+			<string>Cosenza</string>
+			<string>Crotone</string>
+			<string>Cuneo</string>
+			<string>Ferrara</string>
+			<string>Firenze</string>
+			<string>Foggia</string>
+			<string>Genova</string>
+			<string>Isernia</string>
+			<string>L'Aquila</string>
+			<string>La Spezia</string>
+			<string>Lecce</string>
+			<string>Lecco</string>
+			<string>Livorno</string>
+			<string>Massa-Carrara</string>
+			<string>Matera</string>
+			<string>Messina</string>
+			<string>Milano</string>
+			<string>Modena</string>
+			<string>Monza e Brianza</string>
+			<string>Naples</string>
+			<string>Novara</string>
+			<string>Nuoro</string>
+			<string>Olbia-Tempio</string>
+			<string>Oristano</string>
+			<string>Palermo</string>
+			<string>Parma</string>
+			<string>Pavia</string>
+			<string>Perugia</string>
+			<string>Pisa</string>
+			<string>Pordenone</string>
+			<string>Potenza</string>
+			<string>Reggio Calabria</string>
+			<string>Reggio Emilia</string>
+			<string>Roma</string>
+			<string>Salerno</string>
+			<string>Sassari</string>
+			<string>Savona</string>
+			<string>Siena</string>
+			<string>Syracuse</string>
+			<string>Taranto</string>
+			<string>Trapani</string>
+			<string>Trento</string>
+			<string>Trieste</string>
+			<string>Turin</string>
+			<string>Udine</string>
+			<string>Venice</string>
+			<string>Vercelli</string>
+			<string>Viterbo</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Jamaica</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Japan</key>
+		<array>
+			<string>Aichi</string>
+			<string>Akita</string>
+			<string>Aomori</string>
+			<string>Chiba</string>
+			<string>Ehime</string>
+			<string>Fukui</string>
+			<string>Fukuoka</string>
+			<string>Fukushima</string>
+			<string>Gifu</string>
+			<string>Gunma</string>
+			<string>Hiroshima</string>
+			<string>Hokkaido</string>
+			<string>Hyogo</string>
+			<string>Ibaraki</string>
+			<string>Ishikawa</string>
+			<string>Iwate</string>
+			<string>Kagawa</string>
+			<string>Kagoshima</string>
+			<string>Kanagawa</string>
+			<string>Kochi</string>
+			<string>Kumamoto</string>
+			<string>Kyoto</string>
+			<string>Mie</string>
+			<string>Miyagi</string>
+			<string>Miyazaki</string>
+			<string>Nagano</string>
+			<string>Nagasaki</string>
+			<string>Nara</string>
+			<string>Niigata</string>
+			<string>Oita</string>
+			<string>Okayama</string>
+			<string>Okinawa</string>
+			<string>Osaka</string>
+			<string>Saga</string>
+			<string>Saitama</string>
+			<string>Shiga</string>
+			<string>Shimane</string>
+			<string>Shizuoka</string>
+			<string>Tochigi</string>
+			<string>Tokushima</string>
+			<string>Tokyo</string>
+			<string>Tottori</string>
+			<string>Toyama</string>
+			<string>Wakayama</string>
+			<string>Yamagata</string>
+			<string>Yamaguchi</string>
+			<string>Yamanashi</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Jersey</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Jordan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Kazakhstan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Kenya</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Kiribati</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Korea</key>
+		<array>
+			<string>Busan</string>
+			<string>Chungcheongbuk-do</string>
+			<string>Andong</string>
+			<string>Bonghwa County</string>
+			<string>Cheongdo County</string>
+			<string>Cheongsong County</string>
+			<string>Chilgok County</string>
+			<string>Gimcheon</string>
+			<string>Goryeong County</string>
+			<string>Gumi</string>
+			<string>Gunwi County</string>
+			<string>Gyeongju</string>
+			<string>Gyeongsan</string>
+			<string>Mungyeong</string>
+			<string>Pohang</string>
+			<string>Sangju</string>
+			<string>Seongju County</string>
+			<string>Uiseong County</string>
+			<string>Uljin County</string>
+			<string>Ulleung County</string>
+			<string>Yecheon County</string>
+			<string>Yeongcheon</string>
+			<string>Yeongdeok County</string>
+			<string>Yeongju</string>
+			<string>Yeongyang County</string>
+			<string>Chungcheongnam-do</string>
+			<string>Changnyeong County</string>
+			<string>Changwon</string>
+			<string>Geochang County</string>
+			<string>Geoje</string>
+			<string>Gimhae</string>
+			<string>Goseong County</string>
+			<string>Hadong County</string>
+			<string>Haman County</string>
+			<string>Hamyang County</string>
+			<string>Hapcheon County</string>
+			<string>Jinhae</string>
+			<string>Jinju</string>
+			<string>Masan</string>
+			<string>Miryang</string>
+			<string>Namhae County</string>
+			<string>Sacheon</string>
+			<string>Sancheong County</string>
+			<string>Tongyeong</string>
+			<string>Uiryeong County</string>
+			<string>Yangsan</string>
+			<string>Daegu</string>
+			<string>Daegu</string>
+			<string>Dalseong-gun</string>
+			<string>Suseong-gu</string>
+			<string>Daejeon</string>
+			<string>Gangwon-do</string>
+			<string>Cheorwon County</string>
+			<string>Chuncheon</string>
+			<string>Donghae</string>
+			<string>Gangneung</string>
+			<string>Goseong County</string>
+			<string>Hoengseong County</string>
+			<string>Hongcheon County</string>
+			<string>Hwacheon County</string>
+			<string>Inje County</string>
+			<string>Jeongseon County</string>
+			<string>Pyeongchang County</string>
+			<string>Samcheok</string>
+			<string>Sokcho</string>
+			<string>Taebaek</string>
+			<string>Wonju</string>
+			<string>Yanggu County</string>
+			<string>Yangyang County</string>
+			<string>Yeongwol County</string>
+			<string>Gwangju</string>
+			<string>Gyeonggi-do</string>
+			<string>Gyeongsangbuk-do</string>
+			<string>Buan County</string>
+			<string>Gimje</string>
+			<string>Gochang County</string>
+			<string>Gunsan</string>
+			<string>Iksan</string>
+			<string>Imsil County</string>
+			<string>Jangsu County</string>
+			<string>Jeongeup</string>
+			<string>Jeonju</string>
+			<string>Jinan County</string>
+			<string>Muju County</string>
+			<string>Namwon</string>
+			<string>Sunchang County</string>
+			<string>Wanju County</string>
+			<string>Gyeongsangnam-do</string>
+			<string>Boseong County</string>
+			<string>Damyang County</string>
+			<string>Gangjin County</string>
+			<string>Goheung County</string>
+			<string>Gokseong County</string>
+			<string>Gurye County</string>
+			<string>Gwangyang</string>
+			<string>Haenam County</string>
+			<string>Hampyeong County</string>
+			<string>Hwasun County</string>
+			<string>Jangheung County</string>
+			<string>Jangseong County</string>
+			<string>Jindo County</string>
+			<string>Mokpo</string>
+			<string>Muan County</string>
+			<string>Naju</string>
+			<string>Sinan County</string>
+			<string>Suncheon</string>
+			<string>Wando County</string>
+			<string>Yeongam County</string>
+			<string>Yeonggwang County</string>
+			<string>Yeosu</string>
+			<string>Incheon</string>
+			<string>Jeju-do</string>
+			<string>Ansan</string>
+			<string>Anseong</string>
+			<string>Anyang</string>
+			<string>Bucheon</string>
+			<string>Dongducheon</string>
+			<string>Gapyeong County</string>
+			<string>Gimpo</string>
+			<string>Goyang</string>
+			<string>Gunpo</string>
+			<string>Guri</string>
+			<string>Gwacheon</string>
+			<string>Gwangju</string>
+			<string>Gwangmyeong</string>
+			<string>Hanam</string>
+			<string>Hwaseong</string>
+			<string>Icheon</string>
+			<string>Namyangju</string>
+			<string>Osan</string>
+			<string>Paju</string>
+			<string>Pocheon</string>
+			<string>Pyeongtaek</string>
+			<string>Seongnam</string>
+			<string>Siheung</string>
+			<string>Suwon</string>
+			<string>Uijeongbu</string>
+			<string>Uiwang</string>
+			<string>Yangju</string>
+			<string>Yangpyeong County</string>
+			<string>Yeoju County</string>
+			<string>Yeoncheon County</string>
+			<string>Yongin</string>
+			<string>Jeollabuk-do</string>
+			<string>Boeun County</string>
+			<string>Cheongju</string>
+			<string>Cheongwon County</string>
+			<string>Chungju</string>
+			<string>Danyang County</string>
+			<string>Eumseong County</string>
+			<string>Goesan County</string>
+			<string>Jecheon</string>
+			<string>Jeungpyeong County</string>
+			<string>Jincheon County</string>
+			<string>Okcheon County</string>
+			<string>Yeongdong County</string>
+			<string>Jeollanam-do</string>
+			<string>Asan</string>
+			<string>Boryeong</string>
+			<string>Buyeo County</string>
+			<string>Cheonan</string>
+			<string>Cheongyang County</string>
+			<string>Dangjin County</string>
+			<string>Geumsan County</string>
+			<string>Gongju</string>
+			<string>Gyeryong</string>
+			<string>Hongseong County</string>
+			<string>Nonsan</string>
+			<string>Seocheon County</string>
+			<string>Seosan</string>
+			<string>Taean County</string>
+			<string>Yeongi County</string>
+			<string>Yesan County</string>
+			<string>Seoul</string>
+			<string>Ulsan</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Kuwait</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Kyrgyzstan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Laos</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Latvia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Lebanon</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Lesotho</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Liberia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Libya</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Liechtenstein</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Luxembourg</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Macau</key>
+		<array>
+			<string>Cathedral</string>
+			<string>Coloane</string>
+			<string>Fatima</string>
+			<string>St. Anthony</string>
+			<string>St. Lawrence</string>
+			<string>St. Lazarus</string>
+			<string>Taipa</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Macedonia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Madagascar</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Malawi</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Malaysia</key>
+		<array>
+			<string>Johor</string>
+			<string>Batu Pahat</string>
+			<string>Johor Bahru</string>
+			<string>Kluang</string>
+			<string>Kota Tinggi</string>
+			<string>Mersing</string>
+			<string>Muar</string>
+			<string>Pontian</string>
+			<string>Segamat</string>
+			<string>Kedah</string>
+			<string>Baling</string>
+			<string>Bandar Baharu</string>
+			<string>Kota Setar</string>
+			<string>Kuala Muda</string>
+			<string>Kubang Pasu</string>
+			<string>Kulim</string>
+			<string>Langkawi</string>
+			<string>Padang Terap</string>
+			<string>Pendang</string>
+			<string>Kelantan</string>
+			<string>Bachok</string>
+			<string>Gua Musang</string>
+			<string>Jeli</string>
+			<string>Kota Bharu</string>
+			<string>Kuala Krai</string>
+			<string>Machang</string>
+			<string>Pasir Mas</string>
+			<string>Pasir Putih</string>
+			<string>Tanah Merah</string>
+			<string>Tumpat</string>
+			<string>Kuala Lumpur</string>
+			<string>Kuala Lumpur</string>
+			<string>Labuan</string>
+			<string>Labuan</string>
+			<string>Victoria</string>
+			<string>Malacca</string>
+			<string>Alor Gajah</string>
+			<string>Jasin</string>
+			<string>Melaka</string>
+			<string>Negeri Sembilan</string>
+			<string>Jelebu</string>
+			<string>Jempol</string>
+			<string>Kuala Pilah</string>
+			<string>Port Dickson</string>
+			<string>Rembau</string>
+			<string>Seremban</string>
+			<string>Tampin</string>
+			<string>Pahang</string>
+			<string>Bentong</string>
+			<string>Bera</string>
+			<string>Cameron Highlands</string>
+			<string>Jerantut</string>
+			<string>Kuala Lipis</string>
+			<string>Kuantan</string>
+			<string>Maran</string>
+			<string>Pekan</string>
+			<string>Raub</string>
+			<string>Rompin</string>
+			<string>Temerloh</string>
+			<string>Perak</string>
+			<string>Batu Gajah</string>
+			<string>Ipoh</string>
+			<string>Kuala Kangsar</string>
+			<string>Lumut</string>
+			<string>Sungai Siput</string>
+			<string>Taiping</string>
+			<string>Tanjung Malim</string>
+			<string>Teluk Intan</string>
+			<string>Perlis</string>
+			<string>Kangar</string>
+			<string>Pulau Pinang</string>
+			<string>Bukit Mertajam</string>
+			<string>Butterworth</string>
+			<string>George Town</string>
+			<string>Nibong Tebal</string>
+			<string>Sabah</string>
+			<string>Beaufort</string>
+			<string>Beluran</string>
+			<string>Keningau</string>
+			<string>Kinabatangan</string>
+			<string>Kota Belud</string>
+			<string>Kota Kinabalu</string>
+			<string>Kota Marudu</string>
+			<string>Kuala Penyu</string>
+			<string>Kudat</string>
+			<string>Kunak</string>
+			<string>Lahad Datu</string>
+			<string>Nabawan</string>
+			<string>Papar</string>
+			<string>Penampang</string>
+			<string>Pitas</string>
+			<string>Ranau</string>
+			<string>Sandakan</string>
+			<string>Semporna</string>
+			<string>Sipitang</string>
+			<string>Tambunan</string>
+			<string>Tawau</string>
+			<string>Tenom</string>
+			<string>Tuaran</string>
+			<string>Sarawak</string>
+			<string>Betong</string>
+			<string>Bintulu</string>
+			<string>Kapit</string>
+			<string>Kuching</string>
+			<string>Limbang</string>
+			<string>Miri</string>
+			<string>Mukah</string>
+			<string>Samarahan</string>
+			<string>Sarikei</string>
+			<string>Sibu</string>
+			<string>Sri Aman</string>
+			<string>Selangor</string>
+			<string>Gombak</string>
+			<string>Hulu Langat</string>
+			<string>Hulu Selangor</string>
+			<string>Kuala Langat</string>
+			<string>Kuala Selangor</string>
+			<string>Petaling</string>
+			<string>Sabak Bernam</string>
+			<string>Sepang</string>
+			<string>Terengganu</string>
+			<string>Besut</string>
+			<string>Dungun</string>
+			<string>Hulu</string>
+			<string>Kemaman</string>
+			<string>Kuala Terengganu</string>
+			<string>Marang</string>
+			<string>Setiu</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Maldives</key>
+		<array>
+			<string>Addu Atoll</string>
+			<string>Faadhippolhu</string>
+			<string>Felidhu Atoll</string>
+			<string>Foammulah</string>
+			<string>Hadhdhunmathi</string>
+			<string>Kolhumadulu</string>
+			<string>Male</string>
+			<string>Male Atoll</string>
+			<string>Mulakatholhu</string>
+			<string>North Ari Atoll</string>
+			<string>North Huvadhu Atoll</string>
+			<string>North Maalhosmadhulu</string>
+			<string>North Miladhunmadhulu</string>
+			<string>North Nilandhe Atoll</string>
+			<string>North Thiladhunmathi</string>
+			<string>South Ari Atoll</string>
+			<string>South Huvadhu Atoll</string>
+			<string>South Maalhosmadulu</string>
+			<string>South Miladhunmadhulu</string>
+			<string>South Nilandhe Atoll</string>
+			<string>South Thiladhunmathi</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Marshall Islands</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Mauritania</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Mauritius</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Mexico</key>
+		<array>
+			<string>Acapulco</string>
+			<string>Aguascalientes</string>
+			<string>Benito Juárez</string>
+			<string>Campeche</string>
+			<string>Carmen</string>
+			<string>Celaya</string>
+			<string>Cheturnal</string>
+			<string>Chihuahua</string>
+			<string>Chilpancingo</string>
+			<string>Coatzacoalcos</string>
+			<string>Colima</string>
+			<string>Cuernavaca</string>
+			<string>Culiacan</string>
+			<string>Durango</string>
+			<string>Ensenada</string>
+			<string>Guadalajara</string>
+			<string>Guanajuato</string>
+			<string>Hermosillo</string>
+			<string>Irapuato</string>
+			<string>Jalapa</string>
+			<string>Juarez</string>
+			<string>La Paz</string>
+			<string>Leon</string>
+			<string>Los Mochis</string>
+			<string>Matamoros</string>
+			<string>Mazatlan</string>
+			<string>Merida</string>
+			<string>Mexicali</string>
+			<string>Mexico City</string>
+			<string>Monclova</string>
+			<string>Monterrey</string>
+			<string>Morelia</string>
+			<string>Nogales</string>
+			<string>Nuevo Laredo</string>
+			<string>Oaxaca</string>
+			<string>Obregon</string>
+			<string>Orizaba</string>
+			<string>Pachuca</string>
+			<string>Poza Rica de Hidalgo</string>
+			<string>Puebla</string>
+			<string>Puerto Vallarta</string>
+			<string>Queretaro</string>
+			<string>Reynosa</string>
+			<string>Saltillo</string>
+			<string>San Luis Potosi</string>
+			<string>Tampico</string>
+			<string>Tapachula</string>
+			<string>Tehuacán</string>
+			<string>Tepic</string>
+			<string>Tijuana</string>
+			<string>Tlaxcala</string>
+			<string>Toluca</string>
+			<string>Torreon</string>
+			<string>Tuxtla Gutierrez</string>
+			<string>Uruapan</string>
+			<string>Valles</string>
+			<string>Veracruz</string>
+			<string>Victoria</string>
+			<string>Villahermosa</string>
+			<string>Zacatecas</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Moldova</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Monaco</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Mongolia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Morocco</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Mozambique</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Myanmar</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Namibia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Nepal</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Netherlands</key>
+		<array>
+			<string>'s-Hertogenbosch</string>
+			<string>Almere</string>
+			<string>Amersfoort</string>
+			<string>Amsterdam</string>
+			<string>Apeldoorn</string>
+			<string>Arnhem</string>
+			<string>Assen</string>
+			<string>Breda</string>
+			<string>Dordrecht</string>
+			<string>Ede</string>
+			<string>Eindhoven</string>
+			<string>Emmen</string>
+			<string>Enschede</string>
+			<string>Groningen</string>
+			<string>Haarlem</string>
+			<string>Hague</string>
+			<string>Hoofddorp</string>
+			<string>Leeuwarden</string>
+			<string>Leiden</string>
+			<string>Lelystad</string>
+			<string>Maastricht</string>
+			<string>Middelburg</string>
+			<string>Nijmegen</string>
+			<string>Rotterdam</string>
+			<string>Tilburg</string>
+			<string>Utrecht</string>
+			<string>Zoetermeer</string>
+			<string>Zwolle</string>
+		</array>
+	</dict>
+	<dict>
+		<key>New Caledonia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>New Zealand</key>
+		<array>
+			<string>Auckland</string>
+			<string>Blenheim</string>
+			<string>Christchurch</string>
+			<string>Dunedin</string>
+			<string>Far North</string>
+			<string>Gisborne</string>
+			<string>Greymouth</string>
+			<string>Hamilton</string>
+			<string>Hastings</string>
+			<string>Invercargill</string>
+			<string>Kaipara</string>
+			<string>Manukau</string>
+			<string>Napier</string>
+			<string>Nelson</string>
+			<string>New Plymouth</string>
+			<string>North Shore</string>
+			<string>Palmerston North</string>
+			<string>Richmond</string>
+			<string>Stratford</string>
+			<string>Taumarunui</string>
+			<string>Waitakere</string>
+			<string>Wanganui</string>
+			<string>Whakatane</string>
+			<string>Whangarei</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Nicaragua</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Nigeria</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>North Korea</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Northern Mariana Islands</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Norway</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Oman</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Pakistan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Palau</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Panama</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Papua New Guinea</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Peru</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Philippines</key>
+		<array>
+			<string>Caloocan</string>
+			<string>Cebu</string>
+			<string>Davao</string>
+			<string>Manila</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Poland</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Portugal</key>
+		<array>
+			<string>Alentejo Central</string>
+			<string>Alentejo Litoral</string>
+			<string>Alto Alentejo</string>
+			<string>Alto Tros-os-Montes</string>
+			<string>Ave</string>
+			<string>Baixo Alentejo</string>
+			<string>Baixo Mondego</string>
+			<string>Baixo Vouga</string>
+			<string>Beira Interior Norte</string>
+			<string>Beira Interior Sul</string>
+			<string>Cavado</string>
+			<string>Cova da Beira</string>
+			<string>Douro</string>
+			<string>Entre Douro e Vouga</string>
+			<string>Faro</string>
+			<string>Funchal</string>
+			<string>Leziria do Tejo</string>
+			<string>Lisboa</string>
+			<string>Medio Tejo</string>
+			<string>Minho-Lima</string>
+			<string>Oeste</string>
+			<string>Peninsula de Setubal</string>
+			<string>Pinhal Interior Norte</string>
+			<string>Pinhal Interior Sul</string>
+			<string>Pinhal Litoral</string>
+			<string>Ponta Delgada</string>
+			<string>Porto</string>
+			<string>Serra da Estrela</string>
+			<string>Tamega</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Puerto Rico</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Qatar</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Reunion</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Romania</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Russia</key>
+		<array>
+			<string>Abakan</string>
+			<string>Aginskoye</string>
+			<string>Anadyr</string>
+			<string>Arkhangelsk</string>
+			<string>Astrakhan</string>
+			<string>Barnaul</string>
+			<string>Belgorod</string>
+			<string>Birobidzan</string>
+			<string>Blagoveshchensk</string>
+			<string>Bryansk</string>
+			<string>Chabarovsk</string>
+			<string>Cheboksary</string>
+			<string>Chelyabinsk</string>
+			<string>Cherkessk</string>
+			<string>Chita</string>
+			<string>Elista</string>
+			<string>Gorno-Altajsk</string>
+			<string>Grozny</string>
+			<string>Irkutsk</string>
+			<string>Ivanovo</string>
+			<string>Izhevsk</string>
+			<string>Jakutsk</string>
+			<string>Jaroslavl</string>
+			<string>Jekaterinburg</string>
+			<string>Juzno-Sachalinsk</string>
+			<string>Kaliningrad</string>
+			<string>Kaluga</string>
+			<string>Kazan</string>
+			<string>Kemerovo</string>
+			<string>Khanty-Mansiysk</string>
+			<string>Kirov</string>
+			<string>Kostroma</string>
+			<string>Krasnodar</string>
+			<string>Krasnojarsk</string>
+			<string>Kudymkar</string>
+			<string>Kurgan</string>
+			<string>Kursk</string>
+			<string>Kyzyl</string>
+			<string>Lipeck</string>
+			<string>Magadan</string>
+			<string>Magas</string>
+			<string>Makhachkala</string>
+			<string>Maykop</string>
+			<string>Moscow</string>
+			<string>Murmansk</string>
+			<string>Nalchik</string>
+			<string>Naryan-Mar</string>
+			<string>Niznij Novgorod</string>
+			<string>Novosibirsk</string>
+			<string>Omsk</string>
+			<string>Orel</string>
+			<string>Orenburg</string>
+			<string>Palana</string>
+			<string>Penza</string>
+			<string>Perm</string>
+			<string>Petropavlovsk-Kamchatskiy</string>
+			<string>Petrozavodsk</string>
+			<string>Pskov</string>
+			<string>Rostov-na-Donu</string>
+			<string>Ryazan</string>
+			<string>Salekhard</string>
+			<string>Samara</string>
+			<string>Saransk</string>
+			<string>Saratov</string>
+			<string>Smolensk</string>
+			<string>St. Peterburg</string>
+			<string>Stavropol</string>
+			<string>Syktyvkar</string>
+			<string>Tambov</string>
+			<string>Tomsk</string>
+			<string>Tula</string>
+			<string>Tver</string>
+			<string>Tyumen</string>
+			<string>Ufa</string>
+			<string>Ulan-Ude</string>
+			<string>Uljanovsk</string>
+			<string>Ust-Ordynsky</string>
+			<string>Velikij Novgorod</string>
+			<string>Vladikavkaz</string>
+			<string>Vladimir</string>
+			<string>Vladivostok</string>
+			<string>Volgograd</string>
+			<string>Vologda</string>
+			<string>Voronezh</string>
+			<string>Yoshkar-Ola</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Rwanda</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Samoa</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>San Marino</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Saudi Arabia</key>
+		<array>
+			<string>Abha</string>
+			<string>Al Bahah</string>
+			<string>Al Hofuf</string>
+			<string>Al Jubail</string>
+			<string>Al Kharj</string>
+			<string>Al Mubarraz</string>
+			<string>Arar</string>
+			<string>At Taif</string>
+			<string>Buraydah</string>
+			<string>Dammam</string>
+			<string>Hafar al-Batin</string>
+			<string>Hail</string>
+			<string>Jiddah</string>
+			<string>Jizan</string>
+			<string>Khamis Mushayt</string>
+			<string>Makkah</string>
+			<string>Medina</string>
+			<string>Najran</string>
+			<string>Riyad</string>
+			<string>Sakaka</string>
+			<string>Tabuk</string>
+			<string>Yanbu al-Bahr</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Senegal</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Serbia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Bosnia and Herzegovina</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Montenegro</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Seychelles</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Sierra Leone</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Singapore</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Slovakia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Slovenia</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Solomon Islands</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>South Africa</key>
+		<array>
+			<string>Barkley East</string>
+			<string>Beaufort West</string>
+			<string>Bisho</string>
+			<string>Bloemfontein</string>
+			<string>Bredasdorp</string>
+			<string>Bronkhorstspruit</string>
+			<string>Cape Town</string>
+			<string>De Aar</string>
+			<string>Dundee</string>
+			<string>Durban</string>
+			<string>East London</string>
+			<string>George</string>
+			<string>Giyani</string>
+			<string>Groblersdal</string>
+			<string>Ixopo</string>
+			<string>Johannesburg</string>
+			<string>Kimberley</string>
+			<string>Klerksdorp</string>
+			<string>Kuruman</string>
+			<string>Ladysmith</string>
+			<string>Middelburg</string>
+			<string>Mkuze</string>
+			<string>Moorreesburg</string>
+			<string>Mount Ayliff</string>
+			<string>Nelspruit</string>
+			<string>Newcastle</string>
+			<string>Nylstroom</string>
+			<string>Pietermaritzburg</string>
+			<string>Pietersburg</string>
+			<string>Port Elizabeth</string>
+			<string>Port Shepstone</string>
+			<string>Pretoria</string>
+			<string>Queenstown</string>
+			<string>Randfontein</string>
+			<string>Richards Bay</string>
+			<string>Rustenburg</string>
+			<string>Sasolburg</string>
+			<string>Secunda</string>
+			<string>Springbok</string>
+			<string>Thohoyandou</string>
+			<string>Thulamahashe</string>
+			<string>Trompsburg</string>
+			<string>Ulundi</string>
+			<string>Umtata</string>
+			<string>Upington</string>
+			<string>Vereeniging</string>
+			<string>Vryburg</string>
+			<string>Welkom</string>
+			<string>Witsieshoek</string>
+			<string>Worcester</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Spain</key>
+		<array>
+			<string>Alava</string>
+			<string>Albacete</string>
+			<string>Alicante</string>
+			<string>Almeria</string>
+			<string>Asturias</string>
+			<string>Avila</string>
+			<string>Badajoz</string>
+			<string>Baleares</string>
+			<string>Barcelona</string>
+			<string>Burgos</string>
+			<string>Caceres</string>
+			<string>Cadiz</string>
+			<string>Castellon</string>
+			<string>Ciudad Real</string>
+			<string>Cordoba</string>
+			<string>Cuenca</string>
+			<string>Gerona</string>
+			<string>Granada</string>
+			<string>Guadalajara</string>
+			<string>Guipuzcoa</string>
+			<string>Huelva</string>
+			<string>Huesca</string>
+			<string>Jaen</string>
+			<string>La Coruna</string>
+			<string>La Rioja</string>
+			<string>Las Palmas</string>
+			<string>Leon</string>
+			<string>Lleida</string>
+			<string>Madrid</string>
+			<string>Malaga</string>
+			<string>Murcia</string>
+			<string>Navarra</string>
+			<string>Orense</string>
+			<string>Palencia</string>
+			<string>Provincia de Lugo</string>
+			<string>Provincia de Pontevedra</string>
+			<string>Salamanca</string>
+			<string>Santa Cruz de Tenerife</string>
+			<string>Santander</string>
+			<string>Segovia</string>
+			<string>Sevilla</string>
+			<string>Soria</string>
+			<string>Tarragona</string>
+			<string>Teruel</string>
+			<string>Toledo</string>
+			<string>Valencia</string>
+			<string>Valladolid</string>
+			<string>Vizcaya</string>
+			<string>Zamora</string>
+			<string>Zaragoza</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Sri Lanka</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>St.Kitts and Nevis</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Sudan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Surinam</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Swaziland</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Sweden</key>
+		<array>
+			<string>Blekinge</string>
+			<string>Dalarnas</string>
+			<string>Gavleborgs</string>
+			<string>Gotlands</string>
+			<string>Hallands</string>
+			<string>Jamtlands</string>
+			<string>Jonkopings</string>
+			<string>Kalmar</string>
+			<string>Kronobergs</string>
+			<string>Norrbottens</string>
+			<string>Orebro</string>
+			<string>Skane</string>
+			<string>Sodermanlands</string>
+			<string>Stockholms</string>
+			<string>Uppsala</string>
+			<string>Ustergotland</string>
+			<string>Varmlands</string>
+			<string>Vasterbottens</string>
+			<string>Vasternorrlands</string>
+			<string>Vastmanlands</string>
+			<string>Vastra Gotalands</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Switzerland</key>
+		<array>
+			<string>Aargau</string>
+			<string>Appenzell Ausserrhon</string>
+			<string>Appenzell Innerrhodn</string>
+			<string>Basel Landschaft</string>
+			<string>Basel-stadt</string>
+			<string>Bern</string>
+			<string>Freiburg</string>
+			<string>Geneve</string>
+			<string>Glarus</string>
+			<string>Graub nden</string>
+			<string>Jura</string>
+			<string>Lausanne</string>
+			<string>Luzern</string>
+			<string>Neuchatel</string>
+			<string>Nidwalden</string>
+			<string>Obwalden</string>
+			<string>Schaffhausen</string>
+			<string>Schwyz</string>
+			<string>Solothurn</string>
+			<string>St.Gallen</string>
+			<string>Thurgau</string>
+			<string>Ticino</string>
+			<string>Uri</string>
+			<string>Vaud</string>
+			<string>Wallis</string>
+			<string>Zug</string>
+			<string>Zurich</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Taiwan</key>
+		<array>
+			<string>Changhua County</string>
+			<string>Chiayi City</string>
+			<string>Chiayi County</string>
+			<string>Hsinchu City</string>
+			<string>Hsinchu County</string>
+			<string>Hualien County</string>
+			<string>Kaohsiung City</string>
+			<string>Keelung City</string>
+			<string>Kinmen County</string>
+			<string>Lianjiang County</string>
+			<string>Miaoli County</string>
+			<string>Nantou County</string>
+			<string>New Taipei City</string>
+			<string>Penghu County</string>
+			<string>Pingtung County</string>
+			<string>Taichung City</string>
+			<string>Tainan City</string>
+			<string>Taipei</string>
+			<string>Taitung County</string>
+			<string>Taoyuan County</string>
+			<string>Yilan County</string>
+			<string>Yunlin County</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Tajikistan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Tanzania</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Thailand</key>
+		<array>
+			<string>Amnat Charoen</string>
+			<string>Ang Thong</string>
+			<string>Bangkok</string>
+			<string>Buri Ram</string>
+			<string>Chachoengsao</string>
+			<string>Chai Nat</string>
+			<string>Chaiyaphum</string>
+			<string>Chanthaburi</string>
+			<string>Chiang Mai</string>
+			<string>Chiang Rai</string>
+			<string>Chon Buri</string>
+			<string>Chumphon</string>
+			<string>Kalasin</string>
+			<string>Kamphaeng Phet</string>
+			<string>Kanchanaburi</string>
+			<string>Khon Kaen</string>
+			<string>Krabi</string>
+			<string>Lamphun</string>
+			<string>Loei</string>
+			<string>Lop Buri</string>
+			<string>Mae Hong Son</string>
+			<string>Maha Sarakham</string>
+			<string>Mukdahan</string>
+			<string>Nakhon Nayok</string>
+			<string>Nakhon Pathom</string>
+			<string>Nakhon Phanom</string>
+			<string>Nakhon Sawan</string>
+			<string>Nakhon Si Thammarat</string>
+			<string>Nan</string>
+			<string>Narathiwat</string>
+			<string>Nong Bua Lamphu</string>
+			<string>Nong Khai</string>
+			<string>Nonthaburi</string>
+			<string>Pathum Thani</string>
+			<string>Pattani</string>
+			<string>Phangnga</string>
+			<string>Phatthalung</string>
+			<string>Phayao</string>
+			<string>Phetchabun</string>
+			<string>Phetchaburi</string>
+			<string>Phichit</string>
+			<string>Phitsanulok</string>
+			<string>Phra Nakhon Si Ayutthaya</string>
+			<string>Phrae</string>
+			<string>Phuket</string>
+			<string>Prachin Buri</string>
+			<string>Prachuap Khiri Khan</string>
+			<string>Ranong</string>
+			<string>Ratchaburi</string>
+			<string>Rayong</string>
+			<string>Roi Et</string>
+			<string>Sa Kaeo</string>
+			<string>Sakon Nakhon</string>
+			<string>Samut Prakan</string>
+			<string>Samut Sakhon</string>
+			<string>Samut Songkhram</string>
+			<string>Saraburi</string>
+			<string>Satun</string>
+			<string>Si sa ket</string>
+			<string>Sing Buri</string>
+			<string>Songkhla</string>
+			<string>Sukhothai</string>
+			<string>Suphan Buri</string>
+			<string>Surat Thani</string>
+			<string>Surin</string>
+			<string>Tak</string>
+			<string>Trang</string>
+			<string>Trat</string>
+			<string>Ubon Ratchathani</string>
+			<string>Udon Thani</string>
+			<string>Uthai Thani</string>
+			<string>Uttaradit</string>
+			<string>Yala</string>
+			<string>Yasothon</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Tonga</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Trinidad and Tobago</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Turkey</key>
+		<array>
+			<string>Adana</string>
+			<string>Adiyaman</string>
+			<string>Afyon</string>
+			<string>Agri</string>
+			<string>Aksaray</string>
+			<string>Amasya</string>
+			<string>Ankara</string>
+			<string>Antalya</string>
+			<string>Ardahan</string>
+			<string>Artvin</string>
+			<string>Aydin</string>
+			<string>Balikesir</string>
+			<string>Bartin</string>
+			<string>Batman</string>
+			<string>Bayburt</string>
+			<string>Bilecik</string>
+			<string>Bingol</string>
+			<string>Bitlis</string>
+			<string>Bolu</string>
+			<string>Burdur</string>
+			<string>Bursa</string>
+			<string>Canakkale</string>
+			<string>Cankiri</string>
+			<string>Corum</string>
+			<string>Denizli</string>
+			<string>Diyarbakir</string>
+			<string>Edirne</string>
+			<string>Elazig</string>
+			<string>Erzincan</string>
+			<string>Erzurum</string>
+			<string>Eskisehir</string>
+			<string>Gaziantep</string>
+			<string>Giresun</string>
+			<string>Gumushane</string>
+			<string>Hakkari</string>
+			<string>Hatay</string>
+			<string>Icel</string>
+			<string>Igdir</string>
+			<string>Isparta</string>
+			<string>Istanbul</string>
+			<string>Izmir</string>
+			<string>Kahraman Maras</string>
+			<string>Karabuk</string>
+			<string>Karaman</string>
+			<string>Kars</string>
+			<string>Kastamonu</string>
+			<string>Kayseri</string>
+			<string>Kilis</string>
+			<string>Kirikkale</string>
+			<string>Kirklareli</string>
+			<string>Kirsehir</string>
+			<string>Kocaeli</string>
+			<string>Konya</string>
+			<string>Kutahya</string>
+			<string>Malatya</string>
+			<string>Manisa</string>
+			<string>Mardin</string>
+			<string>Mugla</string>
+			<string>Mus</string>
+			<string>Nevsehir</string>
+			<string>Nigde</string>
+			<string>Ordu</string>
+			<string>Rize</string>
+			<string>Sakarya</string>
+			<string>Samsun</string>
+			<string>Siirt</string>
+			<string>Sinop</string>
+			<string>Sirnak</string>
+			<string>Sivas</string>
+			<string>Tekirdag</string>
+			<string>Tokat</string>
+			<string>Trabzon</string>
+			<string>Tunceli</string>
+			<string>Urfa</string>
+			<string>Usak</string>
+			<string>Van</string>
+			<string>Yozgat</string>
+			<string>Zonguldak</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Uganda</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Ukraine</key>
+		<array>
+			<string>Cherkasy</string>
+			<string>Chernihiv</string>
+			<string>Chernivtsi</string>
+			<string>Dnipropetrovsk</string>
+			<string>Donetsk</string>
+			<string>Ivano-Frankivsk</string>
+			<string>Kharkiv</string>
+			<string>Khersonsrka</string>
+			<string>Khmelnytsky</string>
+			<string>Kirovohrad</string>
+			<string>Kyiv</string>
+			<string>Luhansk</string>
+			<string>Lviv</string>
+			<string>Mykolayiv</string>
+			<string>Odessa</string>
+			<string>Poltava</string>
+			<string>Respublika Krym</string>
+			<string>Rivne</string>
+			<string>Sumy</string>
+			<string>Ternopil</string>
+			<string>Vinnytsya</string>
+			<string>Volyn</string>
+			<string>Zakarpatska</string>
+			<string>Zaporizhzhya</string>
+			<string>Zhytomyr</string>
+		</array>
+	</dict>
+	<dict>
+		<key>United Arab Emirates</key>
+		<array>
+			<string>Abu Dhabi</string>
+			<string>Al l'Ayn</string>
+			<string>Ash Shariqah</string>
+			<string>Dubayy</string>
+		</array>
+	</dict>
+	<dict>
+		<key>United Kingdom</key>
+		<array>
+			<string>England</string>
+			<string>Bath</string>
+			<string>Birmingham</string>
+			<string>Bradford</string>
+			<string>Brighton &amp; Hove</string>
+			<string>Bristol</string>
+			<string>Cambridge</string>
+			<string>Canterbury</string>
+			<string>Carlisle</string>
+			<string>Chester</string>
+			<string>Chichester</string>
+			<string>Coventry</string>
+			<string>Derby</string>
+			<string>Durham</string>
+			<string>Ely</string>
+			<string>Exeter</string>
+			<string>Gloucester</string>
+			<string>Hereford</string>
+			<string>Kingston upon Hull</string>
+			<string>Lancaster</string>
+			<string>Leeds</string>
+			<string>Leicester</string>
+			<string>Lichfield</string>
+			<string>Lincoln</string>
+			<string>Liverpool</string>
+			<string>London</string>
+			<string>Manchester</string>
+			<string>Newcastle</string>
+			<string>Norwich</string>
+			<string>Nottingham</string>
+			<string>Oxford</string>
+			<string>Peterborough</string>
+			<string>Plymouth</string>
+			<string>Portsmouth</string>
+			<string>Preston</string>
+			<string>Ripon</string>
+			<string>Saint Albans</string>
+			<string>Salford</string>
+			<string>Salisbury</string>
+			<string>Sheffield</string>
+			<string>Southampton</string>
+			<string>Stoke-on-Trent</string>
+			<string>Sunderland</string>
+			<string>Truro</string>
+			<string>Wakefield</string>
+			<string>Wells</string>
+			<string>Winchester</string>
+			<string>Wolverhampton</string>
+			<string>Worcester</string>
+			<string>York</string>
+			<string>Northern Ireland</string>
+			<string>Belfast</string>
+			<string>Derry</string>
+			<string>Lisburn</string>
+			<string>Newry</string>
+			<string>Scotland</string>
+			<string>Aberdeen</string>
+			<string>Dundee</string>
+			<string>Edinburgh</string>
+			<string>Glasgow</string>
+			<string>Inverness</string>
+			<string>Stirling</string>
+			<string>Wales</string>
+			<string>Bangor</string>
+			<string>Cardiff</string>
+			<string>Newport</string>
+			<string>Swansea</string>
+		</array>
+	</dict>
+	<dict>
+		<key>United States</key>
+		<array>
+			<string>Alabama</string>
+			<string>Birmingham</string>
+			<string>Mobile</string>
+			<string>Montgomery</string>
+			<string>Alaska</string>
+			<string>Anchorage</string>
+			<string>Fairbanks</string>
+			<string>Juneau</string>
+			<string>Arizona</string>
+			<string>Glendale</string>
+			<string>Mesa</string>
+			<string>Phoenix</string>
+			<string>Scottsdale</string>
+			<string>Tempe</string>
+			<string>Tucson</string>
+			<string>Yuma</string>
+			<string>Arkansas</string>
+			<string>Fayetteville</string>
+			<string>Fort Smith</string>
+			<string>Little Rock</string>
+			<string>California</string>
+			<string>Los Angeles</string>
+			<string>San Diego</string>
+			<string>San Francisco</string>
+			<string>San Jose</string>
+			<string>Colorado</string>
+			<string>Aspen</string>
+			<string>Aurora</string>
+			<string>Boulder</string>
+			<string>Colorado Springs</string>
+			<string>Denver</string>
+			<string>Fort Collins</string>
+			<string>Grand Junction</string>
+			<string>Vail</string>
+			<string>Connecticut</string>
+			<string>Bridgeport</string>
+			<string>Darien</string>
+			<string>Greenwich</string>
+			<string>Hartford</string>
+			<string>Middletown</string>
+			<string>New Britain</string>
+			<string>New Haven</string>
+			<string>Waterbury</string>
+			<string>Westport</string>
+			<string>Delaware</string>
+			<string>Dover</string>
+			<string>Newark</string>
+			<string>Wilmington</string>
+			<string>District of Colombia</string>
+			<string>Washington D.C.</string>
+			<string>Florida</string>
+			<string>Cape Canaveral?</string>
+			<string>Fort Lauderdale</string>
+			<string>Jacksonville</string>
+			<string>Key West</string>
+			<string>Miami</string>
+			<string>Orlando</string>
+			<string>St. Petersburg</string>
+			<string>Tallahassee</string>
+			<string>Tampa</string>
+			<string>Georgia</string>
+			<string>Atlanta</string>
+			<string>Augusta</string>
+			<string>Columbus</string>
+			<string>Macon</string>
+			<string>Savannah</string>
+			<string>Hawaii</string>
+			<string>Hilo</string>
+			<string>Honolulu</string>
+			<string>Kailua</string>
+			<string>Idaho</string>
+			<string>American Falls</string>
+			<string>Blackfoot</string>
+			<string>Boise</string>
+			<string>Coeur d'Alene</string>
+			<string>Idaho Falls</string>
+			<string>Ketchum</string>
+			<string>Lewiston</string>
+			<string>Moscow</string>
+			<string>Murphy</string>
+			<string>Nampa</string>
+			<string>Pocatello</string>
+			<string>Sun Valley</string>
+			<string>Illinois</string>
+			<string>Alton</string>
+			<string>Aurora</string>
+			<string>Bloomington</string>
+			<string>Carbondale</string>
+			<string>Centralia</string>
+			<string>Champaign-Urbana</string>
+			<string>Chicago</string>
+			<string>Danville</string>
+			<string>De Kalb</string>
+			<string>Decatur</string>
+			<string>East St Louis</string>
+			<string>Galesburg</string>
+			<string>Normal</string>
+			<string>Peoria</string>
+			<string>Rock Island</string>
+			<string>Rockford</string>
+			<string>Springfield</string>
+			<string>Waukegan</string>
+			<string>Indiana</string>
+			<string>Evansville</string>
+			<string>Fort Wayne</string>
+			<string>Indianapolis</string>
+			<string>Iowa</string>
+			<string>Cedar Rapids</string>
+			<string>Davenport</string>
+			<string>Des Moines</string>
+			<string>Kansas</string>
+			<string>Abilene</string>
+			<string>Hutchinson</string>
+			<string>Kansas City</string>
+			<string>Lawrence</string>
+			<string>Leavenworth</string>
+			<string>Manhattan</string>
+			<string>Overland Park</string>
+			<string>Topeka</string>
+			<string>Wichita</string>
+			<string>Kentucky</string>
+			<string>Lexington</string>
+			<string>Louisville</string>
+			<string>Owensboro</string>
+			<string>Louisiana</string>
+			<string>Baton Rouge</string>
+			<string>New Orleans</string>
+			<string>Shreveport</string>
+			<string>Maine</string>
+			<string>Bangor</string>
+			<string>Lewiston</string>
+			<string>Portland</string>
+			<string>Maryland</string>
+			<string>Balitmore</string>
+			<string>Gaithersburg</string>
+			<string>Rockville</string>
+			<string>Massachusetts</string>
+			<string>Boston</string>
+			<string>Springfield</string>
+			<string>Worcester</string>
+			<string>Michigan</string>
+			<string>Ann Arbor</string>
+			<string>Battle Creek</string>
+			<string>Bay City</string>
+			<string>Dearborn</string>
+			<string>Detroit</string>
+			<string>Flint</string>
+			<string>Grand Rapids</string>
+			<string>Kalamazoo</string>
+			<string>Lansing</string>
+			<string>Muskegon</string>
+			<string>Pontiac</string>
+			<string>Port Huron</string>
+			<string>Saginaw</string>
+			<string>Sault Ste Marie</string>
+			<string>Warren</string>
+			<string>Wyandotte</string>
+			<string>Minnesota</string>
+			<string>Minneapolis</string>
+			<string>Rochester</string>
+			<string>Saint Paul</string>
+			<string>Mississippi</string>
+			<string>Biloxi</string>
+			<string>Greenville</string>
+			<string>Gulfport</string>
+			<string>Hattiesburg</string>
+			<string>Jackson</string>
+			<string>Meridian</string>
+			<string>Vicksburg</string>
+			<string>Missouri</string>
+			<string>Colombia</string>
+			<string>Jefferson City</string>
+			<string>Kansas City</string>
+			<string>Saint Louis</string>
+			<string>Springfield</string>
+			<string>Montana</string>
+			<string>Billings</string>
+			<string>Great Falls</string>
+			<string>Missoula</string>
+			<string>Nebraska</string>
+			<string>Bellevue</string>
+			<string>Lincoln</string>
+			<string>Omaha</string>
+			<string>Nevada</string>
+			<string>Carson City</string>
+			<string>Elko</string>
+			<string>Henderson</string>
+			<string>Las Vegas</string>
+			<string>North Las Vegas</string>
+			<string>Reno</string>
+			<string>Sparks</string>
+			<string>Virginia City</string>
+			<string>New Hampshire</string>
+			<string>Concord</string>
+			<string>Manchester</string>
+			<string>Nashua</string>
+			<string>New Jersey</string>
+			<string>Jersey City</string>
+			<string>Newark</string>
+			<string>Paterson</string>
+			<string>New Mexico</string>
+			<string>Albuquerque</string>
+			<string>Las Cruces</string>
+			<string>Roswell</string>
+			<string>Santa Fe</string>
+			<string>New York</string>
+			<string>Buffalo</string>
+			<string>New York</string>
+			<string>Rochester</string>
+			<string>North Carolina</string>
+			<string>Asheville</string>
+			<string>Chapel Hill</string>
+			<string>Charlotte</string>
+			<string>Durham</string>
+			<string>Greensboro</string>
+			<string>Raleigh</string>
+			<string>Raleigh-Durham</string>
+			<string>North Dakota</string>
+			<string>Bismarck</string>
+			<string>Fargo</string>
+			<string>Grand Forks</string>
+			<string>Minot</string>
+			<string>Ohio</string>
+			<string>Cincinnati</string>
+			<string>Cleveland</string>
+			<string>Columbus</string>
+			<string>Dayton</string>
+			<string>Toledo</string>
+			<string>Oklahoma</string>
+			<string>Norman</string>
+			<string>Oklahoma City</string>
+			<string>Tulsa</string>
+			<string>Oregon</string>
+			<string>Bend</string>
+			<string>Coos Bay</string>
+			<string>Corvallis</string>
+			<string>Crater Lake</string>
+			<string>Dallas</string>
+			<string>Eugene</string>
+			<string>Grant's Pass</string>
+			<string>Hood River</string>
+			<string>Medford</string>
+			<string>Portland</string>
+			<string>Salem</string>
+			<string>Springfield</string>
+			<string>St Helens</string>
+			<string>The Dalles</string>
+			<string>Tillamook</string>
+			<string>Pennsylvania</string>
+			<string>Allentown</string>
+			<string>Philadelphia</string>
+			<string>Pittsburgh</string>
+			<string>Rhode Island</string>
+			<string>Cranston</string>
+			<string>Newport</string>
+			<string>Pawtucket</string>
+			<string>Providence</string>
+			<string>Warwick</string>
+			<string>Westerly</string>
+			<string>Woonsocket</string>
+			<string>South Carolina</string>
+			<string>Charleston</string>
+			<string>Colombia</string>
+			<string>North Charleston</string>
+			<string>South Dakota</string>
+			<string>Aberdeen</string>
+			<string>Rapid City</string>
+			<string>Sioux Falls</string>
+			<string>Tennessee</string>
+			<string>Bristol</string>
+			<string>Chattanooga</string>
+			<string>Johnson City</string>
+			<string>Kingsport</string>
+			<string>Knoxville</string>
+			<string>Memphis</string>
+			<string>Nashville</string>
+			<string>Smyrna</string>
+			<string>Spring Hill</string>
+			<string>Tri-City Area</string>
+			<string>Texas</string>
+			<string>Austin</string>
+			<string>Corpus Christi</string>
+			<string>Dallas</string>
+			<string>El Paso</string>
+			<string>Galveston</string>
+			<string>Houston</string>
+			<string>Laredo</string>
+			<string>McAllen</string>
+			<string>San Antonio</string>
+			<string>Utah</string>
+			<string>Layton</string>
+			<string>Ogden</string>
+			<string>Orem</string>
+			<string>Park City</string>
+			<string>Provo</string>
+			<string>Salt Lake City</string>
+			<string>St.George</string>
+			<string>West Valley City</string>
+			<string>Vermont</string>
+			<string>Burlington</string>
+			<string>Rutland</string>
+			<string>South Burlington</string>
+			<string>Virginia</string>
+			<string>Chesapeake</string>
+			<string>Norfolk</string>
+			<string>Virginia Beach</string>
+			<string>Washington</string>
+			<string>Seattle</string>
+			<string>Spokane</string>
+			<string>Tacoma</string>
+			<string>West Virginia</string>
+			<string>Charleston</string>
+			<string>Huntington</string>
+			<string>Parkersburg</string>
+			<string>Wisconsin</string>
+			<string>Appleton</string>
+			<string>Eau Claire</string>
+			<string>Green Bay</string>
+			<string>Kenosha</string>
+			<string>LaCrosse</string>
+			<string>Madison</string>
+			<string>Manitowoc</string>
+			<string>Milwaukee</string>
+			<string>Oshkosh</string>
+			<string>Racine</string>
+			<string>Sheboygan</string>
+			<string>Wausau</string>
+			<string>Wyoming</string>
+			<string>Casper</string>
+			<string>Cheyenne</string>
+			<string>Evanston</string>
+			<string>Laramie</string>
+			<string>Rock Springs</string>
+			<string>Sheridan</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Uruguay</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Uzbekistan</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Vanuatu</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Venezuela</key>
+		<array>
+			<string>Amazonas</string>
+			<string>Anzoategui</string>
+			<string>Apure</string>
+			<string>Aragua</string>
+			<string>Barinas</string>
+			<string>Bolivar</string>
+			<string>Carabobo</string>
+			<string>Caracas</string>
+			<string>Cojedes</string>
+			<string>Delta Amacuro</string>
+			<string>Dependencias Federales</string>
+			<string>Estado Nueva Esparta</string>
+			<string>Falcon</string>
+			<string>Guarico</string>
+			<string>Lara</string>
+			<string>Merida</string>
+			<string>Miranda</string>
+			<string>Monagas</string>
+			<string>Portuguesa</string>
+			<string>Sucre</string>
+			<string>Tachira</string>
+			<string>Trujillo</string>
+			<string>Yaracuy</string>
+			<string>Zulia</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Vietnam</key>
+		<array>
+			<string>Haiphong</string>
+			<string>Hanoi</string>
+			<string>Ho Chi Minh City</string>
+		</array>
+	</dict>
+	<dict>
+		<key>Yemen</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>Zambia</key>
+		<array/>
+	</dict>
+</array>
+</plist>

@@ -44,7 +44,6 @@
     [self.view addSubview:self.indexCollectionView];
 }
 
-
 -(void)setTableView{
     self.indexCollectionView=[[IndexCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) onCellSelected:^(NSIndexPath  *indexPath) {
         MyIndexViewController *index=[[MyIndexViewController alloc] init];

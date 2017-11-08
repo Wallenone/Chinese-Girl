@@ -79,6 +79,9 @@
 		E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960901F93622700EB654A /* MineSettingTextViewController.m */; };
 		E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */; };
 		E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4E1F68099600844B2F /* icon_bubble_right.png */; };
+		E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */; };
+		E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */; };
+		E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */; };
 		E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE351F9AF15700B5228E /* CityData.plist */; };
 		E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE371F9AF15700B5228E /* NicknameViewController.m */; };
 		E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE391F9AF15700B5228E /* SignatureViewController.m */; };
@@ -260,6 +263,9 @@
 		E5C960901F93622700EB654A /* MineSettingTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextViewController.m; sourceTree = "<group>"; };
 		E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_left.png; sourceTree = "<group>"; };
 		E5D04A4E1F68099600844B2F /* icon_bubble_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_right.png; sourceTree = "<group>"; };
+		E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TWCity.plist; sourceTree = "<group>"; };
+		E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CNCity.plist; sourceTree = "<group>"; };
+		E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ENCity.plist; sourceTree = "<group>"; };
 		E5E0FE351F9AF15700B5228E /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
 		E5E0FE361F9AF15700B5228E /* NicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NicknameViewController.h; sourceTree = "<group>"; };
 		E5E0FE371F9AF15700B5228E /* NicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NicknameViewController.m; sourceTree = "<group>"; };
@@ -377,6 +383,9 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */,
+				E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */,
+				E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */,
 				E5D04A4E1F68099600844B2F /* icon_bubble_right.png */,
 				E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */,
 				6003F595195388D20070C39A /* ChineseGirl-Info.plist */,
@@ -834,6 +843,7 @@
 				E511CB241FB005EF006BA362 /* Localizable.strings in Resources */,
 				E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */,
 				E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */,
+				E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */,
@@ -842,6 +852,8 @@
 				E5E0FE4E1F9AF15700B5228E /* 返回@2x.png in Resources */,
 				E511CB141FB00013006BA362 /* InfoPlist.strings in Resources */,
 				E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */,
+				E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */,
+				E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
