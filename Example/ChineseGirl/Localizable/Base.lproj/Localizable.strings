@@ -37,6 +37,7 @@
 "birthday" = "Birthday";    //生日
 "About" = "About";      //关于我
 "change_password" = "Change Password";    //修改密码
+"choose_language" = "Language";    //选择语言
 "log_out" = "Log Out";     //退出当前账号
 "current_password" = "Current Password";   //当前密码
 "new_password" = "New Password";    //新密码

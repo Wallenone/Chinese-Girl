@@ -6,21 +6,29 @@
 //  Copyright © 2017年 wanjiehuizhaofang. All rights reserved.
 //
 
-#import "MineAccountViewController.h"
+#import "CGLanguagesViewController.h"
 #import "EZJFastTableView.h"
 #import "MySettingTableViewCell.h"
 #import "MinePasswordViewController.h"
 #import "CGLoginViewController.h"
-#import "CGLanguagesViewController.h"
-@interface MineAccountViewController ()
+@interface CGLanguagesViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLable;
 @property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)EZJFastTableView *tbv;
-@property(nonatomic,strong)UIButton *logoutBtn;
+@property(nonatomic,strong)NSIndexPath *lastPath;// 主要是用来接收用户上一次所选的cell的indexpath，并且对其synthesize
+@property(nonatomic,strong)NSMutableArray *languageArrays;
 @end
 
-@implementation MineAccountViewController
+@implementation CGLanguagesViewController
+
+-(NSMutableArray *)languageArrays{
+    if (!_languageArrays) {
+        _languageArrays=[[NSMutableArray alloc] initWithObjects:@"English",@"简体中文",@"繁體中文",@"한국어",@"日本語",nil];
+    }
+ 
+    return _languageArrays;
+}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -28,11 +36,20 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self.tabBarController.tabBar setHidden:YES];
     [super viewWillAppear:animated];
+    [self setData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.tabBarController.tabBar setHidden:NO];
+}
+
+-(void)setData{
+    for (int i=0; i<self.languageArrays.count; i++) {
+        if ([[self.languageArrays objectAtIndex:i] isEqualToString:[CGSingleCommitData sharedInstance].languageName]) {
+            self.lastPath=[NSIndexPath indexPathForRow:i inSection:0];
+        }
+    }
 }
 
 - (void)viewDidLoad {
@@ -50,11 +67,12 @@
 
 -(void)addBodyView{
     [self.view addSubview:self.tbv];
-    [self.view addSubview:self.logoutBtn];
 }
 -(void)backClick{
     [self.navigationController popViewControllerAnimated:NO];
 }
+
+
 
 -(void)logoutClick{
     [[CGSingleCommitData sharedInstance] logout];
@@ -72,7 +90,7 @@
 -(UILabel *)titleLable{
     if (!_titleLable) {
         _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLable.text=NSLocalizedString(@"settings", nil);
+        _titleLable.text=NSLocalizedString(@"choose_language", nil);
         _titleLable.textColor=[UIColor getColor:@"232627"];
         _titleLable.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLable.textAlignment=NSTextAlignmentCenter;
@@ -93,10 +111,8 @@
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
         
-        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"change_password", nil),NSLocalizedString(@"choose_language", nil),nil];
-        
         __weak typeof(self) weakSelf = self;
-        CGRect tbvFrame = CGRectMake(0, 80*SCREEN_RADIO, screen_width, arrays.count*49.5*SCREEN_RADIO);
+        CGRect tbvFrame = CGRectMake(0, 80*SCREEN_RADIO, screen_width, self.languageArrays.count*49.5*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
@@ -105,14 +121,23 @@
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
         
         //给tableview赋值
-        [_tbv setDataArray:arrays];
+        [_tbv setDataArray:self.languageArrays];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             BOOL state=NO;
-            if (index.row==arrays.count-1) {
+            if (index.row==weakSelf.languageArrays.count-1) {
                 state=YES;
             }
-            MySettingTableViewCell *cell=[[MySettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withLineHidden:state withAllowHidden:NO];
+            
+            NSInteger row = [index row];
+            
+            NSInteger oldRow = [weakSelf.lastPath row];
+            MySettingTableViewCell *cell=[[MySettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withLineHidden:state withAllowHidden:YES];
+            if (row == oldRow && weakSelf.lastPath!=nil) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
             return cell;
             
         }];
@@ -129,14 +154,27 @@
         //cellData 是当前行的数据
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
+                
+            [CGSingleCommitData sharedInstance].languageName=cellData;
+            NSInteger newRow = [indexPath row];
             
-            if ([cellData isEqualToString:NSLocalizedString(@"change_password", nil)]) {
-                MinePasswordViewController *passwordVC=[[MinePasswordViewController alloc] init];
-                [weakSelf.navigationController pushViewController:passwordVC animated:NO];
-            }else if ([cellData isEqualToString:NSLocalizedString(@"choose_language", nil)]) {
-                CGLanguagesViewController *languageVG=[[CGLanguagesViewController alloc] init];
-                [weakSelf.navigationController pushViewController:languageVG animated:NO];
+            NSInteger oldRow = (weakSelf.lastPath !=nil)?[weakSelf.lastPath row]:-1;
+            
+            if (newRow != oldRow) {
+                
+                UITableViewCell *newCell = [weakSelf.tbv cellForRowAtIndexPath:indexPath];
+                
+                newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+                
+                UITableViewCell *oldCell = [weakSelf.tbv cellForRowAtIndexPath:weakSelf.lastPath];
+                
+                oldCell.accessoryType = UITableViewCellAccessoryNone;
+                
+                weakSelf.lastPath = indexPath;
+                
             }
+            
+            [weakSelf.tbv deselectRowAtIndexPath:indexPath animated:YES];
         }];
         
     }
@@ -145,20 +183,6 @@
 }
 
 
--(UIButton *)logoutBtn{
-    if (!_logoutBtn) {
-        _logoutBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, screen_height-90*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
-        [_logoutBtn setTitleColor:[UIColor getColor:@"2979FF"] forState:UIControlStateNormal];
-        [_logoutBtn setTitle:NSLocalizedString(@"log_out", nil) forState:UIControlStateNormal];
-        _logoutBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        _logoutBtn.layer.cornerRadius=21*SCREEN_RADIO;
-        _logoutBtn.layer.borderWidth=1;
-        _logoutBtn.layer.borderColor=[UIColor getColor:@"2979FF"].CGColor;
-        [_logoutBtn addTarget:self action:@selector(logoutClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _logoutBtn;
-}
-
 
 @end
+

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @interface MySettingTableViewCell : UITableViewCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(id)model withLineHidden:(BOOL)state;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(id)reuseIdentifier withModel:(id)model withLineHidden:(BOOL)state withAllowHidden:(BOOL)allowState;
 -(void)updateCellContent:(NSString *)content;
 -(NSString *)getContent;
 @end

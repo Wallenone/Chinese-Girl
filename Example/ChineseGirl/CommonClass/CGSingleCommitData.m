@@ -18,6 +18,7 @@ static NSString *const kAboutUsKey = @"aboutUsKey";
 static NSString *const kAlbumSKey = @"albumSKey";
 static NSString *const kVipLevelKey = @"vipLevelKey";
 static NSString *const kFavouritesKey = @"favouritesKey";
+static NSString *const kLanguageNameKey = @"languageNameKey";
 #import "CGSingleCommitData.h"
 static CGSingleCommitData *_instance = nil;
 @implementation CGSingleCommitData
@@ -115,6 +116,14 @@ static CGSingleCommitData *_instance = nil;
         }else{
             self.vipLevel=@"";
         }
+        
+        NSString *kLanguageName=[[NSUserDefaults standardUserDefaults] stringForKey:kLanguageNameKey];
+        if (![CGCommonString isBlankString:kLanguageName]) {
+            self.languageName=kLanguageName;
+        }else{
+            self.languageName=@"English";
+        }
+        
         
 //        NSArray *favourites = [[NSUserDefaults standardUserDefaults] arrayForKey:kFavouritesKey];
 //        if (favourites.count>0) {
@@ -222,6 +231,15 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] setValue:_vipLevel forKey:kVipLevelKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
+}
+
+-(void)setLanguageName:(NSString *)languageName{
+    if ([CGCommonString isBlankString:languageName]) {
+        _languageName=@"English";
+    }
+    _languageName=languageName;
+    [[NSUserDefaults standardUserDefaults] setValue:_languageName forKey:kLanguageNameKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)addAlbumS:(UIImage *)img{

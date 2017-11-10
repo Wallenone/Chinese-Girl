@@ -286,7 +286,7 @@
             if (index.row==arrays.count-1) {
                 state=YES;
             }
-            MySettingTableViewCell *cell=[[MySettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withLineHidden:state];
+            MySettingTableViewCell *cell=[[MySettingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withLineHidden:state withAllowHidden:NO];
             return cell;
             
         }];

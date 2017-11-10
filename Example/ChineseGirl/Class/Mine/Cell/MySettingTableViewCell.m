@@ -10,6 +10,7 @@
 @interface MySettingTableViewCell(){
     NSString *_title;
     BOOL _lineState;
+    BOOL _allowState;
 }
 @property(nonatomic,strong)UILabel *leftLabel;
 @property(nonatomic,strong)UILabel *rightLabel;
@@ -18,12 +19,13 @@
 @end
 @implementation MySettingTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(id)reuseIdentifier withModel:(id)model withLineHidden:(BOOL)state{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(id)reuseIdentifier withModel:(id)model withLineHidden:(BOOL)state withAllowHidden:(BOOL)allowState{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         _lineState=state;
+        _allowState=allowState;
         [self setData:model];
         [self addSubViews];
     }
@@ -89,6 +91,7 @@
         _allowBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-16*SCREEN_RADIO, 18.5*SCREEN_RADIO, 6*SCREEN_RADIO, 11*SCREEN_RADIO)];
         [_allowBtn setBackgroundImage:[UIImage imageNamed:@"myAllowLeft"] forState:UIControlStateNormal];
         _allowBtn.userInteractionEnabled=NO;
+        _allowBtn.hidden=_allowState;
     }
     
     return _allowBtn;

@@ -79,6 +79,7 @@
 		E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960901F93622700EB654A /* MineSettingTextViewController.m */; };
 		E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */; };
 		E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4E1F68099600844B2F /* icon_bubble_right.png */; };
+		E5D172C31FB5ECD300B7495E /* CGLanguagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D172C21FB5ECD300B7495E /* CGLanguagesViewController.m */; };
 		E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */; };
 		E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */; };
 		E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */; };
@@ -263,6 +264,8 @@
 		E5C960901F93622700EB654A /* MineSettingTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextViewController.m; sourceTree = "<group>"; };
 		E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_left.png; sourceTree = "<group>"; };
 		E5D04A4E1F68099600844B2F /* icon_bubble_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_right.png; sourceTree = "<group>"; };
+		E5D172C11FB5ECD300B7495E /* CGLanguagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLanguagesViewController.h; sourceTree = "<group>"; };
+		E5D172C21FB5ECD300B7495E /* CGLanguagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGLanguagesViewController.m; sourceTree = "<group>"; };
 		E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TWCity.plist; sourceTree = "<group>"; };
 		E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CNCity.plist; sourceTree = "<group>"; };
 		E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ENCity.plist; sourceTree = "<group>"; };
@@ -597,6 +600,8 @@
 				E56826121F9E31130099F363 /* MineAccountViewController.m */,
 				E56826141F9E32600099F363 /* MinePasswordViewController.h */,
 				E56826151F9E32600099F363 /* MinePasswordViewController.m */,
+				E5D172C11FB5ECD300B7495E /* CGLanguagesViewController.h */,
+				E5D172C21FB5ECD300B7495E /* CGLanguagesViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -922,6 +927,7 @@
 			files = (
 				E5E0FE491F9AF15700B5228E /* WYBirthdayPickerView.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
+				E5D172C31FB5ECD300B7495E /* CGLanguagesViewController.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
@@ -1146,7 +1152,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1164,7 +1170,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
