@@ -9,7 +9,7 @@
 #import "MyCommitHeaderView.h"
 
 @interface MyCommitHeaderView()
-@property(nonatomic,strong)MycommitModel *commitModel;
+@property(nonatomic,strong)CGShuoShuo *commitModel;
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *commitLabel;
@@ -17,10 +17,10 @@
 @end
 @implementation MyCommitHeaderView
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MycommitModel *)commitModel{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)commitModel{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor=[UIColor clearColor];
+        self.backgroundColor=[UIColor whiteColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.commitModel=commitModel;
         [self addsuViewS];
@@ -44,8 +44,9 @@
 -(UIImageView *)iconImgView{
     if (!_iconImgView) {
         _iconImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 52*SCREEN_RADIO, 52*SCREEN_RADIO)];
-        _iconImgView.image=[UIImage imageNamed:self.commitModel.icon];
+        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:self.commitModel.icon]];
         _iconImgView.layer.cornerRadius=26*SCREEN_RADIO;
+        _iconImgView.clipsToBounds=YES;
     }
     
     return _iconImgView;
@@ -69,7 +70,7 @@
         _dateLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImgView.frame)+15*SCREEN_RADIO,CGRectGetMaxY(self.nickName.frame)+2*SCREEN_RADIO, screen_width, 18*SCREEN_RADIO)];
         _dateLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
         _dateLabel.textColor=[UIColor getColor:@"7C858A"];
-        _dateLabel.text=self.commitModel.date;
+        _dateLabel.text=@"2017-04-09 17:09.in China BeiJing";
     }
     
     return _dateLabel;

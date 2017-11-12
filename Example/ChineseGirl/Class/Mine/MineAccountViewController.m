@@ -11,7 +11,6 @@
 #import "MySettingTableViewCell.h"
 #import "MinePasswordViewController.h"
 #import "CGLoginViewController.h"
-#import "CGLanguagesViewController.h"
 @interface MineAccountViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLable;
@@ -93,7 +92,7 @@
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
         
-        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"change_password", nil),NSLocalizedString(@"choose_language", nil),nil];
+        NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:NSLocalizedString(@"change_password", nil),nil];
         
         __weak typeof(self) weakSelf = self;
         CGRect tbvFrame = CGRectMake(0, 80*SCREEN_RADIO, screen_width, arrays.count*49.5*SCREEN_RADIO);
@@ -133,9 +132,6 @@
             if ([cellData isEqualToString:NSLocalizedString(@"change_password", nil)]) {
                 MinePasswordViewController *passwordVC=[[MinePasswordViewController alloc] init];
                 [weakSelf.navigationController pushViewController:passwordVC animated:NO];
-            }else if ([cellData isEqualToString:NSLocalizedString(@"choose_language", nil)]) {
-                CGLanguagesViewController *languageVG=[[CGLanguagesViewController alloc] init];
-                [weakSelf.navigationController pushViewController:languageVG animated:NO];
             }
         }];
         

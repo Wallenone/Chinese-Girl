@@ -14,6 +14,7 @@
 #import "MJRefresh.h"
 #import "MyIndexViewController.h"
 #import "WSCollectionHeaderCell.h"
+#import "CGIndexModel.h"
 @interface IndexCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate>{
     NSMutableArray *modelCollectionArray;
     NSMutableArray *modelArray;
@@ -48,37 +49,16 @@
 }
 
 -(void)getCollectionData:(NSInteger)page{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    NSString *urlStr = [[NSString stringWithFormat:@"http://image.baidu.com/channel/listjson?pn=%ld&rn=50&tag1=美女&tag2=全部&ie=utf8",(long)page] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSMutableArray *array = [CGIndexModel reloadTableWithRangeFrom:page*10 rangeTLenth:10];
     
+    modelArray = [NSMutableArray array];
+    for (CGIndexModel *model in array) {
+        [modelCollectionArray addObject:model];
+    }
     
-    [manager GET:urlStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        // NSLog(@"%@",responseObject);
-        NSMutableArray *array = [responseObject[@"data"] mutableCopy];
-        [array removeLastObject];
-        
-        modelArray = [NSMutableArray array];
-        for (NSDictionary *dic in array) {
-            
-            CellModel *model = [[CellModel alloc]init];
-            model.imgURL = dic[@"image_url"];
-            model.imgWidth = [dic[@"image_width"] floatValue];
-            model.imgHeight = [dic[@"image_height"] floatValue];
-            model.title = dic[@"abs"];
-            
-            [modelArray addObject:model];
-            [modelCollectionArray addObject:model];
-        }
-        
-        
-        
-        [self.collectionView reloadData];
-        t_page++;
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
+    [self.collectionView reloadData];
+    t_page++;
 }
 
 - (void)_creatSubView {

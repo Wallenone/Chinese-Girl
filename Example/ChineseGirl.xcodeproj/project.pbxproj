@@ -73,13 +73,23 @@
 		E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */; };
 		E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011A31F526D57003FB906 /* NewsBottomMessage.m */; };
 		E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011BE1F52771F003FB906 /* UIMessageCustom.m */; };
+		E5C0CD691FB80BEC002394C9 /* pinglunren.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C0CD651FB80BEB002394C9 /* pinglunren.plist */; };
+		E5C0CD6A1FB80BEC002394C9 /* pinglun.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C0CD661FB80BEB002394C9 /* pinglun.plist */; };
+		E5C0CD701FB80C35002394C9 /* CGPinglunModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C0CD6F1FB80C35002394C9 /* CGPinglunModel.m */; };
+		E5C0CD731FB80EAB002394C9 /* CGPinglunren.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C0CD721FB80EAB002394C9 /* CGPinglunren.m */; };
+		E5C0CD761FB80F2D002394C9 /* CGShuoShuo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C0CD751FB80F2D002394C9 /* CGShuoShuo.m */; };
+		E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C0CD781FB80FCB002394C9 /* CGUserInfo.m */; };
+		E5C0CD811FB81F20002394C9 /* CGIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C0CD801FB81F20002394C9 /* CGIndexModel.m */; };
+		E5C0CD831FB81F8B002394C9 /* index.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C0CD821FB81F8B002394C9 /* index.plist */; };
+		E5C0CD891FB8349F002394C9 /* userInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C0CD881FB8349F002394C9 /* userInfo.plist */; };
+		E5C0CD8C1FB83EF5002394C9 /* CGPinglun.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C0CD8B1FB83EF5002394C9 /* CGPinglun.m */; };
+		E5C0CD8E1FB841B8002394C9 /* shuoshuo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C0CD8D1FB841B7002394C9 /* shuoshuo.plist */; };
 		E5C960821F93132C00EB654A /* WSCollectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960811F93132C00EB654A /* WSCollectionHeaderCell.m */; };
 		E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960861F93507500EB654A /* MySettingTableViewCell.m */; };
 		E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C9608D1F935F8900EB654A /* MineSettingTextView.m */; };
 		E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960901F93622700EB654A /* MineSettingTextViewController.m */; };
 		E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */; };
 		E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4E1F68099600844B2F /* icon_bubble_right.png */; };
-		E5D172C31FB5ECD300B7495E /* CGLanguagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D172C21FB5ECD300B7495E /* CGLanguagesViewController.m */; };
 		E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */; };
 		E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */; };
 		E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */; };
@@ -254,6 +264,23 @@
 		E5C011A31F526D57003FB906 /* NewsBottomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsBottomMessage.m; sourceTree = "<group>"; };
 		E5C011BD1F52771F003FB906 /* UIMessageCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMessageCustom.h; sourceTree = "<group>"; };
 		E5C011BE1F52771F003FB906 /* UIMessageCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMessageCustom.m; sourceTree = "<group>"; };
+		E5C0CD651FB80BEB002394C9 /* pinglunren.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pinglunren.plist; sourceTree = "<group>"; };
+		E5C0CD661FB80BEB002394C9 /* pinglun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pinglun.plist; sourceTree = "<group>"; };
+		E5C0CD6E1FB80C35002394C9 /* CGPinglunModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGPinglunModel.h; sourceTree = "<group>"; };
+		E5C0CD6F1FB80C35002394C9 /* CGPinglunModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGPinglunModel.m; sourceTree = "<group>"; };
+		E5C0CD711FB80EAB002394C9 /* CGPinglunren.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGPinglunren.h; sourceTree = "<group>"; };
+		E5C0CD721FB80EAB002394C9 /* CGPinglunren.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGPinglunren.m; sourceTree = "<group>"; };
+		E5C0CD741FB80F2D002394C9 /* CGShuoShuo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGShuoShuo.h; sourceTree = "<group>"; };
+		E5C0CD751FB80F2D002394C9 /* CGShuoShuo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGShuoShuo.m; sourceTree = "<group>"; };
+		E5C0CD771FB80FCB002394C9 /* CGUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGUserInfo.h; sourceTree = "<group>"; };
+		E5C0CD781FB80FCB002394C9 /* CGUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGUserInfo.m; sourceTree = "<group>"; };
+		E5C0CD7F1FB81F20002394C9 /* CGIndexModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGIndexModel.h; sourceTree = "<group>"; };
+		E5C0CD801FB81F20002394C9 /* CGIndexModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGIndexModel.m; sourceTree = "<group>"; };
+		E5C0CD821FB81F8B002394C9 /* index.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = index.plist; sourceTree = "<group>"; };
+		E5C0CD881FB8349F002394C9 /* userInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userInfo.plist; sourceTree = "<group>"; };
+		E5C0CD8A1FB83EF5002394C9 /* CGPinglun.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGPinglun.h; sourceTree = "<group>"; };
+		E5C0CD8B1FB83EF5002394C9 /* CGPinglun.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGPinglun.m; sourceTree = "<group>"; };
+		E5C0CD8D1FB841B7002394C9 /* shuoshuo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shuoshuo.plist; sourceTree = "<group>"; };
 		E5C960801F93132C00EB654A /* WSCollectionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCollectionHeaderCell.h; sourceTree = "<group>"; };
 		E5C960811F93132C00EB654A /* WSCollectionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCollectionHeaderCell.m; sourceTree = "<group>"; };
 		E5C960851F93507500EB654A /* MySettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewCell.h; sourceTree = "<group>"; };
@@ -264,8 +291,6 @@
 		E5C960901F93622700EB654A /* MineSettingTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextViewController.m; sourceTree = "<group>"; };
 		E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_left.png; sourceTree = "<group>"; };
 		E5D04A4E1F68099600844B2F /* icon_bubble_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_right.png; sourceTree = "<group>"; };
-		E5D172C11FB5ECD300B7495E /* CGLanguagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLanguagesViewController.h; sourceTree = "<group>"; };
-		E5D172C21FB5ECD300B7495E /* CGLanguagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGLanguagesViewController.m; sourceTree = "<group>"; };
 		E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TWCity.plist; sourceTree = "<group>"; };
 		E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CNCity.plist; sourceTree = "<group>"; };
 		E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ENCity.plist; sourceTree = "<group>"; };
@@ -386,6 +411,11 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5C0CD8D1FB841B7002394C9 /* shuoshuo.plist */,
+				E5C0CD821FB81F8B002394C9 /* index.plist */,
+				E5C0CD881FB8349F002394C9 /* userInfo.plist */,
+				E5C0CD661FB80BEB002394C9 /* pinglun.plist */,
+				E5C0CD651FB80BEB002394C9 /* pinglunren.plist */,
 				E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */,
 				E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */,
 				E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */,
@@ -600,8 +630,6 @@
 				E56826121F9E31130099F363 /* MineAccountViewController.m */,
 				E56826141F9E32600099F363 /* MinePasswordViewController.h */,
 				E56826151F9E32600099F363 /* MinePasswordViewController.m */,
-				E5D172C11FB5ECD300B7495E /* CGLanguagesViewController.h */,
-				E5D172C21FB5ECD300B7495E /* CGLanguagesViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -633,6 +661,7 @@
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E5C0CD6D1FB80C1F002394C9 /* Model */,
 				E5F0A3E61F57F7FD0051699B /* Login */,
 				E538D7521F429BE80079AE94 /* Index */,
 				E538D74F1F429BE80079AE94 /* DriftBottle */,
@@ -686,6 +715,25 @@
 				E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E5C0CD6D1FB80C1F002394C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5C0CD6E1FB80C35002394C9 /* CGPinglunModel.h */,
+				E5C0CD6F1FB80C35002394C9 /* CGPinglunModel.m */,
+				E5C0CD711FB80EAB002394C9 /* CGPinglunren.h */,
+				E5C0CD721FB80EAB002394C9 /* CGPinglunren.m */,
+				E5C0CD741FB80F2D002394C9 /* CGShuoShuo.h */,
+				E5C0CD751FB80F2D002394C9 /* CGShuoShuo.m */,
+				E5C0CD771FB80FCB002394C9 /* CGUserInfo.h */,
+				E5C0CD781FB80FCB002394C9 /* CGUserInfo.m */,
+				E5C0CD7F1FB81F20002394C9 /* CGIndexModel.h */,
+				E5C0CD801FB81F20002394C9 /* CGIndexModel.m */,
+				E5C0CD8A1FB83EF5002394C9 /* CGPinglun.h */,
+				E5C0CD8B1FB83EF5002394C9 /* CGPinglun.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E5C960831F93502C00EB654A /* Cell */ = {
@@ -846,6 +894,8 @@
 			files = (
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
 				E511CB241FB005EF006BA362 /* Localizable.strings in Resources */,
+				E5C0CD8E1FB841B8002394C9 /* shuoshuo.plist in Resources */,
+				E5C0CD891FB8349F002394C9 /* userInfo.plist in Resources */,
 				E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */,
 				E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */,
 				E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */,
@@ -856,6 +906,9 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				E5E0FE4E1F9AF15700B5228E /* 返回@2x.png in Resources */,
 				E511CB141FB00013006BA362 /* InfoPlist.strings in Resources */,
+				E5C0CD831FB81F8B002394C9 /* index.plist in Resources */,
+				E5C0CD691FB80BEC002394C9 /* pinglunren.plist in Resources */,
+				E5C0CD6A1FB80BEC002394C9 /* pinglun.plist in Resources */,
 				E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */,
 				E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */,
 				E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */,
@@ -927,7 +980,6 @@
 			files = (
 				E5E0FE491F9AF15700B5228E /* WYBirthdayPickerView.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
-				E5D172C31FB5ECD300B7495E /* CGLanguagesViewController.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
@@ -945,6 +997,7 @@
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
 				E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */,
 				E5E0FE4C1F9AF15700B5228E /* WYHeightPickerView.m in Sources */,
+				E5C0CD761FB80F2D002394C9 /* CGShuoShuo.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
 				E53503B11F9C721900E1D8C5 /* MyCommitSViewController.m in Sources */,
@@ -952,6 +1005,7 @@
 				E538D76A1F429BE80079AE94 /* IndexCollectionView.m in Sources */,
 				E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */,
 				E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */,
+				E5C0CD701FB80C35002394C9 /* CGPinglunModel.m in Sources */,
 				E538D76C1F429BE80079AE94 /* MineViewController.m in Sources */,
 				E504AB981F507C0100E1F48C /* MJPhotoView.m in Sources */,
 				E5E0FE4A1F9AF15700B5228E /* WYCityPickerView.m in Sources */,
@@ -962,6 +1016,7 @@
 				E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */,
 				E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */,
 				E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */,
+				E5C0CD731FB80EAB002394C9 /* CGPinglunren.m in Sources */,
 				E504AB971F507C0100E1F48C /* MJPhotoToolbar.m in Sources */,
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
@@ -975,6 +1030,7 @@
 				E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */,
 				E5E0FE4B1F9AF15700B5228E /* WYGenderPickerView.m in Sources */,
 				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
+				E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
 				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
 				E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */,
@@ -985,10 +1041,12 @@
 				E5E0FE4D1F9AF15700B5228E /* WYLongTextInputView.m in Sources */,
 				E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
+				E5C0CD8C1FB83EF5002394C9 /* CGPinglun.m in Sources */,
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
 				E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */,
 				E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */,
+				E5C0CD811FB81F20002394C9 /* CGIndexModel.m in Sources */,
 				E5C960821F93132C00EB654A /* WSCollectionHeaderCell.m in Sources */,
 				E538D7671F429BE80079AE94 /* WSCollectionCell.m in Sources */,
 				E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */,

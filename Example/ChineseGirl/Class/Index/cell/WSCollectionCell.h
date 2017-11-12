@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CellModel.h"
+#import "CGIndexModel.h"
 
 
 @interface WSCollectionCell : UICollectionViewCell
 
-@property(nonatomic,strong)CellModel *model;
+@property(nonatomic,strong)CGIndexModel *model;
 
 @end

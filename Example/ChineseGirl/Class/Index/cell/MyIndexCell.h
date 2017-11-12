@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MyIndexModel.h"
+#import "CGShuoShuo.h"
 typedef void (^CommitClick)(void);
 
 @interface MyIndexCell : UITableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel withCommitClick:(CommitClick)block;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)indexModel withCommitClick:(CommitClick)block;
 @end

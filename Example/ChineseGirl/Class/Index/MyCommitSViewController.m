@@ -12,6 +12,7 @@
 #import "EZJFastTableView.h"
 #import "myCommitCell.h"
 #import "NewsBottomMessage.h"
+#import "CGPinglun.h"
 @interface MyCommitSViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *leftIcon;
@@ -61,15 +62,21 @@
     [self.view addSubview:self.messageView];
 }
 
--(CGFloat)getCellHeightWithModel:(MycommitModel *)model withIndex:(NSInteger)index{
+-(CGFloat)getCellHeightWithModel:(NSDictionary *)dict withIndex:(NSInteger)index{
+    
+    NSString *contentStr=@"";
     CGFloat _height=50*SCREEN_RADIO;
     
     if (index==0) {
         _height=97;
+        CGShuoShuo *shuoshuo=(CGShuoShuo *)dict;
+        contentStr=shuoshuo.content;
+    }else{
+        contentStr=[dict objectForKey:@"content"];
     }
 
     CGSize constraint = CGSizeMake(screen_width-30*SCREEN_RADIO, 99999.0f);
-    CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:14*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize size = [contentStr sizeWithFont:[UIFont systemFontOfSize:14*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
     _height+=size.height;
  
     
@@ -92,18 +99,9 @@
     if (!_tbv) {
         _tbv = [[EZJFastTableView alloc]initWithFrame:CGRectMake(0, 64, screen_width, screen_height-64)];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
-        
-        NSMutableArray *arrays=[[NSMutableArray alloc] init];
-        for (int i=0; i<3; i++) {
-            MycommitModel *model=[[MycommitModel alloc] init];
-            model.icon=@"Avatar";
-            model.nickName=[NSString stringWithFormat:@"Wallen%d",i];
-            model.date=@"2017.9.1 14:30:21";
-            model.content=[NSString stringWithFormat:@"%d-哈哈，说的不错了啊！Lorem ipsum",i];
-            [arrays addObject:model];
-        }
-        
-         [_tbv setDataArray:arrays];
+        NSMutableArray *pingluns=[[CGPinglun reloadCommits:self.commitModel.pinglunid] mutableCopy];
+        [pingluns insertObject:self.commitModel atIndex:0];
+        [_tbv setDataArray:pingluns];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             if (index.row==0) {

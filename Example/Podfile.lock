@@ -2,6 +2,7 @@ PODS:
   - ChineseGirl (0.1.0)
   - IQKeyboardManager (5.0.5)
   - MJRefresh (3.1.15)
+  - NSDictionary+Accessors (1.0.0)
   - RouterManager (0.1.3)
   - SDWebImage (4.2.1):
     - SDWebImage/Core (= 4.2.1)
@@ -18,6 +19,7 @@ PODS:
 DEPENDENCIES:
   - ChineseGirl (from `../`)
   - IQKeyboardManager
+  - NSDictionary+Accessors
   - RouterManager
   - SVProgressHUD
   - UICommonTools
@@ -34,6 +36,7 @@ SPEC CHECKSUMS:
   ChineseGirl: 074949ea06d312a68609792afc54536f65dd0790
   IQKeyboardManager: 99e4a3574d1e58aba6bc0e83120af25419c1fb0d
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  NSDictionary+Accessors: 5c453c028da416525428c938602c7c96704a9bbc
   RouterManager: 5fae26a349743cefff30c44336c500169d8ac30c
   SDWebImage: 1fa4c9edf525b744f002db89f3f5a38b3cd4c541
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
@@ -43,6 +46,6 @@ SPEC CHECKSUMS:
   WJFastDialogView: f376833e8c248066ec04626421e4539e9c1233d5
   WJFastScrollViewPoint: 1cdba392da20c0b9cb1f4a2b61af24d78a75e312
 
-PODFILE CHECKSUM: 783a2adf361af704f40d3bca574b02d0272ed48a
+PODFILE CHECKSUM: 24b84a3c82dacbfb93ef06b0478d7797fd434f06
 
 COCOAPODS: 1.2.1

@@ -22,6 +22,7 @@
 @property(nonatomic,copy)NSString *vipLevel;            //vip等级
 @property(nonatomic,strong)NSMutableArray *favourites;   //收藏
 @property(nonatomic,copy)NSString *languageName;  //语言
+
 + (instancetype)sharedInstance;
 - (void)logout;
 -(void)addAlbumS:(UIImage *)img;   //增加一个相册

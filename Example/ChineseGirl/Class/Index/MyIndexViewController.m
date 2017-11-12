@@ -13,6 +13,8 @@
 #import "myHeaderViewCell.h"
 #import "MyCommitSViewController.h"
 #import "NewsMessageController.h"
+#import "CGShuoShuo.h"
+#import "CGUserInfo.h"
 #define MJRandomData [NSString stringWithFormat:@"随机数据---%d", arc4random_uniform(1000000)]
 
 @interface MyIndexViewController ()
@@ -40,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor=[UIColor getColor:@"f0f1f2"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self addSubViews];
 }
@@ -71,7 +74,7 @@
 -(UIView *)headerView{
     if (!_headerView) {
         _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 53*SCREEN_RADIO)];
-        _headerView.backgroundColor=[UIColor clearColor];
+        _headerView.backgroundColor=[UIColor whiteColor];
     }
     
     return _headerView;
@@ -122,7 +125,7 @@
 
 
 -(CGFloat)getCellHeightWithModel:(MyIndexModel*)model{
-    CGFloat _height=235*SCREEN_RADIO;
+    CGFloat _height=215*SCREEN_RADIO;
     if(model.content.length>0){
         CGSize constraint = CGSizeMake(screen_width-30*SCREEN_RADIO, 99999.0f);
         CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:17.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
@@ -152,42 +155,10 @@
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
-        NSMutableArray *arrays =[[NSMutableArray alloc] init];
-        MyIndexModel *model = [MyIndexModel new];
-        model.icon=@"Avatar";
-        model.nickName=@"Jacob Stephens";
-        model.timeDate=@"TODAY, 06:12. PUBLISHED POST";
-        model.content=@"asdhapdhpashadpfjasfjsaojf;jpiahfpiafhiapfhpaishdpsiaoodhfiaphfpihafipah  asihdiaoh";
-        model.pictures=@[@"http://ww4.sinaimg.cn/thumbnail/7f8c1087gw1e9g06pc68ug20ag05y4qq.gif",
-                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr0nly5j20pf0gygo6.jpg",
-                         @"http://ww4.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1d0vyj20pf0gytcj.jpg",
-                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1xydcj20gy0o9q6s.jpg",
-                         @"http://ww2.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr2n1jjj20gy0o9tcc.jpg",
-                         @"http://ww2.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr39ht9j20gy0o6q74.jpg",
-                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr3xvtlj20gy0obadv.jpg"];
-        model.likes=@"11";
-        model.comments=@"123";
-        
-        MyIndexModel *model2 = [MyIndexModel new];
-        model2.icon=@"Avatar";
-        model2.nickName=@"Wallen";
-        model2.timeDate=@"China beijing";
-        model2.content=@"";
-        model2.pictures=@[@"http://ww4.sinaimg.cn/thumbnail/7f8c1087gw1e9g06pc68ug20ag05y4qq.gif",
-                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr0nly5j20pf0gygo6.jpg",
-                         @"http://ww4.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1d0vyj20pf0gytcj.jpg",
-                         @"http://ww3.sinaimg.cn/thumbnail/8e88b0c1gw1e9lpr1xydcj20gy0o9q6s.jpg"];
-        model2.likes=@"11";
-        model2.comments=@"123";
-
-        
-        MyIndexModel *model1 = [MyIndexModel new];
-        
-        [arrays addObject:model1];
-        [arrays addObject:model];
-        [arrays addObject:model2];
+        NSMutableArray *newarr=[CGShuoShuo reloadTableWithId:self.ids];
+        [newarr insertObject:[CGUserInfo getitemWithID:[NSString stringWithFormat:@"%ld",(long)self.ids]] atIndex:0];
         //给tableview赋值
-         [_tbv setDataArray:arrays];
+         [_tbv setDataArray:newarr];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             NSLog(@"row:=%ld",(long)index.row);
@@ -203,6 +174,7 @@
             }else{
                 MyIndexCell *myIndexCell = [[MyIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withCommitClick:^{
                     MyCommitSViewController *myCommitVC=[[MyCommitSViewController alloc] init];
+                    myCommitVC.commitModel=cellData;
                     [strongSelf.navigationController pushViewController:myCommitVC animated:NO];
                 }];
                 myIndexCell.userInteractionEnabled = true;

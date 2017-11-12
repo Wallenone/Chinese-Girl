@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CGShuoShuo.h"
 @interface MyCommitSViewController : UIViewController
-
+@property(nonatomic,strong)CGShuoShuo *commitModel;
 @end

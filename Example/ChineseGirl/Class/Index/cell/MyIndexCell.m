@@ -11,18 +11,19 @@
 #import "UIImageView+MJWebCache.h"
 #import "MJPhotoBrowser.h"
 #import "MJPhoto.h"
+#import "CGPinglunren.h"
+#import "CGPinglunModel.h"
+#import "CGPinglun.h"
 @interface MyIndexCell(){
     CGFloat total_height;
     CommitClick commitClick;
 }
-@property(nonatomic,strong)MyIndexModel *myIndexModel;
+@property(nonatomic,strong)CGShuoShuo *myIndexModel;
 @property(nonatomic,strong)UIImageView *iconImageView;
 @property(nonatomic,strong)UILabel *nickNameLabel;
 @property(nonatomic,strong)UILabel *timeDateLabel;
 @property(nonatomic,strong)UITextView *contentLabel;
 @property(nonatomic,strong)UIImageView *picImgView;
-@property(nonatomic,strong)UIButton *giftImgView;
-@property(nonatomic,strong)UILabel *giftLabel;
 @property(nonatomic,strong)UIButton *likeImgView;
 @property(nonatomic,strong)UILabel *likeLabel;
 @property(nonatomic,strong)NSMutableArray *imgViewArr;
@@ -34,7 +35,7 @@
 @end
 @implementation MyIndexCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel withCommitClick:(CommitClick)block{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)indexModel withCommitClick:(CommitClick)block{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         total_height=0;
@@ -65,8 +66,6 @@
     total_height=CGRectGetMaxY(self.contentLabel.frame);
     [self setImgBrower];
     [self addSubview:self.iconImageView];
-    [self addSubview:self.giftImgView];
-    [self addSubview:self.giftLabel];
     [self addSubview:self.likeImgView];
     [self addSubview:self.likeLabel];
     [self addSubview:self.allCommitLabel];
@@ -124,7 +123,7 @@
     NSMutableArray *photos = [NSMutableArray arrayWithCapacity:count];
     for (int i = 0; i<count; i++) {
         // 替换为中等尺寸图片
-        NSString *url = [self.myIndexModel.pictures[i] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+        NSString *url = self.myIndexModel.pictureBigs[i];
         MJPhoto *photo = [[MJPhoto alloc] init];
         photo.url = [NSURL URLWithString:url]; // 图片路径
         photo.srcImageView = self.imgViewArr[i]; // 来源于哪个UIImageView
@@ -153,16 +152,27 @@
 }
 
 -(void)setCommitUI{
-    for (int i=0; i<3; i++) {
+    NSInteger _count=self.myIndexModel.pinglunid.count;
+    if (_count>3) {
+        _count=3;
+    }
+    
+    for (int i=0; i<_count; i++) {
+        
+        NSDictionary *dict= [[CGPinglun reloadCommits:self.myIndexModel.pinglunid] objectAtIndex:i];
+        
+        NSString *nickNameStr=[dict objectForKey:@"nickName"];
+        NSString *contentStr=[dict objectForKey:@"content"];
+    
         UILabel *nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, 0, 14*SCREEN_RADIO)];
-        nickName.text=@"wallen";
+        nickName.text=  nickNameStr;
         nickName.textColor=[UIColor getColor:@"274E6E"];
         nickName.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
         [nickName sizeToFit];
         [self.commitView addSubview:nickName];
         
         UILabel *commitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(nickName.frame)+10*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, screen_width-52*SCREEN_RADIO, 17*SCREEN_RADIO)];
-        commitLabel.text=@"XXXXXXXXXXXXXX";
+        commitLabel.text=contentStr;
         commitLabel.textColor=[UIColor getColor:@"99A3A9"];
         commitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
         [self.commitView addSubview:commitLabel];
@@ -172,7 +182,7 @@
 -(UIImageView *)iconImageView{
     if (!_iconImageView) {
         _iconImageView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
-        _iconImageView.image=[UIImage imageNamed:self.myIndexModel.icon];
+        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.icon]];
         _iconImageView.layer.cornerRadius = 19*SCREEN_RADIO;
     }
     
@@ -219,32 +229,9 @@
     return _contentLabel;
 }
 
--(UIButton *)giftImgView{
-    if (!_giftImgView) {
-        _giftImgView=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 17*SCREEN_RADIO, 17*SCREEN_RADIO)];
-        [_giftImgView setImage:[UIImage imageNamed:@"Commentcell"] forState:UIControlStateNormal];
-        [_giftImgView addTarget:self action:@selector(giftClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _giftImgView;
-}
-
-
--(UILabel *)giftLabel{
-    if (!_giftLabel) {
-        _giftLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.giftImgView.frame)+8.5*SCREEN_RADIO, total_height+10*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
-        _giftLabel.text=@"100 gifts";
-        _giftLabel.textColor=[UIColor getColor:@"274E6E"];
-        _giftLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
-        [_giftLabel sizeToFit];
-    }
-    
-    return _giftLabel;
-}
-
 -(UIButton *)likeImgView{
     if (!_likeImgView) {
-        _likeImgView=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, CGRectGetMaxY(self.giftImgView.frame)+10*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
+        _likeImgView=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
         [_likeImgView setImage:[UIImage imageNamed:@"Likecell"] forState:UIControlStateNormal];
         [_likeImgView addTarget:self action:@selector(likeClick) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -254,7 +241,7 @@
 
 -(UILabel *)likeLabel{
     if (!_likeLabel) {
-        _likeLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.giftImgView.frame)+10*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
+        _likeLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
         _likeLabel.text=[NSString stringWithFormat:@"%@ likes",self.myIndexModel.likes];
         _likeLabel.textColor=[UIColor getColor:@"274E6E"];
         _likeLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];

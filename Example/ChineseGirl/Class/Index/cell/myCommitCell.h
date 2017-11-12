@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MycommitModel.h"
 @interface myCommitCell : UITableViewCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MycommitModel *)commitModel;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(id )commitModel;
 @end

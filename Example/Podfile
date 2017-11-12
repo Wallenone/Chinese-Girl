@@ -10,4 +10,5 @@ target 'ChineseGirl_Example' do
   pod 'IQKeyboardManager'
   pod 'UICommonTools'
   pod 'SVProgressHUD'
+  pod 'NSDictionary+Accessors'
 end

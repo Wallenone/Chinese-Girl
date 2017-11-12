@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MycommitModel.h"
+#import "CGShuoShuo.h"
 @interface MyCommitHeaderView : UITableViewCell;
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MycommitModel *)commitModel;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)commitModel;
 @end

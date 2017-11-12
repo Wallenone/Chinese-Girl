@@ -10,7 +10,7 @@
 @interface myHeaderViewCell(){
     TalkCallBack talkCallBack;
 }
-@property(nonatomic,strong)MyIndexModel *myIndexModel;
+@property(nonatomic,strong)CGUserInfo *myIndexModel;
 @property(nonatomic,strong)UIImageView *AvatarImgView;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *address;
@@ -21,7 +21,7 @@
 @end
 @implementation myHeaderViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(MyIndexModel *)indexModel withTalkCallBack:(TalkCallBack)block{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGUserInfo *)indexModel withTalkCallBack:(TalkCallBack)block{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         talkCallBack=block;
@@ -60,7 +60,9 @@
 -(UIImageView *)AvatarImgView{
     if (!_AvatarImgView) {
         _AvatarImgView=[[UIImageView alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, 21*SCREEN_RADIO, 115*SCREEN_RADIO, 115*SCREEN_RADIO)];
-        _AvatarImgView.image=[UIImage imageNamed:@"Avatar"];
+        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater]];
+        _AvatarImgView.layer.cornerRadius=115/2*SCREEN_RADIO;
+        _AvatarImgView.clipsToBounds=YES;
     }
     
     return _AvatarImgView;
@@ -68,11 +70,11 @@
 
 -(UILabel *)nickName{
     if (!_nickName) {
-        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+24*SCREEN_RADIO, 31*SCREEN_RADIO, 0, 27*SCREEN_RADIO)];
+        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+24*SCREEN_RADIO, 31*SCREEN_RADIO, 180*SCREEN_RADIO, 27*SCREEN_RADIO)];
         _nickName.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
-        _nickName.text=@"Victoria Phillips";
+        _nickName.text=self.myIndexModel.nickname;
         _nickName.textColor=[UIColor getColor:@"232627"];
-        [_nickName sizeToFit];
+        _nickName.textAlignment=NSTextAlignmentCenter;
     }
     return _nickName;
 }
@@ -82,7 +84,7 @@
         _address=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.addressIcon.frame)+7.5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+6.5*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
         _address.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
         _address.textColor=[UIColor getColor:@"575E62"];
-        _address.text=@"MOSCOW, RUSSIA";
+        _address.text=self.myIndexModel.address;
         [_address sizeToFit];
     }
     

@@ -16,6 +16,7 @@
 #import "MineViewController.h"
 #import "CGLoginViewController.h"
 #import "IQKeyboardManager.h"
+#import "CGPinglunModel.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 @end
