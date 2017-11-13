@@ -3,11 +3,13 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>安道尔</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>安道尔</string>
 	</dict>
 	<dict>
-		<key>奥地利</key>
+		<key>cityList</key>
 		<array>
 			<string>布尔根兰</string>
 			<string>蒂罗尔</string>
@@ -19,9 +21,11 @@
 			<string>维也纳</string>
 			<string>下奥地利</string>
 		</array>
+		<key>contryName</key>
+		<string>奥地利</string>
 	</dict>
 	<dict>
-		<key>澳大利亚</key>
+		<key>cityList</key>
 		<array>
 			<string>北部地区</string>
 			<string>北帕默斯顿</string>
@@ -64,17 +68,23 @@
 			<string>伍伦贡</string>
 			<string>悉尼</string>
 		</array>
+		<key>contryName</key>
+		<string>澳大利亚</string>
 	</dict>
 	<dict>
-		<key>阿尔巴尼亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>阿尔巴尼亚</string>
 	</dict>
 	<dict>
-		<key>阿尔及利亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>阿尔及利亚</string>
 	</dict>
 	<dict>
-		<key>爱尔兰</key>
+		<key>cityList</key>
 		<array>
 			<string>奥法利</string>
 			<string>都柏林</string>
@@ -103,9 +113,11 @@
 			<string>沃特福德</string>
 			<string>西米斯</string>
 		</array>
+		<key>contryName</key>
+		<string>爱尔兰</string>
 	</dict>
 	<dict>
-		<key>安哥拉</key>
+		<key>cityList</key>
 		<array>
 			<string>本戈</string>
 			<string>本格拉</string>
@@ -126,9 +138,11 @@
 			<string>威热</string>
 			<string>扎伊尔</string>
 		</array>
+		<key>contryName</key>
+		<string>安哥拉</string>
 	</dict>
 	<dict>
-		<key>阿根廷</key>
+		<key>cityList</key>
 		<array>
 			<string>别德马</string>
 			<string>巴拉那</string>
@@ -165,114 +179,166 @@
 			<string>特雷利乌</string>
 			<string>乌斯怀亚</string>
 		</array>
+		<key>contryName</key>
+		<string>阿根廷</string>
 	</dict>
 	<dict>
-		<key>埃及</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>埃及</string>
 	</dict>
 	<dict>
-		<key>阿鲁巴</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>阿鲁巴</string>
 	</dict>
 	<dict>
-		<key>阿拉伯联合酋长国</key>
+		<key>cityList</key>
 		<array>
 			<string>阿布扎比</string>
 			<string>艾因</string>
 			<string>迪拜</string>
 			<string>沙迦</string>
 		</array>
+		<key>contryName</key>
+		<string>阿拉伯联合酋长国</string>
 	</dict>
 	<dict>
-		<key>阿曼</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>阿曼</string>
 	</dict>
 	<dict>
-		<key>阿塞拜疆</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>阿塞拜疆</string>
 	</dict>
 	<dict>
-		<key>埃塞俄比亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>埃塞俄比亚</string>
 	</dict>
 	<dict>
-		<key>安提瓜岛和巴布达</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>安提瓜岛和巴布达</string>
 	</dict>
 	<dict>
-		<key>巴巴多斯岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>巴巴多斯岛</string>
 	</dict>
 	<dict>
-		<key>巴布亚新几内亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>巴布亚新几内亚</string>
 	</dict>
 	<dict>
-		<key>博茨瓦纳</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>博茨瓦纳</string>
 	</dict>
 	<dict>
-		<key>冰岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>冰岛</string>
 	</dict>
 	<dict>
-		<key>不丹</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>不丹</string>
 	</dict>
 	<dict>
-		<key>波多黎各</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>波多黎各</string>
 	</dict>
 	<dict>
-		<key>巴哈马</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>巴哈马</string>
 	</dict>
 	<dict>
-		<key>保加利亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>保加利亚</string>
 	</dict>
 	<dict>
-		<key>巴基斯坦</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>巴基斯坦</string>
 	</dict>
 	<dict>
-		<key>巴林</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>巴林</string>
 	</dict>
 	<dict>
-		<key>波兰</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>波兰</string>
 	</dict>
 	<dict>
-		<key>布隆迪</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>布隆迪</string>
 	</dict>
 	<dict>
-		<key>比利时</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>比利时</string>
 	</dict>
 	<dict>
-		<key>玻利维亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>玻利维亚</string>
 	</dict>
 	<dict>
-		<key>百慕大</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>百慕大</string>
 	</dict>
 	<dict>
-		<key>北马里亚纳群岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>北马里亚纳群岛</string>
 	</dict>
 	<dict>
-		<key>贝宁</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>贝宁</string>
 	</dict>
 	<dict>
-		<key>巴拿马</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>巴拿马</string>
 	</dict>
 	<dict>
-		<key>巴西</key>
+		<key>cityList</key>
 		<array>
 			<string>阿克里</string>
 			<string>阿拉戈斯</string>
@@ -302,13 +368,17 @@
 			<string>托坎廷斯</string>
 			<string>亚马孙</string>
 		</array>
+		<key>contryName</key>
+		<string>巴西</string>
 	</dict>
 	<dict>
-		<key>朝鲜</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>朝鲜</string>
 	</dict>
 	<dict>
-		<key>德国</key>
+		<key>cityList</key>
 		<array>
 			<string>爱尔福特</string>
 			<string>阿恩斯贝格</string>
@@ -353,21 +423,29 @@
 			<string>维尔茨堡</string>
 			<string>威斯巴登</string>
 		</array>
+		<key>contryName</key>
+		<string>德国</string>
 	</dict>
 	<dict>
-		<key>丹麦</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>丹麦</string>
 	</dict>
 	<dict>
-		<key>多米尼加共和国</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>多米尼加共和国</string>
 	</dict>
 	<dict>
-		<key>厄瓜多尔</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>厄瓜多尔</string>
 	</dict>
 	<dict>
-		<key>俄罗斯</key>
+		<key>cityList</key>
 		<array>
 			<string>阿巴坎</string>
 			<string>阿尔汉格尔斯克</string>
@@ -455,13 +533,17 @@
 			<string>约什卡尔奥拉</string>
 			<string>伊万诺沃</string>
 		</array>
+		<key>contryName</key>
+		<string>俄罗斯</string>
 	</dict>
 	<dict>
-		<key>厄立特里亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>厄立特里亚</string>
 	</dict>
 	<dict>
-		<key>法国</key>
+		<key>cityList</key>
 		<array>
 			<string>阿尔勒</string>
 			<string>奥尔良</string>
@@ -487,70 +569,100 @@
 			<string>瓦朗斯</string>
 			<string>亚眠</string>
 		</array>
+		<key>contryName</key>
+		<string>法国</string>
 	</dict>
 	<dict>
-		<key>斐济</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>斐济</string>
 	</dict>
 	<dict>
-		<key>芬兰</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>芬兰</string>
 	</dict>
 	<dict>
-		<key>菲律宾</key>
+		<key>cityList</key>
 		<array>
 			<string>达沃</string>
 			<string>马尼拉</string>
 			<string>卡卢坎</string>
 			<string>宿务</string>
 		</array>
+		<key>contryName</key>
+		<string>菲律宾</string>
 	</dict>
 	<dict>
-		<key>古巴</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>古巴</string>
 	</dict>
 	<dict>
-		<key>冈比亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>冈比亚</string>
 	</dict>
 	<dict>
-		<key>关岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>关岛</string>
 	</dict>
 	<dict>
-		<key>格恩西岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>格恩西岛</string>
 	</dict>
 	<dict>
-		<key>刚果民主共和国</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>刚果民主共和国</string>
 	</dict>
 	<dict>
-		<key>哥伦比亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>哥伦比亚</string>
 	</dict>
 	<dict>
-		<key>格陵兰</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>格陵兰</string>
 	</dict>
 	<dict>
-		<key>格林纳达</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>格林纳达</string>
 	</dict>
 	<dict>
-		<key>哥斯达黎加</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>哥斯达黎加</string>
 	</dict>
 	<dict>
-		<key>海地</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>海地</string>
 	</dict>
 	<dict>
-		<key>洪都拉斯</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>洪都拉斯</string>
 	</dict>
 	<dict>
-		<key>韩国</key>
+		<key>cityList</key>
 		<array>
 			<string>大邱</string>
 			<string>达城郡</string>
@@ -728,9 +840,11 @@
 			<string>燕岐郡</string>
 			<string>牙山市</string>
 		</array>
+		<key>contryName</key>
+		<string>韩国</string>
 	</dict>
 	<dict>
-		<key>荷兰</key>
+		<key>cityList</key>
 		<array>
 			<string>埃德</string>
 			<string>阿尔梅勒</string>
@@ -761,33 +875,47 @@
 			<string>佐特尔梅</string>
 			<string>兹沃勒</string>
 		</array>
+		<key>contryName</key>
+		<string>荷兰</string>
 	</dict>
 	<dict>
-		<key>哈萨克斯坦</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>哈萨克斯坦</string>
 	</dict>
 	<dict>
-		<key>吉布提</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>吉布提</string>
 	</dict>
 	<dict>
-		<key>吉尔吉斯斯坦</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>吉尔吉斯斯坦</string>
 	</dict>
 	<dict>
-		<key>捷克共和国</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>捷克共和国</string>
 	</dict>
 	<dict>
-		<key>基里巴斯</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>基里巴斯</string>
 	</dict>
 	<dict>
-		<key>加纳</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>加纳</string>
 	</dict>
 	<dict>
-		<key>加拿大</key>
+		<key>cityList</key>
 		<array>
 			<string>阿伯茨福</string>
 			<string>埃德蒙顿</string>
@@ -824,9 +952,11 @@
 			<string>伊魁特</string>
 			<string>耶洛奈夫</string>
 		</array>
+		<key>contryName</key>
+		<string>加拿大</string>
 	</dict>
 	<dict>
-		<key>柬埔寨</key>
+		<key>cityList</key>
 		<array>
 			<string>奥多棉吉</string>
 			<string>班迭棉吉</string>
@@ -853,81 +983,119 @@
 			<string>暹粒</string>
 			<string>腊塔纳基里</string>
 		</array>
+		<key>contryName</key>
+		<string>柬埔寨</string>
 	</dict>
 	<dict>
-		<key>克罗地亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>克罗地亚</string>
 	</dict>
 	<dict>
-		<key>喀麦隆</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>喀麦隆</string>
 	</dict>
 	<dict>
-		<key>开曼群岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>开曼群岛</string>
 	</dict>
 	<dict>
-		<key>肯尼亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>肯尼亚</string>
 	</dict>
 	<dict>
-		<key>科威特</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>科威特</string>
 	</dict>
 	<dict>
-		<key>利比里亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>利比里亚</string>
 	</dict>
 	<dict>
-		<key>黎巴嫩</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>黎巴嫩</string>
 	</dict>
 	<dict>
-		<key>利比亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>利比亚</string>
 	</dict>
 	<dict>
-		<key>罗马尼亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>罗马尼亚</string>
 	</dict>
 	<dict>
-		<key>留尼旺岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>留尼旺岛</string>
 	</dict>
 	<dict>
-		<key>卢森堡</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>卢森堡</string>
 	</dict>
 	<dict>
-		<key>莱索托</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>莱索托</string>
 	</dict>
 	<dict>
-		<key>拉脱维亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>拉脱维亚</string>
 	</dict>
 	<dict>
-		<key>卢旺达</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>卢旺达</string>
 	</dict>
 	<dict>
-		<key>老挝</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>老挝</string>
 	</dict>
 	<dict>
-		<key>列支敦士登</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>列支敦士登</string>
 	</dict>
 	<dict>
-		<key>缅甸</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>缅甸</string>
 	</dict>
 	<dict>
-		<key>马达加斯加</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>马达加斯加</string>
 	</dict>
 	<dict>
-		<key>马尔代夫</key>
+		<key>cityList</key>
 		<array>
 			<string>阿杜</string>
 			<string>北阿里</string>
@@ -951,17 +1119,23 @@
 			<string>南尼兰杜</string>
 			<string>南苏瓦迪瓦</string>
 		</array>
+		<key>contryName</key>
+		<string>马尔代夫</string>
 	</dict>
 	<dict>
-		<key>摩尔多瓦</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>摩尔多瓦</string>
 	</dict>
 	<dict>
-		<key>蒙古</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>蒙古</string>
 	</dict>
 	<dict>
-		<key>美国</key>
+		<key>cityList</key>
 		<array>
 			<string>爱达荷州</string>
 			<string>爱达荷福尔斯</string>
@@ -1298,33 +1472,47 @@
 			<string>沙瓦纳</string>
 			<string>亚特兰大</string>
 		</array>
+		<key>contryName</key>
+		<string>美国</string>
 	</dict>
 	<dict>
-		<key>孟加拉</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>孟加拉</string>
 	</dict>
 	<dict>
-		<key>秘鲁</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>秘鲁</string>
 	</dict>
 	<dict>
-		<key>摩洛哥</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>摩洛哥</string>
 	</dict>
 	<dict>
-		<key>毛里求斯</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>毛里求斯</string>
 	</dict>
 	<dict>
-		<key>毛里塔尼亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>毛里塔尼亚</string>
 	</dict>
 	<dict>
-		<key>马拉维</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>马拉维</string>
 	</dict>
 	<dict>
-		<key>马来西亚</key>
+		<key>cityList</key>
 		<array>
 			<string>玻璃市</string>
 			<string>加央</string>
@@ -1455,25 +1643,35 @@
 			<string>乌鲁雪兰莪</string>
 			<string>雪邦</string>
 		</array>
+		<key>contryName</key>
+		<string>马来西亚</string>
 	</dict>
 	<dict>
-		<key>摩纳哥</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>摩纳哥</string>
 	</dict>
 	<dict>
-		<key>马其顿</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>马其顿</string>
 	</dict>
 	<dict>
-		<key>莫桑比克</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>莫桑比克</string>
 	</dict>
 	<dict>
-		<key>马绍尔群岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>马绍尔群岛</string>
 	</dict>
 	<dict>
-		<key>墨西哥</key>
+		<key>cityList</key>
 		<array>
 			<string>奥夫雷贡城</string>
 			<string>阿瓜斯卡连斯特</string>
@@ -1536,13 +1734,17 @@
 			<string>新拉雷多</string>
 			<string>伊拉普阿托</string>
 		</array>
+		<key>contryName</key>
+		<string>墨西哥</string>
 	</dict>
 	<dict>
-		<key>尼泊尔</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>尼泊尔</string>
 	</dict>
 	<dict>
-		<key>南非</key>
+		<key>cityList</key>
 		<array>
 			<string>艾利弗山</string>
 			<string>阿平顿</string>
@@ -1595,29 +1797,41 @@
 			<string>约翰内斯堡</string>
 			<string>伊丽莎白港</string>
 		</array>
+		<key>contryName</key>
+		<string>南非</string>
 	</dict>
 	<dict>
-		<key>尼加拉瓜</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>尼加拉瓜</string>
 	</dict>
 	<dict>
-		<key>纳米比亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>纳米比亚</string>
 	</dict>
 	<dict>
-		<key>尼日利亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>尼日利亚</string>
 	</dict>
 	<dict>
-		<key>挪威</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>挪威</string>
 	</dict>
 	<dict>
-		<key>帕劳群岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>帕劳群岛</string>
 	</dict>
 	<dict>
-		<key>葡萄牙</key>
+		<key>cityList</key>
 		<array>
 			<string>波尔图</string>
 			<string>滨海阿连特茹</string>
@@ -1649,17 +1863,23 @@
 			<string>下蒙德古</string>
 			<string>中阿连特茹</string>
 		</array>
+		<key>contryName</key>
+		<string>葡萄牙</string>
 	</dict>
 	<dict>
-		<key>卡塔尔</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>卡塔尔</string>
 	</dict>
 	<dict>
-		<key>乔治亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>乔治亚</string>
 	</dict>
 	<dict>
-		<key>日本</key>
+		<key>cityList</key>
 		<array>
 			<string>爱媛</string>
 			<string>爱知</string>
@@ -1709,9 +1929,11 @@
 			<string>滋贺</string>
 			<string>佐贺</string>
 		</array>
+		<key>contryName</key>
+		<string>日本</string>
 	</dict>
 	<dict>
-		<key>瑞典</key>
+		<key>cityList</key>
 		<array>
 			<string>北博滕</string>
 			<string>布莱金厄</string>
@@ -1735,9 +1957,11 @@
 			<string>耶姆特兰</string>
 			<string>延雪平</string>
 		</array>
+		<key>contryName</key>
+		<string>瑞典</string>
 	</dict>
 	<dict>
-		<key>瑞士</key>
+		<key>cityList</key>
 		<array>
 			<string>阿尔高</string>
 			<string>伯尔尼</string>
@@ -1767,69 +1991,101 @@
 			<string>乌里</string>
 			<string>下瓦尔登</string>
 		</array>
+		<key>contryName</key>
+		<string>瑞士</string>
 	</dict>
 	<dict>
-		<key>苏丹</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>苏丹</string>
 	</dict>
 	<dict>
-		<key>黑山共和国</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>黑山共和国</string>
 	</dict>
 	<dict>
-		<key>塞尔维亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>塞尔维亚</string>
 	</dict>
 	<dict>
-		<key>波黑</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>波黑</string>
 	</dict>
 	<dict>
-		<key>圣基茨和尼维斯</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>圣基茨和尼维斯</string>
 	</dict>
 	<dict>
-		<key>斯洛伐克</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>斯洛伐克</string>
 	</dict>
 	<dict>
-		<key>塞拉利昂</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>塞拉利昂</string>
 	</dict>
 	<dict>
-		<key>斯里兰卡</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>斯里兰卡</string>
 	</dict>
 	<dict>
-		<key>所罗门群岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>所罗门群岛</string>
 	</dict>
 	<dict>
-		<key>苏里南</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>苏里南</string>
 	</dict>
 	<dict>
-		<key>斯洛文尼亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>斯洛文尼亚</string>
 	</dict>
 	<dict>
-		<key>圣马力诺</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>圣马力诺</string>
 	</dict>
 	<dict>
-		<key>萨摩亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>萨摩亚</string>
 	</dict>
 	<dict>
-		<key>塞内加尔</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>塞内加尔</string>
 	</dict>
 	<dict>
-		<key>塞舌尔</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>塞舌尔</string>
 	</dict>
 	<dict>
-		<key>沙特阿拉伯</key>
+		<key>cityList</key>
 		<array>
 			<string>艾卜哈</string>
 			<string>阿尔阿尔</string>
@@ -1854,13 +2110,17 @@
 			<string>塔伊夫</string>
 			<string>延布</string>
 		</array>
+		<key>contryName</key>
+		<string>沙特阿拉伯</string>
 	</dict>
 	<dict>
-		<key>斯威士兰</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>斯威士兰</string>
 	</dict>
 	<dict>
-		<key>土耳其</key>
+		<key>cityList</key>
 		<array>
 			<string>艾登</string>
 			<string>埃迪尔内</string>
@@ -1941,9 +2201,11 @@
 			<string>伊兹密尔</string>
 			<string>宗古尔达克</string>
 		</array>
+		<key>contryName</key>
+		<string>土耳其</string>
 	</dict>
 	<dict>
-		<key>泰国</key>
+		<key>cityList</key>
 		<array>
 			<string>安纳乍能</string>
 			<string>北标</string>
@@ -2020,33 +2282,47 @@
 			<string>也拉</string>
 			<string>耶梭通</string>
 		</array>
+		<key>contryName</key>
+		<string>泰国</string>
 	</dict>
 	<dict>
-		<key>汤加</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>汤加</string>
 	</dict>
 	<dict>
-		<key>塔吉克斯坦</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>塔吉克斯坦</string>
 	</dict>
 	<dict>
-		<key>特立尼达和多巴哥</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>特立尼达和多巴哥</string>
 	</dict>
 	<dict>
-		<key>坦桑尼亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>坦桑尼亚</string>
 	</dict>
 	<dict>
-		<key>危地马拉</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>危地马拉</string>
 	</dict>
 	<dict>
-		<key>乌干达</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>乌干达</string>
 	</dict>
 	<dict>
-		<key>乌克兰</key>
+		<key>cityList</key>
 		<array>
 			<string>敖德萨</string>
 			<string>波尔塔瓦</string>
@@ -2074,21 +2350,29 @@
 			<string>伊万－弗兰科夫州</string>
 			<string>扎波罗热</string>
 		</array>
+		<key>contryName</key>
+		<string>乌克兰</string>
 	</dict>
 	<dict>
-		<key>文莱</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>文莱</string>
 	</dict>
 	<dict>
-		<key>乌拉圭</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>乌拉圭</string>
 	</dict>
 	<dict>
-		<key>瓦努阿图</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>瓦努阿图</string>
 	</dict>
 	<dict>
-		<key>委内瑞拉</key>
+		<key>cityList</key>
 		<array>
 			<string>阿拉瓜</string>
 			<string>阿马库罗三角洲</string>
@@ -2115,13 +2399,17 @@
 			<string>亚拉奎</string>
 			<string>亚马孙</string>
 		</array>
+		<key>contryName</key>
+		<string>委内瑞拉</string>
 	</dict>
 	<dict>
-		<key>乌兹别克斯坦</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>乌兹别克斯坦</string>
 	</dict>
 	<dict>
-		<key>西班牙</key>
+		<key>cityList</key>
 		<array>
 			<string>阿尔梅里亚</string>
 			<string>阿尔瓦塞特</string>
@@ -2174,21 +2462,29 @@
 			<string>韦尔瓦</string>
 			<string>韦斯卡</string>
 		</array>
+		<key>contryName</key>
+		<string>西班牙</string>
 	</dict>
 	<dict>
-		<key>新加坡</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>新加坡</string>
 	</dict>
 	<dict>
-		<key>新喀里多尼亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>新喀里多尼亚</string>
 	</dict>
 	<dict>
-		<key>希腊</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>希腊</string>
 	</dict>
 	<dict>
-		<key>新西兰</key>
+		<key>cityList</key>
 		<array>
 			<string>奥克兰</string>
 			<string>北岸</string>
@@ -2215,9 +2511,11 @@
 			<string>新普利茅斯</string>
 			<string>因弗卡吉尔</string>
 		</array>
+		<key>contryName</key>
+		<string>新西兰</string>
 	</dict>
 	<dict>
-		<key>匈牙利</key>
+		<key>cityList</key>
 		<array>
 			<string>布达佩斯</string>
 			<string>包尔绍德-奥包乌伊-曾普伦</string>
@@ -2240,13 +2538,17 @@
 			<string>维斯普雷姆</string>
 			<string>佐洛</string>
 		</array>
+		<key>contryName</key>
+		<string>匈牙利</string>
 	</dict>
 	<dict>
-		<key>约旦</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>约旦</string>
 	</dict>
 	<dict>
-		<key>印度</key>
+		<key>cityList</key>
 		<array>
 			<string>阿格拉</string>
 			<string>艾哈迈达巴德</string>
@@ -2323,9 +2625,11 @@
 			<string>斋普尔</string>
 			<string>詹谢普尔</string>
 		</array>
+		<key>contryName</key>
+		<string>印度</string>
 	</dict>
 	<dict>
-		<key>意大利</key>
+		<key>cityList</key>
 		<array>
 			<string>奥尔比亚</string>
 			<string>安科纳</string>
@@ -2394,9 +2698,11 @@
 			<string>亚历山德里亚</string>
 			<string>伊塞尔尼亚</string>
 		</array>
+		<key>contryName</key>
+		<string>意大利</string>
 	</dict>
 	<dict>
-		<key>印度尼西亚</key>
+		<key>cityList</key>
 		<array>
 			<string>邦加－勿里洞群岛</string>
 			<string>巴厘</string>
@@ -2427,9 +2733,11 @@
 			<string>中苏拉威西</string>
 			<string>中爪哇</string>
 		</array>
+		<key>contryName</key>
+		<string>印度尼西亚</string>
 	</dict>
 	<dict>
-		<key>英国</key>
+		<key>cityList</key>
 		<array>
 			<string>北爱尔兰</string>
 			<string>贝尔法斯特</string>
@@ -2499,53 +2807,75 @@
 			<string>约克</string>
 			<string>伊利</string>
 		</array>
+		<key>contryName</key>
+		<string>英国</string>
 	</dict>
 	<dict>
-		<key>伊朗</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>伊朗</string>
 	</dict>
 	<dict>
-		<key>伊拉克</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>伊拉克</string>
 	</dict>
 	<dict>
-		<key>也门</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>也门</string>
 	</dict>
 	<dict>
-		<key>牙买加</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>牙买加</string>
 	</dict>
 	<dict>
-		<key>亚美尼亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>亚美尼亚</string>
 	</dict>
 	<dict>
-		<key>越南</key>
+		<key>cityList</key>
 		<array>
 			<string>海防</string>
 			<string>河内</string>
 			<string>胡志明市</string>
 		</array>
+		<key>contryName</key>
+		<string>越南</string>
 	</dict>
 	<dict>
-		<key>以色列</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>以色列</string>
 	</dict>
 	<dict>
-		<key>直布罗陀</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>直布罗陀</string>
 	</dict>
 	<dict>
-		<key>赞比亚</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>赞比亚</string>
 	</dict>
 	<dict>
-		<key>中非共和国</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>中非共和国</string>
 	</dict>
 	<dict>
-		<key>中国</key>
+		<key>cityList</key>
 		<array>
 			<string>安徽</string>
 			<string>安庆</string>
@@ -3081,9 +3411,11 @@
 			<string>温州</string>
 			<string>舟山</string>
 		</array>
+		<key>contryName</key>
+		<string>中国</string>
 	</dict>
 	<dict>
-		<key>中国澳门</key>
+		<key>cityList</key>
 		<array>
 			<string>大堂区</string>
 			<string>氹仔</string>
@@ -3093,9 +3425,11 @@
 			<string>圣安多尼堂区</string>
 			<string>望德堂区</string>
 		</array>
+		<key>contryName</key>
+		<string>中国澳门</string>
 	</dict>
 	<dict>
-		<key>中国台湾</key>
+		<key>cityList</key>
 		<array>
 			<string>高雄市</string>
 			<string>花莲县</string>
@@ -3120,9 +3454,11 @@
 			<string>宜兰县</string>
 			<string>彰化县</string>
 		</array>
+		<key>contryName</key>
+		<string>中国台湾</string>
 	</dict>
 	<dict>
-		<key>中国香港</key>
+		<key>cityList</key>
 		<array>
 			<string>北区</string>
 			<string>大埔区</string>
@@ -3143,14 +3479,20 @@
 			<string>元朗区</string>
 			<string>中西区</string>
 		</array>
+		<key>contryName</key>
+		<string>中国香港</string>
 	</dict>
 	<dict>
-		<key>智利</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>智利</string>
 	</dict>
 	<dict>
-		<key>泽西岛</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>泽西岛</string>
 	</dict>
 </array>
 </plist>

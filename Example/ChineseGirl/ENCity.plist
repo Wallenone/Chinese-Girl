@@ -3,19 +3,25 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>Albania</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Albania</string>
 	</dict>
 	<dict>
-		<key>Algeria</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Algeria</string>
 	</dict>
 	<dict>
-		<key>Andorra</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Andorra</string>
 	</dict>
 	<dict>
-		<key>Angola</key>
+		<key>cityList</key>
 		<array>
 			<string>Bengo</string>
 			<string>Benguela</string>
@@ -36,13 +42,17 @@
 			<string>Uige</string>
 			<string>Zaire</string>
 		</array>
+		<key>contryName</key>
+		<string>Angola</string>
 	</dict>
 	<dict>
-		<key>Antigua and Barbuda</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Antigua and Barbuda</string>
 	</dict>
 	<dict>
-		<key>Argentina</key>
+		<key>cityList</key>
 		<array>
 			<string>Bahia Blanca</string>
 			<string>Buenos Aires</string>
@@ -79,17 +89,23 @@
 			<string>Viedma</string>
 			<string>Villa Krause</string>
 		</array>
+		<key>contryName</key>
+		<string>Argentina</string>
 	</dict>
 	<dict>
-		<key>Armenia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Armenia</string>
 	</dict>
 	<dict>
-		<key>Aruba</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Aruba</string>
 	</dict>
 	<dict>
-		<key>Australia</key>
+		<key>cityList</key>
 		<array>
 			<string>Canberra</string>
 			<string>New South Wales</string>
@@ -132,9 +148,11 @@
 			<string>Mandurah</string>
 			<string>Perth</string>
 		</array>
+		<key>contryName</key>
+		<string>Australia</string>
 	</dict>
 	<dict>
-		<key>Austria</key>
+		<key>cityList</key>
 		<array>
 			<string>Burgenland</string>
 			<string>Carinthia</string>
@@ -146,53 +164,77 @@
 			<string>Vienna</string>
 			<string>Vorarlberg</string>
 		</array>
+		<key>contryName</key>
+		<string>Austria</string>
 	</dict>
 	<dict>
-		<key>Azerbaijan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Azerbaijan</string>
 	</dict>
 	<dict>
-		<key>Bahamas</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Bahamas</string>
 	</dict>
 	<dict>
-		<key>Bahrain</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Bahrain</string>
 	</dict>
 	<dict>
-		<key>Bangladesh</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Bangladesh</string>
 	</dict>
 	<dict>
-		<key>Barbados</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Barbados</string>
 	</dict>
 	<dict>
-		<key>Belgium</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Belgium</string>
 	</dict>
 	<dict>
-		<key>Benin</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Benin</string>
 	</dict>
 	<dict>
-		<key>Bermuda</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Bermuda</string>
 	</dict>
 	<dict>
-		<key>Bhutan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Bhutan</string>
 	</dict>
 	<dict>
-		<key>Bolivia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Bolivia</string>
 	</dict>
 	<dict>
-		<key>Botswana</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Botswana</string>
 	</dict>
 	<dict>
-		<key>Brazil</key>
+		<key>cityList</key>
 		<array>
 			<string>Acre</string>
 			<string>Alagoas</string>
@@ -222,21 +264,29 @@
 			<string>Sergipe</string>
 			<string>Tocantins</string>
 		</array>
+		<key>contryName</key>
+		<string>Brazil</string>
 	</dict>
 	<dict>
-		<key>Brunei</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Brunei</string>
 	</dict>
 	<dict>
-		<key>Bulgaria</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Bulgaria</string>
 	</dict>
 	<dict>
-		<key>Burundi</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Burundi</string>
 	</dict>
 	<dict>
-		<key>Cambodia</key>
+		<key>cityList</key>
 		<array>
 			<string>Banteay Mean Chey</string>
 			<string>Bat Dambang</string>
@@ -263,13 +313,17 @@
 			<string>Svay Rieng</string>
 			<string>Takev</string>
 		</array>
+		<key>contryName</key>
+		<string>Cambodia</string>
 	</dict>
 	<dict>
-		<key>Cameroon</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Cameroon</string>
 	</dict>
 	<dict>
-		<key>Canada</key>
+		<key>cityList</key>
 		<array>
 			<string>Abbotsford</string>
 			<string>Barrie</string>
@@ -306,21 +360,29 @@
 			<string>Winnipeg</string>
 			<string>Yellowknife</string>
 		</array>
+		<key>contryName</key>
+		<string>Canada</string>
 	</dict>
 	<dict>
-		<key>Cayman Islands</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Cayman Islands</string>
 	</dict>
 	<dict>
-		<key>Central African Republic</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Central African Republic</string>
 	</dict>
 	<dict>
-		<key>Chile</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Chile</string>
 	</dict>
 	<dict>
-		<key>China</key>
+		<key>cityList</key>
 		<array>
 			<string>Anhui</string>
 			<string>Anqing</string>
@@ -856,69 +918,101 @@
 			<string>Wenzhou</string>
 			<string>Zhoushan</string>
 		</array>
+		<key>contryName</key>
+		<string>China</string>
 	</dict>
 	<dict>
-		<key>Colombia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Colombia</string>
 	</dict>
 	<dict>
-		<key>Congo(DRC)</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Congo(DRC)</string>
 	</dict>
 	<dict>
-		<key>Costa Rica</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Costa Rica</string>
 	</dict>
 	<dict>
-		<key>Croatia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Croatia</string>
 	</dict>
 	<dict>
-		<key>Cuba</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Cuba</string>
 	</dict>
 	<dict>
-		<key>Czech Republic</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Czech Republic</string>
 	</dict>
 	<dict>
-		<key>Denmark</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Denmark</string>
 	</dict>
 	<dict>
-		<key>Djibouti</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Djibouti</string>
 	</dict>
 	<dict>
-		<key>Dominican Republic</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Dominican Republic</string>
 	</dict>
 	<dict>
-		<key>Ecuador</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Ecuador</string>
 	</dict>
 	<dict>
-		<key>Egypt</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Egypt</string>
 	</dict>
 	<dict>
-		<key>Eritrea</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Eritrea</string>
 	</dict>
 	<dict>
-		<key>Ethiopia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Ethiopia</string>
 	</dict>
 	<dict>
-		<key>Fiji Islands</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Fiji Islands</string>
 	</dict>
 	<dict>
-		<key>Finland</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Finland</string>
 	</dict>
 	<dict>
-		<key>France</key>
+		<key>cityList</key>
 		<array>
 			<string>Aix-en-Provence</string>
 			<string>Ajaccio</string>
@@ -944,17 +1038,23 @@
 			<string>Toulouse</string>
 			<string>Valence</string>
 		</array>
+		<key>contryName</key>
+		<string>France</string>
 	</dict>
 	<dict>
-		<key>Gambia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Gambia</string>
 	</dict>
 	<dict>
-		<key>Georgia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Georgia</string>
 	</dict>
 	<dict>
-		<key>Germany</key>
+		<key>cityList</key>
 		<array>
 			<string>Ansbach</string>
 			<string>Arnsberg</string>
@@ -999,49 +1099,71 @@
 			<string>Wiesbaden</string>
 			<string>Wuerzburg</string>
 		</array>
+		<key>contryName</key>
+		<string>Germany</string>
 	</dict>
 	<dict>
-		<key>Ghana</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Ghana</string>
 	</dict>
 	<dict>
-		<key>Gibraltar</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Gibraltar</string>
 	</dict>
 	<dict>
-		<key>Greece</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Greece</string>
 	</dict>
 	<dict>
-		<key>Greenland</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Greenland</string>
 	</dict>
 	<dict>
-		<key>Grenada</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Grenada</string>
 	</dict>
 	<dict>
-		<key>Guam</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Guam</string>
 	</dict>
 	<dict>
-		<key>Guatemala</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Guatemala</string>
 	</dict>
 	<dict>
-		<key>Guernsey</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Guernsey</string>
 	</dict>
 	<dict>
-		<key>Haiti</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Haiti</string>
 	</dict>
 	<dict>
-		<key>Honduras</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Honduras</string>
 	</dict>
 	<dict>
-		<key>Hong Kong</key>
+		<key>cityList</key>
 		<array>
 			<string>Central and Western</string>
 			<string>Eastern</string>
@@ -1062,9 +1184,11 @@
 			<string>Yau Tsim Mong</string>
 			<string>Yuen Long</string>
 		</array>
+		<key>contryName</key>
+		<string>Hong Kong</string>
 	</dict>
 	<dict>
-		<key>Hungary</key>
+		<key>cityList</key>
 		<array>
 			<string>Bacs-Kiskun</string>
 			<string>Baranya</string>
@@ -1087,13 +1211,17 @@
 			<string>Veszprem</string>
 			<string>Zala</string>
 		</array>
+		<key>contryName</key>
+		<string>Hungary</string>
 	</dict>
 	<dict>
-		<key>Iceland</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Iceland</string>
 	</dict>
 	<dict>
-		<key>India</key>
+		<key>cityList</key>
 		<array>
 			<string>Agartala</string>
 			<string>Agra</string>
@@ -1170,9 +1298,11 @@
 			<string>Vijayawada</string>
 			<string>Visakhapatnam</string>
 		</array>
+		<key>contryName</key>
+		<string>India</string>
 	</dict>
 	<dict>
-		<key>Indonesia</key>
+		<key>cityList</key>
 		<array>
 			<string>Aceh</string>
 			<string>Bali</string>
@@ -1203,17 +1333,23 @@
 			<string>Sumatera Selatan</string>
 			<string>Sumatera Utara</string>
 		</array>
+		<key>contryName</key>
+		<string>Indonesia</string>
 	</dict>
 	<dict>
-		<key>Iran</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Iran</string>
 	</dict>
 	<dict>
-		<key>Iraq</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Iraq</string>
 	</dict>
 	<dict>
-		<key>Ireland</key>
+		<key>cityList</key>
 		<array>
 			<string>Carlow</string>
 			<string>Cavan</string>
@@ -1242,13 +1378,17 @@
 			<string>Wexford</string>
 			<string>Wicklow</string>
 		</array>
+		<key>contryName</key>
+		<string>Ireland</string>
 	</dict>
 	<dict>
-		<key>Israel</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Israel</string>
 	</dict>
 	<dict>
-		<key>Italy</key>
+		<key>cityList</key>
 		<array>
 			<string>Alessandria</string>
 			<string>Ancona</string>
@@ -1317,13 +1457,17 @@
 			<string>Vercelli</string>
 			<string>Viterbo</string>
 		</array>
+		<key>contryName</key>
+		<string>Italy</string>
 	</dict>
 	<dict>
-		<key>Jamaica</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Jamaica</string>
 	</dict>
 	<dict>
-		<key>Japan</key>
+		<key>cityList</key>
 		<array>
 			<string>Aichi</string>
 			<string>Akita</string>
@@ -1373,29 +1517,41 @@
 			<string>Yamaguchi</string>
 			<string>Yamanashi</string>
 		</array>
+		<key>contryName</key>
+		<string>Japan</string>
 	</dict>
 	<dict>
-		<key>Jersey</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Jersey</string>
 	</dict>
 	<dict>
-		<key>Jordan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Jordan</string>
 	</dict>
 	<dict>
-		<key>Kazakhstan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Kazakhstan</string>
 	</dict>
 	<dict>
-		<key>Kenya</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Kenya</string>
 	</dict>
 	<dict>
-		<key>Kiribati</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Kiribati</string>
 	</dict>
 	<dict>
-		<key>Korea</key>
+		<key>cityList</key>
 		<array>
 			<string>Busan</string>
 			<string>Chungcheongbuk-do</string>
@@ -1573,49 +1729,71 @@
 			<string>Seoul</string>
 			<string>Ulsan</string>
 		</array>
+		<key>contryName</key>
+		<string>Korea</string>
 	</dict>
 	<dict>
-		<key>Kuwait</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Kuwait</string>
 	</dict>
 	<dict>
-		<key>Kyrgyzstan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Kyrgyzstan</string>
 	</dict>
 	<dict>
-		<key>Laos</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Laos</string>
 	</dict>
 	<dict>
-		<key>Latvia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Latvia</string>
 	</dict>
 	<dict>
-		<key>Lebanon</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Lebanon</string>
 	</dict>
 	<dict>
-		<key>Lesotho</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Lesotho</string>
 	</dict>
 	<dict>
-		<key>Liberia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Liberia</string>
 	</dict>
 	<dict>
-		<key>Libya</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Libya</string>
 	</dict>
 	<dict>
-		<key>Liechtenstein</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Liechtenstein</string>
 	</dict>
 	<dict>
-		<key>Luxembourg</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Luxembourg</string>
 	</dict>
 	<dict>
-		<key>Macau</key>
+		<key>cityList</key>
 		<array>
 			<string>Cathedral</string>
 			<string>Coloane</string>
@@ -1625,21 +1803,29 @@
 			<string>St. Lazarus</string>
 			<string>Taipa</string>
 		</array>
+		<key>contryName</key>
+		<string>Macau</string>
 	</dict>
 	<dict>
-		<key>Macedonia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Macedonia</string>
 	</dict>
 	<dict>
-		<key>Madagascar</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Madagascar</string>
 	</dict>
 	<dict>
-		<key>Malawi</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Malawi</string>
 	</dict>
 	<dict>
-		<key>Malaysia</key>
+		<key>cityList</key>
 		<array>
 			<string>Johor</string>
 			<string>Batu Pahat</string>
@@ -1770,9 +1956,11 @@
 			<string>Marang</string>
 			<string>Setiu</string>
 		</array>
+		<key>contryName</key>
+		<string>Malaysia</string>
 	</dict>
 	<dict>
-		<key>Maldives</key>
+		<key>cityList</key>
 		<array>
 			<string>Addu Atoll</string>
 			<string>Faadhippolhu</string>
@@ -1796,21 +1984,29 @@
 			<string>South Nilandhe Atoll</string>
 			<string>South Thiladhunmathi</string>
 		</array>
+		<key>contryName</key>
+		<string>Maldives</string>
 	</dict>
 	<dict>
-		<key>Marshall Islands</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Marshall Islands</string>
 	</dict>
 	<dict>
-		<key>Mauritania</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Mauritania</string>
 	</dict>
 	<dict>
-		<key>Mauritius</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Mauritius</string>
 	</dict>
 	<dict>
-		<key>Mexico</key>
+		<key>cityList</key>
 		<array>
 			<string>Acapulco</string>
 			<string>Aguascalientes</string>
@@ -1873,41 +2069,59 @@
 			<string>Villahermosa</string>
 			<string>Zacatecas</string>
 		</array>
+		<key>contryName</key>
+		<string>Mexico</string>
 	</dict>
 	<dict>
-		<key>Moldova</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Moldova</string>
 	</dict>
 	<dict>
-		<key>Monaco</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Monaco</string>
 	</dict>
 	<dict>
-		<key>Mongolia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Mongolia</string>
 	</dict>
 	<dict>
-		<key>Morocco</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Morocco</string>
 	</dict>
 	<dict>
-		<key>Mozambique</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Mozambique</string>
 	</dict>
 	<dict>
-		<key>Myanmar</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Myanmar</string>
 	</dict>
 	<dict>
-		<key>Namibia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Namibia</string>
 	</dict>
 	<dict>
-		<key>Nepal</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Nepal</string>
 	</dict>
 	<dict>
-		<key>Netherlands</key>
+		<key>cityList</key>
 		<array>
 			<string>'s-Hertogenbosch</string>
 			<string>Almere</string>
@@ -1938,13 +2152,17 @@
 			<string>Zoetermeer</string>
 			<string>Zwolle</string>
 		</array>
+		<key>contryName</key>
+		<string>Netherlands</string>
 	</dict>
 	<dict>
-		<key>New Caledonia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>New Caledonia</string>
 	</dict>
 	<dict>
-		<key>New Zealand</key>
+		<key>cityList</key>
 		<array>
 			<string>Auckland</string>
 			<string>Blenheim</string>
@@ -1971,66 +2189,94 @@
 			<string>Whakatane</string>
 			<string>Whangarei</string>
 		</array>
+		<key>contryName</key>
+		<string>New Zealand</string>
 	</dict>
 	<dict>
-		<key>Nicaragua</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Nicaragua</string>
 	</dict>
 	<dict>
-		<key>Nigeria</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Nigeria</string>
 	</dict>
 	<dict>
-		<key>North Korea</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>North Korea</string>
 	</dict>
 	<dict>
-		<key>Northern Mariana Islands</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Northern Mariana Islands</string>
 	</dict>
 	<dict>
-		<key>Norway</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Norway</string>
 	</dict>
 	<dict>
-		<key>Oman</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Oman</string>
 	</dict>
 	<dict>
-		<key>Pakistan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Pakistan</string>
 	</dict>
 	<dict>
-		<key>Palau</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Palau</string>
 	</dict>
 	<dict>
-		<key>Panama</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Panama</string>
 	</dict>
 	<dict>
-		<key>Papua New Guinea</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Papua New Guinea</string>
 	</dict>
 	<dict>
-		<key>Peru</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Peru</string>
 	</dict>
 	<dict>
-		<key>Philippines</key>
+		<key>cityList</key>
 		<array>
 			<string>Caloocan</string>
 			<string>Cebu</string>
 			<string>Davao</string>
 			<string>Manila</string>
 		</array>
+		<key>contryName</key>
+		<string>Philippines</string>
 	</dict>
 	<dict>
-		<key>Poland</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Poland</string>
 	</dict>
 	<dict>
-		<key>Portugal</key>
+		<key>cityList</key>
 		<array>
 			<string>Alentejo Central</string>
 			<string>Alentejo Litoral</string>
@@ -2062,25 +2308,35 @@
 			<string>Serra da Estrela</string>
 			<string>Tamega</string>
 		</array>
+		<key>contryName</key>
+		<string>Portugal</string>
 	</dict>
 	<dict>
-		<key>Puerto Rico</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Puerto Rico</string>
 	</dict>
 	<dict>
-		<key>Qatar</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Qatar</string>
 	</dict>
 	<dict>
-		<key>Reunion</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Reunion</string>
 	</dict>
 	<dict>
-		<key>Romania</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Romania</string>
 	</dict>
 	<dict>
-		<key>Russia</key>
+		<key>cityList</key>
 		<array>
 			<string>Abakan</string>
 			<string>Aginskoye</string>
@@ -2168,21 +2424,29 @@
 			<string>Voronezh</string>
 			<string>Yoshkar-Ola</string>
 		</array>
+		<key>contryName</key>
+		<string>Russia</string>
 	</dict>
 	<dict>
-		<key>Rwanda</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Rwanda</string>
 	</dict>
 	<dict>
-		<key>Samoa</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Samoa</string>
 	</dict>
 	<dict>
-		<key>San Marino</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>San Marino</string>
 	</dict>
 	<dict>
-		<key>Saudi Arabia</key>
+		<key>cityList</key>
 		<array>
 			<string>Abha</string>
 			<string>Al Bahah</string>
@@ -2207,49 +2471,71 @@
 			<string>Tabuk</string>
 			<string>Yanbu al-Bahr</string>
 		</array>
+		<key>contryName</key>
+		<string>Saudi Arabia</string>
 	</dict>
 	<dict>
-		<key>Senegal</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Senegal</string>
 	</dict>
 	<dict>
-		<key>Serbia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Serbia</string>
 	</dict>
 	<dict>
-		<key>Bosnia and Herzegovina</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Bosnia and Herzegovina</string>
 	</dict>
 	<dict>
-		<key>Montenegro</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Montenegro</string>
 	</dict>
 	<dict>
-		<key>Seychelles</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Seychelles</string>
 	</dict>
 	<dict>
-		<key>Sierra Leone</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Sierra Leone</string>
 	</dict>
 	<dict>
-		<key>Singapore</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Singapore</string>
 	</dict>
 	<dict>
-		<key>Slovakia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Slovakia</string>
 	</dict>
 	<dict>
-		<key>Slovenia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Slovenia</string>
 	</dict>
 	<dict>
-		<key>Solomon Islands</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Solomon Islands</string>
 	</dict>
 	<dict>
-		<key>South Africa</key>
+		<key>cityList</key>
 		<array>
 			<string>Barkley East</string>
 			<string>Beaufort West</string>
@@ -2302,9 +2588,11 @@
 			<string>Witsieshoek</string>
 			<string>Worcester</string>
 		</array>
+		<key>contryName</key>
+		<string>South Africa</string>
 	</dict>
 	<dict>
-		<key>Spain</key>
+		<key>cityList</key>
 		<array>
 			<string>Alava</string>
 			<string>Albacete</string>
@@ -2357,29 +2645,41 @@
 			<string>Zamora</string>
 			<string>Zaragoza</string>
 		</array>
+		<key>contryName</key>
+		<string>Spain</string>
 	</dict>
 	<dict>
-		<key>Sri Lanka</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Sri Lanka</string>
 	</dict>
 	<dict>
-		<key>St.Kitts and Nevis</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>St.Kitts and Nevis</string>
 	</dict>
 	<dict>
-		<key>Sudan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Sudan</string>
 	</dict>
 	<dict>
-		<key>Surinam</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Surinam</string>
 	</dict>
 	<dict>
-		<key>Swaziland</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Swaziland</string>
 	</dict>
 	<dict>
-		<key>Sweden</key>
+		<key>cityList</key>
 		<array>
 			<string>Blekinge</string>
 			<string>Dalarnas</string>
@@ -2403,9 +2703,11 @@
 			<string>Vastmanlands</string>
 			<string>Vastra Gotalands</string>
 		</array>
+		<key>contryName</key>
+		<string>Sweden</string>
 	</dict>
 	<dict>
-		<key>Switzerland</key>
+		<key>cityList</key>
 		<array>
 			<string>Aargau</string>
 			<string>Appenzell Ausserrhon</string>
@@ -2435,9 +2737,11 @@
 			<string>Zug</string>
 			<string>Zurich</string>
 		</array>
+		<key>contryName</key>
+		<string>Switzerland</string>
 	</dict>
 	<dict>
-		<key>Taiwan</key>
+		<key>cityList</key>
 		<array>
 			<string>Changhua County</string>
 			<string>Chiayi City</string>
@@ -2462,17 +2766,23 @@
 			<string>Yilan County</string>
 			<string>Yunlin County</string>
 		</array>
+		<key>contryName</key>
+		<string>Taiwan</string>
 	</dict>
 	<dict>
-		<key>Tajikistan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Tajikistan</string>
 	</dict>
 	<dict>
-		<key>Tanzania</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Tanzania</string>
 	</dict>
 	<dict>
-		<key>Thailand</key>
+		<key>cityList</key>
 		<array>
 			<string>Amnat Charoen</string>
 			<string>Ang Thong</string>
@@ -2549,17 +2859,23 @@
 			<string>Yala</string>
 			<string>Yasothon</string>
 		</array>
+		<key>contryName</key>
+		<string>Thailand</string>
 	</dict>
 	<dict>
-		<key>Tonga</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Tonga</string>
 	</dict>
 	<dict>
-		<key>Trinidad and Tobago</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Trinidad and Tobago</string>
 	</dict>
 	<dict>
-		<key>Turkey</key>
+		<key>cityList</key>
 		<array>
 			<string>Adana</string>
 			<string>Adiyaman</string>
@@ -2640,13 +2956,17 @@
 			<string>Yozgat</string>
 			<string>Zonguldak</string>
 		</array>
+		<key>contryName</key>
+		<string>Turkey</string>
 	</dict>
 	<dict>
-		<key>Uganda</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Uganda</string>
 	</dict>
 	<dict>
-		<key>Ukraine</key>
+		<key>cityList</key>
 		<array>
 			<string>Cherkasy</string>
 			<string>Chernihiv</string>
@@ -2674,18 +2994,22 @@
 			<string>Zaporizhzhya</string>
 			<string>Zhytomyr</string>
 		</array>
+		<key>contryName</key>
+		<string>Ukraine</string>
 	</dict>
 	<dict>
-		<key>United Arab Emirates</key>
+		<key>cityList</key>
 		<array>
 			<string>Abu Dhabi</string>
 			<string>Al l'Ayn</string>
 			<string>Ash Shariqah</string>
 			<string>Dubayy</string>
 		</array>
+		<key>contryName</key>
+		<string>United Arab Emirates</string>
 	</dict>
 	<dict>
-		<key>United Kingdom</key>
+		<key>cityList</key>
 		<array>
 			<string>England</string>
 			<string>Bath</string>
@@ -2755,9 +3079,11 @@
 			<string>Newport</string>
 			<string>Swansea</string>
 		</array>
+		<key>contryName</key>
+		<string>United Kingdom</string>
 	</dict>
 	<dict>
-		<key>United States</key>
+		<key>cityList</key>
 		<array>
 			<string>Alabama</string>
 			<string>Birmingham</string>
@@ -3094,21 +3420,29 @@
 			<string>Rock Springs</string>
 			<string>Sheridan</string>
 		</array>
+		<key>contryName</key>
+		<string>United States</string>
 	</dict>
 	<dict>
-		<key>Uruguay</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Uruguay</string>
 	</dict>
 	<dict>
-		<key>Uzbekistan</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Uzbekistan</string>
 	</dict>
 	<dict>
-		<key>Vanuatu</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Vanuatu</string>
 	</dict>
 	<dict>
-		<key>Venezuela</key>
+		<key>cityList</key>
 		<array>
 			<string>Amazonas</string>
 			<string>Anzoategui</string>
@@ -3135,22 +3469,30 @@
 			<string>Yaracuy</string>
 			<string>Zulia</string>
 		</array>
+		<key>contryName</key>
+		<string>Venezuela</string>
 	</dict>
 	<dict>
-		<key>Vietnam</key>
+		<key>cityList</key>
 		<array>
 			<string>Haiphong</string>
 			<string>Hanoi</string>
 			<string>Ho Chi Minh City</string>
 		</array>
+		<key>contryName</key>
+		<string>Vietnam</string>
 	</dict>
 	<dict>
-		<key>Yemen</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Yemen</string>
 	</dict>
 	<dict>
-		<key>Zambia</key>
+		<key>cityList</key>
 		<array/>
+		<key>contryName</key>
+		<string>Zambia</string>
 	</dict>
 </array>
 </plist>
