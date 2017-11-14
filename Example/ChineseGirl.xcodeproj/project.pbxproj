@@ -97,6 +97,8 @@
 		E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */; };
 		E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */; };
 		E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */; };
+		E5DB7B361FBADFCD00636CED /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB7B331FBADFCD00636CED /* NSString+PinYin.m */; };
+		E5DB7B371FBADFCD00636CED /* CGFriendsViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB7B351FBADFCD00636CED /* CGFriendsViewcontroller.m */; };
 		E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE351F9AF15700B5228E /* CityData.plist */; };
 		E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE371F9AF15700B5228E /* NicknameViewController.m */; };
 		E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE391F9AF15700B5228E /* SignatureViewController.m */; };
@@ -305,6 +307,10 @@
 		E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TWCity.plist; sourceTree = "<group>"; };
 		E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CNCity.plist; sourceTree = "<group>"; };
 		E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ENCity.plist; sourceTree = "<group>"; };
+		E5DB7B321FBADFCD00636CED /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
+		E5DB7B331FBADFCD00636CED /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
+		E5DB7B341FBADFCD00636CED /* CGFriendsViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGFriendsViewcontroller.h; path = ../../../../../../../Downloads/PinyinIndexTableview/PinyinIndexTableview/CGFriendsViewcontroller.h; sourceTree = "<group>"; };
+		E5DB7B351FBADFCD00636CED /* CGFriendsViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGFriendsViewcontroller.m; path = ../../../../../../../Downloads/PinyinIndexTableview/PinyinIndexTableview/CGFriendsViewcontroller.m; sourceTree = "<group>"; };
 		E5E0FE351F9AF15700B5228E /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
 		E5E0FE361F9AF15700B5228E /* NicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NicknameViewController.h; sourceTree = "<group>"; };
 		E5E0FE371F9AF15700B5228E /* NicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NicknameViewController.m; sourceTree = "<group>"; };
@@ -679,6 +685,7 @@
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E5DB7B301FBADFBF00636CED /* Friends */,
 				E5C0CD6D1FB80C1F002394C9 /* Model */,
 				E5F0A3E61F57F7FD0051699B /* Login */,
 				E538D7521F429BE80079AE94 /* Index */,
@@ -770,6 +777,26 @@
 				E5C9608D1F935F8900EB654A /* MineSettingTextView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E5DB7B301FBADFBF00636CED /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				E5DB7B341FBADFCD00636CED /* CGFriendsViewcontroller.h */,
+				E5DB7B351FBADFCD00636CED /* CGFriendsViewcontroller.m */,
+				E5DB7B311FBADFCD00636CED /* NSString+PinYin */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		E5DB7B311FBADFCD00636CED /* NSString+PinYin */ = {
+			isa = PBXGroup;
+			children = (
+				E5DB7B321FBADFCD00636CED /* NSString+PinYin.h */,
+				E5DB7B331FBADFCD00636CED /* NSString+PinYin.m */,
+			);
+			name = "NSString+PinYin";
+			path = "../../../../../../../Downloads/PinyinIndexTableview/PinyinIndexTableview/NSString+PinYin";
 			sourceTree = "<group>";
 		};
 		E5E0FE341F9AF15700B5228E /* WYPickerViews */ = {
@@ -1037,6 +1064,7 @@
 				E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */,
 				E5C0CD731FB80EAB002394C9 /* CGPinglunren.m in Sources */,
 				E504AB971F507C0100E1F48C /* MJPhotoToolbar.m in Sources */,
+				E5DB7B371FBADFCD00636CED /* CGFriendsViewcontroller.m in Sources */,
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
 				E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */,
@@ -1063,6 +1091,7 @@
 				E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
 				E5C0CD8C1FB83EF5002394C9 /* CGPinglun.m in Sources */,
+				E5DB7B361FBADFCD00636CED /* NSString+PinYin.m in Sources */,
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
 				E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */,
