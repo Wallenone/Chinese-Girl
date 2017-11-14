@@ -57,4 +57,9 @@
 "forgot_your_password" = "암호를 잊다?";   //忘记密码
 "signin" = "상륙";   //登陆
 "reply" = "회신";   //回复
-
+"Username" = "사용자 이름";
+"Email" = "Email";
+"Your_City" = "너는 도시";
+"Area" = "지역";
+"All" = "전부";
+"LocaltionName" = "위치 에 위치";

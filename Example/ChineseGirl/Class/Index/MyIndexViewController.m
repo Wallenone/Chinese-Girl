@@ -73,7 +73,7 @@
 
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 53*SCREEN_RADIO)];
+        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 60*SCREEN_RADIO)];
         _headerView.backgroundColor=[UIColor whiteColor];
     }
     

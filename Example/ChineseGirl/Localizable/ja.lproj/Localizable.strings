@@ -57,4 +57,9 @@
 "forgot_your_password" = "パスワードを忘れて?";   //忘记密码
 "signin" = "上陸";   //登陆
 "reply" = "回復";   //回复
-
+"Username" = "ユーザー名";
+"Email" = "Email";
+"Your_City" = "君の街は";
+"Area" = "地域";
+"All" = "全部";
+"LocaltionName" = "位置決めの位置";

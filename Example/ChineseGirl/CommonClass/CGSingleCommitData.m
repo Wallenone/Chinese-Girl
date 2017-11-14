@@ -13,6 +13,7 @@ static NSString *const kNickNameKey = @"nickNameKey";
 static NSString *const kAvatarKey = @"avatarKey";
 static NSString *const kSexKey = @"sexKey";
 static NSString *const kCityNameKey = @"cityNameKey";
+static NSString *const kCountryNameKey = @"countryNameKey";
 static NSString *const kBirthDayKey = @"birthDayKey";
 static NSString *const kAboutUsKey = @"aboutUsKey";
 static NSString *const kAlbumSKey = @"albumSKey";
@@ -87,6 +88,13 @@ static CGSingleCommitData *_instance = nil;
             self.cityName = cityName;
         }else{
             self.cityName = @"";
+        }
+        
+        NSString *countryName=[[NSUserDefaults standardUserDefaults] stringForKey:kCountryNameKey];
+        if (![CGCommonString isBlankString:countryName]) {
+            self.countryName = countryName;
+        }else{
+            self.countryName = @"";
         }
         
         NSString *birthDay = [[NSUserDefaults standardUserDefaults] stringForKey:kBirthDayKey];
@@ -194,6 +202,15 @@ static CGSingleCommitData *_instance = nil;
     }
     _cityName=cityName;
     [[NSUserDefaults standardUserDefaults] setValue:_cityName forKey:kCityNameKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)setCountryName:(NSString *)countryName{
+    if ([CGCommonString isBlankString:countryName]) {
+        _countryName=@"";
+    }
+    _countryName=countryName;
+    [[NSUserDefaults standardUserDefaults] setValue:_countryName forKey:kCountryNameKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

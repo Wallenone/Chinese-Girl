@@ -57,5 +57,9 @@
 "forgot_your_password" = "忘記密碼?";   //忘记密码
 "signin" = "登入";   //登陆
 "reply" = "回復";   //回复
-
-
+"Username" = "用戶名";
+"Email" = "Email";
+"Your_City" = "你的都市";
+"Area" = "地區";
+"All" = "全部";
+"LocaltionName" = "定位到的位置";

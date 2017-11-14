@@ -22,6 +22,7 @@
 @property(nonatomic,copy)NSString *vipLevel;            //vip等级
 @property(nonatomic,strong)NSMutableArray *favourites;   //收藏
 @property(nonatomic,copy)NSString *languageName;  //语言
+@property(nonatomic,copy)NSString *countryName;  //国家
 
 + (instancetype)sharedInstance;
 - (void)logout;

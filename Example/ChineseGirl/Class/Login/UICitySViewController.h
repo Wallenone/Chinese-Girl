@@ -10,4 +10,5 @@
 
 @interface UICitySViewController : UIViewController
 @property(nonatomic,strong)NSArray *citysArr;
+@property(nonatomic,copy)NSString *countryName;
 @end

@@ -15,6 +15,7 @@
 #import "UICustomPickImgView.h"
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
+#import "UICountryViewController.h"
 @interface MineProfileInfoViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLable;
@@ -53,6 +54,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor getColor:@"F5F5F5"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getCityName:) name:@"getAreaName" object:nil];
     [self setData];
     [self addHeaderView];
     [self addBodyView];
@@ -83,6 +85,15 @@
 
 -(void)backClick{
     [self.navigationController popViewControllerAnimated:NO];
+}
+
+-(void)getCityName:(NSNotification *)obj{
+    [CGSingleCommitData sharedInstance].countryName=[obj.object stringForKey:@"countryName"];
+    [CGSingleCommitData sharedInstance].cityName=[obj.object stringForKey:@"cityName"];
+    
+    NSString *cityName=[CGSingleCommitData sharedInstance].cityName.length>0?[CGSingleCommitData sharedInstance].cityName:[CGSingleCommitData sharedInstance].countryName;
+    MySettingTableViewCell *cell = [self.tbv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    [cell updateCellContent:cityName];
 }
 
 
@@ -271,10 +282,12 @@
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
         
+        NSString *cityName=[CGSingleCommitData sharedInstance].cityName.length>0?[CGSingleCommitData sharedInstance].cityName:[CGSingleCommitData sharedInstance].countryName;
+        
         NSMutableArray *arrays =[[NSMutableArray alloc] initWithObjects:
                                             @{@"left":NSLocalizedString(@"nickname", nil),@"right":[CGSingleCommitData sharedInstance].nickName},
                                             @{@"left":NSLocalizedString(@"gender", nil),@"right":[CGSingleCommitData sharedInstance].sex},
-                                            @{@"left":NSLocalizedString(@"city", nil),@"right":[CGSingleCommitData sharedInstance].cityName},
+                                            @{@"left":NSLocalizedString(@"city", nil),@"right":cityName},
                                             @{@"left":NSLocalizedString(@"birthday", nil),@"right":[CGSingleCommitData sharedInstance].birthDay},
                                             @{@"left":NSLocalizedString(@"about", nil),@"right":[CGSingleCommitData sharedInstance].aboutUs},
                                             nil];
@@ -330,15 +343,13 @@
                 
                 [strongSelf.view addSubview:customPickerSex];
             }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"city", nil)]){
-                MineSettingTextViewController *citykVC=[[MineSettingTextViewController alloc] init];
-                citykVC.titleText=NSLocalizedString(@"city", nil);
-                citykVC.textStr=[cell getContent];
-                [citykVC onTextBlock:^(NSString *text) {
-                    [CGSingleCommitData sharedInstance].cityName=text;
-                    [cell updateCellContent:text];
-                }];
+//                NSString *cityName=[CGSingleCommitData sharedInstance].cityName.length>0?[CGSingleCommitData sharedInstance].cityName:[CGSingleCommitData sharedInstance].countryName;
+//                [cell updateCellContent:cityName];
                 
-                [strongSelf.navigationController pushViewController:citykVC animated:NO];
+                UICountryViewController *countryVC=[[UICountryViewController alloc] init];
+                [strongSelf.navigationController pushViewController:countryVC animated:NO];
+                
+                
             }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"birthday", nil)]){
                 strongSelf.tabBarController.tabBar.hidden=YES;
                 WYBirthdayPickerView *birthdayPickerView = [[WYBirthdayPickerView alloc] initWithInitialDate:@"1990-01-01"];

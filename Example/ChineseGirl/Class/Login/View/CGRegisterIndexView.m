@@ -11,6 +11,7 @@
 @interface CGRegisterIndexView(){
     CancelClickBlock cancelClickBlock;
     RegSingUpClickBlock regSingUpClickBlock;
+    ChooseCityClickBlock chooseCityClickBlock;
 }
 @property(nonatomic,strong)UIImageView *bgImgView;
 @property(nonatomic,strong)UIButton *cancelBtn;
@@ -19,18 +20,19 @@
 @property(nonatomic,strong)CGLoginIndexCustomTextField *EmailField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *passwordField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *cityField;
+@property(nonatomic,strong)UIButton *cityBtn;
 @property(nonatomic,strong)UILabel *AgreementLabel;
 @property(nonatomic,strong)UIButton *signUpBtn;
 @end
 @implementation CGRegisterIndexView
 
 
-- (id)initWithFrame:(CGRect)frame onCancelClick:(CancelClickBlock)cancelBlock onSingUpClick:(RegSingUpClickBlock)singUpBlock{
+- (id)initWithFrame:(CGRect)frame onCancelClick:(CancelClickBlock)cancelBlock onSingUpClick:(RegSingUpClickBlock)singUpBlock onChooseCityBlock:(ChooseCityClickBlock)chooseCityBlock{
     self.backgroundColor=[UIColor clearColor];
     if (self=[super initWithFrame:frame]) {
         cancelClickBlock = cancelBlock;
         regSingUpClickBlock = singUpBlock;
-        
+        chooseCityClickBlock =chooseCityBlock;
         [self addSubViews];
     }
     
@@ -49,10 +51,20 @@
     [self addSubview:self.EmailField];
     [self addSubview:self.passwordField];
     [self addSubview:self.cityField];
+    [self addSubview:self.cityBtn];
     [self addSubview:self.AgreementLabel];
     [self addSubview:self.signUpBtn];
 }
 
+-(void)chooseCity{
+    if (chooseCityClickBlock) {
+       chooseCityClickBlock();
+    }
+}
+
+-(void)updateCellContent:(NSString *)cellData{
+    self.cityField.text=cellData;
+}
 
 -(void)singUpClick{
     if (self.userNameField.text.length>0) {
@@ -144,7 +156,7 @@
         // 设置富文本对象的颜色
         attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
         // 设置UITextField的占位文字
-        _userNameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:attributes];
+        _userNameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Username", nil) attributes:attributes];
         _userNameField.textColor=[UIColor whiteColor];
         _userNameField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
         UIImageView *imageViewuserName=[[UIImageView alloc]initWithFrame:CGRectMake(44*SCREEN_RADIO, 13*SCREEN_RADIO, 23*SCREEN_RADIO, 19*SCREEN_RADIO)];
@@ -167,7 +179,7 @@
         // 设置富文本对象的颜色
         attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
         // 设置UITextField的占位文字
-        _EmailField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email" attributes:attributes];
+        _EmailField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Email", nil) attributes:attributes];
         _EmailField.textColor=[UIColor whiteColor];
         _EmailField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
         UIImageView *imageViewuserName=[[UIImageView alloc]initWithFrame:CGRectMake(44*SCREEN_RADIO, 13*SCREEN_RADIO, 23*SCREEN_RADIO, 19*SCREEN_RADIO)];
@@ -190,7 +202,7 @@
         // 设置富文本对象的颜色
         attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
         // 设置UITextField的占位文字
-        _passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:attributes];
+        _passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Password", nil) attributes:attributes];
         _passwordField.textColor=[UIColor whiteColor];
         _passwordField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
         UIImageView *imageViewPassword=[[UIImageView alloc]initWithFrame:CGRectMake(44*SCREEN_RADIO, 13*SCREEN_RADIO, 23*SCREEN_RADIO, 19*SCREEN_RADIO)];
@@ -213,21 +225,30 @@
         // 设置富文本对象的颜色
         attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
         // 设置UITextField的占位文字
-        _cityField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Your City" attributes:attributes];
+        _cityField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Your_City", nil) attributes:attributes];
         _cityField.textColor=[UIColor whiteColor];
         _cityField.backgroundColor=[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:0.2];
         UIImageView *imageViewPassword=[[UIImageView alloc]initWithFrame:CGRectMake(44*SCREEN_RADIO, 13*SCREEN_RADIO, 23*SCREEN_RADIO, 19*SCREEN_RADIO)];
-        imageViewPassword.image=[UIImage imageNamed:@"reg_Ok"];
+        imageViewPassword.image=[UIImage imageNamed:@"location"];
         _cityField.rightView=imageViewPassword;
         _cityField.rightViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _cityField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _cityField.autocorrectionType = UITextAutocorrectionTypeNo;
         _cityField.autocapitalizationType=UITextAutocapitalizationTypeNone;
+        _cityField.userInteractionEnabled=NO;
     }
     
     return _cityField;
 }
 
+-(UIButton *)cityBtn{
+    if (!_cityBtn) {
+        _cityBtn=[[UIButton alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, CGRectGetMaxY(self.passwordField.frame)+15*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        [_cityBtn addTarget:self action:@selector(chooseCity) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _cityBtn;
+}
 
 
 -(UILabel *)AgreementLabel{

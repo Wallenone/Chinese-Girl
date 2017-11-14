@@ -8,6 +8,7 @@
 
 #import "CGRegisterIndexViewController.h"
 #import "CGRegisterIndexView.h"
+#import "UICountryViewController.h"
 @interface CGRegisterIndexViewController ()
 @property(nonatomic,strong)CGRegisterIndexView *registerIndexView;
 @end
@@ -30,7 +31,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getCityName:) name:@"getAreaName" object:nil];
     [self addSubViews];
+}
+
+-(void)getCityName:(NSNotification *)obj{
+    NSString *str=[NSString stringWithFormat:@"%@ %@",[obj.object stringForKey:@"countryName"],[obj.object stringForKey:@"cityName"]];
+    [CGSingleCommitData sharedInstance].countryName=[obj.object stringForKey:@"countryName"];
+    [CGSingleCommitData sharedInstance].cityName=[obj.object stringForKey:@"cityName"];
+    [self.registerIndexView updateCellContent:str];
 }
 
 -(void)addSubViews{
@@ -49,6 +58,9 @@
             }else{
                 [SVProgressHUD showErrorWithStatus:warningsText];
             }
+        }onChooseCityBlock:^{
+            UICountryViewController *countryVC=[[UICountryViewController alloc] init];
+            [weakSelf.navigationController pushViewController:countryVC animated:NO];
         }];
     }
     

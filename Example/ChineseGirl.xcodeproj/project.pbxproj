@@ -63,6 +63,8 @@
 		E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */; };
 		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
 		E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */; };
+		E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */; };
+		E55DF4BF1FBB315100E5215E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55DF4BE1FBB315100E5215E /* CoreLocation.framework */; };
 		E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568260F1F9E275A0099F363 /* MineProfileInfoViewController.m */; };
 		E56826131F9E31130099F363 /* MineAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56826121F9E31130099F363 /* MineAccountViewController.m */; };
 		E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56826151F9E32600099F363 /* MinePasswordViewController.m */; };
@@ -97,8 +99,6 @@
 		E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */; };
 		E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */; };
 		E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */; };
-		E5DB7B361FBADFCD00636CED /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB7B331FBADFCD00636CED /* NSString+PinYin.m */; };
-		E5DB7B371FBADFCD00636CED /* CGFriendsViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB7B351FBADFCD00636CED /* CGFriendsViewcontroller.m */; };
 		E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE351F9AF15700B5228E /* CityData.plist */; };
 		E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE371F9AF15700B5228E /* NicknameViewController.m */; };
 		E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE391F9AF15700B5228E /* SignatureViewController.m */; };
@@ -250,6 +250,9 @@
 		E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MycommitModel.m; sourceTree = "<group>"; };
 		E54FAA5E1F5AA90A006C65AF /* myCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCommitCell.h; sourceTree = "<group>"; };
 		E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCommitCell.m; sourceTree = "<group>"; };
+		E55DF4BB1FBB2F2600E5215E /* CGLocationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLocationTableViewCell.h; sourceTree = "<group>"; };
+		E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGLocationTableViewCell.m; sourceTree = "<group>"; };
+		E55DF4BE1FBB315100E5215E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E568260E1F9E275A0099F363 /* MineProfileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineProfileInfoViewController.h; sourceTree = "<group>"; };
 		E568260F1F9E275A0099F363 /* MineProfileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineProfileInfoViewController.m; sourceTree = "<group>"; };
 		E56826111F9E31130099F363 /* MineAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineAccountViewController.h; sourceTree = "<group>"; };
@@ -307,10 +310,6 @@
 		E5D9F02F1FB2E2D200DAEB7A /* TWCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TWCity.plist; sourceTree = "<group>"; };
 		E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CNCity.plist; sourceTree = "<group>"; };
 		E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ENCity.plist; sourceTree = "<group>"; };
-		E5DB7B321FBADFCD00636CED /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
-		E5DB7B331FBADFCD00636CED /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
-		E5DB7B341FBADFCD00636CED /* CGFriendsViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGFriendsViewcontroller.h; path = ../../../../../../../Downloads/PinyinIndexTableview/PinyinIndexTableview/CGFriendsViewcontroller.h; sourceTree = "<group>"; };
-		E5DB7B351FBADFCD00636CED /* CGFriendsViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGFriendsViewcontroller.m; path = ../../../../../../../Downloads/PinyinIndexTableview/PinyinIndexTableview/CGFriendsViewcontroller.m; sourceTree = "<group>"; };
 		E5E0FE351F9AF15700B5228E /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
 		E5E0FE361F9AF15700B5228E /* NicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NicknameViewController.h; sourceTree = "<group>"; };
 		E5E0FE371F9AF15700B5228E /* NicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NicknameViewController.m; sourceTree = "<group>"; };
@@ -351,6 +350,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55DF4BF1FBB315100E5215E /* CoreLocation.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -395,6 +395,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E55DF4BE1FBB315100E5215E /* CoreLocation.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -647,10 +648,6 @@
 				E56826121F9E31130099F363 /* MineAccountViewController.m */,
 				E56826141F9E32600099F363 /* MinePasswordViewController.h */,
 				E56826151F9E32600099F363 /* MinePasswordViewController.m */,
-				E5944C011FB975D300013F78 /* UICountryViewController.h */,
-				E5944C021FB975D300013F78 /* UICountryViewController.m */,
-				E5944C041FB975FC00013F78 /* UICitySViewController.h */,
-				E5944C051FB975FC00013F78 /* UICitySViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -682,10 +679,18 @@
 			path = CommonClass;
 			sourceTree = "<group>";
 		};
+		E55DF4BA1FBB2F0B00E5215E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E55DF4BB1FBB2F2600E5215E /* CGLocationTableViewCell.h */,
+				E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				E5DB7B301FBADFBF00636CED /* Friends */,
 				E5C0CD6D1FB80C1F002394C9 /* Model */,
 				E5F0A3E61F57F7FD0051699B /* Login */,
 				E538D7521F429BE80079AE94 /* Index */,
@@ -779,26 +784,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E5DB7B301FBADFBF00636CED /* Friends */ = {
-			isa = PBXGroup;
-			children = (
-				E5DB7B341FBADFCD00636CED /* CGFriendsViewcontroller.h */,
-				E5DB7B351FBADFCD00636CED /* CGFriendsViewcontroller.m */,
-				E5DB7B311FBADFCD00636CED /* NSString+PinYin */,
-			);
-			path = Friends;
-			sourceTree = "<group>";
-		};
-		E5DB7B311FBADFCD00636CED /* NSString+PinYin */ = {
-			isa = PBXGroup;
-			children = (
-				E5DB7B321FBADFCD00636CED /* NSString+PinYin.h */,
-				E5DB7B331FBADFCD00636CED /* NSString+PinYin.m */,
-			);
-			name = "NSString+PinYin";
-			path = "../../../../../../../Downloads/PinyinIndexTableview/PinyinIndexTableview/NSString+PinYin";
-			sourceTree = "<group>";
-		};
 		E5E0FE341F9AF15700B5228E /* WYPickerViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,12 +811,17 @@
 		E5F0A3E61F57F7FD0051699B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E55DF4BA1FBB2F0B00E5215E /* Cell */,
 				E5F0A3E81F57F7FD0051699B /* CGLoginViewController.h */,
 				E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */,
 				E5FA64151F5865C70032D1BB /* CGRegisterIndexViewController.h */,
 				E5FA64161F5865C70032D1BB /* CGRegisterIndexViewController.m */,
 				E5B0A1441F62827A00FD6476 /* CGForgetPasswordViewController.h */,
 				E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */,
+				E5944C011FB975D300013F78 /* UICountryViewController.h */,
+				E5944C021FB975D300013F78 /* UICountryViewController.m */,
+				E5944C041FB975FC00013F78 /* UICitySViewController.h */,
+				E5944C051FB975FC00013F78 /* UICitySViewController.m */,
 				E5F0A3EB1F57F7FD0051699B /* View */,
 			);
 			path = Login;
@@ -902,7 +892,13 @@
 				ORGANIZATIONNAME = wanjiehuizhaofang;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
+						DevelopmentTeam = 9LKXW763RU;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -1064,7 +1060,6 @@
 				E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */,
 				E5C0CD731FB80EAB002394C9 /* CGPinglunren.m in Sources */,
 				E504AB971F507C0100E1F48C /* MJPhotoToolbar.m in Sources */,
-				E5DB7B371FBADFCD00636CED /* CGFriendsViewcontroller.m in Sources */,
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
 				E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */,
@@ -1091,7 +1086,7 @@
 				E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
 				E5C0CD8C1FB83EF5002394C9 /* CGPinglun.m in Sources */,
-				E5DB7B361FBADFCD00636CED /* NSString+PinYin.m in Sources */,
+				E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */,
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
 				E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */,
@@ -1257,7 +1252,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9LKXW763RU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
@@ -1275,7 +1270,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9LKXW763RU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";

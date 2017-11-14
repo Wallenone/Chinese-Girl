@@ -57,3 +57,9 @@
 "forgot_your_password" = "Forgot your Password?";   //忘记密码
 "signin" = "Sign In";   //登陆
 "reply" = "Reply";   //回复
+"Username" = "Username";
+"Email" = "Email";
+"Your_City" = "Your City";
+"Area" = "Area";
+"All" = "All";
+"LocaltionName" = "Position to be located";
