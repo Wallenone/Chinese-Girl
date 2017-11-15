@@ -26,23 +26,13 @@
 +(NSMutableArray *)readPlist{
     NSString *identifier = [self getPreferredLanguage]; // 比如Loacl是en_Zh
     NSString *idenLanguage=@"ENCity";
-    if([identifier rangeOfString:@"en"].location !=NSNotFound)//_roaldSearchText
-    {
-        idenLanguage=@"ENCity";
-    }else if([identifier rangeOfString:@"ja"].location !=NSNotFound)//_roaldSearchText
-    {
-        idenLanguage=@"ENCity";
-    }else if([identifier rangeOfString:@"ko"].location !=NSNotFound)//_roaldSearchText
-    {
-        idenLanguage=@"ENCity";
-    }else if([identifier rangeOfString:@"zh-Hans"].location !=NSNotFound)//_roaldSearchText
+    
+    if([identifier rangeOfString:@"zh-Hans"].location !=NSNotFound)//_roaldSearchText
     {
         idenLanguage=@"CNCity";
     }else if([identifier rangeOfString:@"zh-Hant"].location !=NSNotFound)//_roaldSearchText
     {
         idenLanguage=@"TWCity";
-    }else{
-        idenLanguage=@"ENCity";
     }
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:idenLanguage ofType:@"plist"];
