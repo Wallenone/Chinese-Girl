@@ -17,6 +17,7 @@
 #import "CGLoginViewController.h"
 #import "IQKeyboardManager.h"
 #import "CGPinglunModel.h"
+#import "NSObject+NSLocalNotification.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 @end
@@ -24,6 +25,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //发送本地推送
+     [CGAppDelegate registerLocalNotification:5 title:@"收到的标题" content:@"你收到啦消息"];
     
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
@@ -94,6 +97,44 @@
     NSLog(@"index:=%lu",(unsigned long)tabBarController.selectedIndex);
     
 }
+
+
+/**
+ 只有当发送出一个本地通知, 并且满足以下条件时, 才会调用该方法
+ APP 处于前台情况
+ 当用用户点击了通知, 从后台, 进入到前台时,
+ 当锁屏状态下, 用户点击了通知, 从后台进入前台
+ 
+ 注意: 当App彻底退出时, 用户点击通知, 打开APP , 不会调用这个方法
+ 
+ 但是会把通知的参数传递给 application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+ 
+ */
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    
+    UIAlertView  *alert = [[UIAlertView alloc]initWithTitle:@"接收到本地通知" message:notification.alertBody delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
+    
+    // 查看当前的状态出于(前台: 0)/(后台: 2)/(从后台进入前台: 1)
+    NSLog(@"applicationState.rawValue: %zd", application.applicationState);
+    
+    // 执行响应操作
+    // 如果当前App在前台,执行操作
+    if (application.applicationState == UIApplicationStateActive) {
+        NSLog(@"执行前台对应的操作");
+    } else if (application.applicationState == UIApplicationStateInactive) {
+        // 后台进入前台
+        NSLog(@"执行后台进入前台对应的操作");
+        NSLog(@"*****%@", notification.userInfo);
+    } else if (application.applicationState == UIApplicationStateBackground) {
+        // 当前App在后台
+        
+        NSLog(@"执行后台对应的操作");
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

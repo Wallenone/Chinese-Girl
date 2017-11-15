@@ -41,6 +41,7 @@
 		E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */; };
 		E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */; };
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
+		E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */; };
 		E53503B11F9C721900E1D8C5 /* MyCommitSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */; };
 		E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D73D1F429ACC0079AE94 /* AFHTTPSessionManager.m */; };
 		E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7401F429ACC0079AE94 /* AFNetworkReachabilityManager.m */; };
@@ -206,6 +207,8 @@
 		E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFriendsViewcontroller.m; sourceTree = "<group>"; };
 		E534E1C01FBBDF9A00F4962E /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
 		E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
+		E534E2061FBC1B9F00F4962E /* NSObject+NSLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSLocalNotification.h"; sourceTree = "<group>"; };
+		E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSLocalNotification.m"; sourceTree = "<group>"; };
 		E53503AF1F9C721900E1D8C5 /* MyCommitSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitSViewController.h; sourceTree = "<group>"; };
 		E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommitSViewController.m; sourceTree = "<group>"; };
 		E538D73C1F429ACC0079AE94 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -554,6 +557,15 @@
 			path = "NSString+PinYin";
 			sourceTree = "<group>";
 		};
+		E534E2051FBC1B9F00F4962E /* LocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				E534E2061FBC1B9F00F4962E /* NSObject+NSLocalNotification.h */,
+				E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */,
+			);
+			path = LocalNotification;
+			sourceTree = "<group>";
+		};
 		E538D73A1F429ACC0079AE94 /* Third */ = {
 			isa = PBXGroup;
 			children = (
@@ -694,6 +706,7 @@
 		E538D7721F429D7E0079AE94 /* CommonClass */ = {
 			isa = PBXGroup;
 			children = (
+				E534E2051FBC1B9F00F4962E /* LocalNotification */,
 				E5944BFE1FB9757600013F78 /* city.txt */,
 				E5944BFC1FB9757500013F78 /* CGGetCityPlist.h */,
 				E5944BFD1FB9757600013F78 /* CGGetCityPlist.m */,
@@ -1065,6 +1078,7 @@
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
 				E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */,
+				E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */,
 				E5E0FE4C1F9AF15700B5228E /* WYHeightPickerView.m in Sources */,
 				E5C0CD761FB80F2D002394C9 /* CGShuoShuo.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
