@@ -10,8 +10,42 @@
 
 @implementation CGGetCityPlist
 
++ (NSString*)getPreferredLanguage
+{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSArray * allLanguages = [defaults objectForKey:@"AppleLanguages"];
+    
+    NSString * preferredLang = [allLanguages objectAtIndex:0];
+    
+    NSLog(@"当前语言:%@", preferredLang);
+    return preferredLang;
+}
+
+
 +(NSMutableArray *)readPlist{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"CNCity" ofType:@"plist"];
+    NSString *identifier = [self getPreferredLanguage]; // 比如Loacl是en_Zh
+    NSString *idenLanguage=@"ENCity";
+    if([identifier rangeOfString:@"en"].location !=NSNotFound)//_roaldSearchText
+    {
+        idenLanguage=@"ENCity";
+    }else if([identifier rangeOfString:@"ja"].location !=NSNotFound)//_roaldSearchText
+    {
+        idenLanguage=@"ENCity";
+    }else if([identifier rangeOfString:@"ko"].location !=NSNotFound)//_roaldSearchText
+    {
+        idenLanguage=@"ENCity";
+    }else if([identifier rangeOfString:@"zh-Hans"].location !=NSNotFound)//_roaldSearchText
+    {
+        idenLanguage=@"CNCity";
+    }else if([identifier rangeOfString:@"zh-Hant"].location !=NSNotFound)//_roaldSearchText
+    {
+        idenLanguage=@"TWCity";
+    }else{
+        idenLanguage=@"ENCity";
+    }
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:idenLanguage ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     
     return data1;

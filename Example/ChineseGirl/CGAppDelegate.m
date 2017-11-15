@@ -25,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     //发送本地推送
      [CGAppDelegate registerLocalNotification:5 title:@"收到的标题" content:@"你收到啦消息"];
     

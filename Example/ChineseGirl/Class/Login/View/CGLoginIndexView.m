@@ -77,6 +77,7 @@
 -(void)signInClick{
     NSLog(@"email:=%@",[CGSingleCommitData sharedInstance].email);
     NSLog(@"password:=%@",[CGSingleCommitData sharedInstance].password);
+    if(self.userNameField.text.length>0 && self.passwordField.text.length>0){
         if ([self.userNameField.text isEqualToString:[CGSingleCommitData sharedInstance].email] && [self.passwordField.text isEqualToString:[CGSingleCommitData sharedInstance].password]) {
             if (signInClickBlock) {
                 [CGSingleCommitData sharedInstance].uid=@"10000";
@@ -89,7 +90,7 @@
                 signInClickBlock(NO,NSLocalizedString(@"ERROR_Incorrect_username_or_password", nil));
             }
         }
-    
+    }
 }
 
 
