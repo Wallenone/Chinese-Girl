@@ -18,6 +18,7 @@
 #import "IQKeyboardManager.h"
 #import "CGPinglunModel.h"
 #import "NSObject+NSLocalNotification.h"
+#import "CGFriendsViewcontroller.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 @end
@@ -27,7 +28,7 @@
 {
     
     //发送本地推送
-     [CGAppDelegate registerLocalNotification:5 title:@"收到的标题" content:@"你收到啦消息"];
+    // [CGAppDelegate registerLocalNotification:5 title:@"收到的标题" content:@"你收到啦消息"];
     
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
@@ -50,10 +51,10 @@
     indeVC.tabBarItem.badgeValue=@"123";
     indeVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
-    DriftBottleViewController *driftVC=[[DriftBottleViewController alloc] init];
-    driftVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    driftVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
-    driftVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    CGFriendsViewcontroller *friendVC=[[CGFriendsViewcontroller alloc] init];
+    friendVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
+    friendVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    friendVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     NewsViewController *newsVC=[[NewsViewController alloc] init];
     newsVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
@@ -73,7 +74,7 @@
     //c.2第二种方式
     
     UINavigationController *c1=[[UINavigationController alloc]initWithRootViewController:indeVC];
-    UINavigationController *c2=[[UINavigationController alloc]initWithRootViewController:driftVC];
+    UINavigationController *c2=[[UINavigationController alloc]initWithRootViewController:friendVC];
     UINavigationController *c3=[[UINavigationController alloc]initWithRootViewController:newsVC];
     UINavigationController *c4=[[UINavigationController alloc]initWithRootViewController:mineVC];
     

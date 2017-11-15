@@ -8,8 +8,8 @@
 
 #import "CGFriendsViewcontroller.h"
 #import "NSString+PinYin.h"
-
-@interface CGFriendsViewcontroller ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
+#import "CGFriendsAddViewController.h"
+@interface CGFriendsViewcontroller ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,HzfNavigationBarDelegate>
 
 @property(nonatomic,strong)  UITableView     *myTableView;
 @property(nonatomic,strong)  NSMutableArray  *dataArray;
@@ -18,11 +18,29 @@
 
 @implementation CGFriendsViewcontroller
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self initDataSource];
     [self createTableView];
+    [self setHeaderView];
+}
+
+-(void)setHeaderView{
+    [self setUpNavWithTitle:@"朋友" leftIcon:nil rightIcon:nil leftTitle:nil rightTitle:@"添加" delegate:nil];
+    self.naviDelegate=self;
+}
+
+- (void)NavigationBarRightButtonClicked{
+    CGFriendsAddViewController *addVC=[[CGFriendsAddViewController alloc] init];
+    [self.navigationController pushViewController:addVC animated:NO];
 }
 
 #pragma mark----CreatMyCustomTablevIew-----
@@ -36,13 +54,6 @@
     [self.view  addSubview:self.myTableView];
      self.myTableView.sectionIndexColor =[UIColor colorWithRed:0.10 green:0.68 blue:0.94 alpha:1.0];    self.myTableView.sectionIndexBackgroundColor=[UIColor clearColor];
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
-    
-    UISearchBar  *mSearchBar = [[UISearchBar alloc] init];
-    mSearchBar.delegate = self;
-    mSearchBar.placeholder = @"搜索";
-    [mSearchBar setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-    [mSearchBar sizeToFit];
-    self.myTableView.tableHeaderView=mSearchBar;
 }
 
 - (void)initDataSource

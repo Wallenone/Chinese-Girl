@@ -11,7 +11,8 @@
 #import "EZJFastTableView.h"
 #import "IndexCollectionView.h"
 #import "MyIndexViewController.h"
-@interface IndexViewController ()<BHInfiniteScrollViewDelegate>
+#import "CGFriendsAddViewController.h"
+@interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate>
 @property (nonatomic, strong) UIView* infinitePageView;
 @property (nonatomic, strong)UIImageView *infiniteImgView;
 @property (nonatomic, strong)IndexCollectionView *indexCollectionView;
@@ -37,7 +38,13 @@
 }
 
 -(void)setHeaderView{
-    [self setUpNavWithTitle:NSLocalizedString(@"online", nil) leftIcon:nil rightIcon:nil leftTitle:nil rightTitle:nil delegate:nil];
+    [self setUpNavWithTitle:NSLocalizedString(@"online", nil) leftIcon:nil rightIcon:nil leftTitle:nil rightTitle:@"添加" delegate:nil];
+    self.naviDelegate=self;
+}
+
+- (void)NavigationBarRightButtonClicked{
+    CGFriendsAddViewController *addVC=[[CGFriendsAddViewController alloc] init];
+    [self.navigationController pushViewController:addVC animated:NO];
 }
 
 -(void)addSubViews{

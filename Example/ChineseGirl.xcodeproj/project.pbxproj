@@ -43,6 +43,12 @@
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
 		E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */; };
 		E53503B11F9C721900E1D8C5 /* MyCommitSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */; };
+		E5360A6C1FBC6A9E009DDA07 /* CGFriendsAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A6B1FBC6A9E009DDA07 /* CGFriendsAddViewController.m */; };
+		E5360A711FBC6C34009DDA07 /* CGNewFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A701FBC6C34009DDA07 /* CGNewFriendTableViewCell.m */; };
+		E5360A731FBC777C009DDA07 /* addFriends.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5360A721FBC777C009DDA07 /* addFriends.plist */; };
+		E5360A761FBC77A2009DDA07 /* CGaddFriendsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A751FBC77A2009DDA07 /* CGaddFriendsModel.m */; };
+		E5360A791FBC7F8E009DDA07 /* CGAnswerOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A781FBC7F8E009DDA07 /* CGAnswerOptionViewController.m */; };
+		E5360A7C1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A7B1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m */; };
 		E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D73D1F429ACC0079AE94 /* AFHTTPSessionManager.m */; };
 		E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7401F429ACC0079AE94 /* AFNetworkReachabilityManager.m */; };
 		E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7421F429ACC0079AE94 /* AFSecurityPolicy.m */; };
@@ -211,6 +217,17 @@
 		E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSLocalNotification.m"; sourceTree = "<group>"; };
 		E53503AF1F9C721900E1D8C5 /* MyCommitSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitSViewController.h; sourceTree = "<group>"; };
 		E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommitSViewController.m; sourceTree = "<group>"; };
+		E5360A6A1FBC6A9E009DDA07 /* CGFriendsAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFriendsAddViewController.h; sourceTree = "<group>"; };
+		E5360A6B1FBC6A9E009DDA07 /* CGFriendsAddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGFriendsAddViewController.m; sourceTree = "<group>"; };
+		E5360A6F1FBC6C34009DDA07 /* CGNewFriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGNewFriendTableViewCell.h; sourceTree = "<group>"; };
+		E5360A701FBC6C34009DDA07 /* CGNewFriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGNewFriendTableViewCell.m; sourceTree = "<group>"; };
+		E5360A721FBC777C009DDA07 /* addFriends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = addFriends.plist; sourceTree = "<group>"; };
+		E5360A741FBC77A2009DDA07 /* CGaddFriendsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGaddFriendsModel.h; sourceTree = "<group>"; };
+		E5360A751FBC77A2009DDA07 /* CGaddFriendsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGaddFriendsModel.m; sourceTree = "<group>"; };
+		E5360A771FBC7F8E009DDA07 /* CGAnswerOptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnswerOptionViewController.h; sourceTree = "<group>"; };
+		E5360A781FBC7F8E009DDA07 /* CGAnswerOptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnswerOptionViewController.m; sourceTree = "<group>"; };
+		E5360A7A1FBC7FF8009DDA07 /* CGOptionsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGOptionsTableViewCell.h; sourceTree = "<group>"; };
+		E5360A7B1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGOptionsTableViewCell.m; sourceTree = "<group>"; };
 		E538D73C1F429ACC0079AE94 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		E538D73D1F429ACC0079AE94 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		E538D73E1F429ACC0079AE94 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -438,6 +455,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5360A721FBC777C009DDA07 /* addFriends.plist */,
 				E5C0CD8D1FB841B7002394C9 /* shuoshuo.plist */,
 				E5C0CD821FB81F8B002394C9 /* index.plist */,
 				E5C0CD881FB8349F002394C9 /* userInfo.plist */,
@@ -541,8 +559,14 @@
 		E534E1BC1FBBDF9A00F4962E /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				E5360A6D1FBC6C0C009DDA07 /* cell */,
+				E5360A6E1FBC6C0C009DDA07 /* view */,
 				E534E1BD1FBBDF9A00F4962E /* CGFriendsViewcontroller.h */,
 				E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */,
+				E5360A6A1FBC6A9E009DDA07 /* CGFriendsAddViewController.h */,
+				E5360A6B1FBC6A9E009DDA07 /* CGFriendsAddViewController.m */,
+				E5360A771FBC7F8E009DDA07 /* CGAnswerOptionViewController.h */,
+				E5360A781FBC7F8E009DDA07 /* CGAnswerOptionViewController.m */,
 				E534E1BF1FBBDF9A00F4962E /* NSString+PinYin */,
 			);
 			path = Friends;
@@ -564,6 +588,24 @@
 				E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */,
 			);
 			path = LocalNotification;
+			sourceTree = "<group>";
+		};
+		E5360A6D1FBC6C0C009DDA07 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5360A6F1FBC6C34009DDA07 /* CGNewFriendTableViewCell.h */,
+				E5360A701FBC6C34009DDA07 /* CGNewFriendTableViewCell.m */,
+				E5360A7A1FBC7FF8009DDA07 /* CGOptionsTableViewCell.h */,
+				E5360A7B1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		E5360A6E1FBC6C0C009DDA07 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		E538D73A1F429ACC0079AE94 /* Third */ = {
@@ -801,6 +843,8 @@
 				E5C0CD801FB81F20002394C9 /* CGIndexModel.m */,
 				E5C0CD8A1FB83EF5002394C9 /* CGPinglun.h */,
 				E5C0CD8B1FB83EF5002394C9 /* CGPinglun.m */,
+				E5360A741FBC77A2009DDA07 /* CGaddFriendsModel.h */,
+				E5360A751FBC77A2009DDA07 /* CGaddFriendsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -974,6 +1018,7 @@
 			files = (
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
 				E511CB241FB005EF006BA362 /* Localizable.strings in Resources */,
+				E5360A731FBC777C009DDA07 /* addFriends.plist in Resources */,
 				E5C0CD8E1FB841B8002394C9 /* shuoshuo.plist in Resources */,
 				E5C0CD891FB8349F002394C9 /* userInfo.plist in Resources */,
 				E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */,
@@ -1060,6 +1105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E0FE491F9AF15700B5228E /* WYBirthdayPickerView.m in Sources */,
+				E5360A761FBC77A2009DDA07 /* CGaddFriendsModel.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
@@ -1082,7 +1128,9 @@
 				E5E0FE4C1F9AF15700B5228E /* WYHeightPickerView.m in Sources */,
 				E5C0CD761FB80F2D002394C9 /* CGShuoShuo.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
+				E5360A7C1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
+				E5360A6C1FBC6A9E009DDA07 /* CGFriendsAddViewController.m in Sources */,
 				E53503B11F9C721900E1D8C5 /* MyCommitSViewController.m in Sources */,
 				E53C9D681F558AAA0069D663 /* NewsInfoModel.m in Sources */,
 				E538D76A1F429BE80079AE94 /* IndexCollectionView.m in Sources */,
@@ -1108,6 +1156,7 @@
 				E538D7661F429BE80079AE94 /* DriftBottleViewController.m in Sources */,
 				E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */,
 				E508B1B71F714C750048C378 /* CGBottleTextView.m in Sources */,
+				E5360A711FBC6C34009DDA07 /* CGNewFriendTableViewCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				E5944BFF1FB9757600013F78 /* CGGetCityPlist.m in Sources */,
 				E5944C061FB975FC00013F78 /* UICitySViewController.m in Sources */,
@@ -1118,6 +1167,7 @@
 				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
 				E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
+				E5360A791FBC7F8E009DDA07 /* CGAnswerOptionViewController.m in Sources */,
 				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
 				E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */,
 				E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */,
