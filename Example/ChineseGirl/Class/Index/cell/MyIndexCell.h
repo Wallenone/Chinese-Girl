@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CGShuoShuo.h"
 typedef void (^CommitClick)(void);
-
+typedef void (^LikeClickBlock)(BOOL);
 @interface MyIndexCell : UITableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)indexModel withCommitClick:(CommitClick)block;

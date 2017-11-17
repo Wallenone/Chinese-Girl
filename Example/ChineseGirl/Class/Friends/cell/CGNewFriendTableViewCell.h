@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CGaddFriendsModel.h"
-typedef void (^AddFriendClickBlock)(void);
+typedef void (^AddFriendClickBlock)(NSString *,NSString *);
 @interface CGNewFriendTableViewCell : UITableViewCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGaddFriendsModel *)commitModel withAddFriendBlock:(AddFriendClickBlock)block;
 @end

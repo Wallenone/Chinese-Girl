@@ -21,7 +21,7 @@
 @property(nonatomic,copy)NSString *likes;
 @property(nonatomic,copy)NSString *comments;
 @property(nonatomic,copy)NSString *address;
+@property(nonatomic,assign)BOOL isLike;   //点赞
 + (instancetype)modelWithDic:(NSDictionary *)dic;
-+(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(NSMutableArray *)reloadTableWithId:(NSInteger)ids;
 @end

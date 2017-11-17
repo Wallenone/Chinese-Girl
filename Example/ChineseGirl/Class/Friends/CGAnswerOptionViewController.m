@@ -9,7 +9,12 @@
 #import "CGAnswerOptionViewController.h"
 #import "EZJFastTableView.h"
 #import "CGOptionsTableViewCell.h"
-@interface CGAnswerOptionViewController ()
+#import "CGAnswerModel.h"
+#import "CGAnswerResultView.h"
+#import "CGVipViewController.h"
+@interface CGAnswerOptionViewController (){
+    
+}
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -27,6 +32,9 @@
 @property(nonatomic,strong)UILabel *tipsChooseLabel;
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)EZJFastTableView *tbv;
+@property(nonatomic,strong)NSMutableArray *answerArr;
+@property(nonatomic,assign)NSInteger answerNum;
+@property(nonatomic,strong)CGAnswerResultView *answerResultView;
 @end
 
 @implementation CGAnswerOptionViewController
@@ -37,17 +45,24 @@
     [self.tabBarController.tabBar setHidden:YES];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [self.tabBarController.tabBar setHidden:NO];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor getColor:@"FAF1E5"];
+    [self setData];
+    [self getModelData:0];
     [self addHeaderView];
     [self addSubViews];
+}
+
+-(void)setData{
+    self.answerNum=0;
+    self.answerArr=[CGAnswerModel reloadTable];
+}
+
+-(CGAnswerModel *)getModelData:(NSInteger)num{
+    CGAnswerModel *model=[self.answerArr objectAtIndex:num];
+    return model;
 }
 
 -(void)addHeaderView{
@@ -82,8 +97,8 @@
 }
 
 -(void)answerClick1{
-    NSMutableArray *newArr=[[NSMutableArray alloc] initWithObjects:@"wallen1",@"rsadsa1",@"tttksa1",@"aksl1", nil];
-    [self.tbv updateData:newArr];
+    [self.tbv updateData:[self getModelData:0].answerArr];
+    [self setAnswerContent:[self getModelData:0].title];
     self.answerView1.backgroundColor=[UIColor getColor:@"FF8D00"];
     self.answerNum1.textColor=[UIColor getColor:@"FFD169"];
     self.answerView2.backgroundColor=[UIColor getColor:@"DEE2DD"];
@@ -93,8 +108,8 @@
 }
 
 -(void)answerClick2{
-    NSMutableArray *newArr=[[NSMutableArray alloc] initWithObjects:@"wallen2",@"rsadsa2",@"tttksa2",@"aksl2", nil];
-    [self.tbv updateData:newArr];
+    [self.tbv updateData:[self getModelData:1].answerArr];
+    [self setAnswerContent:[self getModelData:1].title];
     self.answerView1.backgroundColor=[UIColor getColor:@"E4E9E5"];
     self.answerNum1.textColor=[UIColor getColor:@"ffffff"];
     self.answerView2.backgroundColor=[UIColor getColor:@"FF8D00"];
@@ -104,14 +119,27 @@
 }
 
 -(void)answerClick3{
-    NSMutableArray *newArr=[[NSMutableArray alloc] initWithObjects:@"wallen3",@"rsadsa3",@"tttksa3",@"aksl3", nil];
-    [self.tbv updateData:newArr];
+    [self.tbv updateData:[self getModelData:2].answerArr];
+    [self setAnswerContent:[self getModelData:2].title];
     self.answerView1.backgroundColor=[UIColor getColor:@"E4E9E5"];
     self.answerNum1.textColor=[UIColor getColor:@"ffffff"];
     self.answerView2.backgroundColor=[UIColor getColor:@"DEE2DD"];
     self.answerNum2.textColor=[UIColor getColor:@"ffffff"];
     self.answerView3.backgroundColor=[UIColor getColor:@"FF8D00"];
     self.answerNum3.textColor=[UIColor getColor:@"FFD169"];
+}
+
+-(void)answerResult{
+    
+}
+
+-(void)setAnswerContent:(NSString *)text{
+    self.anwerContent.frame=CGRectMake(CGRectGetMaxX(self.avater.frame)+6*SCREEN_RADIO, CGRectGetMaxY(self.answerView1.frame)+40*SCREEN_RADIO, screen_width-70*SCREEN_RADIO, 42*SCREEN_RADIO);
+    self.anwerContent.text=text;
+    self.anwerContent.numberOfLines=2;
+    self.anwerContent.lineBreakMode = NSLineBreakByTruncatingTail;
+    [self.anwerContent setContentMode:UIViewContentModeTop];
+    [self.anwerContent sizeToFit];
 }
 
 -(UIView *)headerView{
@@ -168,6 +196,7 @@
     if (!_answerBtn1) {
         _answerBtn1=[[UIButton alloc] initWithFrame:CGRectMake(0, 60*SCREEN_RADIO, screen_width/3, 50*SCREEN_RADIO)];
         [_answerBtn1 addTarget:self action:@selector(answerClick1) forControlEvents:UIControlEventTouchUpInside];
+        _answerBtn1.userInteractionEnabled=NO;
     }
     return _answerBtn1;
 }
@@ -197,6 +226,7 @@
     if (!_answerBtn2) {
         _answerBtn2=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.answerView1.frame), 60*SCREEN_RADIO, screen_width/3, 50*SCREEN_RADIO)];
         [_answerBtn2 addTarget:self action:@selector(answerClick2) forControlEvents:UIControlEventTouchUpInside];
+        _answerBtn2.userInteractionEnabled=NO;
     }
     return _answerBtn2;
 }
@@ -227,6 +257,7 @@
     if (!_answerBtn3) {
         _answerBtn3=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.answerView2.frame), 60*SCREEN_RADIO, screen_width/3, 50*SCREEN_RADIO)];
         [_answerBtn3 addTarget:self action:@selector(answerClick3) forControlEvents:UIControlEventTouchUpInside];
+        _answerBtn3.userInteractionEnabled=NO;
     }
     return _answerBtn3;
 }
@@ -234,15 +265,15 @@
 -(UIImageView *)avater{
     if (!_avater) {
         _avater=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, CGRectGetMaxY(self.answerView1.frame)+40*SCREEN_RADIO, 42*SCREEN_RADIO, 42*SCREEN_RADIO)];
-        _avater.image=[UIImage imageNamed:@"Avatar"];
+        [_avater sd_setImageWithURL:[NSURL URLWithString:self.avaterUrl]];
     }
     return _avater;
 }
 
 -(UILabel *)anwerContent{
     if (!_anwerContent) {
-        _anwerContent=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avater.frame)+6*SCREEN_RADIO, CGRectGetMaxY(self.answerView1.frame)+40*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.avater.frame)+6*SCREEN_RADIO-5*SCREEN_RADIO, 42*SCREEN_RADIO)];
-        _anwerContent.text=@"请选择我最喜欢的歌曲名字是什么";
+        _anwerContent=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avater.frame)+6*SCREEN_RADIO, CGRectGetMaxY(self.answerView1.frame)+40*SCREEN_RADIO, screen_width-70*SCREEN_RADIO, 42*SCREEN_RADIO)];
+        _anwerContent.text= [self getModelData:0].title;
         _anwerContent.textColor=[UIColor blackColor];
         _anwerContent.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         _anwerContent.numberOfLines=2;
@@ -277,9 +308,8 @@
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.scrollEnabled=NO;
         _tbv.layer.cornerRadius=5*SCREEN_RADIO;
-        NSMutableArray *newArr=[[NSMutableArray alloc] initWithObjects:@"wallen",@"rsadsa",@"tttksa",@"aksl", nil];
-        [_tbv setDataArray:newArr];
-        
+        [_tbv setDataArray:[self getModelData:0].answerArr];
+        __weak __typeof(self)weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             CGOptionsTableViewCell *cell=[[CGOptionsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withPage:index.row];
             
@@ -311,12 +341,38 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
+            if (weakSelf.answerNum==0) {
+                [self answerClick2];
+                weakSelf.answerNum=1;
+            }else if (weakSelf.answerNum==1){
+                [self answerClick3];
+                weakSelf.answerNum=2;
+            }else if (weakSelf.answerNum==2){
+                weakSelf.answerNum=3;
+                weakSelf.titleLabel.text=@"匹配结果";
+                [weakSelf.view addSubview:weakSelf.answerResultView];
+            }
             
         }];
         
     }
     
     return _tbv;
+}
+
+-(CGAnswerResultView *)answerResultView{
+    if (!_answerResultView) {
+        __weak __typeof(self)weakSelf = self;
+        _answerResultView=[[CGAnswerResultView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame), screen_width, SCREEN_HEIGHT-60*SCREEN_RADIO) withleftAvater:self.avaterUrl withNickName:self.nickNameStr withTalkBlock:^{
+            
+        } withVipBlock:^{
+            CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+            [weakSelf.navigationController pushViewController:vipVC animated:NO];
+        }];
+        _answerResultView.backgroundColor=[UIColor whiteColor];
+    }
+    
+    return _answerResultView;
 }
 
 

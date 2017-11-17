@@ -20,6 +20,7 @@
 #import "CGLoginViewController.h"
 #import "MineProfileInfoViewController.h"
 #import "MineAccountViewController.h"
+#import "CGVipViewController.h"
 @interface MineViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
 }
 @property(nonatomic,strong)UIView *headerView;
@@ -35,6 +36,7 @@
 {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.tabBarController.tabBar setHidden:NO];
     [super viewWillAppear:animated];
     [self setData];
 }
@@ -63,7 +65,7 @@
     if ([CGSingleCommitData sharedInstance].uid.length<=0) {
         [self.nickName setTitle:[NSString stringWithFormat:@"%@/%@",NSLocalizedString(@"register", nil),NSLocalizedString(@"login", nil)] forState:UIControlStateNormal];
         self.nickName.userInteractionEnabled=YES;
-        [self.AvatarImgView setImage:[UIImage imageNamed:@"myindex_Icon"] forState:UIControlStateNormal];
+        [self.AvatarImgView setImage:[CGSingleCommitData sharedInstance].avatar forState:UIControlStateNormal];
     }else{
         self.nickName.userInteractionEnabled=NO;
         [self.nickName setTitle:[CGSingleCommitData sharedInstance].nickName forState:UIControlStateNormal];
@@ -195,7 +197,8 @@
                 }
                 
             }else if ([cellData isEqualToString:@"VIP"]){
-                
+                CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+                [weakSelf.navigationController pushViewController:vipVC animated:NO];
             }else if ([cellData isEqualToString:NSLocalizedString(@"my_favorite", nil)]){
                 
             }

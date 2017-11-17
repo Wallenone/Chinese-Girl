@@ -26,6 +26,7 @@
     return model;
 }
 
+
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo" ofType:@"plist"];
@@ -51,6 +52,17 @@
     for (NSDictionary *model in data1) {
         CGShuoShuo *model1= [self modelWithDic:model];
         if ([model1.ids integerValue]==ids) {
+            BOOL _isLike=NO;
+            for (NSString *content in [CGSingleCommitData sharedInstance].favourites) {
+                if (content.length>0) {
+                    NSArray *array = [content componentsSeparatedByString:@"-"];
+                    if ([array[0] isEqualToString:model1.ids] && [array[1] isEqualToString:model1.sort]) {
+                        _isLike = YES;
+                    }
+                }
+            }
+            model1.isLike=_isLike;
+            
            [newData addObject:model1];
         }
     }

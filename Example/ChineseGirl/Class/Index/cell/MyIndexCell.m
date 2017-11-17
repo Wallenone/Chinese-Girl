@@ -58,6 +58,7 @@
 }
 
 
+
 - (void)creatSubView {
     [self addSubview:self.iconImageView];
     [self addSubview:self.nickNameLabel];
@@ -147,7 +148,17 @@
     
 }
 
--(void)likeClick{
+-(void)likeClick:(UIButton *)button{
+    if ([button.currentImage isEqual:[UIImage imageNamed:@"Likecell"]]) {
+        [button setImage:[UIImage imageNamed:@"LikeTo"] forState:UIControlStateNormal];
+        self.myIndexModel.isLike=YES;
+        [[CGSingleCommitData sharedInstance] addfavourites:[NSString stringWithFormat:@"%@-%@",self.myIndexModel.ids,self.myIndexModel.sort]];
+    }
+    else {
+        [button setImage:[UIImage imageNamed:@"Likecell"] forState:UIControlStateNormal];
+        self.myIndexModel.isLike=NO;
+        [[CGSingleCommitData sharedInstance] deletefavourite:[NSString stringWithFormat:@"%@-%@",self.myIndexModel.ids,self.myIndexModel.sort]];
+    }
     
 }
 
@@ -231,9 +242,13 @@
 
 -(UIButton *)likeImgView{
     if (!_likeImgView) {
+        UIImage *img=[UIImage imageNamed:@"Likecell"];
+        if (self.myIndexModel.isLike) {
+            img=[UIImage imageNamed:@"LikeTo"];
+        }
         _likeImgView=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 17*SCREEN_RADIO, 15.2*SCREEN_RADIO)];
-        [_likeImgView setImage:[UIImage imageNamed:@"Likecell"] forState:UIControlStateNormal];
-        [_likeImgView addTarget:self action:@selector(likeClick) forControlEvents:UIControlEventTouchUpInside];
+        [_likeImgView setImage:img forState:UIControlStateNormal];
+        [_likeImgView addTarget:self action:@selector(likeClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _likeImgView;

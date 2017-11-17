@@ -69,6 +69,11 @@
 		E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53C9D6A1F558B700069D663 /* NewsInfoCellTableViewCell.m */; };
 		E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CD2E31F4F15B600CF913D /* MyIndexModel.m */; };
 		E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */; };
+		E546C1191FBEFB7A000F5127 /* CGAnswerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E546C1181FBEFB7A000F5127 /* CGAnswerModel.m */; };
+		E546C11B1FBEFBC0000F5127 /* answer.plist in Resources */ = {isa = PBXBuildFile; fileRef = E546C11A1FBEFBC0000F5127 /* answer.plist */; };
+		E546C11E1FBF1113000F5127 /* CGAnswerResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = E546C11D1FBF1113000F5127 /* CGAnswerResultView.m */; };
+		E546C1221FBF231C000F5127 /* CGVipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E546C1211FBF231C000F5127 /* CGVipViewController.m */; };
+		E546C1271FBF2496000F5127 /* CGVipTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E546C1261FBF2496000F5127 /* CGVipTableViewCell.m */; };
 		E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */; };
 		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
 		E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */; };
@@ -270,6 +275,15 @@
 		E53CD2E31F4F15B600CF913D /* MyIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexModel.m; sourceTree = "<group>"; };
 		E53CD2E51F4F17DC00CF913D /* MyIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexCell.m; sourceTree = "<group>"; };
 		E53CD2E61F4F17DC00CF913D /* MyIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexCell.h; sourceTree = "<group>"; };
+		E546C1171FBEFB7A000F5127 /* CGAnswerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnswerModel.h; sourceTree = "<group>"; };
+		E546C1181FBEFB7A000F5127 /* CGAnswerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnswerModel.m; sourceTree = "<group>"; };
+		E546C11A1FBEFBC0000F5127 /* answer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = answer.plist; sourceTree = "<group>"; };
+		E546C11C1FBF1113000F5127 /* CGAnswerResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnswerResultView.h; sourceTree = "<group>"; };
+		E546C11D1FBF1113000F5127 /* CGAnswerResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnswerResultView.m; sourceTree = "<group>"; };
+		E546C1201FBF231C000F5127 /* CGVipViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVipViewController.h; sourceTree = "<group>"; };
+		E546C1211FBF231C000F5127 /* CGVipViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVipViewController.m; sourceTree = "<group>"; };
+		E546C1251FBF2496000F5127 /* CGVipTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVipTableViewCell.h; sourceTree = "<group>"; };
+		E546C1261FBF2496000F5127 /* CGVipTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVipTableViewCell.m; sourceTree = "<group>"; };
 		E54FAA581F5A9E71006C65AF /* MyCommitHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitHeaderView.h; sourceTree = "<group>"; };
 		E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommitHeaderView.m; sourceTree = "<group>"; };
 		E54FAA5B1F5A9F52006C65AF /* MycommitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MycommitModel.h; sourceTree = "<group>"; };
@@ -455,6 +469,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E546C11A1FBEFBC0000F5127 /* answer.plist */,
 				E5360A721FBC777C009DDA07 /* addFriends.plist */,
 				E5C0CD8D1FB841B7002394C9 /* shuoshuo.plist */,
 				E5C0CD821FB81F8B002394C9 /* index.plist */,
@@ -604,6 +619,8 @@
 		E5360A6E1FBC6C0C009DDA07 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E546C11C1FBF1113000F5127 /* CGAnswerResultView.h */,
+				E546C11D1FBF1113000F5127 /* CGAnswerResultView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -759,6 +776,33 @@
 			path = CommonClass;
 			sourceTree = "<group>";
 		};
+		E546C11F1FBF22BB000F5127 /* Vip */ = {
+			isa = PBXGroup;
+			children = (
+				E546C1231FBF247A000F5127 /* Cell */,
+				E546C1241FBF247A000F5127 /* View */,
+				E546C1201FBF231C000F5127 /* CGVipViewController.h */,
+				E546C1211FBF231C000F5127 /* CGVipViewController.m */,
+			);
+			path = Vip;
+			sourceTree = "<group>";
+		};
+		E546C1231FBF247A000F5127 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E546C1251FBF2496000F5127 /* CGVipTableViewCell.h */,
+				E546C1261FBF2496000F5127 /* CGVipTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E546C1241FBF247A000F5127 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E55DF4BA1FBB2F0B00E5215E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +815,7 @@
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E546C11F1FBF22BB000F5127 /* Vip */,
 				E534E1BC1FBBDF9A00F4962E /* Friends */,
 				E5C0CD6D1FB80C1F002394C9 /* Model */,
 				E5F0A3E61F57F7FD0051699B /* Login */,
@@ -845,6 +890,8 @@
 				E5C0CD8B1FB83EF5002394C9 /* CGPinglun.m */,
 				E5360A741FBC77A2009DDA07 /* CGaddFriendsModel.h */,
 				E5360A751FBC77A2009DDA07 /* CGaddFriendsModel.m */,
+				E546C1171FBEFB7A000F5127 /* CGAnswerModel.h */,
+				E546C1181FBEFB7A000F5127 /* CGAnswerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1026,6 +1073,7 @@
 				E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				E546C11B1FBEFBC0000F5127 /* answer.plist in Resources */,
 				E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */,
 				E504AB901F507C0100E1F48C /* MBProgressHUD.bundle in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -1107,11 +1155,13 @@
 				E5E0FE491F9AF15700B5228E /* WYBirthdayPickerView.m in Sources */,
 				E5360A761FBC77A2009DDA07 /* CGaddFriendsModel.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
+				E546C11E1FBF1113000F5127 /* CGAnswerResultView.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
 				E538D7701F429C060079AE94 /* UIViewController+NavigationBar.m in Sources */,
 				E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */,
+				E546C1191FBEFB7A000F5127 /* CGAnswerModel.m in Sources */,
 				E504AB911F507C0100E1F48C /* MBProgressHUD.m in Sources */,
 				E504AB8F1F507C0100E1F48C /* MBProgressHUD+Add.m in Sources */,
 				E504AB961F507C0100E1F48C /* MJPhotoProgressView.m in Sources */,
@@ -1155,6 +1205,7 @@
 				E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */,
 				E538D7661F429BE80079AE94 /* DriftBottleViewController.m in Sources */,
 				E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */,
+				E546C1221FBF231C000F5127 /* CGVipViewController.m in Sources */,
 				E508B1B71F714C750048C378 /* CGBottleTextView.m in Sources */,
 				E5360A711FBC6C34009DDA07 /* CGNewFriendTableViewCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -1164,6 +1215,7 @@
 				E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */,
 				E5E0FE4B1F9AF15700B5228E /* WYGenderPickerView.m in Sources */,
 				E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */,
+				E546C1271FBF2496000F5127 /* CGVipTableViewCell.m in Sources */,
 				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
 				E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,

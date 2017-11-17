@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CGAnswerOptionViewController : UIViewController
-
+@property(nonatomic,copy)NSString *avaterUrl;
+@property(nonatomic,copy)NSString *nickNameStr;
 @end

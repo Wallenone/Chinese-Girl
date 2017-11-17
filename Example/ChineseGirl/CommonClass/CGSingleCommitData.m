@@ -18,8 +18,8 @@ static NSString *const kBirthDayKey = @"birthDayKey";
 static NSString *const kAboutUsKey = @"aboutUsKey";
 static NSString *const kAlbumSKey = @"albumSKey";
 static NSString *const kVipLevelKey = @"vipLevelKey";
-static NSString *const kFavouritesKey = @"favouritesKey";
 static NSString *const kLanguageNameKey = @"languageNameKey";
+static NSString *const kFavouriteSKey = @"favouriteSKey";
 #import "CGSingleCommitData.h"
 static CGSingleCommitData *_instance = nil;
 @implementation CGSingleCommitData
@@ -73,7 +73,7 @@ static CGSingleCommitData *_instance = nil;
         if (avatarData.bytes>0) {
             self.avatar = [UIImage imageWithData:avatarData];
         }else{
-            self.avatar = [UIImage imageNamed:@"myindex_Icon"];
+            self.avatar = [UIImage imageNamed:@"default_nor_avatar"];
         }
         
         NSString *sex = [[NSUserDefaults standardUserDefaults] stringForKey:kSexKey];
@@ -132,11 +132,12 @@ static CGSingleCommitData *_instance = nil;
             self.languageName=@"English";
         }
         
-        
-//        NSArray *favourites = [[NSUserDefaults standardUserDefaults] arrayForKey:kFavouritesKey];
-//        if (favourites.count>0) {
-//            self.albumS = [favourites mutableCopy];
-//        }
+        NSArray *favourites = [[NSUserDefaults standardUserDefaults] arrayForKey:kFavouriteSKey];
+        if (favourites.count>0) {
+            self.favourites = [favourites mutableCopy];
+        }else{
+            self.favourites=[[NSMutableArray alloc] init];
+        }
         
     }
     return self;
@@ -240,6 +241,14 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(void)setFavourites:(NSMutableArray *)favourites{
+    _favourites=favourites;
+    NSArray *arr=[NSArray arrayWithArray:favourites];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:arr forKey:kFavouriteSKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(void)setVipLevel:(NSString *)vipLevel{    
     if ([CGCommonString isBlankString:vipLevel]) {
         _vipLevel=@"";
@@ -267,6 +276,15 @@ static CGSingleCommitData *_instance = nil;
     }
 }
 
+-(void)addfavourites:(NSString *)addLike{
+    if (addLike.length>0) {
+        [self deletefavourite:addLike];
+        [self.favourites addObject:addLike];
+        NSArray *arr=[NSArray arrayWithArray:self.favourites];
+        self.favourites=[arr mutableCopy];
+    }
+}
+
 -(void)replaceAlbumS:(UIImage *)img withTag:(NSInteger)_tag{
     if (img) {
         [self.albumS replaceObjectAtIndex:_tag withObject:UIImagePNGRepresentation(img)];
@@ -280,6 +298,14 @@ static CGSingleCommitData *_instance = nil;
         [self.albumS removeObjectAtIndex:_tag];
         NSArray *arr=[NSArray arrayWithArray:self.albumS];
         self.albumS=[arr mutableCopy];
+    }
+}
+
+-(void)deletefavourite:(NSString *)obj{
+    if (obj.length>0) {
+        [self.favourites removeObject:obj];
+        NSArray *arr=[NSArray arrayWithArray:self.favourites];
+        self.favourites=[arr mutableCopy];
     }
 }
 

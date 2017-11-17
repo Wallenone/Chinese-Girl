@@ -27,6 +27,8 @@
 + (instancetype)sharedInstance;
 - (void)logout;
 -(void)addAlbumS:(UIImage *)img;   //增加一个相册
+-(void)addfavourites:(NSString *)addLike;   //增加点赞
 -(void)replaceAlbumS:(UIImage *)img withTag:(NSInteger)_tag;  //替换图片
 -(void)deleteAlbumwithTag:(NSInteger)_tag;   //删除图片
+-(void)deletefavourite:(NSString *)obj;   //删除点赞
 @end

@@ -43,7 +43,7 @@
 
 -(void)addClick{
     if (addFriendClickBlock) {
-        addFriendClickBlock();
+        addFriendClickBlock(self.addModel.avater,self.addModel.nickName);
     }
 }
 

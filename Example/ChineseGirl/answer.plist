@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+          <key>id</key>
+          <string>1</string>
+          <key>title</key>
+          <string>我最喜欢听什么歌曲</string>
+          <key>answercontent</key>
+          <string>一首歌曲/一个老曲子/现在不知道/不想选择了</string>
+    </dict>
+    <dict>
+          <key>id</key>
+          <string>2</string>
+          <key>title</key>
+          <string>你觉得我内心在想吃什么</string>
+          <key>answercontent</key>
+          <string>黄瓜/西红柿/西瓜/大自然</string>
+    </dict>
+    <dict>
+          <key>id</key>
+          <string>3</string>
+          <key>title</key>
+          <string>我好看</string>
+          <key>answercontent</key>
+          <string>好/非常好看/我不许想回答/我想知道</string>
+    </dict>
+</array>
+</plist>
