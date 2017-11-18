@@ -20,6 +20,7 @@ static NSString *const kAlbumSKey = @"albumSKey";
 static NSString *const kVipLevelKey = @"vipLevelKey";
 static NSString *const kLanguageNameKey = @"languageNameKey";
 static NSString *const kFavouriteSKey = @"favouriteSKey";
+static NSString *const kFollowSKey = @"followSKey";
 #import "CGSingleCommitData.h"
 static CGSingleCommitData *_instance = nil;
 @implementation CGSingleCommitData
@@ -139,6 +140,15 @@ static CGSingleCommitData *_instance = nil;
             self.favourites=[[NSMutableArray alloc] init];
         }
         
+        NSArray *follows = [[NSUserDefaults standardUserDefaults] arrayForKey:kFollowSKey];
+        if (follows.count>0) {
+            self.follows = [follows mutableCopy];
+        }else{
+            self.follows=[[NSMutableArray alloc] init];
+        }
+        
+        
+        
     }
     return self;
 }
@@ -249,6 +259,14 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(void)setFollows:(NSMutableArray *)follows{
+    _follows=follows;
+    NSArray *arr=[NSArray arrayWithArray:_follows];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:arr forKey:kFollowSKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(void)setVipLevel:(NSString *)vipLevel{    
     if ([CGCommonString isBlankString:vipLevel]) {
         _vipLevel=@"";
@@ -285,6 +303,15 @@ static CGSingleCommitData *_instance = nil;
     }
 }
 
+-(void)addFollows:(NSString *)addFollow{
+    if (addFollow.length>0) {
+        [self deletefollow:addFollow];
+        [self.follows addObject:addFollow];
+        NSArray *arr=[NSArray arrayWithArray:self.follows];
+        self.follows=[arr mutableCopy];
+    }
+}
+
 -(void)replaceAlbumS:(UIImage *)img withTag:(NSInteger)_tag{
     if (img) {
         [self.albumS replaceObjectAtIndex:_tag withObject:UIImagePNGRepresentation(img)];
@@ -306,6 +333,14 @@ static CGSingleCommitData *_instance = nil;
         [self.favourites removeObject:obj];
         NSArray *arr=[NSArray arrayWithArray:self.favourites];
         self.favourites=[arr mutableCopy];
+    }
+}
+
+-(void)deletefollow:(NSString *)obj{
+    if (obj.length>0) {
+        [self.follows removeObject:obj];
+        NSArray *arr=[NSArray arrayWithArray:self.follows];
+        self.follows=[arr mutableCopy];
     }
 }
 

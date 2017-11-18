@@ -21,6 +21,7 @@
 @property(nonatomic,strong)NSMutableArray *albumS;      //相册
 @property(nonatomic,copy)NSString *vipLevel;            //vip等级
 @property(nonatomic,strong)NSMutableArray *favourites;   //收藏
+@property(nonatomic,strong)NSMutableArray *follows;    //关注
 @property(nonatomic,copy)NSString *languageName;  //语言
 @property(nonatomic,copy)NSString *countryName;  //国家
 
@@ -31,4 +32,6 @@
 -(void)replaceAlbumS:(UIImage *)img withTag:(NSInteger)_tag;  //替换图片
 -(void)deleteAlbumwithTag:(NSInteger)_tag;   //删除图片
 -(void)deletefavourite:(NSString *)obj;   //删除点赞
+-(void)addFollows:(NSString *)addFollow;  //加关注
+-(void)deletefollow:(NSString *)obj;    //去掉关注
 @end

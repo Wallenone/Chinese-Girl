@@ -18,6 +18,7 @@
     model.aboutus = [self filterNullString:[dic stringForKey:@"aboutus"]];
     model.avater = [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.ids,@"/Enclosure/",[self filterNullString:[dic stringForKey:@"avater"]]];
     model.address = [NSString stringWithFormat:@"China,%@",[self filterNullString:[dic stringForKey:@"city"]]] ;
+    model.bigAvater = [self getBigAvater:model.avater withIds:model.ids];
     return model;
 }
 
@@ -39,7 +40,30 @@
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSDictionary *dict= [data1 objectAtIndex:[ids intValue]-1];
     
-    return [self modelWithDic:dict];
+    CGUserInfo *model1= [self modelWithDic:dict];
+    if ([model1.ids isEqualToString:ids]) {
+        BOOL _isLike=NO;
+        for (NSString *content in [CGSingleCommitData sharedInstance].follows) {
+            if (content.length>0) {
+                if ([content isEqualToString:model1.ids]) {
+                    _isLike = YES;
+                }
+            }
+        }
+        model1.followed=_isLike;
+    }
+    
+    return model1;
+}
+
++(NSString *)getBigAvater:(NSString *)icon withIds:(NSString *)ids{
+    NSArray *array = [icon componentsSeparatedByString:@"/"];
+    NSString *iconTstr=[array objectAtIndex:array.count-1];
+    NSArray *array1 = [iconTstr componentsSeparatedByString:@"."];
+    NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
+    NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+    
+    return newIcon;
 }
 
 +(NSString *)filterNullString:(NSString *)str{

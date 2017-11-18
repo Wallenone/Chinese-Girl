@@ -1,70 +1,71 @@
 //
-//  CGFriendsAddViewController.m
+//  CGVipViewController.m
 //  ChineseGirl_Example
 //
-//  Created by Wallen on 2017/11/15.
+//  Created by Wallen on 2017/11/17.
 //  Copyright © 2017年 wanjiehuizhaofang. All rights reserved.
 //
 
-#import "CGFriendsAddViewController.h"
+#import "CGMyFollowViewController.h"
 #import "EZJFastTableView.h"
-#import "CGNewFriendTableViewCell.h"
-#import "CGaddFriendsModel.h"
-#import "CGAnswerOptionViewController.h"
+#import "CGFollowTableViewCell.h"
+#import "CGUserInfo.h"
 #import "MyIndexViewController.h"
-@interface CGFriendsAddViewController ()
+@interface CGMyFollowViewController ()
 @property(nonatomic,strong)UIView *headerView;
-@property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
+@property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
+@property(nonatomic,strong)NSMutableArray *followsArr;
 @end
 
-@implementation CGFriendsAddViewController
-
+@implementation CGMyFollowViewController
 - (void)viewWillAppear:(BOOL)animated{
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [self.tabBarController.tabBar setHidden:NO];
+    [self getData];
+    [self.tbv updateData:self.followsArr];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor getColor:@"f0f0f0"];
-    [self setHeaderView];
+    [self getData];
     [self addSubViews];
 }
 
--(void)back{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
--(void)setHeaderView{
-    [self.view addSubview:self.headerView];
-    [self.view addSubview:self.titleLabel];
-    [self.view addSubview:self.leftIcon];
-}
-
 -(void)addSubViews{
+    self.view.backgroundColor=[UIColor getColor:@"f0f1f2"];
+    [self.view addSubview:self.headerView];
+    [self.headerView addSubview:self.titleLabel];
+    [self.headerView addSubview:self.leftIcon];
     [self.view addSubview:self.tbv];
 }
 
+-(void)getData{
+    [self.followsArr removeAllObjects];
+    for (NSString *ids in [CGSingleCommitData sharedInstance].follows) {
+        if (ids.length>0) {
+           CGUserInfo *userInfo= [CGUserInfo getitemWithID:ids];
+           [self.followsArr addObject:userInfo];
+        }
+    }
+}
 
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 60*SCREEN_RADIO)];
+        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
         _headerView.backgroundColor=[UIColor whiteColor];
     }
     
     return _headerView;
 }
 
+-(void)back{
+    [self.navigationController popViewControllerAnimated:NO];
+}
 
 
 -(UIButton *)leftIcon{
@@ -79,7 +80,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=@"新朋友";
+        _titleLabel.text=@"关注";
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textColor=[UIColor getColor:@"232627"];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -91,21 +92,22 @@
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
         
-        CGRect tbvFrame = CGRectMake(0, 60*SCREEN_RADIO+1, self.view.frame.size.width, screen_height-60*SCREEN_RADIO);
+        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO+1, self.view.frame.size.width, 62*SCREEN_RADIO*self.followsArr.count);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
-        [_tbv setDataArray:[CGaddFriendsModel reloadTable]];
+        _tbv.scrollEnabled=NO;
+        _tbv.backgroundColor=[UIColor getColor:@"f0f1f2"];
+        [_tbv setDataArray:self.followsArr];
         __weak __typeof(self)weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            CGNewFriendTableViewCell *cell=[[CGNewFriendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withAddFriendBlock:^(NSString *avaterUrl,NSString *nickNameStr){
-                CGAnswerOptionViewController *answerVC=[[CGAnswerOptionViewController alloc] init];
-                answerVC.avaterUrl=avaterUrl;
-                answerVC.nickNameStr=nickNameStr;
-                [weakSelf.navigationController pushViewController:answerVC animated:NO];
-            }];
-
+            BOOL lineState=NO;
+            if (index.row== self.followsArr.count-1) {
+                lineState=YES;
+            }
+            CGFollowTableViewCell *cell=[[CGFollowTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withHidden:lineState];
+            
             return cell;
         }];
         
@@ -115,7 +117,10 @@
             return 62*SCREEN_RADIO;
         }];
         
-        
+        [_tbv onCellediting:^(NSIndexPath *index, id cellData) {
+            CGUserInfo *model=cellData;
+            [[CGSingleCommitData sharedInstance] deletefollow:model.ids];
+        }];
         
         //    //允许上行滑动
         //    [_tbv onDragUp:^NSArray * (int page) {
@@ -134,7 +139,7 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
-            CGaddFriendsModel *model=cellData;
+            CGUserInfo *model=cellData;
             MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
             indexVC.ids=[model.ids integerValue];
             [weakSelf.navigationController pushViewController:indexVC animated:NO];
@@ -145,5 +150,13 @@
     return _tbv;
 }
 
+-(NSMutableArray *)followsArr{
+    if (!_followsArr) {
+        _followsArr=[[NSMutableArray alloc] init];
+    }
+    
+    return _followsArr;
+}
 
 @end
+

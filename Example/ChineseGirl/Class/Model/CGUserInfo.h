@@ -16,6 +16,8 @@
 @property(nonatomic,copy)NSString *aboutus;
 @property(nonatomic,copy)NSString *avater;
 @property(nonatomic,copy)NSString *address;
+@property(nonatomic,copy)NSString *bigAvater;
+@property(nonatomic,assign)BOOL followed;   //是否加关注
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(CGUserInfo *)getitemWithID:(NSString *)ids;

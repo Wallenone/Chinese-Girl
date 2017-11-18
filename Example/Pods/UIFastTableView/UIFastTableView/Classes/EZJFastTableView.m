@@ -210,9 +210,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        if (cellediting) {
+            cellediting(indexPath,[self.arrayDatas objectAtIndex:indexPath.row]);
+        }
         [self.arrayDatas removeObjectAtIndex:indexPath.row];
         [self deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         

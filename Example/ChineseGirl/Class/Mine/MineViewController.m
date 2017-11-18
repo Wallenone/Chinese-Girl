@@ -21,6 +21,7 @@
 #import "MineProfileInfoViewController.h"
 #import "MineAccountViewController.h"
 #import "CGVipViewController.h"
+#import "CGMyFollowViewController.h"
 @interface MineViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
 }
 @property(nonatomic,strong)UIView *headerView;
@@ -200,7 +201,8 @@
                 CGVipViewController *vipVC=[[CGVipViewController alloc] init];
                 [weakSelf.navigationController pushViewController:vipVC animated:NO];
             }else if ([cellData isEqualToString:NSLocalizedString(@"my_favorite", nil)]){
-                
+                CGMyFollowViewController *followVC=[[CGMyFollowViewController alloc] init];
+                [weakSelf.navigationController pushViewController:followVC animated:NO];
             }
          
         }];

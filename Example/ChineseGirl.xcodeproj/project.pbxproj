@@ -91,6 +91,10 @@
 		E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */; };
 		E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */; };
 		E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */; };
+		E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */; };
+		E5BD337D1FBFDB1900C8FE94 /* CGFollowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD337C1FBFDB1900C8FE94 /* CGFollowTableViewCell.m */; };
+		E5BD33821FBFE75700C8FE94 /* CGIndexMendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD33811FBFE75700C8FE94 /* CGIndexMendModel.m */; };
+		E5BD33841FBFEBE400C8FE94 /* indexmend.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5BD33831FBFEBE300C8FE94 /* indexmend.plist */; };
 		E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011A31F526D57003FB906 /* NewsBottomMessage.m */; };
 		E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011BE1F52771F003FB906 /* UIMessageCustom.m */; };
 		E5C0CD691FB80BEC002394C9 /* pinglunren.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C0CD651FB80BEB002394C9 /* pinglunren.plist */; };
@@ -316,6 +320,13 @@
 		E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGForgetPasswordViewController.m; sourceTree = "<group>"; };
 		E5B174ED1F9CAA180055E16A /* CGSingleCommitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSingleCommitData.h; sourceTree = "<group>"; };
 		E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSingleCommitData.m; sourceTree = "<group>"; };
+		E5BD33781FBFD98100C8FE94 /* CGMyFollowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMyFollowViewController.h; sourceTree = "<group>"; };
+		E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMyFollowViewController.m; sourceTree = "<group>"; };
+		E5BD337B1FBFDB1900C8FE94 /* CGFollowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFollowTableViewCell.h; sourceTree = "<group>"; };
+		E5BD337C1FBFDB1900C8FE94 /* CGFollowTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGFollowTableViewCell.m; sourceTree = "<group>"; };
+		E5BD33801FBFE75700C8FE94 /* CGIndexMendModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGIndexMendModel.h; sourceTree = "<group>"; };
+		E5BD33811FBFE75700C8FE94 /* CGIndexMendModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGIndexMendModel.m; sourceTree = "<group>"; };
+		E5BD33831FBFEBE300C8FE94 /* indexmend.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = indexmend.plist; sourceTree = "<group>"; };
 		E5C011A21F526D57003FB906 /* NewsBottomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsBottomMessage.h; sourceTree = "<group>"; };
 		E5C011A31F526D57003FB906 /* NewsBottomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsBottomMessage.m; sourceTree = "<group>"; };
 		E5C011BD1F52771F003FB906 /* UIMessageCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMessageCustom.h; sourceTree = "<group>"; };
@@ -469,6 +480,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5BD33831FBFEBE300C8FE94 /* indexmend.plist */,
 				E546C11A1FBEFBC0000F5127 /* answer.plist */,
 				E5360A721FBC777C009DDA07 /* addFriends.plist */,
 				E5C0CD8D1FB841B7002394C9 /* shuoshuo.plist */,
@@ -744,6 +756,8 @@
 				E56826121F9E31130099F363 /* MineAccountViewController.m */,
 				E56826141F9E32600099F363 /* MinePasswordViewController.h */,
 				E56826151F9E32600099F363 /* MinePasswordViewController.m */,
+				E5BD33781FBFD98100C8FE94 /* CGMyFollowViewController.h */,
+				E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -892,6 +906,8 @@
 				E5360A751FBC77A2009DDA07 /* CGaddFriendsModel.m */,
 				E546C1171FBEFB7A000F5127 /* CGAnswerModel.h */,
 				E546C1181FBEFB7A000F5127 /* CGAnswerModel.m */,
+				E5BD33801FBFE75700C8FE94 /* CGIndexMendModel.h */,
+				E5BD33811FBFE75700C8FE94 /* CGIndexMendModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -901,6 +917,8 @@
 			children = (
 				E5C960851F93507500EB654A /* MySettingTableViewCell.h */,
 				E5C960861F93507500EB654A /* MySettingTableViewCell.m */,
+				E5BD337B1FBFDB1900C8FE94 /* CGFollowTableViewCell.h */,
+				E5BD337C1FBFDB1900C8FE94 /* CGFollowTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1084,6 +1102,7 @@
 				E5944C001FB9757600013F78 /* city.txt in Resources */,
 				E5C0CD6A1FB80BEC002394C9 /* pinglun.plist in Resources */,
 				E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */,
+				E5BD33841FBFEBE400C8FE94 /* indexmend.plist in Resources */,
 				E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */,
 				E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */,
 			);
@@ -1158,6 +1177,8 @@
 				E546C11E1FBF1113000F5127 /* CGAnswerResultView.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
+				E5BD33821FBFE75700C8FE94 /* CGIndexMendModel.m in Sources */,
+				E5BD337D1FBFDB1900C8FE94 /* CGFollowTableViewCell.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
 				E538D7701F429C060079AE94 /* UIViewController+NavigationBar.m in Sources */,
 				E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */,
@@ -1166,6 +1187,7 @@
 				E504AB8F1F507C0100E1F48C /* MBProgressHUD+Add.m in Sources */,
 				E504AB961F507C0100E1F48C /* MJPhotoProgressView.m in Sources */,
 				6003F59E195388D20070C39A /* CGAppDelegate.m in Sources */,
+				E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */,
 				E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */,
 				E538D76B1F429BE80079AE94 /* WSLayout.m in Sources */,
 				E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */,

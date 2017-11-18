@@ -7,11 +7,14 @@
 //
 
 #import "myHeaderViewCell.h"
+#import "MJPhoto.h"
+#import "MJPhotoBrowser.h"
 @interface myHeaderViewCell(){
     TalkCallBack talkCallBack;
 }
 @property(nonatomic,strong)CGUserInfo *myIndexModel;
 @property(nonatomic,strong)UIImageView *AvatarImgView;
+@property(nonatomic,strong)UIButton *avatarbtn;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *address;
 @property(nonatomic,strong)UIImageView *addressIcon;
@@ -36,6 +39,7 @@
 
 - (void)creatSubView {
     [self addSubview:self.AvatarImgView];
+    [self addSubview:self.avatarbtn];
     [self addSubview:self.nickName];
     [self addSubview:self.addressIcon];
     [self addSubview:self.address];
@@ -51,11 +55,32 @@
     }
 }
 
--(void)followingClick{
-    
+-(void)avatarClick{
+            // 替换为中等尺寸图片
+    NSMutableArray *photos = [[NSMutableArray alloc] init];
+    NSString *url = self.myIndexModel.bigAvater;
+    MJPhoto *photo = [[MJPhoto alloc] init];
+    photo.url = [NSURL URLWithString:url]; // 图片路径
+    [photos addObject:photo];
+        // 2.显示相册
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+        browser.currentPhotoIndex = 0; // 弹出相册时显示的第一张图片是？
+        browser.photos = photos; // 设置所有的图片
+        [browser show];
 }
 
-
+-(void)followingClick:(UIButton *)button{//C5D4D2  //320AFD
+    if ([button.currentTitle isEqual:@"Following"]) {
+        [button setBackgroundColor:[UIColor getColor:@"320AFD"]];
+        [button setTitle:@"Follwed" forState:UIControlStateNormal];
+        [[CGSingleCommitData sharedInstance] addFollows:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
+    }
+    else {
+        [button setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
+        [button setTitle:@"Follwing" forState:UIControlStateNormal];
+        [[CGSingleCommitData sharedInstance] deletefollow:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
+    }
+}
 
 -(UIImageView *)AvatarImgView{
     if (!_AvatarImgView) {
@@ -68,6 +93,13 @@
     return _AvatarImgView;
 }
 
+-(UIButton *)avatarbtn{
+    if (!_avatarbtn) {
+        _avatarbtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, 21*SCREEN_RADIO, 115*SCREEN_RADIO, 115*SCREEN_RADIO)];
+        [_avatarbtn addTarget:self action:@selector(avatarClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _avatarbtn;
+}
 -(UILabel *)nickName{
     if (!_nickName) {
         _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+24*SCREEN_RADIO, 31*SCREEN_RADIO, 180*SCREEN_RADIO, 27*SCREEN_RADIO)];
@@ -115,8 +147,18 @@
 -(UIButton *)followingBtn{
     if (!_followingBtn) {
         _followingBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.talkBtn.frame)+19*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+19*SCREEN_RADIO, 180*SCREEN_RADIO, 52*SCREEN_RADIO)];
-        [_followingBtn setBackgroundImage:[UIImage imageNamed:@"FlatBlue"] forState:UIControlStateNormal];
-        [_followingBtn addTarget:self action:@selector(followingClick) forControlEvents:UIControlEventTouchUpInside];
+        [_followingBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];//C5D4D2  //320AFD
+        if (self.myIndexModel.followed) {
+             [_followingBtn setBackgroundColor:[UIColor getColor:@"320AFD"]];
+            [_followingBtn setTitle:@"Followed" forState:UIControlStateNormal];
+        }else{
+             [_followingBtn setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
+            [_followingBtn setTitle:@"Following" forState:UIControlStateNormal];
+
+        }
+        _followingBtn.layer.cornerRadius=26*SCREEN_RADIO;
+        _followingBtn.titleLabel.font=[UIFont systemFontOfSize:24*SCREEN_RADIO];
+        [_followingBtn addTarget:self action:@selector(followingClick:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     

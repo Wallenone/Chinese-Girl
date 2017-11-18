@@ -18,7 +18,7 @@ typedef void (^DragUpBlock)(int);
 typedef void (^DragDownBlock)();
 typedef CGFloat (^AutoChangeCellHeightBlock)(id,id);
 typedef NSArray*(^TitleForHeaderInSection)(void);
-typedef void (^Cellediting)(void);
+typedef void (^Cellediting)(NSIndexPath *,id);
 @interface EZJFastTableView : UITableView<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) void(^onTableViewDidScroll)(EZJFastTableView *tableView, CGPoint contentOffset);
