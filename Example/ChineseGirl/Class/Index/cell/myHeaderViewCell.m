@@ -28,7 +28,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         talkCallBack=block;
-        self.backgroundColor=[UIColor clearColor];
+        self.backgroundColor=[UIColor whiteColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.myIndexModel = indexModel;
         [self creatSubView];

@@ -16,4 +16,5 @@
 @property(nonatomic,strong)NSArray *pictures;  //图片
 @property(nonatomic,copy)NSString *likes;  //喜欢人数
 @property(nonatomic,copy)NSString *comments;  //回复人数
+
 @end

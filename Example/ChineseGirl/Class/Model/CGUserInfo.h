@@ -17,6 +17,8 @@
 @property(nonatomic,copy)NSString *avater;
 @property(nonatomic,copy)NSString *address;
 @property(nonatomic,copy)NSString *bigAvater;
+@property(nonatomic,strong)NSMutableArray *pictures;
+@property(nonatomic,strong)NSMutableArray *picturesBig;
 @property(nonatomic,assign)BOOL followed;   //是否加关注
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;

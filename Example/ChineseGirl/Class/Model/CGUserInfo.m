@@ -19,6 +19,8 @@
     model.avater = [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.ids,@"/Enclosure/",[self filterNullString:[dic stringForKey:@"avater"]]];
     model.address = [NSString stringWithFormat:@"China,%@",[self filterNullString:[dic stringForKey:@"city"]]] ;
     model.bigAvater = [self getBigAvater:model.avater withIds:model.ids];
+    model.pictures = [self getPictures:[self filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
+    model.picturesBig = [self getBigPictures:[self filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
     return model;
 }
 
@@ -64,6 +66,30 @@
     NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
     
     return newIcon;
+}
+
++(NSMutableArray *)getPictures:(NSString *)icon withIds:(NSString *)ids{
+    NSArray *array = [icon componentsSeparatedByString:@"/"];
+    NSMutableArray *newArr=[NSMutableArray new];
+    for (NSString *img in array) {
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",img];
+        [newArr addObject:newIcon];
+    }
+    
+    return newArr;
+}
+
++(NSMutableArray *)getBigPictures:(NSString *)icon withIds:(NSString *)ids{
+    NSArray *array = [icon componentsSeparatedByString:@"/"];
+    NSMutableArray *newArr=[NSMutableArray new];
+    for (NSString *img in array) {
+        NSArray *array1 = [img componentsSeparatedByString:@"."];
+        NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+        [newArr addObject:newIcon];
+    }
+    
+    return newArr;
 }
 
 +(NSString *)filterNullString:(NSString *)str{

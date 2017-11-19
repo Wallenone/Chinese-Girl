@@ -16,6 +16,7 @@
 @property(nonatomic,copy)NSString *nickName;
 @property(nonatomic,copy)NSString *birthday;
 @property(nonatomic,copy)NSString *toContent;  //打算几个月去哪个国家
+@property(nonatomic,copy)NSString *address;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 @end

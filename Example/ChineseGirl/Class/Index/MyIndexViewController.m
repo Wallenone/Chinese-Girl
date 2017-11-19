@@ -42,7 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor getColor:@"f0f1f2"];
+    self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self addSubViews];
 }
@@ -73,7 +73,7 @@
 
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 60*SCREEN_RADIO)];
+        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
         _headerView.backgroundColor=[UIColor whiteColor];
     }
     
@@ -84,7 +84,7 @@
 
 -(UIButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(19*SCREEN_RADIO, 34*SCREEN_RADIO, 10*SCREEN_RADIO, 16*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -93,10 +93,10 @@
 
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 20*SCREEN_RADIO)];
         _titleLabel.text=NSLocalizedString(@"profile", nil);
-        _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        _titleLabel.textColor=[UIColor getColor:@"232627"];
+        _titleLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
+        _titleLabel.textColor=[UIColor getColor:@"030303"];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
     }
     return _titleLabel;
@@ -115,7 +115,7 @@
 
 -(UIView *)bottomLine{
     if (!_bottomLine) {
-        _bottomLine=[[UIView alloc] initWithFrame:CGRectMake(0, 63.5, screen_width, 0.5)];
+        _bottomLine=[[UIView alloc] initWithFrame:CGRectMake(0, 64*SCREEN_RADIO-0.5, screen_width, 0.5)];
         _bottomLine.backgroundColor=[UIColor getColor:@"CED7DB"];
     }
     
@@ -124,22 +124,24 @@
 
 
 
--(CGFloat)getCellHeightWithModel:(MyIndexModel*)model{
-    CGFloat _height=215*SCREEN_RADIO;
+-(CGFloat)getCellHeightWithModel:(CGShuoShuo*)model{
+    CGFloat _height=194*SCREEN_RADIO;
     if(model.content.length>0){
-        CGSize constraint = CGSizeMake(screen_width-30*SCREEN_RADIO, 99999.0f);
-        CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:17.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize constraint = CGSizeMake(screen_width-20*SCREEN_RADIO, 99999.0f);
+        CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         _height+=size.height;
     }
-    
-    if (model.pictures.count>0) {
-        NSUInteger row = model.pictures.count/3;
-        CGFloat picHeight= (screen_width-42*SCREEN_RADIO)/3;
-        _height+=row*(picHeight+6*SCREEN_RADIO);
-        if (model.pictures.count%3>0) {
-            _height+=picHeight;
-        }
-        
+
+    if (model.pictures.count==1 || model.pictures.count==2) {
+        _height+=284*SCREEN_RADIO;
+    }else if(model.pictures.count==4){
+        _height+=284*SCREEN_RADIO-6*SCREEN_RADIO;
+    }else if(model.pictures.count==3){
+        _height+=(screen_width-42*SCREEN_RADIO)/3;
+    }else if (model.pictures.count==5 || model.pictures.count==6){
+        _height+=((screen_width-42*SCREEN_RADIO)/3)*2+6*SCREEN_RADIO;
+    }else if (model.pictures.count==7 || model.pictures.count==8 || model.pictures.count==9){
+        _height+=(screen_width-42*SCREEN_RADIO)+12*SCREEN_RADIO;
     }
     
     
@@ -150,11 +152,12 @@
     if (!_tbv) {
         
         __weak typeof(self) weakSelf = self;
-        CGRect tbvFrame = CGRectMake(0, 64, self.view.frame.size.width, screen_height-64);
+        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO, self.view.frame.size.width, screen_height-64*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _tbv.backgroundColor=[UIColor getColor:@"EEEEEE"];
         NSMutableArray *newarr=[CGShuoShuo reloadTableWithId:self.ids];
         [newarr insertObject:[CGUserInfo getitemWithID:[NSString stringWithFormat:@"%ld",(long)self.ids]] atIndex:0];
         //给tableview赋值

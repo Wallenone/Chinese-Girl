@@ -38,32 +38,34 @@
     
          //a.初始化一个tabBar控制器
     UITabBarController *tb=[[UITabBarController alloc]init];
-    tb.tabBar.barTintColor=[UIColor getColor:@"333333"];
-    tb.tabBar.translucent=YES;
+    tb.tabBar.backgroundColor=[UIColor whiteColor];
+    tb.tabBar.tintColor=[UIColor blackColor];
+    tb.tabBar.unselectedItemTintColor=[UIColor blackColor];
+    tb.tabBar.translucent=NO;
     tb.delegate=self;
     //设置控制器为Window的根控制器
     self.window.rootViewController=tb;
     
     //b.创建子控制器
     IndexViewController *indeVC=[[IndexViewController alloc] init];
-    indeVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    indeVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
-    indeVC.tabBarItem.badgeValue=@"123";
+    indeVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
+    indeVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
+    //indeVC.tabBarItem.badgeValue=@"123";
     indeVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     CGFriendsViewcontroller *friendVC=[[CGFriendsViewcontroller alloc] init];
-    friendVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    friendVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    friendVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
+    friendVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
     friendVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     NewsViewController *newsVC=[[NewsViewController alloc] init];
-    newsVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    newsVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    newsVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
+    newsVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
     newsVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     MineViewController *mineVC=[[MineViewController alloc] init];
-    mineVC.tabBarItem.image=[UIImage imageNamed:@"工作台-未选中"];
-    mineVC.tabBarItem.selectedImage=[UIImage imageNamed:@"工作台-选中"];
+    mineVC.tabBarItem.image=[UIImage imageNamed:@"Profile"];
+    mineVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Profileed"];
     mineVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     //c.添加子控制器到ITabBarController中

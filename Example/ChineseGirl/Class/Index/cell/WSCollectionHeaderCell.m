@@ -18,6 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor=[UIColor getColor:@"fafafa"];
         [self getData];
         [self addSubViews];
         [self setScrollViewPoint];
@@ -36,27 +37,33 @@
 -(void)setScrollViewPoint{
     for (int i=0; i<self.indexMendArr.count; i++) {
         CGIndexMendModel *indexMend=[self.indexMendArr objectAtIndex:i];
-        UIImageView *imgView=[[UIImageView alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO+i*(15+60)*SCREEN_RADIO, 10*SCREEN_RADIO, 60*SCREEN_RADIO, 60*SCREEN_RADIO)];
-        imgView.layer.cornerRadius=30*SCREEN_RADIO;
+        UIImageView *imgView=[[UIImageView alloc] initWithFrame:CGRectMake(17.5*SCREEN_RADIO+i*(26+57)*SCREEN_RADIO, 15*SCREEN_RADIO, 58*SCREEN_RADIO, 58*SCREEN_RADIO)];
+        imgView.layer.cornerRadius=29*SCREEN_RADIO;
         [imgView sd_setImageWithURL:[NSURL URLWithString:indexMend.icon]];
-        imgView.layer.borderWidth=2;
-        imgView.layer.borderColor=[UIColor getColor:@"FF7D44"].CGColor;
+        imgView.layer.borderWidth=1;
+        imgView.layer.borderColor=[UIColor getColor:@"DCDCDC"].CGColor;
+        imgView.contentMode =  UIViewContentModeScaleAspectFill;
         imgView.clipsToBounds=YES;
         [self.scrollViewPointView addSubview:imgView];
         
-        UILabel *nickName=[[UILabel alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO+i*(15+60)*SCREEN_RADIO, CGRectGetMaxY(imgView.frame)+5*SCREEN_RADIO, 60*SCREEN_RADIO, 12*SCREEN_RADIO)];
+        UIImageView *imgViewQuan=[[UIImageView alloc] initWithFrame:CGRectMake(14*SCREEN_RADIO+i*(18+65)*SCREEN_RADIO, 12*SCREEN_RADIO, 65*SCREEN_RADIO, 65*SCREEN_RADIO)];
+        imgViewQuan.image=[UIImage imageNamed:@"unseen"];
+        [self.scrollViewPointView addSubview:imgViewQuan];
+        
+        
+        UILabel *nickName=[[UILabel alloc] initWithFrame:CGRectMake(14*SCREEN_RADIO+i*(18+65)*SCREEN_RADIO, CGRectGetMaxY(imgViewQuan.frame)+4*SCREEN_RADIO, 65*SCREEN_RADIO, 14*SCREEN_RADIO)];
         nickName.text=indexMend.nickName;
-        nickName.textColor=[UIColor getColor:@"333333"];
+        nickName.textColor=[UIColor getColor:@"4D4D4D"];
         nickName.textAlignment=NSTextAlignmentCenter;
         nickName.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         [self.scrollViewPointView addSubview:nickName];
         
-        UIButton *iconBtn=[[UIButton alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO+i*(15+60)*SCREEN_RADIO, 10*SCREEN_RADIO, 60*SCREEN_RADIO, 60*SCREEN_RADIO)];
+        UIButton *iconBtn=[[UIButton alloc] initWithFrame:CGRectMake(14*SCREEN_RADIO+i*(18+65)*SCREEN_RADIO, 10*SCREEN_RADIO, 65*SCREEN_RADIO, 65*SCREEN_RADIO)];
         iconBtn.tag=[indexMend.ids integerValue];
         [iconBtn addTarget:self action:@selector(iconClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollViewPointView addSubview:iconBtn];
     }
-    self.scrollViewPointView.contentSize=CGSizeMake(10*SCREEN_RADIO+self.indexMendArr.count*75*SCREEN_RADIO, 90*SCREEN_RADIO);
+    self.scrollViewPointView.contentSize=CGSizeMake(14*SCREEN_RADIO+self.indexMendArr.count*83*SCREEN_RADIO, 104*SCREEN_RADIO);
 }
 
 -(void)iconClick:(UIButton *)button{
@@ -68,7 +75,7 @@
 
 -(UIScrollView *)scrollViewPointView{
     if (!_scrollViewPointView) {
-        _scrollViewPointView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 90*SCREEN_RADIO)];
+        _scrollViewPointView=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 104*SCREEN_RADIO)];
         //_scrollViewPointView.contentSize=CGSizeMake(screen_width*2, 90*SCREEN_RADIO);
         _scrollViewPointView.showsVerticalScrollIndicator = NO;
         _scrollViewPointView.showsHorizontalScrollIndicator = NO;

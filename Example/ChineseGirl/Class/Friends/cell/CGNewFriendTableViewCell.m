@@ -7,18 +7,35 @@
 //
 
 #import "CGNewFriendTableViewCell.h"
-
+#import "MJPhoto.h"
+#import "MJPhotoBrowser.h"
 @interface CGNewFriendTableViewCell(){
     AddFriendClickBlock addFriendClickBlock;
 }
 @property(nonatomic,strong)CGaddFriendsModel *addModel;
+@property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIImageView *icon;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *aboutUs;
 @property(nonatomic,strong)UIButton *addBtn;
-@property(nonatomic,strong)UIView *bottomLineView;
+@property(nonatomic,strong)UIImageView *contentImg1;
+@property(nonatomic,strong)UIButton *contentBtn1;
+@property(nonatomic,strong)UIImageView *contentImg2;
+@property(nonatomic,strong)UIButton *contentBtn2;
+@property(nonatomic,strong)UIImageView *contentImg3;
+@property(nonatomic,strong)UIButton *contentBtn3;
+@property(nonatomic,strong)NSMutableArray *imgViewArr;
 @end
 @implementation CGNewFriendTableViewCell
+
+-(NSMutableArray *)imgViewArr{
+    if (!_imgViewArr) {
+        _imgViewArr=[NSMutableArray new];
+    }
+    
+    return _imgViewArr;
+}
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGaddFriendsModel *)commitModel withAddFriendBlock:(AddFriendClickBlock)block{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -34,11 +51,20 @@
 }
 
 -(void)creatSubView{
-    [self addSubview:self.icon];
-    [self addSubview:self.nickName];
-    [self addSubview:self.aboutUs];
-    [self addSubview:self.addBtn];
-    [self addSubview:self.bottomLineView];
+    [self addSubview:self.bgView];
+    [self.bgView addSubview:self.icon];
+    [self.bgView addSubview:self.nickName];
+    [self.bgView addSubview:self.aboutUs];
+    [self.bgView addSubview:self.addBtn];
+    [self.bgView addSubview:self.contentImg1];
+    [self.bgView addSubview:self.contentBtn1];
+    [self.bgView addSubview:self.contentImg2];
+    [self.bgView addSubview:self.contentBtn2];
+    [self.bgView addSubview:self.contentImg3];
+    [self.bgView addSubview:self.contentBtn3];
+    [self.imgViewArr addObject:self.contentImg1];
+    [self.imgViewArr addObject:self.contentImg2];
+    [self.imgViewArr addObject:self.contentImg3];
 }
 
 -(void)addClick{
@@ -47,11 +73,55 @@
     }
 }
 
+-(void)ImgClick1{
+    [self setCheckPhotos:0];
+}
+
+-(void)ImgClick2{
+    [self setCheckPhotos:1];
+}
+
+-(void)ImgClick3{
+    [self setCheckPhotos:2];
+}
+
+-(void)setCheckPhotos:(NSInteger)_tag{
+    NSUInteger count = 3;
+    // 1.封装图片数据
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i<count; i++) {
+        // 替换为中等尺寸图片
+        NSString *url = self.addModel.picturesBig[i];
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.url = [NSURL URLWithString:url]; // 图片路径
+        photo.srcImageView = self.imgViewArr[i]; // 来源于哪个UIImageView
+        [photos addObject:photo];
+    }
+    
+    // 2.显示相册
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = _tag; // 弹出相册时显示的第一张图片是？
+    browser.photos = photos; // 设置所有的图片
+    [browser show];
+}
+
+-(UIView *)bgView{
+    if (!_bgView) {
+        _bgView=[[UIView alloc] initWithFrame:CGRectMake(7*SCREEN_RADIO, 6*SCREEN_RADIO, screen_width-14*SCREEN_RADIO, 175*SCREEN_RADIO)];
+        _bgView.backgroundColor=[UIColor getColor:@"ffffff"];
+        _bgView.layer.cornerRadius=5;
+    }
+    
+    return _bgView;
+}
+
 -(UIImageView *)icon{
     if (!_icon) {
-        _icon=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 10*SCREEN_RADIO, 42*SCREEN_RADIO, 42*SCREEN_RADIO)];
+        _icon=[[UIImageView alloc] initWithFrame:CGRectMake(9*SCREEN_RADIO, 9*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
         [_icon sd_setImageWithURL:[NSURL URLWithString:self.addModel.avater]];
-        _icon.layer.cornerRadius=21*SCREEN_RADIO;
+        _icon.layer.borderWidth=1;
+        _icon.layer.borderColor=[UIColor getColor:@"DDDDDD"].CGColor;
+        _icon.layer.cornerRadius=19*SCREEN_RADIO;
         _icon.clipsToBounds=YES;
     }
     return _icon;
@@ -59,10 +129,10 @@
 
 -(UILabel *)nickName{
     if (!_nickName) {
-        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.icon.frame)+10*SCREEN_RADIO, 10*SCREEN_RADIO, 150*SCREEN_RADIO, 16*SCREEN_RADIO)];
+        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.icon.frame)+13*SCREEN_RADIO, 11*SCREEN_RADIO, 150*SCREEN_RADIO, 16*SCREEN_RADIO)];
         _nickName.text=self.addModel.nickName;
-        _nickName.textColor=[UIColor getColor:@"444444"];
-        _nickName.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        _nickName.textColor=[UIColor getColor:@"000000"];
+        _nickName.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
     }
     
     return _nickName;
@@ -70,14 +140,11 @@
 
 -(UILabel *)aboutUs{
     if (!_aboutUs) {
-        _aboutUs=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.icon.frame)+10*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+7*SCREEN_RADIO, 200*SCREEN_RADIO, 20*SCREEN_RADIO)];
+        _aboutUs=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.icon.frame)+13*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 250*SCREEN_RADIO, 15*SCREEN_RADIO)];
         _aboutUs.text=self.addModel.aboutUs;
-        _aboutUs.textColor=[UIColor getColor:@"8e8e8e"];
-        _aboutUs.font=[UIFont systemFontOfSize:10*SCREEN_RADIO];
-        _aboutUs.numberOfLines=2;
+        _aboutUs.textColor=[UIColor getColor:@"AAAAAA"];
+        _aboutUs.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         _aboutUs.lineBreakMode = NSLineBreakByTruncatingTail;
-        [_aboutUs setContentMode:UIViewContentModeTop];
-        [_aboutUs sizeToFit];
     }
     
     return _aboutUs;
@@ -85,26 +152,66 @@
 
 -(UIButton *)addBtn{
     if (!_addBtn) {
-        _addBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-95*SCREEN_RADIO, 19*SCREEN_RADIO, 75*SCREEN_RADIO, 24*SCREEN_RADIO)];
-        [_addBtn setTitle:@"加为好友" forState:UIControlStateNormal];
-        [_addBtn setTitleColor:[UIColor getColor:@"ffaa00"] forState:UIControlStateNormal];
-        _addBtn.titleLabel.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
-        _addBtn.layer.cornerRadius=12*SCREEN_RADIO;
-        _addBtn.layer.borderWidth=1;
-        _addBtn.layer.borderColor=[UIColor getColor:@"ffaa00"].CGColor;
+        _addBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-41*SCREEN_RADIO, 21*SCREEN_RADIO, 20*SCREEN_RADIO, 20*SCREEN_RADIO)];
+        [_addBtn setBackgroundImage:[UIImage imageNamed:@"FollowFriend"] forState:UIControlStateNormal];
         [_addBtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _addBtn;
 }
 
--(UIView *)bottomLineView{
-    if (!_bottomLineView) {
-        _bottomLineView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.icon.frame)+10*SCREEN_RADIO, 62*SCREEN_RADIO-0.5, screen_width-CGRectGetMaxX(self.icon.frame)+10*SCREEN_RADIO, 0.5)];
-        _bottomLineView.backgroundColor=[UIColor getColor:@"d3d3d3"];
+-(UIImageView *)contentImg1{
+    if (!_contentImg1) {
+        _contentImg1=[[UIImageView alloc] initWithFrame:CGRectMake(1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        _contentImg1.image=[UIImage imageNamed:@""];
+        [_contentImg1 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:0]]];
     }
     
-    return _bottomLineView;
+    return _contentImg1;
 }
 
+-(UIButton *)contentBtn1{
+    if (!_contentBtn1) {
+        _contentBtn1=[[UIButton alloc] initWithFrame:CGRectMake(1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        [_contentBtn1 addTarget:self action:@selector(ImgClick1) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _contentBtn1;
+}
+
+-(UIImageView *)contentImg2{
+    if (!_contentImg2) {
+        _contentImg2=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg1.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        [_contentImg2 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:1]]];
+    }
+    
+    return _contentImg2;
+}
+
+-(UIButton *)contentBtn2{
+    if (!_contentBtn2) {
+        _contentBtn2=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg1.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        [_contentBtn2 addTarget:self action:@selector(ImgClick2) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _contentBtn2;
+}
+
+-(UIImageView *)contentImg3{
+    if (!_contentImg3) {
+        _contentImg3=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg2.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        [_contentImg3 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:2]]];
+    }
+    
+    return _contentImg3;
+}
+
+-(UIButton *)contentBtn3{
+    if (!_contentBtn3) {
+        _contentBtn3=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg2.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        [_contentBtn3 addTarget:self action:@selector(ImgClick3) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _contentBtn3;
+}
 @end

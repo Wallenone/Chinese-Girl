@@ -10,7 +10,7 @@
 
 @implementation CGCommonString
 + (BOOL) isBlankString:(NSString *)string {
-    string=[string stringByReplacingOccurrencesOfString:@"@" withString:@""];
+    string=[string stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (string == nil || string == NULL || [string isEqualToString:@"<null>"]) {
         return YES;
     }

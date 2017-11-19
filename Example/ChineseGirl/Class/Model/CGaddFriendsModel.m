@@ -16,7 +16,8 @@
     model.nickName = [CGUserInfo getitemWithID:model.ids].nickname;
     model.aboutUs = [CGUserInfo getitemWithID:model.ids].aboutus;
     model.avater = [CGUserInfo getitemWithID:model.ids].avater;
-
+    model.pictures = [CGUserInfo getitemWithID:model.ids].pictures;
+    model.picturesBig = [CGUserInfo getitemWithID:model.ids].picturesBig;
     return model;
 }
 

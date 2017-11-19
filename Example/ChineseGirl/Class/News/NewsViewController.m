@@ -87,7 +87,7 @@
         
         
         //是否启用删除功能
-        [_tbv onCellediting:^{
+        [_tbv onCellediting:^(NSIndexPath *index, id cellData) {
             
         }];
        

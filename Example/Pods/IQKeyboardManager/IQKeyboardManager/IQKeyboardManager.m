@@ -36,6 +36,9 @@
 
 #import <objc/runtime.h>
 
+#import <UIKit/UIAlertController.h>
+#import <UIKit/UISearchBar.h>
+#import <UIKit/UIScreen.h>
 #import <UIKit/UINavigationBar.h>
 #import <UIKit/UITapGestureRecognizer.h>
 #import <UIKit/UITextField.h>
@@ -525,7 +528,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
     }
     else
     {
-        static UIWindow *_keyWindow = nil;
+        static __weak UIWindow *_keyWindow = nil;
         
         /*  (Bug ID: #23, #25, #73)   */
         UIWindow *originalKeyWindow = [[UIApplication sharedApplication] keyWindow];

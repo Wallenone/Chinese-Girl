@@ -15,7 +15,7 @@
 #import "MyIndexViewController.h"
 #import "WSCollectionHeaderCell.h"
 #import "CGIndexModel.h"
-@interface IndexCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate>{
+@interface IndexCollectionView()<UICollectionViewDataSource, UICollectionViewDelegate,UIScrollViewDelegate>{
     NSMutableArray *modelCollectionArray;
     NSMutableArray *modelArray;
     NSInteger t_page;
@@ -73,14 +73,14 @@
     //self.edgesForExtendedLayout = UIRectEdgeNone;
     // 不透明时用这个属性
     //self.extendedLayoutIncludesOpaqueBars = YES;
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) collectionViewLayout:self.wslayout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-106*SCREEN_RADIO) collectionViewLayout:self.wslayout];
     
     [self.collectionView registerClass:[WSCollectionCell class] forCellWithReuseIdentifier:@"collectionCell"];
     [self.collectionView registerClass:[WSCollectionHeaderCell class] forCellWithReuseIdentifier:@"collectionCellHeaderView"];
 
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor getColor:@"EEEEEE"];
     
     [self getCollectionData:t_page];
     
@@ -89,10 +89,9 @@
     
     //返回每个cell的高   对应indexPath
     [self.wslayout computeIndexCellHeightWithWidthBlock:^CGFloat(NSIndexPath *indexPath, CGFloat width) {
-        CGFloat newHeigth = 425*SCREEN_RADIO;
-       // CellModel *model = modelCollectionArray[indexPath.row];
+        CGFloat newHeigth = 340*SCREEN_RADIO;
         if (indexPath.row==0) {
-            newHeigth=90*SCREEN_RADIO;
+            newHeigth=104*SCREEN_RADIO;
         }
         
         return newHeigth;
@@ -136,9 +135,10 @@
         
         return cell;
     }else{
+        CGIndexModel *indexModel=modelCollectionArray[indexPath.row];
         WSCollectionCell *cell = (WSCollectionCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
-        
-        cell.model = modelCollectionArray[indexPath.row];
+        cell.model = indexModel;
+        cell.collectionView=collectionView;
         
         return cell;
     }
@@ -148,7 +148,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    CGIndexModel *indexModel=modelCollectionArray[indexPath.row];
     if (cellSelectedIndexBlock) {
         cellSelectedIndexBlock(indexPath);
     }
@@ -156,6 +156,8 @@
     NSLog(@"选中了第%ld个item",indexPath.row);
 
 }
+
+
 
 
 @end

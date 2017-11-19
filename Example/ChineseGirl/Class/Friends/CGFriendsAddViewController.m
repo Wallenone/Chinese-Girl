@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor getColor:@"f0f0f0"];
+    self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
     [self setHeaderView];
     [self addSubViews];
 }
@@ -58,7 +58,7 @@
 
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 60*SCREEN_RADIO)];
+        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
         _headerView.backgroundColor=[UIColor whiteColor];
     }
     
@@ -69,7 +69,7 @@
 
 -(UIButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(19*SCREEN_RADIO, 34*SCREEN_RADIO, 10*SCREEN_RADIO, 16*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -78,10 +78,10 @@
 
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 20*SCREEN_RADIO)];
         _titleLabel.text=@"新朋友";
-        _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        _titleLabel.textColor=[UIColor getColor:@"232627"];
+        _titleLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
+        _titleLabel.textColor=[UIColor getColor:@"030303"];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
     }
     return _titleLabel;
@@ -96,6 +96,7 @@
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _tbv.backgroundColor=[UIColor getColor:@"eeeeee"];
         [_tbv setDataArray:[CGaddFriendsModel reloadTable]];
         __weak __typeof(self)weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
@@ -112,7 +113,7 @@
         //动态改变
         
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
-            return 62*SCREEN_RADIO;
+            return 181*SCREEN_RADIO;
         }];
         
         

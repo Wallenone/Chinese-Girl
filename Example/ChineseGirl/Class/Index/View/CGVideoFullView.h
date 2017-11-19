@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WMPlayer.h"
+typedef void (^CloseClickBlock)(void);
 @interface CGVideoFullView : UICollectionViewCell
-
+- (void)WMPlayer:(WMPlayer *)player withCloseBlock:(CloseClickBlock)closeBlock;
 @end

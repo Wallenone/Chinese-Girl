@@ -13,4 +13,5 @@ typedef void (^LikeClickBlock)(BOOL);
 @interface MyIndexCell : UITableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)indexModel withCommitClick:(CommitClick)block;
+-(CGFloat)getCellHeight;
 @end

@@ -14,6 +14,8 @@
 @property(nonatomic,copy)NSString *avater;
 @property(nonatomic,copy)NSString *nickName;
 @property(nonatomic,copy)NSString *aboutUs;
+@property(nonatomic,strong)NSMutableArray *pictures;
+@property(nonatomic,strong)NSMutableArray *picturesBig;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTable;
 @end

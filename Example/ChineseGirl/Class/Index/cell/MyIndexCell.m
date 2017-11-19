@@ -41,7 +41,7 @@
         total_height=0;
         commitClick=block;
         self.selectionStyle=UITableViewCellSelectionStyleNone;
-        self.backgroundColor=[UIColor clearColor];
+        self.backgroundColor=[UIColor whiteColor];
         self.myIndexModel = indexModel;
         [self creatSubView];
     }
@@ -57,12 +57,15 @@
     return _imgViewArr;
 }
 
+-(CGFloat)getCellHeight{
+    return total_height;
+}
 
 
 - (void)creatSubView {
     [self addSubview:self.iconImageView];
     [self addSubview:self.nickNameLabel];
-   // [self addSubview:self.timeDateLabel];
+    [self addSubview:self.timeDateLabel];
     [self addSubview:self.contentLabel];
     total_height=CGRectGetMaxY(self.contentLabel.frame);
     [self setImgBrower];
@@ -76,9 +79,30 @@
     [self setCommitUI];
 }
 
--(void)setImgBrower{
-    // 1.创建9个UIImageView
+-(void)setpictureFrame:(CGRect)imgViewFrame withTag:(NSInteger)_tag withUrl:(NSString *)_url{
     UIImage *placeholder = [UIImage imageNamed:@"timeline_image_loading.png"];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [self addSubview:imageView];
+    
+    imageView.frame = imgViewFrame;
+    
+    // 下载图片
+    [imageView setImageURLStr:_url placeholder:placeholder];
+    
+    // 事件监听
+    imageView.tag = _tag;
+    imageView.userInteractionEnabled = YES;
+    [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)]];
+    
+    // 内容模式
+    imageView.clipsToBounds = YES;
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    [self.imgViewArr addObject:imageView];
+    total_height=CGRectGetMaxY(imageView.frame);
+}
+
+-(void)setImgBrower{
     CGFloat width = (screen_width-42*SCREEN_RADIO)/3;
     CGFloat height = (screen_width-42*SCREEN_RADIO)/3;
     CGFloat margin = 6*SCREEN_RADIO;
@@ -87,33 +111,44 @@
     if (self.myIndexModel.content.length<=0) {
         startY =CGRectGetMaxY(self.contentLabel.frame)-15*SCREEN_RADIO;
     }
-    for (int i = 0; i<self.myIndexModel.pictures.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        [self addSubview:imageView];
+    
+    if (self.myIndexModel.pictures.count==1) {
+        [self setpictureFrame:CGRectMake(10*SCREEN_RADIO, CGRectGetMaxY(self.contentLabel.frame), screen_width-20*SCREEN_RADIO, 284*SCREEN_RADIO) withTag:0 withUrl:self.myIndexModel.pictureBigs[0]];
+    }else if(self.myIndexModel.pictures.count==2){
+        for (int i=0; i<self.myIndexModel.pictures.count; i++) {
+            // 计算位置
+            [self setpictureFrame:CGRectMake(10*SCREEN_RADIO+i*(screen_width-25*SCREEN_RADIO)/2+i*5, CGRectGetMaxY(self.contentLabel.frame), (screen_width-25*SCREEN_RADIO)/2, 284*SCREEN_RADIO) withTag:i withUrl:self.myIndexModel.pictureBigs[i]];
+        }
         
-        // 计算位置
-        int row = i/3;
-        int column = i%3;
-        CGFloat x = startX + column * (width + margin);
-        CGFloat y = startY + row * (height + margin);
-        imageView.frame = CGRectMake(x, y, width, height);
-        
-        // 下载图片
-        [imageView setImageURLStr:self.myIndexModel.pictures[i] placeholder:placeholder];
-        
-        // 事件监听
-        imageView.tag = i;
-        imageView.userInteractionEnabled = YES;
-        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)]];
-        
-        // 内容模式
-        imageView.clipsToBounds = YES;
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        
-        [self.imgViewArr addObject:imageView];
-        total_height=CGRectGetMaxY(imageView.frame);
+    }else if (self.myIndexModel.pictures.count==4){
+        for (int i=0; i<self.myIndexModel.pictures.count; i++) {
+            // 计算位置
+            CGFloat _startX=10*SCREEN_RADIO+i*(screen_width-25*SCREEN_RADIO)/2+i*5*SCREEN_RADIO;
+            CGFloat _startY=CGRectGetMaxY(self.contentLabel.frame)+(284/2)*SCREEN_RADIO;
+            if (i==2) {
+                _startX=10*SCREEN_RADIO;
+                _startY = CGRectGetMaxY(self.contentLabel.frame)+(284/2)*SCREEN_RADIO;
+            }else if(i==3){
+                _startX = 10*SCREEN_RADIO+1*(screen_width-25*SCREEN_RADIO)/2+1*5*SCREEN_RADIO;
+                _startY = CGRectGetMaxY(self.contentLabel.frame)+(284/2)*SCREEN_RADIO;
+            }else{
+                _startY=CGRectGetMaxY(self.contentLabel.frame);
+            }
+            
+            
+            [self setpictureFrame:CGRectMake(_startX, _startY, (screen_width-25*SCREEN_RADIO)/2, (284/2-6)*SCREEN_RADIO) withTag:i withUrl:self.myIndexModel.pictures[i]];
+        }
     }
-
+    else{
+        for (int i = 0; i<self.myIndexModel.pictures.count; i++) {
+            // 计算位置
+            int row = i/3;
+            int column = i%3;
+            CGFloat x = startX + column * (width + margin);
+            CGFloat y = startY + row * (height + margin);
+            [self setpictureFrame:CGRectMake(x, y, width, height) withTag:i withUrl:self.myIndexModel.pictures[i]];
+        }
+    }
 }
 
 
@@ -192,9 +227,12 @@
 
 -(UIImageView *)iconImageView{
     if (!_iconImageView) {
-        _iconImageView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
+        _iconImageView=[[UIImageView alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO, 12*SCREEN_RADIO, 32*SCREEN_RADIO, 32*SCREEN_RADIO)];
         [_iconImageView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.icon]];
-        _iconImageView.layer.cornerRadius = 19*SCREEN_RADIO;
+        _iconImageView.layer.cornerRadius = 16*SCREEN_RADIO;
+        _iconImageView.layer.borderColor=[UIColor getColor:@"DCDCDC"].CGColor;
+        _iconImageView.layer.borderWidth=1;
+        _iconImageView.clipsToBounds=YES;
     }
     
     return _iconImageView;
@@ -202,10 +240,10 @@
 
 -(UILabel *)nickNameLabel{
     if (!_nickNameLabel) {
-        _nickNameLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame)+15*SCREEN_RADIO, 23*SCREEN_RADIO, 200*SCREEN_RADIO, 27*SCREEN_RADIO)];
+        _nickNameLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame)+10*SCREEN_RADIO, 13*SCREEN_RADIO, 200*SCREEN_RADIO, 15*SCREEN_RADIO)];
         _nickNameLabel.text=self.myIndexModel.nickName;
-        _nickNameLabel.textColor=[UIColor getColor:@"232627"];
-        _nickNameLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        _nickNameLabel.textColor=[UIColor getColor:@"000000"];
+        _nickNameLabel.font=[UIFont boldSystemFontOfSize:13*SCREEN_RADIO];
     }
     
     return _nickNameLabel;
@@ -213,10 +251,10 @@
 
 -(UILabel *)timeDateLabel{
     if (!_timeDateLabel) {
-        _timeDateLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame)+15*SCREEN_RADIO, CGRectGetMaxY(self.nickNameLabel.frame)+2*SCREEN_RADIO, 200*SCREEN_RADIO, 18*SCREEN_RADIO)];
-        _timeDateLabel.text=self.myIndexModel.timeDate;
+        _timeDateLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame)+10*SCREEN_RADIO, CGRectGetMaxY(self.nickNameLabel.frame)*SCREEN_RADIO, 200*SCREEN_RADIO, 15*SCREEN_RADIO)];
+        _timeDateLabel.text=@"China.BeiJing";
         _timeDateLabel.textColor=[UIColor getColor:@"7C858A"];
-        _timeDateLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
+        _timeDateLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
     }
     
     return _timeDateLabel;
@@ -225,12 +263,12 @@
 -(UITextView *)contentLabel{
     if (!_contentLabel) {
         CGSize constraint = CGSizeMake(screen_width-30*SCREEN_RADIO, 99999.0f);
-        CGSize size = [self.myIndexModel.content sizeWithFont:[UIFont systemFontOfSize:17.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize size = [self.myIndexModel.content sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         
-        _contentLabel=[[UITextView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, CGRectGetMaxY(self.timeDateLabel.frame), screen_width-30*SCREEN_RADIO, size.height+15*SCREEN_RADIO)];
+        _contentLabel=[[UITextView alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO, CGRectGetMaxY(self.timeDateLabel.frame), screen_width-30*SCREEN_RADIO, size.height+15*SCREEN_RADIO)];
         _contentLabel.text=self.myIndexModel.content;
-        _contentLabel.textColor=[UIColor getColor:@"575E62"];
-        _contentLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
+        _contentLabel.textColor=[UIColor getColor:@"000000"];
+        _contentLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         [_contentLabel setEditable:NO];
         _contentLabel.userInteractionEnabled=NO;
        // [_contentLabel sizeToFit];
