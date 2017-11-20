@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WSCollectionHeaderCell : UICollectionViewCell
-
+@interface WSCollectionHeaderCell : UITableViewCell
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 @end

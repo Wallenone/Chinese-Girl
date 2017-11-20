@@ -1,46 +1,42 @@
 //
-//  WSCollectionCell.m
-//  瀑布流
+//  XLVideoCell.m
+//  XLVideoPlayer
 //
-//  Created by iMac on 16/12/26.
-//  Copyright © 2016年 zws. All rights reserved.
-//
+//  Created by Shelin on 16/3/22.
+//  Copyright © 2016年 GreatGate. All rights reserved.
+//  https://github.com/ShelinShelin
 
-#import "WSCollectionCell.h"
+#import "XLVideoCell.h"
 #import "UIImageView+WebCache.h"
-#import "WMPlayer.h"
-#import "CGVideoFullView.h"
-#import "MyIndexViewController.h"
 
-@interface WSCollectionCell()<WMPlayerDelegate>{
-
-}
-@property(nonatomic,strong)CGIndexModel *model;
+@interface XLVideoCell ()
+@property (strong, nonatomic)CGIndexModel *model;
+@property(nonatomic,strong)UIImage *timgage;
 @property(nonatomic,strong)UIView *menuView;
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *location;
 @property(nonatomic,strong)UILabel *content;
-@property(nonatomic,strong)UIImageView *imgV;
+@property(nonatomic,strong)UIImageView *playView;
 @end
+@implementation XLVideoCell
 
-@implementation WSCollectionCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGIndexModel *)commitModel{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGIndexModel *)tmodel withImg:(UIImage *)img{
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.backgroundColor=[UIColor getColor:@"EBEBEB"];
-        self.model=commitModel;
+        self.selectionStyle=UITableViewCellSelectionStyleNone;
+        self.model=tmodel;
+        self.timgage=img;
         [self creatSubView];
     }
     
     return self;
 }
 
--(void)iconClick{
-    MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-    indexVC.ids=[self.model.ids integerValue];
-    [[self getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+-(void)hiddenPlayView:(BOOL)state{
+    self.videoImageView.hidden=state;
+    self.playView.hidden=state;
 }
 
 -(UIView *)menuView{
@@ -98,15 +94,26 @@
     return _content;
 }
 
--(UIImageView *)imgV{
-    if (!_imgV) {
-        _imgV=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), screen_width, 284*SCREEN_RADIO)];
-        _imgV.contentMode =  UIViewContentModeScaleAspectFill;
-        _imgV.clipsToBounds=YES;
-        [_imgV sd_setImageWithURL:[NSURL URLWithString:self.model.bigIcon]];
+-(UIImageView *)playView{
+    if (!_playView) {
+        _playView=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width/2, 200, 50, 50)];
+        _playView.image=[UIImage imageNamed:@"ImageResources.bundle/play"];
     }
     
-    return _imgV;
+    return _playView;
+}
+
+
+
+-(UIImageView *)videoImageView{
+    if (!_videoImageView) {
+        _videoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), screen_width, 284*SCREEN_RADIO)];
+        _videoImageView.contentMode =  UIViewContentModeScaleAspectFill;
+        _videoImageView.clipsToBounds=YES;
+        _videoImageView.image=self.timgage;
+    }
+    
+    return _videoImageView;
 }
 
 - (void)creatSubView {
@@ -115,49 +122,8 @@
     [self.menuView addSubview:self.nickName];
     [self.menuView addSubview:self.location];
     [self.menuView addSubview:self.content];
-    [self addSubview:self.imgV];
+    [self addSubview:self.videoImageView];
+    [self addSubview:self.playView];
 }
-
-
-//获取当前屏幕显示的viewcontroller
-- (UIViewController *)getCurrentVC
-{
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
-    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
-    
-    return currentVC;
-}
-
-- (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC
-{
-    UIViewController *currentVC;
-    
-    if ([rootVC presentedViewController]) {
-        // 视图是被presented出来的
-        
-        rootVC = [rootVC presentedViewController];
-    }
-    
-    if ([rootVC isKindOfClass:[UITabBarController class]]) {
-        // 根视图为UITabBarController
-        
-        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
-        
-    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
-        // 根视图为UINavigationController
-        
-        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
-        
-    } else {
-        // 根视图为非导航类
-        
-        currentVC = rootVC;
-    }
-    
-    return currentVC;
-}
-
-
 
 @end

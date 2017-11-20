@@ -40,6 +40,7 @@
     DragDownBlock dragDownBlock;
     AutoChangeCellHeightBlock autoChangeCellHeightBlock;
     Cellediting cellediting;
+    ScollViewDidBlock scollViewDidBlock;
 }
 //@synthesize customerViewName,columnNumber,reFreshPage;
 //@synthesize leftMargin,apartMargin,cellWidth;
@@ -287,8 +288,15 @@
     }
 }
 
+-(void)onScrollDid:(ScollViewDidBlock)block{
+    scollViewDidBlock=block;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.onTableViewDidScroll ? self.onTableViewDidScroll(self, scrollView.contentOffset) : nil;
+    if (scollViewDidBlock) {
+        scollViewDidBlock(scrollView);
+    }
 }
 
 - (void)noMoreData{

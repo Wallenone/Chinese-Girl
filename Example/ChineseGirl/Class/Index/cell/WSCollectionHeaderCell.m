@@ -14,15 +14,15 @@
 @property(nonatomic,strong)NSMutableArray *indexMendArr;
 @end
 @implementation WSCollectionHeaderCell
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor getColor:@"fafafa"];
         [self getData];
         [self addSubViews];
         [self setScrollViewPoint];
     }
+    
     return self;
 }
 

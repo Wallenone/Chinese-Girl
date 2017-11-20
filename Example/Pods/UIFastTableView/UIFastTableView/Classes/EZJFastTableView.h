@@ -19,6 +19,7 @@ typedef void (^DragDownBlock)();
 typedef CGFloat (^AutoChangeCellHeightBlock)(id,id);
 typedef NSArray*(^TitleForHeaderInSection)(void);
 typedef void (^Cellediting)(NSIndexPath *,id);
+typedef void (^ScollViewDidBlock)(UIScrollView *);
 @interface EZJFastTableView : UITableView<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) void(^onTableViewDidScroll)(EZJFastTableView *tableView, CGPoint contentOffset);
@@ -97,6 +98,9 @@ typedef void (^Cellediting)(NSIndexPath *,id);
 
 //滚动到底部
 - (void)scrollToBottom:(BOOL)animated;
+
+//滑动回调
+-(void)onScrollDid:(ScollViewDidBlock)block;
 
 - (void)noMoreData;
 @end

@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 #import "CGIndexModel.h"
-
-
-@interface WSCollectionCell : UICollectionViewCell
-@property (strong, nonatomic)UICollectionView *collectionView;
-@property(nonatomic,strong)CGIndexModel *model;
+@interface WSCollectionCell : UITableViewCell
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGIndexModel *)commitModel;
 @end

@@ -8,6 +8,7 @@
 
 #import "CGIndexModel.h"
 #import "CGUserInfo.h"
+#import <AVFoundation/AVFoundation.h>
 @implementation CGIndexModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGIndexModel *model = [[CGIndexModel alloc]init];
@@ -18,7 +19,15 @@
     model.birthday =[CGUserInfo getitemWithID:model.ids].birthday;
     model.toContent =[NSString stringWithFormat:@"%@个月后去%@",model.month,[CGSingleCommitData sharedInstance].cityName];
     model.address =[CGUserInfo getitemWithID:model.ids].address;
-    model.bigIcon = [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.ids,@"/Enclosure/",[self filterNullString:[dic stringForKey:@"bigIcon"]]];
+    model.type = [self filterNullString:[dic stringForKey:@"type"]];
+    
+    if ([model.type integerValue]==1) {
+        model.bigIcon = [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.ids,@"/Enclosure/",[self filterNullString:[dic stringForKey:@"bigIcon"]]];
+        model.videoPic=[UIImage imageNamed:@""];
+    }else if ([model.type integerValue]==2){
+        model.bigIcon = [self filterNullString:[dic stringForKey:@"bigIcon"]];
+        model.videoPic=[self thumbnailImageForVideo:[NSURL URLWithString:model.bigIcon] atTime:2.0];
+    }
     return model;
 }
 
@@ -56,4 +65,27 @@
     }
     return filterStr;
 }
+
++ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
+    
+    if(!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
+    
+    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
+}
+
+
 @end

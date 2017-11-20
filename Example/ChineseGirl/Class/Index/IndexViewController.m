@@ -9,18 +9,27 @@
 #import "IndexViewController.h"
 #import "BHInfiniteScrollView.h"
 #import "EZJFastTableView.h"
-#import "IndexCollectionView.h"
 #import "MyIndexViewController.h"
 #import "CGFriendsAddViewController.h"
-@interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate>
+#import "EZJFastTableView.h"
+#import "WSCollectionHeaderCell.h"
+#import "CGIndexModel.h"
+#import "WSCollectionCell.h"
+#import "XLVideoCell.h"
+#import "XLVideoPlayer.h"
+#import <AVFoundation/AVFoundation.h>
+@interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate,UIScrollViewDelegate>{
+    NSIndexPath *_indexPath;
+    
+}
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *rightIcon;
 @property(nonatomic,strong)UIImageView *titleImg;
 @property(nonatomic,strong)UIView *lineView;
 @property (nonatomic, strong)UIView* infinitePageView;
 @property (nonatomic, strong)UIImageView *infiniteImgView;
-@property (nonatomic, strong)IndexCollectionView *indexCollectionView;
-@property (nonatomic, strong)UIScrollView *verScrollview;
+@property(nonatomic,strong)EZJFastTableView *tbv;
+@property(nonatomic,strong)XLVideoPlayer *player;
 @end
 
 @implementation IndexViewController
@@ -33,13 +42,22 @@
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.player destroyPlayer];
+    self.player = nil;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
-    [self addSubViews];
+
     [self setHeaderView];
-    [self setTableView];
+    [self addSubViews];
+    
 }
 
 -(void)setHeaderView{
@@ -57,17 +75,9 @@
 }
 
 -(void)addSubViews{
-    [self.view addSubview:self.indexCollectionView];
+    [self.view addSubview:self.tbv];
 }
 
--(void)setTableView{
-    self.indexCollectionView=[[IndexCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame), self.view.frame.size.width, self.view.frame.size.height) onCellSelected:^(NSIndexPath  *indexPath) {
-            MyIndexViewController *index=[[MyIndexViewController alloc] init];
-            index.ids=indexPath.row;
-            [self.navigationController pushViewController:index animated:NO];
-    }];
-    [self.view addSubview:self.indexCollectionView];
-}
 
 
 - (void)didReceiveMemoryWarning {
@@ -117,12 +127,125 @@
     return _lineView;
 }
 
+-(void)getCollectionData:(NSInteger)page{
+    NSMutableArray *array = [CGIndexModel reloadTableWithRangeFrom:page*10 rangeTLenth:10];
+    if (array.count>0) {
+        [self.tbv addContentData:array];
+    }else{
+        [self.tbv noMoreData];
+    }
+}
 
--(UIScrollView *)verScrollview{
-    if (!_verScrollview) {
-        _verScrollview=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
+-(EZJFastTableView *)tbv{
+    if (!_tbv) {
+        
+        __weak typeof(self) weakSelf = self;
+        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO, self.view.frame.size.width, screen_height-104*SCREEN_RADIO);
+        //初始化
+        
+        _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
+        _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _tbv.backgroundColor=[UIColor getColor:@"EEEEEE"];
+        //给tableview赋值
+        NSMutableArray *newArr=[CGIndexModel reloadTableWithRangeFrom:0 rangeTLenth:10];
+        [newArr insertObject:@"headerView" atIndex:0];
+        [_tbv setDataArray:newArr];
+        
+        [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
+            UITableViewCell *inCell;
+            if (index.row==0) {
+                WSCollectionHeaderCell *cell = [[WSCollectionHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+                
+                return (UITableViewCell *)cell;
+            }else{
+                CGIndexModel *indexModel=(CGIndexModel *)cellData;
+                if ([indexModel.type integerValue]==1) {
+                    WSCollectionCell *cell = [[WSCollectionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:indexModel];
+                    return (UITableViewCell *)cell;
+                }else if ([indexModel.type integerValue]==2){
+                    XLVideoCell *cell = [[XLVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:indexModel withImg:indexModel.videoPic];
+                    return (UITableViewCell *)cell;
+                }
+            }
+            
+            
+            return (UITableViewCell *)inCell;
+            
+            
+            
+        }];
+        
+        //动态改变
+        
+        [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
+            CGFloat newHeigth = 340*SCREEN_RADIO;
+            if (indexPath.row==0) {
+                newHeigth=104*SCREEN_RADIO;
+            }
+            
+            return newHeigth;
+        }];
+        
+        
+        
+            //允许上行滑动
+            [_tbv onDragUp:^(int page) {
+                [weakSelf getCollectionData:page];
+            }];
+        
+            //允许下行滑动刷新
+//            [_tbv onDragDown:^{
+//                [weakSelf getCollectionData];
+//            }];
+        
+        
+        //设置选中事件 block设置方式
+        //indexPath  是当前行对象 indexPath.row(获取行数)
+        //cellData 是当前行的数据
+        
+        [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
+            NSLog(@"click");
+            if (indexPath.row!=0) {
+                CGIndexModel *indexModel=(CGIndexModel *)cellData;
+                if ([indexModel.type integerValue]==2) {
+                    [self showVideoPlayer:indexPath withcellData:cellData];
+                }
+            }
+        }];
+        
+        [_tbv onScrollDid:^(UIScrollView *scrollView) {
+            if ([scrollView isEqual:self.tbv]) {
+                [weakSelf.player playerScrollIsSupportSmallWindowPlay:NO];
+            }
+        }];
+        
     }
     
-    return _verScrollview;
+    return _tbv;
 }
+
+- (void)showVideoPlayer:(NSIndexPath *)index withcellData:(CGIndexModel *)cellData{
+    [_player destroyPlayer];
+    _player = nil;
+   
+    _indexPath = index;
+    XLVideoCell *cell = [self.tbv cellForRowAtIndexPath:_indexPath];
+    [cell hiddenPlayView:YES];
+    _player = [[XLVideoPlayer alloc] init];
+    _player.videoUrl = cellData.bigIcon;
+    [_player playerBindTableView:self.tbv currentIndexPath:_indexPath];
+    _player.frame =CGRectMake(0, 56*SCREEN_RADIO, screen_width, 284*SCREEN_RADIO);
+    
+    [cell.contentView addSubview:_player];
+    
+    _player.completedPlayingBlock = ^(XLVideoPlayer *player) {
+        [cell hiddenPlayView:NO];
+        [player destroyPlayer];
+        _player = nil;
+    };
+}
+
+
+
+
 @end
