@@ -11,17 +11,19 @@
 #import "WMPlayer.h"
 #import "CGVideoFullView.h"
 #import "MyIndexViewController.h"
-
+#import "MJPhoto.h"
+#import "MJPhotoBrowser.h"
 @interface WSCollectionCell()<WMPlayerDelegate>{
 
 }
 @property(nonatomic,strong)CGIndexModel *model;
 @property(nonatomic,strong)UIView *menuView;
 @property(nonatomic,strong)UIImageView *iconImgView;
+@property(nonatomic,strong)UIButton *iconBtn;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *location;
 @property(nonatomic,strong)UILabel *content;
-@property(nonatomic,strong)UIImageView *imgV;
+@property(nonatomic,strong)NSMutableArray *imgViewArr;
 @end
 
 @implementation WSCollectionCell
@@ -29,13 +31,15 @@
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle=UITableViewCellSelectionStyleNone;
-        self.backgroundColor=[UIColor getColor:@"EBEBEB"];
+        self.backgroundColor=[UIColor getColor:@"ffffff"];
         self.model=commitModel;
         [self creatSubView];
     }
     
     return self;
 }
+
+
 
 -(void)iconClick{
     MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
@@ -62,6 +66,16 @@
     }
     
     return _iconImgView;
+}
+
+
+-(UIButton *)iconBtn{
+    if (!_iconBtn) {
+        _iconBtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70*SCREEN_RADIO, 56*SCREEN_RADIO)];
+        [_iconBtn addTarget:self action:@selector(iconClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _iconBtn;
 }
 
 -(UILabel *)nickName{
@@ -98,24 +112,113 @@
     return _content;
 }
 
--(UIImageView *)imgV{
-    if (!_imgV) {
-        _imgV=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), screen_width, 284*SCREEN_RADIO)];
-        _imgV.contentMode =  UIViewContentModeScaleAspectFill;
-        _imgV.clipsToBounds=YES;
-        [_imgV sd_setImageWithURL:[NSURL URLWithString:self.model.bigIcon]];
-    }
-    
-    return _imgV;
-}
-
 - (void)creatSubView {
     [self addSubview:self.menuView];
     [self.menuView addSubview:self.iconImgView];
+    [self.menuView addSubview:self.iconBtn];
     [self.menuView addSubview:self.nickName];
     [self.menuView addSubview:self.location];
     [self.menuView addSubview:self.content];
-    [self addSubview:self.imgV];
+    [self setImgBrower];
+}
+
+-(void)setImgBrower{
+    CGFloat width = (screen_width-42*SCREEN_RADIO)/3;
+    CGFloat height = (screen_width-42*SCREEN_RADIO)/3;
+    CGFloat margin = 6*SCREEN_RADIO;
+    CGFloat startX = 15 *SCREEN_RADIO;
+    CGFloat startY =CGRectGetMaxY(self.menuView.frame);
+
+    
+    if (self.model.pictureBigs.count==1) {
+        [self setpictureFrame:CGRectMake(10*SCREEN_RADIO, CGRectGetMaxY(self.menuView.frame), screen_width-20*SCREEN_RADIO, 284*SCREEN_RADIO) withTag:0 withUrl:self.model.pictureBigs[0]];
+    }else if(self.model.pictureBigs.count==2){
+        for (int i=0; i<self.model.pictureBigs.count; i++) {
+            // 计算位置
+            [self setpictureFrame:CGRectMake(10*SCREEN_RADIO+i*(screen_width-25*SCREEN_RADIO)/2+i*5, CGRectGetMaxY(self.menuView.frame), (screen_width-25*SCREEN_RADIO)/2, 284*SCREEN_RADIO) withTag:i withUrl:self.model.pictureBigs[i]];
+        }
+        
+    }else if (self.model.pictureBigs.count==4){
+        for (int i=0; i<self.model.pictureBigs.count; i++) {
+            // 计算位置
+            CGFloat _startX=10*SCREEN_RADIO+i*(screen_width-25*SCREEN_RADIO)/2+i*5*SCREEN_RADIO;
+            CGFloat _startY=CGRectGetMaxY(self.menuView.frame)+(284/2)*SCREEN_RADIO;
+            if (i==2) {
+                _startX=10*SCREEN_RADIO;
+                _startY = CGRectGetMaxY(self.menuView.frame)+(284/2)*SCREEN_RADIO;
+            }else if(i==3){
+                _startX = 10*SCREEN_RADIO+1*(screen_width-25*SCREEN_RADIO)/2+1*5*SCREEN_RADIO;
+                _startY = CGRectGetMaxY(self.menuView.frame)+(284/2)*SCREEN_RADIO;
+            }else{
+                _startY=CGRectGetMaxY(self.menuView.frame);
+            }
+            
+            
+            [self setpictureFrame:CGRectMake(_startX, _startY, (screen_width-25*SCREEN_RADIO)/2, (284/2-6)*SCREEN_RADIO) withTag:i withUrl:self.model.pictureBigs[i]];
+        }
+    }
+    else{
+        for (int i = 0; i<self.model.pictureBigs.count; i++) {
+            // 计算位置
+            int row = i/3;
+            int column = i%3;
+            CGFloat x = startX + column * (width + margin);
+            CGFloat y = startY + row * (height + margin);
+            [self setpictureFrame:CGRectMake(x, y, width, height) withTag:i withUrl:self.model.pictureBigs[i]];
+        }
+    }
+}
+
+
+-(void)setpictureFrame:(CGRect)imgViewFrame withTag:(NSInteger)_tag withUrl:(NSString *)_url{
+    UIImage *placeholder = [UIImage imageNamed:@"timeline_image_loading.png"];
+    UIImageView *imageView = [[UIImageView alloc] init];
+    [self addSubview:imageView];
+    
+    imageView.frame = imgViewFrame;
+    
+    // 下载图片
+    [imageView setImageURLStr:_url placeholder:placeholder];
+    
+    // 事件监听
+    imageView.tag = _tag;
+    imageView.userInteractionEnabled = YES;
+    [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)]];
+    
+    // 内容模式
+    imageView.clipsToBounds = YES;
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    [self.imgViewArr addObject:imageView];
+}
+
+- (void)tapImage:(UITapGestureRecognizer *)tap
+{
+    NSUInteger count = self.model.pictureBigs.count;
+    // 1.封装图片数据
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i<count; i++) {
+        // 替换为中等尺寸图片
+        NSString *url = self.model.pictureBigs[i];
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.url = [NSURL URLWithString:url]; // 图片路径
+        photo.srcImageView = self.imgViewArr[i]; // 来源于哪个UIImageView
+        [photos addObject:photo];
+    }
+    
+    // 2.显示相册
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = tap.view.tag; // 弹出相册时显示的第一张图片是？
+    browser.photos = photos; // 设置所有的图片
+    [browser show];
+}
+
+-(NSMutableArray *)imgViewArr{
+    if (!_imgViewArr) {
+        _imgViewArr=[NSMutableArray new];
+    }
+    
+    return _imgViewArr;
 }
 
 

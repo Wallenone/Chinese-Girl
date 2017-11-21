@@ -8,12 +8,13 @@
 
 #import "XLVideoCell.h"
 #import "UIImageView+WebCache.h"
-
+#import "MyIndexViewController.h"
 @interface XLVideoCell ()
 @property (strong, nonatomic)CGIndexModel *model;
 @property(nonatomic,strong)UIImage *timgage;
 @property(nonatomic,strong)UIView *menuView;
 @property(nonatomic,strong)UIImageView *iconImgView;
+@property(nonatomic,strong)UIButton *iconBtn;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *location;
 @property(nonatomic,strong)UILabel *content;
@@ -39,6 +40,12 @@
     self.playView.hidden=state;
 }
 
+-(void)iconClick{
+    MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
+    indexVC.ids=[self.model.ids integerValue];
+    [[self getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+}
+
 -(UIView *)menuView{
     if (!_menuView) {
         _menuView=[[UIView alloc] initWithFrame:CGRectMake(0, 0.5, screen_width, 56*SCREEN_RADIO)];
@@ -58,6 +65,15 @@
     }
     
     return _iconImgView;
+}
+
+-(UIButton *)iconBtn{
+    if (!_iconBtn) {
+        _iconBtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70*SCREEN_RADIO, 56*SCREEN_RADIO)];
+        [_iconBtn addTarget:self action:@selector(iconClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _iconBtn;
 }
 
 -(UILabel *)nickName{
@@ -119,11 +135,52 @@
 - (void)creatSubView {
     [self addSubview:self.menuView];
     [self.menuView addSubview:self.iconImgView];
+    [self.menuView addSubview:self.iconBtn];
     [self.menuView addSubview:self.nickName];
     [self.menuView addSubview:self.location];
     [self.menuView addSubview:self.content];
     [self addSubview:self.videoImageView];
     [self addSubview:self.playView];
 }
+
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC
+{
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
+    
+    return currentVC;
+}
+
+- (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC
+{
+    UIViewController *currentVC;
+    
+    if ([rootVC presentedViewController]) {
+        // 视图是被presented出来的
+        
+        rootVC = [rootVC presentedViewController];
+    }
+    
+    if ([rootVC isKindOfClass:[UITabBarController class]]) {
+        // 根视图为UITabBarController
+        
+        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
+        
+    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
+        // 根视图为UINavigationController
+        
+        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
+        
+    } else {
+        // 根视图为非导航类
+        
+        currentVC = rootVC;
+    }
+    
+    return currentVC;
+}
+
 
 @end

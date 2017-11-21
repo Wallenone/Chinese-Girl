@@ -17,7 +17,10 @@ static CGFloat const opacity = 0.7f;
 static CGFloat const bottomBaHeight = 40.0f;
 static CGFloat const playBtnSideLength = 60.0f;
 
-@interface XLVideoPlayer ()
+@interface XLVideoPlayer (){
+    VideoPauseBlock videoPauseBlock;
+    VideoPlayingBlock videoPlayingBlock;
+}
 
 /**videoPlayer superView*/
 @property (nonatomic, strong) UIView *playSuprView;
@@ -54,13 +57,15 @@ static CGFloat const playBtnSideLength = 60.0f;
 
 #pragma mark - public method
 
-- (instancetype)init {
-    if (self = [super init]) {
-        
+- (instancetype)initWithFrame:(CGRect)frame withVideoPauseBlock:(VideoPauseBlock)pauseBlock withPlayBlock:(VideoPlayingBlock)playBlock;
+
+{
+    self = [super initWithFrame:frame];
+    if (self) {
         self.backgroundColor = [UIColor blackColor];
         
         self.keyWindow = [UIApplication sharedApplication].keyWindow;
-
+        
         //screen orientation change
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarOrientationChange:) name:UIDeviceOrientationDidChangeNotification object:[UIDevice currentDevice]];
@@ -74,8 +79,9 @@ static CGFloat const playBtnSideLength = 60.0f;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
-        
         self.barHiden = YES;
+        videoPauseBlock=pauseBlock;
+        videoPlayingBlock=playBlock;
     }
     return self;
 }
@@ -286,9 +292,15 @@ static CGFloat const playBtnSideLength = 60.0f;
     if(self.player.rate == 0.0){      //pause
         btn.selected = YES;
         [self.player play];
+        if (videoPauseBlock) {
+            videoPauseBlock();
+        }
     }else if(self.player.rate == 1.0f){    //playing
         [self.player pause];
         btn.selected = NO;
+        if (videoPlayingBlock) {
+            videoPlayingBlock();
+        }
     }
 }
 

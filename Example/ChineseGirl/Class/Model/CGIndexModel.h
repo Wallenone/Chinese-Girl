@@ -18,6 +18,7 @@
 @property(nonatomic,copy)NSString *toContent;  //打算几个月去哪个国家
 @property(nonatomic,copy)NSString *address;
 @property(nonatomic,copy)NSString *type;
+@property(nonatomic,strong)NSArray *pictureBigs;
 @property(nonatomic,copy)UIImage *videoPic;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;

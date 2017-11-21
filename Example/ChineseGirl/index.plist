@@ -16,7 +16,7 @@
 		<key>id</key>
 		<string>2</string>
 		<key>bigIcon</key>
-		<string>B1.jpg</string>
+		<string>S1.jpg/S2.jpg/S3.jpg</string>
 		<key>month</key>
 		<string>2</string>
 		<key>type</key>
@@ -36,7 +36,7 @@
 		<key>id</key>
 		<string>4</string>
 		<key>bigIcon</key>
-		<string>B1.jpg</string>
+		<string>S1.jpg/S2.jpg</string>
 		<key>month</key>
 		<string>1</string>
 		<key>type</key>
@@ -56,7 +56,7 @@
 		<key>id</key>
 		<string>6</string>
 		<key>bigIcon</key>
-		<string>B1.jpg</string>
+		<string>S1.jpg</string>
 		<key>month</key>
 		<string>2</string>
 		<key>type</key>
@@ -66,7 +66,7 @@
 		<key>id</key>
 		<string>7</string>
 		<key>bigIcon</key>
-		<string>B1.jpg</string>
+		<string>S1.jpg/S2.jpg/S3.jpg/S4.jpg</string>
 		<key>month</key>
 		<string>1</string>
 		<key>type</key>
@@ -76,7 +76,7 @@
 		<key>id</key>
 		<string>8</string>
 		<key>bigIcon</key>
-		<string>B1.jpg</string>
+		<string>S1.jpg/S2.jpg/S3.jpg/S4.jpg/S5.jpg</string>
 		<key>month</key>
 		<string>3</string>
 		<key>type</key>
@@ -86,7 +86,7 @@
 		<key>id</key>
 		<string>9</string>
 		<key>bigIcon</key>
-		<string>B1.jpg</string>
+		<string>S1.jpg/S2.jpg/S3.jpg/S4.jpg/S6.jpg</string>
 		<key>month</key>
 		<string>2</string>
 		<key>type</key>

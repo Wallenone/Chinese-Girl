@@ -11,21 +11,21 @@
 @class XLVideoPlayer;
 
 typedef void (^VideoCompletedPlayingBlock) (XLVideoPlayer *videoPlayer);
-
+typedef void (^VideoPauseBlock) (void);
+typedef void (^VideoPlayingBlock) (void);
 @interface XLVideoPlayer : UIView
 
 @property (nonatomic, copy) VideoCompletedPlayingBlock completedPlayingBlock;
-
 /**
  *  video url 视频路径
  */
 @property (nonatomic, strong) NSString *videoUrl;
 
+- (instancetype)initWithFrame:(CGRect)frame withVideoPauseBlock:(VideoPauseBlock)pauseBlock withPlayBlock:(VideoPlayingBlock)playBlock;
 /**
  *  play or pause
  */
 - (void)playPause;
-
 /**
  *  dealloc 销毁
  */

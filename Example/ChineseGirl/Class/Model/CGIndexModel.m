@@ -22,11 +22,12 @@
     model.type = [self filterNullString:[dic stringForKey:@"type"]];
     
     if ([model.type integerValue]==1) {
-        model.bigIcon = [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.ids,@"/Enclosure/",[self filterNullString:[dic stringForKey:@"bigIcon"]]];
+        model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"bigIcon"]] withId:model.ids];
         model.videoPic=[UIImage imageNamed:@""];
     }else if ([model.type integerValue]==2){
         model.bigIcon = [self filterNullString:[dic stringForKey:@"bigIcon"]];
         model.videoPic=[self thumbnailImageForVideo:[NSURL URLWithString:model.bigIcon] atTime:2.0];
+        model.pictureBigs=@[];
     }
     return model;
 }
@@ -64,6 +65,18 @@
         filterStr=@"";
     }
     return filterStr;
+}
+
++(NSArray *)getBigFromString:(NSString *)string withId:(NSString *)ids{
+    NSArray *array = [string componentsSeparatedByString:@"/"];
+    NSMutableArray *newArr=[NSMutableArray new];
+    for (NSString *icon in array) {
+        NSArray *array1 = [icon componentsSeparatedByString:@"."];
+        NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+        [newArr addObject:newIcon];
+    }
+    return newArr;
 }
 
 + (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {

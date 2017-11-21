@@ -81,6 +81,7 @@
 		E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568260F1F9E275A0099F363 /* MineProfileInfoViewController.m */; };
 		E56826131F9E31130099F363 /* MineAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56826121F9E31130099F363 /* MineAccountViewController.m */; };
 		E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56826151F9E32600099F363 /* MinePasswordViewController.m */; };
+		E5795BD71FC472A800DB393B /* CGVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5795BD61FC472A800DB393B /* CGVideoViewController.m */; };
 		E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D53D1F66987A00FD9A28 /* ShapedImageView.m */; };
 		E58BB88E1FC1A0F800127B45 /* userInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58BB88D1FC1A0F800127B45 /* userInfo.plist */; };
 		E58F28831FC304C900DFAB8E /* index.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58F28821FC304C900DFAB8E /* index.plist */; };
@@ -306,6 +307,8 @@
 		E56826121F9E31130099F363 /* MineAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineAccountViewController.m; sourceTree = "<group>"; };
 		E56826141F9E32600099F363 /* MinePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePasswordViewController.h; sourceTree = "<group>"; };
 		E56826151F9E32600099F363 /* MinePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePasswordViewController.m; sourceTree = "<group>"; };
+		E5795BD51FC472A800DB393B /* CGVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVideoViewController.h; sourceTree = "<group>"; };
+		E5795BD61FC472A800DB393B /* CGVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVideoViewController.m; sourceTree = "<group>"; };
 		E581D53C1F66987A00FD9A28 /* ShapedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapedImageView.h; sourceTree = "<group>"; };
 		E581D53D1F66987A00FD9A28 /* ShapedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapedImageView.m; sourceTree = "<group>"; };
 		E58BB88D1FC1A0F800127B45 /* userInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userInfo.plist; sourceTree = "<group>"; };
@@ -705,6 +708,8 @@
 				E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */,
 				E53503AF1F9C721900E1D8C5 /* MyCommitSViewController.h */,
 				E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */,
+				E5795BD51FC472A800DB393B /* CGVideoViewController.h */,
+				E5795BD61FC472A800DB393B /* CGVideoViewController.m */,
 				E538D7531F429BE80079AE94 /* cell */,
 				E538D7581F429BE80079AE94 /* Model */,
 				E538D75B1F429BE80079AE94 /* View */,
@@ -1304,6 +1309,7 @@
 				E538D7671F429BE80079AE94 /* WSCollectionCell.m in Sources */,
 				E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */,
 				E58F28941FC30EAF00DFAB8E /* XLSlider.m in Sources */,
+				E5795BD71FC472A800DB393B /* CGVideoViewController.m in Sources */,
 				E538D7681F429BE80079AE94 /* IndexViewController.m in Sources */,
 				E53C9D651F55871F0069D663 /* NewsMessageController.m in Sources */,
 			);

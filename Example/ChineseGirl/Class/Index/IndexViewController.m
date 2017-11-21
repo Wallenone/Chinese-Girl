@@ -18,6 +18,7 @@
 #import "XLVideoCell.h"
 #import "XLVideoPlayer.h"
 #import <AVFoundation/AVFoundation.h>
+#import "CGVideoViewController.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate,UIScrollViewDelegate>{
     NSIndexPath *_indexPath;
     
@@ -136,6 +137,24 @@
     }
 }
 
+-(CGFloat)getCellHeightWithModel:(CGIndexModel*)model{
+    if([model.type integerValue]==1){
+        CGFloat _height=56*SCREEN_RADIO;
+        if (model.pictureBigs.count==1 || model.pictureBigs.count==2) {
+            _height+=284*SCREEN_RADIO;
+        }else if(model.pictureBigs.count==4){
+            _height+=284*SCREEN_RADIO-6*SCREEN_RADIO;
+        }else if(model.pictureBigs.count==3){
+            _height+=(screen_width-42*SCREEN_RADIO)/3;
+        }else if (model.pictureBigs.count==5 || model.pictureBigs.count==6){
+            _height+=((screen_width-42*SCREEN_RADIO)/3)*2+6*SCREEN_RADIO;
+        }
+        return _height;
+    }
+    
+    return 340*SCREEN_RADIO;
+}
+
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
         
@@ -178,12 +197,13 @@
         //动态改变
         
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
-            CGFloat newHeigth = 340*SCREEN_RADIO;
+            
             if (indexPath.row==0) {
-                newHeigth=104*SCREEN_RADIO;
+                 return 104*SCREEN_RADIO;
             }
             
-            return newHeigth;
+            CGFloat _height=[weakSelf getCellHeightWithModel:cellData];
+            return _height;
         }];
         
         
@@ -230,11 +250,25 @@
    
     _indexPath = index;
     XLVideoCell *cell = [self.tbv cellForRowAtIndexPath:_indexPath];
-    [cell hiddenPlayView:YES];
-    _player = [[XLVideoPlayer alloc] init];
+   // [cell hiddenPlayView:YES];
+    
+
+//    //2.将indexPath添加到数组
+//    NSArray <NSIndexPath *> *indexPathArray = @[index];
+//    //3.传入数组，对当前cell进行刷新
+//    [self.tbv reloadRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    
+    __weak typeof(self) weakSelf = self;
+    _player = [[XLVideoPlayer alloc] initWithFrame:CGRectMake(0, 56*SCREEN_RADIO, screen_width, 284*SCREEN_RADIO) withVideoPauseBlock:^{
+        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+        videoVC.videoStr=cellData.bigIcon;
+        [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
+    } withPlayBlock:^{
+        
+    }];
     _player.videoUrl = cellData.bigIcon;
     [_player playerBindTableView:self.tbv currentIndexPath:_indexPath];
-    _player.frame =CGRectMake(0, 56*SCREEN_RADIO, screen_width, 284*SCREEN_RADIO);
     
     [cell.contentView addSubview:_player];
     
@@ -243,6 +277,7 @@
         [player destroyPlayer];
         _player = nil;
     };
+    
 }
 
 

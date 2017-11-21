@@ -238,6 +238,7 @@
     return _iconImageView;
 }
 
+
 -(UILabel *)nickNameLabel{
     if (!_nickNameLabel) {
         _nickNameLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame)+10*SCREEN_RADIO, 13*SCREEN_RADIO, 200*SCREEN_RADIO, 15*SCREEN_RADIO)];
