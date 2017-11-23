@@ -594,9 +594,9 @@ static CGFloat const playBtnSideLength = 60.0f;
         UIButton *fullScreenBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         fullScreenBtn.translatesAutoresizingMaskIntoConstraints = NO;
         fullScreenBtn.contentMode = UIViewContentModeCenter;
-        [fullScreenBtn setImage:[UIImage imageNamed:@"ImageResources.bundle/btn_zoom_out"] forState:UIControlStateNormal];
-        [fullScreenBtn setImage:[UIImage imageNamed:@"ImageResources.bundle/btn_zoom_in"] forState:UIControlStateSelected];
-        [fullScreenBtn addTarget:self action:@selector(actionFullScreen) forControlEvents:UIControlEventTouchDown];
+//        [fullScreenBtn setImage:[UIImage imageNamed:@"ImageResources.bundle/btn_zoom_out"] forState:UIControlStateNormal];
+//        [fullScreenBtn setImage:[UIImage imageNamed:@"ImageResources.bundle/btn_zoom_in"] forState:UIControlStateSelected];
+        //[fullScreenBtn addTarget:self action:@selector(actionFullScreen) forControlEvents:UIControlEventTouchDown];
         [_bottomBar addSubview:fullScreenBtn];
         self.zoomScreenBtn = fullScreenBtn;
         

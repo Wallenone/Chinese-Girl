@@ -26,6 +26,7 @@
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *rightIcon;
 @property(nonatomic,strong)UIImageView *titleImg;
+@property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *lineView;
 @property (nonatomic, strong)UIView* infinitePageView;
 @property (nonatomic, strong)UIImageView *infiniteImgView;
@@ -63,7 +64,8 @@
 
 -(void)setHeaderView{
     [self.view addSubview:self.headerView];
-    [self.headerView addSubview:self.titleImg];
+   // [self.headerView addSubview:self.titleImg];
+    [self.headerView addSubview:self.titleLabel];
     [self.headerView addSubview:self.rightIcon];
     [self.view addSubview:self.lineView];
 }
@@ -117,6 +119,18 @@
         _titleImg.image=[UIImage imageNamed:@"BitmapIcon"];
     }
     return _titleImg;
+}
+
+-(UILabel *)titleLabel{
+    if (!_titleLabel) {
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 30*SCREEN_RADIO)];
+        _titleLabel.text=@"ChineseGirl";
+        _titleLabel.textColor=[UIColor getColor:@"1D1D1B"];
+        _titleLabel.font=[UIFont fontWithName:@"Billabong" size:25*SCREEN_RADIO];
+        _titleLabel.textAlignment=NSTextAlignmentCenter;
+    }
+    
+    return _titleLabel;
 }
 
 -(UIView *)lineView{

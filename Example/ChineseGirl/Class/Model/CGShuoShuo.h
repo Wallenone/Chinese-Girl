@@ -21,6 +21,9 @@
 @property(nonatomic,copy)NSString *likes;
 @property(nonatomic,copy)NSString *comments;
 @property(nonatomic,copy)NSString *address;
+@property(nonatomic,copy)NSString *type;
+@property(nonatomic,copy)NSString *videoUrl;
+@property(nonatomic,copy)UIImage *videoPic;
 @property(nonatomic,assign)BOOL isLike;   //点赞
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithId:(NSInteger)ids;

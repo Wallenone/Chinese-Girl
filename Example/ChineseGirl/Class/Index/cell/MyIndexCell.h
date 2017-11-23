@@ -14,4 +14,6 @@ typedef void (^LikeClickBlock)(BOOL);
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)indexModel withCommitClick:(CommitClick)block;
 -(CGFloat)getCellHeight;
+-(void)hiddenPlayView:(BOOL)state;
+-(CGRect)getVideoimageViewFrame;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CGUserInfo.h"
-typedef void (^TalkCallBack)(void);
+typedef void (^TalkCallBlock)(void);
 @interface myHeaderViewCell : UITableViewCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGUserInfo *)indexModel withTalkCallBack:(TalkCallBack)block;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGUserInfo *)indexModel withTalkCallBack:(TalkCallBlock)block;
 @end

@@ -66,5 +66,4 @@
     return _close;
 }
 
-
 @end

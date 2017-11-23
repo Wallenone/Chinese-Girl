@@ -32,6 +32,8 @@
 @property(nonatomic,strong)UIButton *allCommit;
 @property(nonatomic,strong)UILabel *allCommitLabel;
 @property(nonatomic,strong)UIView *bottomLine;
+@property(nonatomic,strong)UIImageView *VideoimageView;
+@property(nonatomic,strong)UIImageView *playView;
 @end
 @implementation MyIndexCell
 
@@ -62,13 +64,27 @@
 }
 
 
+-(CGRect)getVideoimageViewFrame{
+   return CGRectMake(0, CGRectGetMaxY(self.contentLabel.frame), screen_width, 284*SCREEN_RADIO);
+}
+
+-(void)hiddenPlayView:(BOOL)state{
+    self.VideoimageView.hidden=state;
+    self.playView.hidden=state;
+}
+
 - (void)creatSubView {
     [self addSubview:self.iconImageView];
     [self addSubview:self.nickNameLabel];
     [self addSubview:self.timeDateLabel];
     [self addSubview:self.contentLabel];
     total_height=CGRectGetMaxY(self.contentLabel.frame);
-    [self setImgBrower];
+    if ([self.myIndexModel.type integerValue]==1) {
+        [self setImgBrower];
+    }else if([self.myIndexModel.type integerValue]==2){
+        [self setVideoImg];
+    }
+    
     [self addSubview:self.iconImageView];
     [self addSubview:self.likeImgView];
     [self addSubview:self.likeLabel];
@@ -100,6 +116,12 @@
     
     [self.imgViewArr addObject:imageView];
     total_height=CGRectGetMaxY(imageView.frame);
+}
+
+-(void)setVideoImg{
+    [self addSubview:self.VideoimageView];
+    [self addSubview:self.playView];
+    total_height=CGRectGetMaxY(self.VideoimageView.frame);
 }
 
 -(void)setImgBrower{
@@ -344,6 +366,24 @@
     }
     
     return _bottomLine;
+}
+
+-(UIImageView *)VideoimageView{
+    if (!_VideoimageView) {
+        _VideoimageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.contentLabel.frame), screen_width, 284*SCREEN_RADIO)];
+        _VideoimageView.image=self.myIndexModel.videoPic;
+    }
+    
+    return _VideoimageView;
+}
+
+-(UIImageView *)playView{
+    if (!_playView) {
+        _playView=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width/2, 200, 50, 50)];
+        _playView.image=[UIImage imageNamed:@"ImageResources.bundle/play"];
+    }
+    
+    return _playView;
 }
 
 @end

@@ -15,19 +15,27 @@
 #import "NewsMessageController.h"
 #import "CGShuoShuo.h"
 #import "CGUserInfo.h"
+#import "CGVideoViewController.h"
+#import "XLVideoPlayer.h"
+#import <AVFoundation/AVFoundation.h>
 #define MJRandomData [NSString stringWithFormat:@"随机数据---%d", arc4random_uniform(1000000)]
 
-@interface MyIndexViewController ()
+@interface MyIndexViewController (){
+    NSIndexPath *_indexPath;
+}
 @property(nonatomic,strong)UIView *headerView;
-@property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
+@property(nonatomic,strong)UIButton *leftBtn;
+@property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)UIView *infoView;
 @property(nonatomic,strong)UIView *bottomLine;
 @property(nonatomic,strong)EZJFastTableView *tbv;
+@property(nonatomic,strong)XLVideoPlayer *player;
 @end
 
 @implementation MyIndexViewController
 - (void)viewWillAppear:(BOOL)animated{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
@@ -37,27 +45,33 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [self.tabBarController.tabBar setHidden:NO];
+    [self.player destroyPlayer];
+    self.player = nil;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    //self.automaticallyAdjustsScrollViewInsets = NO;
     [self addSubViews];
 }
 
 
 -(void)addSubViews{
     [self.view addSubview:self.headerView];
-    [self.view addSubview:self.bottomLine];
     [self.headerView addSubview:self.titleLabel];
-    [self.headerView addSubview:self.leftIcon];
+    [self.headerView addSubview:self.leftBtn];
+    [self.headerView addSubview:self.rightBtn];
     [self.view addSubview:self.tbv];
 }
 
 -(void)back{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)rightClick{
+    
 }
 
 
@@ -71,82 +85,87 @@
 }
 
 
+
+-(CGFloat)getCellHeightWithModel:(CGShuoShuo*)model{
+    if([model.type integerValue]==1){
+        CGFloat _height=194*SCREEN_RADIO;
+        if(model.content.length>0){
+            CGSize constraint = CGSizeMake(screen_width-20*SCREEN_RADIO, 99999.0f);
+            CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+            _height+=size.height;
+        }
+        
+        if (model.pictures.count==1 || model.pictures.count==2) {
+            _height+=284*SCREEN_RADIO;
+        }else if(model.pictures.count==4){
+            _height+=284*SCREEN_RADIO-6*SCREEN_RADIO;
+        }else if(model.pictures.count==3){
+            _height+=(screen_width-42*SCREEN_RADIO)/3;
+        }else if (model.pictures.count==5 || model.pictures.count==6){
+            _height+=((screen_width-42*SCREEN_RADIO)/3)*2+6*SCREEN_RADIO;
+        }else if (model.pictures.count==7 || model.pictures.count==8 || model.pictures.count==9){
+            _height+=(screen_width-42*SCREEN_RADIO)+12*SCREEN_RADIO;
+        }
+        
+        
+        return _height;
+    }else if ([model.type integerValue]==2){
+        CGFloat _height=194*SCREEN_RADIO;
+        if(model.content.length>0){
+            CGSize constraint = CGSizeMake(screen_width-20*SCREEN_RADIO, 99999.0f);
+            CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+            _height+=size.height;
+        }
+        
+        _height+=284*SCREEN_RADIO;
+        
+        return _height;
+    }
+    
+    return 0;
+}
+
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
-        _headerView.backgroundColor=[UIColor whiteColor];
+        _headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
+        _headerView.backgroundColor=[UIColor getColor:@"171616"];
     }
     
     return _headerView;
 }
 
-
-
--(UIButton *)leftIcon{
-    if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(19*SCREEN_RADIO, 34*SCREEN_RADIO, 10*SCREEN_RADIO, 16*SCREEN_RADIO)];
-        [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
-        [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _leftIcon;
-}
-
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 20*SCREEN_RADIO)];
-        _titleLabel.text=NSLocalizedString(@"profile", nil);
-        _titleLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
-        _titleLabel.textColor=[UIColor getColor:@"030303"];
+        CGUserInfo *model=[CGUserInfo getitemWithID:[NSString stringWithFormat:@"%ld",(long)self.ids]];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 28.5*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
+        _titleLabel.text=model.nickname;
+        _titleLabel.textColor=[UIColor whiteColor];
+        _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
     }
     return _titleLabel;
 }
 
-
--(UIView *)infoView{
-    if(!_infoView){
-        _infoView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 164.5*SCREEN_RADIO)];
-        _infoView.backgroundColor=[UIColor clearColor];
+-(UIButton *)leftBtn{
+    if (!_leftBtn) {
+        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 33*SCREEN_RADIO, 10.5*SCREEN_RADIO, 17.5*SCREEN_RADIO)];
+        [_leftBtn setImage:[UIImage imageNamed:@"myIndexLeft"] forState:UIControlStateNormal];
+        [_leftBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    return _infoView;
+    return _leftBtn;
 }
 
-
--(UIView *)bottomLine{
-    if (!_bottomLine) {
-        _bottomLine=[[UIView alloc] initWithFrame:CGRectMake(0, 64*SCREEN_RADIO-0.5, screen_width, 0.5)];
-        _bottomLine.backgroundColor=[UIColor getColor:@"CED7DB"];
+-(UIButton *)rightBtn{
+    if (!_rightBtn) {
+        _rightBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-42*SCREEN_RADIO, 32*SCREEN_RADIO, 22*SCREEN_RADIO, 22*SCREEN_RADIO)];
+        [_rightBtn setImage:[UIImage imageNamed:@"followadd"] forState:UIControlStateNormal];
+        [_rightBtn addTarget:self action:@selector(rightClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    return _bottomLine;
+    return _rightBtn;
 }
 
-
-
--(CGFloat)getCellHeightWithModel:(CGShuoShuo*)model{
-    CGFloat _height=194*SCREEN_RADIO;
-    if(model.content.length>0){
-        CGSize constraint = CGSizeMake(screen_width-20*SCREEN_RADIO, 99999.0f);
-        CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        _height+=size.height;
-    }
-
-    if (model.pictures.count==1 || model.pictures.count==2) {
-        _height+=284*SCREEN_RADIO;
-    }else if(model.pictures.count==4){
-        _height+=284*SCREEN_RADIO-6*SCREEN_RADIO;
-    }else if(model.pictures.count==3){
-        _height+=(screen_width-42*SCREEN_RADIO)/3;
-    }else if (model.pictures.count==5 || model.pictures.count==6){
-        _height+=((screen_width-42*SCREEN_RADIO)/3)*2+6*SCREEN_RADIO;
-    }else if (model.pictures.count==7 || model.pictures.count==8 || model.pictures.count==9){
-        _height+=(screen_width-42*SCREEN_RADIO)+12*SCREEN_RADIO;
-    }
-    
-    
-    return _height;
-}
 
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
@@ -157,16 +176,15 @@
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
-        _tbv.backgroundColor=[UIColor getColor:@"EEEEEE"];
+        _tbv.backgroundColor=[UIColor getColor:@"171616"];
         NSMutableArray *newarr=[CGShuoShuo reloadTableWithId:self.ids];
         [newarr insertObject:[CGUserInfo getitemWithID:[NSString stringWithFormat:@"%ld",(long)self.ids]] atIndex:0];
         //给tableview赋值
          [_tbv setDataArray:newarr];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            NSLog(@"row:=%ld",(long)index.row);
-            NSLog(@"section:=%ld",(long)index.section);
             __strong __typeof(weakSelf)strongSelf = weakSelf;
+            UITableViewCell *inCell;
             if (index.row ==0) {
                 myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withTalkCallBack:^{
                     NewsMessageController *newsMessageVC=[[NewsMessageController alloc] init];
@@ -175,17 +193,16 @@
                 
                 return (UITableViewCell *)myHeaderCell;
             }else{
-                MyIndexCell *myIndexCell = [[MyIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withCommitClick:^{
-                    MyCommitSViewController *myCommitVC=[[MyCommitSViewController alloc] init];
-                    myCommitVC.commitModel=cellData;
-                    [strongSelf.navigationController pushViewController:myCommitVC animated:NO];
-                }];
-                myIndexCell.userInteractionEnabled = true;
-               // myIndexCell.backgroundColor=[UIColor purpleColor];
-                return (UITableViewCell *)myIndexCell;
+                    MyIndexCell *myIndexCell = [[MyIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withCommitClick:^{
+                        MyCommitSViewController *myCommitVC=[[MyCommitSViewController alloc] init];
+                        myCommitVC.commitModel=cellData;
+                        [strongSelf.navigationController pushViewController:myCommitVC animated:NO];
+                    }];
+                    return (UITableViewCell *)myIndexCell;
+             
             }
             
-            
+            return (UITableViewCell *)inCell;
             
         }];
         
@@ -193,7 +210,7 @@
         
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
             if (indexPath.row==0) {
-                return 164.5*SCREEN_RADIO;
+                return 216*SCREEN_RADIO;
             }
             CGFloat _height=[weakSelf getCellHeightWithModel:cellData];
             return _height;
@@ -218,7 +235,19 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
+            if (indexPath.row!=0) {
+                CGShuoShuo *indexModel=(CGShuoShuo *)cellData;
+                if ([indexModel.type integerValue]==2) {
+                    [self showVideoPlayer:indexPath withcellData:cellData];
+                }
+            }
             
+        }];
+        
+        [_tbv onScrollDid:^(UIScrollView *scrollView) {
+            if ([scrollView isEqual:self.tbv]) {
+                [weakSelf.player playerScrollIsSupportSmallWindowPlay:NO];
+            }
         }];
         
     }
@@ -228,10 +257,35 @@
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showVideoPlayer:(NSIndexPath *)index withcellData:(CGShuoShuo *)cellData{
+    [_player destroyPlayer];
+    _player = nil;
+
+    _indexPath = index;
+    MyIndexCell *cell = [self.tbv cellForRowAtIndexPath:_indexPath];
+    // [cell hiddenPlayView:YES];
+
+    __weak typeof(self) weakSelf = self;
+    _player = [[XLVideoPlayer alloc] initWithFrame:[cell getVideoimageViewFrame] withVideoPauseBlock:^{
+        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+        videoVC.videoStr=cellData.videoUrl;
+        [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
+    } withPlayBlock:^{
+        
+    }];
+    _player.videoUrl = cellData.videoUrl;
+    [_player playerBindTableView:self.tbv currentIndexPath:_indexPath];
+    
+    [cell.contentView addSubview:_player];
+    
+    _player.completedPlayingBlock = ^(XLVideoPlayer *player) {
+       // [cell hiddenPlayView:NO];
+        [player destroyPlayer];
+        _player = nil;
+    };
+    
 }
+
 
 
 @end

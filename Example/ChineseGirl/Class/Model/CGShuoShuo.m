@@ -8,6 +8,7 @@
 
 #import "CGShuoShuo.h"
 #import "CGUserInfo.h"
+#import <AVFoundation/AVFoundation.h>
 @implementation CGShuoShuo
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGShuoShuo *model = [[CGShuoShuo alloc]init];
@@ -15,7 +16,7 @@
     model.sort = [self filterNullString:[dic stringForKey:@"sort"]];
     model.content = [self filterNullString:[dic stringForKey:@"content"]];
     model.pictures =  [self getFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
-    model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
+   // model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
     model.pinglunid = [self getPinglunids:[self filterNullString:[dic stringForKey:@"pinglunid"]]];
     model.icon= [CGUserInfo getitemWithID:model.ids].avater;
     model.nickName = [CGUserInfo getitemWithID:model.ids].nickname;
@@ -23,6 +24,17 @@
     model.likes= [self filterNullString:[dic stringForKey:@"likes"]];
     model.comments= [self filterNullString:[dic stringForKey:@"comments"]];
     model.address= [CGUserInfo getitemWithID:model.ids].address;
+    model.type = [self filterNullString:[dic stringForKey:@"type"]];
+    if ([model.type integerValue]==1) {
+        model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
+        model.videoUrl = @"";
+        model.videoPic=[UIImage imageNamed:@""];
+    }else if ([model.type integerValue]==2){
+        model.videoUrl = [self filterNullString:[dic stringForKey:@"imgs"]];
+        model.videoPic=[self thumbnailImageForVideo:[NSURL URLWithString:model.videoUrl] atTime:2.0];
+        model.pictureBigs=@[];
+    }
+    
     return model;
 }
 
@@ -110,5 +122,26 @@
         filterStr=@"";
     }
     return filterStr;
+}
+
++ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
+    
+    if(!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
+    
+    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
 }
 @end
