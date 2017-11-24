@@ -33,7 +33,7 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
     [self addHeaderView];
-    [self addBodyView];
+    [self performSelector:@selector(addBodyView) withObject:nil afterDelay:2.0];
 }
 
 -(void)addHeaderView{
@@ -46,6 +46,11 @@
 
 -(void)addBodyView{
     [self.view addSubview:self.tbv];
+}
+
+-(void)addCell{
+    NSArray *arr=[NSArray arrayWithObjects:@"1",@"2",@"3", nil];
+    [self.tbv addContentData:arr];
 }
 
 - (void)addFriend{
@@ -112,7 +117,7 @@
         _tbv.backgroundColor=[UIColor getColor:@"EEEEEE"];
         //给tableview赋值
         NSMutableArray *newArr=[NSMutableArray new];
-        for (int i=0; i<1; i++) {
+        for (int i=0; i<3;i++) {
             [newArr addObject:[NSString stringWithFormat:@"cell%d",i]];
         }
         [_tbv setDataArray:newArr];
@@ -126,14 +131,14 @@
         
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
            
-            return 180*SCREEN_RADIO;
+            return 230*SCREEN_RADIO;
         }];
         
         
         
         //允许上行滑动
         [_tbv onDragUp:^(int page) {
-            
+            [weakSelf addCell];
         }];
         
         //允许下行滑动刷新

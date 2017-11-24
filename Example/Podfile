@@ -12,4 +12,5 @@ target 'ChineseGirl_Example' do
   pod 'SVProgressHUD'
   pod 'NSDictionary+Accessors'
   pod 'WMPlayer'
+  pod 'FLAnimatedImage', '~> 1.0'
 end
