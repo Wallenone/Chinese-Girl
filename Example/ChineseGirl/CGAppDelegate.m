@@ -19,6 +19,7 @@
 #import "CGPinglunModel.h"
 #import "NSObject+NSLocalNotification.h"
 #import "CGFriendsViewcontroller.h"
+#import "CGAnimationIndexViewController.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 @end
@@ -53,6 +54,11 @@
     //indeVC.tabBarItem.badgeValue=@"123";
     indeVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
+    CGAnimationIndexViewController *animationVC=[[CGAnimationIndexViewController alloc] init];
+    animationVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
+    animationVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
+    animationVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+    
     CGFriendsViewcontroller *friendVC=[[CGFriendsViewcontroller alloc] init];
     friendVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
     friendVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
@@ -76,11 +82,12 @@
     //c.2第二种方式
     
     UINavigationController *c1=[[UINavigationController alloc]initWithRootViewController:indeVC];
-    UINavigationController *c2=[[UINavigationController alloc]initWithRootViewController:friendVC];
-    UINavigationController *c3=[[UINavigationController alloc]initWithRootViewController:newsVC];
-    UINavigationController *c4=[[UINavigationController alloc]initWithRootViewController:mineVC];
+    UINavigationController *c2=[[UINavigationController alloc]initWithRootViewController:animationVC];
+    UINavigationController *c3=[[UINavigationController alloc]initWithRootViewController:friendVC];
+    UINavigationController *c4=[[UINavigationController alloc]initWithRootViewController:newsVC];
+    UINavigationController *c5=[[UINavigationController alloc]initWithRootViewController:mineVC];
     
-    tb.viewControllers=@[c1,c2,c3,c4];
+    tb.viewControllers=@[c1,c2,c3,c4,c5];
     
     //2.设置Window为主窗口并显示出来
     [self.window makeKeyAndVisible];

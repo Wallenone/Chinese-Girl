@@ -134,6 +134,8 @@
 		E5E0FE4D1F9AF15700B5228E /* WYLongTextInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE431F9AF15700B5228E /* WYLongTextInputView.m */; };
 		E5E0FE4E1F9AF15700B5228E /* 返回@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE441F9AF15700B5228E /* 返回@2x.png */; };
 		E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE451F9AF15700B5228E /* 返回@3x.png */; };
+		E5E271671FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */; };
+		E5E2716C1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */; };
 		E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E35D351F9B426600322F9D /* UICustomPickImgView.m */; };
 		E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */; };
 		E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */; };
@@ -396,6 +398,10 @@
 		E5E0FE431F9AF15700B5228E /* WYLongTextInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYLongTextInputView.m; sourceTree = "<group>"; };
 		E5E0FE441F9AF15700B5228E /* 返回@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回@2x.png"; sourceTree = "<group>"; };
 		E5E0FE451F9AF15700B5228E /* 返回@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回@3x.png"; sourceTree = "<group>"; };
+		E5E271651FC7BF8600BA1AC1 /* CGAnimationIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnimationIndexViewController.h; sourceTree = "<group>"; };
+		E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnimationIndexViewController.m; sourceTree = "<group>"; };
+		E5E2716A1FC7C1E700BA1AC1 /* CGAnimationIndexCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnimationIndexCell.h; sourceTree = "<group>"; };
+		E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnimationIndexCell.m; sourceTree = "<group>"; };
 		E5E35D341F9B426600322F9D /* UICustomPickImgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomPickImgView.h; sourceTree = "<group>"; };
 		E5E35D351F9B426600322F9D /* UICustomPickImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomPickImgView.m; sourceTree = "<group>"; };
 		E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexViewController.h; sourceTree = "<group>"; };
@@ -854,6 +860,7 @@
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E5E271641FC7BF7300BA1AC1 /* AnimationIndex */,
 				E546C11F1FBF22BB000F5127 /* Vip */,
 				E534E1BC1FBBDF9A00F4962E /* Friends */,
 				E5C0CD6D1FB80C1F002394C9 /* Model */,
@@ -999,6 +1006,33 @@
 				E5E0FE451F9AF15700B5228E /* 返回@3x.png */,
 			);
 			path = WYPickerViews;
+			sourceTree = "<group>";
+		};
+		E5E271641FC7BF7300BA1AC1 /* AnimationIndex */ = {
+			isa = PBXGroup;
+			children = (
+				E5E271691FC7C1B300BA1AC1 /* cell */,
+				E5E271681FC7C1B300BA1AC1 /* view */,
+				E5E271651FC7BF8600BA1AC1 /* CGAnimationIndexViewController.h */,
+				E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */,
+			);
+			path = AnimationIndex;
+			sourceTree = "<group>";
+		};
+		E5E271681FC7C1B300BA1AC1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		E5E271691FC7C1B300BA1AC1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5E2716A1FC7C1E700BA1AC1 /* CGAnimationIndexCell.h */,
+				E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		E5F0A3E61F57F7FD0051699B /* Login */ = {
@@ -1301,7 +1335,9 @@
 				E5E0FE4D1F9AF15700B5228E /* WYLongTextInputView.m in Sources */,
 				E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
+				E5E271671FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m in Sources */,
 				E5C0CD8C1FB83EF5002394C9 /* CGPinglun.m in Sources */,
+				E5E2716C1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m in Sources */,
 				E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */,
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
