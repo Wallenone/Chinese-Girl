@@ -10,6 +10,9 @@
 #import "EZJFastTableView.h"
 #import "CGFriendsAddViewController.h"
 #import "CGAnimationIndexCell.h"
+#import "CGVideoDataModel.h"
+#import "ZFPlayer.h"
+#import "CGVideoViewController.h"
 @interface CGAnimationIndexViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *rightIcon;
@@ -17,6 +20,7 @@
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
+
 @end
 
 @implementation CGAnimationIndexViewController
@@ -33,7 +37,7 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
     [self addHeaderView];
-    [self performSelector:@selector(addBodyView) withObject:nil afterDelay:2.0];
+    [self addBodyView];
 }
 
 -(void)addHeaderView{
@@ -46,16 +50,21 @@
 
 -(void)addBodyView{
     [self.view addSubview:self.tbv];
-}
-
--(void)addCell{
-    NSArray *arr=[NSArray arrayWithObjects:@"1",@"2",@"3", nil];
-    [self.tbv addContentData:arr];
+    
 }
 
 - (void)addFriend{
     CGFriendsAddViewController *addVC=[[CGFriendsAddViewController alloc] init];
     [self.navigationController pushViewController:addVC animated:NO];
+}
+
+-(void)getCollectionData:(NSInteger)page{
+    NSMutableArray *array = [CGVideoDataModel reloadTableWithRangeFrom:page*10 rangeTLenth:10];
+    if (array.count>0) {
+        [self.tbv addContentData:array];
+    }else{
+        [self.tbv noMoreData];
+    }
 }
 
 -(UIView *)headerView{
@@ -109,21 +118,21 @@
     if (!_tbv) {
         
         __weak typeof(self) weakSelf = self;
-        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO, self.view.frame.size.width, screen_height-64*SCREEN_RADIO);
+        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO, self.view.frame.size.width, screen_height-110*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"EEEEEE"];
         //给tableview赋值
-        NSMutableArray *newArr=[NSMutableArray new];
-        for (int i=0; i<3;i++) {
-            [newArr addObject:[NSString stringWithFormat:@"cell%d",i]];
-        }
+        NSMutableArray *newArr=[CGVideoDataModel reloadTableWithRangeFrom:0 rangeTLenth:10];
         [_tbv setDataArray:newArr];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            CGAnimationIndexCell *cell=[[CGAnimationIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData];
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            CGAnimationIndexCell *cell=[[CGAnimationIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withPlayCell:^(NSString *videoUrl) {
+                [strongSelf playwithVideoUrl:videoUrl];
+            }];
             return cell;
         }];
         
@@ -138,7 +147,7 @@
         
         //允许上行滑动
         [_tbv onDragUp:^(int page) {
-            [weakSelf addCell];
+            [weakSelf getCollectionData:page];
         }];
         
         //允许下行滑动刷新
@@ -161,6 +170,12 @@
     }
     
     return _tbv;
+}
+
+-(void)playwithVideoUrl:(NSString *)videoUrl{
+    CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+    videoVC.videoStr=videoUrl;
+    [self.navigationController presentViewController:videoVC animated:NO completion:nil];
 }
 
 

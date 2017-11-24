@@ -10,18 +10,21 @@
 #import "UIImageView+WebCache.h"
 #import "UIImage+GIF.h"
 #import "FLAnimatedImage.h"
-@interface CGAnimationIndexCell()
-@property(nonatomic,strong)id dataModel;
+@interface CGAnimationIndexCell(){
+    PlayVideoBlock playVideoBlock;
+}
+@property(nonatomic,strong)NSArray *dataModel;
 @property(nonatomic,strong)UIView *leftView;
 @property(nonatomic,strong)UIView *rightView;
 @property(nonatomic,strong)UIImageView *leftImgView;
 @property(nonatomic,strong)UIImageView *rightImgView;
 @end
 @implementation CGAnimationIndexCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(id)model{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(NSArray *)model withPlayCell:(PlayVideoBlock)block{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor getColor:@"ffffff"];
+        playVideoBlock=block;
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.dataModel=model;
         [self creatSubView];
@@ -37,11 +40,20 @@
     [self.rightView addSubview:self.rightImgView];
 }
 
--(UIImage *)getGifImage{
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img10.360buyimg.com/imgzone/g15/M00/12/15/rBEhWFM78I0IAAAAAASCSaIWQVkAALGbQHe6OcABIJh018.gif"]];
-    UIImage *image = [UIImage sd_animatedGIFWithData:data];
-    return image;
+-(void)leftAction{
+    CGVideoDataModel *model=self.dataModel[0];
+    if (playVideoBlock) {
+        playVideoBlock(model.videoUrl);
+    }
 }
+
+-(void)rightAction{
+    CGVideoDataModel *model=self.dataModel[1];
+    if (playVideoBlock) {
+        playVideoBlock(model.videoUrl);
+    }
+}
+
 
 -(UIView *)leftView{
     if (!_leftView) {
@@ -56,18 +68,20 @@
 -(UIImageView *)leftImgView{
     if (!_leftImgView) {
         _leftImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO)];
-        _leftImgView.image=[self getGifImage];
+//        _leftImgView.image=[self getGifImage];
+        CGVideoDataModel *model=self.dataModel[0];
+        [_leftImgView sd_setImageWithURL:[NSURL URLWithString:model.videoIcon]];
         _leftImgView.layer.cornerRadius=5;
         _leftImgView.clipsToBounds=YES;
+        _leftImgView.userInteractionEnabled=YES;
+        UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO)];
+        [btn addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
+        [_leftImgView addSubview:btn];
+        
+        UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake((screen_width/2-7.5*SCREEN_RADIO)/2-19*SCREEN_RADIO, 91*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
+        playView.image=[UIImage imageNamed:@"smallPlayVideo"];
+        [_leftImgView addSubview:playView];
     }
-    
-//    if (!_leftImgView) {
-//        FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img.zcool.cn/community/01c6e25889bd4ca8012060c80f8067.gif"]]];
-//        _leftImgView = [[FLAnimatedImageView alloc] init];
-//        _leftImgView.animatedImage = image;
-//        _leftImgView.frame = CGRectMake(5*SCREEN_RADIO, 10*SCREEN_RADIO, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO);
-//    }
-//
     
     return _leftImgView;
     
@@ -87,19 +101,20 @@
 
 -(UIImageView *)rightImgView{
     if (!_rightImgView) {
+        CGVideoDataModel *model=self.dataModel[1];
         _rightImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO)];
-        _rightImgView.image=[self getGifImage];
+       [_rightImgView sd_setImageWithURL:[NSURL URLWithString:model.videoIcon]];
         _rightImgView.layer.cornerRadius=5;
         _rightImgView.clipsToBounds=YES;
+        _rightImgView.userInteractionEnabled=YES;
+        UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO)];
+        [btn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+        [_rightImgView addSubview:btn];
+        
+        UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake((screen_width/2-7.5*SCREEN_RADIO)/2-19*SCREEN_RADIO, 91*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
+        playView.image=[UIImage imageNamed:@"smallPlayVideo"];
+        [_rightImgView addSubview:playView];
     }
-    
-//    if (!_rightImgView) {
-//        FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img.zcool.cn/community/01c6e25889bd4ca8012060c80f8067.gif"]]];
-//        _rightImgView = [[FLAnimatedImageView alloc] init];
-//        _rightImgView.animatedImage = image;
-//        _rightImgView.frame = CGRectMake(CGRectGetMaxX(self.leftImgView.frame)+5*SCREEN_RADIO, 10*SCREEN_RADIO, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO);
-//    }
-    
     return _rightImgView;
 }
 @end

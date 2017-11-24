@@ -7,10 +7,9 @@
 //
 
 #import "CGVideoViewController.h"
-#import "XLVideoPlayer.h"
-#import <AVFoundation/AVFoundation.h>
-@interface CGVideoViewController ()
-@property(nonatomic,strong)XLVideoPlayer *player;
+#import "ZFPlayer.h"
+@interface CGVideoViewController ()<ZFPlayerDelegate>
+@property(nonatomic,strong)ZFPlayerView *playerView;
 @property(nonatomic,strong)UIButton *close;
 @end
 
@@ -23,47 +22,48 @@
     [self.tabBarController.tabBar setHidden:YES];
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:self.close];
     [self showVideoPlayer];
 }
 
--(void)closeClick{
-    [_player destroyPlayer];
-    _player = nil;
-    [self dismissViewControllerAnimated:NO completion:nil];
-}
 
 - (void)showVideoPlayer{
-    [_player destroyPlayer];
-    _player = nil;
-  
-    _player = [[XLVideoPlayer alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.close.frame)+15*SCREEN_RADIO, screen_width, 284*SCREEN_RADIO) withVideoPauseBlock:^{
-        
-    } withPlayBlock:^{
-        
+    self.playerView = [[ZFPlayerView alloc] init];
+    [self.view addSubview:self.playerView];
+    [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(20);
+        make.left.right.equalTo(self.view);
+        // Here a 16:9 aspect ratio, can customize the video aspect ratio
+        make.height.equalTo(self.playerView.mas_width).multipliedBy(9.0f/16.0f);
     }];
-    _player.videoUrl = self.videoStr;
-    
-    [self.view addSubview:_player];
-    
-    _player.completedPlayingBlock = ^(XLVideoPlayer *player) {
-        [player destroyPlayer];
-        _player = nil;
-    };
+    ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
+    // model
+    ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
+    playerModel.fatherView=self.view;
+    playerModel.videoURL = [NSURL URLWithString:self.videoStr];
+    [self.playerView playerControlView:controlView playerModel:playerModel];
+    // delegate
+    self.playerView.delegate = self;
+    self.playerView.hasPreviewView=YES;
+    self.playerView.playerLayerGravity=ZFPlayerLayerGravityResize;
+    [self.playerView autoPlayTheVideo];
     
 }
 
--(UIButton *)close{
-    if (!_close) {
-        _close=[[UIButton alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO, 30*SCREEN_RADIO, 12*SCREEN_RADIO, 18*SCREEN_RADIO)];
-        [_close setImage:[UIImage imageNamed:@"Fillback"] forState:UIControlStateNormal];
-        [_close addTarget:self action:@selector(closeClick) forControlEvents:UIControlEventTouchUpInside];
-    }
+- (void)zf_playerControlViewWillShow:(UIView *)controlView isFullscreen:(BOOL)fullscreen{
     
-    return _close;
+}
+
+
+- (void)zf_playerControlViewWillHidden:(UIView *)controlView isFullscreen:(BOOL)fullscreen{
+    
+}
+
+- (void)zf_playerBackAction{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

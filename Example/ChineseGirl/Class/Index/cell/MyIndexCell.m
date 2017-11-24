@@ -380,7 +380,7 @@
 -(UIImageView *)playView{
     if (!_playView) {
         _playView=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width/2, 200, 50, 50)];
-        _playView.image=[UIImage imageNamed:@"ImageResources.bundle/play"];
+        _playView.image=[UIImage imageNamed:@"PLAYVideo"];
     }
     
     return _playView;

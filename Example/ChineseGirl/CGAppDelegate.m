@@ -55,8 +55,8 @@
     indeVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     CGAnimationIndexViewController *animationVC=[[CGAnimationIndexViewController alloc] init];
-    animationVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
-    animationVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
+    animationVC.tabBarItem.image=[UIImage imageNamed:@"ic_video"];
+    animationVC.tabBarItem.selectedImage=[UIImage imageNamed:@"videoed"];
     animationVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     CGFriendsViewcontroller *friendVC=[[CGFriendsViewcontroller alloc] init];

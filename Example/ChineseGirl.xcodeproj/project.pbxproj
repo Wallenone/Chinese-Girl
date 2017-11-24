@@ -141,6 +141,8 @@
 		E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */; };
 		E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */; };
 		E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */; };
+		E5F542801FC8579A00262DCE /* videoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5F5427F1FC8579900262DCE /* videoData.plist */; };
+		E5F542831FC857BD00262DCE /* CGVideoDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F542821FC857BD00262DCE /* CGVideoDataModel.m */; };
 		E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */; };
 		E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA64161F5865C70032D1BB /* CGRegisterIndexViewController.m */; };
 /* End PBXBuildFile section */
@@ -412,6 +414,9 @@
 		E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginIndexView.m; sourceTree = "<group>"; };
 		E5F0A3F01F5803860051699B /* CGLoginIndexCustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginIndexCustomTextField.h; sourceTree = "<group>"; };
 		E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginIndexCustomTextField.m; sourceTree = "<group>"; };
+		E5F5427F1FC8579900262DCE /* videoData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = videoData.plist; sourceTree = "<group>"; };
+		E5F542811FC857BD00262DCE /* CGVideoDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVideoDataModel.h; sourceTree = "<group>"; };
+		E5F542821FC857BD00262DCE /* CGVideoDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVideoDataModel.m; sourceTree = "<group>"; };
 		E5FA64121F585ED80032D1BB /* CGRegisterIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRegisterIndexView.h; sourceTree = "<group>"; };
 		E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRegisterIndexView.m; sourceTree = "<group>"; };
 		E5FA64151F5865C70032D1BB /* CGRegisterIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRegisterIndexViewController.h; sourceTree = "<group>"; };
@@ -506,6 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D291921FC5A96C003718CB /* Billabong.ttf */,
+				E5F5427F1FC8579900262DCE /* videoData.plist */,
 				E5D291941FC5AFE5003718CB /* shuoshuo.plist */,
 				E58F28821FC304C900DFAB8E /* index.plist */,
 				E5BD33831FBFEBE300C8FE94 /* indexmend.plist */,
@@ -960,6 +966,8 @@
 				E546C1181FBEFB7A000F5127 /* CGAnswerModel.m */,
 				E5BD33801FBFE75700C8FE94 /* CGIndexMendModel.h */,
 				E5BD33811FBFE75700C8FE94 /* CGIndexMendModel.m */,
+				E5F542811FC857BD00262DCE /* CGVideoDataModel.h */,
+				E5F542821FC857BD00262DCE /* CGVideoDataModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1170,6 +1178,7 @@
 				E58F28831FC304C900DFAB8E /* index.plist in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				E5F542801FC8579A00262DCE /* videoData.plist in Resources */,
 				E5BD33CF1FC0560500C8FE94 /* FastForwardView.xib in Resources */,
 				E546C11B1FBEFBC0000F5127 /* answer.plist in Resources */,
 				E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */,
@@ -1231,7 +1240,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF417B7723E0ED6C9C70033F /* [CP] Copy Pods Resources */ = {
@@ -1335,6 +1344,7 @@
 				E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
 				E5360A791FBC7F8E009DDA07 /* CGAnswerOptionViewController.m in Sources */,
+				E5F542831FC857BD00262DCE /* CGVideoDataModel.m in Sources */,
 				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
 				E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */,
 				E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */,
