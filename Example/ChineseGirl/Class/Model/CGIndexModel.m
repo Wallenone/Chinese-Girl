@@ -23,7 +23,7 @@
     
     if ([model.type integerValue]==1) {
         model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"bigIcon"]] withId:model.ids];
-        model.videoPic=[UIImage imageNamed:@""];
+        model.videoPic=nil;
     }else if ([model.type integerValue]==2){
         model.bigIcon = [self filterNullString:[dic stringForKey:@"bigIcon"]];
         model.videoPic=[self thumbnailImageForVideo:[NSURL URLWithString:model.bigIcon] atTime:2.0];
