@@ -53,6 +53,7 @@
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _tbv.backgroundColor=[UIColor getColor:@"eeeeee"];
         NSMutableArray *arrays =[[NSMutableArray alloc] init];
         
         NewsInfoModel *model = [[NewsInfoModel alloc] init];
@@ -95,7 +96,7 @@
         //动态改变
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
             
-            return 72*SCREEN_RADIO;
+            return 62*SCREEN_RADIO;
         }];
         
     

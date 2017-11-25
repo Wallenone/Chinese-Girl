@@ -7,21 +7,10 @@
 //
 
 #import "CGAppDelegate.h"
-#import "LCTabBarController.h"
-#import "IndexViewController.h"
-#import "DriftBottleViewController.h"
-#import "NewsViewController.h"
-#import "MineViewController.h"
-#import "CGSingleCommitData.h"
-#import "MineViewController.h"
-#import "CGLoginViewController.h"
-#import "IQKeyboardManager.h"
-#import "CGPinglunModel.h"
-#import "NSObject+NSLocalNotification.h"
-#import "CGFriendsViewcontroller.h"
-#import "CGAnimationIndexViewController.h"
+#import "RootTabBarController.h"
+#import "WSMovieController.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
-@property(nonatomic,strong)LCTabBarController *tabBarC;
+
 @end
 @implementation CGAppDelegate
 
@@ -31,82 +20,31 @@
     //发送本地推送
     // [CGAppDelegate registerLocalNotification:5 title:@"收到的标题" content:@"你收到啦消息"];
     
-    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-    //1.创建Window
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-         //a.初始化一个tabBar控制器
-    UITabBarController *tb=[[UITabBarController alloc]init];
-    tb.tabBar.backgroundColor=[UIColor whiteColor];
-    tb.tabBar.tintColor=[UIColor blackColor];
-    tb.tabBar.unselectedItemTintColor=[UIColor blackColor];
-    tb.tabBar.translucent=NO;
-    tb.delegate=self;
-    //设置控制器为Window的根控制器
-    self.window.rootViewController=tb;
-    
-    //b.创建子控制器
-    IndexViewController *indeVC=[[IndexViewController alloc] init];
-    indeVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
-    indeVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
-    //indeVC.tabBarItem.badgeValue=@"123";
-    indeVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
-    
-    CGAnimationIndexViewController *animationVC=[[CGAnimationIndexViewController alloc] init];
-    animationVC.tabBarItem.image=[UIImage imageNamed:@"ic_video"];
-    animationVC.tabBarItem.selectedImage=[UIImage imageNamed:@"videoed"];
-    animationVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
-    
-    CGFriendsViewcontroller *friendVC=[[CGFriendsViewcontroller alloc] init];
-    friendVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
-    friendVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
-    friendVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
-    
-    NewsViewController *newsVC=[[NewsViewController alloc] init];
-    newsVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
-    newsVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
-    newsVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
-    
-    MineViewController *mineVC=[[MineViewController alloc] init];
-    mineVC.tabBarItem.image=[UIImage imageNamed:@"Profile"];
-    mineVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Profileed"];
-    mineVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
-    
-    //c.添加子控制器到ITabBarController中
-    //c.1第一种方式
-    //    [tb addChildViewController:c1];
-    //    [tb addChildViewController:c2];
-    
-    //c.2第二种方式
-    
-    UINavigationController *c1=[[UINavigationController alloc]initWithRootViewController:indeVC];
-    UINavigationController *c2=[[UINavigationController alloc]initWithRootViewController:animationVC];
-    UINavigationController *c3=[[UINavigationController alloc]initWithRootViewController:friendVC];
-    UINavigationController *c4=[[UINavigationController alloc]initWithRootViewController:newsVC];
-    UINavigationController *c5=[[UINavigationController alloc]initWithRootViewController:mineVC];
-    
-    tb.viewControllers=@[c1,c2,c3,c4,c5];
-    
-    //2.设置Window为主窗口并显示出来
-    [self.window makeKeyAndVisible];
-    
+    [self setLaunchVideo];
+   
     return YES;
 }
 
--(UIImage *)scaleImageToSize:(UIImage *)img size:(CGSize)size
-{
-    UIGraphicsBeginImageContext(size);
-    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return scaledImage;
-}
-
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    NSLog(@"index:=%lu",(unsigned long)tabBarController.selectedIndex);
+-(void)setLaunchVideo{
+    NSString *versionCache = [[NSUserDefaults standardUserDefaults] objectForKey:@"VersionCache"];//本地缓存的版本号  第一次启动的时候本地是没有缓存版本号的。
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];//当前应用版本号
     
+    if (![versionCache isEqualToString:version]) //如果本地缓存的版本号和当前应用版本号不一样，则是第一次启动（更新版本也算第一次启动）
+    {
+        WSMovieController *wsCtrl = [[WSMovieController alloc]init];
+        wsCtrl.movieURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"qidong"ofType:@"mp4"]];//选择本地的视屏
+        self.window.rootViewController = wsCtrl;
+        
+        //设置上下面这句话，将当前版本缓存到本地，下次对比一样，就不走启动视屏了。
+        //也可以将这句话放在WSMovieController.m的进入应用方法里面
+        //为了让每次都可以看到启动视屏，这句话先注释掉
+        //[[NSUserDefaults standardUserDefaults] setObject:version forKey:@"VersionCache"];
+        
+    }else{
+        //不是首次启动
+        RootTabBarController *rootTabCtrl = [[RootTabBarController alloc]init];
+        self.window.rootViewController = rootTabCtrl;
+    }
 }
 
 
