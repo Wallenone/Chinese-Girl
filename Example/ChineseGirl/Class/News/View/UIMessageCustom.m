@@ -20,6 +20,9 @@
 }
 
 
+
+
+
 - (void)buildingDefaultParamsAndAddObserver {
     _leftMarggin = 20*SCREEN_RADIO;
     _topMarggin = 10*SCREEN_RADIO;

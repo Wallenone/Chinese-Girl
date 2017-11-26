@@ -15,8 +15,8 @@
     CanCelClickBlock canCelClickBlock;
 }
 @property(nonatomic,strong)UIButton *leftIcon;
-@property(nonatomic,strong)UIImageView *bgImgView;
 @property(nonatomic,strong)UILabel *titleLabel;
+@property(nonatomic,strong)UILabel *contentLabel;
 @property(nonatomic,strong)UIButton *SignupBtn;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *userNameField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *passwordField;
@@ -41,17 +41,13 @@
 }
 
 -(void)addSubViews{
-    
-    [self addSubview:self.bgImgView];
-    UIView *_view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    _view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    [self.bgImgView addSubview:_view];
-    [self addSubview:self.leftIcon];
     [self addSubview:self.titleLabel];
-    [self addSubview:self.SignupBtn];
+    [self addSubview:self.leftIcon];
+    [self addSubview:self.contentLabel];
+    //[self addSubview:self.SignupBtn];
     [self addSubview:self.userNameField];
-    [self addSubview:self.passwordField];
-    [self addSubview:self.forgotPassword];
+   // [self addSubview:self.passwordField];
+  //  [self addSubview:self.forgotPassword];
     [self addSubview:self.signInBtn];
 }
 
@@ -113,30 +109,30 @@
     return _leftIcon;
 }
 
-
-
-
--(UIImageView *)bgImgView{
-    if (!_bgImgView) {
-        _bgImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-        _bgImgView.image= [self imageByApplyingAlpha:0.9 image: [UIImage imageNamed:@"login_Bitmap"]];
-    }
-    
-    return _bgImgView;
-}
-
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(60*SCREEN_RADIO, 168*SCREEN_RADIO, 0, 26*SCREEN_RADIO)];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 35*SCREEN_RADIO, screen_width, 26*SCREEN_RADIO)];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
-        _titleLabel.textColor=[UIColor getColor:@"F4F8FA"];
-        _titleLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
+        _titleLabel.textColor=[UIColor getColor:@"333333"];
+        _titleLabel.font=[UIFont systemFontOfSize:25*SCREEN_RADIO];
         NSString *cg_text=NSLocalizedString(@"new_user", nil);
         _titleLabel.text=cg_text;
-        [_titleLabel sizeToFit];
+        _titleLabel.textAlignment=NSTextAlignmentCenter;
     }
     
     return _titleLabel;
+}
+
+-(UILabel *)contentLabel{
+    if (!_contentLabel) {
+        _contentLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleLabel.frame), screen_width, 19*SCREEN_RADIO)];
+        _contentLabel.text=@"当宁登录或是需要重设密码时，会使用这个电子邮件";
+        _contentLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
+        _contentLabel.textColor=[UIColor getColor:@"6d6d6d"];
+        _contentLabel.textAlignment=NSTextAlignmentCenter;
+    }
+    
+    return _contentLabel;
 }
 
 -(UIButton *)SignupBtn{
@@ -153,7 +149,7 @@
 
 -(CGLoginIndexCustomTextField *)userNameField{
     if (!_userNameField) {
-        _userNameField=[[CGLoginIndexCustomTextField alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, CGRectGetMaxY(self.titleLabel.frame)+53*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        _userNameField=[[CGLoginIndexCustomTextField alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, CGRectGetMaxY(self.contentLabel.frame)+53*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
         _userNameField.layer.cornerRadius=45/2*SCREEN_RADIO;
         NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
         // 设置富文本对象的颜色

@@ -43,6 +43,7 @@
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
 		E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */; };
 		E53503B11F9C721900E1D8C5 /* MyCommitSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */; };
+		E53579D01FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = E53579CE1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m */; };
 		E5360A6C1FBC6A9E009DDA07 /* CGFriendsAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A6B1FBC6A9E009DDA07 /* CGFriendsAddViewController.m */; };
 		E5360A711FBC6C34009DDA07 /* CGNewFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A701FBC6C34009DDA07 /* CGNewFriendTableViewCell.m */; };
 		E5360A731FBC777C009DDA07 /* addFriends.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5360A721FBC777C009DDA07 /* addFriends.plist */; };
@@ -241,6 +242,8 @@
 		E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSLocalNotification.m"; sourceTree = "<group>"; };
 		E53503AF1F9C721900E1D8C5 /* MyCommitSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitSViewController.h; sourceTree = "<group>"; };
 		E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommitSViewController.m; sourceTree = "<group>"; };
+		E53579CE1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+ZWPlaceHolder.m"; sourceTree = "<group>"; };
+		E53579CF1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+ZWPlaceHolder.h"; sourceTree = "<group>"; };
 		E5360A6A1FBC6A9E009DDA07 /* CGFriendsAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFriendsAddViewController.h; sourceTree = "<group>"; };
 		E5360A6B1FBC6A9E009DDA07 /* CGFriendsAddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGFriendsAddViewController.m; sourceTree = "<group>"; };
 		E5360A6F1FBC6C34009DDA07 /* CGNewFriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGNewFriendTableViewCell.h; sourceTree = "<group>"; };
@@ -828,6 +831,8 @@
 		E538D7721F429D7E0079AE94 /* CommonClass */ = {
 			isa = PBXGroup;
 			children = (
+				E53579CF1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.h */,
+				E53579CE1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m */,
 				E5FC800C1FC9BE250094615B /* RootTabBarController.h */,
 				E5FC800D1FC9BE250094615B /* RootTabBarController.m */,
 				E5FC800F1FC9BFB60094615B /* RootNavController.h */,
@@ -1356,6 +1361,7 @@
 				E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */,
 				E5BD33D61FC062B500C8FE94 /* CGVideoFullView.m in Sources */,
 				E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */,
+				E53579D01FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m in Sources */,
 				E538D7661F429BE80079AE94 /* DriftBottleViewController.m in Sources */,
 				E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */,
 				E546C1221FBF231C000F5127 /* CGVipViewController.m in Sources */,
@@ -1508,7 +1514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1542,7 +1548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1559,7 +1565,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1577,7 +1583,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

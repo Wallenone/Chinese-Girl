@@ -97,7 +97,7 @@
 
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
-        _tbv = [[EZJFastTableView alloc]initWithFrame:CGRectMake(0, 64, screen_width, screen_height-64)];
+        _tbv = [[EZJFastTableView alloc]initWithFrame:CGRectMake(0, 64*SCREEN_RADIO, screen_width, screen_height-64*SCREEN_RADIO)];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         NSMutableArray *pingluns=[[CGPinglun reloadCommits:self.commitModel.pinglunid] mutableCopy];
         [pingluns insertObject:self.commitModel atIndex:0];
@@ -138,13 +138,13 @@
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
             weakSelf.TouchModel=cellData;
-            if ([weakSelf.messageView getIsFirstResponder]) {
-                weakSelf.messageView.hidden=YES;
-                [weakSelf.messageView setFirstResponderAction];
-            }else{
-                weakSelf.messageView.hidden=NO;
-                [weakSelf.messageView setBeResponderAction];
-            }
+//            if ([weakSelf.messageView getIsFirstResponder]) {
+//                weakSelf.messageView.hidden=YES;
+//                [weakSelf.messageView setFirstResponderAction];
+//            }else{
+//                weakSelf.messageView.hidden=NO;
+//                [weakSelf.messageView setBeResponderAction];
+//            }
         
             
         }];
@@ -158,7 +158,7 @@
 
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 53*SCREEN_RADIO)];
+        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
         _headerView.backgroundColor=[UIColor clearColor];
     }
     
@@ -169,7 +169,7 @@
 
 -(UIButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -189,7 +189,7 @@
 
 -(UIView *)bottomLine{
     if (!_bottomLine) {
-        _bottomLine=[[UIView alloc] initWithFrame:CGRectMake(0, 63.5, screen_width, 0.5)];
+        _bottomLine=[[UIView alloc] initWithFrame:CGRectMake(0, 64*SCREEN_RADIO-0.5, screen_width, 0.5)];
         _bottomLine.backgroundColor=[UIColor getColor:@"CED7DB"];
     }
     

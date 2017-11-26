@@ -20,7 +20,6 @@
 
 @property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIView *toplineView;
-@property(nonatomic,strong)UIButton *leftBtn;
 @property(nonatomic,strong)UIMessageCustom *messageView;
 @property(nonatomic,strong)UIButton *rightBtn;
 @end
@@ -42,23 +41,22 @@
     return self;
 }
 
--(void)setFirstResponderAction{
-    [self.messageView resignFirstResponder];
-}
-
--(BOOL)getIsFirstResponder{
-    return self.messageView.isFirstResponder;
-}
-
--(void)setBeResponderAction{
-    [self.messageView becomeFirstResponder];
-}
+//-(void)setFirstResponderAction{
+//    [self.messageView resignFirstResponder];
+//}
+//
+//-(BOOL)getIsFirstResponder{
+//    return self.messageView.isFirstResponder;
+//}
+//
+//-(void)setBeResponderAction{
+//    [self.messageView becomeFirstResponder];
+//}
 
 
 -(void)addSubViews{
     [self addSubview:self.bgView];
     [self addSubview:self.toplineView];
-    [self addSubview:self.leftBtn];
     [self addSubview:self.messageView];
     [self addSubview:self.rightBtn];
 }
@@ -93,7 +91,7 @@
             [self.messageView resignFirstResponder];
             submitEdit(self.messageView.text);
             self.messageView.text=@"";
-            self.messageView.frame=CGRectMake(CGRectGetMaxX(self.leftBtn.frame)+13.6*SCREEN_RADIO, 7.5*SCREEN_RADIO, screen_width-110*SCREEN_RADIO, 44*SCREEN_RADIO);
+            self.messageView.frame=CGRectMake(15*SCREEN_RADIO, 7.5*SCREEN_RADIO, screen_width-72*SCREEN_RADIO, 44*SCREEN_RADIO);
             self.bgView.frame=CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
             self.toplineView.frame=CGRectMake(0, 0, screen_width, 0.5);
         }
@@ -164,21 +162,11 @@
     return _toplineView;
 }
 
--(UIButton *)leftBtn{
-    if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(14.3*SCREEN_RADIO, 16.5*SCREEN_RADIO, 27.1*SCREEN_RADIO, 27.1*SCREEN_RADIO)];
-        [_leftBtn setBackgroundImage:[UIImage imageNamed:@"NewsLink"] forState:UIControlStateNormal];
-        [_leftBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _leftBtn;
-}
-
 -(UIMessageCustom *)messageView{
     if (!_messageView) {
-        _messageView=[[UIMessageCustom alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftBtn.frame)+13.6*SCREEN_RADIO, 7.5*SCREEN_RADIO, screen_width-110*SCREEN_RADIO, 44*SCREEN_RADIO)];
+        _messageView=[[UIMessageCustom alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 7.5*SCREEN_RADIO, screen_width-72*SCREEN_RADIO, 44*SCREEN_RADIO)];
         messgaeY=_messageView.frame.size.height+_messageView.frame.origin.y;
-        _messageView.layer.cornerRadius=22*SCREEN_RADIO;
+        _messageView.layer.cornerRadius=6*SCREEN_RADIO;
         _messageView.placeholder=NSLocalizedString(@"messages", nil);
         _messageView.placeholderFont=[UIFont systemFontOfSize:17*SCREEN_RADIO];
         _messageView.placeholderColor=[UIColor getColor:@"232627s"];
@@ -199,7 +187,7 @@
 
 -(UIButton *)rightBtn{
     if (!_rightBtn) {
-        _rightBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.messageView.frame)+ 16*SCREEN_RADIO, 16.5*SCREEN_RADIO, 27.1*SCREEN_RADIO, 27.1*SCREEN_RADIO)];
+        _rightBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.messageView.frame)+ 15*SCREEN_RADIO, 16.5*SCREEN_RADIO, 27.1*SCREEN_RADIO, 27.1*SCREEN_RADIO)];
         [_rightBtn setBackgroundImage:[UIImage imageNamed:@"NewsSend"] forState:UIControlStateNormal];
         [_rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }

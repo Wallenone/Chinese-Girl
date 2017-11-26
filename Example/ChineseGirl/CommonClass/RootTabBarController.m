@@ -22,7 +22,8 @@
 #import "CGFriendsViewcontroller.h"
 #import "CGAnimationIndexViewController.h"
 #import "RootNavController.h"
-@interface RootTabBarController ()
+#import "CGLoginViewController.h"
+@interface RootTabBarController ()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 @end
 
@@ -47,9 +48,8 @@
     self.tabBar.backgroundColor=[UIColor whiteColor];
     self.tabBar.tintColor=[UIColor blackColor];
     self.tabBar.unselectedItemTintColor=[UIColor blackColor];
-    self.tabBar.translucent=NO;
     self.delegate=self;
-    
+    self.tabBar.translucent=YES;
     //b.创建子控制器
     IndexViewController *indeVC=[[IndexViewController alloc] init];
     indeVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
@@ -72,7 +72,7 @@
     newsVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
     newsVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
-    MineViewController *mineVC=[[MineViewController alloc] init];
+    CGLoginViewController *mineVC=[[CGLoginViewController alloc] init];
     mineVC.tabBarItem.image=[UIImage imageNamed:@"Profile"];
     mineVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Profileed"];
     mineVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
@@ -102,7 +102,33 @@
     
 }
 
+//- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+//    if(viewController == [tabBarController.viewControllers objectAtIndex:3]) {
+//        if ([CGSingleCommitData sharedInstance].uid.length>0) {
+//
+//        }else{
+//            CGRegisterNewIndexViewController *rootVC=[[CGRegisterNewIndexViewController alloc] init];
+//            UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:<#(nonnull UIViewController *)#>]
+//        }
+//    }
+//    return YES;
+//}
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController willBeginCustomizingViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers{
+    
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController willEndCustomizingViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers changed:(BOOL)changed{
+    
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers changed:(BOOL)changed{
+    
+}
 
 
 @end

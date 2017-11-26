@@ -11,193 +11,296 @@
 #import "EZJFastTableView.h"
 #import "NewsContentModel.h"
 #import "NewsContentTableViewCell.h"
-@interface NewsMessageController ()
+#import "UITextView+ZWPlaceHolder.h"
+#import "MyIndexViewController.h"
+@interface NewsMessageController ()<UITextViewDelegate>
 @property(nonatomic,strong)UIView *headerView;
-@property(nonatomic,strong)UILabel *titleLable;
+@property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIButton *leftBtn;
-@property(nonatomic,strong)UIImageView *newsContentbg;
-@property(nonatomic,strong)EZJFastTableView *tbv;
-@property(nonatomic,strong)NewsBottomMessage *messageView;
+@property(nonatomic,strong)UIImageView *AvatarImgView;
+@property(nonatomic,strong)UIButton *avatarbtn;
+@property(nonatomic,strong)UILabel *nickName;
+@property(nonatomic,strong)UILabel *address;
+@property(nonatomic,strong)UIImageView *addressIcon;
+@property(nonatomic,strong)UIButton *talkBtn;
+@property(nonatomic,strong)UIButton *followingBtn;
+@property(nonatomic,strong)UIScrollView *contentScroll;
+@property(nonatomic,strong)UIView *bottomView;
+@property(nonatomic,strong)UITextView *textView;
+@property(nonatomic,strong)UIButton *sendBtn;
+@property(nonatomic,strong)UIView *lineView;
 @end
 
 @implementation NewsMessageController
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+- (void)viewWillAppear:(BOOL)animated{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [self.tabBarController.tabBar setHidden:YES];
     [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [self.tabBarController.tabBar setHidden:NO];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self addSubViews];
     [self setHeaderView];
+    [self addSubViews];
 }
 
--(void)backClick{
+-(void)back{
     [self.navigationController popViewControllerAnimated:NO];
+}
+
+-(void)talkClick{
+    
+}
+
+-(void)avatarClick{
+    NSArray*arrController =self.navigationController.viewControllers;
+    
+    NSInteger VcCount = arrController.count;
+    
+    //最后一个vc是自己，(-2)是倒数第二个是上一个控制器。
+    
+    UIViewController*lastVC = arrController[VcCount - 2];
+    
+    // 返回到倒数第三个控制器
+    
+    if([lastVC isKindOfClass:[MyIndexViewController class]]) {
+        [self.navigationController popViewControllerAnimated:NO];
+    }else{
+        MyIndexViewController *myIndexVC=[[MyIndexViewController alloc] init];
+        myIndexVC.ids=[self.myIndexModel.ids integerValue];
+        [self.navigationController pushViewController:myIndexVC animated:NO];
+    }
+}
+
+-(void)sendClick{
+    
+}
+
+-(void)followingClick:(UIButton *)button{//C5D4D2  //320AFD
+    if ([button.currentTitle isEqual:@"Following"]) {
+        [button setBackgroundColor:[UIColor getColor:@"320AFD"]];
+        [button setTitle:@"Follwed" forState:UIControlStateNormal];
+        [[CGSingleCommitData sharedInstance] addFollows:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
+    }
+    else {
+        [button setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
+        [button setTitle:@"Follwing" forState:UIControlStateNormal];
+        [[CGSingleCommitData sharedInstance] deletefollow:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
+    }
 }
 
 -(void)setHeaderView{
     [self.view addSubview:self.headerView];
-    [self.headerView addSubview:self.titleLable];
+    [self.headerView addSubview:self.titleLabel];
     [self.headerView addSubview:self.leftBtn];
+    [self.headerView addSubview:self.AvatarImgView];
+    [self.headerView addSubview:self.avatarbtn];
+    [self.headerView addSubview:self.nickName];
+    [self.headerView addSubview:self.addressIcon];
+    [self.headerView addSubview:self.address];
+    [self.headerView addSubview:self.followingBtn];
+    [self.headerView addSubview:self.talkBtn];
+    
 }
 
 -(void)addSubViews{
-    
-    [self.view addSubview:self.newsContentbg];
-    [self.view addSubview:self.tbv];
-    [self.view addSubview:self.messageView];
+    [self.view addSubview:self.contentScroll];
+    [self.view addSubview:self.bottomView];
+    [self.bottomView addSubview:self.textView];
+    [self.bottomView addSubview:self.sendBtn];
+    [self.bottomView addSubview:self.lineView];
 }
 
--(CGFloat)getCellHeight:(NewsContentModel*)model{
-    CGFloat _cellHeight=0;
-    if (model.text.length>0) {
-        
-        CGFloat maxWidth =screen_width-164*SCREEN_RADIO;
-        
-        CGSize constraint = CGSizeMake(maxWidth, 99999.0f);
-        CGSize size = [model.text sizeWithFont:[UIFont systemFontOfSize:22*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        
-        
-        _cellHeight=size.height+54*SCREEN_RADIO;
-    }
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
-    return _cellHeight;
+    return YES;
+    
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    
 }
 
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 64)];
-        _headerView.backgroundColor=[UIColor whiteColor];
+        _headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 205*SCREEN_RADIO)];
+        _headerView.backgroundColor=[UIColor getColor:@"171616"];
     }
+    
     return _headerView;
 }
 
--(UILabel *)titleLable{
-    if (!_titleLable) {
-        _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLable.text=@"Wallen";
-        _titleLable.textColor=[UIColor getColor:@"232627"];
-        _titleLable.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        _titleLable.textAlignment=NSTextAlignmentCenter;
+-(UILabel *)titleLabel{
+    if (!_titleLabel) {
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 28.5*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
+        _titleLabel.text=self.myIndexModel.nickname;
+        _titleLabel.textColor=[UIColor whiteColor];
+        _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
+        _titleLabel.textAlignment=NSTextAlignmentCenter;
     }
-    return _titleLable;
+    return _titleLabel;
 }
 
 -(UIButton *)leftBtn{
     if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
-        [_leftBtn setBackgroundImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
-        [_leftBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 33*SCREEN_RADIO, 10.5*SCREEN_RADIO, 17.5*SCREEN_RADIO)];
+        [_leftBtn setImage:[UIImage imageNamed:@"myIndexLeft"] forState:UIControlStateNormal];
+        [_leftBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _leftBtn;
 }
 
--(UIImageView *)newsContentbg{
-    if (!_newsContentbg) {
-        _newsContentbg=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height)];
-        _newsContentbg.image=[UIImage imageNamed:@"newsContentbg"];
+
+
+-(UIImageView *)AvatarImgView{
+    if (!_AvatarImgView) {
+        _AvatarImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 64*SCREEN_RADIO+15*SCREEN_RADIO, 100*SCREEN_RADIO, 100*SCREEN_RADIO)];
+        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater]];
+        _AvatarImgView.layer.cornerRadius=50*SCREEN_RADIO;
+        _AvatarImgView.clipsToBounds=YES;
     }
     
-    return _newsContentbg;
+    return _AvatarImgView;
 }
 
--(EZJFastTableView *)tbv{
-    if (!_tbv) {
-        
-        __weak __typeof(self)weakSelf = self;
-
-        CGRect tbvFrame = CGRectMake(0, 64, self.view.frame.size.width, screen_height-120*SCREEN_RADIO);
-        //初始化
-        
-        _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
-        _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
-        _tbv.backgroundColor=[UIColor clearColor];
-        NSMutableArray *arrays =[[NSMutableArray alloc] init];
-
-        [_tbv setDataArray:arrays];
-        
-        [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            NewsContentTableViewCell *cell =[[NewsContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
-            
-            return cell;
-            
-        }];
-        
-        
-        //是否启用删除功能
-        [_tbv onCellediting:^(NSIndexPath *index, id cellData) {
-            
-        }];
-        
-        
-        //动态改变
-        [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
-            
-            return [weakSelf getCellHeight:cellData];
-        }];
-        
-        
-        
-        //设置选中事件 block设置方式
-        //indexPath  是当前行对象 indexPath.row(获取行数)
-        //cellData 是当前行的数据
-        
-        [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
-            NSLog(@"click");
-        
-        }];
-        
+-(UIButton *)avatarbtn{
+    if (!_avatarbtn) {
+        _avatarbtn=[[UIButton alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 64*SCREEN_RADIO+15*SCREEN_RADIO, 115*SCREEN_RADIO, 115*SCREEN_RADIO)];
+        [_avatarbtn addTarget:self action:@selector(avatarClick) forControlEvents:UIControlEventTouchUpInside];
     }
-    
-    return _tbv;
+    return _avatarbtn;
+}
+
+-(UILabel *)nickName{
+    if (!_nickName) {
+        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+24*SCREEN_RADIO, 64*SCREEN_RADIO+20*SCREEN_RADIO, 180*SCREEN_RADIO, 16*SCREEN_RADIO)];
+        _nickName.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        _nickName.text=self.myIndexModel.nickname;
+        _nickName.textColor=[UIColor getColor:@"ffffff"];
+    }
+    return _nickName;
 }
 
 
 
-
--(NewsBottomMessage *)messageView{
-    if (!_messageView) {
-        __weak __typeof(self)weakSelf = self;
-        _messageView=[[NewsBottomMessage alloc] initWithFrame:CGRectMake(0, screen_height-60*SCREEN_RADIO, screen_width, 60*SCREEN_RADIO) withDidBeginEditing:^(UITextView *textView) {
-            //CGRect frame = textView.frame;
-            int offset = (59*SCREEN_RADIO+216.0);//键盘高度216
-            
-            [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-            
-            [UIView setAnimationDuration:0.30f];//动画持续时间
-            
-            if (offset>0) {
-                //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
-                weakSelf.messageView.frame = CGRectMake(0.0f, screen_height-offset, screen_width, 59*SCREEN_RADIO);
-            }
-            [UIView commitAnimations];
-        } withDidSubmitEdit:^(NSString *text) {
-            
-            NewsContentModel *model = [[NewsContentModel alloc] init];
-            model.icon=@"Avatar";
-            model.text=text;
-            model.timeDate=@"08:11";
-            [weakSelf.tbv insertData:model];
-            [weakSelf.tbv scrollToBottom:YES];
-            weakSelf.messageView.frame = CGRectMake(0, screen_height-59*SCREEN_RADIO, screen_width, 59*SCREEN_RADIO);
-        }];
+-(UIImageView *)addressIcon{
+    if (!_addressIcon) {
+        _addressIcon=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+25*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+6*SCREEN_RADIO, 7*SCREEN_RADIO, 12*SCREEN_RADIO)];
+        _addressIcon.image=[UIImage imageNamed:@"myindexPin"];
     }
-    
-    return _messageView;
+    return _addressIcon;
 }
 
+-(UILabel *)address{
+    if (!_address) {
+        _address=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.addressIcon.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
+        _address.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
+        _address.textColor=[UIColor getColor:@"777777"];
+        _address.text=self.myIndexModel.address;
+        [_address sizeToFit];
+    }
+    
+    return _address;
+}
+
+
+-(UIButton *)followingBtn{
+    if (!_followingBtn) {
+        _followingBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+25.5*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, 159.5*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        [_followingBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];//C5D4D2  //320AFD
+        [_followingBtn setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
+        [_followingBtn setTitle:@"Follow" forState:UIControlStateNormal];
+        _followingBtn.imageEdgeInsets = UIEdgeInsetsMake(13.5*SCREEN_RADIO,16.5*SCREEN_RADIO,14*SCREEN_RADIO,125*SCREEN_RADIO);
+        _followingBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -_followingBtn.imageView.frame.size.width, 0, 0);
+        
+        //        if (self.myIndexModel.followed) {
+        //            [_followingBtn setTitle:@"Followed" forState:UIControlStateNormal];
+        //        }else{
+        //            [_followingBtn setTitle:@"Follow" forState:UIControlStateNormal];
+        //
+        //        }
+        _followingBtn.layer.cornerRadius=22.5*SCREEN_RADIO;
+        _followingBtn.layer.borderWidth=0.5;
+        _followingBtn.layer.borderColor=[UIColor getColor:@"ffffff"].CGColor;
+        _followingBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        [_followingBtn addTarget:self action:@selector(followingClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    
+    return _followingBtn;
+}
+
+-(UIButton *)talkBtn{
+    if (!_talkBtn) {
+        _talkBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.followingBtn.frame)+15*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, 45*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        [_talkBtn setBackgroundImage:[UIImage imageNamed:@"talkButton"] forState:UIControlStateNormal];
+        [_talkBtn addTarget:self action:@selector(talkClick) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    
+    return _talkBtn;
+}
+
+-(UIScrollView *)contentScroll{
+    if (!_contentScroll) {
+        _contentScroll=[[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame), screen_width, screen_height-255*SCREEN_RADIO)];
+        _contentScroll.backgroundColor=[UIColor getColor:@"ffffff"];
+    }
+    
+    return _contentScroll;
+}
+
+-(UIView *)bottomView{
+    if (!_bottomView) {
+        _bottomView=[[UIView alloc] initWithFrame:CGRectMake(0, screen_height-50*SCREEN_RADIO, screen_width, 50*SCREEN_RADIO)];
+        _bottomView.backgroundColor=[UIColor getColor:@"F9F9F9"];
+    }
+    
+    return _bottomView;
+}
+
+-(UITextView *)textView{
+    if (!_textView) {
+        _textView=[[UITextView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 11.5*SCREEN_RADIO, screen_width-108*SCREEN_RADIO, 19.5*SCREEN_RADIO)];
+        _textView.zw_placeHolder=@"请输入内容";
+        _textView.zw_placeHolderColor=[UIColor getColor:@"777777"];
+        _textView.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        _textView.backgroundColor=[UIColor getColor:@"F9F9F9"];
+        _textView.delegate=self;
+    }
+    
+    return _textView;
+}
+
+-(UIButton *)sendBtn{
+    if (!_sendBtn) {
+        _sendBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.textView.frame)+8*SCREEN_RADIO, 11.5*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.textView.frame)+8*SCREEN_RADIO, 19.5*SCREEN_RADIO)];
+        [_sendBtn setTitle:@"Send" forState:UIControlStateNormal];
+        [_sendBtn setTitleColor:[UIColor getColor:@"777777"] forState:UIControlStateNormal];
+        [_sendBtn addTarget:self action:@selector(sendClick) forControlEvents:UIControlEventTouchUpInside];
+        _sendBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+    }
+    
+    return _sendBtn;
+}
+
+-(UIView *)lineView{
+    if (!_lineView) {
+        _lineView=[[UIView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 42*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 0.5)];
+        _lineView.backgroundColor=[UIColor getColor:@"D8D8D8"];
+    }
+    
+    return _lineView;
+}
 
 
 @end

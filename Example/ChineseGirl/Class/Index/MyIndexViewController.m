@@ -26,7 +26,6 @@
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIButton *leftBtn;
-@property(nonatomic,strong)UIButton *rightBtn;
 @property(nonatomic,strong)UIView *infoView;
 @property(nonatomic,strong)UIView *bottomLine;
 @property(nonatomic,strong)EZJFastTableView *tbv;
@@ -62,16 +61,11 @@
     [self.view addSubview:self.headerView];
     [self.headerView addSubview:self.titleLabel];
     [self.headerView addSubview:self.leftBtn];
-    [self.headerView addSubview:self.rightBtn];
     [self.view addSubview:self.tbv];
 }
 
 -(void)back{
     [self.navigationController popViewControllerAnimated:YES];
-}
-
--(void)rightClick{
-    
 }
 
 
@@ -156,15 +150,6 @@
     return _leftBtn;
 }
 
--(UIButton *)rightBtn{
-    if (!_rightBtn) {
-        _rightBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-42*SCREEN_RADIO, 32*SCREEN_RADIO, 22*SCREEN_RADIO, 22*SCREEN_RADIO)];
-        [_rightBtn setImage:[UIImage imageNamed:@"followadd"] forState:UIControlStateNormal];
-        [_rightBtn addTarget:self action:@selector(rightClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _rightBtn;
-}
 
 
 -(EZJFastTableView *)tbv{
@@ -188,6 +173,7 @@
             if (index.row ==0) {
                 myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withTalkCallBack:^{
                     NewsMessageController *newsMessageVC=[[NewsMessageController alloc] init];
+                    newsMessageVC.myIndexModel=cellData;
                     [weakSelf.navigationController pushViewController:newsMessageVC animated:NO];
                 }];
                 

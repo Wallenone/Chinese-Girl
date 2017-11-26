@@ -12,7 +12,7 @@ typedef void (^DidBeginEditing)(UITextView *);
 typedef void (^SubmitEdit)(NSString *);
 @interface NewsBottomMessage : UIView
 - (instancetype)initWithFrame:(CGRect)frame withDidBeginEditing:(DidBeginEditing)block withDidSubmitEdit:(SubmitEdit)submitBlock;
--(void)setFirstResponderAction;//释放
--(void)setBeResponderAction;//得到
--(BOOL)getIsFirstResponder;
+//-(void)setFirstResponderAction;//释放
+//-(void)setBeResponderAction;//得到
+//-(BOOL)getIsFirstResponder;
 @end
