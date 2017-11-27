@@ -135,6 +135,9 @@
 		E5E0FE4D1F9AF15700B5228E /* WYLongTextInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0FE431F9AF15700B5228E /* WYLongTextInputView.m */; };
 		E5E0FE4E1F9AF15700B5228E /* 返回@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE441F9AF15700B5228E /* 返回@2x.png */; };
 		E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5E0FE451F9AF15700B5228E /* 返回@3x.png */; };
+		E5E21BDD1FCC408E00B6DF61 /* CGNewIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E21BDC1FCC408E00B6DF61 /* CGNewIndexViewController.m */; };
+		E5E21BE01FCC512100B6DF61 /* CGNewSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E21BDF1FCC512100B6DF61 /* CGNewSignInViewController.m */; };
+		E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E21BE21FCC593B00B6DF61 /* CGNewForgetViewController.m */; };
 		E5E271671FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */; };
 		E5E2716C1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */; };
 		E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E35D351F9B426600322F9D /* UICustomPickImgView.m */; };
@@ -407,6 +410,12 @@
 		E5E0FE431F9AF15700B5228E /* WYLongTextInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYLongTextInputView.m; sourceTree = "<group>"; };
 		E5E0FE441F9AF15700B5228E /* 返回@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回@2x.png"; sourceTree = "<group>"; };
 		E5E0FE451F9AF15700B5228E /* 返回@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回@3x.png"; sourceTree = "<group>"; };
+		E5E21BDB1FCC408E00B6DF61 /* CGNewIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGNewIndexViewController.h; sourceTree = "<group>"; };
+		E5E21BDC1FCC408E00B6DF61 /* CGNewIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGNewIndexViewController.m; sourceTree = "<group>"; };
+		E5E21BDE1FCC512100B6DF61 /* CGNewSignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGNewSignInViewController.h; sourceTree = "<group>"; };
+		E5E21BDF1FCC512100B6DF61 /* CGNewSignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGNewSignInViewController.m; sourceTree = "<group>"; };
+		E5E21BE11FCC593B00B6DF61 /* CGNewForgetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGNewForgetViewController.h; sourceTree = "<group>"; };
+		E5E21BE21FCC593B00B6DF61 /* CGNewForgetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGNewForgetViewController.m; sourceTree = "<group>"; };
 		E5E271651FC7BF8600BA1AC1 /* CGAnimationIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnimationIndexViewController.h; sourceTree = "<group>"; };
 		E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnimationIndexViewController.m; sourceTree = "<group>"; };
 		E5E2716A1FC7C1E700BA1AC1 /* CGAnimationIndexCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnimationIndexCell.h; sourceTree = "<group>"; };
@@ -1079,6 +1088,12 @@
 				E5944C021FB975D300013F78 /* UICountryViewController.m */,
 				E5944C041FB975FC00013F78 /* UICitySViewController.h */,
 				E5944C051FB975FC00013F78 /* UICitySViewController.m */,
+				E5E21BDB1FCC408E00B6DF61 /* CGNewIndexViewController.h */,
+				E5E21BDC1FCC408E00B6DF61 /* CGNewIndexViewController.m */,
+				E5E21BDE1FCC512100B6DF61 /* CGNewSignInViewController.h */,
+				E5E21BDF1FCC512100B6DF61 /* CGNewSignInViewController.m */,
+				E5E21BE11FCC593B00B6DF61 /* CGNewForgetViewController.h */,
+				E5E21BE21FCC593B00B6DF61 /* CGNewForgetViewController.m */,
 				E5F0A3EB1F57F7FD0051699B /* View */,
 			);
 			path = Login;
@@ -1323,6 +1338,7 @@
 				E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */,
 				E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */,
 				E538D76B1F429BE80079AE94 /* WSLayout.m in Sources */,
+				E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */,
 				E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */,
 				E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */,
 				E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */,
@@ -1342,6 +1358,7 @@
 				E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */,
 				E5C0CD701FB80C35002394C9 /* CGPinglunModel.m in Sources */,
 				E538D76C1F429BE80079AE94 /* MineViewController.m in Sources */,
+				E5E21BE01FCC512100B6DF61 /* CGNewSignInViewController.m in Sources */,
 				E504AB981F507C0100E1F48C /* MJPhotoView.m in Sources */,
 				E5E0FE4A1F9AF15700B5228E /* WYCityPickerView.m in Sources */,
 				E56826131F9E31130099F363 /* MineAccountViewController.m in Sources */,
@@ -1353,6 +1370,7 @@
 				E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */,
 				E5C0CD731FB80EAB002394C9 /* CGPinglunren.m in Sources */,
 				E504AB971F507C0100E1F48C /* MJPhotoToolbar.m in Sources */,
+				E5E21BDD1FCC408E00B6DF61 /* CGNewIndexViewController.m in Sources */,
 				E5FC80111FC9BFB70094615B /* RootNavController.m in Sources */,
 				E58F28951FC30EAF00DFAB8E /* XLVideoPlayer.m in Sources */,
 				E5FC800E1FC9BE250094615B /* RootTabBarController.m in Sources */,

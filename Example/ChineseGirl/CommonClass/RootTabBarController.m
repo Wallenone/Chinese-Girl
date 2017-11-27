@@ -23,6 +23,7 @@
 #import "CGAnimationIndexViewController.h"
 #import "RootNavController.h"
 #import "CGLoginViewController.h"
+#import "CGNewIndexViewController.h"
 @interface RootTabBarController ()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 @end
@@ -102,17 +103,22 @@
     
 }
 
-//- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-//    if(viewController == [tabBarController.viewControllers objectAtIndex:3]) {
-//        if ([CGSingleCommitData sharedInstance].uid.length>0) {
-//
-//        }else{
-//            CGRegisterNewIndexViewController *rootVC=[[CGRegisterNewIndexViewController alloc] init];
-//            UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:<#(nonnull UIViewController *)#>]
-//        }
-//    }
-//    return YES;
-//}
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if(viewController == [tabBarController.viewControllers objectAtIndex:3]) {
+        if ([CGSingleCommitData sharedInstance].uid.length>0) {
+            
+        }else{
+            CGNewIndexViewController *rootVC=[[CGNewIndexViewController alloc] init];
+            RootNavController *nav = [[RootNavController alloc] initWithRootViewController:rootVC];
+        
+            
+            [self.navigationController presentViewController:nav animated:YES completion:nil];
+            
+            return NO;
+        }
+    }
+    return YES;
+}
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     
