@@ -8,6 +8,7 @@
 
 #import "CGNewSignInViewController.h"
 #import "CGNewForgetViewController.h"
+#import "CGNewIndexViewController.h"
 @interface CGNewSignInViewController ()
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -18,6 +19,8 @@
 @property(nonatomic,strong)UITextField *passwordContent;
 @property(nonatomic,strong)UILabel *ForgetLabel;
 @property(nonatomic,strong)UIButton *ForgetBtn;
+@property(nonatomic,strong)UILabel *SignUpLabel;
+@property(nonatomic,strong)UIButton *SignUpBtn;
 @property(nonatomic,strong)UIButton *signInBtn;
 @end
 
@@ -46,6 +49,8 @@
     [self.view addSubview:self.passwordContent];
     [self.view addSubview:self.ForgetLabel];
     [self.view addSubview:self.ForgetBtn];
+    [self.view addSubview:self.SignUpLabel];
+    [self.view addSubview:self.SignUpBtn];
     [self.view addSubview:self.signInBtn];
 }
 
@@ -60,6 +65,11 @@
 
 -(void)setupClick{
     
+}
+
+-(void)signUpClick{
+    CGNewIndexViewController *indexVC=[[CGNewIndexViewController alloc] init];
+    [self.navigationController pushViewController:indexVC animated:NO];
 }
 
 -(UIButton *)leftIcon{
@@ -146,7 +156,7 @@
 
 -(UILabel *)ForgetLabel{
     if (!_ForgetLabel) {
-        _ForgetLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
+        _ForgetLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-210*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
         _ForgetLabel.text=@"Forgot your password? ";
         _ForgetLabel.textColor=[UIColor getColor:@"6F6F6F"];
         _ForgetLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
@@ -158,7 +168,7 @@
 
 -(UIButton *)ForgetBtn{
     if (!_ForgetBtn) {
-        _ForgetBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
+        _ForgetBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, screen_height-210*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
         [_ForgetBtn setTitle:@"Reset." forState:UIControlStateNormal];
         [_ForgetBtn setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
         _ForgetBtn.titleLabel.font=[UIFont systemFontOfSize:21*SCREEN_RADIO];
@@ -168,6 +178,32 @@
     
     return _ForgetBtn;
 }
+
+-(UILabel *)SignUpLabel{
+    if (!_SignUpLabel) {
+        _SignUpLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
+        _SignUpLabel.text=@"Create an Account? ";
+        _SignUpLabel.textColor=[UIColor getColor:@"6F6F6F"];
+        _SignUpLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        [_SignUpLabel sizeToFit];
+    }
+    
+    return _SignUpLabel;
+}
+
+-(UIButton *)SignUpBtn{
+    if (!_SignUpBtn) {
+        _SignUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.SignUpLabel.frame)+5*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.SignUpLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
+        [_SignUpBtn setTitle:@"RightNow!" forState:UIControlStateNormal];
+        [_SignUpBtn setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
+        _SignUpBtn.titleLabel.font=[UIFont systemFontOfSize:21*SCREEN_RADIO];
+        _SignUpBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [_SignUpBtn addTarget:self action:@selector(signUpClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _SignUpBtn;
+}
+
 
 -(UIButton *)signInBtn{
     if (!_signInBtn) {

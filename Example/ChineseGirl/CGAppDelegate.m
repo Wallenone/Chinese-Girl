@@ -25,6 +25,8 @@
 #import "RootNavController.h"
 #import "CGLoginViewController.h"
 #import "CGNewIndexViewController.h"
+#import "CGManageRegisterViewController.h"
+#import "CGProfileIndexViewController.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 
@@ -70,7 +72,7 @@
     newsVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
     newsVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
-    CGLoginViewController *mineVC=[[CGLoginViewController alloc] init];
+    CGProfileIndexViewController *mineVC=[[CGProfileIndexViewController alloc] init];
     mineVC.tabBarItem.image=[UIImage imageNamed:@"Profile"];
     mineVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Profileed"];
     mineVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
@@ -98,10 +100,10 @@
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     if(viewController == [tabBarController.viewControllers objectAtIndex:3]) {
-        if ([CGSingleCommitData sharedInstance].uid.length>0) {
+        if ([CGSingleCommitData sharedInstance].uid.length<=0) {
             
         }else{
-            CGNewIndexViewController *rootVC=[[CGNewIndexViewController alloc] init];
+            CGManageRegisterViewController *rootVC=[[CGManageRegisterViewController alloc] init];
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
             [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
             
