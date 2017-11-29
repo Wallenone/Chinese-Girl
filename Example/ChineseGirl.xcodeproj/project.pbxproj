@@ -149,6 +149,8 @@
 		E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */; };
 		E5F542801FC8579A00262DCE /* videoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5F5427F1FC8579900262DCE /* videoData.plist */; };
 		E5F542831FC857BD00262DCE /* CGVideoDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F542821FC857BD00262DCE /* CGVideoDataModel.m */; };
+		E5F999BF1FCEDDC800C47C60 /* CGEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F999BE1FCEDDC800C47C60 /* CGEditProfileViewController.m */; };
+		E5F999C51FCEEC8000C47C60 /* CGFavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F999C41FCEEC8000C47C60 /* CGFavoriteView.m */; };
 		E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */; };
 		E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA64161F5865C70032D1BB /* CGRegisterIndexViewController.m */; };
 		E5FC80091FC9BB210094615B /* WSMovieController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FC80081FC9BB210094615B /* WSMovieController.m */; };
@@ -439,6 +441,10 @@
 		E5F5427F1FC8579900262DCE /* videoData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = videoData.plist; sourceTree = "<group>"; };
 		E5F542811FC857BD00262DCE /* CGVideoDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVideoDataModel.h; sourceTree = "<group>"; };
 		E5F542821FC857BD00262DCE /* CGVideoDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVideoDataModel.m; sourceTree = "<group>"; };
+		E5F999BD1FCEDDC800C47C60 /* CGEditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGEditProfileViewController.h; sourceTree = "<group>"; };
+		E5F999BE1FCEDDC800C47C60 /* CGEditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGEditProfileViewController.m; sourceTree = "<group>"; };
+		E5F999C31FCEEC8000C47C60 /* CGFavoriteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFavoriteView.h; sourceTree = "<group>"; };
+		E5F999C41FCEEC8000C47C60 /* CGFavoriteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGFavoriteView.m; sourceTree = "<group>"; };
 		E5FA64121F585ED80032D1BB /* CGRegisterIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRegisterIndexView.h; sourceTree = "<group>"; };
 		E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRegisterIndexView.m; sourceTree = "<group>"; };
 		E5FA64151F5865C70032D1BB /* CGRegisterIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRegisterIndexViewController.h; sourceTree = "<group>"; };
@@ -1104,6 +1110,8 @@
 				E5E518311FCD97DA00919205 /* CGManageRegisterViewController.m */,
 				E5E518331FCDA48700919205 /* CGProfileIndexViewController.h */,
 				E5E518341FCDA48700919205 /* CGProfileIndexViewController.m */,
+				E5F999BD1FCEDDC800C47C60 /* CGEditProfileViewController.h */,
+				E5F999BE1FCEDDC800C47C60 /* CGEditProfileViewController.m */,
 				E5F0A3EB1F57F7FD0051699B /* View */,
 			);
 			path = Login;
@@ -1118,6 +1126,8 @@
 				E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */,
 				E5F0A3F01F5803860051699B /* CGLoginIndexCustomTextField.h */,
 				E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */,
+				E5F999C31FCEEC8000C47C60 /* CGFavoriteView.h */,
+				E5F999C41FCEEC8000C47C60 /* CGFavoriteView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1412,6 +1422,7 @@
 				E5F542831FC857BD00262DCE /* CGVideoDataModel.m in Sources */,
 				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
 				E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */,
+				E5F999BF1FCEDDC800C47C60 /* CGEditProfileViewController.m in Sources */,
 				E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */,
 				E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */,
 				E538D74D1F429ACC0079AE94 /* AFURLResponseSerialization.m in Sources */,
@@ -1432,6 +1443,7 @@
 				E5C960821F93132C00EB654A /* WSCollectionHeaderCell.m in Sources */,
 				E538D7671F429BE80079AE94 /* WSCollectionCell.m in Sources */,
 				E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */,
+				E5F999C51FCEEC8000C47C60 /* CGFavoriteView.m in Sources */,
 				E58F28941FC30EAF00DFAB8E /* XLSlider.m in Sources */,
 				E5795BD71FC472A800DB393B /* CGVideoViewController.m in Sources */,
 				E538D7681F429BE80079AE94 /* IndexViewController.m in Sources */,

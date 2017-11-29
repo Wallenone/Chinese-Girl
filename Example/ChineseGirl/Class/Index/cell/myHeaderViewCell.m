@@ -90,14 +90,14 @@
 }
 
 -(void)followingClick:(UIButton *)button{//C5D4D2  //320AFD
-    if ([button.currentTitle isEqual:@"Following"]) {
+    if ([button.currentTitle isEqual:@"Follow"]) {
         [button setBackgroundColor:[UIColor getColor:@"320AFD"]];
-        [button setTitle:@"Follwed" forState:UIControlStateNormal];
+        [button setTitle:@"Following" forState:UIControlStateNormal];
         [[CGSingleCommitData sharedInstance] addFollows:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
     }
     else {
         [button setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
-        [button setTitle:@"Follwing" forState:UIControlStateNormal];
+        [button setTitle:@"Follow" forState:UIControlStateNormal];
         [[CGSingleCommitData sharedInstance] deletefollow:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
     }
 }

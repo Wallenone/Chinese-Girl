@@ -20,6 +20,7 @@
 @property(nonatomic,copy)NSString *type;
 @property(nonatomic,strong)NSArray *pictureBigs;
 @property(nonatomic,copy)UIImage *videoPic;
++(CGIndexModel *)reloadTableWithId:(NSInteger )ids;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 @end

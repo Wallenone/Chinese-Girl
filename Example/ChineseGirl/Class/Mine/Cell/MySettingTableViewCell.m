@@ -9,7 +9,6 @@
 #import "MySettingTableViewCell.h"
 @interface MySettingTableViewCell(){
     NSString *_title;
-    BOOL _lineState;
     BOOL _allowState;
 }
 @property(nonatomic,strong)UILabel *leftLabel;
@@ -19,12 +18,11 @@
 @end
 @implementation MySettingTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(id)reuseIdentifier withModel:(id)model withLineHidden:(BOOL)state withAllowHidden:(BOOL)allowState{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(id)reuseIdentifier withModel:(id)model withAllowHidden:(BOOL)allowState{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
-        _lineState=state;
         _allowState=allowState;
         [self setData:model];
         [self addSubViews];
@@ -66,9 +64,9 @@
 
 -(UILabel *)leftLabel{
     if (!_leftLabel) {
-        _leftLabel=[[UILabel alloc] initWithFrame:CGRectMake(17*SCREEN_RADIO, 14*SCREEN_RADIO, 0, 20*SCREEN_RADIO)];
+        _leftLabel=[[UILabel alloc] initWithFrame:CGRectMake(17*SCREEN_RADIO, 15*SCREEN_RADIO, 0, 20*SCREEN_RADIO)];
         _leftLabel.text=_title;
-        _leftLabel.textColor=[UIColor getColor:@"686868"];
+        _leftLabel.textColor=[UIColor getColor:@"111111"];
         _leftLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         [_leftLabel sizeToFit];
     }
@@ -77,9 +75,9 @@
 
 -(UILabel *)rightLabel{
     if (!_rightLabel) {
-        _rightLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 14*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 20*SCREEN_RADIO)];
+        _rightLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 14*SCREEN_RADIO, screen_width-31*SCREEN_RADIO, 20*SCREEN_RADIO)];
         //_rightLabel.text=self.settigModel.rightItem;
-        _rightLabel.textColor=[UIColor getColor:@"5E7785"];
+        _rightLabel.textColor=[UIColor getColor:@"111111"];
         _rightLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         _rightLabel.textAlignment=NSTextAlignmentRight;
     }
@@ -88,7 +86,7 @@
 
 -(UIButton *)allowBtn{
     if (!_allowBtn) {
-        _allowBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-16*SCREEN_RADIO, 18.5*SCREEN_RADIO, 6*SCREEN_RADIO, 11*SCREEN_RADIO)];
+        _allowBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-16*SCREEN_RADIO, 19.5*SCREEN_RADIO, 6*SCREEN_RADIO, 11*SCREEN_RADIO)];
         [_allowBtn setBackgroundImage:[UIImage imageNamed:@"myAllowLeft"] forState:UIControlStateNormal];
         _allowBtn.userInteractionEnabled=NO;
         _allowBtn.hidden=_allowState;
@@ -100,9 +98,7 @@
 -(UIView *)lineView{
     if (!_lineView) {
         _lineView=[[UIView alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 49*SCREEN_RADIO, screen_width-16*SCREEN_RADIO, 0.5)];
-        _lineView.backgroundColor=[UIColor getColor:@"FDFDFD"];
-        _lineView.hidden=_lineState;
-        
+        _lineView.backgroundColor=[UIColor colorWithRed:17/255 green:17/255 blue:17/255 alpha:0.1];
     }
     
     return _lineView;
