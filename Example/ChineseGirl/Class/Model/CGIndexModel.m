@@ -32,11 +32,7 @@
     return model;
 }
 
-+(CGIndexModel *)reloadTableWithId:(NSInteger )ids{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"plist"];
-    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    return [self modelWithDic:[data1 objectAtIndex:ids]];
-}
+
 
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"plist"];

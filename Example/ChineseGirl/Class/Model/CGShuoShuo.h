@@ -25,6 +25,7 @@
 @property(nonatomic,copy)NSString *videoUrl;
 @property(nonatomic,copy)UIImage *videoPic;
 @property(nonatomic,assign)BOOL isLike;   //点赞
++(CGShuoShuo *)getTableWithId:(NSString *)ids;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithId:(NSInteger)ids;
 @end

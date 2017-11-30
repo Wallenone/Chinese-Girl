@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 typedef void(^CellClickBlock)(NSInteger);
 @interface CGFavoriteView : UIView
-- (instancetype)initWithFrame:(CGRect)frame withCellBlock:(CellClickBlock)block;
+- (instancetype)initWithFrame:(CGRect)frame withCellBlock:(CellClickBlock)block withType:(BOOL)fullScreen;
 -(void)updateTable;
 @end

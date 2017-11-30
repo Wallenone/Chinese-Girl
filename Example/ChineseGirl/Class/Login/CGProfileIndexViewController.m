@@ -97,9 +97,9 @@
 
 -(UILabel *)nickName{
     if (!_nickName) {
-        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.avaterBtn.frame)+12*SCREEN_RADIO, screen_width, 18*SCREEN_RADIO)];
+        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 18*SCREEN_RADIO)];
         _nickName.text=@"NickName";
-        _nickName.textColor=[UIColor getColor:@"111111"];
+        _nickName.textColor=[UIColor getColor:@"ffffff"];
         _nickName.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _nickName.textAlignment=NSTextAlignmentCenter;
     }
@@ -111,7 +111,7 @@
     if (!_address) {
         _address=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.nickName.frame)+8*SCREEN_RADIO, screen_width, 14*SCREEN_RADIO)];
         _address.text=@"China.BeiJing";
-        _address.textColor=[UIColor getColor:@"111111"];
+        _address.textColor=[UIColor getColor:@"ffffff"];
         _address.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         _address.textAlignment=NSTextAlignmentCenter;
     }
@@ -122,11 +122,11 @@
 -(CGFavoriteView *)favoriteView{
     if (!_favoriteView) {
         __weak typeof(self) weakSelf = self;
-        _favoriteView=[[CGFavoriteView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.address.frame)+10*SCREEN_RADIO, screen_width, screen_height-CGRectGetMaxY(self.address.frame)+10*SCREEN_RADIO) withCellBlock:^(NSInteger ids) {
+        _favoriteView=[[CGFavoriteView alloc] initWithFrame:CGRectMake(0, 205*SCREEN_RADIO, screen_width, screen_height-CGRectGetMaxY(self.address.frame)+10*SCREEN_RADIO) withCellBlock:^(NSInteger ids) {
             MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
             indexVC.ids=ids;
             [weakSelf.navigationController pushViewController:indexVC animated:NO];
-        }];
+        } withType:NO];
     }
     
     return _favoriteView;

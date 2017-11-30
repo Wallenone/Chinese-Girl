@@ -9,6 +9,7 @@
 #import "CGShuoShuo.h"
 #import "CGUserInfo.h"
 #import <AVFoundation/AVFoundation.h>
+#import "CGIndexModel.h"
 @implementation CGShuoShuo
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGShuoShuo *model = [[CGShuoShuo alloc]init];
@@ -81,6 +82,24 @@
     
     return newData;
 }
+
++(CGShuoShuo *)getTableWithId:(NSString *)ids{
+    NSArray *array = [ids componentsSeparatedByString:@"-"];
+    if (array>0) {
+       NSMutableArray *newData = [[self reloadTableWithId:[array[0] integerValue]] mutableCopy];
+        if (newData.count>0) {
+            for (CGShuoShuo *model in newData) {
+                if ([array[1] isEqualToString:model.sort]) {
+                    return model;
+                }
+            }
+        }
+    }
+    
+    
+    return [CGShuoShuo new];
+}
+
 
 +(NSArray *)getFromString:(NSString *)string withId:(NSString *)ids{
     NSArray *array = [string componentsSeparatedByString:@"/"];

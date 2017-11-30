@@ -50,7 +50,7 @@
     tb.tabBar.backgroundColor=[UIColor whiteColor];
     tb.tabBar.tintColor=[UIColor blackColor];
     tb.tabBar.unselectedItemTintColor=[UIColor blackColor];
-    tb.tabBar.translucent=NO;
+    tb.tabBar.translucent=YES;
     tb.delegate=self;
     //设置控制器为Window的根控制器
     self.window.rootViewController=tb;

@@ -12,7 +12,9 @@
 #import "NewsInfoCellTableViewCell.h"
 #import "NewsMessageController.h"
 #import "CGUserInfo.h"
-@interface NewsViewController ()
+#import "CGMailListViewController.h"
+@interface NewsViewController ()<HzfNavigationBarDelegate>
+@property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @end
 
@@ -39,8 +41,15 @@
     [self addSubViews];
 }
 
+
+- (void)NavigationBarRightButtonClicked{
+    CGMailListViewController *mailList=[[CGMailListViewController alloc] init];
+    [self.navigationController pushViewController:mailList animated:NO];
+}
+
 -(void)setHeaderView{
-    [self setUpNavWithTitle:NSLocalizedString(@"messages", nil) leftIcon:@"" rightIcon:@"" leftTitle:nil rightTitle:nil delegate:nil];
+    [self setUpNavWithTitle:NSLocalizedString(@"messages", nil) leftIcon:@"" rightIcon:@"addFriends" leftTitle:nil rightTitle:nil delegate:nil];
+    self.naviDelegate=self;
 }
 
 -(void)addSubViews{

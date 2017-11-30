@@ -90,6 +90,8 @@
 		E58F28931FC30EAF00DFAB8E /* ImageResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E58F288D1FC30EAF00DFAB8E /* ImageResources.bundle */; };
 		E58F28941FC30EAF00DFAB8E /* XLSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E58F28901FC30EAF00DFAB8E /* XLSlider.m */; };
 		E58F28951FC30EAF00DFAB8E /* XLVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E58F28921FC30EAF00DFAB8E /* XLVideoPlayer.m */; };
+		E590550C1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E590550B1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m */; };
+		E59055121FD059A20053EC40 /* CGMailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59055111FD059A20053EC40 /* CGMailListViewController.m */; };
 		E5944BFF1FB9757600013F78 /* CGGetCityPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = E5944BFD1FB9757600013F78 /* CGGetCityPlist.m */; };
 		E5944C001FB9757600013F78 /* city.txt in Resources */ = {isa = PBXBuildFile; fileRef = E5944BFE1FB9757600013F78 /* city.txt */; };
 		E5944C031FB975D400013F78 /* UICountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5944C021FB975D300013F78 /* UICountryViewController.m */; };
@@ -339,6 +341,10 @@
 		E58F28901FC30EAF00DFAB8E /* XLSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlider.m; sourceTree = "<group>"; };
 		E58F28911FC30EAF00DFAB8E /* XLVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLVideoPlayer.h; sourceTree = "<group>"; };
 		E58F28921FC30EAF00DFAB8E /* XLVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLVideoPlayer.m; sourceTree = "<group>"; };
+		E590550A1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFavoriteSectionHeaderCell.h; sourceTree = "<group>"; };
+		E590550B1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGFavoriteSectionHeaderCell.m; sourceTree = "<group>"; };
+		E59055101FD059A20053EC40 /* CGMailListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMailListViewController.h; sourceTree = "<group>"; };
+		E59055111FD059A20053EC40 /* CGMailListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMailListViewController.m; sourceTree = "<group>"; };
 		E5944BFC1FB9757500013F78 /* CGGetCityPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGetCityPlist.h; sourceTree = "<group>"; };
 		E5944BFD1FB9757600013F78 /* CGGetCityPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGetCityPlist.m; sourceTree = "<group>"; };
 		E5944BFE1FB9757600013F78 /* city.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city.txt; sourceTree = "<group>"; };
@@ -842,6 +848,8 @@
 				E538D7651F429BE80079AE94 /* NewsViewController.m */,
 				E53C9D631F55871F0069D663 /* NewsMessageController.h */,
 				E53C9D641F55871F0069D663 /* NewsMessageController.m */,
+				E59055101FD059A20053EC40 /* CGMailListViewController.h */,
+				E59055111FD059A20053EC40 /* CGMailListViewController.m */,
 				E5C0119F1F526D38003FB906 /* cell */,
 				E5C011A01F526D38003FB906 /* Model */,
 				E5C011A11F526D38003FB906 /* View */,
@@ -901,6 +909,8 @@
 			children = (
 				E55DF4BB1FBB2F2600E5215E /* CGLocationTableViewCell.h */,
 				E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */,
+				E590550A1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.h */,
+				E590550B1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1370,6 +1380,7 @@
 				E5E0FE4C1F9AF15700B5228E /* WYHeightPickerView.m in Sources */,
 				E5C0CD761FB80F2D002394C9 /* CGShuoShuo.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
+				E590550C1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m in Sources */,
 				E5360A7C1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
 				E5360A6C1FBC6A9E009DDA07 /* CGFriendsAddViewController.m in Sources */,
@@ -1399,6 +1410,7 @@
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
 				E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */,
 				E5BD33D61FC062B500C8FE94 /* CGVideoFullView.m in Sources */,
+				E59055121FD059A20053EC40 /* CGMailListViewController.m in Sources */,
 				E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */,
 				E53579D01FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m in Sources */,
 				E538D7661F429BE80079AE94 /* DriftBottleViewController.m in Sources */,
