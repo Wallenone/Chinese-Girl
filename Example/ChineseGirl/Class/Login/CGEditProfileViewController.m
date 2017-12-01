@@ -154,11 +154,11 @@
                 
                 [strongSelf.navigationController pushViewController:nickVC animated:NO];
             }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"gender", nil)]){
-                strongSelf.tabBarController.tabBar.hidden=YES;
+                //strongSelf.tabBarController.tabBar.hidden=YES;
                 WYGenderPickerView *customPickerSex=[[WYGenderPickerView alloc] initWithInitialGender:NSLocalizedString(@"sex_man", nil)];
                 customPickerSex.confirmBlock = ^(NSString *selectedGender){
                     [CGSingleCommitData sharedInstance].sex=selectedGender;
-                    strongSelf.tabBarController.tabBar.hidden=NO;
+                  //  strongSelf.tabBarController.tabBar.hidden=NO;
                     [cell updateCellContent:selectedGender];
                     
                 };
@@ -173,13 +173,13 @@
                 
                 
             }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"birthday", nil)]){
-                strongSelf.tabBarController.tabBar.hidden=YES;
+                //strongSelf.tabBarController.tabBar.hidden=YES;
                 WYBirthdayPickerView *birthdayPickerView = [[WYBirthdayPickerView alloc] initWithInitialDate:@"1990-01-01"];
                 
                 // 选择日期完成之后的回调 : 按自己的要求做相应的处理就可以了
                 birthdayPickerView.confirmBlock = ^(NSString *selectedDate) {
                     [CGSingleCommitData sharedInstance].birthDay=selectedDate;
-                    strongSelf.tabBarController.tabBar.hidden=NO;
+                    //strongSelf.tabBarController.tabBar.hidden=NO;
                     [cell updateCellContent:selectedDate];
                 };
                 
