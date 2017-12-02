@@ -50,6 +50,7 @@
 		E5360A761FBC77A2009DDA07 /* CGaddFriendsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A751FBC77A2009DDA07 /* CGaddFriendsModel.m */; };
 		E5360A791FBC7F8E009DDA07 /* CGAnswerOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A781FBC7F8E009DDA07 /* CGAnswerOptionViewController.m */; };
 		E5360A7C1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A7B1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m */; };
+		E536B1701FD26F17006CC3CD /* CGCommonToolsNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E536B16E1FD26F16006CC3CD /* CGCommonToolsNode.m */; };
 		E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D73D1F429ACC0079AE94 /* AFHTTPSessionManager.m */; };
 		E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7401F429ACC0079AE94 /* AFNetworkReachabilityManager.m */; };
 		E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7421F429ACC0079AE94 /* AFSecurityPolicy.m */; };
@@ -102,10 +103,7 @@
 		E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */; };
 		E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */; };
 		E5BD337D1FBFDB1900C8FE94 /* CGFollowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD337C1FBFDB1900C8FE94 /* CGFollowTableViewCell.m */; };
-		E5BD33821FBFE75700C8FE94 /* CGIndexMendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD33811FBFE75700C8FE94 /* CGIndexMendModel.m */; };
 		E5BD33841FBFEBE400C8FE94 /* indexmend.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5BD33831FBFEBE300C8FE94 /* indexmend.plist */; };
-		E5BD33CF1FC0560500C8FE94 /* FastForwardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BD33CB1FC0560400C8FE94 /* FastForwardView.xib */; };
-		E5BD33D61FC062B500C8FE94 /* CGVideoFullView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD33D51FC062B500C8FE94 /* CGVideoFullView.m */; };
 		E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011A31F526D57003FB906 /* NewsBottomMessage.m */; };
 		E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011BE1F52771F003FB906 /* UIMessageCustom.m */; };
 		E5C0CD691FB80BEC002394C9 /* pinglunren.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C0CD651FB80BEB002394C9 /* pinglunren.plist */; };
@@ -264,6 +262,8 @@
 		E5360A781FBC7F8E009DDA07 /* CGAnswerOptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnswerOptionViewController.m; sourceTree = "<group>"; };
 		E5360A7A1FBC7FF8009DDA07 /* CGOptionsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGOptionsTableViewCell.h; sourceTree = "<group>"; };
 		E5360A7B1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGOptionsTableViewCell.m; sourceTree = "<group>"; };
+		E536B16E1FD26F16006CC3CD /* CGCommonToolsNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCommonToolsNode.m; sourceTree = "<group>"; };
+		E536B16F1FD26F16006CC3CD /* CGCommonToolsNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCommonToolsNode.h; sourceTree = "<group>"; };
 		E538D73C1F429ACC0079AE94 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		E538D73D1F429ACC0079AE94 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		E538D73E1F429ACC0079AE94 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -364,12 +364,7 @@
 		E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMyFollowViewController.m; sourceTree = "<group>"; };
 		E5BD337B1FBFDB1900C8FE94 /* CGFollowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFollowTableViewCell.h; sourceTree = "<group>"; };
 		E5BD337C1FBFDB1900C8FE94 /* CGFollowTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGFollowTableViewCell.m; sourceTree = "<group>"; };
-		E5BD33801FBFE75700C8FE94 /* CGIndexMendModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGIndexMendModel.h; sourceTree = "<group>"; };
-		E5BD33811FBFE75700C8FE94 /* CGIndexMendModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGIndexMendModel.m; sourceTree = "<group>"; };
 		E5BD33831FBFEBE300C8FE94 /* indexmend.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = indexmend.plist; sourceTree = "<group>"; };
-		E5BD33CB1FC0560400C8FE94 /* FastForwardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastForwardView.xib; sourceTree = "<group>"; };
-		E5BD33D41FC062B500C8FE94 /* CGVideoFullView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVideoFullView.h; sourceTree = "<group>"; };
-		E5BD33D51FC062B500C8FE94 /* CGVideoFullView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVideoFullView.m; sourceTree = "<group>"; };
 		E5C011A21F526D57003FB906 /* NewsBottomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsBottomMessage.h; sourceTree = "<group>"; };
 		E5C011A31F526D57003FB906 /* NewsBottomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsBottomMessage.m; sourceTree = "<group>"; };
 		E5C011BD1F52771F003FB906 /* UIMessageCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMessageCustom.h; sourceTree = "<group>"; };
@@ -530,7 +525,6 @@
 		6003F593195388D20070C39A /* Example for ChineseGirl */ = {
 			isa = PBXGroup;
 			children = (
-				E5BD33CB1FC0560400C8FE94 /* FastForwardView.xib */,
 				E5797E591FAFFEFB00867215 /* Localizable */,
 				E538D7721F429D7E0079AE94 /* CommonClass */,
 				E538D73A1F429ACC0079AE94 /* Third */,
@@ -814,8 +808,6 @@
 				E538D75F1F429BE80079AE94 /* WSLayout.m */,
 				E54FAA581F5A9E71006C65AF /* MyCommitHeaderView.h */,
 				E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */,
-				E5BD33D41FC062B500C8FE94 /* CGVideoFullView.h */,
-				E5BD33D51FC062B500C8FE94 /* CGVideoFullView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -860,6 +852,8 @@
 		E538D7721F429D7E0079AE94 /* CommonClass */ = {
 			isa = PBXGroup;
 			children = (
+				E536B16F1FD26F16006CC3CD /* CGCommonToolsNode.h */,
+				E536B16E1FD26F16006CC3CD /* CGCommonToolsNode.m */,
 				E53579CF1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.h */,
 				E53579CE1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m */,
 				E5FC800C1FC9BE250094615B /* RootTabBarController.h */,
@@ -1017,8 +1011,6 @@
 				E5360A751FBC77A2009DDA07 /* CGaddFriendsModel.m */,
 				E546C1171FBEFB7A000F5127 /* CGAnswerModel.h */,
 				E546C1181FBEFB7A000F5127 /* CGAnswerModel.m */,
-				E5BD33801FBFE75700C8FE94 /* CGIndexMendModel.h */,
-				E5BD33811FBFE75700C8FE94 /* CGIndexMendModel.m */,
 				E5F542811FC857BD00262DCE /* CGVideoDataModel.h */,
 				E5F542821FC857BD00262DCE /* CGVideoDataModel.m */,
 			);
@@ -1255,7 +1247,6 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				E5F542801FC8579A00262DCE /* videoData.plist in Resources */,
-				E5BD33CF1FC0560500C8FE94 /* FastForwardView.xib in Resources */,
 				E546C11B1FBEFBC0000F5127 /* answer.plist in Resources */,
 				E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */,
 				E504AB901F507C0100E1F48C /* MBProgressHUD.bundle in Resources */,
@@ -1354,7 +1345,6 @@
 				E546C11E1FBF1113000F5127 /* CGAnswerResultView.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
-				E5BD33821FBFE75700C8FE94 /* CGIndexMendModel.m in Sources */,
 				E5BD337D1FBFDB1900C8FE94 /* CGFollowTableViewCell.m in Sources */,
 				E538D7691F429BE80079AE94 /* CellModel.m in Sources */,
 				E58F28871FC30D7400DFAB8E /* XLVideoCell.m in Sources */,
@@ -1382,6 +1372,7 @@
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
 				E590550C1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m in Sources */,
 				E5360A7C1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m in Sources */,
+				E536B1701FD26F17006CC3CD /* CGCommonToolsNode.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
 				E5360A6C1FBC6A9E009DDA07 /* CGFriendsAddViewController.m in Sources */,
 				E53503B11F9C721900E1D8C5 /* MyCommitSViewController.m in Sources */,
@@ -1409,7 +1400,6 @@
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
 				E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */,
-				E5BD33D61FC062B500C8FE94 /* CGVideoFullView.m in Sources */,
 				E59055121FD059A20053EC40 /* CGMailListViewController.m in Sources */,
 				E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */,
 				E53579D01FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m in Sources */,
@@ -1568,7 +1558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1602,7 +1592,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1619,7 +1609,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1637,7 +1627,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChineseGirl/ChineseGirl-Prefix.pch";
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

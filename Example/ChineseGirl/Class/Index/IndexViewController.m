@@ -21,6 +21,7 @@
 #import "CGVideoViewController.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate,UIScrollViewDelegate>{
     NSIndexPath *_indexPath;
+    NSInteger _currentPage;
     
 }
 @property(nonatomic,strong)UIView *headerView;
@@ -56,10 +57,15 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
-
+    [self setData];
     [self setHeaderView];
     [self addSubViews];
     
+}
+
+-(void)setData{
+    _currentPage=0;
+    [CGIndexModel reloadTableRondom];
 }
 
 -(void)setHeaderView{
@@ -142,10 +148,21 @@
     return _lineView;
 }
 
--(void)getCollectionData:(NSInteger)page{
-    NSMutableArray *array = [CGIndexModel reloadTableWithRangeFrom:page*10 rangeTLenth:10];
+-(void)getCollectionData{
+    NSMutableArray *array = [CGIndexModel reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
     if (array.count>0) {
         [self.tbv addContentData:array];
+        _currentPage++;
+    }else{
+        [self.tbv noMoreData];
+    }
+}
+
+-(void)updateData{
+    NSMutableArray *array = [CGIndexModel reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
+    if (array.count>0) {
+        [self.tbv updateData:array];
+        _currentPage++;
     }else{
         [self.tbv noMoreData];
     }
@@ -224,13 +241,14 @@
         
             //允许上行滑动
             [_tbv onDragUp:^(int page) {
-                [weakSelf getCollectionData:page];
+                [weakSelf getCollectionData];
             }];
         
             //允许下行滑动刷新
-//            [_tbv onDragDown:^{
-//                [weakSelf getCollectionData];
-//            }];
+            [_tbv onDragDown:^{
+                [weakSelf setData];
+                [weakSelf updateData];
+            }];
         
         
         //设置选中事件 block设置方式

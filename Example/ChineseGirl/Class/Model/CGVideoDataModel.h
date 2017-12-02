@@ -13,6 +13,8 @@
 @property(nonatomic,copy)NSString *videoIcon;
 @property(nonatomic,copy)NSString *videoUrl;
 @property(nonatomic,copy)NSString *userId;
+@property(nonatomic,copy)NSString *nickName;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
++(NSArray *)reloadTableRondomCount:(NSInteger)count;
 @end

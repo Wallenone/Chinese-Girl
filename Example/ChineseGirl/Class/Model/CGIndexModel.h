@@ -22,4 +22,5 @@
 @property(nonatomic,copy)UIImage *videoPic;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
++(void)reloadTableRondom;//刷新首页数据（随机）
 @end

@@ -8,6 +8,7 @@
 
 #import "CGIndexModel.h"
 #import "CGUserInfo.h"
+#import "CGShuoShuo.h"
 #import <AVFoundation/AVFoundation.h>
 @implementation CGIndexModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
@@ -35,22 +36,22 @@
 
 
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"plist"];
-    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"plist"];
+//    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSMutableArray *newData=[NSMutableArray new];
     
     NSInteger currentNum=fromNum+lenth;
-    if (data1.count>currentNum) {
-        NSMutableArray *data2 = [[data1 subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
-        for (NSDictionary *model in data2) {
-            [newData addObject:[self modelWithDic:model]];
+    if ([CGSingleCommitData sharedInstance].indexDataArr.count>currentNum) {
+        NSMutableArray *data2 = [[[CGSingleCommitData sharedInstance].indexDataArr subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
+        for (CGIndexModel *model in data2) {
+            [newData addObject:model];
         }
     }else{
-        NSInteger t_num=data1.count-fromNum;
+        NSInteger t_num=[CGSingleCommitData sharedInstance].indexDataArr.count-fromNum;
         if (t_num>0) {
-            NSMutableArray *data2 = [[data1 subarrayWithRange:NSMakeRange(fromNum, data1.count-fromNum)] mutableCopy];
-            for (NSDictionary *model in data2) {
-                [newData addObject:[self modelWithDic:model]];
+            NSMutableArray *data2 = [[[CGSingleCommitData sharedInstance].indexDataArr subarrayWithRange:NSMakeRange(fromNum, [CGSingleCommitData sharedInstance].indexDataArr.count-fromNum)] mutableCopy];
+            for (CGIndexModel *model in data2) {
+                [newData addObject:model];
             }
         }
         
@@ -59,6 +60,11 @@
     
     return newData;
 }
+
++(void)reloadTableRondom{
+    [CGShuoShuo reloadTableRondom];
+}
+
 
 +(NSString *)filterNullString:(NSString *)str{
     NSString *filterStr=str;

@@ -7,11 +7,12 @@
 //
 
 #import "WSCollectionHeaderCell.h"
-#import "CGIndexMendModel.h"
+#import "CGVideoDataModel.h"
 #import "MyIndexViewController.h"
+#import "CGVideoViewController.h"
 @interface WSCollectionHeaderCell()
 @property(nonatomic,strong)UIScrollView *scrollViewPointView;
-@property(nonatomic,strong)NSMutableArray *indexMendArr;
+@property(nonatomic,strong)NSArray *indexMendArr;
 @end
 @implementation WSCollectionHeaderCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -27,7 +28,7 @@
 }
 
 -(void)getData{
-    self.indexMendArr= [CGIndexMendModel reloadTable];
+    self.indexMendArr= [CGVideoDataModel reloadTableRondomCount:15];
 }
 
 -(void)addSubViews{
@@ -36,10 +37,10 @@
 
 -(void)setScrollViewPoint{
     for (int i=0; i<self.indexMendArr.count; i++) {
-        CGIndexMendModel *indexMend=[self.indexMendArr objectAtIndex:i];
+        CGVideoDataModel *indexMend=[self.indexMendArr objectAtIndex:i];
         UIImageView *imgView=[[UIImageView alloc] initWithFrame:CGRectMake(17.5*SCREEN_RADIO+i*(26+57)*SCREEN_RADIO, 15*SCREEN_RADIO, 58*SCREEN_RADIO, 58*SCREEN_RADIO)];
         imgView.layer.cornerRadius=29*SCREEN_RADIO;
-        [imgView sd_setImageWithURL:[NSURL URLWithString:indexMend.icon]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:indexMend.videoIcon]];
         imgView.layer.borderWidth=1;
         imgView.layer.borderColor=[UIColor getColor:@"DCDCDC"].CGColor;
         imgView.contentMode =  UIViewContentModeScaleAspectFill;
@@ -59,7 +60,7 @@
         [self.scrollViewPointView addSubview:nickName];
         
         UIButton *iconBtn=[[UIButton alloc] initWithFrame:CGRectMake(14*SCREEN_RADIO+i*(18+65)*SCREEN_RADIO, 10*SCREEN_RADIO, 65*SCREEN_RADIO, 65*SCREEN_RADIO)];
-        iconBtn.tag=[indexMend.ids integerValue];
+        iconBtn.tag=i;
         [iconBtn addTarget:self action:@selector(iconClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollViewPointView addSubview:iconBtn];
     }
@@ -67,10 +68,12 @@
 }
 
 -(void)iconClick:(UIButton *)button{
-    NSInteger ids=button.tag;
-    MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-    indexVC.ids=ids;
-    [[self getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+    NSInteger index=button.tag;
+    CGVideoDataModel *indexMend=[self.indexMendArr objectAtIndex:index];
+    
+    CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+    videoVC.videoStr=indexMend.videoUrl;
+    [[self getCurrentVC].navigationController presentViewController:videoVC animated:NO completion:nil];
 }
 
 -(UIScrollView *)scrollViewPointView{
@@ -84,9 +87,9 @@
     return _scrollViewPointView;
 }
 
--(NSMutableArray *)indexMendArr{
+-(NSArray *)indexMendArr{
     if (!_indexMendArr) {
-        _indexMendArr=[[NSMutableArray alloc] init];
+        _indexMendArr=[[NSArray alloc] init];
     }
     
     return _indexMendArr;

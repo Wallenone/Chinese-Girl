@@ -100,6 +100,27 @@
     return [CGShuoShuo new];
 }
 
++(void)reloadTableRondom{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo" ofType:@"plist"];
+    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    NSMutableArray *newData=[NSMutableArray new];
+    
+    NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
+    for (NSString *ids in newarr1) {
+        NSDictionary *model=[data1 objectAtIndex:[ids integerValue]];
+        NSString *ids=[self filterNullString:[model stringForKey:@"id"]];
+        NSString *month=[NSString stringWithFormat:@"%d",[self getRandomNumber:1 to:3]];
+        NSString *bigIcon=[self filterNullString:[model stringForKey:@"imgs"]];
+        NSString *type=[self filterNullString:[model stringForKey:@"type"]];
+        NSDictionary *newModel=@{@"id":ids,@"month":month,@"bigIcon":bigIcon,@"type":type};
+        
+        CGIndexModel *indexModel=[CGIndexModel modelWithDic:newModel];
+        [newData addObject:indexModel];
+    }
+
+    [CGSingleCommitData sharedInstance].indexDataArr=[newData mutableCopy];
+}
+
 
 +(NSArray *)getFromString:(NSString *)string withId:(NSString *)ids{
     NSArray *array = [string componentsSeparatedByString:@"/"];
@@ -162,5 +183,10 @@
     UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
     
     return thumbnailImage;
+}
+
++(int)getRandomNumber:(int)from to:(int)to
+{
+    return (int)(from + (arc4random() % (to-from + 1)));
 }
 @end

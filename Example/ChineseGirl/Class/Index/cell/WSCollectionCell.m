@@ -8,12 +8,10 @@
 
 #import "WSCollectionCell.h"
 #import "UIImageView+WebCache.h"
-#import "WMPlayer.h"
-#import "CGVideoFullView.h"
 #import "MyIndexViewController.h"
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
-@interface WSCollectionCell()<WMPlayerDelegate>{
+@interface WSCollectionCell(){
 
 }
 @property(nonatomic,strong)CGIndexModel *model;

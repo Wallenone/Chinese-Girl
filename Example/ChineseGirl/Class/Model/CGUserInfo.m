@@ -24,6 +24,26 @@
     return model;
 }
 
++(NSArray *)reloadTableRondomCount:(NSInteger)count{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userinfo" ofType:@"plist"];
+    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    NSMutableArray *newData=[NSMutableArray new];
+    
+    if (count>data1.count) {
+        NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
+        for (NSString *ids in newarr1) {
+            [newData addObject:[NSString stringWithFormat:@"%ld",[ids integerValue]+1]];
+        }
+    }else{
+        NSArray *newarr2 = [[CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)count] mutableCopy];
+        for (NSString *ids in newarr2) {
+            [newData addObject:[NSString stringWithFormat:@"%ld",[ids integerValue]+1]];
+        }
+    }
+    
+    return newData;
+}
+
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userinfo" ofType:@"plist"];
     NSMutableArray *data1 = [[[[NSMutableArray alloc] initWithContentsOfFile:filePath] subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];

@@ -28,4 +28,5 @@
 +(CGShuoShuo *)getTableWithId:(NSString *)ids;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithId:(NSInteger)ids;
++(void)reloadTableRondom;//随机排序说说内容，主要用在首页数据
 @end

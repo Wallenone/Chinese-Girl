@@ -23,4 +23,5 @@
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(CGUserInfo *)getitemWithID:(NSString *)ids;
++(NSArray *)reloadTableRondomCount:(NSInteger)count;//随机用户
 @end

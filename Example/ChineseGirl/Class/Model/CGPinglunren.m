@@ -23,7 +23,7 @@
     for (NSDictionary *model in data1) {
         [newData addObject:[self modelWithDic:model]];
     }
-    
+
     return newData;
 }
 

@@ -224,8 +224,8 @@
 
 
 /*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-	NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:_sectionHeaderView];
-	return [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];
+ NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:_sectionHeaderView];
+ return [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];
  }*/
 
 
@@ -242,7 +242,7 @@
 // 去掉UItableview headerview黏性
 /*- (void)scrollViewDidScroll:(UIScrollView *)scrollView
  {
-	if (!_isSectionStickyHeader) {
+ if (!_isSectionStickyHeader) {
  CGFloat sectionHeaderHeight = 40;
  if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
  scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
@@ -250,8 +250,8 @@
  else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
  scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
  }
-	}
-	
+ }
+ 
  }*/
 
 - (void)onDragUp:(DragUpBlock)block{ //上拉加载数据
@@ -260,8 +260,10 @@
         self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
             [self.mj_footer endRefreshing];
             currentPage=currentPage+1;
+            if (dragUpBlock) {
+                dragUpBlock(currentPage);
+            }
             
-            dragUpBlock(currentPage);
             _drogUpState=YES;
             //            if (cellDatas.count>0) {
             //                [self.arrayDatas addObjectsFromArray:cellDatas];
@@ -281,6 +283,9 @@
         dragDownBlock=block;
         self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.mj_header endRefreshing];
+            if (dragDownBlock) {
+                dragDownBlock();
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self reloadData];
             });
@@ -304,3 +309,4 @@
 }
 
 @end
+

@@ -24,6 +24,7 @@
 @property(nonatomic,strong)NSMutableArray *follows;    //关注
 @property(nonatomic,copy)NSString *languageName;  //语言
 @property(nonatomic,copy)NSString *countryName;  //国家
+@property(nonatomic,strong)NSArray *indexDataArr;//首页的数据
 
 + (instancetype)sharedInstance;
 - (void)logout;

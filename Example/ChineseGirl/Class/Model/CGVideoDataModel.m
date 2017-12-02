@@ -14,6 +14,8 @@
     model.ids = [self filterNullString:[dic stringForKey:@"id"]];
     model.videoIcon = [NSString stringWithFormat:@"%@%@/%@",@"https://raw.githubusercontent.com/Wallenone/service/master/Video/",model.ids,[self filterNullString:[dic stringForKey:@"videoIcon"]]];
     model.videoUrl = [NSString stringWithFormat:@"%@%@/%@",@"https://raw.githubusercontent.com/Wallenone/service/master/Video/",model.ids,[self filterNullString:[dic stringForKey:@"videoUrl"]]];
+    model.userId = [self filterNullString:[dic stringForKey:@"userid"]];
+    model.nickName=[CGUserInfo getitemWithID:model.userId].nickname;
     return model;
 }
 
@@ -43,6 +45,25 @@
         
     }
     
+    return newData;
+}
+
++(NSArray *)reloadTableRondomCount:(NSInteger)count{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"videoData" ofType:@"plist"];
+    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    NSMutableArray *newData=[NSMutableArray new];
+    
+    if (count>data1.count) {
+       NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
+        for (NSString *ids in newarr1) {
+           [newData addObject:[self modelWithDic:[data1 objectAtIndex:[ids integerValue]]]];
+        }
+    }else{
+        NSArray *newarr2 = [[CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)count] mutableCopy];
+        for (NSString *ids in newarr2) {
+            [newData addObject:[self modelWithDic:[data1 objectAtIndex:[ids integerValue]]]];
+        }
+    }
     
     return newData;
 }
