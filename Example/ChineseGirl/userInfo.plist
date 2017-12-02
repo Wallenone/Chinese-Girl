@@ -794,21 +794,5 @@
 		<key>pictures</key>
 		<string>S1.jpg/S2.jpg/S46.jpg</string>
 	</dict>
-	<dict>
-		<key>id</key>
-		<string>45</string>
-		<key>nickname</key>
-		<string>katrina</string>
-		<key>sex</key>
-		<string>女</string>
-		<key>birthday</key>
-		<string></string>
-		<key>aboutus</key>
-		<string></string>
-		<key>avater</key>
-		<string></string>
-		<key>city</key>
-		<string></string>
-	</dict>
 </array>
 </plist>

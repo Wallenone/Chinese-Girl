@@ -371,7 +371,7 @@
 -(UIImageView *)VideoimageView{
     if (!_VideoimageView) {
         _VideoimageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.contentLabel.frame), screen_width, 284*SCREEN_RADIO)];
-        _VideoimageView.image=self.myIndexModel.videoPic;
+        [_VideoimageView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.videoPicUrl]];
     }
     
     return _VideoimageView;

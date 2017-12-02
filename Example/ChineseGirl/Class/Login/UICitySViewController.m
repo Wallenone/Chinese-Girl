@@ -10,9 +10,9 @@
 #import "EZJFastTableView.h"
 #import "CGRegisterIndexViewController.h"
 @interface UICitySViewController ()
-@property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
+@property(nonatomic,strong)UIView *titleLineView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @end
 
@@ -39,26 +39,15 @@
 }
 
 -(void)addSubViews{
-    [self.view addSubview:self.headerView];
-    [self.headerView addSubview:self.titleLabel];
-    [self.headerView addSubview:self.leftIcon];
+    [self.view addSubview:self.titleLabel];
+    [self.view addSubview:self.leftIcon];
+    [self.view addSubview:self.titleLineView];
     [self.view addSubview:self.tbv];
 }
 
--(UIView *)headerView{
-    if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
-        _headerView.backgroundColor=[UIColor getColor:@"36353B"];
-    }
-    
-    return _headerView;
-}
-
-
-
 -(UIButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -67,19 +56,30 @@
 
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=NSLocalizedString(@"Area", nil);
-        _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        _titleLabel.textColor=[UIColor whiteColor];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftIcon.frame)+13*SCREEN_RADIO, 29*SCREEN_RADIO, 0, 35*SCREEN_RADIO)];
+        _titleLabel.text=NSLocalizedString(@"city", nil);
+        _titleLabel.textColor=[UIColor getColor:@"2A2A2A"];
+        _titleLabel.font=[UIFont systemFontOfSize:26*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
+        [_titleLabel sizeToFit];
     }
+    
     return _titleLabel;
 }
 
 
+-(UIView *)titleLineView{
+    if (!_titleLineView) {
+        _titleLineView=[[UILabel alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, CGRectGetMaxY(self.titleLabel.frame)+13*SCREEN_RADIO, screen_width-40*SCREEN_RADIO, 1)];
+        _titleLineView.backgroundColor=[UIColor getColor:@"F3F3F3"];
+    }
+    
+    return _titleLineView;
+}
+
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
-        CGRect tbvFrame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), self.view.frame.size.width, self.view.frame.size.height);
+        CGRect tbvFrame = CGRectMake(0, CGRectGetMaxY(self.titleLineView.frame), self.view.frame.size.width, self.view.frame.size.height);
         //初始化
         __weak typeof(self) weakSelf = self;
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];

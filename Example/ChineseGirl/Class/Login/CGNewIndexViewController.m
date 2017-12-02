@@ -8,6 +8,9 @@
 
 #import "CGNewIndexViewController.h"
 #import "CGNewSignInViewController.h"
+#import "UICountryViewController.h"
+#import "CGProfileIndexViewController.h"
+#import "CGAppDelegate.h"
 @interface CGNewIndexViewController ()
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -20,6 +23,7 @@
 @property(nonatomic,strong)UITextField *passwordContent;
 @property(nonatomic,strong)UILabel *address;
 @property(nonatomic,strong)UITextField *addressContent;
+@property(nonatomic,strong)UIButton *cityBtn;
 @property(nonatomic,strong)UIButton *setupBtn;
 @property(nonatomic,strong)UILabel *signInLabel;
 @property(nonatomic,strong)UIButton *signInBtn;
@@ -35,7 +39,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getCityName:) name:@"getAreaName" object:nil];
     [self addSubViews];
+}
+
+-(void)getCityName:(NSNotification *)obj{
+    if ([obj.object stringForKey:@"countryName"].length>0 || [obj.object stringForKey:@"cityName"].length>0) {
+        NSString *str=[NSString stringWithFormat:@"%@ %@",[obj.object stringForKey:@"countryName"],[obj.object stringForKey:@"cityName"]];
+        [CGSingleCommitData sharedInstance].countryName=[obj.object stringForKey:@"countryName"];
+        [CGSingleCommitData sharedInstance].cityName=[obj.object stringForKey:@"cityName"];
+        if (str.length>0) {
+            self.addressContent.text=str;
+        }
+    }
 }
 
 -(void)addSubViews{
@@ -50,6 +66,7 @@
     [self.view addSubview:self.passwordContent];
     [self.view addSubview:self.address];
     [self.view addSubview:self.addressContent];
+    [self.view addSubview:self.cityBtn];
     [self.view addSubview:self.signInLabel];
     [self.view addSubview:self.signInBtn];
     [self.view addSubview:self.setupBtn];
@@ -59,8 +76,49 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)chooseCity{
+    UICountryViewController *countryVC=[[UICountryViewController alloc] init];
+    [self.navigationController pushViewController:countryVC animated:NO];
+}
+
+
 -(void)setupClick{
+    if ([self isValidateEmail:self.emailContent.text]) {
+            if (self.usernameContent.text.length>0) {
+            if (self.passwordContent.text.length>=6) {
+                
+                if (self.addressContent.text.length>0) {
+                    [CGSingleCommitData sharedInstance].uid=@"10000";
+                    [CGSingleCommitData sharedInstance].nickName=self.usernameContent.text;
+                    [CGSingleCommitData sharedInstance].email=self.emailContent.text;
+                    [CGSingleCommitData sharedInstance].password=self.passwordContent.text;
+                    [self showMessageWithState:YES withWarningsText:NSLocalizedString(@"register_success", nil)];
+                }else{
+                    [self showMessageWithState:NO withWarningsText:NSLocalizedString(@"city_can_not_be_empty", nil)];
+                }
+                
+            }else{
+                [self showMessageWithState:NO withWarningsText:NSLocalizedString(@"password_no_less_than_6_characters", nil)];
+            }
+            
+            
+        }else{
+            [self showMessageWithState:NO withWarningsText:NSLocalizedString(@"username_cannot_be_empty", nil)];
+        }
+    }else{
+        [self showMessageWithState:NO withWarningsText:NSLocalizedString(@"the_mailbox_format_is_incorrect", nil)];
+    }
     
+}
+
+-(void)showMessageWithState:(BOOL)state withWarningsText:(NSString *)warningsText{
+    if (state) {
+        [SVProgressHUD showSuccessWithStatus:warningsText];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }else{
+        [SVProgressHUD showErrorWithStatus:warningsText];
+    }
 }
 
 -(void)signInClick{
@@ -128,7 +186,7 @@
 -(UILabel *)username{
     if (!_username)  {
         _username=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.emailContent.frame)+30*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _username.text=@"Username";
+        _username.text=@"Nickname";
         _username.textColor=[UIColor getColor:@"2A2A2A"];
         _username.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_username sizeToFit];
@@ -140,7 +198,7 @@
 -(UITextField *)usernameContent{
     if (!_usernameContent) {
         _usernameContent=[[UITextField alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.username.frame)+7*SCREEN_RADIO, SCREEN_WIDTH-60*SCREEN_RADIO, 32*SCREEN_RADIO)];
-        _usernameContent.placeholder=@"your username";
+        _usernameContent.placeholder=@"your nickname";
         [_usernameContent setValue:[UIColor getColor:@"D5D5D5"] forKeyPath:@"_placeholderLabel.textColor"];
         [_usernameContent setValue:[UIFont boldSystemFontOfSize:24*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
         _usernameContent.textColor=[UIColor getColor:@"2A2A2A"];
@@ -200,6 +258,15 @@
     return _addressContent;
 }
 
+-(UIButton *)cityBtn{
+    if (!_cityBtn) {
+        _cityBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+7*SCREEN_RADIO, SCREEN_WIDTH-60*SCREEN_RADIO, 32*SCREEN_RADIO)];
+        [_cityBtn addTarget:self action:@selector(chooseCity) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _cityBtn;
+}
+
 -(UILabel *)signInLabel{
     if (!_signInLabel) {
         _signInLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
@@ -238,5 +305,11 @@
     }
     
     return _setupBtn;
+}
+
+- (BOOL)isValidateEmail:(NSString *)email{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
 }
 @end

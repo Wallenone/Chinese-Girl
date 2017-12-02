@@ -101,8 +101,6 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     if(viewController == [tabBarController.viewControllers objectAtIndex:3]) {
         if ([CGSingleCommitData sharedInstance].uid.length<=0) {
-            
-        }else{
             CGManageRegisterViewController *rootVC=[[CGManageRegisterViewController alloc] init];
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
             [self.window.rootViewController presentViewController:nav animated:YES completion:nil];

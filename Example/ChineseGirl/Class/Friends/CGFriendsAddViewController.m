@@ -9,7 +9,7 @@
 #import "CGFriendsAddViewController.h"
 #import "EZJFastTableView.h"
 #import "CGNewFriendTableViewCell.h"
-#import "CGaddFriendsModel.h"
+#import "CGUserInfo.h"
 #import "CGAnswerOptionViewController.h"
 #import "MyIndexViewController.h"
 @interface CGFriendsAddViewController ()
@@ -18,6 +18,7 @@
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)EZJFastTableView *tbv;
+@property(nonatomic,assign)NSInteger currentPage;
 @end
 
 @implementation CGFriendsAddViewController
@@ -38,8 +39,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
+    [self setData];
     [self setHeaderView];
     [self addSubViews];
+}
+
+-(void)setData{
+    _currentPage=1;
+    [CGUserInfo updateReloadTable];
 }
 
 -(void)back{
@@ -54,6 +61,26 @@
 
 -(void)addSubViews{
     [self.view addSubview:self.tbv];
+}
+
+-(void)getCollectionData{
+    NSMutableArray *array = [CGUserInfo reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
+    if (array.count>0) {
+        [self.tbv addContentData:array];
+        _currentPage++;
+    }else{
+        [self.tbv noMoreData];
+    }
+}
+
+-(void)updateData{
+    NSMutableArray *array = [CGUserInfo reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
+    if (array.count>0) {
+        [self.tbv updateData:array];
+        _currentPage++;
+    }else{
+        [self.tbv noMoreData];
+    }
 }
 
 
@@ -98,7 +125,7 @@
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"eeeeee"];
-        [_tbv setDataArray:[CGaddFriendsModel reloadTable]];
+        [_tbv setDataArray:[CGUserInfo reloadTableWithRangeFrom:0 rangeTLenth:10]];
         __weak __typeof(self)weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             CGNewFriendTableViewCell *cell=[[CGNewFriendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withAddFriendBlock:^(NSString *avaterUrl,NSString *nickNameStr){
@@ -119,15 +146,17 @@
         
         
         
-        //    //允许上行滑动
-        //    [_tbv onDragUp:^NSArray * (int page) {
-        //        return [self loadNewData:page];
-        //    }];
-        //
-        //    //允许下行滑动刷新
-        //    [_tbv onDragDown:^{
-        //
-        //    }];
+        //允许上行滑动
+        [_tbv onDragUp:^(int page) {
+            [weakSelf getCollectionData];
+        }];
+        
+        //允许下行滑动刷新
+        [_tbv onDragDown:^{
+            weakSelf.currentPage=0;
+            [CGUserInfo updateReloadTable];
+            [weakSelf updateData];
+        }];
         
         
         //设置选中事件 block设置方式
@@ -136,7 +165,7 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
-            CGaddFriendsModel *model=cellData;
+            CGUserInfo *model=cellData;
             MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
             indexVC.ids=[model.ids integerValue];
             [weakSelf.navigationController pushViewController:indexVC animated:NO];

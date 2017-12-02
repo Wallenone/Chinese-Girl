@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface CGCommonString : NSObject
++(NSString *)filterNullString:(NSString *)str;
 + (BOOL) isBlankString:(NSString *)string;
++ (NSArray *)genertateRandomNumberStartNum:(int)startNum endNum:(int)endNum count:(int)count;
++ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
++(int)getRandomNumber:(int)from to:(int)to;
 @end

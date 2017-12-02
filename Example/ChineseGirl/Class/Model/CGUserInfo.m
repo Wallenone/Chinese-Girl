@@ -25,32 +25,44 @@
 }
 
 +(NSArray *)reloadTableRondomCount:(NSInteger)count{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userinfo" ofType:@"plist"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userInfo" ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSMutableArray *newData=[NSMutableArray new];
     
-    if (count>data1.count) {
-        NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
-        for (NSString *ids in newarr1) {
-            [newData addObject:[NSString stringWithFormat:@"%ld",[ids integerValue]+1]];
-        }
-    }else{
-        NSArray *newarr2 = [[CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)count] mutableCopy];
-        for (NSString *ids in newarr2) {
-            [newData addObject:[NSString stringWithFormat:@"%ld",[ids integerValue]+1]];
-        }
+    NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
+    for (NSString *ids in newarr1) {
+        CGUserInfo *userInfoModel=[self modelWithDic:[data1 objectAtIndex:[ids integerValue]]];
+        [newData addObject:userInfoModel];
     }
     
     return newData;
 }
 
++(void)updateReloadTable{
+    [CGSingleCommitData sharedInstance].userListDataArr = [[self reloadTableRondomCount:999999] mutableCopy];
+}
+
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userinfo" ofType:@"plist"];
-    NSMutableArray *data1 = [[[[NSMutableArray alloc] initWithContentsOfFile:filePath] subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
-    
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userinfo" ofType:@"plist"];
+//    NSMutableArray *data1 = [[[[NSMutableArray alloc] initWithContentsOfFile:filePath] subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
+//
     NSMutableArray *newData=[NSMutableArray new];
-    for (NSDictionary *model in data1) {
-        [newData addObject:[self modelWithDic:model]];
+    
+    NSInteger currentNum=fromNum+lenth;
+    if ([CGSingleCommitData sharedInstance].userListDataArr.count>currentNum) {
+        NSMutableArray *data2 = [[[CGSingleCommitData sharedInstance].userListDataArr subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
+        for (CGUserInfo *model in data2) {
+            [newData addObject:model];
+        }
+    }else{
+        NSInteger t_num=[CGSingleCommitData sharedInstance].userListDataArr.count-fromNum;
+        if (t_num>0) {
+            NSMutableArray *data2 = [[[CGSingleCommitData sharedInstance].userListDataArr subarrayWithRange:NSMakeRange(fromNum, [CGSingleCommitData sharedInstance].userListDataArr.count-fromNum)] mutableCopy];
+            for (CGUserInfo *model in data2) {
+                [newData addObject:model];
+            }
+        }
+        
     }
     
     return newData;

@@ -9,6 +9,7 @@
 #import "CGIndexModel.h"
 #import "CGUserInfo.h"
 #import "CGShuoShuo.h"
+#import "CGVideoDataModel.h"
 #import <AVFoundation/AVFoundation.h>
 @implementation CGIndexModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
@@ -21,13 +22,14 @@
     model.toContent =[NSString stringWithFormat:@"%@个月后去%@",model.month,[CGSingleCommitData sharedInstance].cityName];
     model.address =[CGUserInfo getitemWithID:model.ids].address;
     model.type = [self filterNullString:[dic stringForKey:@"type"]];
-    
+    model.videoid=[self filterNullString:[dic stringForKey:@"videoid"]];
     if ([model.type integerValue]==1) {
         model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"bigIcon"]] withId:model.ids];
-        model.videoPic=nil;
+        model.videoPicUrl=@"";
+        model.videoUrl=@"";
     }else if ([model.type integerValue]==2){
-        model.bigIcon = [self filterNullString:[dic stringForKey:@"bigIcon"]];
-        model.videoPic=[self thumbnailImageForVideo:[NSURL URLWithString:model.bigIcon] atTime:2.0];
+        model.videoPicUrl=[CGVideoDataModel reloadTableWithIds:[model.videoid integerValue]].videoIcon;
+        model.videoUrl=[CGVideoDataModel reloadTableWithIds:[model.videoid integerValue]].videoUrl;
         model.pictureBigs=@[];
     }
     return model;

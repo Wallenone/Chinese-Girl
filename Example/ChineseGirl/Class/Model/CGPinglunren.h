@@ -13,5 +13,4 @@
 @property(nonatomic,copy)NSString *username;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
-+(NSString *)reloadTableWithIds:(NSString *)ids;
 @end

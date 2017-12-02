@@ -14,5 +14,4 @@
 @property(nonatomic,copy)NSString *content;  //content
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
-+(NSString *)reloadTableWithIds:(NSString *)ids;
 @end

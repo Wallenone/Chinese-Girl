@@ -17,4 +17,6 @@
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(NSArray *)reloadTableRondomCount:(NSInteger)count;
++(CGVideoDataModel *)reloadTableWithIds:(NSInteger)ids;
++(void)updateReloadRondom;
 @end

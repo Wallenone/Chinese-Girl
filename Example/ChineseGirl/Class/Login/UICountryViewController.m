@@ -13,11 +13,13 @@
 #import "CGLocationTableViewCell.h"
 #import <CoreLocation/CoreLocation.h>
 @interface UICountryViewController ()<CLLocationManagerDelegate>{
-    
+    NSString *_countyName;
+    NSString *_cityName;
+    BOOL _replayLocation; //已经请求过了
 }
-@property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
+@property(nonatomic,strong)UIView *titleLineView;
 @property(nonatomic,strong)NSMutableArray *cityArrs;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)CLLocationManager* locationManager;
@@ -44,15 +46,18 @@
 }
 
 -(void)addSubViews{
-    [self.view addSubview:self.headerView];
-    [self.headerView addSubview:self.titleLabel];
-    [self.headerView addSubview:self.leftIcon];
+    [self.view addSubview:self.titleLabel];
+    [self.view addSubview:self.leftIcon];
+    [self.view addSubview:self.titleLineView];
     [self.view addSubview:self.tbv];
     [self.tbv setDataArray:self.cityArrs];
     [self.tbv reloadData];
 }
 
 -(void)setData{
+    _countyName=@"";
+    _cityName=@"";
+    _replayLocation=NO;
     self.cityArrs= [CGGetCityPlist readPlist];
     [self.cityArrs insertObject:@"location" atIndex:0];
 }
@@ -101,10 +106,11 @@
     
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         
+        _replayLocation=YES;
         for (CLPlacemark *place in placemarks) {
             
-            [CGSingleCommitData sharedInstance].cityName=place.locality;
-            [CGSingleCommitData sharedInstance].countryName=place.country;
+            _cityName=place.locality;
+            _countyName=place.country;
             NSLog(@"name,%@",place.name);                      // 位置名
             
             NSLog(@"thoroughfare,%@",place.thoroughfare);      // 街道
@@ -119,10 +125,17 @@
             
         }
         
+        NSString *locationName=@"当前位置:无法获取";
+        if (_countyName.length>0) {
+            locationName=[NSString stringWithFormat:@"当前位置:%@",_countyName];
+        }
         
-        NSString *cityName=[CGSingleCommitData sharedInstance].cityName.length>0?[CGSingleCommitData sharedInstance].cityName:[CGSingleCommitData sharedInstance].countryName;
-        CGLocationTableViewCell *cell = [self.tbv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        [cell updateCellData:cityName];
+        if (_cityName.length>0 && _countyName.length>0) {
+            locationName=[NSString stringWithFormat:@"当前位置:%@.%@",_countyName,_cityName];
+        }
+        
+        UITableViewCell *cell = [self.tbv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        cell.textLabel.text=locationName;
         
     }];
     
@@ -156,20 +169,9 @@
     return _cityArrs;
 }
 
--(UIView *)headerView{
-    if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
-        _headerView.backgroundColor=[UIColor getColor:@"36353B"];
-    }
-    
-    return _headerView;
-}
-
-
-
 -(UIButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -178,19 +180,31 @@
 
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
+        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftIcon.frame)+13*SCREEN_RADIO, 29*SCREEN_RADIO, 0, 35*SCREEN_RADIO)];
         _titleLabel.text=NSLocalizedString(@"Area", nil);
-        _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        _titleLabel.textColor=[UIColor whiteColor];
+        _titleLabel.textColor=[UIColor getColor:@"2A2A2A"];
+        _titleLabel.font=[UIFont systemFontOfSize:26*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
+        [_titleLabel sizeToFit];
     }
+    
     return _titleLabel;
+}
+
+
+-(UIView *)titleLineView{
+    if (!_titleLineView) {
+        _titleLineView=[[UILabel alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, CGRectGetMaxY(self.titleLabel.frame)+13*SCREEN_RADIO, screen_width-40*SCREEN_RADIO, 1)];
+        _titleLineView.backgroundColor=[UIColor getColor:@"F3F3F3"];
+    }
+    
+    return _titleLineView;
 }
 
 
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
-        CGRect tbvFrame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), self.view.frame.size.width, self.view.frame.size.height-60*SCREEN_RADIO);
+        CGRect tbvFrame = CGRectMake(0, CGRectGetMaxY(self.titleLineView.frame), self.view.frame.size.width, self.view.frame.size.height-60*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
@@ -199,23 +213,33 @@
         // [_tbv setDataArray:arrays];
         __weak typeof(self) weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
+            UITableViewCell *cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if (index.row==0) {
-                CGLocationTableViewCell *cell=[[CGLocationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-                
-                return (UITableViewCell *)cell;
-                
+                if (!_replayLocation) {
+                    cell.textLabel.text = @"当前位置:获取中";
+                }else{
+                    if (_countyName.length>0) {
+                        cell.textLabel.text=[NSString stringWithFormat:@"当前位置:%@",_countyName];
+                    }
+                    
+                    if (_cityName.length>0 && _countyName.length>0) {
+                        cell.textLabel.text=[NSString stringWithFormat:@"当前位置:%@.%@",_countyName,_cityName];
+                    }else{
+                        cell.textLabel.text=@"当前位置:无法获取";
+                    }
+                }
+   
             }else{
-                UITableViewCell *cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 NSArray *arr=[cellData objectForKey:@"cityList"];
                 if (arr.count>0) {
                     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
                 }
-                cell.userInteractionEnabled = true;
                 cell.textLabel.text = [cellData objectForKey:@"contryName"];
-                
-                return (UITableViewCell *)cell;
             }
+            
+                
+            return cell;
 
         }];
         
@@ -231,7 +255,7 @@
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
             if (indexPath.row==0) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"getAreaName" object:@{@"countryName":[cellData objectForKey:@"contryName"],@"cityName":@""}];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"getAreaName" object:@{@"countryName":_countyName,@"cityName":_cityName}];
                 [weakSelf.navigationController popViewControllerAnimated:NO];
             }else{
                 NSArray *arr=[cellData objectForKey:@"cityList"];
@@ -241,7 +265,7 @@
                     cityVC.countryName=[cellData objectForKey:@"contryName"];
                     [weakSelf.navigationController pushViewController:cityVC animated:NO];
                 }else{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"getAreaName" object:@{@"countryName":[CGSingleCommitData sharedInstance].countryName,@"cityName":[CGSingleCommitData sharedInstance].cityName}];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"getAreaName" object:@{@"countryName":[cellData stringForKey:@"contryName"],@"cityName":@""}];
                     [weakSelf.navigationController popViewControllerAnimated:NO];
                 }
             }

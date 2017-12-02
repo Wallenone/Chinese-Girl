@@ -12,7 +12,7 @@
 @interface CGNewFriendTableViewCell(){
     AddFriendClickBlock addFriendClickBlock;
 }
-@property(nonatomic,strong)CGaddFriendsModel *addModel;
+@property(nonatomic,strong)CGUserInfo *addModel;
 @property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIImageView *icon;
 @property(nonatomic,strong)UILabel *nickName;
@@ -37,7 +37,7 @@
 }
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGaddFriendsModel *)commitModel withAddFriendBlock:(AddFriendClickBlock)block{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGUserInfo *)commitModel withAddFriendBlock:(AddFriendClickBlock)block{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
@@ -69,7 +69,7 @@
 
 -(void)addClick{
     if (addFriendClickBlock) {
-        addFriendClickBlock(self.addModel.avater,self.addModel.nickName);
+        addFriendClickBlock(self.addModel.avater,self.addModel.nickname);
     }
 }
 
@@ -130,7 +130,7 @@
 -(UILabel *)nickName{
     if (!_nickName) {
         _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.icon.frame)+13*SCREEN_RADIO, 11*SCREEN_RADIO, 150*SCREEN_RADIO, 16*SCREEN_RADIO)];
-        _nickName.text=self.addModel.nickName;
+        _nickName.text=self.addModel.nickname;
         _nickName.textColor=[UIColor getColor:@"000000"];
         _nickName.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
     }
@@ -141,7 +141,7 @@
 -(UILabel *)aboutUs{
     if (!_aboutUs) {
         _aboutUs=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.icon.frame)+13*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 250*SCREEN_RADIO, 15*SCREEN_RADIO)];
-        _aboutUs.text=self.addModel.aboutUs;
+        _aboutUs.text=self.addModel.aboutus;
         _aboutUs.textColor=[UIColor getColor:@"AAAAAA"];
         _aboutUs.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         _aboutUs.lineBreakMode = NSLineBreakByTruncatingTail;

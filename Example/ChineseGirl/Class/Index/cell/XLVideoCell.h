@@ -10,6 +10,6 @@
 #import "CGIndexModel.h"
 @interface XLVideoCell : UITableViewCell
 @property(nonatomic,strong)UIImageView *videoImageView;
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGIndexModel *)tmodel withImg:(UIImage *)img;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGIndexModel *)tmodel withImg:(NSString *)imgUrl;
 -(void)hiddenPlayView:(BOOL)state;
 @end

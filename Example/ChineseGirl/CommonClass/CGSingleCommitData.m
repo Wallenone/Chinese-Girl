@@ -74,7 +74,7 @@ static CGSingleCommitData *_instance = nil;
         if (avatarData.bytes>0) {
             self.avatar = [UIImage imageWithData:avatarData];
         }else{
-            self.avatar = [UIImage imageNamed:@"default_nor_avatar"];
+            self.avatar = [UIImage imageNamed:@"default_hd_avatar"];
         }
         
         NSString *sex = [[NSUserDefaults standardUserDefaults] stringForKey:kSexKey];

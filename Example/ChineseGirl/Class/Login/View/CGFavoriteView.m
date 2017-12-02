@@ -13,7 +13,6 @@
 #import "CGIndexModel.h"
 #import "XLVideoCell.h"
 #import "WSCollectionCell.h"
-#import "XLVideoPlayer.h"
 #import "CGShuoShuo.h"
 #import "CGFavoriteSectionHeaderCell.h"
 @interface CGFavoriteView(){

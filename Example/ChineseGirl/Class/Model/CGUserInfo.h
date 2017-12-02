@@ -24,4 +24,5 @@
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(CGUserInfo *)getitemWithID:(NSString *)ids;
 +(NSArray *)reloadTableRondomCount:(NSInteger)count;//随机用户
++(void)updateReloadTable;  //随机刷新用户
 @end

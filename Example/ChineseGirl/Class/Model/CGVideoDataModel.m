@@ -20,16 +20,16 @@
 }
 
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"videoData" ofType:@"plist"];
-    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"videoData" ofType:@"plist"];
+//    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSMutableArray *data2= [[NSMutableArray alloc] init];
     NSMutableArray *newData=[NSMutableArray new];
     
-    for (int i=0; i<data1.count; i++) {
+    for (int i=0; i<[CGSingleCommitData sharedInstance].videoListDataArr.count; i++) {
         if (i%2!=0) {
             NSMutableArray *newData2=[[NSMutableArray alloc] init];
-            [newData2 addObject:[self modelWithDic:[data1 objectAtIndex:i-1]]];
-            [newData2 addObject:[self modelWithDic:[data1 objectAtIndex:i]]];
+            [newData2 addObject:[[CGSingleCommitData sharedInstance].videoListDataArr objectAtIndex:i-1]];
+            [newData2 addObject:[[CGSingleCommitData sharedInstance].videoListDataArr objectAtIndex:i]];
             [data2 addObject:newData2];
         }
     }
@@ -46,6 +46,10 @@
     }
     
     return newData;
+}
+
++(void)updateReloadRondom{
+    [CGSingleCommitData sharedInstance].videoListDataArr= [[self reloadTableRondomCount:99999999] mutableCopy];
 }
 
 +(NSArray *)reloadTableRondomCount:(NSInteger)count{
@@ -66,6 +70,17 @@
     }
     
     return newData;
+}
+
++(CGVideoDataModel *)reloadTableWithIds:(NSInteger)ids{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"videoData" ofType:@"plist"];
+    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    CGVideoDataModel *videoModel;
+    if (ids-1<=data1.count) {
+        videoModel=[CGVideoDataModel modelWithDic:[data1 objectAtIndex:ids-1]];
+    }
+    
+    return videoModel;
 }
 
 +(NSString *)filterNullString:(NSString *)str{

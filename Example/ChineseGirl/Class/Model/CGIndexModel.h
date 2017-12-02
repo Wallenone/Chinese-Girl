@@ -19,7 +19,9 @@
 @property(nonatomic,copy)NSString *address;
 @property(nonatomic,copy)NSString *type;
 @property(nonatomic,strong)NSArray *pictureBigs;
-@property(nonatomic,copy)UIImage *videoPic;
+@property(nonatomic,copy)NSString *videoPicUrl;
+@property(nonatomic,copy)NSString *videoUrl;
+@property(nonatomic,copy)NSString *videoid;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(void)reloadTableRondom;//刷新首页数据（随机）

@@ -11,7 +11,7 @@
 #import "MyIndexViewController.h"
 @interface XLVideoCell ()
 @property (strong, nonatomic)CGIndexModel *model;
-@property(nonatomic,strong)UIImage *timgage;
+@property(nonatomic,strong)NSString *imgUrl;
 @property(nonatomic,strong)UIView *menuView;
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)UIButton *iconBtn;
@@ -22,13 +22,13 @@
 @end
 @implementation XLVideoCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGIndexModel *)tmodel withImg:(UIImage *)img{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGIndexModel *)tmodel withImg:(NSString *)imgUrl{
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor getColor:@"EBEBEB"];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.model=tmodel;
-        self.timgage=img;
+        self.imgUrl=imgUrl;
         [self creatSubView];
     }
     
@@ -126,7 +126,7 @@
         _videoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), screen_width, 284*SCREEN_RADIO)];
         _videoImageView.contentMode =  UIViewContentModeScaleAspectFill;
         _videoImageView.clipsToBounds=YES;
-        _videoImageView.image=self.timgage;
+        [_videoImageView sd_setImageWithURL:[NSURL URLWithString:self.imgUrl]];
     }
     
     return _videoImageView;

@@ -283,6 +283,7 @@
         dragDownBlock=block;
         self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.mj_header endRefreshing];
+            [self.mj_footer endRefreshing];
             if (dragDownBlock) {
                 dragDownBlock();
             }

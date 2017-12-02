@@ -10,10 +10,12 @@
 #import "CGUserInfo.h"
 #import <AVFoundation/AVFoundation.h>
 #import "CGIndexModel.h"
+#import "CGVideoDataModel.h"
 @implementation CGShuoShuo
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGShuoShuo *model = [[CGShuoShuo alloc]init];
     model.ids = [self filterNullString:[dic stringForKey:@"id"]];
+    model.videoid=[self filterNullString:[dic stringForKey:@"videoid"]];
     model.sort = [self filterNullString:[dic stringForKey:@"sort"]];
     model.content = [self filterNullString:[dic stringForKey:@"content"]];
     model.pictures =  [self getFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
@@ -29,10 +31,10 @@
     if ([model.type integerValue]==1) {
         model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
         model.videoUrl = @"";
-        model.videoPic=nil;
+        model.videoPicUrl=@"";
     }else if ([model.type integerValue]==2){
-        model.videoUrl = [self filterNullString:[dic stringForKey:@"imgs"]];
-        model.videoPic=[self thumbnailImageForVideo:[NSURL URLWithString:model.videoUrl] atTime:2.0];
+        model.videoUrl = [CGVideoDataModel reloadTableWithIds:[model.videoid integerValue]].videoUrl;
+        model.videoPicUrl=[CGVideoDataModel reloadTableWithIds:[model.videoid integerValue]].videoIcon;
         model.pictureBigs=@[];
     }
     
@@ -112,7 +114,8 @@
         NSString *month=[NSString stringWithFormat:@"%d",[self getRandomNumber:1 to:3]];
         NSString *bigIcon=[self filterNullString:[model stringForKey:@"imgs"]];
         NSString *type=[self filterNullString:[model stringForKey:@"type"]];
-        NSDictionary *newModel=@{@"id":ids,@"month":month,@"bigIcon":bigIcon,@"type":type};
+        NSString *videoid=[self filterNullString:[model stringForKey:@"videoid"]];
+        NSDictionary *newModel=@{@"id":ids,@"month":month,@"bigIcon":bigIcon,@"type":type,@"videoid":videoid};
         
         CGIndexModel *indexModel=[CGIndexModel modelWithDic:newModel];
         [newData addObject:indexModel];

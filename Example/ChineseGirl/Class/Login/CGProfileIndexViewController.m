@@ -10,6 +10,7 @@
 #import "CGEditProfileViewController.h"
 #import "CGFavoriteView.h"
 #import "MyIndexViewController.h"
+#import "UICustomPickImgView.h"
 @interface CGProfileIndexViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerImgView;
@@ -51,6 +52,17 @@
     [self.navigationController pushViewController:editProfileVC animated:NO];
 }
 
+-(void)chooseImg{
+    __weak typeof(self) weakSelf = self;
+    UICustomPickImgView *customVC=[[UICustomPickImgView alloc] init];
+    [customVC onGetImg:^(UIImage *ava) {
+        [weakSelf.avaterBtn setImage:ava forState:UIControlStateNormal];
+        [CGSingleCommitData sharedInstance].avatar=ava;
+    }];
+    [self.view addSubview:customVC];
+    
+}
+
 -(UIView *)headerView{
     if (!_headerView) {
         _headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 138*SCREEN_RADIO)];
@@ -85,8 +97,8 @@
 -(UIButton *)avaterBtn{
     if (!_avaterBtn) {
         _avaterBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-55*SCREEN_RADIO, 82*SCREEN_RADIO, 110*SCREEN_RADIO, 110*SCREEN_RADIO)];
-        [_avaterBtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
-        [_avaterBtn setImage:[UIImage imageNamed:@"default_hd_avatar"] forState:UIControlStateNormal];
+        [_avaterBtn addTarget:self action:@selector(chooseImg) forControlEvents:UIControlEventTouchUpInside];
+        [_avaterBtn setImage:[CGSingleCommitData sharedInstance].avatar forState:UIControlStateNormal];
         _avaterBtn.layer.cornerRadius=55*SCREEN_RADIO;
         _avaterBtn.clipsToBounds=YES;
         _avaterBtn.backgroundColor=[UIColor getColor:@"F6F6F6"];
@@ -98,7 +110,7 @@
 -(UILabel *)nickName{
     if (!_nickName) {
         _nickName=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 18*SCREEN_RADIO)];
-        _nickName.text=@"NickName";
+        _nickName.text=[CGSingleCommitData sharedInstance].nickName;
         _nickName.textColor=[UIColor getColor:@"ffffff"];
         _nickName.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _nickName.textAlignment=NSTextAlignmentCenter;
@@ -110,7 +122,7 @@
 -(UILabel *)address{
     if (!_address) {
         _address=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.nickName.frame)+8*SCREEN_RADIO, screen_width, 14*SCREEN_RADIO)];
-        _address.text=@"China.BeiJing";
+        _address.text=[NSString stringWithFormat:@"%@.%@",[CGSingleCommitData sharedInstance].countryName,[CGSingleCommitData sharedInstance].cityName];
         _address.textColor=[UIColor getColor:@"ffffff"];
         _address.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         _address.textAlignment=NSTextAlignmentCenter;

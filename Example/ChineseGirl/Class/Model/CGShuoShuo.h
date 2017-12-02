@@ -23,7 +23,8 @@
 @property(nonatomic,copy)NSString *address;
 @property(nonatomic,copy)NSString *type;
 @property(nonatomic,copy)NSString *videoUrl;
-@property(nonatomic,copy)UIImage *videoPic;
+@property(nonatomic,copy)NSString *videoPicUrl;
+@property(nonatomic,copy)NSString *videoid;
 @property(nonatomic,assign)BOOL isLike;   //点赞
 +(CGShuoShuo *)getTableWithId:(NSString *)ids;
 + (instancetype)modelWithDic:(NSDictionary *)dic;

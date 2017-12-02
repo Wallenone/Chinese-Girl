@@ -13,14 +13,16 @@
 #import "CGVideoDataModel.h"
 #import "ZFPlayer.h"
 #import "CGVideoViewController.h"
-@interface CGAnimationIndexViewController ()
+@interface CGAnimationIndexViewController (){
+   
+}
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *rightIcon;
 @property(nonatomic,strong)UIImageView *titleImg;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
-
+@property(nonatomic,assign)NSInteger currentPage;
 @end
 
 @implementation CGAnimationIndexViewController
@@ -33,9 +35,15 @@
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+-(void)setData{
+    _currentPage=1;
+    [CGVideoDataModel updateReloadRondom];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
+    [self setData];
     [self addHeaderView];
     [self addBodyView];
 }
@@ -58,10 +66,21 @@
     [self.navigationController pushViewController:addVC animated:NO];
 }
 
--(void)getCollectionData:(NSInteger)page{
-    NSMutableArray *array = [CGVideoDataModel reloadTableWithRangeFrom:page*10 rangeTLenth:10];
+-(void)getCollectionData{
+    NSMutableArray *array = [CGVideoDataModel reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
     if (array.count>0) {
         [self.tbv addContentData:array];
+        _currentPage++;
+    }else{
+        [self.tbv noMoreData];
+    }
+}
+
+-(void)updateData{
+    NSMutableArray *array = [CGVideoDataModel reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
+    if (array.count>0) {
+        [self.tbv updateData:array];
+        _currentPage++;
     }else{
         [self.tbv noMoreData];
     }
@@ -147,13 +166,15 @@
         
         //允许上行滑动
         [_tbv onDragUp:^(int page) {
-            [weakSelf getCollectionData:page];
+            [weakSelf getCollectionData];
         }];
         
         //允许下行滑动刷新
-        //            [_tbv onDragDown:^{
-        //                [weakSelf getCollectionData];
-        //            }];
+        [_tbv onDragDown:^{
+            weakSelf.currentPage=0;
+            [CGVideoDataModel updateReloadRondom];
+            [weakSelf updateData];
+        }];
         
         
         //设置选中事件 block设置方式

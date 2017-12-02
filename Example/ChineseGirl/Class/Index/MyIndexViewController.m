@@ -16,7 +16,6 @@
 #import "CGShuoShuo.h"
 #import "CGUserInfo.h"
 #import "CGVideoViewController.h"
-#import "XLVideoPlayer.h"
 #import <AVFoundation/AVFoundation.h>
 #define MJRandomData [NSString stringWithFormat:@"随机数据---%d", arc4random_uniform(1000000)]
 
@@ -29,7 +28,6 @@
 @property(nonatomic,strong)UIView *infoView;
 @property(nonatomic,strong)UIView *bottomLine;
 @property(nonatomic,strong)EZJFastTableView *tbv;
-@property(nonatomic,strong)XLVideoPlayer *player;
 @end
 
 @implementation MyIndexViewController
@@ -44,8 +42,6 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [self.tabBarController.tabBar setHidden:NO];
-    [self.player destroyPlayer];
-    self.player = nil;
 }
 
 
@@ -224,52 +220,18 @@
             if (indexPath.row!=0) {
                 CGShuoShuo *indexModel=(CGShuoShuo *)cellData;
                 if ([indexModel.type integerValue]==2) {
-                    [self showVideoPlayer:indexPath withcellData:cellData];
+                    CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+                    videoVC.videoStr=indexModel.videoUrl;
+                    [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
+                    
                 }
             }
             
         }];
         
-        [_tbv onScrollDid:^(UIScrollView *scrollView) {
-            if ([scrollView isEqual:self.tbv]) {
-                [weakSelf.player playerScrollIsSupportSmallWindowPlay:NO];
-            }
-        }];
-        
     }
     
     return _tbv;
-}
-
-
-
-- (void)showVideoPlayer:(NSIndexPath *)index withcellData:(CGShuoShuo *)cellData{
-    [_player destroyPlayer];
-    _player = nil;
-
-    _indexPath = index;
-    MyIndexCell *cell = [self.tbv cellForRowAtIndexPath:_indexPath];
-    // [cell hiddenPlayView:YES];
-
-    __weak typeof(self) weakSelf = self;
-    _player = [[XLVideoPlayer alloc] initWithFrame:[cell getVideoimageViewFrame] withVideoPauseBlock:^{
-        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
-        videoVC.videoStr=cellData.videoUrl;
-        [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
-    } withPlayBlock:^{
-        
-    }];
-    _player.videoUrl = cellData.videoUrl;
-    [_player playerBindTableView:self.tbv currentIndexPath:_indexPath];
-    
-    [cell.contentView addSubview:_player];
-    
-    _player.completedPlayingBlock = ^(XLVideoPlayer *player) {
-       // [cell hiddenPlayView:NO];
-        [player destroyPlayer];
-        _player = nil;
-    };
-    
 }
 
 

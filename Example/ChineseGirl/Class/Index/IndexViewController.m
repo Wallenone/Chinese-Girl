@@ -16,12 +16,10 @@
 #import "CGIndexModel.h"
 #import "WSCollectionCell.h"
 #import "XLVideoCell.h"
-#import "XLVideoPlayer.h"
 #import <AVFoundation/AVFoundation.h>
 #import "CGVideoViewController.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate,UIScrollViewDelegate>{
     NSIndexPath *_indexPath;
-    NSInteger _currentPage;
     
 }
 @property(nonatomic,strong)UIView *headerView;
@@ -32,7 +30,7 @@
 @property (nonatomic, strong)UIView* infinitePageView;
 @property (nonatomic, strong)UIImageView *infiniteImgView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
-@property(nonatomic,strong)XLVideoPlayer *player;
+@property(nonatomic,assign)NSInteger currentPage;
 @end
 
 @implementation IndexViewController
@@ -47,9 +45,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    [self.player destroyPlayer];
-    self.player = nil;
 }
 
 
@@ -64,7 +59,7 @@
 }
 
 -(void)setData{
-    _currentPage=0;
+    _currentPage=1;
     [CGIndexModel reloadTableRondom];
 }
 
@@ -213,7 +208,7 @@
                     WSCollectionCell *cell = [[WSCollectionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:indexModel];
                     return (UITableViewCell *)cell;
                 }else if ([indexModel.type integerValue]==2){
-                    XLVideoCell *cell = [[XLVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:indexModel withImg:indexModel.videoPic];
+                    XLVideoCell *cell = [[XLVideoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:indexModel withImg:indexModel.videoPicUrl];
                     return (UITableViewCell *)cell;
                 }
             }
@@ -246,7 +241,8 @@
         
             //允许下行滑动刷新
             [_tbv onDragDown:^{
-                [weakSelf setData];
+                weakSelf.currentPage=0;
+                [CGIndexModel reloadTableRondom];
                 [weakSelf updateData];
             }];
         
@@ -260,57 +256,19 @@
             if (indexPath.row!=0) {
                 CGIndexModel *indexModel=(CGIndexModel *)cellData;
                 if ([indexModel.type integerValue]==2) {
-                    [self showVideoPlayer:indexPath withcellData:cellData];
+                    CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+                    videoVC.videoStr=indexModel.videoUrl;
+                    [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
                 }
             }
         }];
         
-        [_tbv onScrollDid:^(UIScrollView *scrollView) {
-            if ([scrollView isEqual:self.tbv]) {
-                [weakSelf.player playerScrollIsSupportSmallWindowPlay:NO];
-            }
-        }];
         
     }
     
     return _tbv;
 }
 
-- (void)showVideoPlayer:(NSIndexPath *)index withcellData:(CGIndexModel *)cellData{
-    [_player destroyPlayer];
-    _player = nil;
-   
-    _indexPath = index;
-    XLVideoCell *cell = [self.tbv cellForRowAtIndexPath:_indexPath];
-   // [cell hiddenPlayView:YES];
-    
-
-//    //2.将indexPath添加到数组
-//    NSArray <NSIndexPath *> *indexPathArray = @[index];
-//    //3.传入数组，对当前cell进行刷新
-//    [self.tbv reloadRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    
-    __weak typeof(self) weakSelf = self;
-    _player = [[XLVideoPlayer alloc] initWithFrame:CGRectMake(0, 56*SCREEN_RADIO, screen_width, 284*SCREEN_RADIO) withVideoPauseBlock:^{
-        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
-        videoVC.videoStr=cellData.bigIcon;
-        [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
-    } withPlayBlock:^{
-        
-    }];
-    _player.videoUrl = cellData.bigIcon;
-    [_player playerBindTableView:self.tbv currentIndexPath:_indexPath];
-    
-    [cell.contentView addSubview:_player];
-    
-    _player.completedPlayingBlock = ^(XLVideoPlayer *player) {
-        [cell hiddenPlayView:NO];
-        [player destroyPlayer];
-        _player = nil;
-    };
-    
-}
 
 
 
