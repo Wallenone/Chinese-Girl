@@ -32,7 +32,21 @@
 }
 
 -(void)setData{
-    [self.favoriteView updateTable];
+    if([CGSingleCommitData sharedInstance].uid.length>0){
+        [self.favoriteView updateTable];
+        [self.avaterBtn setImage:[CGSingleCommitData sharedInstance].avatar forState:UIControlStateNormal];
+        self.nickName.text=[CGSingleCommitData sharedInstance].nickName;
+        NSString *_text=@"";
+        if ([CGSingleCommitData sharedInstance].cityName.length>0 && [CGSingleCommitData sharedInstance].countryName.length>0) {
+            _text=[NSString stringWithFormat:@"%@.%@",[CGSingleCommitData sharedInstance].countryName,[CGSingleCommitData sharedInstance].cityName];
+        }else if ([CGSingleCommitData sharedInstance].countryName.length>0){
+            _text=[CGSingleCommitData sharedInstance].countryName;
+        }
+        self.address.text=_text;
+    }else{
+        [self.tabBarController setSelectedIndex:0];
+    }
+    
 }
 
 - (void)viewDidLoad {
@@ -122,7 +136,13 @@
 -(UILabel *)address{
     if (!_address) {
         _address=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.nickName.frame)+8*SCREEN_RADIO, screen_width, 14*SCREEN_RADIO)];
-        _address.text=[NSString stringWithFormat:@"%@.%@",[CGSingleCommitData sharedInstance].countryName,[CGSingleCommitData sharedInstance].cityName];
+        NSString *_text=@"";
+        if ([CGSingleCommitData sharedInstance].cityName.length>0 && [CGSingleCommitData sharedInstance].countryName.length>0) {
+            _text=[NSString stringWithFormat:@"%@.%@",[CGSingleCommitData sharedInstance].countryName,[CGSingleCommitData sharedInstance].cityName];
+        }else if ([CGSingleCommitData sharedInstance].countryName.length>0){
+            _text=[CGSingleCommitData sharedInstance].countryName;
+        }
+        _address.text=_text;
         _address.textColor=[UIColor getColor:@"ffffff"];
         _address.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         _address.textAlignment=NSTextAlignmentCenter;

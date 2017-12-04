@@ -55,7 +55,7 @@
 }
 
 -(void)back{
-    [self.navigationController popViewControllerAnimated:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)signInClick{
@@ -64,7 +64,25 @@
 }
 
 -(void)setupClick{
-    
+    if(self.emailContent.text.length>0 && self.passwordContent.text.length>0){
+        if ([self.emailContent.text isEqualToString:[CGSingleCommitData sharedInstance].email] && [self.passwordContent.text isEqualToString:[CGSingleCommitData sharedInstance].password]) {
+                [CGSingleCommitData sharedInstance].uid=self.emailContent.text;
+                [CGSingleCommitData sharedInstance].email=self.emailContent.text;
+                [CGSingleCommitData sharedInstance].password=self.passwordContent.text;
+            [self setState:YES withMessgae:NSLocalizedString(@"login_success", nil)];
+        }else{
+                [self setState:NO withMessgae:NSLocalizedString(@"ERROR_Incorrect_username_or_password", nil)];
+        }
+    }
+}
+
+-(void)setState:(BOOL)state withMessgae:(NSString *)messageText{
+    if (state) {
+        [SVProgressHUD showSuccessWithStatus:messageText];
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }else{
+        [SVProgressHUD showErrorWithStatus:messageText];
+    }
 }
 
 -(void)signUpClick{

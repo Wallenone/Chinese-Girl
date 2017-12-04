@@ -113,7 +113,7 @@
 
 -(UIButton *)following{
     if (!_following) {
-        _following=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/4-8*SCREEN_RADIO, 26.5*SCREEN_RADIO-8*SCREEN_RADIO, 16*SCREEN_RADIO, 16*SCREEN_RADIO)];
+        _following=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/4-12*SCREEN_RADIO, 26.5*SCREEN_RADIO-12*SCREEN_RADIO, 24*SCREEN_RADIO, 24*SCREEN_RADIO)];
         [_following setImage:[UIImage imageNamed:@"Thumbed"] forState:UIControlStateNormal];
         [_following addTarget:self action:@selector(followClick:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -123,7 +123,7 @@
 
 -(UIButton *)like{
     if (!_like) {
-        _like=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2+screen_width/4-8*SCREEN_RADIO, 26.5*SCREEN_RADIO-8*SCREEN_RADIO, 16*SCREEN_RADIO, 16*SCREEN_RADIO)];
+        _like=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2+screen_width/4-12*SCREEN_RADIO, 26.5*SCREEN_RADIO-8*SCREEN_RADIO, 24*SCREEN_RADIO, 16*SCREEN_RADIO)];
         [_like setImage:[UIImage imageNamed:@"Card"] forState:UIControlStateNormal];
         [_like addTarget:self action:@selector(likeClick:) forControlEvents:UIControlEventTouchUpInside];
     }

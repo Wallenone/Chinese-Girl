@@ -347,4 +347,8 @@ static CGSingleCommitData *_instance = nil;
 - (void)logout {
     self.uid = @"";
 }
+
+-(void)deleteAccout{
+    self.uid = @"";
+}
 @end

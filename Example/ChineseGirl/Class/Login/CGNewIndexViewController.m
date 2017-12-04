@@ -25,8 +25,6 @@
 @property(nonatomic,strong)UITextField *addressContent;
 @property(nonatomic,strong)UIButton *cityBtn;
 @property(nonatomic,strong)UIButton *setupBtn;
-@property(nonatomic,strong)UILabel *signInLabel;
-@property(nonatomic,strong)UIButton *signInBtn;
 @end
 
 @implementation CGNewIndexViewController
@@ -67,13 +65,11 @@
     [self.view addSubview:self.address];
     [self.view addSubview:self.addressContent];
     [self.view addSubview:self.cityBtn];
-    [self.view addSubview:self.signInLabel];
-    [self.view addSubview:self.signInBtn];
     [self.view addSubview:self.setupBtn];
 }
 
 -(void)back{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 -(void)chooseCity{
@@ -88,7 +84,7 @@
             if (self.passwordContent.text.length>=6) {
                 
                 if (self.addressContent.text.length>0) {
-                    [CGSingleCommitData sharedInstance].uid=@"10000";
+                    [CGSingleCommitData sharedInstance].uid=self.emailContent.text;
                     [CGSingleCommitData sharedInstance].nickName=self.usernameContent.text;
                     [CGSingleCommitData sharedInstance].email=self.emailContent.text;
                     [CGSingleCommitData sharedInstance].password=self.passwordContent.text;
@@ -265,31 +261,6 @@
     }
     
     return _cityBtn;
-}
-
--(UILabel *)signInLabel{
-    if (!_signInLabel) {
-        _signInLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
-        _signInLabel.text=@"Already have an account? ";
-        _signInLabel.textColor=[UIColor getColor:@"6F6F6F"];
-        _signInLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        [_signInLabel sizeToFit];
-    }
-    
-    return _signInLabel;
-}
-
--(UIButton *)signInBtn{
-    if (!_signInBtn) {
-        _signInBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.signInLabel.frame)+5*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.signInLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        [_signInBtn setTitle:@"Sign in now!" forState:UIControlStateNormal];
-        [_signInBtn setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
-        _signInBtn.titleLabel.font=[UIFont systemFontOfSize:21*SCREEN_RADIO];
-        _signInBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [_signInBtn addTarget:self action:@selector(signInClick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-    return _signInBtn;
 }
 
 -(UIButton *)setupBtn{

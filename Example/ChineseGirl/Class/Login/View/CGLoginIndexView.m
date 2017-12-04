@@ -76,7 +76,7 @@
     if(self.userNameField.text.length>0 && self.passwordField.text.length>0){
         if ([self.userNameField.text isEqualToString:[CGSingleCommitData sharedInstance].email] && [self.passwordField.text isEqualToString:[CGSingleCommitData sharedInstance].password]) {
             if (signInClickBlock) {
-                [CGSingleCommitData sharedInstance].uid=@"10000";
+                [CGSingleCommitData sharedInstance].uid=self.userNameField.text;
                 [CGSingleCommitData sharedInstance].email=self.userNameField.text;
                 [CGSingleCommitData sharedInstance].password=self.passwordField.text;
                 signInClickBlock(YES,NSLocalizedString(@"login_success", nil));

@@ -47,7 +47,17 @@
 }
 
 -(void)setupClick{
-    
+    if (self.emailContent.text.length>0) {
+        if([self.emailContent.text isEqualToString:[CGSingleCommitData sharedInstance].email]){
+            self.emailLabel.text=@"Your Password";
+            self.emailContent.userInteractionEnabled=NO;
+            self.emailContent.text=[CGSingleCommitData sharedInstance].password;
+            [self.emailLabel sizeToFit];
+            self.signInBtn.userInteractionEnabled=NO;
+        }else{
+           [SVProgressHUD showErrorWithStatus:@"改邮箱没有注册过"];
+        }
+    }
 }
 
 -(UIButton *)leftIcon{

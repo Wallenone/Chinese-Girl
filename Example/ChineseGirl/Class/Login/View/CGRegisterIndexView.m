@@ -72,7 +72,7 @@
             if (self.passwordField.text.length>=6) {
                 
                 if (self.cityField.text.length>0) {
-                    [CGSingleCommitData sharedInstance].uid=@"10000";
+                    [CGSingleCommitData sharedInstance].uid=self.EmailField.text;
                     [CGSingleCommitData sharedInstance].nickName=self.userNameField.text;
                     [CGSingleCommitData sharedInstance].email=self.EmailField.text;
                     [CGSingleCommitData sharedInstance].password=self.passwordField.text;

@@ -37,4 +37,5 @@
 -(void)deletefavourite:(NSString *)obj;   //删除点赞
 -(void)addFollows:(NSString *)addFollow;  //加关注
 -(void)deletefollow:(NSString *)obj;    //去掉关注
+-(void)deleteAccout;  //删除用户
 @end

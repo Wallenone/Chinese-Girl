@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getCityName:) name:@"getAreaName" object:nil];
     self.view.backgroundColor=[UIColor getColor:@"ffffff"];
     [self.view addSubview:self.headerView];
     [self.headerView addSubview:self.titleLabel];
@@ -46,16 +47,31 @@
     [self.view addSubview:self.deleteBtn];
 }
 
+-(void)getCityName:(NSNotification *)obj{
+    if ([obj.object stringForKey:@"countryName"].length>0 || [obj.object stringForKey:@"cityName"].length>0) {
+        NSString *str=[NSString stringWithFormat:@"%@ %@",[obj.object stringForKey:@"countryName"],[obj.object stringForKey:@"cityName"]];
+        [CGSingleCommitData sharedInstance].countryName=[obj.object stringForKey:@"countryName"];
+        [CGSingleCommitData sharedInstance].cityName=[obj.object stringForKey:@"cityName"];
+        if (str.length>0) {
+            MySettingTableViewCell *cell = [self.tbv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+            [cell updateCellContent:str];
+        }
+    }
+}
+
 -(void)back{
     [self.navigationController popViewControllerAnimated:NO];
 }
 
 -(void)logoutClick{
-    
+    [[CGSingleCommitData sharedInstance] logout];
+    [self.navigationController popToRootViewControllerAnimated:NO];
+   // [self.tabBarController setSelectedIndex:0];
 }
 
 -(void)deleteClick{
-    
+    [[CGSingleCommitData sharedInstance] deleteAccout];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(UIView *)headerView{
