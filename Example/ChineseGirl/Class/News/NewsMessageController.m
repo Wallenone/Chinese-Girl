@@ -53,7 +53,7 @@
 }
 
 -(void)back{
-    [self.navigationController popViewControllerAnimated:NO];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(void)talkClick{
@@ -85,15 +85,17 @@
 }
 
 -(void)followingClick:(UIButton *)button{//C5D4D2  //320AFD
-    if ([button.currentTitle isEqual:@"Following"]) {
-        [button setBackgroundColor:[UIColor getColor:@"320AFD"]];
-        [button setTitle:@"Follwed" forState:UIControlStateNormal];
+    if ([button.currentTitle isEqual:@"Follow"]) {
+        // [button setBackgroundColor:[UIColor getColor:@"320AFD"]];
+        [button setTitle:@"Followed" forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"myindexfollowed"] forState:UIControlStateNormal];
         [[CGSingleCommitData sharedInstance] addFollows:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
     }
     else {
-        [button setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
-        [button setTitle:@"Follwing" forState:UIControlStateNormal];
+        // [button setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
+        [button setTitle:@"Follow" forState:UIControlStateNormal];
         [[CGSingleCommitData sharedInstance] deletefollow:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
+        [button setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
     }
 }
 
@@ -107,8 +109,7 @@
     [self.headerView addSubview:self.addressIcon];
     [self.headerView addSubview:self.address];
     [self.headerView addSubview:self.followingBtn];
-    [self.headerView addSubview:self.talkBtn];
-    
+    //[self.headerView addSubview:self.talkBtn];
 }
 
 -(void)addSubViews{
@@ -217,22 +218,23 @@
     if (!_followingBtn) {
         _followingBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+25.5*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, 159.5*SCREEN_RADIO, 45*SCREEN_RADIO)];
         [_followingBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];//C5D4D2  //320AFD
-        [_followingBtn setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
         [_followingBtn setTitle:@"Follow" forState:UIControlStateNormal];
         _followingBtn.imageEdgeInsets = UIEdgeInsetsMake(13.5*SCREEN_RADIO,16.5*SCREEN_RADIO,14*SCREEN_RADIO,125*SCREEN_RADIO);
         _followingBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -_followingBtn.imageView.frame.size.width, 0, 0);
         
-        //        if (self.myIndexModel.followed) {
-        //            [_followingBtn setTitle:@"Followed" forState:UIControlStateNormal];
-        //        }else{
-        //            [_followingBtn setTitle:@"Follow" forState:UIControlStateNormal];
-        //
-        //        }
+        if (self.myIndexModel.followed) {
+            [_followingBtn setTitle:@"Followed" forState:UIControlStateNormal];
+            [_followingBtn setImage:[UIImage imageNamed:@"myindexfollowed"] forState:UIControlStateNormal];
+        }else{
+            [_followingBtn setTitle:@"Follow" forState:UIControlStateNormal];
+            [_followingBtn setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
+        }
         _followingBtn.layer.cornerRadius=22.5*SCREEN_RADIO;
         _followingBtn.layer.borderWidth=0.5;
         _followingBtn.layer.borderColor=[UIColor getColor:@"ffffff"].CGColor;
         _followingBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_followingBtn addTarget:self action:@selector(followingClick:) forControlEvents:UIControlEventTouchUpInside];
+        
         
     }
     

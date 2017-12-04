@@ -71,7 +71,7 @@
 
 -(void)talkClick{
     if (talkCallBack) {
-        talkCallBack();
+        talkCallBack(self.myIndexModel);
     }
 }
 
@@ -95,12 +95,14 @@
         [button setTitle:@"Followed" forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"myindexfollowed"] forState:UIControlStateNormal];
         [[CGSingleCommitData sharedInstance] addFollows:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
+        self.myIndexModel.followed=YES;
     }
     else {
        // [button setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
         [button setTitle:@"Follow" forState:UIControlStateNormal];
         [[CGSingleCommitData sharedInstance] deletefollow:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
         [button setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
+        self.myIndexModel.followed=NO;
     }
 }
 

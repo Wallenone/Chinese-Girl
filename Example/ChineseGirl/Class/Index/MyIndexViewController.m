@@ -36,6 +36,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -167,9 +168,9 @@
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             UITableViewCell *inCell;
             if (index.row ==0) {
-                myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withTalkCallBack:^{
+                myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withTalkCallBack:^(CGUserInfo *info){
                     NewsMessageController *newsMessageVC=[[NewsMessageController alloc] init];
-                    newsMessageVC.myIndexModel=cellData;
+                    newsMessageVC.myIndexModel=info;
                     [weakSelf.navigationController pushViewController:newsMessageVC animated:NO];
                 }];
                 
