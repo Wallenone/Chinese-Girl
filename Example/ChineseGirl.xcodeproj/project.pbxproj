@@ -98,6 +98,8 @@
 		E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */; };
 		E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */; };
 		E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */; };
+		E5B475691FD6CD5E0045B960 /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5B475681FD6CD5D0045B960 /* message.plist */; };
+		E5B4756C1FD6CDE70045B960 /* CGMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */; };
 		E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */; };
 		E5BD337D1FBFDB1900C8FE94 /* CGFollowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD337C1FBFDB1900C8FE94 /* CGFollowTableViewCell.m */; };
 		E5BD33841FBFEBE400C8FE94 /* indexmend.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5BD33831FBFEBE300C8FE94 /* indexmend.plist */; };
@@ -350,6 +352,9 @@
 		E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGForgetPasswordViewController.m; sourceTree = "<group>"; };
 		E5B174ED1F9CAA180055E16A /* CGSingleCommitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSingleCommitData.h; sourceTree = "<group>"; };
 		E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSingleCommitData.m; sourceTree = "<group>"; };
+		E5B475681FD6CD5D0045B960 /* message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = message.plist; sourceTree = "<group>"; };
+		E5B4756A1FD6CDE70045B960 /* CGMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMessageModel.h; sourceTree = "<group>"; };
+		E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMessageModel.m; sourceTree = "<group>"; };
 		E5BD33781FBFD98100C8FE94 /* CGMyFollowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMyFollowViewController.h; sourceTree = "<group>"; };
 		E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMyFollowViewController.m; sourceTree = "<group>"; };
 		E5BD337B1FBFDB1900C8FE94 /* CGFollowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFollowTableViewCell.h; sourceTree = "<group>"; };
@@ -536,6 +541,7 @@
 			children = (
 				E5FC800A1FC9BCC60094615B /* qidong.mp4 */,
 				E5D291921FC5A96C003718CB /* Billabong.ttf */,
+				E5B475681FD6CD5D0045B960 /* message.plist */,
 				E5046F6F1FD298A90061E608 /* shuoshuo.plist */,
 				E5F5427F1FC8579900262DCE /* videoData.plist */,
 				E58F28821FC304C900DFAB8E /* index.plist */,
@@ -979,6 +985,8 @@
 				E546C1181FBEFB7A000F5127 /* CGAnswerModel.m */,
 				E5F542811FC857BD00262DCE /* CGVideoDataModel.h */,
 				E5F542821FC857BD00262DCE /* CGVideoDataModel.m */,
+				E5B4756A1FD6CDE70045B960 /* CGMessageModel.h */,
+				E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1202,6 +1210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B475691FD6CD5E0045B960 /* message.plist in Resources */,
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
 				E511CB241FB005EF006BA362 /* Localizable.strings in Resources */,
 				E5360A731FBC777C009DDA07 /* addFriends.plist in Resources */,
@@ -1379,6 +1388,7 @@
 				E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */,
 				E5E0FE4B1F9AF15700B5228E /* WYGenderPickerView.m in Sources */,
 				E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */,
+				E5B4756C1FD6CDE70045B960 /* CGMessageModel.m in Sources */,
 				E546C1271FBF2496000F5127 /* CGVipTableViewCell.m in Sources */,
 				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
 				E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */,

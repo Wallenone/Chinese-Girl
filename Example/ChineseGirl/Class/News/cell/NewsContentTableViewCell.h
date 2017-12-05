@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewsContentModel.h"
+typedef enum {
+    FrontLeft=1,
+    FrontRight
+}FrontModel;
+
 @interface NewsContentTableViewCell : UITableViewCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NewsContentModel *)NewsModel;
+//front  方向
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithType:(NSString *)type withMessage:(NSString *)message withAvater:(NSString *)avater withTurnFront:(FrontModel)front;
 @end

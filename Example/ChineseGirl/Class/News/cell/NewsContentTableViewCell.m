@@ -10,8 +10,12 @@
 #import "NewsContentCustomLabel.h"
 #import "ShapedImageView.h"
 #import "UIImage+Color.h"
-@interface NewsContentTableViewCell()
-@property(nonatomic,strong)NewsContentModel *newsContentModel;
+@interface NewsContentTableViewCell(){
+    int _type;
+    NSString *_message;
+    NSString *_avater;
+    FrontModel _front; //方向
+}
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)NewsContentCustomLabel *textCentent;
 @property(nonatomic,strong)UILabel *timeLabel;
@@ -19,12 +23,15 @@
 @end
 @implementation NewsContentTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NewsContentModel *)NewsModel{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithType:(NSString *)type withMessage:(NSString *)message withAvater:(NSString *)avater withTurnFront:(FrontModel)front{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle=UITableViewCellSelectionStyleNone;
-        self.backgroundColor=[UIColor clearColor];
-        self.newsContentModel = NewsModel;
+        self.backgroundColor=[UIColor redColor];
+        _type=[type intValue];
+        _message=message;
+        _avater=avater;
+        _front=front;
         [self creatSubView];
     }
     
@@ -35,14 +42,24 @@
     [self addSubview:self.iconImgView];
     [self addSubview:self.timeLabel];
     [self addSubview:self.MessageBgImgView];
-    [self addSubview:self.textCentent];
+    if (_type==1) {
+        [self addSubview:self.textCentent];
+    }
+    
 }
 
 -(UIImageView *)iconImgView{
     if (!_iconImgView) {
-        _iconImgView=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width-53*SCREEN_RADIO, 15*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
+        CGFloat _textX;
+        if (_front==FrontLeft) {
+            _textX=15*SCREEN_RADIO;
+        }else {
+            _textX=screen_width-53*SCREEN_RADIO;
+        }
+        
+        _iconImgView=[[UIImageView alloc] initWithFrame:CGRectMake(_textX, 15*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
         _iconImgView.layer.cornerRadius=19*SCREEN_RADIO;
-        _iconImgView.image=[UIImage imageNamed:self.newsContentModel.icon];
+        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:_avater]];
     }
     
     return _iconImgView;
@@ -52,10 +69,10 @@
     if (!_textCentent) {
         
         CGFloat _textWidth;
-        CGFloat maxWidth =screen_width-164*SCREEN_RADIO;
+        CGFloat maxWidth =screen_width-144*SCREEN_RADIO;
     
         CGSize constraint = CGSizeMake(maxWidth, 99999.0f);
-        CGSize size = [self.newsContentModel.text sizeWithFont:[UIFont systemFontOfSize:22*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize size = [_message sizeWithFont:[UIFont systemFontOfSize:16*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         
         if (size.width<maxWidth) {
             _textWidth = size.width +24*SCREEN_RADIO;
@@ -63,16 +80,23 @@
             _textWidth = maxWidth;
         }
         
-        _textCentent=[[NewsContentCustomLabel alloc] initWithFrame:CGRectMake((80+(maxWidth-size.width))*SCREEN_RADIO, 15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO))];
-        //_textCentent.layer.cornerRadius=_textCentent.frame.size.height*0.1;
+        CGFloat _textX;
+        if (_front==FrontLeft) {
+            _textX=60*SCREEN_RADIO;
+        }else {
+            _textX=(80+(maxWidth-size.width))*SCREEN_RADIO;
+        }
+        
+        _textCentent=[[NewsContentCustomLabel alloc] initWithFrame:CGRectMake(_textX, 15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO))];
+        _textCentent.layer.cornerRadius=ceil(size.height+24*SCREEN_RADIO)*0.1;
         _textCentent.clipsToBounds = YES;
-        _textCentent.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
-        _textCentent.textColor = [UIColor getColor:@"ffffff"];
-        //_textCentent.backgroundColor=[UIColor getColor:@"2979FF"];
+        _textCentent.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        _textCentent.textColor = [UIColor blackColor];
+        _textCentent.backgroundColor=[UIColor getColor:@"2979FF"];
         _textCentent.userInteractionEnabled=NO;
-        _textCentent.text=self.newsContentModel.text;
-        //_textCentent.layer.borderColor=[UIColor clearColor].CGColor;
+        _textCentent.text=_message;
         _textCentent.numberOfLines=0;
+        //[_textCentent sizeToFit];
     }
     
     return _textCentent;
@@ -80,8 +104,14 @@
 
 -(UILabel *)timeLabel{
     if (!_timeLabel) {
-        _timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(screen_width-53*SCREEN_RADIO, CGRectGetMaxY(self.iconImgView.frame)+8*SCREEN_RADIO, 0, 13*SCREEN_RADIO)];
-        _timeLabel.text=self.newsContentModel.timeDate;
+        CGFloat _textX;
+        if (_front==FrontLeft) {
+            _textX=15*SCREEN_RADIO;
+        }else {
+            _textX=screen_width-53*SCREEN_RADIO;
+        }
+        _timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(_textX, CGRectGetMaxY(self.iconImgView.frame)+8*SCREEN_RADIO, 0, 13*SCREEN_RADIO)];
+        _timeLabel.text=[self getCurrentTime];
         _timeLabel.textColor=[UIColor getColor:@"7C858A"];
         _timeLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
         [_timeLabel sizeToFit];
@@ -90,26 +120,14 @@
     return _timeLabel;
 }
 
--(ShapedImageView *)MessageBgImgView{
-    CGFloat _textWidth;
-    CGFloat maxWidth =screen_width-164*SCREEN_RADIO;
-    
-    CGSize constraint = CGSizeMake(maxWidth, 99999.0f);
-    CGSize size = [self.newsContentModel.text sizeWithFont:[UIFont systemFontOfSize:22*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-    
-    if (size.width<maxWidth) {
-        _textWidth = size.width +24*SCREEN_RADIO;
-    }else{
-        _textWidth = maxWidth;
-    }
-    
-    if (!_MessageBgImgView) {
-        _MessageBgImgView=[[ShapedImageView alloc] initWithDirectionRight:YES];
-        _MessageBgImgView.frame=CGRectMake((80+(maxWidth-size.width))*SCREEN_RADIO, 15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO));
-        _MessageBgImgView.image = [UIImage imageWithColor:[UIColor getColor:@"2979FF"]];
-    }
-    
-    return _MessageBgImgView;
+
+//获取当地时间
+- (NSString *)getCurrentTime {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateTime = [formatter stringFromDate:[NSDate date]];
+    return dateTime;
 }
+
 
 @end

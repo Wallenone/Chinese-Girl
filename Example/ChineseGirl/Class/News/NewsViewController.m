@@ -13,6 +13,7 @@
 #import "NewsMessageController.h"
 #import "CGUserInfo.h"
 #import "CGMailListViewController.h"
+#import "CGMessageModel.h"
 @interface NewsViewController ()<HzfNavigationBarDelegate>
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)EZJFastTableView *tbv;
@@ -67,29 +68,8 @@
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"eeeeee"];
         NSMutableArray *arrays =[[NSMutableArray alloc] init];
+        [arrays addObject:[CGMessageModel reloadReloadRondom]];
         
-        NewsInfoModel *model = [[NewsInfoModel alloc] init];
-        model.icon = @"Avatar";
-        model.nickName = @"Randy Young";
-        model.content = @"This is a book！";
-        model.timeDate=@"12:37";
-        model.userid=@"1";
-        
-        NewsInfoModel *model1 = [[NewsInfoModel alloc] init];
-        model1.icon = @"Avatar";
-        model1.nickName = @"Randy Young1";
-        model1.content = @"This is a book！1";
-        model1.userid=@"2";
-        
-        NewsInfoModel *model2 = [[NewsInfoModel alloc] init];
-        model2.icon = @"Avatar";
-        model2.nickName = @"Randy Young2";
-        model2.content = @"This is a book！2";
-        model2.userid=@"3";
-        //给tableview赋值
-        [arrays addObject:model];
-        [arrays addObject:model1];
-        [arrays addObject:model2];
         [_tbv setDataArray:arrays];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
@@ -120,9 +100,9 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
-            NewsInfoModel *model=(NewsInfoModel *)cellData;
+            CGMessageModel *model=(CGMessageModel *)cellData;
             NewsMessageController *messageVC=[[NewsMessageController alloc] init];
-            messageVC.myIndexModel=[CGUserInfo getitemWithID:model.userid];
+            messageVC.myIndexModel=model;
             [weakSelf.navigationController pushViewController:messageVC animated:NO];
         }];
         

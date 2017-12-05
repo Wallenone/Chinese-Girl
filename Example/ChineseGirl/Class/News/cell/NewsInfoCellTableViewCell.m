@@ -8,7 +8,7 @@
 
 #import "NewsInfoCellTableViewCell.h"
 @interface NewsInfoCellTableViewCell()
-@property(nonatomic,strong)NewsInfoModel *myIndexModel;
+@property(nonatomic,strong)CGMessageModel *myIndexModel;
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)UILabel *nickNameLable;
 @property(nonatomic,strong)UILabel *contentLabel;
@@ -17,7 +17,7 @@
 @end
 @implementation NewsInfoCellTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NewsInfoModel *)indexModel{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGMessageModel *)indexModel{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -40,7 +40,7 @@
 -(UIImageView *)iconImgView{
     if(!_iconImgView){
         _iconImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 10*SCREEN_RADIO, 42*SCREEN_RADIO, 42*SCREEN_RADIO)];
-        _iconImgView.image=[UIImage imageNamed:self.myIndexModel.icon];
+        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.userModel.avater]];
         _iconImgView.layer.cornerRadius=21*SCREEN_RADIO;
         _iconImgView.clipsToBounds=YES;
     }
@@ -51,7 +51,7 @@
 -(UILabel *)nickNameLable{
     if(!_nickNameLable){
         _nickNameLable=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImgView.frame)+15*SCREEN_RADIO, 12*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
-        _nickNameLable.text=self.myIndexModel.nickName;
+        _nickNameLable.text=self.myIndexModel.userModel.nickname;
         _nickNameLable.textColor=[UIColor getColor:@"171616"];
         _nickNameLable.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_nickNameLable sizeToFit];
@@ -63,7 +63,7 @@
 -(UILabel *)timeLabel{
     if(!_timeLabel){
         _timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 15*SCREEN_RADIO, screen_width-10*SCREEN_RADIO, 14*SCREEN_RADIO)];
-        _timeLabel.text=self.myIndexModel.timeDate;
+        _timeLabel.text=@"1992.10.24";
         _timeLabel.textColor=[UIColor getColor:@"777777"];
         _timeLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         _timeLabel.textAlignment=NSTextAlignmentRight;
@@ -75,7 +75,11 @@
 -(UILabel *)contentLabel{
     if(!_contentLabel){
         _contentLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImgView.frame)+15*SCREEN_RADIO, CGRectGetMaxY(self.nickNameLable.frame)+3*SCREEN_RADIO, screen_width-(CGRectGetMaxX(self.iconImgView.frame)+15*SCREEN_RADIO)-30*SCREEN_RADIO, 11*SCREEN_RADIO)];
-        _contentLabel.text=self.myIndexModel.content;
+        NSString *message=@"";
+        if ([self.myIndexModel.type integerValue]==1) {
+            message=self.myIndexModel.message;
+        }
+        _contentLabel.text=message;
         _contentLabel.textColor=[UIColor getColor:@"7C858A"];
         _contentLabel.lineBreakMode=NSLineBreakByTruncatingTail;
         _contentLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];

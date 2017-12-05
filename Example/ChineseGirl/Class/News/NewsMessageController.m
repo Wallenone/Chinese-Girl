@@ -24,7 +24,7 @@
 @property(nonatomic,strong)UIImageView *addressIcon;
 @property(nonatomic,strong)UIButton *talkBtn;
 @property(nonatomic,strong)UIButton *followingBtn;
-@property(nonatomic,strong)UIScrollView *contentScroll;
+@property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)UIView *bottomView;
 @property(nonatomic,strong)UITextView *textView;
 @property(nonatomic,strong)UIButton *sendBtn;
@@ -113,11 +113,25 @@
 }
 
 -(void)addSubViews{
-    [self.view addSubview:self.contentScroll];
+    [self.view addSubview:self.tbv];
     [self.view addSubview:self.bottomView];
     [self.bottomView addSubview:self.textView];
     [self.bottomView addSubview:self.sendBtn];
     [self.bottomView addSubview:self.lineView];
+}
+
+-(void)addItemFormLeft:(id)modelContent{
+    if ([self.myIndexModel.type integerValue]==1) {
+       
+    }
+}
+
+-(CGFloat)getCurrentItemHeight:(NSString *)message{
+    CGFloat maxWidth =screen_width-144*SCREEN_RADIO;
+    CGSize constraint = CGSizeMake(maxWidth, 99999.0f);
+    CGSize size = [message sizeWithFont:[UIFont systemFontOfSize:16*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+    
+    return ceil(size.height+40*SCREEN_RADIO);
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
@@ -142,7 +156,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 28.5*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=self.myIndexModel.nickname;
+        _titleLabel.text=self.myIndexModel.userModel.nickname;
         _titleLabel.textColor=[UIColor whiteColor];
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -165,7 +179,7 @@
 -(UIImageView *)AvatarImgView{
     if (!_AvatarImgView) {
         _AvatarImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 64*SCREEN_RADIO+15*SCREEN_RADIO, 100*SCREEN_RADIO, 100*SCREEN_RADIO)];
-        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater]];
+        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.userModel.avater]];
         _AvatarImgView.layer.cornerRadius=50*SCREEN_RADIO;
         _AvatarImgView.clipsToBounds=YES;
     }
@@ -185,7 +199,7 @@
     if (!_nickName) {
         _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+24*SCREEN_RADIO, 64*SCREEN_RADIO+20*SCREEN_RADIO, 180*SCREEN_RADIO, 16*SCREEN_RADIO)];
         _nickName.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _nickName.text=self.myIndexModel.nickname;
+        _nickName.text=self.myIndexModel.userModel.nickname;
         _nickName.textColor=[UIColor getColor:@"ffffff"];
     }
     return _nickName;
@@ -206,7 +220,7 @@
         _address=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.addressIcon.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
         _address.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         _address.textColor=[UIColor getColor:@"777777"];
-        _address.text=self.myIndexModel.address;
+        _address.text=self.myIndexModel.userModel.address;
         [_address sizeToFit];
     }
     
@@ -222,7 +236,7 @@
         _followingBtn.imageEdgeInsets = UIEdgeInsetsMake(13.5*SCREEN_RADIO,16.5*SCREEN_RADIO,14*SCREEN_RADIO,125*SCREEN_RADIO);
         _followingBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -_followingBtn.imageView.frame.size.width, 0, 0);
         
-        if (self.myIndexModel.followed) {
+        if (self.myIndexModel.userModel.followed) {
             [_followingBtn setTitle:@"Followed" forState:UIControlStateNormal];
             [_followingBtn setImage:[UIImage imageNamed:@"myindexfollowed"] forState:UIControlStateNormal];
         }else{
@@ -251,14 +265,63 @@
     
     return _talkBtn;
 }
-
--(UIScrollView *)contentScroll{
-    if (!_contentScroll) {
-        _contentScroll=[[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame), screen_width, screen_height-255*SCREEN_RADIO)];
-        _contentScroll.backgroundColor=[UIColor getColor:@"ffffff"];
+-(EZJFastTableView *)tbv{
+    if (!_tbv) {
+        
+        CGRect tbvFrame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), screen_width, screen_height-255*SCREEN_RADIO);
+        //初始化
+        _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
+        _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _tbv.backgroundColor=[UIColor grayColor];
+        NSMutableArray *arrs=[NSMutableArray new];
+        [arrs addObject:self.myIndexModel];
+        [_tbv setDataArray:arrs];
+        
+        __weak __typeof(self)weakSelf = self;
+        [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
+            NewsContentTableViewCell *cell=[[NewsContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithType:self.myIndexModel.type withMessage:self.myIndexModel.message  withAvater:self.myIndexModel.userModel.avater withTurnFront:FrontLeft];
+            return cell;
+        }];
+        
+        //动态改变
+        
+        [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
+            if ([cellData isKindOfClass:[CGMessageModel class]]) {
+                CGMessageModel *model=(CGMessageModel *)cellData;
+                if ([model.type integerValue]==1) {
+                   return [weakSelf getCurrentItemHeight:model.message];
+                }
+            }
+            
+            
+            return 62*SCREEN_RADIO;
+        }];
+        
+        
+        
+        //    //允许上行滑动
+        //    [_tbv onDragUp:^NSArray * (int page) {
+        //        return [self loadNewData:page];
+        //    }];
+        //
+        //    //允许下行滑动刷新
+        //    [_tbv onDragDown:^{
+        //
+        //    }];
+        
+        
+        //设置选中事件 block设置方式
+        //indexPath  是当前行对象 indexPath.row(获取行数)
+        //cellData 是当前行的数据
+        
+        [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
+            NSLog(@"click");
+            
+        }];
+        
     }
     
-    return _contentScroll;
+    return _tbv;
 }
 
 -(UIView *)bottomView{
