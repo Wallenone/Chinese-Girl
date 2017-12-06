@@ -67,10 +67,7 @@
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"eeeeee"];
-        NSMutableArray *arrays =[[NSMutableArray alloc] init];
-        [arrays addObject:[CGMessageModel reloadReloadRondom]];
-        
-        [_tbv setDataArray:arrays];
+        [_tbv setDataArray:[CGSingleCommitData sharedInstance].newsListArr];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             NewsInfoCellTableViewCell *cell =[[NewsInfoCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];

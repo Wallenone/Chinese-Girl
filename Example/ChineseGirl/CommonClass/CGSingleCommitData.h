@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CGMessageModel.h"
 @interface CGSingleCommitData : NSObject
 @property(nonatomic,copy)NSString *uid;                 //用户id
 @property(nonatomic,copy)NSString *password;            //用户密码
@@ -27,6 +27,8 @@
 @property(nonatomic,strong)NSArray *indexDataArr;//首页的数据
 @property(nonatomic,strong)NSArray *videoListDataArr; //视频首页数据
 @property(nonatomic,strong)NSArray *userListDataArr;  //随机用户数据
+@property(nonatomic,strong)NSMutableArray *newsListArr;  //聊天页面列表
+
 
 + (instancetype)sharedInstance;
 - (void)logout;
@@ -38,4 +40,6 @@
 -(void)addFollows:(NSString *)addFollow;  //加关注
 -(void)deletefollow:(NSString *)obj;    //去掉关注
 -(void)deleteAccout;  //删除用户
+-(void)addNewlists:(CGMessageModel *)addNewList;    //增加信息列表
+-(void)deleteNewList:(CGMessageModel *)obj;  //删除信息列表
 @end

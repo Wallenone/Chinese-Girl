@@ -78,6 +78,12 @@
         NSString *message=@"";
         if ([self.myIndexModel.type integerValue]==1) {
             message=self.myIndexModel.message;
+        }else if ([self.myIndexModel.type integerValue]==2){
+            message=@"[语音]";
+        }else if ([self.myIndexModel.type integerValue]==3){
+            message=@"[图片]";
+        }else if ([self.myIndexModel.type integerValue]==4){
+            message=@"[视频]";
         }
         _contentLabel.text=message;
         _contentLabel.textColor=[UIColor getColor:@"7C858A"];

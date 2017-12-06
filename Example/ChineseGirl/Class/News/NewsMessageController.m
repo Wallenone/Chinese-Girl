@@ -353,29 +353,29 @@
 
 -(UIView *)bottomView{
     if (!_bottomView) {
-        _bottomView=[[UIView alloc] initWithFrame:CGRectMake(0, screen_height-100*SCREEN_RADIO, screen_width, 100*SCREEN_RADIO)];
+        _bottomView=[[UIView alloc] initWithFrame:CGRectMake(0, screen_height-50*SCREEN_RADIO, screen_width, 50*SCREEN_RADIO)];
         _bottomView.backgroundColor=[UIColor getColor:@"F9F9F9"];
-        
-        UIButton *new_videoBar=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
-        new_videoBar.userInteractionEnabled=YES;
-        [new_videoBar setImage:[UIImage imageNamed:@"new_videoBar"] forState:UIControlStateNormal];
-        [new_videoBar addTarget:self action:@selector(videoBar) forControlEvents:UIControlEventTouchUpInside];
-        [_bottomView addSubview:new_videoBar];
-        
-        UIButton *news_phoneBar=[[UIButton alloc] initWithFrame:CGRectMake((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
-        [news_phoneBar setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
-        [news_phoneBar addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
-        [_bottomView addSubview:news_phoneBar];
-        
-        UIButton *news_phoneBar1=[[UIButton alloc] initWithFrame:CGRectMake(((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO)*2, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
-        [news_phoneBar1 setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
-        [news_phoneBar1 addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
-        [_bottomView addSubview:news_phoneBar1];
-        
-        UIButton *news_phoneBar2=[[UIButton alloc] initWithFrame:CGRectMake(((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO)*3, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
-        [news_phoneBar2 setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
-        [news_phoneBar2 addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
-        [_bottomView addSubview:news_phoneBar2];
+//
+//        UIButton *new_videoBar=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
+//        new_videoBar.userInteractionEnabled=YES;
+//        [new_videoBar setImage:[UIImage imageNamed:@"new_videoBar"] forState:UIControlStateNormal];
+//        [new_videoBar addTarget:self action:@selector(videoBar) forControlEvents:UIControlEventTouchUpInside];
+//        [_bottomView addSubview:new_videoBar];
+//
+//        UIButton *news_phoneBar=[[UIButton alloc] initWithFrame:CGRectMake((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
+//        [news_phoneBar setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
+//        [news_phoneBar addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
+//        [_bottomView addSubview:news_phoneBar];
+//
+//        UIButton *news_phoneBar1=[[UIButton alloc] initWithFrame:CGRectMake(((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO)*2, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
+//        [news_phoneBar1 setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
+//        [news_phoneBar1 addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
+//        [_bottomView addSubview:news_phoneBar1];
+//
+//        UIButton *news_phoneBar2=[[UIButton alloc] initWithFrame:CGRectMake(((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO)*3, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
+//        [news_phoneBar2 setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
+//        [news_phoneBar2 addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
+//        [_bottomView addSubview:news_phoneBar2];
         
     }
     

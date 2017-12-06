@@ -42,12 +42,9 @@
 +(CGMessageModel *)reloadReloadRondom{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"message" ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    CGMessageModel *model=[CGMessageModel new];
-    NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:1];
-    //    for (NSString *ids in newarr1) {
-    //        model=[self modelWithDic:[data1 objectAtIndex:[ids integerValue]]];
-    //    }
-    model=[self modelWithDic:[data1 objectAtIndex:5]];
+    int tag=[CGCommonString getRandomNumber:0 to:(int)(data1.count)-1];
+    CGMessageModel *model=[self modelWithDic:[data1 objectAtIndex:tag]];
+    
     return model;
 }
 

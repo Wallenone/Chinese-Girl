@@ -21,6 +21,7 @@ static NSString *const kVipLevelKey = @"vipLevelKey";
 static NSString *const kLanguageNameKey = @"languageNameKey";
 static NSString *const kFavouriteSKey = @"favouriteSKey";
 static NSString *const kFollowSKey = @"followSKey";
+static NSString *const kNewsListArrKey = @"newsListArrKey";
 #import "CGSingleCommitData.h"
 static CGSingleCommitData *_instance = nil;
 @implementation CGSingleCommitData
@@ -147,8 +148,12 @@ static CGSingleCommitData *_instance = nil;
             self.follows=[[NSMutableArray alloc] init];
         }
         
-        
-        
+        NSArray *newsLists = [[NSUserDefaults standardUserDefaults] arrayForKey:kNewsListArrKey];
+        if (newsLists.count>0) {
+            self.newsListArr = [newsLists mutableCopy];
+        }else{
+            self.newsListArr=[[NSMutableArray alloc] init];
+        }
     }
     return self;
 }
@@ -267,6 +272,14 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(void)setNewsListArr:(NSMutableArray *)newsListArr{
+    _newsListArr=newsListArr;
+    NSArray *arr=[NSArray arrayWithArray:_newsListArr];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:arr forKey:kNewsListArrKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(void)setVipLevel:(NSString *)vipLevel{    
     if ([CGCommonString isBlankString:vipLevel]) {
         _vipLevel=@"";
@@ -312,6 +325,13 @@ static CGSingleCommitData *_instance = nil;
     }
 }
 
+-(void)addNewlists:(CGMessageModel *)addNewList{
+    [self deleteNewList:addNewList];
+    [self.newsListArr addObject:addNewList];
+    NSArray *arr=[NSArray arrayWithArray:self.newsListArr];
+    self.newsListArr=[arr mutableCopy];
+}
+
 -(void)replaceAlbumS:(UIImage *)img withTag:(NSInteger)_tag{
     if (img) {
         [self.albumS replaceObjectAtIndex:_tag withObject:UIImagePNGRepresentation(img)];
@@ -342,6 +362,12 @@ static CGSingleCommitData *_instance = nil;
         NSArray *arr=[NSArray arrayWithArray:self.follows];
         self.follows=[arr mutableCopy];
     }
+}
+
+-(void)deleteNewList:(CGMessageModel *)obj{
+    [self.newsListArr removeObject:obj];
+    NSArray *arr=[NSArray arrayWithArray:self.newsListArr];
+    self.newsListArr=[arr mutableCopy];
 }
 
 - (void)logout {
