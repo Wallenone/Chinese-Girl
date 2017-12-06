@@ -14,5 +14,6 @@ typedef enum {
 
 @interface NewsContentTableViewCell : UITableViewCell
 //front  方向
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithType:(NSString *)type withMessage:(NSString *)message withAvater:(NSString *)avater withTurnFront:(FrontModel)front;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSDictionary *)model;
 @end
+

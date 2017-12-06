@@ -29,6 +29,7 @@
 @property(nonatomic,strong)UITextView *textView;
 @property(nonatomic,strong)UIButton *sendBtn;
 @property(nonatomic,strong)UIView *lineView;
+@property(nonatomic,strong)UIView *toolBarView;
 @end
 
 @implementation NewsMessageController
@@ -81,7 +82,22 @@
 }
 
 -(void)sendClick{
+    if (self.textView.text.length>0) {
+        NSArray*arrs=@[@{@"type":@"1",
+                         @"message":self.textView.text,
+                         @"avater":@"",
+                         @"bigPicture":@"",
+                         @"videoUrl":@"",
+                         @"videoIcon":@"",
+                         @"radiosecond":@"",
+                         @"radiourl":@"",
+                         @"turnFront":@"FrontRight"}];
+        [self.tbv addContentData:arrs];
+        [self.tbv scrollToBottom:YES];
+        self.textView.text=@"";
+    }
     
+    [self.textView resignFirstResponder];
 }
 
 -(void)followingClick:(UIButton *)button{//C5D4D2  //320AFD
@@ -120,18 +136,12 @@
     [self.bottomView addSubview:self.lineView];
 }
 
--(void)addItemFormLeft:(id)modelContent{
-    if ([self.myIndexModel.type integerValue]==1) {
-       
-    }
-}
-
 -(CGFloat)getCurrentItemHeight:(NSString *)message{
     CGFloat maxWidth =screen_width-144*SCREEN_RADIO;
     CGSize constraint = CGSizeMake(maxWidth, 99999.0f);
     CGSize size = [message sizeWithFont:[UIFont systemFontOfSize:16*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
     
-    return ceil(size.height+40*SCREEN_RADIO);
+    return ceil(size.height+70*SCREEN_RADIO);
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
@@ -141,6 +151,14 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
+    
+}
+
+-(void)videoBar{
+    
+}
+
+-(void)radioBar{
     
 }
 
@@ -272,27 +290,36 @@
         //初始化
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
-        _tbv.backgroundColor=[UIColor grayColor];
-        NSMutableArray *arrs=[NSMutableArray new];
-        [arrs addObject:self.myIndexModel];
+        _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
+        NSArray*arrs=@[@{@"type":self.myIndexModel.type,
+                         @"message":self.myIndexModel.message,
+                         @"avater":self.myIndexModel.userModel.avater,
+                         @"bigPicture":self.myIndexModel.message_Bigpicture,
+                         @"videoUrl":self.myIndexModel.message_videoUrl,
+                         @"videoIcon":self.myIndexModel.message_videoIcon,
+                         @"radiosecond":self.myIndexModel.message_radioSecond,
+                         @"radiourl":self.myIndexModel.message_radioUrl,
+                         @"turnFront":@"FrontLeft"}];
         [_tbv setDataArray:arrs];
         
         __weak __typeof(self)weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            NewsContentTableViewCell *cell=[[NewsContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithType:self.myIndexModel.type withMessage:self.myIndexModel.message  withAvater:self.myIndexModel.userModel.avater withTurnFront:FrontLeft];
+            NewsContentTableViewCell *cell=[[NewsContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
             return cell;
         }];
         
         //动态改变
         
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
-            if ([cellData isKindOfClass:[CGMessageModel class]]) {
-                CGMessageModel *model=(CGMessageModel *)cellData;
-                if ([model.type integerValue]==1) {
-                   return [weakSelf getCurrentItemHeight:model.message];
-                }
+            if ([[cellData stringForKey:@"type"] integerValue]==1) {
+                return [weakSelf getCurrentItemHeight:[cellData stringForKey:@"message"]];
+            }else if ([[cellData stringForKey:@"type"] integerValue]==2){
+                return 72*SCREEN_RADIO;
+            }else if ([[cellData stringForKey:@"type"] integerValue]==3){
+                return 166*SCREEN_RADIO;
+            }else if ([[cellData stringForKey:@"type"] integerValue]==4){
+                return 166*SCREEN_RADIO;
             }
-            
             
             return 62*SCREEN_RADIO;
         }];
@@ -326,8 +353,30 @@
 
 -(UIView *)bottomView{
     if (!_bottomView) {
-        _bottomView=[[UIView alloc] initWithFrame:CGRectMake(0, screen_height-50*SCREEN_RADIO, screen_width, 50*SCREEN_RADIO)];
+        _bottomView=[[UIView alloc] initWithFrame:CGRectMake(0, screen_height-100*SCREEN_RADIO, screen_width, 100*SCREEN_RADIO)];
         _bottomView.backgroundColor=[UIColor getColor:@"F9F9F9"];
+        
+        UIButton *new_videoBar=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
+        new_videoBar.userInteractionEnabled=YES;
+        [new_videoBar setImage:[UIImage imageNamed:@"new_videoBar"] forState:UIControlStateNormal];
+        [new_videoBar addTarget:self action:@selector(videoBar) forControlEvents:UIControlEventTouchUpInside];
+        [_bottomView addSubview:new_videoBar];
+        
+        UIButton *news_phoneBar=[[UIButton alloc] initWithFrame:CGRectMake((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
+        [news_phoneBar setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
+        [news_phoneBar addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
+        [_bottomView addSubview:news_phoneBar];
+        
+        UIButton *news_phoneBar1=[[UIButton alloc] initWithFrame:CGRectMake(((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO)*2, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
+        [news_phoneBar1 setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
+        [news_phoneBar1 addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
+        [_bottomView addSubview:news_phoneBar1];
+        
+        UIButton *news_phoneBar2=[[UIButton alloc] initWithFrame:CGRectMake(((screen_width-40*SCREEN_RADIO)/4-11*SCREEN_RADIO)*3, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
+        [news_phoneBar2 setImage:[UIImage imageNamed:@"news_phoneBar"] forState:UIControlStateNormal];
+        [news_phoneBar2 addTarget:self action:@selector(radioBar) forControlEvents:UIControlEventTouchUpInside];
+        [_bottomView addSubview:news_phoneBar2];
+        
     }
     
     return _bottomView;
@@ -335,7 +384,7 @@
 
 -(UITextView *)textView{
     if (!_textView) {
-        _textView=[[UITextView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 11.5*SCREEN_RADIO, screen_width-108*SCREEN_RADIO, 19.5*SCREEN_RADIO)];
+        _textView=[[UITextView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 11.5*SCREEN_RADIO, screen_width-108*SCREEN_RADIO, 24*SCREEN_RADIO)];
         _textView.zw_placeHolder=@"请输入内容";
         _textView.zw_placeHolderColor=[UIColor getColor:@"777777"];
         _textView.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
@@ -366,6 +415,5 @@
     
     return _lineView;
 }
-
-
 @end
+

@@ -98,7 +98,7 @@
 		E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */; };
 		E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */; };
 		E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */; };
-		E5B475691FD6CD5E0045B960 /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5B475681FD6CD5D0045B960 /* message.plist */; };
+		E5B2A24D1FD8072B006F57AD /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5B2A24C1FD8072B006F57AD /* message.plist */; };
 		E5B4756C1FD6CDE70045B960 /* CGMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */; };
 		E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */; };
 		E5BD337D1FBFDB1900C8FE94 /* CGFollowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD337C1FBFDB1900C8FE94 /* CGFollowTableViewCell.m */; };
@@ -352,7 +352,7 @@
 		E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGForgetPasswordViewController.m; sourceTree = "<group>"; };
 		E5B174ED1F9CAA180055E16A /* CGSingleCommitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSingleCommitData.h; sourceTree = "<group>"; };
 		E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSingleCommitData.m; sourceTree = "<group>"; };
-		E5B475681FD6CD5D0045B960 /* message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = message.plist; sourceTree = "<group>"; };
+		E5B2A24C1FD8072B006F57AD /* message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = message.plist; sourceTree = "<group>"; };
 		E5B4756A1FD6CDE70045B960 /* CGMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMessageModel.h; sourceTree = "<group>"; };
 		E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMessageModel.m; sourceTree = "<group>"; };
 		E5BD33781FBFD98100C8FE94 /* CGMyFollowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMyFollowViewController.h; sourceTree = "<group>"; };
@@ -541,7 +541,7 @@
 			children = (
 				E5FC800A1FC9BCC60094615B /* qidong.mp4 */,
 				E5D291921FC5A96C003718CB /* Billabong.ttf */,
-				E5B475681FD6CD5D0045B960 /* message.plist */,
+				E5B2A24C1FD8072B006F57AD /* message.plist */,
 				E5046F6F1FD298A90061E608 /* shuoshuo.plist */,
 				E5F5427F1FC8579900262DCE /* videoData.plist */,
 				E58F28821FC304C900DFAB8E /* index.plist */,
@@ -1210,7 +1210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B475691FD6CD5E0045B960 /* message.plist in Resources */,
+				E5B2A24D1FD8072B006F57AD /* message.plist in Resources */,
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
 				E511CB241FB005EF006BA362 /* Localizable.strings in Resources */,
 				E5360A731FBC777C009DDA07 /* addFriends.plist in Resources */,
