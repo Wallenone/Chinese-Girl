@@ -170,7 +170,8 @@
             if (index.row ==0) {
                 myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withTalkCallBack:^(CGUserInfo *info){
                     NewsMessageController *newsMessageVC=[[NewsMessageController alloc] init];
-                    newsMessageVC.myIndexModel=info;
+                    newsMessageVC.myIndexModel=[[CGSingleCommitData sharedInstance] getNewsSubListArrWithUserid:info.ids];
+                    newsMessageVC.userid=info.ids;
                     [weakSelf.navigationController pushViewController:newsMessageVC animated:NO];
                 }];
                 

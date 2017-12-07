@@ -309,18 +309,21 @@
         }];
         
         //tableView还没刷新完就开始调用滚到到底部的方法，所以可以利用伪延迟来进行处理。
-        double delayInSeconds = 0.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            
-            if ([self.myIndexModel count] > 1){
-                // 动画之前先滚动到倒数第二个消息
-                [_tbv scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.myIndexModel count] - 2 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-            }
-            //self.chatTableView.hidden = NO;
-            NSIndexPath* path = [NSIndexPath indexPathForRow:[self.myIndexModel count] - 1 inSection:0];
-            [_tbv scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-        });
+        if (self.myIndexModel.count>0) {
+            double delayInSeconds = 0.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                
+                if ([self.myIndexModel count] > 1){
+                    // 动画之前先滚动到倒数第二个消息
+                    [_tbv scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.myIndexModel count] - 2 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+                }
+                //self.chatTableView.hidden = NO;
+                NSIndexPath* path = [NSIndexPath indexPathForRow:[self.myIndexModel count] - 1 inSection:0];
+                [_tbv scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+            });
+        }
+       
         
         //设置选中事件 block设置方式
         //indexPath  是当前行对象 indexPath.row(获取行数)

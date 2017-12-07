@@ -325,16 +325,27 @@ static CGSingleCommitData *_instance = nil;
     }
 }
 
+-(NSArray *)getNewsSubListArrWithUserid:(NSString *)userid{
+    NSArray *item=[NSArray new];
+    for (id model in [CGSingleCommitData sharedInstance].newsListArr) {
+        if ([userid isEqualToString:[model stringForKey:@"userid"]]) {
+            item=[[model dictionaryForKey:@"content"] arrayForKey:@"item"];
+        }
+    }
+    
+    return item;
+}
+
 -(void)addNewlists:(NSDictionary *)addNewList{
     NSDictionary *newdict;
     if ([CGSingleCommitData sharedInstance].newsListArr.count<=0) {
         [self.newsListArr insertObject:addNewList atIndex:0];
         self.newsListArr=[[NSArray arrayWithArray:self.newsListArr] mutableCopy];
         
-        return;
+        return ;
     }else{
         for (id model in [CGSingleCommitData sharedInstance].newsListArr) {
-            if ([[addNewList stringForKey:@"userid"] isEqualToString:[model stringForKey:@"userid"]]) {
+            if ([[addNewList stringForKey:@"userid"] integerValue] ==[[model stringForKey:@"userid"] integerValue]) {
                 NSDictionary *item=[[addNewList dictionaryForKey:@"content"] arrayForKey:@"item"][0];
                 
                 NSDictionary *dict=@{@"message":[item stringForKey:@"message"] ,
@@ -352,8 +363,7 @@ static CGSingleCommitData *_instance = nil;
             }else{
                 [self.newsListArr insertObject:addNewList atIndex:0];
                 self.newsListArr=[[NSArray arrayWithArray:self.newsListArr] mutableCopy];
-                
-                return;
+                return ;
             }
         }
     }

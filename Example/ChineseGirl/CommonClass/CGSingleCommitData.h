@@ -44,5 +44,5 @@
 -(void)addNewlistSubData:(NSDictionary *)addNewList;   //增加聊天内容页面
 -(void)deleteNewList:(NSInteger)index;  //删除信息列表
 -(void)deleteNewListModel:(id)model;
-
+-(NSArray *)getNewsSubListArrWithUserid:(NSString *)userid;  //获得用户的聊天信息
 @end
