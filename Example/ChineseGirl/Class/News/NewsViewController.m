@@ -80,7 +80,7 @@
         
         //是否启用删除功能
         [_tbv onCellediting:^(NSIndexPath *index, id cellData) {
-            
+            [[CGSingleCommitData sharedInstance] deleteNewList:index.row];
         }];
        
         
