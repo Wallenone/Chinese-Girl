@@ -11,6 +11,7 @@
 #import "CGUserInfo.h"
 @interface CGMessageModel : NSObject
 @property(nonatomic,copy)NSString *ids;
+@property(nonatomic,copy)NSString *userid;
 @property(nonatomic,copy)NSString *type;
 @property(nonatomic,copy)NSString *message;
 @property(nonatomic,copy)NSString *message_radio;
@@ -22,5 +23,7 @@
 @property(nonatomic,strong)CGUserInfo *userModel;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(CGMessageModel *)reloadReloadRondom;
++(NSDictionary *)getNewsListData;  //得到信息列表随机
++(CGMessageModel *)getTableTag:(NSString *)ids;
 @end
 

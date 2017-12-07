@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "CGMessageModel.h"
 @interface NewsInfoCellTableViewCell : UITableViewCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGMessageModel *)indexModel;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSDictionary *)indexModel;
 @end

@@ -7,8 +7,9 @@
 //
 
 #import "NewsInfoCellTableViewCell.h"
+#import "CGUserInfo.h"
 @interface NewsInfoCellTableViewCell()
-@property(nonatomic,strong)CGMessageModel *myIndexModel;
+@property(nonatomic,strong)NSDictionary *myIndexModel;
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)UILabel *nickNameLable;
 @property(nonatomic,strong)UILabel *contentLabel;
@@ -17,12 +18,13 @@
 @end
 @implementation NewsInfoCellTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGMessageModel *)indexModel{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSDictionary *)indexModel{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.backgroundColor=[UIColor whiteColor];
         self.myIndexModel = indexModel;
+        
         [self creatSubView];
     }
     
@@ -39,8 +41,9 @@
 
 -(UIImageView *)iconImgView{
     if(!_iconImgView){
+        
         _iconImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 10*SCREEN_RADIO, 42*SCREEN_RADIO, 42*SCREEN_RADIO)];
-        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.userModel.avater]];
+        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:[CGUserInfo getitemWithID:[self.myIndexModel stringForKey:@"userid"]].avater]];
         _iconImgView.layer.cornerRadius=21*SCREEN_RADIO;
         _iconImgView.clipsToBounds=YES;
     }
@@ -51,7 +54,7 @@
 -(UILabel *)nickNameLable{
     if(!_nickNameLable){
         _nickNameLable=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImgView.frame)+15*SCREEN_RADIO, 12*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
-        _nickNameLable.text=self.myIndexModel.userModel.nickname;
+        _nickNameLable.text=[CGUserInfo getitemWithID:[self.myIndexModel stringForKey:@"userid"]].nickname;
         _nickNameLable.textColor=[UIColor getColor:@"171616"];
         _nickNameLable.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_nickNameLable sizeToFit];
@@ -76,13 +79,15 @@
     if(!_contentLabel){
         _contentLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImgView.frame)+15*SCREEN_RADIO, CGRectGetMaxY(self.nickNameLable.frame)+3*SCREEN_RADIO, screen_width-(CGRectGetMaxX(self.iconImgView.frame)+15*SCREEN_RADIO)-30*SCREEN_RADIO, 11*SCREEN_RADIO)];
         NSString *message=@"";
-        if ([self.myIndexModel.type integerValue]==1) {
-            message=self.myIndexModel.message;
-        }else if ([self.myIndexModel.type integerValue]==2){
+        NSArray *arr= [[self.myIndexModel dictionaryForKey:@"content"] arrayForKey:@"item"];
+        
+        if ([[arr[arr.count-1] stringForKey:@"type"] integerValue]==1) {
+            message=[arr[arr.count-1] stringForKey:@"message"];
+        }else if ([[arr[arr.count-1] stringForKey:@"type"] integerValue]==2){
             message=@"[语音]";
-        }else if ([self.myIndexModel.type integerValue]==3){
+        }else if ([[arr[arr.count-1] stringForKey:@"type"] integerValue]==3){
             message=@"[图片]";
-        }else if ([self.myIndexModel.type integerValue]==4){
+        }else if ([[arr[arr.count-1] stringForKey:@"type"] integerValue]==4){
             message=@"[视频]";
         }
         _contentLabel.text=message;

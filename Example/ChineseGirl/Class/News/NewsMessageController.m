@@ -76,24 +76,17 @@
         [self.navigationController popViewControllerAnimated:NO];
     }else{
         MyIndexViewController *myIndexVC=[[MyIndexViewController alloc] init];
-        myIndexVC.ids=[self.myIndexModel.ids integerValue];
+        myIndexVC.ids=self.userid.integerValue;
         [self.navigationController pushViewController:myIndexVC animated:NO];
     }
 }
 
 -(void)sendClick{
     if (self.textView.text.length>0) {
-        NSArray*arrs=@[@{@"type":@"1",
-                         @"message":self.textView.text,
-                         @"avater":@"",
-                         @"bigPicture":@"",
-                         @"videoUrl":@"",
-                         @"videoIcon":@"",
-                         @"radiosecond":@"",
-                         @"radiourl":@"",
-                         @"turnFront":@"FrontRight"}];
+        NSArray *arrs=@[@{@"message":self.textView.text,@"newsid":@"",@"type":@"1",@"turnFront":@"FrontRight"}];
         [self.tbv addContentData:arrs];
         [self.tbv scrollToBottom:YES];
+        [[CGSingleCommitData sharedInstance] addNewlistSubData:@{@"message":self.textView.text,@"newsid":@"",@"type":@"1",@"turnFront":@"FrontRight",@"userid":self.userid}];
         self.textView.text=@"";
     }
     
@@ -105,12 +98,12 @@
         // [button setBackgroundColor:[UIColor getColor:@"320AFD"]];
         [button setTitle:@"Followed" forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"myindexfollowed"] forState:UIControlStateNormal];
-        [[CGSingleCommitData sharedInstance] addFollows:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
+        [[CGSingleCommitData sharedInstance] addFollows:[NSString stringWithFormat:@"%@",self.userid]];
     }
     else {
         // [button setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
         [button setTitle:@"Follow" forState:UIControlStateNormal];
-        [[CGSingleCommitData sharedInstance] deletefollow:[NSString stringWithFormat:@"%@",self.myIndexModel.ids]];
+        [[CGSingleCommitData sharedInstance] deletefollow:[NSString stringWithFormat:@"%@",self.userid]];
         [button setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
     }
 }
@@ -174,7 +167,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 28.5*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=self.myIndexModel.userModel.nickname;
+        _titleLabel.text=[CGUserInfo getitemWithID:self.userid].nickname;
         _titleLabel.textColor=[UIColor whiteColor];
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -197,7 +190,7 @@
 -(UIImageView *)AvatarImgView{
     if (!_AvatarImgView) {
         _AvatarImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 64*SCREEN_RADIO+15*SCREEN_RADIO, 100*SCREEN_RADIO, 100*SCREEN_RADIO)];
-        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.userModel.avater]];
+        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:[CGUserInfo getitemWithID:self.userid].avater]];
         _AvatarImgView.layer.cornerRadius=50*SCREEN_RADIO;
         _AvatarImgView.clipsToBounds=YES;
     }
@@ -217,7 +210,7 @@
     if (!_nickName) {
         _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+24*SCREEN_RADIO, 64*SCREEN_RADIO+20*SCREEN_RADIO, 180*SCREEN_RADIO, 16*SCREEN_RADIO)];
         _nickName.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _nickName.text=self.myIndexModel.userModel.nickname;
+        _nickName.text=[CGUserInfo getitemWithID:self.userid].nickname;
         _nickName.textColor=[UIColor getColor:@"ffffff"];
     }
     return _nickName;
@@ -238,7 +231,7 @@
         _address=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.addressIcon.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
         _address.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         _address.textColor=[UIColor getColor:@"777777"];
-        _address.text=self.myIndexModel.userModel.address;
+        _address.text=[CGUserInfo getitemWithID:self.userid].address;
         [_address sizeToFit];
     }
     
@@ -254,7 +247,7 @@
         _followingBtn.imageEdgeInsets = UIEdgeInsetsMake(13.5*SCREEN_RADIO,16.5*SCREEN_RADIO,14*SCREEN_RADIO,125*SCREEN_RADIO);
         _followingBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -_followingBtn.imageView.frame.size.width, 0, 0);
         
-        if (self.myIndexModel.userModel.followed) {
+        if ([CGUserInfo getitemWithID:self.userid].followed) {
             [_followingBtn setTitle:@"Followed" forState:UIControlStateNormal];
             [_followingBtn setImage:[UIImage imageNamed:@"myindexfollowed"] forState:UIControlStateNormal];
         }else{
@@ -291,16 +284,7 @@
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
-        NSArray*arrs=@[@{@"type":self.myIndexModel.type,
-                         @"message":self.myIndexModel.message,
-                         @"avater":self.myIndexModel.userModel.avater,
-                         @"bigPicture":self.myIndexModel.message_Bigpicture,
-                         @"videoUrl":self.myIndexModel.message_videoUrl,
-                         @"videoIcon":self.myIndexModel.message_videoIcon,
-                         @"radiosecond":self.myIndexModel.message_radioSecond,
-                         @"radiourl":self.myIndexModel.message_radioUrl,
-                         @"turnFront":@"FrontLeft"}];
-        [_tbv setDataArray:arrs];
+        [_tbv setDataArray:self.myIndexModel];
         
         __weak __typeof(self)weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
@@ -324,18 +308,19 @@
             return 62*SCREEN_RADIO;
         }];
         
-        
-        
-        //    //允许上行滑动
-        //    [_tbv onDragUp:^NSArray * (int page) {
-        //        return [self loadNewData:page];
-        //    }];
-        //
-        //    //允许下行滑动刷新
-        //    [_tbv onDragDown:^{
-        //
-        //    }];
-        
+        //tableView还没刷新完就开始调用滚到到底部的方法，所以可以利用伪延迟来进行处理。
+        double delayInSeconds = 0.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            if ([self.myIndexModel count] > 1){
+                // 动画之前先滚动到倒数第二个消息
+                [_tbv scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.myIndexModel count] - 2 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+            }
+            //self.chatTableView.hidden = NO;
+            NSIndexPath* path = [NSIndexPath indexPathForRow:[self.myIndexModel count] - 1 inSection:0];
+            [_tbv scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+        });
         
         //设置选中事件 block设置方式
         //indexPath  是当前行对象 indexPath.row(获取行数)
@@ -345,6 +330,8 @@
             NSLog(@"click");
             
         }];
+        
+        
         
     }
     
@@ -415,5 +402,6 @@
     
     return _lineView;
 }
+
 @end
 

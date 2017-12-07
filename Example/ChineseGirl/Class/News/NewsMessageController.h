@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CGMessageModel.h"
 @interface NewsMessageController : UIViewController
-@property(nonatomic,strong)CGMessageModel *myIndexModel;
+@property(nonatomic,strong)NSArray *myIndexModel;
+@property(nonatomic,assign)NSString *userid;
 @end

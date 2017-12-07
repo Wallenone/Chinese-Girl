@@ -40,6 +40,9 @@
 -(void)addFollows:(NSString *)addFollow;  //加关注
 -(void)deletefollow:(NSString *)obj;    //去掉关注
 -(void)deleteAccout;  //删除用户
--(void)addNewlists:(CGMessageModel *)addNewList;    //增加信息列表
--(void)deleteNewList:(CGMessageModel *)obj;  //删除信息列表
+-(void)addNewlists:(NSDictionary *)addNewList;    //增加信息列表
+-(void)addNewlistSubData:(NSDictionary *)addNewList;   //增加聊天内容页面
+-(void)deleteNewList:(NSInteger)index;  //删除信息列表
+-(void)deleteNewListModel:(id)model;
+
 @end

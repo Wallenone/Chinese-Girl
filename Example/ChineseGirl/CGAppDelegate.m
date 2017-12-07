@@ -94,7 +94,7 @@
     //2.设置Window为主窗口并显示出来
     [self.window makeKeyAndVisible];
     
-    [[CGSingleCommitData sharedInstance] addNewlists:[CGMessageModel reloadReloadRondom]];
+    //[[CGSingleCommitData sharedInstance] addNewlists:[CGMessageModel getNewsListData]];
     
     return YES;
 }

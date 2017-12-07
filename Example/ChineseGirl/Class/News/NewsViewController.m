@@ -27,7 +27,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
-    
+    [self.tbv updateData:[CGSingleCommitData sharedInstance].newsListArr];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -69,7 +69,8 @@
         _tbv.backgroundColor=[UIColor getColor:@"eeeeee"];
         [_tbv setDataArray:[CGSingleCommitData sharedInstance].newsListArr];
         
-        [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
+        [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index)
+         {
             NewsInfoCellTableViewCell *cell =[[NewsInfoCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
             
             return cell;
@@ -97,9 +98,9 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
-            CGMessageModel *model=(CGMessageModel *)cellData;
             NewsMessageController *messageVC=[[NewsMessageController alloc] init];
-            messageVC.myIndexModel=model;
+            messageVC.myIndexModel=[[cellData dictionaryForKey:@"content"] arrayForKey:@"item"];
+            messageVC.userid=[cellData stringForKey:@"userid"];
             [weakSelf.navigationController pushViewController:messageVC animated:NO];
         }];
         

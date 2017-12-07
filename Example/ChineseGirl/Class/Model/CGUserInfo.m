@@ -68,7 +68,6 @@
     return newData;
 }
 
-
 +(CGUserInfo *)getitemWithID:(NSString *)ids{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userInfo" ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];

@@ -310,7 +310,7 @@ static CGSingleCommitData *_instance = nil;
 -(void)addfavourites:(NSString *)addLike{
     if (addLike.length>0) {
         [self deletefavourite:addLike];
-        [self.favourites addObject:addLike];
+        [self.favourites insertObject:addLike atIndex:0];
         NSArray *arr=[NSArray arrayWithArray:self.favourites];
         self.favourites=[arr mutableCopy];
     }
@@ -319,17 +319,60 @@ static CGSingleCommitData *_instance = nil;
 -(void)addFollows:(NSString *)addFollow{
     if (addFollow.length>0) {
         [self deletefollow:addFollow];
-        [self.follows addObject:addFollow];
+        [self.follows insertObject:addFollow atIndex:0];
         NSArray *arr=[NSArray arrayWithArray:self.follows];
         self.follows=[arr mutableCopy];
     }
 }
 
--(void)addNewlists:(CGMessageModel *)addNewList{
-    [self deleteNewList:addNewList];
-    [self.newsListArr addObject:addNewList];
-    NSArray *arr=[NSArray arrayWithArray:self.newsListArr];
-    self.newsListArr=[arr mutableCopy];
+-(void)addNewlists:(NSDictionary *)addNewList{
+    NSDictionary *newdict;
+    if ([CGSingleCommitData sharedInstance].newsListArr.count<=0) {
+        [self.newsListArr insertObject:addNewList atIndex:0];
+        self.newsListArr=[[NSArray arrayWithArray:self.newsListArr] mutableCopy];
+        
+        return;
+    }else{
+        for (id model in [CGSingleCommitData sharedInstance].newsListArr) {
+            if ([[addNewList stringForKey:@"userid"] isEqualToString:[model stringForKey:@"userid"]]) {
+                NSDictionary *item=[[addNewList dictionaryForKey:@"content"] arrayForKey:@"item"][0];
+                
+                NSDictionary *dict=@{@"message":[item stringForKey:@"message"] ,
+                                     @"newsid":[item stringForKey:@"newsid"],
+                                     @"type":[item stringForKey:@"type"],
+                                     @"turnFront":@"FrontLeft",
+                                     @"userid":[item stringForKey:@"userid"]};
+                NSMutableArray *arr= [[[model dictionaryForKey:@"content"] arrayForKey:@"item"] mutableCopy];
+                [arr addObject:dict];
+                newdict=@{@"content":@{@"item":arr},@"userid":[addNewList stringForKey:@"userid"]};
+                [self.newsListArr removeObject:model];
+                [self.newsListArr insertObject:newdict atIndex:0];
+                self.newsListArr=[[NSArray arrayWithArray:self.newsListArr] mutableCopy];
+                return ;
+            }else{
+                [self.newsListArr insertObject:addNewList atIndex:0];
+                self.newsListArr=[[NSArray arrayWithArray:self.newsListArr] mutableCopy];
+                
+                return;
+            }
+        }
+    }
+}
+
+-(void)addNewlistSubData:(NSDictionary *)addNewList{
+    NSDictionary *newdict;
+    for (id model in [CGSingleCommitData sharedInstance].newsListArr) {
+        if ([[addNewList stringForKey:@"userid"] isEqualToString:[model stringForKey:@"userid"]]) {
+            NSDictionary *dict=@{@"message":[addNewList stringForKey:@"message"] ,@"newsid":[addNewList stringForKey:@"newsid"],@"type":[addNewList stringForKey:@"type"],@"turnFront":[addNewList stringForKey:@"turnFront"],@"userid":[addNewList stringForKey:@"userid"]};
+            NSMutableArray *arr= [[[model dictionaryForKey:@"content"] arrayForKey:@"item"] mutableCopy];
+            [arr addObject:dict];
+            newdict=@{@"content":@{@"item":arr},@"userid":[addNewList stringForKey:@"userid"]};
+            [self.newsListArr removeObject:model];
+            [self.newsListArr insertObject:newdict atIndex:0];
+            self.newsListArr=[[NSArray arrayWithArray:self.newsListArr] mutableCopy];
+            return ;
+        }
+    }
 }
 
 -(void)replaceAlbumS:(UIImage *)img withTag:(NSInteger)_tag{
@@ -364,8 +407,14 @@ static CGSingleCommitData *_instance = nil;
     }
 }
 
--(void)deleteNewList:(CGMessageModel *)obj{
-    [self.newsListArr removeObject:obj];
+-(void)deleteNewList:(NSInteger)index{
+    [self.newsListArr removeObjectAtIndex:index];
+    NSArray *arr=[NSArray arrayWithArray:self.newsListArr];
+    self.newsListArr=[arr mutableCopy];
+}
+
+-(void)deleteNewListModel:(id)model{
+    [self.newsListArr removeObject:model];
     NSArray *arr=[NSArray arrayWithArray:self.newsListArr];
     self.newsListArr=[arr mutableCopy];
 }
