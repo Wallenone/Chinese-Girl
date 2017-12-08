@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGMessageModel.h"
 typedef enum {
     FrontLeft=1,
     FrontRight
@@ -14,6 +15,6 @@ typedef enum {
 
 @interface NewsContentTableViewCell : UITableViewCell
 //front  方向
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSDictionary *)model;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGMessageModel *)model withUserId:(NSString *)userid;
 @end
 

@@ -9,8 +9,6 @@
 		<string>你是谁</string>
 		<key>type</key>
 		<string>1</string>
-		<key>userid</key>
-		<string>1</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -18,8 +16,6 @@
 		<key>message</key>
 		<string>1540.wav</string>
 		<key>type</key>
-		<string>2</string>
-		<key>userid</key>
 		<string>2</string>
 	</dict>
 	<dict>
@@ -29,8 +25,6 @@
 		<string>1/Enclosure/S1.jpg</string>
 		<key>type</key>
 		<string>3</string>
-		<key>userid</key>
-		<string>3</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -39,8 +33,6 @@
 		<string>5603.wav</string>
 		<key>type</key>
 		<string>2</string>
-		<key>userid</key>
-		<string>4</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -49,8 +41,6 @@
 		<string>1</string>
 		<key>type</key>
 		<string>4</string>
-		<key>userid</key>
-		<string>5</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -59,8 +49,6 @@
 		<string>你在吗？你好，能唱首歌曲给我听吗？能唱首歌曲给我听吗？能唱首歌曲给我听吗？唱首歌曲给我听吗？能唱首歌曲给我听吗？能唱首歌曲给我听吗？唱首歌曲给我听吗？唱首歌曲给我听吗？</string>
 		<key>type</key>
 		<string>1</string>
-		<key>userid</key>
-		<string>6</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -69,8 +57,6 @@
 		<string>1619.wav</string>
 		<key>type</key>
 		<string>2</string>
-		<key>userid</key>
-		<string>7</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -79,8 +65,6 @@
 		<string>2/Enclosure/S1.jpg</string>
 		<key>type</key>
 		<string>3</string>
-		<key>userid</key>
-		<string>8</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -89,8 +73,6 @@
 		<string>3/Enclosure/S1.jpg</string>
 		<key>type</key>
 		<string>3</string>
-		<key>userid</key>
-		<string>9</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -99,8 +81,6 @@
 		<string>你好，认识一下</string>
 		<key>type</key>
 		<string>1</string>
-		<key>userid</key>
-		<string>10</string>
 	</dict>
 </array>
 </plist>

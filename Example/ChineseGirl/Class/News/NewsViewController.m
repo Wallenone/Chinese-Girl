@@ -99,8 +99,8 @@
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
             NewsMessageController *messageVC=[[NewsMessageController alloc] init];
-            messageVC.myIndexModel=[[cellData dictionaryForKey:@"content"] arrayForKey:@"item"];
             messageVC.userid=[cellData stringForKey:@"userid"];
+            messageVC.myIndexModel=[cellData arrayForKey:@"item"];
             [weakSelf.navigationController pushViewController:messageVC animated:NO];
         }];
         

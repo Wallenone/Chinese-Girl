@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 @interface NewsMessageController : UIViewController
 @property(nonatomic,strong)NSArray *myIndexModel;
-@property(nonatomic,assign)NSString *userid;
+@property(nonatomic,copy)NSString *userid;
 @end

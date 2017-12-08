@@ -19,10 +19,12 @@
 @property(nonatomic,copy)NSString *bigAvater;
 @property(nonatomic,strong)NSMutableArray *pictures;
 @property(nonatomic,strong)NSMutableArray *picturesBig;
+@property(nonatomic,strong)NSMutableArray *messageids;  //聊天信息
 @property(nonatomic,assign)BOOL followed;   //是否加关注
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(CGUserInfo *)getitemWithID:(NSString *)ids;
 +(NSArray *)reloadTableRondomCount:(NSInteger)count;//随机用户
 +(void)updateReloadTable;  //随机刷新用户
++(void)getTableRondomNewsUser;     //随机用户聊天信息
 @end

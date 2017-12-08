@@ -81,8 +81,8 @@
 
 -(void)TalkClick{
     NewsMessageController *newMessage=[[NewsMessageController alloc] init];
-    newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewsSubListArrWithUserid:self.addModel.ids];
     newMessage.userid=self.addModel.ids;
+    newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.addModel.ids];
     [[self getCurrentVC].navigationController pushViewController:newMessage animated:NO];
 }
 

@@ -11,10 +11,8 @@
 @implementation CGMessageModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGMessageModel *model = [[CGMessageModel alloc]init];
-    model.ids = [self filterNullString:[dic stringForKey:@"id"]];
-    model.userid = [self filterNullString:[dic stringForKey:@"userid"]];
+    model.ids = [self filterNullString:[dic stringForKey:@"id"]];;
     model.type= [self filterNullString:[dic stringForKey:@"type"]];
-    model.userModel = [CGUserInfo getitemWithID:model.userid];
     model.message = [self filterNullString:[dic stringForKey:@"message"]];
     model.message_radio = @"";
     model.message_Bigpicture = @"";
@@ -40,41 +38,14 @@
     return model;
 }
 
-+(CGMessageModel *)reloadReloadRondom{
++(CGMessageModel *)reloadReloadRondomIds:(NSString *)ids{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"message" ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    int tag=[CGCommonString getRandomNumber:0 to:(int)(data1.count)-1];
-    CGMessageModel *model=[self modelWithDic:[data1 objectAtIndex:tag]];
+    CGMessageModel *model=[self modelWithDic:[data1 objectAtIndex:[ids integerValue]-1]];
     
     return model;
 }
 
-+(CGMessageModel *)getTableTag:(NSString *)ids{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"message" ofType:@"plist"];
-    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    CGMessageModel *model=[self modelWithDic:[data1 objectAtIndex:ids.integerValue-1]];
-    
-    return model;
-}
-
-+(NSDictionary *)getNewsListData{
-    NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
-    NSMutableDictionary *meDict=[[NSMutableDictionary alloc] init];
-    NSMutableDictionary *mutableDict=[[NSMutableDictionary alloc] init];
-    NSMutableArray *arr=[[NSMutableArray alloc] init];
-    CGMessageModel *model=[self reloadReloadRondom];
-    [meDict setObject:model.ids forKey:@"newsid"];
-    [meDict setObject:model.message forKey:@"message"];
-    [meDict setObject:model.type forKey:@"type"];
-    [meDict setObject:model.userid forKey:@"userid"];
-    [meDict setObject:@"FrontLeft" forKey:@"turnFront"];
-    [arr addObject:meDict];
-    [mutableDict setObject:arr forKey:@"item"];
-    [dict setObject:model.userid forKey:@"userid"];
-    [dict setObject:mutableDict forKey:@"content"];
-    
-    return dict;
-}
 
 
 +(NSString *)filterNullString:(NSString *)str{

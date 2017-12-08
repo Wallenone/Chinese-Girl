@@ -26,7 +26,7 @@
 @property(nonatomic,copy)NSString *countryName;  //国家
 @property(nonatomic,strong)NSArray *indexDataArr;//首页的数据
 @property(nonatomic,strong)NSArray *videoListDataArr; //视频首页数据
-@property(nonatomic,strong)NSArray *userListDataArr;  //随机用户数据
+@property(nonatomic,strong)NSMutableArray *userListDataArr;  //随机用户数据(存的都是聊过天的用户)
 @property(nonatomic,strong)NSMutableArray *newsListArr;  //聊天页面列表
 
 
@@ -41,8 +41,9 @@
 -(void)deletefollow:(NSString *)obj;    //去掉关注
 -(void)deleteAccout;  //删除用户
 -(void)addNewlists:(NSDictionary *)addNewList;    //增加信息列表
--(void)addNewlistSubData:(NSDictionary *)addNewList;   //增加聊天内容页面
+-(void)addNewSubList:(NSDictionary *)addSubNewList;    //增加一个聊天内容
 -(void)deleteNewList:(NSInteger)index;  //删除信息列表
--(void)deleteNewListModel:(id)model;
--(NSArray *)getNewsSubListArrWithUserid:(NSString *)userid;  //获得用户的聊天信息
+-(void)addUserListDataArr:(NSString *)userid;  //增加一个聊过天的用户id
+-(void)deleteUserListWithUserid:(NSString *)userid;   //删除一个聊过天的用户id
+-(NSArray *)getNewSubListWithUserid:(NSString *)userid;   //查看某个用户下的聊天记录
 @end

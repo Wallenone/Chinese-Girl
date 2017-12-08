@@ -7,7 +7,9 @@
 //
 
 #import "CGUserInfo.h"
-
+#import "CGMessageModel.h"
+@interface CGUserInfo()
+@end
 @implementation CGUserInfo
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGUserInfo *model = [[CGUserInfo alloc]init];
@@ -21,6 +23,7 @@
     model.bigAvater = [self getBigAvater:model.avater withIds:model.ids];
     model.pictures = [self getPictures:[self filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
     model.picturesBig = [self getBigPictures:[self filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
+    model.messageids = [self getMessageIds:[self filterNullString:[dic stringForKey:@"messageid"]]];
     return model;
 }
 
@@ -37,6 +40,20 @@
     
     return newData;
 }
+
++(void)getTableRondomNewsUser{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userInfo" ofType:@"plist"];
+    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    int _userid=[CGCommonString getRandomNumber:0 to:(int)data1.count-1];
+    
+    if([[CGSingleCommitData sharedInstance].userListDataArr containsObject:[NSString stringWithFormat:@"%d",_userid]]){
+        [self getTableRondomNewsUser];//todo 这个地方后期需要改善
+    }else{
+        [[CGSingleCommitData sharedInstance] addUserListDataArr:[NSString stringWithFormat:@"%d",_userid]];
+        [[CGSingleCommitData sharedInstance] addNewlists:@{@"userid":@(_userid),@"item":@[@{@"type":@"0",@"message":@""}]}];
+    }
+}
+
 
 +(void)updateReloadTable{
     [CGSingleCommitData sharedInstance].userListDataArr = [[self reloadTableRondomCount:999999] mutableCopy];
@@ -58,7 +75,7 @@
         NSInteger t_num=[CGSingleCommitData sharedInstance].userListDataArr.count-fromNum;
         if (t_num>0) {
             NSMutableArray *data2 = [[[CGSingleCommitData sharedInstance].userListDataArr subarrayWithRange:NSMakeRange(fromNum, [CGSingleCommitData sharedInstance].userListDataArr.count-fromNum)] mutableCopy];
-            for (CGUserInfo *model in data2) {
+            for (CGUserInfo *model in data2) {  
                 [newData addObject:model];
             }
         }
@@ -118,6 +135,17 @@
         NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
         NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
         [newArr addObject:newIcon];
+    }
+    
+    return newArr;
+}
+
++(NSMutableArray *)getMessageIds:(NSString *)messageids{
+    NSArray *array = [messageids componentsSeparatedByString:@"/"];
+    NSMutableArray *newArr=[NSMutableArray new];
+    for (NSString *messageid in array) {
+        CGMessageModel *model=[CGMessageModel reloadReloadRondomIds:messageid];
+        [newArr addObject:model];
     }
     
     return newArr;

@@ -27,6 +27,7 @@
 #import "CGNewIndexViewController.h"
 #import "CGManageRegisterViewController.h"
 #import "CGProfileIndexViewController.h"
+#import "CGUserInfo.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 
@@ -94,7 +95,10 @@
     //2.设置Window为主窗口并显示出来
     [self.window makeKeyAndVisible];
     
-    [[CGSingleCommitData sharedInstance] addNewlists:[CGMessageModel getNewsListData]];
+//    for (int i=0; i<13; i++) {
+//        [CGUserInfo getTableRondomNewsUser];
+//    }
+    
     
     return YES;
 }

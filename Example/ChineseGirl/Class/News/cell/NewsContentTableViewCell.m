@@ -14,9 +14,11 @@
 #import "MJPhotoBrowser.h"
 #import "CGVideoViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "CGUserInfo.h"
 @interface NewsContentTableViewCell()<AVAudioPlayerDelegate>{
     FrontModel _front; //方向
 }
+@property(nonatomic,strong)CGUserInfo *myIndexModel;
 @property(nonatomic,strong)CGMessageModel *messageModel;
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)NewsContentCustomLabel *textCentent;
@@ -28,26 +30,20 @@
 @end
 @implementation NewsContentTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSDictionary *)model{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGMessageModel *)model withUserId:(NSString *)userid{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.backgroundColor=[UIColor clearColor];
         
-        if ([model stringForKey:@"newsid"].length>0) {
-            self.messageModel=[CGMessageModel getTableTag:[model stringForKey:@"newsid"]];
-        }else{
-            self.messageModel=[CGMessageModel new];
-            self.messageModel.type=@"1";
-            self.messageModel.message=[model stringForKey:@"message"];
-        }
-        
-        
-        if ([[model stringForKey:@"turnFront"] isEqualToString:@"FrontLeft"]) {
-            _front=FrontLeft;
-        }else if ([[model stringForKey:@"turnFront"] isEqualToString:@"FrontRight"]){
+        self.messageModel=(CGMessageModel *)model;
+        if ([self.messageModel.type integerValue]==0) {
             _front=FrontRight;
+        }else{
+            _front=FrontLeft;
         }
+        
+        self.myIndexModel=[CGUserInfo getitemWithID:userid];
         
         [self creatSubView];
     }
@@ -58,7 +54,9 @@
 -(void)creatSubView{
     [self addSubview:self.timeLabel];
     [self addSubview:self.iconImgView];
-    if ([self.messageModel.type integerValue]==1) {
+    if ([self.messageModel.type integerValue]==0) {
+        [self addSubview:self.textCentent];
+    }else if ([self.messageModel.type integerValue]==1) {
         [self addSubview:self.textCentent];
     }else if ([self.messageModel.type integerValue]==2){
         [self addSubview:self.radioView];
@@ -126,7 +124,7 @@
         _iconImgView=[[UIImageView alloc] initWithFrame:CGRectMake(_textX,CGRectGetMaxY(self.timeLabel.frame)+15*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
         _iconImgView.layer.cornerRadius=19*SCREEN_RADIO;
         if (_front==FrontLeft) {
-            [_iconImgView sd_setImageWithURL:[NSURL URLWithString:self.messageModel.userModel.avater]];
+            [_iconImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater]];
         }else{
             _iconImgView.image=[CGSingleCommitData sharedInstance].avatar;
         }

@@ -21,7 +21,6 @@
     NSMutableArray * data = [[NSMutableArray alloc] init];
     for (int i = 0; i < count; i ++) {
         int x = (int)(startNum + (arc4random() % (endNum - startNum + 1)));
-        NSLog(@"x:%d",x);
         NSNumber * number = [NSNumber numberWithInt:x];
         if (![data containsObject:number]) {
             [data addObject:number];
@@ -30,7 +29,6 @@
         }
     }
     
-    NSLog(@"data:%@",data);
     return (NSArray *)data;
     
     //排序

@@ -13,7 +13,10 @@
 #import "NewsContentTableViewCell.h"
 #import "UITextView+ZWPlaceHolder.h"
 #import "MyIndexViewController.h"
+#import "CGUserInfo.h"
+#import "CGMessageModel.h"
 @interface NewsMessageController ()<UITextViewDelegate>
+@property(nonatomic,strong)NSMutableArray *subListModel;
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIButton *leftBtn;
@@ -47,6 +50,14 @@
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+-(NSMutableArray *)subListModel{
+    if (!_subListModel) {
+        _subListModel=[[NSMutableArray alloc] init];
+    }
+    
+    return _subListModel;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setHeaderView];
@@ -59,6 +70,19 @@
 
 -(void)talkClick{
     
+}
+
+-(void)setMyIndexModel:(NSArray *)myIndexModel{
+    for (NSDictionary *model in myIndexModel) {
+        if ([[model stringForKey:@"type"] integerValue]==0) {
+            for (CGMessageModel *newSubModel in [CGUserInfo getitemWithID:self.userid].messageids) {
+                [self.subListModel addObject:newSubModel];
+            }
+        }else if ([[model stringForKey:@"type"] integerValue]==1){
+            CGMessageModel *subModel=[CGMessageModel modelWithDic:@{@"type":@"0",@"message":[model stringForKey:@"message"]}];
+            [self.subListModel addObject:subModel];
+        }
+    }
 }
 
 -(void)avatarClick{
@@ -83,10 +107,11 @@
 
 -(void)sendClick{
     if (self.textView.text.length>0) {
-        NSArray *arrs=@[@{@"message":self.textView.text,@"newsid":@"",@"type":@"1",@"turnFront":@"FrontRight"}];
+        CGMessageModel *subModel=[CGMessageModel modelWithDic:@{@"type":@"0",@"message":self.textView.text}];
+        NSMutableArray *arrs=[NSMutableArray arrayWithObject:subModel];
         [self.tbv addContentData:arrs];
         [self.tbv scrollToBottom:YES];
-        [[CGSingleCommitData sharedInstance] addNewlistSubData:@{@"message":self.textView.text,@"newsid":@"",@"type":@"1",@"turnFront":@"FrontRight",@"userid":self.userid}];
+        [[CGSingleCommitData sharedInstance] addNewSubList:@{@"type":@"1",@"message":self.textView.text,@"userid":self.userid}];
         self.textView.text=@"";
     }
     
@@ -284,24 +309,26 @@
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"ffffff"];
-        [_tbv setDataArray:self.myIndexModel];
+        [_tbv setDataArray:self.subListModel];
         
         __weak __typeof(self)weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            NewsContentTableViewCell *cell=[[NewsContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
+            NewsContentTableViewCell *cell=[[NewsContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withUserId:self.userid];
             return cell;
         }];
         
         //动态改变
         
-        [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
-            if ([[cellData stringForKey:@"type"] integerValue]==1) {
-                return [weakSelf getCurrentItemHeight:[cellData stringForKey:@"message"]];
-            }else if ([[cellData stringForKey:@"type"] integerValue]==2){
+        [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,CGMessageModel *cellData) {
+            if ([cellData.type integerValue]==0) {
+                return [weakSelf getCurrentItemHeight:cellData.message];
+            }else if ([cellData.type integerValue]==1) {
+                return [weakSelf getCurrentItemHeight:cellData.message];
+            }else if ([cellData.type integerValue]==2){
                 return 72*SCREEN_RADIO;
-            }else if ([[cellData stringForKey:@"type"] integerValue]==3){
+            }else if ([cellData.type integerValue]==3){
                 return 166*SCREEN_RADIO;
-            }else if ([[cellData stringForKey:@"type"] integerValue]==4){
+            }else if ([cellData.type integerValue]==4){
                 return 166*SCREEN_RADIO;
             }
             
@@ -309,17 +336,17 @@
         }];
         
         //tableView还没刷新完就开始调用滚到到底部的方法，所以可以利用伪延迟来进行处理。
-        if (self.myIndexModel.count>0) {
+        if (self.subListModel.count>0) {
             double delayInSeconds = 0.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 
-                if ([self.myIndexModel count] > 1){
+                if ([self.subListModel count] > 1){
                     // 动画之前先滚动到倒数第二个消息
-                    [_tbv scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.myIndexModel count] - 2 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+                    [_tbv scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.subListModel count] - 2 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
                 }
                 //self.chatTableView.hidden = NO;
-                NSIndexPath* path = [NSIndexPath indexPathForRow:[self.myIndexModel count] - 1 inSection:0];
+                NSIndexPath* path = [NSIndexPath indexPathForRow:[self.subListModel count] - 1 inSection:0];
                 [_tbv scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:NO];
             });
         }
