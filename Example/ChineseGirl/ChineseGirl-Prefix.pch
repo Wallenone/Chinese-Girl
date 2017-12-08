@@ -27,3 +27,4 @@
 #import "UIImageView+WebCache.h"
 #import "UIImageView+MJWebCache.h"
 #import "CGCommonToolsNode.h"
+#import "ZXCGlobalTimer.h"

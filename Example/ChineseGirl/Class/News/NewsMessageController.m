@@ -113,6 +113,28 @@
         [self.tbv scrollToBottom:YES];
         [[CGSingleCommitData sharedInstance] addNewSubList:@{@"type":@"1",@"message":self.textView.text,@"userid":self.userid}];
         self.textView.text=@"";
+        
+        NSArray *arr= [[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.userid];
+        bool _state=YES;
+        for (NSDictionary *model in arr) {
+            if ([[model stringForKey:@"type"] integerValue]==0) {
+                _state=NO;
+            }
+        }
+        
+        __weak __typeof(self)weakSelf = self;
+        if (_state) {
+            [[ZXCCycleTimer shareInstance] addCountDownWithTimeInterval:10 endBlock:^() {
+                NSLog(@"十秒钟后执行了这个时间，并且添加系统聊天");
+                [[CGSingleCommitData sharedInstance] addNewSubList:@{@"type":@"0",@"message":@"",@"userid":self.userid}];
+                NSMutableArray *_tarr=[[NSMutableArray alloc] init];
+                for (CGMessageModel *newSubModel in [CGUserInfo getitemWithID:self.userid].messageids){
+                    [_tarr addObject:newSubModel];
+                }
+                [weakSelf.tbv addContentData:_tarr];
+                [weakSelf.tbv scrollToBottom:YES];
+            }];
+        }
     }
     
     [self.textView resignFirstResponder];

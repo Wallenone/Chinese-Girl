@@ -13,4 +13,5 @@ target 'ChineseGirl_Example' do
   pod 'NSDictionary+Accessors'
   pod 'FLAnimatedImage', '~> 1.0'
   pod 'ZFPlayer'
+  pod 'WJGlobalTimer'
 end
