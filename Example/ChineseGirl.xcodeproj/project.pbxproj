@@ -78,6 +78,7 @@
 		E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */; };
 		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
 		E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */; };
+		E5527AC31FDB80970077D8B8 /* CGGlobalTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */; };
 		E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */; };
 		E55DF4BF1FBB315100E5215E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55DF4BE1FBB315100E5215E /* CoreLocation.framework */; };
 		E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568260F1F9E275A0099F363 /* MineProfileInfoViewController.m */; };
@@ -316,6 +317,8 @@
 		E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MycommitModel.m; sourceTree = "<group>"; };
 		E54FAA5E1F5AA90A006C65AF /* myCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCommitCell.h; sourceTree = "<group>"; };
 		E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCommitCell.m; sourceTree = "<group>"; };
+		E5527AC11FDB80970077D8B8 /* CGGlobalTimerNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGlobalTimerNode.h; sourceTree = "<group>"; };
+		E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGlobalTimerNode.m; sourceTree = "<group>"; };
 		E55DF4BB1FBB2F2600E5215E /* CGLocationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLocationTableViewCell.h; sourceTree = "<group>"; };
 		E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGLocationTableViewCell.m; sourceTree = "<group>"; };
 		E55DF4BE1FBB315100E5215E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -861,6 +864,8 @@
 				E538D7731F429D7E0079AE94 /* Macro.h */,
 				E5B174ED1F9CAA180055E16A /* CGSingleCommitData.h */,
 				E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */,
+				E5527AC11FDB80970077D8B8 /* CGGlobalTimerNode.h */,
+				E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */,
 			);
 			path = CommonClass;
 			sourceTree = "<group>";
@@ -1422,6 +1427,7 @@
 				E5795BD71FC472A800DB393B /* CGVideoViewController.m in Sources */,
 				E538D7681F429BE80079AE94 /* IndexViewController.m in Sources */,
 				E5E518351FCDA48700919205 /* CGProfileIndexViewController.m in Sources */,
+				E5527AC31FDB80970077D8B8 /* CGGlobalTimerNode.m in Sources */,
 				E53C9D651F55871F0069D663 /* NewsMessageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

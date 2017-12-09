@@ -27,7 +27,7 @@
 #import "CGNewIndexViewController.h"
 #import "CGManageRegisterViewController.h"
 #import "CGProfileIndexViewController.h"
-#import "CGUserInfo.h"
+#import "CGGlobalTimerNode.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 
@@ -95,10 +95,8 @@
     //2.设置Window为主窗口并显示出来
     [self.window makeKeyAndVisible];
     
-//    for (int i=0; i<13; i++) {
-//        [CGUserInfo getTableRondomNewsUser];
-//    }
-    
+    //定时任务启动
+    [CGGlobalTimerNode reloadTask];
     
     return YES;
 }
