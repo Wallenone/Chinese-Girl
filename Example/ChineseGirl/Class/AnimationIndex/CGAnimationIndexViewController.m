@@ -149,8 +149,8 @@
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
-            CGAnimationIndexCell *cell=[[CGAnimationIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withPlayCell:^(NSString *videoUrl) {
-                [strongSelf playwithVideoUrl:videoUrl];
+            CGAnimationIndexCell *cell=[[CGAnimationIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData withPlayCell:^(NSString *videoUrl,NSString *videoIcon) {
+                [strongSelf playwithVideoUrl:videoUrl withVideoIcon:videoIcon];
             }];
             return cell;
         }];
@@ -193,8 +193,9 @@
     return _tbv;
 }
 
--(void)playwithVideoUrl:(NSString *)videoUrl{
+-(void)playwithVideoUrl:(NSString *)videoUrl withVideoIcon:(NSString *)videoIcon{
     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+    videoVC.videoIcon=videoIcon;
     videoVC.videoStr=videoUrl;
     [self.navigationController presentViewController:videoVC animated:NO completion:nil];
 }

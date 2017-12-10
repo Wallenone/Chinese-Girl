@@ -47,7 +47,7 @@
     int _userid=[CGCommonString getRandomNumber:0 to:(int)data1.count-1];
     
     if([[CGSingleCommitData sharedInstance].userListDataArr containsObject:[NSString stringWithFormat:@"%d",_userid]]){
-        [self getTableRondomNewsUser];//todo 这个地方后期需要改善
+       // [self getTableRondomNewsUser];//todo 这个地方后期需要改善
     }else{
         [[CGSingleCommitData sharedInstance] addUserListDataArr:[NSString stringWithFormat:@"%d",_userid]];
         [[CGSingleCommitData sharedInstance] addNewlists:@{@"userid":@(_userid),@"item":@[@{@"type":@"0",@"message":@""}]}];

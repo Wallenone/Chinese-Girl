@@ -43,14 +43,14 @@
 -(void)leftAction{
     CGVideoDataModel *model=self.dataModel[0];
     if (playVideoBlock) {
-        playVideoBlock(model.videoUrl);
+        playVideoBlock(model.videoUrl,model.videoIcon);
     }
 }
 
 -(void)rightAction{
     CGVideoDataModel *model=self.dataModel[1];
     if (playVideoBlock) {
-        playVideoBlock(model.videoUrl);
+        playVideoBlock(model.videoUrl,self.leftImgView.image);
     }
 }
 

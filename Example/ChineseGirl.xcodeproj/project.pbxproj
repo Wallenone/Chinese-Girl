@@ -39,6 +39,21 @@
 		E511CB241FB005EF006BA362 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E511CB261FB005EF006BA362 /* Localizable.strings */; };
 		E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DB1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m */; };
 		E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */; };
+		E520D6691FDD32C300BFB575 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D64A1FDD32C200BFB575 /* ASValuePopUpView.m */; };
+		E520D66A1FDD32C300BFB575 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D64C1FDD32C200BFB575 /* ASValueTrackingSlider.m */; };
+		E520D66B1FDD32C300BFB575 /* UIAlertController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D64F1FDD32C200BFB575 /* UIAlertController+ZFPlayerRotation.m */; };
+		E520D66C1FDD32C300BFB575 /* UIImageView+ZFCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D6511FDD32C200BFB575 /* UIImageView+ZFCache.m */; };
+		E520D66D1FDD32C300BFB575 /* UINavigationController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D6531FDD32C200BFB575 /* UINavigationController+ZFPlayerRotation.m */; };
+		E520D66E1FDD32C300BFB575 /* UITabBarController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D6551FDD32C200BFB575 /* UITabBarController+ZFPlayerRotation.m */; };
+		E520D66F1FDD32C300BFB575 /* UIView+CustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D6571FDD32C200BFB575 /* UIView+CustomControlView.m */; };
+		E520D6701FDD32C300BFB575 /* UIViewController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D6591FDD32C200BFB575 /* UIViewController+ZFPlayerRotation.m */; };
+		E520D6711FDD32C300BFB575 /* UIWindow+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D65B1FDD32C200BFB575 /* UIWindow+CurrentViewController.m */; };
+		E520D6721FDD32C300BFB575 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D65D1FDD32C200BFB575 /* MMMaterialDesignSpinner.m */; };
+		E520D6731FDD32C300BFB575 /* ZFBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D65F1FDD32C200BFB575 /* ZFBrightnessView.m */; };
+		E520D6741FDD32C300BFB575 /* ZFPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E520D6601FDD32C200BFB575 /* ZFPlayer.bundle */; };
+		E520D6751FDD32C300BFB575 /* ZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D6631FDD32C200BFB575 /* ZFPlayerControlView.m */; };
+		E520D6761FDD32C300BFB575 /* ZFPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D6661FDD32C200BFB575 /* ZFPlayerModel.m */; };
+		E520D6771FDD32C300BFB575 /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E520D6681FDD32C200BFB575 /* ZFPlayerView.m */; };
 		E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */; };
 		E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */; };
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
@@ -239,6 +254,37 @@
 		E51ED2DB1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentTableViewCell.m; sourceTree = "<group>"; };
 		E51ED2DD1F6000130080BBA1 /* NewsContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentModel.h; sourceTree = "<group>"; };
 		E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentModel.m; sourceTree = "<group>"; };
+		E520D6491FDD32C200BFB575 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
+		E520D64A1FDD32C200BFB575 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
+		E520D64B1FDD32C200BFB575 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		E520D64C1FDD32C200BFB575 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		E520D64E1FDD32C200BFB575 /* UIAlertController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
+		E520D64F1FDD32C200BFB575 /* UIAlertController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
+		E520D6501FDD32C200BFB575 /* UIImageView+ZFCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZFCache.h"; sourceTree = "<group>"; };
+		E520D6511FDD32C200BFB575 /* UIImageView+ZFCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ZFCache.m"; sourceTree = "<group>"; };
+		E520D6521FDD32C200BFB575 /* UINavigationController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
+		E520D6531FDD32C200BFB575 /* UINavigationController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
+		E520D6541FDD32C200BFB575 /* UITabBarController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
+		E520D6551FDD32C200BFB575 /* UITabBarController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
+		E520D6561FDD32C200BFB575 /* UIView+CustomControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomControlView.h"; sourceTree = "<group>"; };
+		E520D6571FDD32C200BFB575 /* UIView+CustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomControlView.m"; sourceTree = "<group>"; };
+		E520D6581FDD32C200BFB575 /* UIViewController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
+		E520D6591FDD32C200BFB575 /* UIViewController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
+		E520D65A1FDD32C200BFB575 /* UIWindow+CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+CurrentViewController.h"; sourceTree = "<group>"; };
+		E520D65B1FDD32C200BFB575 /* UIWindow+CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+CurrentViewController.m"; sourceTree = "<group>"; };
+		E520D65C1FDD32C200BFB575 /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
+		E520D65D1FDD32C200BFB575 /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
+		E520D65E1FDD32C200BFB575 /* ZFBrightnessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFBrightnessView.h; sourceTree = "<group>"; };
+		E520D65F1FDD32C200BFB575 /* ZFBrightnessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFBrightnessView.m; sourceTree = "<group>"; };
+		E520D6601FDD32C200BFB575 /* ZFPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZFPlayer.bundle; sourceTree = "<group>"; };
+		E520D6611FDD32C200BFB575 /* ZFPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayer.h; sourceTree = "<group>"; };
+		E520D6621FDD32C200BFB575 /* ZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerControlView.h; sourceTree = "<group>"; };
+		E520D6631FDD32C200BFB575 /* ZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerControlView.m; sourceTree = "<group>"; };
+		E520D6641FDD32C200BFB575 /* ZFPlayerControlViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerControlViewDelegate.h; sourceTree = "<group>"; };
+		E520D6651FDD32C200BFB575 /* ZFPlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerModel.h; sourceTree = "<group>"; };
+		E520D6661FDD32C200BFB575 /* ZFPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerModel.m; sourceTree = "<group>"; };
+		E520D6671FDD32C200BFB575 /* ZFPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerView.h; sourceTree = "<group>"; };
+		E520D6681FDD32C200BFB575 /* ZFPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerView.m; sourceTree = "<group>"; };
 		E5260ED81F69698E001824F1 /* CGPickBottleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPickBottleContentView.h; sourceTree = "<group>"; };
 		E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPickBottleContentView.m; sourceTree = "<group>"; };
 		E534E1BD1FBBDF9A00F4962E /* CGFriendsViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFriendsViewcontroller.h; sourceTree = "<group>"; };
@@ -638,6 +684,52 @@
 			path = MJPhotoBrowser;
 			sourceTree = "<group>";
 		};
+		E520D6481FDD32C200BFB575 /* ZFPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E520D6491FDD32C200BFB575 /* ASValuePopUpView.h */,
+				E520D64A1FDD32C200BFB575 /* ASValuePopUpView.m */,
+				E520D64B1FDD32C200BFB575 /* ASValueTrackingSlider.h */,
+				E520D64C1FDD32C200BFB575 /* ASValueTrackingSlider.m */,
+				E520D64D1FDD32C200BFB575 /* Category */,
+				E520D65C1FDD32C200BFB575 /* MMMaterialDesignSpinner.h */,
+				E520D65D1FDD32C200BFB575 /* MMMaterialDesignSpinner.m */,
+				E520D65E1FDD32C200BFB575 /* ZFBrightnessView.h */,
+				E520D65F1FDD32C200BFB575 /* ZFBrightnessView.m */,
+				E520D6601FDD32C200BFB575 /* ZFPlayer.bundle */,
+				E520D6611FDD32C200BFB575 /* ZFPlayer.h */,
+				E520D6621FDD32C200BFB575 /* ZFPlayerControlView.h */,
+				E520D6631FDD32C200BFB575 /* ZFPlayerControlView.m */,
+				E520D6641FDD32C200BFB575 /* ZFPlayerControlViewDelegate.h */,
+				E520D6651FDD32C200BFB575 /* ZFPlayerModel.h */,
+				E520D6661FDD32C200BFB575 /* ZFPlayerModel.m */,
+				E520D6671FDD32C200BFB575 /* ZFPlayerView.h */,
+				E520D6681FDD32C200BFB575 /* ZFPlayerView.m */,
+			);
+			path = ZFPlayer;
+			sourceTree = "<group>";
+		};
+		E520D64D1FDD32C200BFB575 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E520D64E1FDD32C200BFB575 /* UIAlertController+ZFPlayerRotation.h */,
+				E520D64F1FDD32C200BFB575 /* UIAlertController+ZFPlayerRotation.m */,
+				E520D6501FDD32C200BFB575 /* UIImageView+ZFCache.h */,
+				E520D6511FDD32C200BFB575 /* UIImageView+ZFCache.m */,
+				E520D6521FDD32C200BFB575 /* UINavigationController+ZFPlayerRotation.h */,
+				E520D6531FDD32C200BFB575 /* UINavigationController+ZFPlayerRotation.m */,
+				E520D6541FDD32C200BFB575 /* UITabBarController+ZFPlayerRotation.h */,
+				E520D6551FDD32C200BFB575 /* UITabBarController+ZFPlayerRotation.m */,
+				E520D6561FDD32C200BFB575 /* UIView+CustomControlView.h */,
+				E520D6571FDD32C200BFB575 /* UIView+CustomControlView.m */,
+				E520D6581FDD32C200BFB575 /* UIViewController+ZFPlayerRotation.h */,
+				E520D6591FDD32C200BFB575 /* UIViewController+ZFPlayerRotation.m */,
+				E520D65A1FDD32C200BFB575 /* UIWindow+CurrentViewController.h */,
+				E520D65B1FDD32C200BFB575 /* UIWindow+CurrentViewController.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		E5260ED71F696966001824F1 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -849,6 +941,7 @@
 		E538D7721F429D7E0079AE94 /* CommonClass */ = {
 			isa = PBXGroup;
 			children = (
+				E520D6481FDD32C200BFB575 /* ZFPlayer */,
 				E536B16F1FD26F16006CC3CD /* CGCommonToolsNode.h */,
 				E536B16E1FD26F16006CC3CD /* CGCommonToolsNode.m */,
 				E53579CF1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.h */,
@@ -1228,6 +1321,7 @@
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				E5F542801FC8579A00262DCE /* videoData.plist in Resources */,
 				E546C11B1FBEFBC0000F5127 /* answer.plist in Resources */,
+				E520D6741FDD32C300BFB575 /* ZFPlayer.bundle in Resources */,
 				E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */,
 				E504AB901F507C0100E1F48C /* MBProgressHUD.bundle in Resources */,
 				E5D291931FC5A96C003718CB /* Billabong.ttf in Resources */,
@@ -1287,7 +1381,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF417B7723E0ED6C9C70033F /* [CP] Copy Pods Resources */ = {
@@ -1321,6 +1415,7 @@
 				E5E0FE491F9AF15700B5228E /* WYBirthdayPickerView.m in Sources */,
 				E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */,
 				E546C11E1FBF1113000F5127 /* CGAnswerResultView.m in Sources */,
+				E520D6771FDD32C300BFB575 /* ZFPlayerView.m in Sources */,
 				E538D74B1F429ACC0079AE94 /* AFSecurityPolicy.m in Sources */,
 				E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */,
 				E5BD337D1FBFDB1900C8FE94 /* CGFollowTableViewCell.m in Sources */,
@@ -1332,6 +1427,7 @@
 				E546C1191FBEFB7A000F5127 /* CGAnswerModel.m in Sources */,
 				E504AB911F507C0100E1F48C /* MBProgressHUD.m in Sources */,
 				E504AB8F1F507C0100E1F48C /* MBProgressHUD+Add.m in Sources */,
+				E520D66E1FDD32C300BFB575 /* UITabBarController+ZFPlayerRotation.m in Sources */,
 				E504AB961F507C0100E1F48C /* MJPhotoProgressView.m in Sources */,
 				6003F59E195388D20070C39A /* CGAppDelegate.m in Sources */,
 				E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */,
@@ -1345,11 +1441,13 @@
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
 				E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */,
 				E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */,
+				E520D6711FDD32C300BFB575 /* UIWindow+CurrentViewController.m in Sources */,
 				E5E0FE4C1F9AF15700B5228E /* WYHeightPickerView.m in Sources */,
 				E5C0CD761FB80F2D002394C9 /* CGShuoShuo.m in Sources */,
 				E5C011BF1F52771F003FB906 /* UIMessageCustom.m in Sources */,
 				E590550C1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m in Sources */,
 				E5360A7C1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m in Sources */,
+				E520D66C1FDD32C300BFB575 /* UIImageView+ZFCache.m in Sources */,
 				E536B1701FD26F17006CC3CD /* CGCommonToolsNode.m in Sources */,
 				E538D74C1F429ACC0079AE94 /* AFURLRequestSerialization.m in Sources */,
 				E5360A6C1FBC6A9E009DDA07 /* CGFriendsAddViewController.m in Sources */,
@@ -1371,15 +1469,18 @@
 				E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */,
 				E5C0CD731FB80EAB002394C9 /* CGPinglunren.m in Sources */,
 				E504AB971F507C0100E1F48C /* MJPhotoToolbar.m in Sources */,
+				E520D6701FDD32C300BFB575 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				E5E21BDD1FCC408E00B6DF61 /* CGNewIndexViewController.m in Sources */,
 				E5FC80111FC9BFB70094615B /* RootNavController.m in Sources */,
 				E5FC800E1FC9BE250094615B /* RootTabBarController.m in Sources */,
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
+				E520D6721FDD32C300BFB575 /* MMMaterialDesignSpinner.m in Sources */,
 				E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */,
 				E59055121FD059A20053EC40 /* CGMailListViewController.m in Sources */,
 				E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */,
 				E53579D01FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m in Sources */,
+				E520D66F1FDD32C300BFB575 /* UIView+CustomControlView.m in Sources */,
 				E538D7661F429BE80079AE94 /* DriftBottleViewController.m in Sources */,
 				E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */,
 				E546C1221FBF231C000F5127 /* CGVipViewController.m in Sources */,
@@ -1397,23 +1498,28 @@
 				E546C1271FBF2496000F5127 /* CGVipTableViewCell.m in Sources */,
 				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
 				E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */,
+				E520D66B1FDD32C300BFB575 /* UIAlertController+ZFPlayerRotation.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
 				E5360A791FBC7F8E009DDA07 /* CGAnswerOptionViewController.m in Sources */,
 				E5F542831FC857BD00262DCE /* CGVideoDataModel.m in Sources */,
 				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
 				E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */,
 				E5F999BF1FCEDDC800C47C60 /* CGEditProfileViewController.m in Sources */,
+				E520D6761FDD32C300BFB575 /* ZFPlayerModel.m in Sources */,
 				E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */,
 				E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */,
 				E538D74D1F429ACC0079AE94 /* AFURLResponseSerialization.m in Sources */,
+				E520D6751FDD32C300BFB575 /* ZFPlayerControlView.m in Sources */,
 				E504AB921F507C0100E1F48C /* MJPhoto.m in Sources */,
 				E5E0FE4D1F9AF15700B5228E /* WYLongTextInputView.m in Sources */,
 				E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
 				E5E271671FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m in Sources */,
 				E5C0CD8C1FB83EF5002394C9 /* CGPinglun.m in Sources */,
+				E520D6731FDD32C300BFB575 /* ZFBrightnessView.m in Sources */,
 				E5E2716C1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m in Sources */,
 				E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */,
+				E520D66D1FDD32C300BFB575 /* UINavigationController+ZFPlayerRotation.m in Sources */,
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
 				E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */,
@@ -1426,7 +1532,9 @@
 				E5F999C51FCEEC8000C47C60 /* CGFavoriteView.m in Sources */,
 				E5795BD71FC472A800DB393B /* CGVideoViewController.m in Sources */,
 				E538D7681F429BE80079AE94 /* IndexViewController.m in Sources */,
+				E520D66A1FDD32C300BFB575 /* ASValueTrackingSlider.m in Sources */,
 				E5E518351FCDA48700919205 /* CGProfileIndexViewController.m in Sources */,
+				E520D6691FDD32C300BFB575 /* ASValuePopUpView.m in Sources */,
 				E5527AC31FDB80970077D8B8 /* CGGlobalTimerNode.m in Sources */,
 				E53C9D651F55871F0069D663 /* NewsMessageController.m in Sources */,
 			);

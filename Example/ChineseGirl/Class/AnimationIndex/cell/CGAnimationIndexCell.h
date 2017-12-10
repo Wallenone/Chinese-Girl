@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CGVideoDataModel.h"
 
-typedef void (^PlayVideoBlock)(NSString *);
+typedef void (^PlayVideoBlock)(NSString *,NSString *);
 @interface CGAnimationIndexCell : UITableViewCell
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(NSArray *)model withPlayCell:(PlayVideoBlock)block;
 @end

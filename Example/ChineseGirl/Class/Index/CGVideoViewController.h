@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CGVideoViewController : UIViewController
+@property(nonatomic,strong)NSString *videoIcon;
 @property(nonatomic,strong)NSString *videoStr;
 @end

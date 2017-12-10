@@ -92,6 +92,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 
 #pragma mark - UITableViewCell PlayerView
 
+
 /** palyer加到tableView */
 @property (nonatomic, strong) UIScrollView           *scrollView;
 /** player所在cell的indexPath */
@@ -144,6 +145,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
  */
 - (void)initializeThePlayer {
     self.cellPlayerOnCenter = YES;
+    [self addSubview:self.screenImgView];
 }
 
 - (void)dealloc {
@@ -430,7 +432,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     [self.singleTap requireGestureRecognizerToFail:self.doubleTap];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+/*- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.isAutoPlay) {
         UITouch *touch = [touches anyObject];
         if(touch.tapCount == 1) {
@@ -441,7 +443,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
         }
     }
 }
-
+*/
 - (void)createTimer {
     __weak typeof(self) weakSelf = self;
     self.timeObserve = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:nil usingBlock:^(CMTime time){
@@ -451,6 +453,9 @@ typedef NS_ENUM(NSInteger, PanDirection){
             NSInteger currentTime = (NSInteger)CMTimeGetSeconds([currentItem currentTime]);
             CGFloat totalTime     = (CGFloat)currentItem.duration.value / currentItem.duration.timescale;
             CGFloat value         = CMTimeGetSeconds([currentItem currentTime]) / totalTime;
+            if (value>0) {
+                weakSelf.screenImgView.alpha=0;
+            }
             [weakSelf.controlView zf_playerCurrentTime:currentTime totalTime:totalTime sliderValue:value];
         }
     }];
@@ -522,13 +527,13 @@ typedef NS_ENUM(NSInteger, PanDirection){
                 self.state = ZFPlayerStatePlaying;
                 // 加载完成后，再添加平移手势
                 // 添加平移手势，用来控制音量、亮度、快进快退
-                UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panDirection:)];
-                panRecognizer.delegate = self;
-                [panRecognizer setMaximumNumberOfTouches:1];
-                [panRecognizer setDelaysTouchesBegan:YES];
-                [panRecognizer setDelaysTouchesEnded:YES];
-                [panRecognizer setCancelsTouchesInView:YES];
-                [self addGestureRecognizer:panRecognizer];
+//                UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panDirection:)];
+//                panRecognizer.delegate = self;
+//                [panRecognizer setMaximumNumberOfTouches:1];
+//                [panRecognizer setDelaysTouchesBegan:YES];
+//                [panRecognizer setDelaysTouchesEnded:YES];
+//                [panRecognizer setCancelsTouchesInView:YES];
+//                [self addGestureRecognizer:panRecognizer];
                 
                 // 跳到xx秒播放视频
                 if (self.seekTime) {
@@ -919,7 +924,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
  *
  *  @param gesture UITapGestureRecognizer
  */
-- (void)singleTapAction:(UIGestureRecognizer *)gesture {
+/*- (void)singleTapAction:(UIGestureRecognizer *)gesture {
     if ([gesture isKindOfClass:[NSNumber class]] && ![(id)gesture boolValue]) {
          [self _fullScreenAction];
          return;
@@ -933,7 +938,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
             }
         }
     }
-}
+}*/
 
 /**
  *  双击播放/暂停
@@ -1254,7 +1259,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     self.isPauseByUser = YES;
     
     // 添加手势
-    [self createGesture];
+   // [self createGesture];
     
 }
 
@@ -1301,6 +1306,14 @@ typedef NS_ENUM(NSInteger, PanDirection){
         // 缓冲区有足够数据可以播放了
         [playerItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
     }
+}
+
+-(UIImageView *)screenImgView{
+    if (!_screenImgView) {
+        _screenImgView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    }
+    
+    return _screenImgView;
 }
 
 /**
@@ -1522,7 +1535,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     // 从xx秒播放
     self.seekTime = currentTime;
     // 切换完分辨率自动播放
-    [self autoPlayTheVideo];
+    //[self autoPlayTheVideo];
 }
 
 - (void)zf_controlView:(UIView *)controlView downloadVideoAction:(UIButton *)sender {
@@ -1574,14 +1587,14 @@ typedef NS_ENUM(NSInteger, PanDirection){
                 AVAssetImageGeneratorCompletionHandler handler = ^(CMTime requestedTime, CGImageRef im, CMTime actualTime, AVAssetImageGeneratorResult result, NSError *error){
                     NSLog(@"%zd",result);
                     if (result != AVAssetImageGeneratorSucceeded) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [controlView zf_playerDraggedTime:dragedSeconds sliderImage:self.thumbImg ? : ZFPlayerImage(@"ZFPlayer_loading_bgView")];
-                        });
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            [controlView zf_playerDraggedTime:dragedSeconds sliderImage:self.thumbImg ? : ZFPlayerImage(@"ZFPlayer_loading_bgView")];
+////                        });
                     } else {
                         self.thumbImg = [UIImage imageWithCGImage:im];
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [controlView zf_playerDraggedTime:dragedSeconds sliderImage:self.thumbImg ? : ZFPlayerImage(@"ZFPlayer_loading_bgView")];
-                        });
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            [controlView zf_playerDraggedTime:dragedSeconds sliderImage:self.thumbImg ? : ZFPlayerImage(@"ZFPlayer_loading_bgView")];
+//                        });
                     }
                 };
                 [self.imageGenerator generateCGImagesAsynchronouslyForTimes:[NSArray arrayWithObject:[NSValue valueWithCMTime:dragedCMTime]] completionHandler:handler];

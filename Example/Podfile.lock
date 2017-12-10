@@ -18,13 +18,12 @@ PODS:
   - WJFastScrollViewPoint (0.1.1):
     - SDWebImage
   - WJGlobalTimer (0.2.0)
-  - ZFPlayer (2.1.5):
-    - Masonry
 
 DEPENDENCIES:
   - ChineseGirl (from `../`)
   - FLAnimatedImage (~> 1.0)
   - IQKeyboardManager
+  - Masonry
   - NSDictionary+Accessors
   - RouterManager
   - SVProgressHUD
@@ -34,7 +33,6 @@ DEPENDENCIES:
   - WJFastDialogView
   - WJFastScrollViewPoint
   - WJGlobalTimer
-  - ZFPlayer
 
 EXTERNAL SOURCES:
   ChineseGirl:
@@ -56,8 +54,7 @@ SPEC CHECKSUMS:
   WJFastDialogView: f376833e8c248066ec04626421e4539e9c1233d5
   WJFastScrollViewPoint: 1cdba392da20c0b9cb1f4a2b61af24d78a75e312
   WJGlobalTimer: 2f535bce28acf0ebded89ea69393f58752cb3702
-  ZFPlayer: 8a80bf8eb4638b97fbceaefcd3ca9978e9f17c9d
 
-PODFILE CHECKSUM: 8a370a3eca3abeab414938bdbb588bc65d9899aa
+PODFILE CHECKSUM: 8024729481197255675049c62556051f77794b0c
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.2.1

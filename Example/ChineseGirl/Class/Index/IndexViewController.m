@@ -257,6 +257,7 @@
                 CGIndexModel *indexModel=(CGIndexModel *)cellData;
                 if ([indexModel.type integerValue]==2) {
                     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+                    //videoVC.videoIcon=[UIImage sd];
                     videoVC.videoStr=indexModel.videoUrl;
                     [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
                 }

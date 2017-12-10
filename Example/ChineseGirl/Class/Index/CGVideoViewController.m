@@ -43,23 +43,23 @@
     // model
     ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
     playerModel.fatherView=self.view;
-    playerModel.videoURL = [NSURL URLWithString:self.videoStr];
+    playerModel.videoURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/Wallenone/service/master/test.mp4"];
     [self.playerView playerControlView:controlView playerModel:playerModel];
     // delegate
     self.playerView.delegate = self;
-    self.playerView.hasPreviewView=YES;
+    [self.playerView.screenImgView sd_setImageWithURL:[NSURL URLWithString:self.videoIcon]];
     self.playerView.playerLayerGravity=ZFPlayerLayerGravityResize;
     [self.playerView autoPlayTheVideo];
     
 }
 
 - (void)zf_playerControlViewWillShow:(UIView *)controlView isFullscreen:(BOOL)fullscreen{
-    
+    //controlView.hidden=YES;
 }
 
 
 - (void)zf_playerControlViewWillHidden:(UIView *)controlView isFullscreen:(BOOL)fullscreen{
-    
+    //controlView.hidden=YES;
 }
 
 - (void)zf_playerBackAction{
