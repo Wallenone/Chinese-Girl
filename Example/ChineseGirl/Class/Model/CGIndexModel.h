@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CGUserInfo.h"
 @interface CGIndexModel : NSObject
 @property(nonatomic,copy)NSString *ids;
 @property(nonatomic,copy)NSString *bigIcon;
@@ -22,6 +22,7 @@
 @property(nonatomic,copy)NSString *videoPicUrl;
 @property(nonatomic,copy)NSString *videoUrl;
 @property(nonatomic,copy)NSString *videoid;
+@property(nonatomic,strong)CGUserInfo *userInfo;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(void)reloadTableRondom;//刷新首页数据（随机）

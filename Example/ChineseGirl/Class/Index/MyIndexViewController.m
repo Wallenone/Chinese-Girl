@@ -224,6 +224,8 @@
                 if ([indexModel.type integerValue]==2) {
                     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
                     videoVC.videoStr=indexModel.videoUrl;
+                    videoVC.videoIcon=indexModel.videoPicUrl;
+                    videoVC.userInfo=[CGUserInfo getitemWithID:indexModel.ids];
                     [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
                     
                 }

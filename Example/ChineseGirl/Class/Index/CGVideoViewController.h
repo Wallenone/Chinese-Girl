@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CGUserInfo.h"
 @interface CGVideoViewController : UIViewController
 @property(nonatomic,strong)NSString *videoIcon;
 @property(nonatomic,strong)NSString *videoStr;
+@property(nonatomic,strong)CGUserInfo *userInfo;
 @end

@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIImage+GIF.h"
 #import "FLAnimatedImage.h"
+#import "CGUserInfo.h"
 @interface CGAnimationIndexCell(){
     PlayVideoBlock playVideoBlock;
 }
@@ -43,14 +44,14 @@
 -(void)leftAction{
     CGVideoDataModel *model=self.dataModel[0];
     if (playVideoBlock) {
-        playVideoBlock(model.videoUrl,model.videoIcon);
+        playVideoBlock(model.videoUrl,model.videoIcon,[CGUserInfo getitemWithID:model.userId]);
     }
 }
 
 -(void)rightAction{
     CGVideoDataModel *model=self.dataModel[1];
     if (playVideoBlock) {
-        playVideoBlock(model.videoUrl,self.leftImgView.image);
+        playVideoBlock(model.videoUrl,model.videoIcon,[CGUserInfo getitemWithID:model.userId]);
     }
 }
 

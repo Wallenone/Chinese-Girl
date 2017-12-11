@@ -23,6 +23,7 @@
     model.address =[CGUserInfo getitemWithID:model.ids].address;
     model.type = [self filterNullString:[dic stringForKey:@"type"]];
     model.videoid=[self filterNullString:[dic stringForKey:@"videoid"]];
+    model.userInfo=[CGUserInfo getitemWithID:model.ids];
     if ([model.type integerValue]==1) {
         model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"bigIcon"]] withId:model.ids];
         model.videoPicUrl=@"";
