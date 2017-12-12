@@ -35,6 +35,7 @@
 		E504AB981F507C0100E1F48C /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E504AB7E1F507C0100E1F48C /* MJPhotoView.m */; };
 		E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E504AB9A1F507C3B00E1F48C /* UIImageView+MJWebCache.m */; };
 		E508B1B71F714C750048C378 /* CGBottleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E508B1B61F714C750048C378 /* CGBottleTextView.m */; };
+		E50FA8C91FE01F190040559A /* CGGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50FA8C81FE01F190040559A /* CGGiftView.m */; };
 		E511CB141FB00013006BA362 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E511CB161FB00013006BA362 /* InfoPlist.strings */; };
 		E511CB241FB005EF006BA362 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E511CB261FB005EF006BA362 /* Localizable.strings */; };
 		E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DB1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m */; };
@@ -232,6 +233,8 @@
 		E504AB9A1F507C3B00E1F48C /* UIImageView+MJWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MJWebCache.m"; sourceTree = "<group>"; };
 		E508B1B51F714C750048C378 /* CGBottleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGBottleTextView.h; sourceTree = "<group>"; };
 		E508B1B61F714C750048C378 /* CGBottleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGBottleTextView.m; sourceTree = "<group>"; };
+		E50FA8C71FE01F190040559A /* CGGiftView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGiftView.h; sourceTree = "<group>"; };
+		E50FA8C81FE01F190040559A /* CGGiftView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGiftView.m; sourceTree = "<group>"; };
 		E511CB151FB00013006BA362 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E511CB171FB0001C006BA362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E511CB181FB001B0006BA362 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -851,6 +854,8 @@
 				E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */,
 				E5795BD51FC472A800DB393B /* CGVideoViewController.h */,
 				E5795BD61FC472A800DB393B /* CGVideoViewController.m */,
+				E50FA8C71FE01F190040559A /* CGGiftView.h */,
+				E50FA8C81FE01F190040559A /* CGGiftView.m */,
 				E538D7531F429BE80079AE94 /* cell */,
 				E538D7581F429BE80079AE94 /* Model */,
 				E538D75B1F429BE80079AE94 /* View */,
@@ -1456,6 +1461,7 @@
 				E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */,
 				E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */,
 				E5C0CD701FB80C35002394C9 /* CGPinglunModel.m in Sources */,
+				E50FA8C91FE01F190040559A /* CGGiftView.m in Sources */,
 				E538D76C1F429BE80079AE94 /* MineViewController.m in Sources */,
 				E5E21BE01FCC512100B6DF61 /* CGNewSignInViewController.m in Sources */,
 				E504AB981F507C0100E1F48C /* MJPhotoView.m in Sources */,

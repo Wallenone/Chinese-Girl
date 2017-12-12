@@ -9,6 +9,7 @@
 #import "CGVideoViewController.h"
 #import "ZFPlayer.h"
 #import "MyIndexViewController.h"
+#import "CGGiftView.h"
 @interface CGVideoViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
@@ -18,7 +19,9 @@
 @property(nonatomic,strong)UIButton *menuBtn1;
 @property(nonatomic,strong)UIButton *menuBtn2;
 @property(nonatomic,strong)UIButton *menuBtn3;
+@property(nonatomic,strong)UIButton *menuBtn4;
 @property(nonatomic,strong)ZFPlayerView *playerView;
+@property(nonatomic,strong)CGGiftView *giftView;
 @end
 
 @implementation CGVideoViewController
@@ -34,24 +37,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor blackColor];
+    UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapViewAction:)];
+    [self.view addGestureRecognizer:tapGesturRecognizer];
     [self showVideoPlayer];
     [self addSubViews];
 }
 
--(void)tapAction{
-    
-    MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-    indexVC.ids=[self.userInfo.ids integerValue];
+-(void)tapAction {
     
 }
 
+-(void)tapViewAction:(UITapGestureRecognizer *)tap{
+    CGPoint currentPoint = [tap locationInView:self.view];
+    if(!CGRectContainsPoint(CGRectMake(0, screen_height-200*SCREEN_RADIO, ScreenWidth, 200*SCREEN_RADIO), currentPoint)){
+        if (!self.giftView.hidden) {
+            self.giftView.hidden=YES;
+        }
+    }
+}
 
 -(void)closeClick{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)menuClick1{
-    
+    if (self.giftView.hidden) {
+        self.giftView.hidden=NO;
+    }else{
+        self.giftView.hidden=YES;
+    }
 }
 
 -(void)menuClick2{
@@ -59,6 +73,10 @@
 }
 
 -(void)menuClick3{
+    
+}
+
+-(void)menuClick4{
     
 }
 
@@ -76,6 +94,8 @@
     [self.view addSubview:self.menuBtn1];
     [self.view addSubview:self.menuBtn2];
     [self.view addSubview:self.menuBtn3];
+    [self.view addSubview:self.menuBtn4];
+    [self.view addSubview:self.giftView];
 
 }
 
@@ -95,7 +115,6 @@
     playerModel.videoURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/Wallenone/service/master/test.mp4"];
     [self.playerView playerControlView:controlView playerModel:playerModel];
     // delegate
-    self.playerView.delegate = self;
     [self.playerView.screenImgView sd_setImageWithURL:[NSURL URLWithString:self.videoIcon]];
     self.playerView.playerLayerGravity=ZFPlayerLayerGravityResize;
     [self.playerView autoPlayTheVideo];
@@ -161,8 +180,8 @@
 
 -(UIButton *)menuBtn1{
     if (!_menuBtn1) {
-        _menuBtn1=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-22*SCREEN_RADIO, screen_height/2, 17*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        [_menuBtn1 setImage:[UIImage imageNamed:@"播放"] forState:UIControlStateNormal];
+        _menuBtn1=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, screen_height/2, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        [_menuBtn1 setImage:[UIImage imageNamed:@"level_exclusive_gift_enable"] forState:UIControlStateNormal];
         [_menuBtn1 addTarget:self action:@selector(menuClick1) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -171,8 +190,8 @@
 
 -(UIButton *)menuBtn2{
     if (!_menuBtn2) {
-        _menuBtn2=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-22*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn1.frame)+25*SCREEN_RADIO, 17*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        [_menuBtn2 setImage:[UIImage imageNamed:@"播放"] forState:UIControlStateNormal];
+        _menuBtn2=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn1.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        [_menuBtn2 setImage:[UIImage imageNamed:@"level_privilege_message_enable"] forState:UIControlStateNormal];
         [_menuBtn2 addTarget:self action:@selector(menuClick2) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -181,12 +200,31 @@
 
 -(UIButton *)menuBtn3{
     if (!_menuBtn3) {
-        _menuBtn3=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-22*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+25*SCREEN_RADIO, 17*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        [_menuBtn3 setImage:[UIImage imageNamed:@"播放"] forState:UIControlStateNormal];
+        _menuBtn3=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        [_menuBtn3 setImage:[UIImage imageNamed:@"ic_sticker_download"] forState:UIControlStateNormal];
         [_menuBtn3 addTarget:self action:@selector(menuClick3) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _menuBtn3;
+}
+
+-(UIButton *)menuBtn4{
+    if (!_menuBtn4) {
+        _menuBtn4=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        [_menuBtn4 setImage:[UIImage imageNamed:@"video_follow"] forState:UIControlStateNormal];
+        [_menuBtn4 addTarget:self action:@selector(menuClick4) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _menuBtn4;
+}
+
+-(CGGiftView *)giftView{
+    if (!_giftView) {
+        _giftView=[[CGGiftView alloc] initWithFrame:CGRectMake(0, screen_height-200*SCREEN_RADIO, ScreenWidth, 200*SCREEN_RADIO)];
+        _giftView.hidden=YES;
+    }
+    
+    return _giftView;
 }
 
 @end
