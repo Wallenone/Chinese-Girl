@@ -73,6 +73,16 @@
 }
 
 -(void)menuClick3{
+    NSURL *url = [NSURL URLWithString:self.videoStr];
+    NSString *path = url.path;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //判断能不能保存到相簿
+    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
+        //保存视频到相簿
+        UISaveVideoAtPathToSavedPhotosAlbum(path, self,
+                                            @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    }
+    });
     
 }
 
@@ -225,6 +235,10 @@
     }
     
     return _giftView;
+}
+
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    NSLog(@"保存视频完成");
 }
 
 @end
