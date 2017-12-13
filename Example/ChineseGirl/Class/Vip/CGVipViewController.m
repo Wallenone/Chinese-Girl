@@ -12,7 +12,11 @@
 @interface CGVipViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *leftIcon;
-@property(nonatomic,strong)UILabel *titleLabel;
+@property(nonatomic,strong)UIImageView *vipIcon;
+@property(nonatomic,strong)UILabel *vipTitle;
+@property(nonatomic,strong)UIView *headerLine;
+@property(nonatomic,strong)UILabel *vipLabel;
+@property(nonatomic,strong)UIButton *payBtn;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @end
@@ -31,17 +35,16 @@
 }
 
 -(void)addSubViews{
-    self.view.backgroundColor=[UIColor getColor:@"f0f1f2"];
+    self.view.backgroundColor=[UIColor getColor:@"ffffff"];
     [self.view addSubview:self.headerView];
-    [self.headerView addSubview:self.titleLabel];
     [self.headerView addSubview:self.leftIcon];
     [self.view addSubview:self.tbv];
 }
 
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
-        _headerView.backgroundColor=[UIColor whiteColor];
+        _headerView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, screen_width, screen_height/2-50)];
+        _headerView.backgroundColor=[UIColor getColor:@"46198d"];
     }
     
     return _headerView;
@@ -61,16 +64,17 @@
     return _leftIcon;
 }
 
--(UILabel *)titleLabel{
-    if (!_titleLabel) {
-        _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=@"会员中心";
-        _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
-        _titleLabel.textColor=[UIColor getColor:@"232627"];
-        _titleLabel.textAlignment=NSTextAlignmentCenter;
+-(UIImageView *)vipIcon{
+    if (!_vipIcon) {
+        _vipIcon=[[UIImageView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)]
     }
-    return _titleLabel;
 }
+@property(nonatomic,strong)UIImageView *vipIcon;
+@property(nonatomic,strong)UILabel *vipTitle;
+@property(nonatomic,strong)UIView *headerLine;
+@property(nonatomic,strong)UILabel *vipLabel;
+@property(nonatomic,strong)UIButton *payBtn;
+@property(nonatomic,strong)UIView *lineView;
 
 
 -(EZJFastTableView *)tbv{
@@ -95,18 +99,6 @@
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
             return 62*SCREEN_RADIO;
         }];
-        
-        
-        
-        //    //允许上行滑动
-        //    [_tbv onDragUp:^NSArray * (int page) {
-        //        return [self loadNewData:page];
-        //    }];
-        //
-        //    //允许下行滑动刷新
-        //    [_tbv onDragDown:^{
-        //
-        //    }];
         
         
         //设置选中事件 block设置方式
