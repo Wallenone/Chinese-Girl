@@ -11,6 +11,9 @@
 #import "MyIndexViewController.h"
 #import "CGGiftView.h"
 #import "SVProgressHUD.h"
+#import "CGVipViewController.h"
+#import "NewsMessageController.h"
+#import "MyIndexViewController.h"
 @interface CGVideoViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
@@ -45,7 +48,9 @@
 }
 
 -(void)tapAction {
-    
+    MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
+    indexVC.ids=[self.userInfo.ids integerValue];
+    [self.navigationController pushViewController:indexVC animated:NO];
 }
 
 -(void)tapViewAction:(UITapGestureRecognizer *)tap{
@@ -70,7 +75,10 @@
 }
 
 -(void)menuClick2{
-    
+    NewsMessageController *newMessage=[[NewsMessageController alloc] init];
+    newMessage.userid=self.userInfo.ids;
+    newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.userInfo.ids];
+    [self.navigationController pushViewController:newMessage animated:NO];
 }
 
 -(void)menuClick3{
@@ -92,7 +100,11 @@
 }
 
 -(void)menuClick4{
-    
+    CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+    vipVC.definesPresentationContext = YES;
+    vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    [self presentViewController:vipVC animated:YES completion:nil];
 }
 
 -(void)videoAddClick{

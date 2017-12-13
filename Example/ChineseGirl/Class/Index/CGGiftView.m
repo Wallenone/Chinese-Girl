@@ -7,9 +7,13 @@
 //
 
 #import "CGGiftView.h"
-@interface CGGiftView ()<UIScrollViewDelegate>
+@interface CGGiftView ()<UIScrollViewDelegate>{
+    NSArray *monetNumArr;
+}
 @property(nonatomic,strong)UIScrollView *scrollView;
 @property(nonatomic,strong)UIPageControl *pageControl;
+@property(nonatomic,strong)UIImageView *mineMoneyIcon;
+@property(nonatomic,strong)UILabel *mineMoneyLabel;
 @end
 
 @implementation CGGiftView
@@ -18,6 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        monetNumArr=@[@"99",@"10",@"30",@"30",@"30",@"30",@"30",@"30",@"40",@"80",@"30",@"50",@"30",@"90",@"100",@"30",@"30",@"120",@"300",@"300",@"300",@"150",@"500",@"300",@"300",@"500",@"500",@"499",@"300",@"600",@"700",@"500",@"600",@"800",@"400",@"900",@"470",@"700",@"400",@"999",@"4999",@"4999",@"8888",@"9999",@"19999",@"50000",@"66666",@"88888"];
         self.backgroundColor=[UIColor colorWithRed:29/255 green:28/255 blue:30/255 alpha:0.9];
         [self addSubViews];
     }
@@ -27,6 +32,8 @@
 -(void)addSubViews{
     [self addSubview:self.scrollView];
     [self addSubview:self.pageControl];
+    [self addSubview:self.mineMoneyIcon];
+    [self addSubview:self.mineMoneyLabel];
 }
 
 -(void)giftClick:(UIButton *)sender{
@@ -63,7 +70,7 @@
     [view addSubview:icon2];
     
     UILabel *lable2=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(icon2.frame)+3*SCREEN_RADIO, CGRectGetMaxY(image1.frame)-2, 0, 12*SCREEN_RADIO)];
-    lable2.text=num;
+    lable2.text=num2;
     lable2.textColor=[UIColor whiteColor];
     lable2.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
     [lable2 sizeToFit];
@@ -88,22 +95,22 @@
             CGFloat _x=20*SCREEN_RADIO+i*93*SCREEN_RADIO;
             
             
-            UIView *view= [self setGiftItemWithImgView:[NSString stringWithFormat:@"gift%d",giftNum+1] withTwoImgView:[NSString stringWithFormat:@"gift%d",giftNum+2] withItemMoneyNum:@"100" withItemMoneyNum2:@"200" withX:_x withY:0];
+            UIView *view= [self setGiftItemWithImgView:[NSString stringWithFormat:@"gift%d",giftNum+1] withTwoImgView:[NSString stringWithFormat:@"gift%d",giftNum+2] withItemMoneyNum:[monetNumArr objectAtIndex:giftNum] withItemMoneyNum2:[monetNumArr objectAtIndex:giftNum+1] withX:_x withY:0];
             [_scrollView addSubview:view];
             [_scrollView setContentSize:CGSizeMake(_x+83*SCREEN_RADIO, 160*SCREEN_RADIO)];
-            giftNum+=2;
+            
             
             UIButton *btn1=[[UIButton alloc] initWithFrame:CGRectMake(_x, 0, 80*SCREEN_RADIO, 80*SCREEN_RADIO)];
             [btn1 addTarget:self action:@selector(giftClick:) forControlEvents:UIControlEventTouchUpInside];
-            btn1.tag=100;
+            btn1.tag=[[monetNumArr objectAtIndex:giftNum] integerValue];
             [_scrollView addSubview:btn1];
             
             UIButton *btn2=[[UIButton alloc] initWithFrame:CGRectMake(_x, CGRectGetMaxY(btn1.frame)+20*SCREEN_RADIO, 80*SCREEN_RADIO, 80*SCREEN_RADIO)];
             [btn2 addTarget:self action:@selector(giftClick:) forControlEvents:UIControlEventTouchUpInside];
-            btn2.tag=100;
+            btn2.tag=[[monetNumArr objectAtIndex:giftNum+1] integerValue];
             [_scrollView addSubview:btn2];
             
-            
+            giftNum+=2;
         }
     }
     
@@ -113,8 +120,8 @@
 -(UIPageControl *)pageControl{
     if (!_pageControl) {
         _pageControl = [[UIPageControl alloc] init];
-        _pageControl.frame = CGRectMake(screen_width/2, CGRectGetMaxY(self.scrollView.frame)-10*SCREEN_RADIO, 10*SCREEN_RADIO, 10*SCREEN_RADIO);//指定位置大小
-        _pageControl.numberOfPages = 7;//指定页面个数
+        _pageControl.frame = CGRectMake(screen_width/2, CGRectGetMaxY(self.scrollView.frame)-5*SCREEN_RADIO, 10*SCREEN_RADIO, 10*SCREEN_RADIO);//指定位置大小
+        _pageControl.numberOfPages = 6;//指定页面个数
         _pageControl.currentPage = 0;//指定pagecontroll的值，默认选中的小白点（第一个）
         //添加委托方法，当点击小白点就执行此方法
         _pageControl.pageIndicatorTintColor = [UIColor getColor:@"a3a3a4"];// 设置非选中页的圆点颜色
@@ -130,6 +137,28 @@
     int page = scrollView.contentOffset.x / scrollView.frame.size.width;
     // 设置页码
     _pageControl.currentPage = page;
+}
+
+-(UIImageView *)mineMoneyIcon{
+    if (!_mineMoneyIcon) {
+        _mineMoneyIcon=[[UIImageView alloc]initWithFrame:CGRectMake(10*SCREEN_RADIO, self.frame.size.height-16*SCREEN_RADIO, 11*SCREEN_RADIO, 11*SCREEN_RADIO)];
+        _mineMoneyIcon.image=[UIImage imageNamed:@"leaderboard_coin"];
+    }
+    
+    return _mineMoneyIcon;
+}
+
+
+-(UILabel *)mineMoneyLabel{
+    if (!_mineMoneyLabel) {
+        _mineMoneyLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.mineMoneyIcon.frame)+5*SCREEN_RADIO, self.frame.size.height-16*SCREEN_RADIO, 0, 12*SCREEN_RADIO)];
+        _mineMoneyLabel.text=@"5";
+        _mineMoneyLabel.textColor=[UIColor whiteColor];
+        _mineMoneyLabel.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
+        [_mineMoneyLabel sizeToFit];
+    }
+    
+    return _mineMoneyLabel;
 }
 
 

@@ -194,11 +194,13 @@
 }
 
 -(void)playwithVideoUrl:(NSString *)videoUrl withVideoIcon:(NSString *)videoIcon withUserInfo:(CGUserInfo *)userinfo{
+    
     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
     videoVC.videoIcon=videoIcon;
     videoVC.videoStr=videoUrl;
     videoVC.userInfo=userinfo;
-    [self.navigationController presentViewController:videoVC animated:NO completion:nil];
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
 

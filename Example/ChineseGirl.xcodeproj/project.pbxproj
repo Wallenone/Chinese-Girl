@@ -89,7 +89,6 @@
 		E546C1191FBEFB7A000F5127 /* CGAnswerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E546C1181FBEFB7A000F5127 /* CGAnswerModel.m */; };
 		E546C11B1FBEFBC0000F5127 /* answer.plist in Resources */ = {isa = PBXBuildFile; fileRef = E546C11A1FBEFBC0000F5127 /* answer.plist */; };
 		E546C11E1FBF1113000F5127 /* CGAnswerResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = E546C11D1FBF1113000F5127 /* CGAnswerResultView.m */; };
-		E546C1221FBF231C000F5127 /* CGVipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E546C1211FBF231C000F5127 /* CGVipViewController.m */; };
 		E546C1271FBF2496000F5127 /* CGVipTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E546C1261FBF2496000F5127 /* CGVipTableViewCell.m */; };
 		E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA591F5A9E71006C65AF /* MyCommitHeaderView.m */; };
 		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
@@ -155,6 +154,7 @@
 		E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E21BE21FCC593B00B6DF61 /* CGNewForgetViewController.m */; };
 		E5E271671FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */; };
 		E5E2716C1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */; };
+		E5E351461FE1574D00E5A7AC /* CGVipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E351451FE1574D00E5A7AC /* CGVipViewController.m */; };
 		E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E35D351F9B426600322F9D /* UICustomPickImgView.m */; };
 		E5E518321FCD97DA00919205 /* CGManageRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E518311FCD97DA00919205 /* CGManageRegisterViewController.m */; };
 		E5E518351FCDA48700919205 /* CGProfileIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E518341FCDA48700919205 /* CGProfileIndexViewController.m */; };
@@ -356,8 +356,6 @@
 		E546C11A1FBEFBC0000F5127 /* answer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = answer.plist; sourceTree = "<group>"; };
 		E546C11C1FBF1113000F5127 /* CGAnswerResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnswerResultView.h; sourceTree = "<group>"; };
 		E546C11D1FBF1113000F5127 /* CGAnswerResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnswerResultView.m; sourceTree = "<group>"; };
-		E546C1201FBF231C000F5127 /* CGVipViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVipViewController.h; sourceTree = "<group>"; };
-		E546C1211FBF231C000F5127 /* CGVipViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVipViewController.m; sourceTree = "<group>"; };
 		E546C1251FBF2496000F5127 /* CGVipTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVipTableViewCell.h; sourceTree = "<group>"; };
 		E546C1261FBF2496000F5127 /* CGVipTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVipTableViewCell.m; sourceTree = "<group>"; };
 		E54FAA581F5A9E71006C65AF /* MyCommitHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommitHeaderView.h; sourceTree = "<group>"; };
@@ -471,6 +469,8 @@
 		E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnimationIndexViewController.m; sourceTree = "<group>"; };
 		E5E2716A1FC7C1E700BA1AC1 /* CGAnimationIndexCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnimationIndexCell.h; sourceTree = "<group>"; };
 		E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnimationIndexCell.m; sourceTree = "<group>"; };
+		E5E351441FE1574D00E5A7AC /* CGVipViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVipViewController.h; sourceTree = "<group>"; };
+		E5E351451FE1574D00E5A7AC /* CGVipViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVipViewController.m; sourceTree = "<group>"; };
 		E5E35D341F9B426600322F9D /* UICustomPickImgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomPickImgView.h; sourceTree = "<group>"; };
 		E5E35D351F9B426600322F9D /* UICustomPickImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomPickImgView.m; sourceTree = "<group>"; };
 		E5E518301FCD97DA00919205 /* CGManageRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGManageRegisterViewController.h; sourceTree = "<group>"; };
@@ -846,6 +846,8 @@
 		E538D7521F429BE80079AE94 /* Index */ = {
 			isa = PBXGroup;
 			children = (
+				E5E351441FE1574D00E5A7AC /* CGVipViewController.h */,
+				E5E351451FE1574D00E5A7AC /* CGVipViewController.m */,
 				E538D7561F429BE80079AE94 /* IndexViewController.h */,
 				E538D7571F429BE80079AE94 /* IndexViewController.m */,
 				E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */,
@@ -973,8 +975,6 @@
 			children = (
 				E546C1231FBF247A000F5127 /* Cell */,
 				E546C1241FBF247A000F5127 /* View */,
-				E546C1201FBF231C000F5127 /* CGVipViewController.h */,
-				E546C1211FBF231C000F5127 /* CGVipViewController.m */,
 			);
 			path = Vip;
 			sourceTree = "<group>";
@@ -1441,6 +1441,7 @@
 				E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */,
 				E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */,
 				E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */,
+				E5E351461FE1574D00E5A7AC /* CGVipViewController.m in Sources */,
 				E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
@@ -1489,7 +1490,6 @@
 				E520D66F1FDD32C300BFB575 /* UIView+CustomControlView.m in Sources */,
 				E538D7661F429BE80079AE94 /* DriftBottleViewController.m in Sources */,
 				E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */,
-				E546C1221FBF231C000F5127 /* CGVipViewController.m in Sources */,
 				E508B1B71F714C750048C378 /* CGBottleTextView.m in Sources */,
 				E5360A711FBC6C34009DDA07 /* CGNewFriendTableViewCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
