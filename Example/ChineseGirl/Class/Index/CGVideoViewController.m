@@ -10,6 +10,7 @@
 #import "ZFPlayer.h"
 #import "MyIndexViewController.h"
 #import "CGGiftView.h"
+#import "SVProgressHUD.h"
 @interface CGVideoViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
@@ -75,12 +76,16 @@
 -(void)menuClick3{
     NSURL *url = [NSURL URLWithString:self.videoStr];
     NSString *path = url.path;
+    [SVProgressHUD show];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     //判断能不能保存到相簿
     if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
         //保存视频到相簿
         UISaveVideoAtPathToSavedPhotosAlbum(path, self,
                                             @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    }else{
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showWithStatus:@"保存失败"];
     }
     });
     
@@ -238,6 +243,8 @@
 }
 
 - (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    [SVProgressHUD dismiss];
+    [SVProgressHUD showWithStatus:@"保存视频完成"];
     NSLog(@"保存视频完成");
 }
 
