@@ -20,6 +20,8 @@
 @property(nonatomic,strong)NSMutableArray *pictures;
 @property(nonatomic,strong)NSMutableArray *picturesBig;
 @property(nonatomic,strong)NSMutableArray *messageids;  //聊天信息
+@property(nonatomic,copy)NSString *type;   //1代表图片 2代表视频
+@property(nonatomic,strong)NSMutableArray *videoUrlS;
 @property(nonatomic,assign)BOOL followed;   //是否加关注
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;

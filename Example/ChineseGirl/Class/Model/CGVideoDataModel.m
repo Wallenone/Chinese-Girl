@@ -12,8 +12,13 @@
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGVideoDataModel *model = [[CGVideoDataModel alloc]init];
     model.ids = [self filterNullString:[dic stringForKey:@"id"]];
-    model.videoIcon = [NSString stringWithFormat:@"%@%@/%@",@"https://raw.githubusercontent.com/Wallenone/service/master/Video/",model.ids,[self filterNullString:[dic stringForKey:@"videoIcon"]]];
-    model.videoUrl = [NSString stringWithFormat:@"%@%@/%@",@"https://raw.githubusercontent.com/Wallenone/service/master/Video/",model.ids,[self filterNullString:[dic stringForKey:@"videoUrl"]]];
+    NSString *videoResource=@"Video";
+    if ([model.ids integerValue]>1000) {
+        videoResource=@"Video1";
+    }
+    
+    model.videoIcon = [NSString stringWithFormat:@"https://raw.githubusercontent.com/Wallenone/service/master/%@/%@/%@",videoResource,model.ids,[self filterNullString:[dic stringForKey:@"videoIcon"]]];
+    model.videoUrl = [NSString stringWithFormat:@"https://raw.githubusercontent.com/Wallenone/service/master/%@/%@/%@",videoResource,model.ids,[self filterNullString:[dic stringForKey:@"videoUrl"]]];
     model.userId = [self filterNullString:[dic stringForKey:@"userid"]];
     model.nickName=[CGUserInfo getitemWithID:model.userId].nickname;
     return model;

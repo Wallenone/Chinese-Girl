@@ -24,6 +24,10 @@
     model.pictures = [self getPictures:[self filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
     model.picturesBig = [self getBigPictures:[self filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
     model.messageids = [self getMessageIds:[self filterNullString:[dic stringForKey:@"messageid"]]];
+    model.type = [self filterNullString:[dic stringForKey:@"type"]];
+    if ([model.type integerValue]==2){
+        model.videoUrlS=[self getVideoUrlsId:model.ids];
+    }
     return model;
 }
 
@@ -146,6 +150,16 @@
     for (NSString *messageid in array) {
         CGMessageModel *model=[CGMessageModel reloadReloadRondomIds:messageid];
         [newArr addObject:model];
+    }
+    
+    return newArr;
+}
+
++(NSMutableArray *)getVideoUrlsId:(NSString *)ids{
+    NSMutableArray *newArr=[NSMutableArray new];
+    for (int i=1; i<=3; i++) {
+        NSString *videoUrl= [NSString stringWithFormat:@"%@%@%@%@%d%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",@"V",i,@".mp4"];
+        [newArr addObject:videoUrl];
     }
     
     return newArr;

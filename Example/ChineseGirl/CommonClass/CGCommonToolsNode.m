@@ -14,9 +14,9 @@
         return nil;
     }
     
-    if (abs(endNum - startNum) > count) {
-        return nil;
-    }
+//    if (abs(endNum - startNum) > count) {
+//        return nil;
+//    }
     
     NSMutableArray * data = [[NSMutableArray alloc] init];
     for (int i = 0; i < count; i ++) {

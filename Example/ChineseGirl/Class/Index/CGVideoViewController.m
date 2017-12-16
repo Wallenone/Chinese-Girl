@@ -14,7 +14,7 @@
 #import "CGVipViewController.h"
 #import "NewsMessageController.h"
 #import "MyIndexViewController.h"
-@interface CGVideoViewController ()
+@interface CGVideoViewController ()<ZFPlayerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
 @property(nonatomic,strong)UILabel *nickName;
@@ -117,7 +117,7 @@
     [self.headerView addSubview:self.nickName];
     [self.headerView addSubview:self.numLook];
     
-    [self.view addSubview:self.closeBtn];
+   // [self.view addSubview:self.closeBtn];
     [self.view addSubview:self.menuBtn1];
     [self.view addSubview:self.menuBtn2];
     [self.view addSubview:self.menuBtn3];
@@ -139,8 +139,9 @@
     // model
     ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
     playerModel.fatherView=self.view;
-    playerModel.videoURL = [NSURL URLWithString:@"https://raw.githubusercontent.com/Wallenone/service/master/test.mp4"];
+    playerModel.videoURL = [NSURL URLWithString:self.videoStr];
     [self.playerView playerControlView:controlView playerModel:playerModel];
+    self.playerView.delegate=self;
     // delegate
     [self.playerView.screenImgView sd_setImageWithURL:[NSURL URLWithString:self.videoIcon]];
     self.playerView.playerLayerGravity=ZFPlayerLayerGravityResize;
@@ -199,7 +200,7 @@
     if (!_closeBtn) {
         _closeBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-30*SCREEN_RADIO, 30*SCREEN_RADIO, 14*SCREEN_RADIO, 14*SCREEN_RADIO)];
         [_closeBtn setImage:[UIImage imageNamed:@"closeShape"] forState:UIControlStateNormal];
-        [_closeBtn addTarget:self action:@selector(closeClick) forControlEvents:UIControlEventTouchUpInside];
+       // [_closeBtn addTarget:self action:@selector(closeClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _closeBtn;
@@ -258,6 +259,10 @@
     [SVProgressHUD dismiss];
     [SVProgressHUD showWithStatus:@"保存视频完成"];
     NSLog(@"保存视频完成");
+}
+
+- (void)zf_playerBackAction{
+    [self closeClick];
 }
 
 @end

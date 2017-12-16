@@ -96,12 +96,12 @@
 		E5527AC31FDB80970077D8B8 /* CGGlobalTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */; };
 		E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */; };
 		E55DF4BF1FBB315100E5215E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55DF4BE1FBB315100E5215E /* CoreLocation.framework */; };
+		E5651D261FE55B000051346D /* userInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5651D251FE55AFF0051346D /* userInfo.plist */; };
 		E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E568260F1F9E275A0099F363 /* MineProfileInfoViewController.m */; };
 		E56826131F9E31130099F363 /* MineAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56826121F9E31130099F363 /* MineAccountViewController.m */; };
 		E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56826151F9E32600099F363 /* MinePasswordViewController.m */; };
 		E5795BD71FC472A800DB393B /* CGVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5795BD61FC472A800DB393B /* CGVideoViewController.m */; };
 		E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E581D53D1F66987A00FD9A28 /* ShapedImageView.m */; };
-		E58BB88E1FC1A0F800127B45 /* userInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58BB88D1FC1A0F800127B45 /* userInfo.plist */; };
 		E58F28831FC304C900DFAB8E /* index.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58F28821FC304C900DFAB8E /* index.plist */; };
 		E58F28871FC30D7400DFAB8E /* XLVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58F28851FC30D7300DFAB8E /* XLVideoCell.m */; };
 		E590550C1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E590550B1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m */; };
@@ -133,6 +133,7 @@
 		E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960861F93507500EB654A /* MySettingTableViewCell.m */; };
 		E5C9608E1F935F8900EB654A /* MineSettingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C9608D1F935F8900EB654A /* MineSettingTextView.m */; };
 		E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C960901F93622700EB654A /* MineSettingTextViewController.m */; };
+		E5CA90B81FE520BB0019B09E /* videoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5CA90B71FE520BA0019B09E /* videoData.plist */; };
 		E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */; };
 		E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D04A4E1F68099600844B2F /* icon_bubble_right.png */; };
 		E5D291931FC5A96C003718CB /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D291921FC5A96C003718CB /* Billabong.ttf */; };
@@ -162,7 +163,6 @@
 		E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */; };
 		E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */; };
 		E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */; };
-		E5F542801FC8579A00262DCE /* videoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5F5427F1FC8579900262DCE /* videoData.plist */; };
 		E5F542831FC857BD00262DCE /* CGVideoDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F542821FC857BD00262DCE /* CGVideoDataModel.m */; };
 		E5F999BF1FCEDDC800C47C60 /* CGEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F999BE1FCEDDC800C47C60 /* CGEditProfileViewController.m */; };
 		E5F999C51FCEEC8000C47C60 /* CGFavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F999C41FCEEC8000C47C60 /* CGFavoriteView.m */; };
@@ -369,6 +369,7 @@
 		E55DF4BB1FBB2F2600E5215E /* CGLocationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLocationTableViewCell.h; sourceTree = "<group>"; };
 		E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGLocationTableViewCell.m; sourceTree = "<group>"; };
 		E55DF4BE1FBB315100E5215E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E5651D251FE55AFF0051346D /* userInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userInfo.plist; sourceTree = "<group>"; };
 		E568260E1F9E275A0099F363 /* MineProfileInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineProfileInfoViewController.h; sourceTree = "<group>"; };
 		E568260F1F9E275A0099F363 /* MineProfileInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineProfileInfoViewController.m; sourceTree = "<group>"; };
 		E56826111F9E31130099F363 /* MineAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineAccountViewController.h; sourceTree = "<group>"; };
@@ -379,7 +380,6 @@
 		E5795BD61FC472A800DB393B /* CGVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVideoViewController.m; sourceTree = "<group>"; };
 		E581D53C1F66987A00FD9A28 /* ShapedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapedImageView.h; sourceTree = "<group>"; };
 		E581D53D1F66987A00FD9A28 /* ShapedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapedImageView.m; sourceTree = "<group>"; };
-		E58BB88D1FC1A0F800127B45 /* userInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userInfo.plist; sourceTree = "<group>"; };
 		E58F28821FC304C900DFAB8E /* index.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = index.plist; sourceTree = "<group>"; };
 		E58F28841FC30D7300DFAB8E /* XLVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLVideoCell.h; sourceTree = "<group>"; };
 		E58F28851FC30D7300DFAB8E /* XLVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLVideoCell.m; sourceTree = "<group>"; };
@@ -436,6 +436,7 @@
 		E5C9608D1F935F8900EB654A /* MineSettingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextView.m; sourceTree = "<group>"; };
 		E5C9608F1F93622700EB654A /* MineSettingTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSettingTextViewController.h; sourceTree = "<group>"; };
 		E5C960901F93622700EB654A /* MineSettingTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSettingTextViewController.m; sourceTree = "<group>"; };
+		E5CA90B71FE520BA0019B09E /* videoData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = videoData.plist; sourceTree = "<group>"; };
 		E5D04A4C1F68097A00844B2F /* icon_bubble_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_left.png; sourceTree = "<group>"; };
 		E5D04A4E1F68099600844B2F /* icon_bubble_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bubble_right.png; sourceTree = "<group>"; };
 		E5D291921FC5A96C003718CB /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
@@ -485,7 +486,6 @@
 		E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginIndexView.m; sourceTree = "<group>"; };
 		E5F0A3F01F5803860051699B /* CGLoginIndexCustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginIndexCustomTextField.h; sourceTree = "<group>"; };
 		E5F0A3F11F5803860051699B /* CGLoginIndexCustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginIndexCustomTextField.m; sourceTree = "<group>"; };
-		E5F5427F1FC8579900262DCE /* videoData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = videoData.plist; sourceTree = "<group>"; };
 		E5F542811FC857BD00262DCE /* CGVideoDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVideoDataModel.h; sourceTree = "<group>"; };
 		E5F542821FC857BD00262DCE /* CGVideoDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVideoDataModel.m; sourceTree = "<group>"; };
 		E5F999BD1FCEDDC800C47C60 /* CGEditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGEditProfileViewController.h; sourceTree = "<group>"; };
@@ -591,17 +591,17 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5651D251FE55AFF0051346D /* userInfo.plist */,
+				E5CA90B71FE520BA0019B09E /* videoData.plist */,
 				E5FC800A1FC9BCC60094615B /* qidong.mp4 */,
 				E5D291921FC5A96C003718CB /* Billabong.ttf */,
 				E5B2A24C1FD8072B006F57AD /* message.plist */,
 				E5046F6F1FD298A90061E608 /* shuoshuo.plist */,
-				E5F5427F1FC8579900262DCE /* videoData.plist */,
 				E58F28821FC304C900DFAB8E /* index.plist */,
 				E5BD33831FBFEBE300C8FE94 /* indexmend.plist */,
 				E546C11A1FBEFBC0000F5127 /* answer.plist */,
 				E5360A721FBC777C009DDA07 /* addFriends.plist */,
 				E5C0CD661FB80BEB002394C9 /* pinglun.plist */,
-				E58BB88D1FC1A0F800127B45 /* userInfo.plist */,
 				E5C0CD651FB80BEB002394C9 /* pinglunren.plist */,
 				E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */,
 				E5D9F0311FB2E2D400DAEB7A /* ENCity.plist */,
@@ -1317,14 +1317,13 @@
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
 				E511CB241FB005EF006BA362 /* Localizable.strings in Resources */,
 				E5360A731FBC777C009DDA07 /* addFriends.plist in Resources */,
-				E58BB88E1FC1A0F800127B45 /* userInfo.plist in Resources */,
 				E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */,
 				E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */,
 				E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */,
 				E58F28831FC304C900DFAB8E /* index.plist in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				E5651D261FE55B000051346D /* userInfo.plist in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				E5F542801FC8579A00262DCE /* videoData.plist in Resources */,
 				E546C11B1FBEFBC0000F5127 /* answer.plist in Resources */,
 				E520D6741FDD32C300BFB575 /* ZFPlayer.bundle in Resources */,
 				E5E0FE4F1F9AF15700B5228E /* 返回@3x.png in Resources */,
@@ -1340,6 +1339,7 @@
 				E5C0CD6A1FB80BEC002394C9 /* pinglun.plist in Resources */,
 				E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */,
 				E5BD33841FBFEBE400C8FE94 /* indexmend.plist in Resources */,
+				E5CA90B81FE520BB0019B09E /* videoData.plist in Resources */,
 				E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */,
 				E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */,
 			);
