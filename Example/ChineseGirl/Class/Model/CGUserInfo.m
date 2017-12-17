@@ -39,7 +39,7 @@
     NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
     for (NSString *ids in newarr1) {
         CGUserInfo *userInfoModel=[self modelWithDic:[data1 objectAtIndex:[ids integerValue]]];
-        [newData addObject:userInfoModel];
+        [newData addObject:userInfoModel.ids];
     }
     
     return newData;

@@ -257,10 +257,11 @@
                 CGIndexModel *indexModel=(CGIndexModel *)cellData;
                 if ([indexModel.type integerValue]==2) {
                     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+                    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
                     videoVC.videoIcon=indexModel.videoPicUrl;
                     videoVC.videoStr=indexModel.videoUrl;
                     videoVC.userInfo=indexModel.userInfo;
-                    [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
+                    [weakSelf.navigationController presentViewController:nav animated:NO completion:nil];
                 }
             }
         }];

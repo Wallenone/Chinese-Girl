@@ -10,6 +10,7 @@
 #import "CGVideoDataModel.h"
 #import "MyIndexViewController.h"
 #import "CGVideoViewController.h"
+#import "CGUserInfo.h"
 @interface WSCollectionHeaderCell()
 @property(nonatomic,strong)UIScrollView *scrollViewPointView;
 @property(nonatomic,strong)NSArray *indexMendArr;
@@ -72,8 +73,11 @@
     CGVideoDataModel *indexMend=[self.indexMendArr objectAtIndex:index];
     
     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
-    videoVC.videoStr=indexMend.videoUrl;
-    [[self getCurrentVC].navigationController presentViewController:videoVC animated:NO completion:nil];
+    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+    videoVC.videoIcon=indexMend.videoIcon;
+    videoVC.videoStr=indexMend.videoUrl;;
+    videoVC.userInfo=[CGUserInfo getitemWithID:indexMend.userId];
+    [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
 }
 
 -(UIScrollView *)scrollViewPointView{

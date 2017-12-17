@@ -9,6 +9,8 @@
 #import "CGNewFriendTableViewCell.h"
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
+#import "CGUserInfo.h"
+#import "CGVideoViewController.h"
 @interface CGNewFriendTableViewCell(){
     AddFriendClickBlock addFriendClickBlock;
 }
@@ -37,12 +39,12 @@
 }
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGUserInfo *)commitModel withAddFriendBlock:(AddFriendClickBlock)block{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSString *)userid withAddFriendBlock:(AddFriendClickBlock)block{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
-        self.addModel=commitModel;
+        self.addModel=[CGUserInfo getitemWithID:userid];
         addFriendClickBlock=block;
         [self creatSubView];
     }
@@ -74,15 +76,43 @@
 }
 
 -(void)ImgClick1{
-    [self setCheckPhotos:0];
+    if ([self.addModel.type integerValue]==1) {
+        [self setCheckPhotos:0];
+    }else if ([self.addModel.type integerValue]==2){
+        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+        UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+        videoVC.videoIcon=self.addModel.picturesBig[0];
+        videoVC.videoStr=self.addModel.videoUrlS[0];
+        videoVC.userInfo=self.addModel;
+        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    }
+    
 }
 
 -(void)ImgClick2{
-    [self setCheckPhotos:1];
+    if ([self.addModel.type integerValue]==1) {
+        [self setCheckPhotos:1];
+    }else if ([self.addModel.type integerValue]==2){
+        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+        UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+        videoVC.videoIcon=self.addModel.picturesBig[1];
+        videoVC.videoStr=self.addModel.videoUrlS[1];
+        videoVC.userInfo=self.addModel;
+        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 -(void)ImgClick3{
-    [self setCheckPhotos:2];
+    if ([self.addModel.type integerValue]==1) {
+        [self setCheckPhotos:2];
+    }else if ([self.addModel.type integerValue]==2){
+        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+        UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+        videoVC.videoIcon=self.addModel.picturesBig[2];
+        videoVC.videoStr=self.addModel.videoUrlS[2];
+        videoVC.userInfo=self.addModel;
+        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 -(void)setCheckPhotos:(NSInteger)_tag{
@@ -163,8 +193,12 @@
 -(UIImageView *)contentImg1{
     if (!_contentImg1) {
         _contentImg1=[[UIImageView alloc] initWithFrame:CGRectMake(1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
-        _contentImg1.image=[UIImage imageNamed:@""];
         [_contentImg1 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:0]]];
+        if ([self.addModel.type integerValue]==2) {
+            UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
+            playView.image=[UIImage imageNamed:@"smallPlayVideo"];
+            [_contentImg1 addSubview:playView];
+        }
     }
     
     return _contentImg1;
@@ -174,6 +208,7 @@
     if (!_contentBtn1) {
         _contentBtn1=[[UIButton alloc] initWithFrame:CGRectMake(1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentBtn1 addTarget:self action:@selector(ImgClick1) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     
     return _contentBtn1;
@@ -183,6 +218,12 @@
     if (!_contentImg2) {
         _contentImg2=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg1.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentImg2 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:1]]];
+        if ([self.addModel.type integerValue]==2) {
+            UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
+            playView.image=[UIImage imageNamed:@"smallPlayVideo"];
+            [_contentImg2 addSubview:playView];
+        }
+        
     }
     
     return _contentImg2;
@@ -201,6 +242,11 @@
     if (!_contentImg3) {
         _contentImg3=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg2.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentImg3 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:2]]];
+        if ([self.addModel.type integerValue]==2) {
+            UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
+            playView.image=[UIImage imageNamed:@"smallPlayVideo"];
+            [_contentImg3 addSubview:playView];
+        }
     }
     
     return _contentImg3;
@@ -213,5 +259,44 @@
     }
     
     return _contentBtn3;
+}
+
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC
+{
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
+    
+    return currentVC;
+}
+
+- (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC
+{
+    UIViewController *currentVC;
+    
+    if ([rootVC presentedViewController]) {
+        // 视图是被presented出来的
+        
+        rootVC = [rootVC presentedViewController];
+    }
+    
+    if ([rootVC isKindOfClass:[UITabBarController class]]) {
+        // 根视图为UITabBarController
+        
+        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
+        
+    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
+        // 根视图为UINavigationController
+        
+        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
+        
+    } else {
+        // 根视图为非导航类
+        
+        currentVC = rootVC;
+    }
+    
+    return currentVC;
 }
 @end
