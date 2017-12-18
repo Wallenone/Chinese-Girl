@@ -10,8 +10,8 @@
 @implementation CGPinglunModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGPinglunModel *model = [[CGPinglunModel alloc]init];
-    model.ids = [self filterNullString:[dic stringForKey:@"id"]];
-    model.content = [self filterNullString:[dic stringForKey:@"content"]];
+    model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
+    model.content = [CGCommonString filterNullString:[dic stringForKey:@"content"]];
     return model;
 }
 
@@ -27,14 +27,4 @@
     return newData;
 }
 
-
-
-+(NSString *)filterNullString:(NSString *)str{
-    NSString *filterStr=str;
-    BOOL filterState= [CGCommonString isBlankString:str];
-    if (filterState) {
-        filterStr=@"";
-    }
-    return filterStr;
-}
 @end

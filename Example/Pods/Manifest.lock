@@ -1,7 +1,7 @@
 PODS:
   - ChineseGirl (0.1.0)
   - FLAnimatedImage (1.0.12)
-  - IQKeyboardManager (5.0.6)
+  - IQKeyboardManager (5.0.7)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.1)
   - NSDictionary+Accessors (1.0.0)
@@ -10,7 +10,7 @@ PODS:
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
   - SVProgressHUD (2.2.2)
-  - UICommonTools (0.1.5)
+  - UICommonTools (0.1.7)
   - UIFastTabBarController (0.1.1)
   - UIFastTableView (0.2.4):
     - MJRefresh
@@ -18,6 +18,8 @@ PODS:
   - WJFastScrollViewPoint (0.1.1):
     - SDWebImage
   - WJGlobalTimer (0.2.0)
+  - WJPlayer (0.1.8):
+    - Masonry
 
 DEPENDENCIES:
   - ChineseGirl (from `../`)
@@ -33,6 +35,7 @@ DEPENDENCIES:
   - WJFastDialogView
   - WJFastScrollViewPoint
   - WJGlobalTimer
+  - WJPlayer
 
 EXTERNAL SOURCES:
   ChineseGirl:
@@ -41,20 +44,21 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   ChineseGirl: 074949ea06d312a68609792afc54536f65dd0790
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  IQKeyboardManager: 077b7f691dfa9d69db9cff66f2bed68ebfc02d9b
+  IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   NSDictionary+Accessors: 5c453c028da416525428c938602c7c96704a9bbc
   RouterManager: 5fae26a349743cefff30c44336c500169d8ac30c
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
-  UICommonTools: c350277b466f42df531b33fe25c47d47af436d7e
+  UICommonTools: 4f791c270beafaf71b94732d6eca94ef3ed02a56
   UIFastTabBarController: 88a01f27ff0eaca1277622c2fffcd5881447f2ab
   UIFastTableView: 24c8b333bc3ed3abb719c9af94c73e997b5ffb2d
   WJFastDialogView: f376833e8c248066ec04626421e4539e9c1233d5
   WJFastScrollViewPoint: 1cdba392da20c0b9cb1f4a2b61af24d78a75e312
   WJGlobalTimer: 2f535bce28acf0ebded89ea69393f58752cb3702
+  WJPlayer: 253258eb73888aee1a40973f0e3d217bab95c5d4
 
-PODFILE CHECKSUM: 8024729481197255675049c62556051f77794b0c
+PODFILE CHECKSUM: 7094987668021190fb3c3c420fb45c6a2ec3944c
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

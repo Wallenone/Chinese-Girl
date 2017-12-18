@@ -13,18 +13,18 @@
 @implementation CGUserInfo
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGUserInfo *model = [[CGUserInfo alloc]init];
-    model.ids = [self filterNullString:[dic stringForKey:@"id"]];
-    model.nickname = [self filterNullString:[dic stringForKey:@"nickname"]];
-    model.sex = [self filterNullString:[dic stringForKey:@"sex"]];
-    model.birthday = [self filterNullString:[dic stringForKey:@"birthday"]];
-    model.aboutus = [self filterNullString:[dic stringForKey:@"aboutus"]];
-    model.avater = [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.ids,@"/Enclosure/",[self filterNullString:[dic stringForKey:@"avater"]]];
-    model.address = [NSString stringWithFormat:@"China,%@",[self filterNullString:[dic stringForKey:@"city"]]] ;
+    model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
+    model.nickname = [CGCommonString filterNullString:[dic stringForKey:@"nickname"]];
+    model.sex = [CGCommonString filterNullString:[dic stringForKey:@"sex"]];
+    model.birthday = [CGCommonString filterNullString:[dic stringForKey:@"birthday"]];
+    model.aboutus = [CGCommonString filterNullString:[dic stringForKey:@"aboutus"]];
+    model.avater = [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.ids,@"/Enclosure/",[CGCommonString filterNullString:[dic stringForKey:@"avater"]]];
+    model.address = [NSString stringWithFormat:@"China,%@",[CGCommonString filterNullString:[dic stringForKey:@"city"]]] ;
     model.bigAvater = [self getBigAvater:model.avater withIds:model.ids];
-    model.pictures = [self getPictures:[self filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
-    model.picturesBig = [self getBigPictures:[self filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
-    model.messageids = [self getMessageIds:[self filterNullString:[dic stringForKey:@"messageid"]]];
-    model.type = [self filterNullString:[dic stringForKey:@"type"]];
+    model.pictures = [self getPictures:[CGCommonString filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
+    model.picturesBig = [self getBigPictures:[CGCommonString filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
+    model.messageids = [self getMessageIds:[CGCommonString filterNullString:[dic stringForKey:@"messageid"]]];
+    model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     if ([model.type integerValue]==2){
         model.videoUrlS=[self getVideoUrlsId:model.ids];
     }
@@ -48,7 +48,7 @@
 +(void)getTableRondomNewsUser{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userInfo" ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    int _userid=[CGCommonString getRandomNumber:0 to:(int)data1.count-1];
+    int _userid=[CGCommonToolsNode getRandomNumber:0 to:(int)data1.count-1];
     
     if([[CGSingleCommitData sharedInstance].userListDataArr containsObject:[NSString stringWithFormat:@"%d",_userid]]){
        // [self getTableRondomNewsUser];//todo 这个地方后期需要改善
@@ -165,12 +165,4 @@
     return newArr;
 }
 
-+(NSString *)filterNullString:(NSString *)str{
-    NSString *filterStr=str;
-    BOOL filterState= [CGCommonString isBlankString:str];
-    if (filterState) {
-        filterStr=@"";
-    }
-    return filterStr;
-}
 @end

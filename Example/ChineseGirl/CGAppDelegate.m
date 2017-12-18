@@ -7,8 +7,6 @@
 //
 
 #import "CGAppDelegate.h"
-#import "RootTabBarController.h"
-#import "WSMovieController.h"
 #import "LCTabBarController.h"
 #import "IndexViewController.h"
 #import "DriftBottleViewController.h"
@@ -22,7 +20,6 @@
 #import "NSObject+NSLocalNotification.h"
 #import "CGFriendsViewcontroller.h"
 #import "CGAnimationIndexViewController.h"
-#import "RootNavController.h"
 #import "CGLoginViewController.h"
 #import "CGNewIndexViewController.h"
 #import "CGManageRegisterViewController.h"

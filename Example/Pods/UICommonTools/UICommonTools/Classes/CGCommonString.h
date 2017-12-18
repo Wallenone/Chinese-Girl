@@ -11,7 +11,6 @@
 @interface CGCommonString : NSObject
 +(NSString *)filterNullString:(NSString *)str;
 + (BOOL) isBlankString:(NSString *)string;
-+ (NSArray *)genertateRandomNumberStartNum:(int)startNum endNum:(int)endNum count:(int)count;
-+ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
-+(int)getRandomNumber:(int)from to:(int)to;
++ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;  //取出一个视频中某个时间中的缩略图
+
 @end

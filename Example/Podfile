@@ -15,4 +15,5 @@ target 'ChineseGirl_Example' do
   # pod 'ZFPlayer'
   pod 'WJGlobalTimer'
   pod 'Masonry'
+  pod 'WJPlayer'
 end

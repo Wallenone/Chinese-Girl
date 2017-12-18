@@ -11,9 +11,9 @@
 @implementation CGMessageModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGMessageModel *model = [[CGMessageModel alloc]init];
-    model.ids = [self filterNullString:[dic stringForKey:@"id"]];;
-    model.type= [self filterNullString:[dic stringForKey:@"type"]];
-    model.message = [self filterNullString:[dic stringForKey:@"message"]];
+    model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];;
+    model.type= [CGCommonString filterNullString:[dic stringForKey:@"type"]];
+    model.message = [CGCommonString filterNullString:[dic stringForKey:@"message"]];
     model.message_radio = @"";
     model.message_Bigpicture = @"";
     model.message_videoUrl = @"";
@@ -47,14 +47,5 @@
 }
 
 
-
-+(NSString *)filterNullString:(NSString *)str{
-    NSString *filterStr=str;
-    BOOL filterState= [CGCommonString isBlankString:str];
-    if (filterState) {
-        filterStr=@"";
-    }
-    return filterStr;
-}
 @end
 

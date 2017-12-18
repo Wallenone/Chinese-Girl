@@ -14,18 +14,18 @@
 @implementation CGIndexModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGIndexModel *model = [[CGIndexModel alloc]init];
-    model.ids = [self filterNullString:[dic stringForKey:@"id"]];
-    model.month = [self filterNullString:[dic stringForKey:@"month"]];
+    model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
+    model.month = [CGCommonString filterNullString:[dic stringForKey:@"month"]];
     model.icon =[CGUserInfo getitemWithID:model.ids].avater;
     model.nickName =[CGUserInfo getitemWithID:model.ids].nickname;
     model.birthday =[CGUserInfo getitemWithID:model.ids].birthday;
     model.toContent =[NSString stringWithFormat:@"%@个月后去%@",model.month,[CGSingleCommitData sharedInstance].cityName];
     model.address =[CGUserInfo getitemWithID:model.ids].address;
-    model.type = [self filterNullString:[dic stringForKey:@"type"]];
-    model.videoid=[self filterNullString:[dic stringForKey:@"videoid"]];
+    model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
+    model.videoid=[CGCommonString filterNullString:[dic stringForKey:@"videoid"]];
     model.userInfo=[CGUserInfo getitemWithID:model.ids];
     if ([model.type integerValue]==1) {
-        model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"bigIcon"]] withId:model.ids];
+        model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"bigIcon"]] withId:model.ids];
         model.videoPicUrl=@"";
         model.videoUrl=@"";
     }else if ([model.type integerValue]==2){
@@ -69,15 +69,6 @@
 }
 
 
-+(NSString *)filterNullString:(NSString *)str{
-    NSString *filterStr=str;
-    BOOL filterState= [CGCommonString isBlankString:str];
-    if (filterState) {
-        filterStr=@"";
-    }
-    return filterStr;
-}
-
 +(NSArray *)getBigFromString:(NSString *)string withId:(NSString *)ids{
     NSArray *array = [string componentsSeparatedByString:@"/"];
     NSMutableArray *newArr=[NSMutableArray new];
@@ -88,27 +79,6 @@
         [newArr addObject:newIcon];
     }
     return newArr;
-}
-
-+ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
-    
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
-    NSParameterAssert(asset);
-    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
-    assetImageGenerator.appliesPreferredTrackTransform = YES;
-    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
-    
-    CGImageRef thumbnailImageRef = NULL;
-    CFTimeInterval thumbnailImageTime = time;
-    NSError *thumbnailImageGenerationError = nil;
-    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
-    
-    if(!thumbnailImageRef)
-        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
-    
-    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
-    
-    return thumbnailImage;
 }
 
 

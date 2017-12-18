@@ -14,22 +14,22 @@
 @implementation CGShuoShuo
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGShuoShuo *model = [[CGShuoShuo alloc]init];
-    model.ids = [self filterNullString:[dic stringForKey:@"id"]];
-    model.videoid=[self filterNullString:[dic stringForKey:@"videoid"]];
-    model.sort = [self filterNullString:[dic stringForKey:@"sort"]];
-    model.content = [self filterNullString:[dic stringForKey:@"content"]];
-    model.pictures =  [self getFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
-   // model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
-    model.pinglunid = [self getPinglunids:[self filterNullString:[dic stringForKey:@"pinglunid"]]];
+    model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
+    model.videoid=[CGCommonString filterNullString:[dic stringForKey:@"videoid"]];
+    model.sort = [CGCommonString filterNullString:[dic stringForKey:@"sort"]];
+    model.content = [CGCommonString filterNullString:[dic stringForKey:@"content"]];
+    model.pictures =  [self getFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
+   // model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
+    model.pinglunid = [self getPinglunids:[CGCommonString filterNullString:[dic stringForKey:@"pinglunid"]]];
     model.icon= [CGUserInfo getitemWithID:model.ids].avater;
     model.nickName = [CGUserInfo getitemWithID:model.ids].nickname;
     model.timeDate = @"1999-09-09";
-    model.likes= [self filterNullString:[dic stringForKey:@"likes"]];
-    model.comments= [self filterNullString:[dic stringForKey:@"comments"]];
+    model.likes= [CGCommonString filterNullString:[dic stringForKey:@"likes"]];
+    model.comments= [CGCommonString filterNullString:[dic stringForKey:@"comments"]];
     model.address= [CGUserInfo getitemWithID:model.ids].address;
-    model.type = [self filterNullString:[dic stringForKey:@"type"]];
+    model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     if ([model.type integerValue]==1) {
-        model.pictureBigs = [self getBigFromString:[self filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
+        model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
         model.videoUrl = @"";
         model.videoPicUrl=@"";
     }else if ([model.type integerValue]==2){
@@ -110,11 +110,11 @@
     NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
     for (NSString *ids in newarr1) {
         NSDictionary *model=[data1 objectAtIndex:[ids integerValue]];
-        NSString *ids=[self filterNullString:[model stringForKey:@"id"]];
-        NSString *month=[NSString stringWithFormat:@"%d",[self getRandomNumber:1 to:3]];
-        NSString *bigIcon=[self filterNullString:[model stringForKey:@"imgs"]];
-        NSString *type=[self filterNullString:[model stringForKey:@"type"]];
-        NSString *videoid=[self filterNullString:[model stringForKey:@"videoid"]];
+        NSString *ids=[CGCommonString filterNullString:[model stringForKey:@"id"]];
+        NSString *month=[NSString stringWithFormat:@"%d",[CGCommonToolsNode getRandomNumber:1 to:3]];
+        NSString *bigIcon=[CGCommonString filterNullString:[model stringForKey:@"imgs"]];
+        NSString *type=[CGCommonString filterNullString:[model stringForKey:@"type"]];
+        NSString *videoid=[CGCommonString filterNullString:[model stringForKey:@"videoid"]];
         NSDictionary *newModel=@{@"id":ids,@"month":month,@"bigIcon":bigIcon,@"type":type,@"videoid":videoid};
         
         CGIndexModel *indexModel=[CGIndexModel modelWithDic:newModel];
@@ -158,38 +158,4 @@
     return newArr;
 }
 
-+(NSString *)filterNullString:(NSString *)str{
-    NSString *filterStr=str;
-    BOOL filterState= [CGCommonString isBlankString:str];
-    if (filterState) {
-        filterStr=@"";
-    }
-    return filterStr;
-}
-
-+ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
-    
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
-    NSParameterAssert(asset);
-    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
-    assetImageGenerator.appliesPreferredTrackTransform = YES;
-    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
-    
-    CGImageRef thumbnailImageRef = NULL;
-    CFTimeInterval thumbnailImageTime = time;
-    NSError *thumbnailImageGenerationError = nil;
-    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
-    
-    if(!thumbnailImageRef)
-        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
-    
-    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
-    
-    return thumbnailImage;
-}
-
-+(int)getRandomNumber:(int)from to:(int)to
-{
-    return (int)(from + (arc4random() % (to-from + 1)));
-}
 @end
