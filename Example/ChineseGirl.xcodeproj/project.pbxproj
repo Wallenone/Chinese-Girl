@@ -41,6 +41,7 @@
 		E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DB1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m */; };
 		E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */; };
 		E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */; };
+		E52E450D1FE7F54400C4B8C2 /* CGGoldCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */; };
 		E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */; };
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
 		E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */; };
@@ -240,6 +241,8 @@
 		E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentModel.m; sourceTree = "<group>"; };
 		E5260ED81F69698E001824F1 /* CGPickBottleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPickBottleContentView.h; sourceTree = "<group>"; };
 		E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPickBottleContentView.m; sourceTree = "<group>"; };
+		E52E450B1FE7F54400C4B8C2 /* CGGoldCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGoldCoinViewController.h; sourceTree = "<group>"; };
+		E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGoldCoinViewController.m; sourceTree = "<group>"; };
 		E534E1BD1FBBDF9A00F4962E /* CGFriendsViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFriendsViewcontroller.h; sourceTree = "<group>"; };
 		E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFriendsViewcontroller.m; sourceTree = "<group>"; };
 		E534E1C01FBBDF9A00F4962E /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
@@ -754,6 +757,8 @@
 				E5795BD61FC472A800DB393B /* CGVideoViewController.m */,
 				E50FA8C71FE01F190040559A /* CGGiftView.h */,
 				E50FA8C81FE01F190040559A /* CGGiftView.m */,
+				E52E450B1FE7F54400C4B8C2 /* CGGoldCoinViewController.h */,
+				E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */,
 				E538D7531F429BE80079AE94 /* cell */,
 				E538D7581F429BE80079AE94 /* Model */,
 				E538D75B1F429BE80079AE94 /* View */,
@@ -1343,6 +1348,7 @@
 				E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */,
 				E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */,
 				E504AB951F507C0100E1F48C /* MJPhotoLoadingView.m in Sources */,
+				E52E450D1FE7F54400C4B8C2 /* CGGoldCoinViewController.m in Sources */,
 				E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */,
 				E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */,
 				E5C960911F93622700EB654A /* MineSettingTextViewController.m in Sources */,

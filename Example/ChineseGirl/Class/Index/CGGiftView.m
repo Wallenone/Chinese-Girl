@@ -9,6 +9,7 @@
 #import "CGGiftView.h"
 @interface CGGiftView ()<UIScrollViewDelegate>{
     NSArray *monetNumArr;
+    BuyGiftClickBlock buyGiftClickBlock;
 }
 @property(nonatomic,strong)UIScrollView *scrollView;
 @property(nonatomic,strong)UIPageControl *pageControl;
@@ -18,11 +19,11 @@
 
 @implementation CGGiftView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame withBuyBlock:(BuyGiftClickBlock)block
 {
     self = [super initWithFrame:frame];
     if (self) {
-        monetNumArr=@[@"99",@"10",@"30",@"30",@"30",@"30",@"30",@"30",@"40",@"80",@"30",@"50",@"30",@"90",@"100",@"30",@"30",@"120",@"300",@"300",@"300",@"150",@"500",@"300",@"300",@"500",@"500",@"499",@"300",@"600",@"700",@"500",@"600",@"800",@"400",@"900",@"470",@"700",@"400",@"999",@"4999",@"4999",@"8888",@"9999",@"19999",@"50000",@"66666",@"88888"];
+        buyGiftClickBlock=block; monetNumArr=@[@"99",@"10",@"30",@"30",@"30",@"30",@"30",@"30",@"40",@"80",@"30",@"50",@"30",@"90",@"100",@"30",@"30",@"120",@"300",@"300",@"300",@"150",@"500",@"300",@"300",@"500",@"500",@"499",@"300",@"600",@"700",@"500",@"600",@"800",@"400",@"900",@"470",@"700",@"400",@"999",@"4999",@"4999",@"8888",@"9999",@"19999",@"50000",@"66666",@"88888"];
         self.backgroundColor=[UIColor colorWithRed:29/255 green:28/255 blue:30/255 alpha:0.9];
         [self addSubViews];
     }
@@ -38,6 +39,9 @@
 
 -(void)giftClick:(UIButton *)sender{
     NSLog(@"需要%ld元钱",(long)sender.tag);
+    if (buyGiftClickBlock) {
+        buyGiftClickBlock([NSString stringWithFormat:@"%ld",(long)sender.tag]);
+    }
 }
 
 -(UIView *)setGiftItemWithImgView:(NSString *)img withTwoImgView:(NSString *)img2 withItemMoneyNum:(NSString *)num withItemMoneyNum2:(NSString *)num2 withX:(CGFloat)frame_x withY:(CGFloat)frame_y{

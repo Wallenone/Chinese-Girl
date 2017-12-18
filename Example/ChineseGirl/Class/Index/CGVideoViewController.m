@@ -14,6 +14,7 @@
 #import "CGVipViewController.h"
 #import "NewsMessageController.h"
 #import "MyIndexViewController.h"
+#import "CGGoldCoinViewController.h"
 @interface CGVideoViewController ()<ZFPlayerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
@@ -105,6 +106,14 @@
     vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     [self presentViewController:vipVC animated:YES completion:nil];
+}
+
+-(void)getGlodView{
+    CGGoldCoinViewController *goldVC=[[CGGoldCoinViewController alloc] init];
+    goldVC.definesPresentationContext = YES;
+    goldVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    goldVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0];
+    [self presentViewController:goldVC animated:NO completion:nil];
 }
 
 -(void)videoAddClick{
@@ -248,7 +257,10 @@
 
 -(CGGiftView *)giftView{
     if (!_giftView) {
-        _giftView=[[CGGiftView alloc] initWithFrame:CGRectMake(0, screen_height-200*SCREEN_RADIO, ScreenWidth, 200*SCREEN_RADIO)];
+        __weak __typeof(self)weakSelf = self;
+        _giftView=[[CGGiftView alloc] initWithFrame:CGRectMake(0, screen_height-200*SCREEN_RADIO, ScreenWidth, 200*SCREEN_RADIO) withBuyBlock:^(NSString *glodNum) {
+            [weakSelf getGlodView];
+        }];
         _giftView.hidden=YES;
     }
     
