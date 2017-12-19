@@ -13,6 +13,7 @@
 #import "myCommitCell.h"
 #import "NewsBottomMessage.h"
 #import "CGPinglun.h"
+#import "CGVipViewController.h"
 @interface MyCommitSViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIButton *leftIcon;
@@ -20,7 +21,7 @@
 @property(nonatomic,strong)UIView *bottomLine;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)NewsBottomMessage *messageView;
-@property(nonatomic,strong)MycommitModel *TouchModel;   //点击选中的model
+@property(nonatomic,copy)NSString *selectNickName;
 @end
 
 @implementation MyCommitSViewController
@@ -138,15 +139,8 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
-            weakSelf.TouchModel=cellData;
-//            if ([weakSelf.messageView getIsFirstResponder]) {
-//                weakSelf.messageView.hidden=YES;
-//                [weakSelf.messageView setFirstResponderAction];
-//            }else{
-//                weakSelf.messageView.hidden=NO;
-//                [weakSelf.messageView setBeResponderAction];
-//            }
-        
+            weakSelf.selectNickName=[cellData objectForKey:@"nickName"];
+            [weakSelf.messageView setMessageContent:[NSString stringWithFormat:@"@%@",[cellData objectForKey:@"nickName"]]];
             
         }];
         
@@ -201,34 +195,21 @@
     if (!_messageView) {
         __weak __typeof(self)weakSelf = self;
         _messageView=[[NewsBottomMessage alloc] initWithFrame:CGRectMake(0, screen_height-60*SCREEN_RADIO, screen_width, 60*SCREEN_RADIO) withDidBeginEditing:^(UITextView *textView) {
-            //CGRect frame = textView.frame;
-            int offset = (59*SCREEN_RADIO+216.0);//键盘高度216
-            
-            [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-            
-            [UIView setAnimationDuration:0.30f];//动画持续时间
-            
-            if (offset>0) {
-                //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
-                weakSelf.messageView.frame = CGRectMake(0.0f, screen_height-offset, screen_width, 59*SCREEN_RADIO);
-            }
-            [UIView commitAnimations];
+
         } withDidSubmitEdit:^(NSString *text) {
-            weakSelf.messageView.hidden=YES;
-            
-            NSMutableArray *arr=[[NSMutableArray alloc] init];
-            MycommitModel *t_model=[[MycommitModel alloc] init];
-            t_model.icon=@"Avatar";
-            t_model.nickName=@"Wallen";
-            t_model.date=@"2017.9.1 14:30:21";
-            t_model.content=[NSString stringWithFormat:@"%@%@:%@",NSLocalizedString(@"reply", nil),weakSelf.TouchModel.nickName,text];
-            [arr addObject:t_model];
-            
-            
-            [weakSelf.tbv addContentData:arr];
-            
+            if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+                NSMutableArray *arr=[[NSMutableArray alloc] init];
+                [arr addObject:@{@"nickName":@"Wallen",@"Avatar":@"Avatar",@"date":@"2017.9.1 14:30:21",@"content":text}];
+                [weakSelf.tbv addContentData:arr];
+            }else{
+                CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+                vipVC.definesPresentationContext = YES;
+                vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+                [self presentViewController:vipVC animated:NO completion:nil];
+            }
         }];
-        _messageView.hidden=YES;
+       
     }
     
     return _messageView;

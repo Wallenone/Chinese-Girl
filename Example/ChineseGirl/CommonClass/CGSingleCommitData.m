@@ -163,7 +163,7 @@ static CGSingleCommitData *_instance = nil;
             self.userListDataArr=[[NSMutableArray alloc] init];
         }
         
-        
+   
     }
     return self;
 }
@@ -203,6 +203,7 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] setValue:_nickName forKey:kNickNameKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
 
 -(void)setAvatar:(UIImage *)avatar{
     if (avatar) {

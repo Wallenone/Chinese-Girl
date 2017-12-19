@@ -17,6 +17,7 @@
 #import "CGUserInfo.h"
 #import "CGVideoViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "CGVipViewController.h"
 #define MJRandomData [NSString stringWithFormat:@"随机数据---%d", arc4random_uniform(1000000)]
 
 @interface MyIndexViewController (){
@@ -169,10 +170,19 @@
             UITableViewCell *inCell;
             if (index.row ==0) {
                 myHeaderViewCell *myHeaderCell=[[myHeaderViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withTalkCallBack:^(CGUserInfo *info){
-                    NewsMessageController *newsMessageVC=[[NewsMessageController alloc] init];
-                    newsMessageVC.userid=info.ids;
-                    newsMessageVC.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:info.ids];
-                    [weakSelf.navigationController pushViewController:newsMessageVC animated:NO];
+                    if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+                        NewsMessageController *newsMessageVC=[[NewsMessageController alloc] init];
+                        newsMessageVC.userid=info.ids;
+                        newsMessageVC.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:info.ids];
+                        [weakSelf.navigationController pushViewController:newsMessageVC animated:NO];
+                    }else{
+                        CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+                        vipVC.definesPresentationContext = YES;
+                        vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                        vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+                        [self presentViewController:vipVC animated:NO completion:nil];
+                    }
+                    
                 }];
                 
                 return (UITableViewCell *)myHeaderCell;
@@ -194,7 +204,7 @@
         
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
             if (indexPath.row==0) {
-                return 216*SCREEN_RADIO;
+                return 141*SCREEN_RADIO;
             }
             CGFloat _height=[weakSelf getCellHeightWithModel:cellData];
             return _height;

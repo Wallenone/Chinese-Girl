@@ -10,6 +10,7 @@
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
 #import "NewsMessageController.h"
+#import "CGVipViewController.h"
 @interface CGFavoriteSectionHeaderCell(){
     AddFriendClickBlock addFriendClickBlock;
     NSInteger _touType;
@@ -80,10 +81,18 @@
 }
 
 -(void)TalkClick{
-    NewsMessageController *newMessage=[[NewsMessageController alloc] init];
-    newMessage.userid=self.addModel.ids;
-    newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.addModel.ids];
-    [[self getCurrentVC].navigationController pushViewController:newMessage animated:NO];
+    if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+        NewsMessageController *newMessage=[[NewsMessageController alloc] init];
+        newMessage.userid=self.addModel.ids;
+        newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.addModel.ids];
+        [[self getCurrentVC].navigationController pushViewController:newMessage animated:NO];
+    }else{
+        CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+        vipVC.definesPresentationContext = YES;
+        vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        [[self getCurrentVC] presentViewController:vipVC animated:NO completion:nil];
+    }
 }
 
 -(void)ImgClick1{

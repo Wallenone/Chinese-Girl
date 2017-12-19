@@ -54,14 +54,14 @@
     [self addSubview:self.address];
     [self addSubview:self.followingBtn];
     [self addSubview:self.talkBtn];
-    [self addSubview:self.sectionView];
-    [self.sectionView addSubview:self.postNum];
-    [self.sectionView addSubview:self.postContent];
-    [self.sectionView addSubview:self.followerNum];
-    [self.sectionView addSubview:self.followerContent];
-    [self.sectionView addSubview:self.followingNum];
-    [self.sectionView addSubview:self.followingContent];
-    [self.sectionView addSubview:self.infoLinView];
+//    [self addSubview:self.sectionView];
+//    [self.sectionView addSubview:self.postNum];
+//    [self.sectionView addSubview:self.postContent];
+//    [self.sectionView addSubview:self.followerNum];
+//    [self.sectionView addSubview:self.followerContent];
+//    [self.sectionView addSubview:self.followingNum];
+//    [self.sectionView addSubview:self.followingContent];
+//    [self.sectionView addSubview:self.infoLinView];
 
 }
 

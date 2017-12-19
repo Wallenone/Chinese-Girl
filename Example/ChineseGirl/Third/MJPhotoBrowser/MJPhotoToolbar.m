@@ -33,7 +33,7 @@
 {
     _photos = photos;
     
-    if (_photos.count > 1) {
+    if (_photos.count >= 1) {
         _indexLabel = [[UILabel alloc] init];
         _indexLabel.font = [UIFont boldSystemFontOfSize:20];
         _indexLabel.frame = self.bounds;
@@ -70,7 +70,7 @@
     } else {
         MJPhoto *photo = _photos[_currentPhotoIndex];
         photo.save = YES;
-        _saveImageBtn.enabled = NO;
+        //_saveImageBtn.enabled = NO;
         [MBProgressHUD showSuccess:NSLocalizedString(@"save_to_album_successfully", nil) toView:nil];
     }
 }
@@ -83,8 +83,8 @@
     _indexLabel.text = [NSString stringWithFormat:@"%lu / %lu", _currentPhotoIndex + 1, (unsigned long)_photos.count];
     
     MJPhoto *photo = _photos[_currentPhotoIndex];
-    // 按钮
-    _saveImageBtn.enabled = photo.image != nil && !photo.save;
+//    // 按钮
+//    _saveImageBtn.enabled = photo.image != nil && !photo.save;
 }
 
 @end

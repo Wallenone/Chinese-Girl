@@ -25,13 +25,13 @@
 
 @implementation CGVipViewController
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
-    [self.tabBarController.tabBar setHidden:YES];
-}
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//    [self.navigationController setNavigationBarHidden:YES animated:animated];
+//    [super viewWillAppear:animated];
+//    [self.tabBarController.tabBar setHidden:YES];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

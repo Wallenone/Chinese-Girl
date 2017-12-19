@@ -81,13 +81,13 @@
 
 
 //控制编辑文本的位置
--(CGRect)editingRectForBounds:(CGRect)bounds
-{
-    //return CGRectInset( bounds, 10 , 0 );
-    
-    CGRect inset = CGRectMake(bounds.origin.x +20*SCREEN_RADIO, bounds.origin.y, bounds.size.width -10, bounds.size.height);
-    return inset;
-}
+//-(CGRect)editingRectForBounds:(CGRect)bounds
+//{
+//    //return CGRectInset( bounds, 10 , 0 );
+//
+//    CGRect inset = CGRectMake(bounds.origin.x +20*SCREEN_RADIO, bounds.origin.y, bounds.size.width -10, bounds.size.height);
+//    return inset;
+//}
 
 
 @end

@@ -11,6 +11,7 @@
 #import "MyIndexViewController.h"
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
+#import "CGNewSignInViewController.h"
 @interface WSCollectionCell(){
 
 }
@@ -40,9 +41,16 @@
 
 
 -(void)iconClick{
-    MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-    indexVC.ids=[self.model.ids integerValue];
-    [[self getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    }else{
+        MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
+        indexVC.ids=[self.model.ids integerValue];
+        [[self getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+    }
+    
 }
 
 -(UIView *)menuView{
