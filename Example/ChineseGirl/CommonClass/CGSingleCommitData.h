@@ -28,6 +28,7 @@
 @property(nonatomic,strong)NSArray *videoListDataArr; //视频首页数据
 @property(nonatomic,strong)NSMutableArray *userListDataArr;  //随机用户数据(存的都是聊过天的用户)
 @property(nonatomic,strong)NSMutableArray *newsListArr;  //聊天页面列表
+@property(nonatomic,strong)NSMutableArray *addFriendArr;  //添加好友
 
 + (instancetype)sharedInstance;
 - (void)logout;
@@ -45,4 +46,6 @@
 -(void)addUserListDataArr:(NSString *)userid;  //增加一个聊过天的用户id
 -(void)deleteUserListWithUserid:(NSString *)userid;   //删除一个聊过天的用户id
 -(NSArray *)getNewSubListWithUserid:(NSString *)userid;   //查看某个用户下的聊天记录
+-(void)addFriendArr:(NSString *)userid;  //添加一个用户
+-(void)deleteFriendUserid:(NSString *)userid;   //删除一个用户
 @end

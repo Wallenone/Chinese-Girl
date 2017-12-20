@@ -54,7 +54,8 @@
 }
 
 -(void)confimClick{
-    
+    [CGSingleCommitData sharedInstance].vipLevel=[NSString stringWithFormat:@"%ld",(long)_pageControl.currentPage+1];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)noconfimClick{
@@ -113,6 +114,20 @@
     int page = scrollView.contentOffset.x / scrollView.frame.size.width;
     // 设置页码
     _pageControl.currentPage = page;
+    
+    if (page==0) {
+        self.menuLabel1.text=@"无限次加好友，聊天";
+        self.menuLabel2.text=@"无限次好友互动";
+        self.menuLabel3.text=@"赠送1000金币";
+    }else if (page==1){
+        self.menuLabel1.text=@"100次加好友，聊天";
+        self.menuLabel2.text=@"100次好友互动";
+        self.menuLabel3.text=@"赠送100金币";
+    }else if (page==2){
+        self.menuLabel1.text=@"50次加好友，聊天";
+        self.menuLabel2.text=@"50次好友互动";
+        self.menuLabel3.text=@"赠送10金币";
+    }
 }
 
 -(UIView *)basicView{
@@ -276,7 +291,7 @@
         _menuLabel1=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.lineView.frame)+25*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 22*SCREEN_RADIO)];
         _menuLabel1.textColor=[UIColor getColor:@"8093AC"];
         _menuLabel1.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _menuLabel1.text=@"Lorem ipsum dolor";
+        _menuLabel1.text=@"无限次加好友，聊天";
         _menuLabel1.textAlignment=NSTextAlignmentCenter;
     }
     
@@ -288,7 +303,7 @@
         _menuLabel2=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuLabel1.frame)+10*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 22*SCREEN_RADIO)];
         _menuLabel2.textColor=[UIColor getColor:@"8093AC"];
         _menuLabel2.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _menuLabel2.text=@"Lorem ipsum dolor";
+        _menuLabel2.text=@"无限次好友互动";
         _menuLabel2.textAlignment=NSTextAlignmentCenter;
     }
     
@@ -300,7 +315,7 @@
         _menuLabel3=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuLabel2.frame)+10*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 22*SCREEN_RADIO)];
         _menuLabel3.textColor=[UIColor getColor:@"8093AC"];
         _menuLabel3.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _menuLabel3.text=@"Lorem ipsum dolor";
+        _menuLabel3.text=@"赠送1000金币";
         _menuLabel3.textAlignment=NSTextAlignmentCenter;
     }
     

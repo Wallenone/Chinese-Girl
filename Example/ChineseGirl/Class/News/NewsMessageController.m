@@ -65,7 +65,7 @@
 }
 
 -(void)back{
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 -(void)talkClick{

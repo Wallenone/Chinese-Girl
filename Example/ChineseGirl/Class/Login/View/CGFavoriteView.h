@@ -11,4 +11,5 @@ typedef void(^CellClickBlock)(NSInteger);
 @interface CGFavoriteView : UIView
 - (instancetype)initWithFrame:(CGRect)frame withCellBlock:(CellClickBlock)block withType:(BOOL)fullScreen;
 -(void)updateTable;
+-(void)updateTableItem;
 @end

@@ -33,7 +33,7 @@
 
 -(void)setData{
     if([CGSingleCommitData sharedInstance].uid.length>0){
-        [self.favoriteView updateTable];
+        [self.favoriteView updateTableItem];
         [self.avaterBtn setImage:[CGSingleCommitData sharedInstance].avatar forState:UIControlStateNormal];
         self.nickName.text=[CGSingleCommitData sharedInstance].nickName;
         NSString *_text=@"";

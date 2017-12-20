@@ -23,6 +23,7 @@ static NSString *const kFavouriteSKey = @"favouriteSKey";
 static NSString *const kFollowSKey = @"followSKey";
 static NSString *const kNewsListArrKey = @"newsListArrKey";
 static NSString *const kUserListDataArrKey = @"userListDataArrKey";
+static NSString *const kAddFriendArrKey = @"addFriendArrKey";
 #import "CGSingleCommitData.h"
 static CGSingleCommitData *_instance = nil;
 @implementation CGSingleCommitData
@@ -163,6 +164,13 @@ static CGSingleCommitData *_instance = nil;
             self.userListDataArr=[[NSMutableArray alloc] init];
         }
         
+        
+        NSArray *addFriends = [[NSUserDefaults standardUserDefaults] arrayForKey:kAddFriendArrKey];
+        if (addFriends.count>0) {
+            self.addFriendArr = [addFriends mutableCopy];
+        }else{
+            self.addFriendArr = [[NSMutableArray alloc] init];
+        }
    
     }
     return self;
@@ -318,6 +326,15 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+
+-(void)setAddFriendArr:(NSMutableArray *)addFriendArr{
+    _addFriendArr=addFriendArr;
+    NSArray *arr=[NSArray arrayWithArray:_addFriendArr];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:arr forKey:kAddFriendArrKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(void)addAlbumS:(UIImage *)img{
     if (img) {
         [self.albumS addObject:UIImagePNGRepresentation(img)];
@@ -379,9 +396,18 @@ static CGSingleCommitData *_instance = nil;
 -(void)addUserListDataArr:(NSString *)userid{
     if (userid.length>0) {
         [self deleteUserListWithUserid:userid];
-        [self.userListDataArr addObject:userid];
+        [self.userListDataArr insertObject:userid atIndex:0];
         NSArray *arr=[NSArray arrayWithArray:self.userListDataArr];
         self.userListDataArr=[arr mutableCopy];
+    }
+}
+
+-(void)addFriendArr:(NSString *)userid{
+    if (userid.length>0) {
+        [self deleteFriendUserid:userid];
+        [self.addFriendArr insertObject:userid atIndex:0];
+        NSArray *arr=[NSArray arrayWithArray:self.addFriendArr];
+        self.addFriendArr=[arr mutableCopy];
     }
 }
 
@@ -446,6 +472,13 @@ static CGSingleCommitData *_instance = nil;
     }
 }
 
+-(void)deleteFriendUserid:(NSString *)userid{
+    if (userid.length>0) {
+        [self.addFriendArr removeObject:userid];
+        NSArray *arr=[NSArray arrayWithArray:self.addFriendArr];
+        self.addFriendArr=[arr mutableCopy];
+    }
+}
 
 - (void)logout {
     self.uid = @"";

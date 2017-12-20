@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^AddFriendClickBlock)(NSString *,NSString *);
 @interface CGNewFriendTableViewCell : UITableViewCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSString *)userid withAddFriendBlock:(AddFriendClickBlock)block;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSString *)userid;
 @end

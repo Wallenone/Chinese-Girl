@@ -199,7 +199,7 @@
         } withDidSubmitEdit:^(NSString *text) {
             if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
                 NSMutableArray *arr=[[NSMutableArray alloc] init];
-                [arr addObject:@{@"nickName":@"Wallen",@"Avatar":@"Avatar",@"date":@"2017.9.1 14:30:21",@"content":text}];
+                [arr addObject:@{@"nickName":[CGSingleCommitData sharedInstance].nickName,@"Avatar":@"Avatar",@"date":@"2017.9.1 14:30:21",@"content":text}];
                 [weakSelf.tbv addContentData:arr];
             }else{
                 CGVipViewController *vipVC=[[CGVipViewController alloc] init];

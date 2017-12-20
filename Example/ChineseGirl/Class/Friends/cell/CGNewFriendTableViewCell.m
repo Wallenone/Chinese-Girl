@@ -11,8 +11,10 @@
 #import "MJPhotoBrowser.h"
 #import "CGUserInfo.h"
 #import "CGVideoViewController.h"
+#import "CGVipViewController.h"
+#import "NewsMessageController.h"
 @interface CGNewFriendTableViewCell(){
-    AddFriendClickBlock addFriendClickBlock;
+    
 }
 @property(nonatomic,strong)CGUserInfo *addModel;
 @property(nonatomic,strong)UIView *bgView;
@@ -39,13 +41,12 @@
 }
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSString *)userid withAddFriendBlock:(AddFriendClickBlock)block{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(NSString *)userid{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.addModel=[CGUserInfo getitemWithID:userid];
-        addFriendClickBlock=block;
         [self creatSubView];
     }
     
@@ -70,9 +71,27 @@
 }
 
 -(void)addClick{
-    if (addFriendClickBlock) {
-        addFriendClickBlock(self.addModel.avater,self.addModel.nickname);
+    if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+        NSData *data1 = UIImagePNGRepresentation(self.addBtn.currentBackgroundImage);
+        NSData *data = UIImagePNGRepresentation([UIImage imageNamed:@"addTalk"]);
+        if ([data isEqual:data1]) {
+            NewsMessageController *newMessage=[[NewsMessageController alloc] init];
+            newMessage.userid=self.addModel.ids;
+            newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.addModel.ids];
+            [[self getCurrentVC].navigationController pushViewController:newMessage animated:NO];
+        }else{
+            [[CGSingleCommitData sharedInstance] addFriendArr:self.addModel.ids];
+            [self.addBtn setBackgroundImage:[UIImage imageNamed:@"addTalk"] forState:UIControlStateNormal];
+        }
+        
+    }else{
+        CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+        vipVC.definesPresentationContext = YES;
+        vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        [[self getCurrentVC] presentViewController:vipVC animated:NO completion:nil];
     }
+    
 }
 
 -(void)ImgClick1{
@@ -183,7 +202,12 @@
 -(UIButton *)addBtn{
     if (!_addBtn) {
         _addBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-41*SCREEN_RADIO, 21*SCREEN_RADIO, 20*SCREEN_RADIO, 20*SCREEN_RADIO)];
-        [_addBtn setBackgroundImage:[UIImage imageNamed:@"FollowFriend"] forState:UIControlStateNormal];
+        if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:self.addModel.ids]) {
+            [_addBtn setBackgroundImage:[UIImage imageNamed:@"addTalk"] forState:UIControlStateNormal];
+        }else{
+            [_addBtn setBackgroundImage:[UIImage imageNamed:@"FollowFriend"] forState:UIControlStateNormal];
+        }
+        
         [_addBtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
     }
     

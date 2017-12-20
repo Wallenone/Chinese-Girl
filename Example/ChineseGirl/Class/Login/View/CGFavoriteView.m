@@ -71,25 +71,44 @@
 }
 
 -(void)followClick:(UIButton *)sender{
-    if ([UIImagePNGRepresentation(sender.currentImage) isEqual:UIImagePNGRepresentation([UIImage imageNamed:@"Thumb"])]) {
-        [sender setImage:[UIImage imageNamed:@"Thumbed"] forState:UIControlStateNormal];
-        [self.like setImage:[UIImage imageNamed:@"Card"] forState:UIControlStateNormal];
+    if (CGColorEqualToColor([UIColor getColor:@"575E62"].CGColor, sender.currentTitleColor.CGColor)){
+        [sender setTitleColor:[UIColor getColor:@"2979FF"] forState:UIControlStateNormal];
+        [self.like setTitleColor:[UIColor getColor:@"575E62"] forState:UIControlStateNormal];
         _currentIndex=1;
         [self updateTable];
     }
 }
 
 -(void)likeClick:(UIButton *)sender{
-    if ([UIImagePNGRepresentation(sender.currentImage) isEqual:UIImagePNGRepresentation([UIImage imageNamed:@"Card"])]) {
-        [self.following setImage:[UIImage imageNamed:@"Thumb"] forState:UIControlStateNormal];
-        [sender setImage:[UIImage imageNamed:@"Carded"] forState:UIControlStateNormal];
+    if (CGColorEqualToColor([UIColor getColor:@"575E62"].CGColor, sender.currentTitleColor.CGColor)){
+        [sender setTitleColor:[UIColor getColor:@"2979FF"] forState:UIControlStateNormal];
+        [self.following setTitleColor:[UIColor getColor:@"575E62"] forState:UIControlStateNormal];
         _currentIndex=2;
-        [self updateTable];
+        [self updateFriend];
     }
 }
 
 -(void)updateTable{
     [self getData];
+    [self.followTableView updateData:self.followsArr];
+}
+
+-(void)updateTableItem{
+    if (_currentIndex==1) {
+        [self updateTable];
+    }else if (_currentIndex==2){
+        [self updateFriend];
+    }
+}
+
+-(void)updateFriend{
+    [self.followsArr removeAllObjects];
+    for (NSString *ids in [CGSingleCommitData sharedInstance].addFriendArr) {
+        if (ids.length>0) {
+            CGUserInfo *userInfo= [CGUserInfo getitemWithID:ids];
+            [self.followsArr addObject:userInfo];
+        }
+    }
     [self.followTableView updateData:self.followsArr];
 }
 
@@ -113,8 +132,11 @@
 
 -(UIButton *)following{
     if (!_following) {
-        _following=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/4-12*SCREEN_RADIO, 26.5*SCREEN_RADIO-12*SCREEN_RADIO, 24*SCREEN_RADIO, 24*SCREEN_RADIO)];
-        [_following setImage:[UIImage imageNamed:@"Thumbed"] forState:UIControlStateNormal];
+        _following=[[UIButton alloc] initWithFrame:CGRectMake(0, 26.5*SCREEN_RADIO-12*SCREEN_RADIO, screen_width/2, 24*SCREEN_RADIO)];
+        [_following setTitle:@"Follows" forState:UIControlStateNormal];
+        [_following setTitleColor:[UIColor getColor:@"2979FF"] forState:UIControlStateNormal];
+        _following.titleLabel.font=[UIFont boldSystemFontOfSize:24*SCREEN_RADIO];
+//        [_following setImage:[UIImage imageNamed:@"Thumbed"] forState:UIControlStateNormal];
         [_following addTarget:self action:@selector(followClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -123,8 +145,11 @@
 
 -(UIButton *)like{
     if (!_like) {
-        _like=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2+screen_width/4-12*SCREEN_RADIO, 26.5*SCREEN_RADIO-8*SCREEN_RADIO, 24*SCREEN_RADIO, 16*SCREEN_RADIO)];
-        [_like setImage:[UIImage imageNamed:@"Card"] forState:UIControlStateNormal];
+        _like=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2, 26.5*SCREEN_RADIO-12*SCREEN_RADIO, screen_width/2, 24*SCREEN_RADIO)];
+        [_like setTitle:@"Friends" forState:UIControlStateNormal];
+        [_like setTitleColor:[UIColor getColor:@"575E62"] forState:UIControlStateNormal];
+        _like.titleLabel.font=[UIFont boldSystemFontOfSize:24*SCREEN_RADIO];
+//        [_like setImage:[UIImage imageNamed:@"Card"] forState:UIControlStateNormal];
         [_like addTarget:self action:@selector(likeClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -154,7 +179,7 @@
         _followTableView.scrollEnabled=YES;
         _followTableView.backgroundColor=[UIColor getColor:@"F6F6F6"];
         [_followTableView setDataArray:self.followsArr];
-//        __weak __typeof(self)weakSelf = self;
+        __weak __typeof(self)weakSelf = self;
         [_followTableView onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
             if (_currentIndex==1) {
                 BOOL lineState=NO;
@@ -189,7 +214,12 @@
         
         [_followTableView onCellediting:^(NSIndexPath *index, id cellData) {
             CGUserInfo *model=cellData;
-            [[CGSingleCommitData sharedInstance] deletefollow:model.ids];
+            if (_currentIndex==1) {
+                [[CGSingleCommitData sharedInstance] deletefollow:model.ids];
+            }else if (_currentIndex==2){
+                [[CGSingleCommitData sharedInstance] deleteFriendUserid:model.ids];
+            }
+            [weakSelf.followTableView reloadData];
         }];
         
         //设置选中事件 block设置方式

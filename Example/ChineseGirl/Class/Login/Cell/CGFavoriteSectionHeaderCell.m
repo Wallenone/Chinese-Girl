@@ -11,6 +11,7 @@
 #import "MJPhotoBrowser.h"
 #import "NewsMessageController.h"
 #import "CGVipViewController.h"
+#import "CGVideoViewController.h"
 @interface CGFavoriteSectionHeaderCell(){
     AddFriendClickBlock addFriendClickBlock;
     NSInteger _touType;
@@ -96,15 +97,42 @@
 }
 
 -(void)ImgClick1{
-    [self setCheckPhotos:0];
+    if ([self.addModel.type integerValue]==1) {
+        [self setCheckPhotos:0];
+    }else if ([self.addModel.type integerValue]==2){
+        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+        UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+        videoVC.videoIcon=self.addModel.picturesBig[0];
+        videoVC.videoStr=self.addModel.videoUrlS[0];
+        videoVC.userInfo=self.addModel;
+        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 -(void)ImgClick2{
-    [self setCheckPhotos:1];
+    if ([self.addModel.type integerValue]==1) {
+        [self setCheckPhotos:1];
+    }else if ([self.addModel.type integerValue]==2){
+        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+        UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+        videoVC.videoIcon=self.addModel.picturesBig[1];
+        videoVC.videoStr=self.addModel.videoUrlS[1];
+        videoVC.userInfo=self.addModel;
+        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 -(void)ImgClick3{
-    [self setCheckPhotos:2];
+    if ([self.addModel.type integerValue]==1) {
+        [self setCheckPhotos:2];
+    }else if ([self.addModel.type integerValue]==2){
+        CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+        UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+        videoVC.videoIcon=self.addModel.picturesBig[2];
+        videoVC.videoStr=self.addModel.videoUrlS[2];
+        videoVC.userInfo=self.addModel;
+        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 -(void)setCheckPhotos:(NSInteger)_tag{
@@ -206,6 +234,11 @@
     if (!_contentImg1) {
         _contentImg1=[[UIImageView alloc] initWithFrame:CGRectMake(1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentImg1 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:0]]];
+        if ([self.addModel.type integerValue]==2) {
+            UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
+            playView.image=[UIImage imageNamed:@"smallPlayVideo"];
+            [_contentImg1 addSubview:playView];
+        }
     }
     
     return _contentImg1;
@@ -224,6 +257,11 @@
     if (!_contentImg2) {
         _contentImg2=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg1.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentImg2 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:1]]];
+        if ([self.addModel.type integerValue]==2) {
+            UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
+            playView.image=[UIImage imageNamed:@"smallPlayVideo"];
+            [_contentImg2 addSubview:playView];
+        }
     }
     
     return _contentImg2;
@@ -242,6 +280,11 @@
     if (!_contentImg3) {
         _contentImg3=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg2.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentImg3 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:2]]];
+        if ([self.addModel.type integerValue]==2) {
+            UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
+            playView.image=[UIImage imageNamed:@"smallPlayVideo"];
+            [_contentImg3 addSubview:playView];
+        }
     }
     
     return _contentImg3;
@@ -251,6 +294,7 @@
     if (!_contentBtn3) {
         _contentBtn3=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg2.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentBtn3 addTarget:self action:@selector(ImgClick3) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     
     return _contentBtn3;

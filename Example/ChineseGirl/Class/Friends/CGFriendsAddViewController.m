@@ -128,12 +128,7 @@
         [_tbv setDataArray:[CGUserInfo reloadTableWithRangeFrom:0 rangeTLenth:10]];
         __weak __typeof(self)weakSelf = self;
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            CGNewFriendTableViewCell *cell=[[CGNewFriendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData withAddFriendBlock:^(NSString *avaterUrl,NSString *nickNameStr){
-                CGAnswerOptionViewController *answerVC=[[CGAnswerOptionViewController alloc] init];
-                answerVC.avaterUrl=avaterUrl;
-                answerVC.nickNameStr=nickNameStr;
-                [weakSelf.navigationController pushViewController:answerVC animated:NO];
-            }];
+            CGNewFriendTableViewCell *cell=[[CGNewFriendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:cellData];
 
             return cell;
         }];
