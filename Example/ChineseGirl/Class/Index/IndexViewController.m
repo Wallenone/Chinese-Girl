@@ -19,6 +19,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "CGVideoViewController.h"
 #import "CGNewSignInViewController.h"
+#import "KNMovieViewController.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate,UIScrollViewDelegate>{
     NSIndexPath *_indexPath;
     
@@ -42,6 +43,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -51,12 +53,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    BOOL isFirstUp =  [[NSUserDefaults standardUserDefaults] objectForKey:@"FirstLoad"];
+    if (!isFirstUp) {
+        [self LaunchVideo];
+        [self performSelector:@selector(delayMethod) withObject:nil afterDelay:2.0];
+    }else{
+        [self delayMethod];
+    }
+}
+
+-(void)delayMethod{
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
     [self setData];
     [self setHeaderView];
     [self addSubViews];
-    
 }
 
 -(void)setData{
@@ -89,9 +100,14 @@
     [self.view addSubview:self.tbv];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)LaunchVideo{
+
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FirstLoad"];
+    KNMovieViewController *KNVC = [[KNMovieViewController alloc]init];
+    NSString *path =  [[NSBundle mainBundle] pathForResource:@"movie.mp4" ofType:nil];
+    KNVC.movieURL = [NSURL fileURLWithPath:path];
+   // UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:KNVC];
+    [self.navigationController presentViewController:KNVC animated:NO completion:nil];
 }
 
 - (void)infiniteScrollView:(BHInfiniteScrollView *)infiniteScrollView didScrollToIndex:(NSInteger)index {

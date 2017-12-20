@@ -77,6 +77,8 @@
 		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
 		E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */; };
 		E5527AC31FDB80970077D8B8 /* CGGlobalTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */; };
+		E55B71591FEA5F99000F2FDB /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E55B71581FEA5F99000F2FDB /* movie.mp4 */; };
+		E55B715C1FEA6E39000F2FDB /* KNMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55B715B1FEA6E38000F2FDB /* KNMovieViewController.m */; };
 		E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */; };
 		E55DF4BF1FBB315100E5215E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55DF4BE1FBB315100E5215E /* CoreLocation.framework */; };
 		E5651D261FE55B000051346D /* userInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5651D251FE55AFF0051346D /* userInfo.plist */; };
@@ -311,6 +313,9 @@
 		E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCommitCell.m; sourceTree = "<group>"; };
 		E5527AC11FDB80970077D8B8 /* CGGlobalTimerNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGlobalTimerNode.h; sourceTree = "<group>"; };
 		E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGlobalTimerNode.m; sourceTree = "<group>"; };
+		E55B71581FEA5F99000F2FDB /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
+		E55B715A1FEA6E37000F2FDB /* KNMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNMovieViewController.h; sourceTree = "<group>"; };
+		E55B715B1FEA6E38000F2FDB /* KNMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMovieViewController.m; sourceTree = "<group>"; };
 		E55DF4BB1FBB2F2600E5215E /* CGLocationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLocationTableViewCell.h; sourceTree = "<group>"; };
 		E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGLocationTableViewCell.m; sourceTree = "<group>"; };
 		E55DF4BE1FBB315100E5215E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -528,6 +533,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E55B71581FEA5F99000F2FDB /* movie.mp4 */,
 				E5651D251FE55AFF0051346D /* userInfo.plist */,
 				E5CA90B71FE520BA0019B09E /* videoData.plist */,
 				E5FC800A1FC9BCC60094615B /* qidong.mp4 */,
@@ -877,6 +883,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E55B71541FEA5F7E000F2FDB /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				E55B715A1FEA6E37000F2FDB /* KNMovieViewController.h */,
+				E55B715B1FEA6E38000F2FDB /* KNMovieViewController.m */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		E55DF4BA1FBB2F0B00E5215E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,6 +906,7 @@
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E55B71541FEA5F7E000F2FDB /* Launch */,
 				E5E271641FC7BF7300BA1AC1 /* AnimationIndex */,
 				E546C11F1FBF22BB000F5127 /* Vip */,
 				E534E1BC1FBBDF9A00F4962E /* Friends */,
@@ -1199,6 +1215,7 @@
 				E5D291931FC5A96C003718CB /* Billabong.ttf in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				E5FC800B1FC9BCC60094615B /* qidong.mp4 in Resources */,
+				E55B71591FEA5F99000F2FDB /* movie.mp4 in Resources */,
 				E5E0FE4E1F9AF15700B5228E /* 返回@2x.png in Resources */,
 				E511CB141FB00013006BA362 /* InfoPlist.strings in Resources */,
 				E5C0CD691FB80BEC002394C9 /* pinglunren.plist in Resources */,
@@ -1295,6 +1312,7 @@
 				E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */,
 				E5E518321FCD97DA00919205 /* CGManageRegisterViewController.m in Sources */,
 				E546C1191FBEFB7A000F5127 /* CGAnswerModel.m in Sources */,
+				E55B715C1FEA6E39000F2FDB /* KNMovieViewController.m in Sources */,
 				E504AB911F507C0100E1F48C /* MBProgressHUD.m in Sources */,
 				E504AB8F1F507C0100E1F48C /* MBProgressHUD+Add.m in Sources */,
 				E504AB961F507C0100E1F48C /* MJPhotoProgressView.m in Sources */,
