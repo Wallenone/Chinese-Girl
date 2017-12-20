@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^BuyGiftClickBlock)(NSString *);
 @interface CGGiftView : UIView
-
+- (instancetype)initWithFrame:(CGRect)frame withBuyBlock:(BuyGiftClickBlock)block;
 @end

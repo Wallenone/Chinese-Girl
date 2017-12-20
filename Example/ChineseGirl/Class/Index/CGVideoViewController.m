@@ -14,6 +14,8 @@
 #import "CGVipViewController.h"
 #import "NewsMessageController.h"
 #import "MyIndexViewController.h"
+#import "CGGoldCoinViewController.h"
+#import "CGNewSignInViewController.h"
 @interface CGVideoViewController ()<ZFPlayerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
@@ -48,9 +50,15 @@
 }
 
 -(void)tapAction {
-    MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-    indexVC.ids=[self.userInfo.ids integerValue];
-    [self.navigationController pushViewController:indexVC animated:NO];
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+    }else{
+        MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
+        indexVC.ids=[self.userInfo.ids integerValue];
+        [self.navigationController pushViewController:indexVC animated:NO];
+    }
 }
 
 -(void)tapViewAction:(UITapGestureRecognizer *)tap{
@@ -67,44 +75,97 @@
 }
 
 -(void)menuClick1{
-    if (self.giftView.hidden) {
-        self.giftView.hidden=NO;
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
-        self.giftView.hidden=YES;
+        if (self.giftView.hidden) {
+            self.giftView.hidden=NO;
+        }else{
+            self.giftView.hidden=YES;
+        }
     }
 }
 
 -(void)menuClick2{
-    NewsMessageController *newMessage=[[NewsMessageController alloc] init];
-    newMessage.userid=self.userInfo.ids;
-    newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.userInfo.ids];
-    [self.navigationController pushViewController:newMessage animated:NO];
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+    }else{
+        if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+            NewsMessageController *newMessage=[[NewsMessageController alloc] init];
+            newMessage.userid=self.userInfo.ids;
+            newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.userInfo.ids];
+            [self.navigationController pushViewController:newMessage animated:NO];
+        }else{
+            CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+            vipVC.definesPresentationContext = YES;
+            vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+            [self presentViewController:vipVC animated:NO completion:nil];
+        }
+    }
 }
 
 -(void)menuClick3{
-    NSURL *url = [NSURL URLWithString:self.videoStr];
-    NSString *path = url.path;
-    [SVProgressHUD show];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    //判断能不能保存到相簿
-    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
-        //保存视频到相簿
-        UISaveVideoAtPathToSavedPhotosAlbum(path, self,
-                                            @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
-        [SVProgressHUD dismiss];
-        [SVProgressHUD showWithStatus:@"保存失败"];
+        if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+            NSURL *url = [NSURL URLWithString:self.videoStr];
+            NSString *path = url.path;
+            [SVProgressHUD show];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                //判断能不能保存到相簿
+                if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
+                    //保存视频到相簿
+                    UISaveVideoAtPathToSavedPhotosAlbum(path, self,
+                                                        @selector(video:didFinishSavingWithError:contextInfo:), nil);
+                }else{
+                    [SVProgressHUD dismiss];
+                    [SVProgressHUD showWithStatus:@"保存失败"];
+                }
+            });
+        }else{
+            CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+            vipVC.definesPresentationContext = YES;
+            vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+            [self presentViewController:vipVC animated:NO completion:nil];
+        }
+        
     }
-    });
     
 }
 
 -(void)menuClick4{
-    CGVipViewController *vipVC=[[CGVipViewController alloc] init];
-    vipVC.definesPresentationContext = YES;
-    vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    [self presentViewController:vipVC animated:YES completion:nil];
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+    }else{
+        if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+            
+        }else{
+            CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+            vipVC.definesPresentationContext = YES;
+            vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+            [self presentViewController:vipVC animated:NO completion:nil];
+        }
+    }
+}
+
+-(void)getGlodView{
+    CGGoldCoinViewController *goldVC=[[CGGoldCoinViewController alloc] init];
+    goldVC.definesPresentationContext = YES;
+    goldVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    goldVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0];
+    [self presentViewController:goldVC animated:NO completion:nil];
 }
 
 -(void)videoAddClick{
@@ -248,7 +309,10 @@
 
 -(CGGiftView *)giftView{
     if (!_giftView) {
-        _giftView=[[CGGiftView alloc] initWithFrame:CGRectMake(0, screen_height-200*SCREEN_RADIO, ScreenWidth, 200*SCREEN_RADIO)];
+        __weak __typeof(self)weakSelf = self;
+        _giftView=[[CGGiftView alloc] initWithFrame:CGRectMake(0, screen_height-200*SCREEN_RADIO, ScreenWidth, 200*SCREEN_RADIO) withBuyBlock:^(NSString *glodNum) {
+            [weakSelf getGlodView];
+        }];
         _giftView.hidden=YES;
     }
     

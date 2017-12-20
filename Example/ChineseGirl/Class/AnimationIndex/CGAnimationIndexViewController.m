@@ -13,6 +13,7 @@
 #import "CGVideoDataModel.h"
 #import "ZFPlayer.h"
 #import "CGVideoViewController.h"
+#import "CGNewSignInViewController.h"
 @interface CGAnimationIndexViewController (){
    
 }
@@ -62,8 +63,14 @@
 }
 
 - (void)addFriend{
-    CGFriendsAddViewController *addVC=[[CGFriendsAddViewController alloc] init];
-    [self.navigationController pushViewController:addVC animated:NO];
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+    }else{
+        CGFriendsAddViewController *addVC=[[CGFriendsAddViewController alloc] init];
+        [self.navigationController pushViewController:addVC animated:NO];
+    }
 }
 
 -(void)getCollectionData{

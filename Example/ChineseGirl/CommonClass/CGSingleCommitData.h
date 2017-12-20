@@ -29,7 +29,6 @@
 @property(nonatomic,strong)NSMutableArray *userListDataArr;  //随机用户数据(存的都是聊过天的用户)
 @property(nonatomic,strong)NSMutableArray *newsListArr;  //聊天页面列表
 
-
 + (instancetype)sharedInstance;
 - (void)logout;
 -(void)addAlbumS:(UIImage *)img;   //增加一个相册

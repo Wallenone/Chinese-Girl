@@ -39,6 +39,10 @@
 	<string>当用的时候获取定位</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>尝试访问相册</string>
+	<key>NSCameraUsageDescription</key>
+	<string>“ChineseGirl”需要你的相机</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>“ChineseGirl”需要为你添加图片</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Billabong.ttf</string>

@@ -14,6 +14,7 @@
 #import "CGUserInfo.h"
 #import "CGMailListViewController.h"
 #import "CGMessageModel.h"
+#import "CGNewSignInViewController.h"
 @interface NewsViewController ()<HzfNavigationBarDelegate>
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)EZJFastTableView *tbv;
@@ -44,8 +45,15 @@
 
 
 - (void)NavigationBarRightButtonClicked{
-    CGMailListViewController *mailList=[[CGMailListViewController alloc] init];
-    [self.navigationController pushViewController:mailList animated:NO];
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
+    }else{
+        CGMailListViewController *mailList=[[CGMailListViewController alloc] init];
+        [self.navigationController pushViewController:mailList animated:NO];
+    }
+    
 }
 
 -(void)setHeaderView{
