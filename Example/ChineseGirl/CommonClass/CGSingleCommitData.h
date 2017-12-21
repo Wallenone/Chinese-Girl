@@ -20,6 +20,7 @@
 @property(nonatomic,copy)NSString *aboutUs;             //关于我
 @property(nonatomic,strong)NSMutableArray *albumS;      //相册
 @property(nonatomic,copy)NSString *vipLevel;            //vip等级
+@property(nonatomic,assign)NSInteger goldNum;  //金币数量
 @property(nonatomic,strong)NSMutableArray *favourites;   //收藏
 @property(nonatomic,strong)NSMutableArray *follows;    //关注
 @property(nonatomic,copy)NSString *languageName;  //语言

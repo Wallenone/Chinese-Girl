@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^OnBuyBack)(void);
 @interface CGGoldCoinViewController : UIViewController
-
+-(void)onBuyBack:(OnBuyBack)block;
 @end

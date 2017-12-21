@@ -162,6 +162,10 @@
 
 -(void)getGlodView{
     CGGoldCoinViewController *goldVC=[[CGGoldCoinViewController alloc] init];
+    __weak __typeof(self)weakSelf = self;
+    [goldVC onBuyBack:^{
+        [weakSelf.giftView setData];
+    }];
     goldVC.definesPresentationContext = YES;
     goldVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     goldVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0];

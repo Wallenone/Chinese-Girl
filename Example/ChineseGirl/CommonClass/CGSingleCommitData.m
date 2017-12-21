@@ -24,6 +24,7 @@ static NSString *const kFollowSKey = @"followSKey";
 static NSString *const kNewsListArrKey = @"newsListArrKey";
 static NSString *const kUserListDataArrKey = @"userListDataArrKey";
 static NSString *const kAddFriendArrKey = @"addFriendArrKey";
+static NSString *const kgoldNumKey = @"goldNumKey";
 #import "CGSingleCommitData.h"
 static CGSingleCommitData *_instance = nil;
 @implementation CGSingleCommitData
@@ -135,6 +136,10 @@ static CGSingleCommitData *_instance = nil;
         }else{
             self.languageName=@"English";
         }
+        
+        NSInteger goldNum=[[NSUserDefaults standardUserDefaults] integerForKey:kgoldNumKey];
+        self.goldNum=goldNum;
+    
         
         NSArray *favourites = [[NSUserDefaults standardUserDefaults] arrayForKey:kFavouriteSKey];
         if (favourites.count>0) {
@@ -266,6 +271,16 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] setValue:_aboutUs forKey:kAboutUsKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+-(void)setGoldNum:(NSInteger)goldNum{
+    if (goldNum<=0) {
+        goldNum=0;
+    }
+    _goldNum=goldNum;
+    [[NSUserDefaults standardUserDefaults] setInteger:_goldNum forKey:kgoldNumKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 
 -(void)setAlbumS:(NSMutableArray *)albumS{
     _albumS=albumS;

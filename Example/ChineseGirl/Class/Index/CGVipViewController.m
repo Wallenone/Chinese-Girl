@@ -54,6 +54,13 @@
 }
 
 -(void)confimClick{
+    if (_pageControl.currentPage==0) {
+        [CGSingleCommitData sharedInstance].goldNum+=1000;
+    }else if (_pageControl.currentPage==1){
+        [CGSingleCommitData sharedInstance].goldNum+=100;
+    }else if (_pageControl.currentPage==2){
+        [CGSingleCommitData sharedInstance].goldNum+=50;
+    }
     [CGSingleCommitData sharedInstance].vipLevel=[NSString stringWithFormat:@"%ld",(long)_pageControl.currentPage+1];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -126,7 +133,7 @@
     }else if (page==2){
         self.menuLabel1.text=@"50次加好友，聊天";
         self.menuLabel2.text=@"50次好友互动";
-        self.menuLabel3.text=@"赠送10金币";
+        self.menuLabel3.text=@"赠送50金币";
     }
 }
 
@@ -166,14 +173,14 @@
         [_basicView addSubview:moneyLabel1];
 
         UILabel *moneyLabel2=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel1.frame), CGRectGetMaxY(simpLabel.frame)+35*SCREEN_RADIO, 0, 66*SCREEN_RADIO)];
-        moneyLabel2.text=@"19";
+        moneyLabel2.text=@"39";
         moneyLabel2.textColor=[UIColor getColor:@"343434"];
         moneyLabel2.font=[UIFont boldSystemFontOfSize:60*SCREEN_RADIO];
         [moneyLabel2 sizeToFit];
         [_basicView addSubview:moneyLabel2];
         
         UILabel *moneyLabel3=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel2.frame), CGRectGetMaxY(simpLabel.frame)+73*SCREEN_RADIO, 0, 19*SCREEN_RADIO)];
-        moneyLabel3.text=@"/MONTH";
+        moneyLabel3.text=@"/Year";
         moneyLabel3.textColor=[UIColor getColor:@"343434"];
         moneyLabel3.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [moneyLabel3 sizeToFit];
@@ -217,14 +224,14 @@
         [_premiumView addSubview:moneyLabel1];
         
         UILabel *moneyLabel2=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel1.frame), CGRectGetMaxY(simpLabel.frame)+35*SCREEN_RADIO, 0, 66*SCREEN_RADIO)];
-        moneyLabel2.text=@"39";
+        moneyLabel2.text=@"59";
         moneyLabel2.textColor=[UIColor getColor:@"343434"];
         moneyLabel2.font=[UIFont boldSystemFontOfSize:60*SCREEN_RADIO];
         [moneyLabel2 sizeToFit];
         [_premiumView addSubview:moneyLabel2];
         
         UILabel *moneyLabel3=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel2.frame), CGRectGetMaxY(simpLabel.frame)+73*SCREEN_RADIO, 0, 19*SCREEN_RADIO)];
-        moneyLabel3.text=@"/MONTH";
+        moneyLabel3.text=@"/Year";
         moneyLabel3.textColor=[UIColor getColor:@"343434"];
         moneyLabel3.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [moneyLabel3 sizeToFit];
@@ -276,7 +283,7 @@
         [_ultimateView addSubview:moneyLabel2];
         
         UILabel *moneyLabel3=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel2.frame), CGRectGetMaxY(simpLabel.frame)+73*SCREEN_RADIO, 0, 19*SCREEN_RADIO)];
-        moneyLabel3.text=@"/MONTH";
+        moneyLabel3.text=@"/Year";
         moneyLabel3.textColor=[UIColor getColor:@"343434"];
         moneyLabel3.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [moneyLabel3 sizeToFit];

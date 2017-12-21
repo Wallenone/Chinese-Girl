@@ -25,7 +25,9 @@
     if (self) {
         buyGiftClickBlock=block; monetNumArr=@[@"99",@"10",@"30",@"30",@"30",@"30",@"30",@"30",@"40",@"80",@"30",@"50",@"30",@"90",@"100",@"30",@"30",@"120",@"300",@"300",@"300",@"150",@"500",@"300",@"300",@"500",@"500",@"499",@"300",@"600",@"700",@"500",@"600",@"800",@"400",@"900",@"470",@"700",@"400",@"999",@"4999",@"4999",@"8888",@"9999",@"19999",@"50000",@"66666",@"88888"];
         self.backgroundColor=[UIColor colorWithRed:29/255 green:28/255 blue:30/255 alpha:0.9];
+        
         [self addSubViews];
+        [self setData];
     }
     return self;
 }
@@ -37,10 +39,20 @@
     [self addSubview:self.mineMoneyLabel];
 }
 
+-(void)setData{
+    self.mineMoneyLabel.text=[NSString stringWithFormat:@"%ld",(long)[CGSingleCommitData sharedInstance].goldNum];
+    [self.mineMoneyLabel sizeToFit];
+}
+
 -(void)giftClick:(UIButton *)sender{
-    NSLog(@"需要%ld元钱",(long)sender.tag);
-    if (buyGiftClickBlock) {
-        buyGiftClickBlock([NSString stringWithFormat:@"%ld",(long)sender.tag]);
+    if (sender.tag<=[CGSingleCommitData sharedInstance].goldNum) {
+        [CGSingleCommitData sharedInstance].goldNum-=sender.tag;
+        [SVProgressHUD showInfoWithStatus:@"感谢赠送"];
+        [self setData];
+    }else{
+        if (buyGiftClickBlock) {
+            buyGiftClickBlock([NSString stringWithFormat:@"%ld",(long)sender.tag]);
+        }
     }
 }
 
@@ -156,7 +168,7 @@
 -(UILabel *)mineMoneyLabel{
     if (!_mineMoneyLabel) {
         _mineMoneyLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.mineMoneyIcon.frame)+5*SCREEN_RADIO, self.frame.size.height-16*SCREEN_RADIO, 0, 12*SCREEN_RADIO)];
-        _mineMoneyLabel.text=@"5";
+        _mineMoneyLabel.text=[NSString stringWithFormat:@"%ld",(long)[CGSingleCommitData sharedInstance].goldNum];
         _mineMoneyLabel.textColor=[UIColor whiteColor];
         _mineMoneyLabel.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         [_mineMoneyLabel sizeToFit];

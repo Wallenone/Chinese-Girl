@@ -9,7 +9,9 @@
 
 #import "CGGoldCoinViewController.h"
 
-@interface CGGoldCoinViewController ()
+@interface CGGoldCoinViewController (){
+    OnBuyBack onBuyBack;
+}
 @property(nonatomic,strong)UIView *diView;
 @property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)UIView *item1;
@@ -28,6 +30,10 @@
     [self addSubViews];
 }
 
+-(void)onBuyBack:(OnBuyBack)block{
+    onBuyBack=block;
+}
+
 -(void)addSubViews{
     [self.view addSubview:self.diView];
     [self.diView addSubview:self.leftIcon];
@@ -41,21 +47,26 @@
 }
 
 -(void)back{
+    if (onBuyBack) {
+        onBuyBack();
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)btnClick:(UIButton *)sender{
     if (sender.tag==1001) {  //$0.99
-        
+        [CGSingleCommitData sharedInstance].goldNum+=79;
     }else if (sender.tag==1002){ //$9.99
-        
+        [CGSingleCommitData sharedInstance].goldNum+=819;
     }else if (sender.tag==1003){ //$99.99
-        
+        [CGSingleCommitData sharedInstance].goldNum+=8499;
     }else if (sender.tag==1004){ //$4.99
-        
+        [CGSingleCommitData sharedInstance].goldNum+=399;
     }else if (sender.tag==1005){  //$49.99
-        
+        [CGSingleCommitData sharedInstance].goldNum+=4199;
     }
+    self.mineMoneyLabel.text=[NSString stringWithFormat:@"%ld",(long)[CGSingleCommitData sharedInstance].goldNum];
+    [self.mineMoneyLabel sizeToFit];
 }
 
 -(UIView *)diView{
@@ -294,7 +305,7 @@
 -(UILabel *)mineMoneyLabel{
     if (!_mineMoneyLabel) {
         _mineMoneyLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.mineMoneyIcon.frame)+5*SCREEN_RADIO, 250*SCREEN_RADIO-19*SCREEN_RADIO, 0, 12*SCREEN_RADIO)];
-        _mineMoneyLabel.text=@"5";
+        _mineMoneyLabel.text=[NSString stringWithFormat:@"%ld",(long)[CGSingleCommitData sharedInstance].goldNum];
         _mineMoneyLabel.textColor=[UIColor getColor:@"666666"];
         _mineMoneyLabel.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         [_mineMoneyLabel sizeToFit];
