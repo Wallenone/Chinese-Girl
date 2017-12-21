@@ -9,7 +9,9 @@
 #import "CGGiftView.h"
 @interface CGGiftView ()<UIScrollViewDelegate>{
     NSArray *monetNumArr;
+    NSArray *giftNameArr;
     BuyGiftClickBlock buyGiftClickBlock;
+    GetGiftBlock getGiftBlock;
 }
 @property(nonatomic,strong)UIScrollView *scrollView;
 @property(nonatomic,strong)UIPageControl *pageControl;
@@ -19,11 +21,13 @@
 
 @implementation CGGiftView
 
-- (instancetype)initWithFrame:(CGRect)frame withBuyBlock:(BuyGiftClickBlock)block
+- (instancetype)initWithFrame:(CGRect)frame withBuyBlock:(BuyGiftClickBlock)block withGetGift:(GetGiftBlock)giftBlock
 {
     self = [super initWithFrame:frame];
     if (self) {
-        buyGiftClickBlock=block; monetNumArr=@[@"99",@"10",@"30",@"30",@"30",@"30",@"30",@"30",@"40",@"80",@"30",@"50",@"30",@"90",@"100",@"30",@"30",@"120",@"300",@"300",@"300",@"150",@"500",@"300",@"300",@"500",@"500",@"499",@"300",@"600",@"700",@"500",@"600",@"800",@"400",@"900",@"470",@"700",@"400",@"999",@"4999",@"4999",@"8888",@"9999",@"19999",@"50000",@"66666",@"88888"];
+        buyGiftClickBlock=block;
+        getGiftBlock=giftBlock; monetNumArr=@[@"99",@"10",@"30",@"30",@"30",@"30",@"30",@"30",@"40",@"80",@"30",@"50",@"30",@"90",@"100",@"30",@"30",@"120",@"300",@"300",@"300",@"150",@"500",@"300",@"300",@"500",@"500",@"499",@"300",@"600",@"700",@"500",@"600",@"800",@"400",@"900",@"470",@"700",@"400",@"999",@"4999",@"4999",@"8888",@"9999",@"19999",@"50000",@"66666",@"88888"];
+        giftNameArr=@[@"鲜花",@"10",@"30",@"30",@"30",@"30",@"30",@"30",@"40",@"80",@"30",@"50",@"30",@"90",@"100",@"30",@"30",@"120",@"300",@"300",@"300",@"150",@"500",@"300",@"300",@"500",@"500",@"499",@"300",@"600",@"700",@"500",@"600",@"800",@"400",@"900",@"470",@"700",@"400",@"999",@"4999",@"4999",@"8888",@"9999",@"19999",@"50000",@"66666",@"88888"];
         self.backgroundColor=[UIColor colorWithRed:29/255 green:28/255 blue:30/255 alpha:0.9];
         
         [self addSubViews];
@@ -45,13 +49,17 @@
 }
 
 -(void)giftClick:(UIButton *)sender{
-    if (sender.tag<=[CGSingleCommitData sharedInstance].goldNum) {
+    NSInteger moneyNum= [[monetNumArr objectAtIndex:sender.tag] integerValue];
+    NSString *giftName=[giftNameArr objectAtIndex:sender.tag];
+    if (moneyNum<=[CGSingleCommitData sharedInstance].goldNum) {
+        if (getGiftBlock) {
+            getGiftBlock(giftName,[NSString stringWithFormat:@"gift%ld",sender.tag+1]);
+        }
         [CGSingleCommitData sharedInstance].goldNum-=sender.tag;
-        [SVProgressHUD showInfoWithStatus:@"感谢赠送"];
         [self setData];
     }else{
         if (buyGiftClickBlock) {
-            buyGiftClickBlock([NSString stringWithFormat:@"%ld",(long)sender.tag]);
+            buyGiftClickBlock([NSString stringWithFormat:@"%ld",moneyNum]);
         }
     }
 }
@@ -118,12 +126,12 @@
             
             UIButton *btn1=[[UIButton alloc] initWithFrame:CGRectMake(_x, 0, 80*SCREEN_RADIO, 80*SCREEN_RADIO)];
             [btn1 addTarget:self action:@selector(giftClick:) forControlEvents:UIControlEventTouchUpInside];
-            btn1.tag=[[monetNumArr objectAtIndex:giftNum] integerValue];
+            btn1.tag=giftNum;
             [_scrollView addSubview:btn1];
             
             UIButton *btn2=[[UIButton alloc] initWithFrame:CGRectMake(_x, CGRectGetMaxY(btn1.frame)+20*SCREEN_RADIO, 80*SCREEN_RADIO, 80*SCREEN_RADIO)];
             [btn2 addTarget:self action:@selector(giftClick:) forControlEvents:UIControlEventTouchUpInside];
-            btn2.tag=[[monetNumArr objectAtIndex:giftNum+1] integerValue];
+            btn2.tag=giftNum+1;
             [_scrollView addSubview:btn2];
             
             giftNum+=2;

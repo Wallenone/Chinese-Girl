@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^BuyGiftClickBlock)(NSString *);
+typedef void (^GetGiftBlock)(NSString *,NSString *);
 @interface CGGiftView : UIView
-- (instancetype)initWithFrame:(CGRect)frame withBuyBlock:(BuyGiftClickBlock)block;
+- (instancetype)initWithFrame:(CGRect)frame withBuyBlock:(BuyGiftClickBlock)block withGetGift:(GetGiftBlock)giftBlock;
 -(void)setData;
 @end

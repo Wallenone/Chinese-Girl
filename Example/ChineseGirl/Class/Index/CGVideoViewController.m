@@ -16,6 +16,13 @@
 #import "MyIndexViewController.h"
 #import "CGGoldCoinViewController.h"
 #import "CGNewSignInViewController.h"
+#import "PresentView.h"
+#import "GiftModel.h"
+#import "AnimOperation.h"
+#import "AnimOperationManager.h"
+#import "GSPChatMessage.h"
+#import "EZJFastTableView.h"
+#import "CGGiftGetTableViewCell.h"
 @interface CGVideoViewController ()<ZFPlayerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
@@ -28,6 +35,9 @@
 @property(nonatomic,strong)UIButton *menuBtn4;
 @property(nonatomic,strong)ZFPlayerView *playerView;
 @property(nonatomic,strong)CGGiftView *giftView;
+@property(nonatomic,strong)EZJFastTableView *tbv;
+@property(nonatomic,strong)UIView *giftFriendView;
+@property(nonatomic,strong)UIButton *tbvBtnClose;
 @end
 
 @implementation CGVideoViewController
@@ -176,18 +186,39 @@
     
 }
 
+-(void)backBtnClick{
+    self.tbv.hidden=YES;
+    self.tbvBtnClose.hidden=YES;
+}
+
+-(void)friendTotalClick{
+    if (self.tbv.hidden) {
+        self.tbv.hidden=NO;
+    }else{
+        self.tbv.hidden=YES;
+    }
+    
+    if(self.tbvBtnClose.hidden){
+        self.tbvBtnClose.hidden=NO;
+    }else{
+        self.tbvBtnClose.hidden=YES;
+    }
+}
+
 -(void)addSubViews{
     [self.view addSubview:self.headerView];
     [self.headerView addSubview:self.headerIconView];
     [self.headerView addSubview:self.nickName];
     [self.headerView addSubview:self.numLook];
-    
+    [self.view addSubview:self.giftFriendView];
    // [self.view addSubview:self.closeBtn];
     [self.view addSubview:self.menuBtn1];
     [self.view addSubview:self.menuBtn2];
     [self.view addSubview:self.menuBtn3];
     [self.view addSubview:self.menuBtn4];
     [self.view addSubview:self.giftView];
+    [self.view addSubview:self.tbv];
+    [self.view addSubview:self.tbvBtnClose];
 
 }
 
@@ -316,11 +347,68 @@
         __weak __typeof(self)weakSelf = self;
         _giftView=[[CGGiftView alloc] initWithFrame:CGRectMake(0, screen_height-200*SCREEN_RADIO, ScreenWidth, 200*SCREEN_RADIO) withBuyBlock:^(NSString *glodNum) {
             [weakSelf getGlodView];
+        } withGetGift:^(NSString *giftName, NSString *giftImgName) {
+            GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+            msg.text = [NSString stringWithFormat:@"1个【%@】",giftName];
+            
+            msg.senderChatID = [CGSingleCommitData sharedInstance].nickName;
+            msg.senderName = msg.senderChatID;
+            // 礼物模型
+            GiftModel *giftModel = [[GiftModel alloc] init];
+            giftModel.headImage = [CGSingleCommitData sharedInstance].avatar;
+            giftModel.name = msg.senderName;
+            giftModel.giftImage = [UIImage imageNamed:giftImgName];
+            giftModel.giftName = msg.text;
+            giftModel.giftCount = 1;
+            
+            
+            AnimOperationManager *manager = [AnimOperationManager sharedManager];
+            manager.parentView = weakSelf.view;
+            // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+            [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+                
+            }];
         }];
         _giftView.hidden=YES;
     }
     
     return _giftView;
+}
+
+-(UIView *)giftFriendView{
+    if (!_giftFriendView) {
+        _giftFriendView=[[UIView alloc] initWithFrame:CGRectMake(6*SCREEN_RADIO, CGRectGetMaxY(self.headerView.frame)+6*SCREEN_RADIO, 200*SCREEN_RADIO, 21*SCREEN_RADIO)];
+        _giftFriendView.backgroundColor=[UIColor clearColor];
+        UIImageView *friend1=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
+        friend1.image=[UIImage imageNamed:@"Avatar"];
+        friend1.layer.cornerRadius=10.5*SCREEN_RADIO;
+        friend1.clipsToBounds=YES;
+        [_giftFriendView addSubview:friend1];
+        
+        UIImageView *friend2=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(friend1.frame)+10*SCREEN_RADIO, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
+        friend2.image=[UIImage imageNamed:@"Avatar"];
+        friend2.layer.cornerRadius=10.5*SCREEN_RADIO;
+        friend2.clipsToBounds=YES;
+        [_giftFriendView addSubview:friend2];
+        
+        UIImageView *friend3=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(friend2.frame)+10*SCREEN_RADIO, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
+        friend3.image=[UIImage imageNamed:@"Avatar"];
+        friend3.layer.cornerRadius=10.5*SCREEN_RADIO;
+        friend3.clipsToBounds=YES;
+        [_giftFriendView addSubview:friend3];
+        
+        UILabel *friendTotal=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(friend3.frame)+10*SCREEN_RADIO, 3.5*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
+        friendTotal.text=@"19 >";
+        friendTotal.textColor=[UIColor whiteColor];
+        friendTotal.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
+        [friendTotal sizeToFit];
+        [_giftFriendView addSubview:friendTotal];
+        _giftFriendView.frame=CGRectMake(6*SCREEN_RADIO, CGRectGetMaxY(self.headerView.frame)+6*SCREEN_RADIO, CGRectGetMaxX(friendTotal.frame), 21*SCREEN_RADIO);
+        UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(friendTotalClick)];
+        [_giftFriendView addGestureRecognizer:tapGesturRecognizer];
+    }
+    
+    return _giftFriendView;
 }
 
 - (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
@@ -332,5 +420,60 @@
 - (void)zf_playerBackAction{
     [self closeClick];
 }
+
+-(EZJFastTableView *)tbv{
+    if (!_tbv) {
+        
+        CGRect tbvFrame = CGRectMake(0, 200*SCREEN_RADIO, self.view.frame.size.width, screen_height-200*SCREEN_RADIO);
+        //初始化
+        
+        _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
+        _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _tbv.backgroundColor=[UIColor colorWithRed:28/255 green:28/255 blue:28/255 alpha:0.8];
+        //给tableview赋值
+        
+        [_tbv setDataArray:@[@1,@2,@3,@4]];
+        
+        [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
+            CGGiftGetTableViewCell *cell=[[CGGiftGetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            
+            return cell;
+        }];
+        
+        //动态改变
+        
+        [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
+            
+            return 65*SCREEN_RADIO;
+        }];
+        
+        
+        //设置选中事件 block设置方式
+        //indexPath  是当前行对象 indexPath.row(获取行数)
+        //cellData 是当前行的数据
+        
+        [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
+            NSLog(@"click");
+           
+        }];
+        
+        _tbv.hidden=YES;
+        
+    }
+    
+    return _tbv;
+}
+
+-(UIButton *)tbvBtnClose{
+    if(!_tbvBtnClose){
+        _tbvBtnClose=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-24*SCREEN_RADIO, 215*SCREEN_RADIO, 14*SCREEN_RADIO, 14*SCREEN_RADIO)];
+        [_tbvBtnClose setImage:[UIImage imageNamed:@"icon_close"] forState:UIControlStateNormal];
+        [_tbvBtnClose addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _tbvBtnClose.hidden=YES;
+    }
+    
+    return _tbvBtnClose;
+}
+
 
 @end

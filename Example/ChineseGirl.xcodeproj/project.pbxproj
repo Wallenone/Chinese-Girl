@@ -100,6 +100,13 @@
 		E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */; };
 		E5B2A24D1FD8072B006F57AD /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5B2A24C1FD8072B006F57AD /* message.plist */; };
 		E5B4756C1FD6CDE70045B960 /* CGMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */; };
+		E5BCE6BE1FEBFA160043DF88 /* AnimOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6B31FEBFA150043DF88 /* AnimOperation.m */; };
+		E5BCE6BF1FEBFA160043DF88 /* AnimOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6B51FEBFA150043DF88 /* AnimOperationManager.m */; };
+		E5BCE6C01FEBFA160043DF88 /* GiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6B71FEBFA150043DF88 /* GiftModel.m */; };
+		E5BCE6C11FEBFA160043DF88 /* GSPChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6B91FEBFA150043DF88 /* GSPChatMessage.m */; };
+		E5BCE6C21FEBFA160043DF88 /* PresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6BB1FEBFA150043DF88 /* PresentView.m */; };
+		E5BCE6C31FEBFA160043DF88 /* ShakeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6BD1FEBFA150043DF88 /* ShakeLabel.m */; };
+		E5BCE6C61FEC00260043DF88 /* CGGiftGetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6C51FEC00260043DF88 /* CGGiftGetTableViewCell.m */; };
 		E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */; };
 		E5BD337D1FBFDB1900C8FE94 /* CGFollowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BD337C1FBFDB1900C8FE94 /* CGFollowTableViewCell.m */; };
 		E5C011A41F526D57003FB906 /* NewsBottomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C011A31F526D57003FB906 /* NewsBottomMessage.m */; };
@@ -354,6 +361,20 @@
 		E5B2A24C1FD8072B006F57AD /* message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = message.plist; sourceTree = "<group>"; };
 		E5B4756A1FD6CDE70045B960 /* CGMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMessageModel.h; sourceTree = "<group>"; };
 		E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMessageModel.m; sourceTree = "<group>"; };
+		E5BCE6B21FEBFA150043DF88 /* AnimOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimOperation.h; sourceTree = "<group>"; };
+		E5BCE6B31FEBFA150043DF88 /* AnimOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimOperation.m; sourceTree = "<group>"; };
+		E5BCE6B41FEBFA150043DF88 /* AnimOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimOperationManager.h; sourceTree = "<group>"; };
+		E5BCE6B51FEBFA150043DF88 /* AnimOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimOperationManager.m; sourceTree = "<group>"; };
+		E5BCE6B61FEBFA150043DF88 /* GiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftModel.h; sourceTree = "<group>"; };
+		E5BCE6B71FEBFA150043DF88 /* GiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftModel.m; sourceTree = "<group>"; };
+		E5BCE6B81FEBFA150043DF88 /* GSPChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPChatMessage.h; sourceTree = "<group>"; };
+		E5BCE6B91FEBFA150043DF88 /* GSPChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPChatMessage.m; sourceTree = "<group>"; };
+		E5BCE6BA1FEBFA150043DF88 /* PresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentView.h; sourceTree = "<group>"; };
+		E5BCE6BB1FEBFA150043DF88 /* PresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentView.m; sourceTree = "<group>"; };
+		E5BCE6BC1FEBFA150043DF88 /* ShakeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeLabel.h; sourceTree = "<group>"; };
+		E5BCE6BD1FEBFA150043DF88 /* ShakeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeLabel.m; sourceTree = "<group>"; };
+		E5BCE6C41FEC00260043DF88 /* CGGiftGetTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGiftGetTableViewCell.h; sourceTree = "<group>"; };
+		E5BCE6C51FEC00260043DF88 /* CGGiftGetTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGiftGetTableViewCell.m; sourceTree = "<group>"; };
 		E5BD33781FBFD98100C8FE94 /* CGMyFollowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMyFollowViewController.h; sourceTree = "<group>"; };
 		E5BD33791FBFD98100C8FE94 /* CGMyFollowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMyFollowViewController.m; sourceTree = "<group>"; };
 		E5BD337B1FBFDB1900C8FE94 /* CGFollowTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGFollowTableViewCell.h; sourceTree = "<group>"; };
@@ -775,6 +796,8 @@
 				E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */,
 				E5C960801F93132C00EB654A /* WSCollectionHeaderCell.h */,
 				E5C960811F93132C00EB654A /* WSCollectionHeaderCell.m */,
+				E5BCE6C41FEC00260043DF88 /* CGGiftGetTableViewCell.h */,
+				E5BCE6C51FEC00260043DF88 /* CGGiftGetTableViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -843,6 +866,7 @@
 		E538D7721F429D7E0079AE94 /* CommonClass */ = {
 			isa = PBXGroup;
 			children = (
+				E5BCE6B11FEBFA150043DF88 /* presentView */,
 				E53579CF1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.h */,
 				E53579CE1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m */,
 				E534E2051FBC1B9F00F4962E /* LocalNotification */,
@@ -927,6 +951,25 @@
 				E511CB161FB00013006BA362 /* InfoPlist.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		E5BCE6B11FEBFA150043DF88 /* presentView */ = {
+			isa = PBXGroup;
+			children = (
+				E5BCE6B21FEBFA150043DF88 /* AnimOperation.h */,
+				E5BCE6B31FEBFA150043DF88 /* AnimOperation.m */,
+				E5BCE6B41FEBFA150043DF88 /* AnimOperationManager.h */,
+				E5BCE6B51FEBFA150043DF88 /* AnimOperationManager.m */,
+				E5BCE6B61FEBFA150043DF88 /* GiftModel.h */,
+				E5BCE6B71FEBFA150043DF88 /* GiftModel.m */,
+				E5BCE6B81FEBFA150043DF88 /* GSPChatMessage.h */,
+				E5BCE6B91FEBFA150043DF88 /* GSPChatMessage.m */,
+				E5BCE6BA1FEBFA150043DF88 /* PresentView.h */,
+				E5BCE6BB1FEBFA150043DF88 /* PresentView.m */,
+				E5BCE6BC1FEBFA150043DF88 /* ShakeLabel.h */,
+				E5BCE6BD1FEBFA150043DF88 /* ShakeLabel.m */,
+			);
+			path = presentView;
 			sourceTree = "<group>";
 		};
 		E5C0119F1F526D38003FB906 /* cell */ = {
@@ -1318,6 +1361,7 @@
 				E504AB961F507C0100E1F48C /* MJPhotoProgressView.m in Sources */,
 				6003F59E195388D20070C39A /* CGAppDelegate.m in Sources */,
 				E5BD337A1FBFD98100C8FE94 /* CGMyFollowViewController.m in Sources */,
+				E5BCE6BF1FEBFA160043DF88 /* AnimOperationManager.m in Sources */,
 				E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */,
 				E538D76B1F429BE80079AE94 /* WSLayout.m in Sources */,
 				E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */,
@@ -1376,8 +1420,10 @@
 				E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */,
 				E5B4756C1FD6CDE70045B960 /* CGMessageModel.m in Sources */,
 				E546C1271FBF2496000F5127 /* CGVipTableViewCell.m in Sources */,
+				E5BCE6BE1FEBFA160043DF88 /* AnimOperation.m in Sources */,
 				E53C9D6B1F558B700069D663 /* NewsInfoCellTableViewCell.m in Sources */,
 				E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */,
+				E5BCE6C21FEBFA160043DF88 /* PresentView.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
 				E5360A791FBC7F8E009DDA07 /* CGAnswerOptionViewController.m in Sources */,
 				E5F542831FC857BD00262DCE /* CGVideoDataModel.m in Sources */,
@@ -1388,10 +1434,12 @@
 				E581D53E1F66987A00FD9A28 /* ShapedImageView.m in Sources */,
 				E538D74D1F429ACC0079AE94 /* AFURLResponseSerialization.m in Sources */,
 				E504AB921F507C0100E1F48C /* MJPhoto.m in Sources */,
+				E5BCE6C01FEBFA160043DF88 /* GiftModel.m in Sources */,
 				E5E0FE4D1F9AF15700B5228E /* WYLongTextInputView.m in Sources */,
 				E56826101F9E275A0099F363 /* MineProfileInfoViewController.m in Sources */,
 				E538D76D1F429BE80079AE94 /* NewsViewController.m in Sources */,
 				E5E271671FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m in Sources */,
+				E5BCE6C61FEC00260043DF88 /* CGGiftGetTableViewCell.m in Sources */,
 				E5C0CD8C1FB83EF5002394C9 /* CGPinglun.m in Sources */,
 				E5E2716C1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m in Sources */,
 				E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */,
@@ -1399,6 +1447,8 @@
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
 				E5E0FE471F9AF15700B5228E /* NicknameViewController.m in Sources */,
 				E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */,
+				E5BCE6C31FEBFA160043DF88 /* ShakeLabel.m in Sources */,
+				E5BCE6C11FEBFA160043DF88 /* GSPChatMessage.m in Sources */,
 				E5944C031FB975D400013F78 /* UICountryViewController.m in Sources */,
 				E5C0CD811FB81F20002394C9 /* CGIndexModel.m in Sources */,
 				E5C960821F93132C00EB654A /* WSCollectionHeaderCell.m in Sources */,
