@@ -86,13 +86,13 @@
         NewsMessageController *newMessage=[[NewsMessageController alloc] init];
         newMessage.userid=self.addModel.ids;
         newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.addModel.ids];
-        [[self getCurrentVC].navigationController pushViewController:newMessage animated:NO];
+        [[CGCommonToolsNode getCurrentVC].navigationController pushViewController:newMessage animated:NO];
     }else{
         CGVipViewController *vipVC=[[CGVipViewController alloc] init];
         vipVC.definesPresentationContext = YES;
         vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-        [[self getCurrentVC] presentViewController:vipVC animated:NO completion:nil];
+        [[CGCommonToolsNode getCurrentVC] presentViewController:vipVC animated:NO completion:nil];
     }
 }
 
@@ -105,7 +105,7 @@
         videoVC.videoIcon=self.addModel.picturesBig[0];
         videoVC.videoStr=self.addModel.videoUrlS[0];
         videoVC.userInfo=self.addModel;
-        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+        [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
     }
 }
 
@@ -118,7 +118,7 @@
         videoVC.videoIcon=self.addModel.picturesBig[1];
         videoVC.videoStr=self.addModel.videoUrlS[1];
         videoVC.userInfo=self.addModel;
-        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+        [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
     }
 }
 
@@ -131,7 +131,7 @@
         videoVC.videoIcon=self.addModel.picturesBig[2];
         videoVC.videoStr=self.addModel.videoUrlS[2];
         videoVC.userInfo=self.addModel;
-        [[self getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+        [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
     }
 }
 
@@ -298,44 +298,5 @@
     }
     
     return _contentBtn3;
-}
-
-//获取当前屏幕显示的viewcontroller
-- (UIViewController *)getCurrentVC
-{
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
-    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
-    
-    return currentVC;
-}
-
-- (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC
-{
-    UIViewController *currentVC;
-    
-    if ([rootVC presentedViewController]) {
-        // 视图是被presented出来的
-        
-        rootVC = [rootVC presentedViewController];
-    }
-    
-    if ([rootVC isKindOfClass:[UITabBarController class]]) {
-        // 根视图为UITabBarController
-        
-        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
-        
-    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
-        // 根视图为UINavigationController
-        
-        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
-        
-    } else {
-        // 根视图为非导航类
-        
-        currentVC = rootVC;
-    }
-    
-    return currentVC;
 }
 @end

@@ -10,7 +10,7 @@ PODS:
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
   - SVProgressHUD (2.2.2)
-  - UICommonTools (0.1.7)
+  - UICommonTools (0.1.8)
   - UIFastTabBarController (0.1.1)
   - UIFastTableView (0.2.4):
     - MJRefresh
@@ -51,7 +51,7 @@ SPEC CHECKSUMS:
   RouterManager: 5fae26a349743cefff30c44336c500169d8ac30c
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
-  UICommonTools: 4f791c270beafaf71b94732d6eca94ef3ed02a56
+  UICommonTools: d6fd64238cfb02eb0d9bad55118763cd5785b2a0
   UIFastTabBarController: 88a01f27ff0eaca1277622c2fffcd5881447f2ab
   UIFastTableView: 24c8b333bc3ed3abb719c9af94c73e997b5ffb2d
   WJFastDialogView: f376833e8c248066ec04626421e4539e9c1233d5

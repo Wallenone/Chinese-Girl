@@ -53,7 +53,7 @@
             
             imagePickerController.sourceType = blockSourceType;
             
-            [[self getCurrentVC] presentViewController:imagePickerController animated:YES completion:nil];
+            [[CGCommonToolsNode getCurrentVC] presentViewController:imagePickerController animated:YES completion:nil];
         }]];
         
         [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"take_photo", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -70,7 +70,7 @@
             
             imagePickerController.sourceType = blockSourceType;
             
-            [[self getCurrentVC] presentViewController:imagePickerController animated:YES completion:nil];
+            [[CGCommonToolsNode getCurrentVC] presentViewController:imagePickerController animated:YES completion:nil];
         }]];
         
         [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -80,7 +80,7 @@
             return;
         }]];
         
-        [[self getCurrentVC] presentViewController:alertController animated:YES completion:nil];
+        [[CGCommonToolsNode getCurrentVC] presentViewController:alertController animated:YES completion:nil];
     }
     else
     {
@@ -101,7 +101,7 @@
             
             imagePickerController.sourceType = blockSourceType;
             
-            [[self getCurrentVC] presentViewController:imagePickerController animated:YES completion:^{
+            [[CGCommonToolsNode getCurrentVC] presentViewController:imagePickerController animated:YES completion:^{
                 
             }];
         }]];
@@ -113,7 +113,7 @@
             return;
         }]];
         
-        [[self getCurrentVC] presentViewController:alertController animated:YES completion:nil];
+        [[CGCommonToolsNode getCurrentVC] presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -156,36 +156,6 @@
     
     // 将图片写入文件
     [imageData writeToFile:fullPath atomically:NO];
-}
-
-//获取当前屏幕显示的viewcontroller
-- (UIViewController *)getCurrentVC
-{
-    UIViewController *result = nil;
-    
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
-    if (window.windowLevel != UIWindowLevelNormal)
-    {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
-        for(UIWindow * tmpWin in windows)
-        {
-            if (tmpWin.windowLevel == UIWindowLevelNormal)
-            {
-                window = tmpWin;
-                break;
-            }
-        }
-    }
-    
-    UIView *frontView = [[window subviews] objectAtIndex:0];
-    id nextResponder = [frontView nextResponder];
-    
-    if ([nextResponder isKindOfClass:[UIViewController class]])
-        result = nextResponder;
-    else
-        result = window.rootViewController;
-    
-    return result;
 }
 
 @end
