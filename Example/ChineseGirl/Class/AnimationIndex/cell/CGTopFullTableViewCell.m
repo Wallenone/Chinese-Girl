@@ -67,7 +67,7 @@
     }
     
     if (self.modeltype==1) {
-        [self.avaterImgView sd_setImageWithURL:[NSURL URLWithString:self.cellModel.moneyUserInfo.avater]];
+        [self.avaterImgView sd_setImageWithURL:[NSURL URLWithString:self.cellModel.moneyUserInfo.avater] placeholderImage:[UIImage imageNamed:@"smalldefault_icon"]];
         [self.nickName setText:self.cellModel.moneyUserInfo.nickname];
         [self.nickName sizeToFit];
         self.goldNum.frame=CGRectMake(CGRectGetMaxX(self.goldImgView.frame)+3*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+9*SCREEN_RADIO, 0, 13*SCREEN_RADIO);
@@ -80,7 +80,7 @@
         self.goldImgView.frame=CGRectMake(CGRectGetMaxX(self.moneyPit.frame)+2*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+10*SCREEN_RADIO, 12*SCREEN_RADIO, 12*SCREEN_RADIO);
         
     }else{
-        [self.avaterImgView sd_setImageWithURL:[NSURL URLWithString:self.cellModel.hotUserInfo.avater]];
+        [self.avaterImgView sd_setImageWithURL:[NSURL URLWithString:self.cellModel.hotUserInfo.avater] placeholderImage:[UIImage imageNamed:@"smalldefault_icon"]];
         [self.nickName setText:self.cellModel.hotUserInfo.nickname];
         [self.nickName sizeToFit];
         self.goldNum.frame=CGRectMake(CGRectGetMaxX(self.goldImgView.frame)+9*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+9*SCREEN_RADIO, 0, 13*SCREEN_RADIO);
@@ -216,7 +216,7 @@
 -(UIView *)lineView{
     if (!_lineView) {
         _lineView=[[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.topIcon.frame)+15*SCREEN_RADIO, 73*SCREEN_RADIO-0.5, screen_width-CGRectGetMaxX(self.topIcon.frame)+15*SCREEN_RADIO, 0.5)];
-        _lineView.backgroundColor=[UIColor getColor:@"a99dc3"];
+        _lineView.backgroundColor=[UIColor getColor:@"493D83"];
     }
     
     return _lineView;
