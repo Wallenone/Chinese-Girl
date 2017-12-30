@@ -90,6 +90,8 @@
 		E58F28871FC30D7400DFAB8E /* XLVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58F28851FC30D7300DFAB8E /* XLVideoCell.m */; };
 		E590550C1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E590550B1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m */; };
 		E59055121FD059A20053EC40 /* CGMailListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59055111FD059A20053EC40 /* CGMailListViewController.m */; };
+		E590FBD21FF4C5350003B838 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E590FBD11FF4C5350003B838 /* StoreKit.framework */; };
+		E590FC191FF4E3080003B838 /* CGStorePayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E590FC171FF4E3070003B838 /* CGStorePayManager.m */; };
 		E5944BFF1FB9757600013F78 /* CGGetCityPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = E5944BFD1FB9757600013F78 /* CGGetCityPlist.m */; };
 		E5944C001FB9757600013F78 /* city.txt in Resources */ = {isa = PBXBuildFile; fileRef = E5944BFE1FB9757600013F78 /* city.txt */; };
 		E5944C031FB975D400013F78 /* UICountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5944C021FB975D300013F78 /* UICountryViewController.m */; };
@@ -343,6 +345,9 @@
 		E590550B1FD03CBC0053EC40 /* CGFavoriteSectionHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGFavoriteSectionHeaderCell.m; sourceTree = "<group>"; };
 		E59055101FD059A20053EC40 /* CGMailListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMailListViewController.h; sourceTree = "<group>"; };
 		E59055111FD059A20053EC40 /* CGMailListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMailListViewController.m; sourceTree = "<group>"; };
+		E590FBD11FF4C5350003B838 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E590FC171FF4E3070003B838 /* CGStorePayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGStorePayManager.m; sourceTree = "<group>"; };
+		E590FC181FF4E3080003B838 /* CGStorePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGStorePayManager.h; sourceTree = "<group>"; };
 		E5944BFC1FB9757500013F78 /* CGGetCityPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGetCityPlist.h; sourceTree = "<group>"; };
 		E5944BFD1FB9757600013F78 /* CGGetCityPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGetCityPlist.m; sourceTree = "<group>"; };
 		E5944BFE1FB9757600013F78 /* city.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city.txt; sourceTree = "<group>"; };
@@ -475,6 +480,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E590FBD21FF4C5350003B838 /* StoreKit.framework in Frameworks */,
 				E55DF4BF1FBB315100E5215E /* CoreLocation.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
@@ -520,6 +526,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E590FBD11FF4C5350003B838 /* StoreKit.framework */,
 				E55DF4BE1FBB315100E5215E /* CoreLocation.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
@@ -930,6 +937,7 @@
 		E56801671F39912800415A65 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E590FBCD1FF4C4C30003B838 /* Pay */,
 				E55B71541FEA5F7E000F2FDB /* Launch */,
 				E5E271641FC7BF7300BA1AC1 /* AnimationIndex */,
 				E546C11F1FBF22BB000F5127 /* Vip */,
@@ -951,6 +959,15 @@
 				E511CB161FB00013006BA362 /* InfoPlist.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		E590FBCD1FF4C4C30003B838 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				E590FC181FF4E3080003B838 /* CGStorePayManager.h */,
+				E590FC171FF4E3070003B838 /* CGStorePayManager.m */,
+			);
+			path = Pay;
 			sourceTree = "<group>";
 		};
 		E5BCE6B11FEBFA150043DF88 /* presentView */ = {
@@ -1209,6 +1226,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 						};
 					};
 					6003F5AD195388D20070C39A = {
@@ -1367,6 +1387,7 @@
 				E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */,
 				E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */,
 				E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */,
+				E590FC191FF4E3080003B838 /* CGStorePayManager.m in Sources */,
 				E5E351461FE1574D00E5A7AC /* CGVipViewController.m in Sources */,
 				E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
