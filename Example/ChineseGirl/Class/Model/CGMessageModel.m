@@ -11,7 +11,7 @@
 @implementation CGMessageModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGMessageModel *model = [[CGMessageModel alloc]init];
-    model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];;
+    model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
     model.type= [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     model.message = [CGCommonString filterNullString:[dic stringForKey:@"message"]];
     model.message_radio = @"";

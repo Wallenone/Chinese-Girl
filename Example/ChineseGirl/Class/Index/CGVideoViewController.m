@@ -159,7 +159,12 @@
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
         if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
-            
+            NSData *data1 = UIImagePNGRepresentation(self.menuBtn4.currentBackgroundImage);
+            NSData *data = UIImagePNGRepresentation([UIImage imageNamed:@"leaderboard_discover_following_ico"]);
+            if (![data isEqual:data1]) {
+                [[CGSingleCommitData sharedInstance] addFriendArr:self.userInfo.ids];
+                [self.menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
+            }
         }else{
             CGVipViewController *vipVC=[[CGVipViewController alloc] init];
             vipVC.definesPresentationContext = YES;
@@ -334,8 +339,12 @@
 
 -(UIButton *)menuBtn4{
     if (!_menuBtn4) {
-        _menuBtn4=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
-        [_menuBtn4 setImage:[UIImage imageNamed:@"video_follow"] forState:UIControlStateNormal];
+        _menuBtn4=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
+        if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:self.userInfo.ids]) {
+            [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
+        }else{
+            [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"video_follow"] forState:UIControlStateNormal];
+        }
         [_menuBtn4 addTarget:self action:@selector(menuClick4) forControlEvents:UIControlEventTouchUpInside];
     }
     

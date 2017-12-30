@@ -77,6 +77,11 @@
 		E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5C1F5A9F52006C65AF /* MycommitModel.m */; };
 		E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */; };
 		E5527AC31FDB80970077D8B8 /* CGGlobalTimerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */; };
+		E5581FD61FF764D500D13F6A /* CGMoneyTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5581FD51FF764D500D13F6A /* CGMoneyTopViewController.m */; };
+		E5581FD91FF76E9E00D13F6A /* CGTopOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5581FD81FF76E9E00D13F6A /* CGTopOneTableViewCell.m */; };
+		E5581FDC1FF77FF100D13F6A /* CGTopFullTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5581FDB1FF77FF100D13F6A /* CGTopFullTableViewCell.m */; };
+		E5581FE31FF787C500D13F6A /* CGMoneyTopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5581FE21FF787C500D13F6A /* CGMoneyTopModel.m */; };
+		E5581FEE1FF78FC700D13F6A /* moneyTop.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5581FED1FF78FC600D13F6A /* moneyTop.plist */; };
 		E55B71591FEA5F99000F2FDB /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E55B71581FEA5F99000F2FDB /* movie.mp4 */; };
 		E55B715C1FEA6E39000F2FDB /* KNMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55B715B1FEA6E38000F2FDB /* KNMovieViewController.m */; };
 		E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */; };
@@ -322,6 +327,15 @@
 		E54FAA5F1F5AA90A006C65AF /* myCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCommitCell.m; sourceTree = "<group>"; };
 		E5527AC11FDB80970077D8B8 /* CGGlobalTimerNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGlobalTimerNode.h; sourceTree = "<group>"; };
 		E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGlobalTimerNode.m; sourceTree = "<group>"; };
+		E5581FD41FF764D500D13F6A /* CGMoneyTopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMoneyTopViewController.h; sourceTree = "<group>"; };
+		E5581FD51FF764D500D13F6A /* CGMoneyTopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMoneyTopViewController.m; sourceTree = "<group>"; };
+		E5581FD71FF76E9E00D13F6A /* CGTopOneTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGTopOneTableViewCell.h; sourceTree = "<group>"; };
+		E5581FD81FF76E9E00D13F6A /* CGTopOneTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGTopOneTableViewCell.m; sourceTree = "<group>"; };
+		E5581FDA1FF77FF100D13F6A /* CGTopFullTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGTopFullTableViewCell.h; sourceTree = "<group>"; };
+		E5581FDB1FF77FF100D13F6A /* CGTopFullTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGTopFullTableViewCell.m; sourceTree = "<group>"; };
+		E5581FE11FF787C500D13F6A /* CGMoneyTopModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMoneyTopModel.h; sourceTree = "<group>"; };
+		E5581FE21FF787C500D13F6A /* CGMoneyTopModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMoneyTopModel.m; sourceTree = "<group>"; };
+		E5581FED1FF78FC600D13F6A /* moneyTop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = moneyTop.plist; sourceTree = "<group>"; };
 		E55B71581FEA5F99000F2FDB /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
 		E55B715A1FEA6E37000F2FDB /* KNMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNMovieViewController.h; sourceTree = "<group>"; };
 		E55B715B1FEA6E38000F2FDB /* KNMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMovieViewController.m; sourceTree = "<group>"; };
@@ -561,6 +575,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5581FED1FF78FC600D13F6A /* moneyTop.plist */,
 				E55B71581FEA5F99000F2FDB /* movie.mp4 */,
 				E5651D251FE55AFF0051346D /* userInfo.plist */,
 				E5CA90B71FE520BA0019B09E /* videoData.plist */,
@@ -1047,6 +1062,8 @@
 				E5F542821FC857BD00262DCE /* CGVideoDataModel.m */,
 				E5B4756A1FD6CDE70045B960 /* CGMessageModel.h */,
 				E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */,
+				E5581FE11FF787C500D13F6A /* CGMoneyTopModel.h */,
+				E5581FE21FF787C500D13F6A /* CGMoneyTopModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1102,6 +1119,8 @@
 				E5E271681FC7C1B300BA1AC1 /* view */,
 				E5E271651FC7BF8600BA1AC1 /* CGAnimationIndexViewController.h */,
 				E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */,
+				E5581FD41FF764D500D13F6A /* CGMoneyTopViewController.h */,
+				E5581FD51FF764D500D13F6A /* CGMoneyTopViewController.m */,
 			);
 			path = AnimationIndex;
 			sourceTree = "<group>";
@@ -1118,6 +1137,10 @@
 			children = (
 				E5E2716A1FC7C1E700BA1AC1 /* CGAnimationIndexCell.h */,
 				E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */,
+				E5581FD71FF76E9E00D13F6A /* CGTopOneTableViewCell.h */,
+				E5581FD81FF76E9E00D13F6A /* CGTopOneTableViewCell.m */,
+				E5581FDA1FF77FF100D13F6A /* CGTopFullTableViewCell.h */,
+				E5581FDB1FF77FF100D13F6A /* CGTopFullTableViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1285,6 +1308,7 @@
 				E5944C001FB9757600013F78 /* city.txt in Resources */,
 				E5046F701FD298A90061E608 /* shuoshuo.plist in Resources */,
 				E5C0CD6A1FB80BEC002394C9 /* pinglun.plist in Resources */,
+				E5581FEE1FF78FC700D13F6A /* moneyTop.plist in Resources */,
 				E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */,
 				E5CA90B81FE520BB0019B09E /* videoData.plist in Resources */,
 				E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */,
@@ -1377,6 +1401,7 @@
 				E546C1191FBEFB7A000F5127 /* CGAnswerModel.m in Sources */,
 				E55B715C1FEA6E39000F2FDB /* KNMovieViewController.m in Sources */,
 				E504AB911F507C0100E1F48C /* MBProgressHUD.m in Sources */,
+				E5581FE31FF787C500D13F6A /* CGMoneyTopModel.m in Sources */,
 				E504AB8F1F507C0100E1F48C /* MBProgressHUD+Add.m in Sources */,
 				E504AB961F507C0100E1F48C /* MJPhotoProgressView.m in Sources */,
 				6003F59E195388D20070C39A /* CGAppDelegate.m in Sources */,
@@ -1391,6 +1416,7 @@
 				E5E351461FE1574D00E5A7AC /* CGVipViewController.m in Sources */,
 				E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
+				E5581FD91FF76E9E00D13F6A /* CGTopOneTableViewCell.m in Sources */,
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
 				E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */,
 				E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */,
@@ -1415,6 +1441,7 @@
 				E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */,
 				E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */,
 				E504AB951F507C0100E1F48C /* MJPhotoLoadingView.m in Sources */,
+				E5581FDC1FF77FF100D13F6A /* CGTopFullTableViewCell.m in Sources */,
 				E52E450D1FE7F54400C4B8C2 /* CGGoldCoinViewController.m in Sources */,
 				E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */,
 				E54FAA5D1F5A9F52006C65AF /* MycommitModel.m in Sources */,
@@ -1425,6 +1452,7 @@
 				E504AB9B1F507C3B00E1F48C /* UIImageView+MJWebCache.m in Sources */,
 				E54FAA601F5AA90A006C65AF /* myCommitCell.m in Sources */,
 				E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */,
+				E5581FD61FF764D500D13F6A /* CGMoneyTopViewController.m in Sources */,
 				E59055121FD059A20053EC40 /* CGMailListViewController.m in Sources */,
 				E5E0FE481F9AF15700B5228E /* SignatureViewController.m in Sources */,
 				E53579D01FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m in Sources */,
