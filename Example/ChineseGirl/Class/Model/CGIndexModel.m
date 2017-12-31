@@ -19,7 +19,16 @@
     model.icon =[CGUserInfo getitemWithID:model.ids].avater;
     model.nickName =[CGUserInfo getitemWithID:model.ids].nickname;
     model.birthday =[CGUserInfo getitemWithID:model.ids].birthday;
-    model.toContent =[NSString stringWithFormat:@"%@个月后去%@",model.month,[CGSingleCommitData sharedInstance].cityName];
+    NSString *toCityName=@"";
+    if ([CGSingleCommitData sharedInstance].cityName.length>0) {
+        toCityName=[NSString stringWithFormat:@"%@个月后去%@",model.month,[CGSingleCommitData sharedInstance].cityName];
+    }else{
+        if ([CGSingleCommitData sharedInstance].countryName.length>0) {
+            toCityName=[NSString stringWithFormat:@"%@个月后去%@",model.month,[CGSingleCommitData sharedInstance].countryName];
+        }
+    }
+    
+    model.toContent =toCityName;
     model.address =[CGUserInfo getitemWithID:model.ids].address;
     model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     model.videoid=[CGCommonString filterNullString:[dic stringForKey:@"videoid"]];
