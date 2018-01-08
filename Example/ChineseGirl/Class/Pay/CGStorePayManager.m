@@ -54,10 +54,10 @@
     }else{
         
         // NSLog(@"不允许程序内付费");
-        UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                             message:@"请先开启应用内付费购买功能。"
+        UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"wenxinTips", nil)
+                                                             message:NSLocalizedString(@"pleaseSettingPay", nil)
                                                             delegate:nil
-                                                   cancelButtonTitle:@"确定"
+                                                   cancelButtonTitle:NSLocalizedString(@"queding", nil)
                                                    otherButtonTitles: nil];
         [alertError show];
     }
@@ -142,7 +142,7 @@
             [SVProgressHUD dismiss];
         switch (transaction.transactionState) {
             case SKPaymentTransactionStatePurchasing:{
-                [SVProgressHUD showWithStatus:@"正在购买..." ];
+                [SVProgressHUD showWithStatus:NSLocalizedString(@"zhengzaigoumai", nil)];
                 NSLog(@"正在购买");
             }break;
             case SKPaymentTransactionStatePurchased:{
@@ -162,7 +162,7 @@
                 [queue finishTransaction:transaction];
             }break;
             case SKPaymentTransactionStateDeferred:{
-                [SVProgressHUD showWithStatus:@"正在购买..."];
+                [SVProgressHUD showWithStatus:NSLocalizedString(@"zhengzaigoumai", nil)];
                 NSLog(@"交易还在队列里面，但最终状态还没有决定");
             }break;
             default:

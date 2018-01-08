@@ -90,11 +90,11 @@
                     if ([messageDict.type integerValue]==1) {
                         message=messageDict.message;
                     }else if ([messageDict.type integerValue]==2){
-                        message=@"[语音]";
+                        message=[NSString stringWithFormat:@"[%@]",NSLocalizedString(@"yuying", nil)];
                     }else if ([messageDict.type integerValue]==3){
-                        message=@"[图片]";
+                        message=[NSString stringWithFormat:@"[%@]",NSLocalizedString(@"tupian", nil)];
                     }else if ([messageDict.type integerValue]==4){
-                        message=@"[视频]";
+                        message=[NSString stringWithFormat:@"[%@]",NSLocalizedString(@"shiping", nil)];
                     }
                 }
   

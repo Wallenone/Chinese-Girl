@@ -102,7 +102,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftIcon.frame)+13*SCREEN_RADIO, 29*SCREEN_RADIO, 0, 35*SCREEN_RADIO)];
-        _titleLabel.text=@"Sign In";
+        _titleLabel.text=NSLocalizedString(@"signin", nil);
         _titleLabel.textColor=[UIColor getColor:@"2A2A2A"];
         _titleLabel.font=[UIFont systemFontOfSize:26*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -125,7 +125,7 @@
 -(UILabel *)emailLabel{
     if (!_emailLabel) {
         _emailLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.titleLineView.frame)+30*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _emailLabel.text=@"Your Email";
+        _emailLabel.text=NSLocalizedString(@"yourEmail", nil);
         _emailLabel.textColor=[UIColor getColor:@"2A2A2A"];
         _emailLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_emailLabel sizeToFit];
@@ -150,7 +150,7 @@
 -(UILabel *)password{
     if (!_password)  {
         _password=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.emailContent.frame)+30*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _password.text=@"Create Password";
+        _password.text=NSLocalizedString(@"chuangjianmima", nil);
         _password.textColor=[UIColor getColor:@"2A2A2A"];
         _password.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_password sizeToFit];
@@ -162,7 +162,7 @@
 -(UITextField *)passwordContent{
     if (!_passwordContent) {
         _passwordContent=[[UITextField alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.password.frame)+7*SCREEN_RADIO, SCREEN_WIDTH-60*SCREEN_RADIO, 32*SCREEN_RADIO)];
-        _passwordContent.placeholder=@"Min 6 symbols";
+        _passwordContent.placeholder=NSLocalizedString(@"zhishao6zifu", nil);
         [_passwordContent setValue:[UIColor getColor:@"D5D5D5"] forKeyPath:@"_placeholderLabel.textColor"];
         [_passwordContent setValue:[UIFont boldSystemFontOfSize:24*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
         _passwordContent.textColor=[UIColor getColor:@"2A2A2A"];
@@ -175,7 +175,7 @@
 -(UILabel *)ForgetLabel{
     if (!_ForgetLabel) {
         _ForgetLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-210*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
-        _ForgetLabel.text=@"Forgot your password? ";
+        _ForgetLabel.text=NSLocalizedString(@"forgot_your_password", nil);
         _ForgetLabel.textColor=[UIColor getColor:@"6F6F6F"];
         _ForgetLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_ForgetLabel sizeToFit];
@@ -187,7 +187,7 @@
 -(UIButton *)ForgetBtn{
     if (!_ForgetBtn) {
         _ForgetBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, screen_height-210*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        [_ForgetBtn setTitle:@"Reset." forState:UIControlStateNormal];
+        [_ForgetBtn setTitle:NSLocalizedString(@"chongzhi", nil) forState:UIControlStateNormal];
         [_ForgetBtn setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
         _ForgetBtn.titleLabel.font=[UIFont systemFontOfSize:21*SCREEN_RADIO];
         _ForgetBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -200,7 +200,7 @@
 -(UILabel *)SignUpLabel{
     if (!_SignUpLabel) {
         _SignUpLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, 0, 16*SCREEN_RADIO)];
-        _SignUpLabel.text=@"Create an Account? ";
+        _SignUpLabel.text=NSLocalizedString(@"chuangjianyonghu", nil);
         _SignUpLabel.textColor=[UIColor getColor:@"6F6F6F"];
         _SignUpLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_SignUpLabel sizeToFit];
@@ -212,7 +212,7 @@
 -(UIButton *)SignUpBtn{
     if (!_SignUpBtn) {
         _SignUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.SignUpLabel.frame)+5*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.SignUpLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        [_SignUpBtn setTitle:@"RightNow!" forState:UIControlStateNormal];
+        [_SignUpBtn setTitle:NSLocalizedString(@"xianzaijiuqu", nil) forState:UIControlStateNormal];
         [_SignUpBtn setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
         _SignUpBtn.titleLabel.font=[UIFont systemFontOfSize:21*SCREEN_RADIO];
         _SignUpBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -226,7 +226,7 @@
 -(UIButton *)signInBtn{
     if (!_signInBtn) {
         _signInBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
-        [_signInBtn setTitle:@"Start Messaging" forState:UIControlStateNormal];
+        [_signInBtn setTitle:NSLocalizedString(@"fasongxinxi", nil) forState:UIControlStateNormal];
         [_signInBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _signInBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         [_signInBtn setBackgroundColor:[UIColor getColor:@"157CF8"]];

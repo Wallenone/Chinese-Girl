@@ -42,14 +42,12 @@
 		E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */; };
 		E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */; };
 		E52E450D1FE7F54400C4B8C2 /* CGGoldCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */; };
-		E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */; };
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
 		E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */; };
 		E53503B11F9C721900E1D8C5 /* MyCommitSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */; };
 		E53579D01FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = E53579CE1FCA8CF500DCBF9E /* UITextView+ZWPlaceHolder.m */; };
 		E5360A6C1FBC6A9E009DDA07 /* CGFriendsAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A6B1FBC6A9E009DDA07 /* CGFriendsAddViewController.m */; };
 		E5360A711FBC6C34009DDA07 /* CGNewFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A701FBC6C34009DDA07 /* CGNewFriendTableViewCell.m */; };
-		E5360A791FBC7F8E009DDA07 /* CGAnswerOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A781FBC7F8E009DDA07 /* CGAnswerOptionViewController.m */; };
 		E5360A7C1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5360A7B1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m */; };
 		E538D7491F429ACC0079AE94 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D73D1F429ACC0079AE94 /* AFHTTPSessionManager.m */; };
 		E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E538D7401F429ACC0079AE94 /* AFNetworkReachabilityManager.m */; };
@@ -255,8 +253,6 @@
 		E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPickBottleContentView.m; sourceTree = "<group>"; };
 		E52E450B1FE7F54400C4B8C2 /* CGGoldCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGoldCoinViewController.h; sourceTree = "<group>"; };
 		E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGoldCoinViewController.m; sourceTree = "<group>"; };
-		E534E1BD1FBBDF9A00F4962E /* CGFriendsViewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFriendsViewcontroller.h; sourceTree = "<group>"; };
-		E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFriendsViewcontroller.m; sourceTree = "<group>"; };
 		E534E1C01FBBDF9A00F4962E /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
 		E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
 		E534E2061FBC1B9F00F4962E /* NSObject+NSLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSLocalNotification.h"; sourceTree = "<group>"; };
@@ -269,8 +265,6 @@
 		E5360A6B1FBC6A9E009DDA07 /* CGFriendsAddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGFriendsAddViewController.m; sourceTree = "<group>"; };
 		E5360A6F1FBC6C34009DDA07 /* CGNewFriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGNewFriendTableViewCell.h; sourceTree = "<group>"; };
 		E5360A701FBC6C34009DDA07 /* CGNewFriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGNewFriendTableViewCell.m; sourceTree = "<group>"; };
-		E5360A771FBC7F8E009DDA07 /* CGAnswerOptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnswerOptionViewController.h; sourceTree = "<group>"; };
-		E5360A781FBC7F8E009DDA07 /* CGAnswerOptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnswerOptionViewController.m; sourceTree = "<group>"; };
 		E5360A7A1FBC7FF8009DDA07 /* CGOptionsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGOptionsTableViewCell.h; sourceTree = "<group>"; };
 		E5360A7B1FBC7FF8009DDA07 /* CGOptionsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGOptionsTableViewCell.m; sourceTree = "<group>"; };
 		E538D73C1F429ACC0079AE94 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -685,12 +679,8 @@
 			children = (
 				E5360A6D1FBC6C0C009DDA07 /* cell */,
 				E5360A6E1FBC6C0C009DDA07 /* view */,
-				E534E1BD1FBBDF9A00F4962E /* CGFriendsViewcontroller.h */,
-				E534E1BE1FBBDF9A00F4962E /* CGFriendsViewcontroller.m */,
 				E5360A6A1FBC6A9E009DDA07 /* CGFriendsAddViewController.h */,
 				E5360A6B1FBC6A9E009DDA07 /* CGFriendsAddViewController.m */,
-				E5360A771FBC7F8E009DDA07 /* CGAnswerOptionViewController.h */,
-				E5360A781FBC7F8E009DDA07 /* CGAnswerOptionViewController.m */,
 				E534E1BF1FBBDF9A00F4962E /* NSString+PinYin */,
 			);
 			path = Friends;
@@ -908,7 +898,6 @@
 			isa = PBXGroup;
 			children = (
 				E546C1231FBF247A000F5127 /* Cell */,
-				E546C1241FBF247A000F5127 /* View */,
 			);
 			path = Vip;
 			sourceTree = "<group>";
@@ -920,13 +909,6 @@
 				E546C1261FBF2496000F5127 /* CGVipTableViewCell.m */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		E546C1241FBF247A000F5127 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E55B71541FEA5F7E000F2FDB /* Launch */ = {
@@ -1116,20 +1098,12 @@
 			isa = PBXGroup;
 			children = (
 				E5E271691FC7C1B300BA1AC1 /* cell */,
-				E5E271681FC7C1B300BA1AC1 /* view */,
 				E5E271651FC7BF8600BA1AC1 /* CGAnimationIndexViewController.h */,
 				E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */,
 				E5581FD41FF764D500D13F6A /* CGMoneyTopViewController.h */,
 				E5581FD51FF764D500D13F6A /* CGMoneyTopViewController.m */,
 			);
 			path = AnimationIndex;
-			sourceTree = "<group>";
-		};
-		E5E271681FC7C1B300BA1AC1 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 		E5E271691FC7C1B300BA1AC1 /* cell */ = {
@@ -1410,7 +1384,6 @@
 				E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */,
 				E538D76B1F429BE80079AE94 /* WSLayout.m in Sources */,
 				E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */,
-				E534E1C21FBBDF9A00F4962E /* CGFriendsViewcontroller.m in Sources */,
 				E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */,
 				E590FC191FF4E3080003B838 /* CGStorePayManager.m in Sources */,
 				E5E351461FE1574D00E5A7AC /* CGVipViewController.m in Sources */,
@@ -1474,7 +1447,6 @@
 				E5C0CD791FB80FCB002394C9 /* CGUserInfo.m in Sources */,
 				E5BCE6C21FEBFA160043DF88 /* PresentView.m in Sources */,
 				E504AB941F507C0100E1F48C /* MJPhotoBrowser.m in Sources */,
-				E5360A791FBC7F8E009DDA07 /* CGAnswerOptionViewController.m in Sources */,
 				E5F542831FC857BD00262DCE /* CGVideoDataModel.m in Sources */,
 				E5F0A3F21F5803860051699B /* CGLoginIndexCustomTextField.m in Sources */,
 				E56826161F9E32600099F363 /* MinePasswordViewController.m in Sources */,

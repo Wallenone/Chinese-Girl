@@ -340,7 +340,7 @@
 -(UILabel *)allCommitLabel{
     if (!_allCommitLabel) {
         _allCommitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.likeImgView.frame)+10*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 14*SCREEN_RADIO)];
-        _allCommitLabel.text=[NSString stringWithFormat:@"view all %@ commits",self.myIndexModel.comments];
+        _allCommitLabel.text=[NSString stringWithFormat:@"%@ %@ %@",NSLocalizedString(@"zonggong", nil),self.myIndexModel.comments,NSLocalizedString(@"liuyan", nil)];
         _allCommitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
         _allCommitLabel.textColor=[UIColor getColor:@"B1B1B1"];
     }

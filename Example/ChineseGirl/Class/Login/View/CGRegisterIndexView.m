@@ -141,7 +141,7 @@
         _titleLabel.textAlignment=NSTextAlignmentCenter;
         _titleLabel.textColor=[UIColor getColor:@"ffffff"];
         _titleLabel.font=[UIFont boldSystemFontOfSize:24*SCREEN_RADIO];
-        _titleLabel.text=@"Create Your ID";
+        _titleLabel.text=NSLocalizedString(@"chuangjiannideid", nil);
     }
     
     return _titleLabel;
@@ -256,7 +256,7 @@
         _AgreementLabel=[[UILabel alloc] initWithFrame:CGRectMake(57*SCREEN_RADIO, CGRectGetMaxY(self.cityField.frame)+25*SCREEN_RADIO, screen_width-113.5*SCREEN_RADIO, 0)];
         _AgreementLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         _AgreementLabel.textColor=[UIColor getColor:@"99A3A9"];
-        _AgreementLabel.text=@"You further agree with the terms and conditions set forth in this Agreement.";
+        _AgreementLabel.text=NSLocalizedString(@"agreenTips", nil);
         _AgreementLabel.textAlignment=NSTextAlignmentCenter;
         _AgreementLabel.numberOfLines=2;
         [_AgreementLabel sizeToFit];
@@ -270,7 +270,7 @@
 -(UIButton *)signUpBtn{
     if (!_signUpBtn) {
         _signUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.AgreementLabel.frame)+24*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
-        [_signUpBtn setTitle:@"Sign Up" forState:UIControlStateNormal];
+        [_signUpBtn setTitle:NSLocalizedString(@"signup", nil) forState:UIControlStateNormal];
         [_signUpBtn addTarget:self action:@selector(singUpClick) forControlEvents:UIControlEventTouchUpInside];
         _signUpBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
         [_signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

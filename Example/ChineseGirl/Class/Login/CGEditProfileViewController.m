@@ -95,7 +95,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=@"Settings";
+        _titleLabel.text=NSLocalizedString(@"settings", nil);
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textColor=[UIColor getColor:@"111111"];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -222,7 +222,7 @@
     if (!_logoutBtn) {
         _logoutBtn=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, screen_height-124*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_logoutBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
-        [_logoutBtn setTitle:@"Logout" forState:UIControlStateNormal];
+        [_logoutBtn setTitle:NSLocalizedString(@"log_out", nil) forState:UIControlStateNormal];
         _logoutBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _logoutBtn.layer.cornerRadius=8*SCREEN_RADIO;
         [_logoutBtn addTarget:self action:@selector(logoutClick) forControlEvents:UIControlEventTouchUpInside];
@@ -236,7 +236,7 @@
     if (!_deleteBtn) {
         _deleteBtn=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, screen_height-66*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_deleteBtn setTitleColor:[UIColor getColor:@"111111"] forState:UIControlStateNormal];
-        [_deleteBtn setTitle:@"Delete account" forState:UIControlStateNormal];
+        [_deleteBtn setTitle:NSLocalizedString(@"shanchuyonghu", nil) forState:UIControlStateNormal];
         _deleteBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _deleteBtn.layer.cornerRadius=8*SCREEN_RADIO;
         _deleteBtn.layer.borderColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5].CGColor;

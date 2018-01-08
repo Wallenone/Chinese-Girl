@@ -52,7 +52,7 @@
 -(UIButton *)moneyBtn{
     if (!_moneyBtn) {
         _moneyBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-85*SCREEN_RADIO, 16*SCREEN_RADIO, 70*SCREEN_RADIO, 30*SCREEN_RADIO)];
-        [_moneyBtn setTitle:[NSString stringWithFormat:@"￥%@",_moneyNum] forState:UIControlStateNormal];
+        [_moneyBtn setTitle:[NSString stringWithFormat:@"$%@",_moneyNum] forState:UIControlStateNormal];
         [_moneyBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _moneyBtn.backgroundColor=[UIColor getColor:@"00aeff"];
         _moneyBtn.layer.cornerRadius=3*SCREEN_RADIO;

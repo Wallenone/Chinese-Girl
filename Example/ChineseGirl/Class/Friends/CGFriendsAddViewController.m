@@ -10,7 +10,6 @@
 #import "EZJFastTableView.h"
 #import "CGNewFriendTableViewCell.h"
 #import "CGUserInfo.h"
-#import "CGAnswerOptionViewController.h"
 #import "MyIndexViewController.h"
 @interface CGFriendsAddViewController ()
 @property(nonatomic,strong)UIView *headerView;
@@ -107,7 +106,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 20*SCREEN_RADIO)];
-        _titleLabel.text=@"新朋友";
+        _titleLabel.text=NSLocalizedString(@"xinpengyou", nil);
         _titleLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
         _titleLabel.textColor=[UIColor getColor:@"030303"];
         _titleLabel.textAlignment=NSTextAlignmentCenter;

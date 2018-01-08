@@ -49,13 +49,13 @@
 -(void)setupClick{
     if (self.emailContent.text.length>0) {
         if([self.emailContent.text isEqualToString:[CGSingleCommitData sharedInstance].email]){
-            self.emailLabel.text=@"Your Password";
+            self.emailLabel.text=NSLocalizedString(@"nidemima", nil);
             self.emailContent.userInteractionEnabled=NO;
             self.emailContent.text=[CGSingleCommitData sharedInstance].password;
             [self.emailLabel sizeToFit];
             self.signInBtn.userInteractionEnabled=NO;
         }else{
-           [SVProgressHUD showErrorWithStatus:@"改邮箱没有注册过"];
+           [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"zhuceguo", nil)];
         }
     }
 }
@@ -72,7 +72,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftIcon.frame)+13*SCREEN_RADIO, 29*SCREEN_RADIO, 0, 35*SCREEN_RADIO)];
-        _titleLabel.text=@"Password Reset";
+        _titleLabel.text=NSLocalizedString(@"chongzhimima", nil);
         _titleLabel.textColor=[UIColor getColor:@"2A2A2A"];
         _titleLabel.font=[UIFont systemFontOfSize:26*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -97,7 +97,7 @@
         _titleContent=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.titleLineView.frame)+26*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 44*SCREEN_RADIO)];
         _titleContent.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _titleContent.textColor=[UIColor getColor:@"6F6F6F"];
-        _titleContent.text=@"To reset your password, enter the email address you use to sign in to Sparks";
+        _titleContent.text=NSLocalizedString(@"chongzhiyouxiang", nil);
         _titleContent.numberOfLines=2;
         _titleContent.lineBreakMode=NSLineBreakByTruncatingTail;
         [_titleContent sizeToFit];
@@ -109,7 +109,7 @@
 -(UILabel *)emailLabel{
     if (!_emailLabel) {
         _emailLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.titleContent.frame)+30*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _emailLabel.text=@"Your Email";
+        _emailLabel.text=NSLocalizedString(@"yourEmail", nil);
         _emailLabel.textColor=[UIColor getColor:@"2A2A2A"];
         _emailLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_emailLabel sizeToFit];
@@ -134,7 +134,7 @@
 -(UIButton *)signInBtn{
     if (!_signInBtn) {
         _signInBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
-        [_signInBtn setTitle:@"Reset my Password" forState:UIControlStateNormal];
+        [_signInBtn setTitle:NSLocalizedString(@"xiugaimima", nil) forState:UIControlStateNormal];
         [_signInBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _signInBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         [_signInBtn setBackgroundColor:[UIColor getColor:@"157CF8"]];

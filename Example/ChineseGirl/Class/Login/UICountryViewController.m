@@ -125,13 +125,13 @@
             
         }
         
-        NSString *locationName=@"当前位置:无法获取";
+        NSString *locationName=NSLocalizedString(@"dangqianweizhiwu", nil);
         if (_countyName.length>0) {
-            locationName=[NSString stringWithFormat:@"当前位置:%@",_countyName];
+            locationName=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"dangqianweizhi", nil),_countyName];
         }
         
         if (_cityName.length>0 && _countyName.length>0) {
-            locationName=[NSString stringWithFormat:@"当前位置:%@.%@",_countyName,_cityName];
+            locationName=[NSString stringWithFormat:@"%@:%@.%@",NSLocalizedString(@"dangqianweizhi", nil),_countyName,_cityName];
         }
         
         UITableViewCell *cell = [self.tbv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -217,16 +217,16 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if (index.row==0) {
                 if (!_replayLocation) {
-                    cell.textLabel.text = @"当前位置:获取中";
+                    cell.textLabel.text = NSLocalizedString(@"dangqianweizhizhong", nil);
                 }else{
                     if (_countyName.length>0) {
-                        cell.textLabel.text=[NSString stringWithFormat:@"当前位置:%@",_countyName];
+                        cell.textLabel.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"dangqianweizhi", nil),_countyName];
                     }
                     
                     if (_cityName.length>0 && _countyName.length>0) {
-                        cell.textLabel.text=[NSString stringWithFormat:@"当前位置:%@.%@",_countyName,_cityName];
+                        cell.textLabel.text=[NSString stringWithFormat:@"%@:%@.%@",NSLocalizedString(@"dangqianweizhi", nil),_countyName,_cityName];
                     }else{
-                        cell.textLabel.text=@"当前位置:无法获取";
+                        cell.textLabel.text=NSLocalizedString(@"dangqianweizhiwu", nil);
                     }
                 }
    

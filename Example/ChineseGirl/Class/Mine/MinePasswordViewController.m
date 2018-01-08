@@ -84,10 +84,10 @@
 -(void)conformsClick{
     if ([[CGSingleCommitData sharedInstance].password isEqualToString:self.passwordField.text]) {
         [CGSingleCommitData sharedInstance].password=self.newpasswordField.text;
-        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"xiugaichenggong", nil)];
         [self.navigationController popToRootViewControllerAnimated:NO];
     }else{
-        [SVProgressHUD showErrorWithStatus:@"当前密码不正确"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"mimacuowu", nil)];
     }
     
 }

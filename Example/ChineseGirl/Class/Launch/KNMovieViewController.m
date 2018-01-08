@@ -102,7 +102,7 @@
     enterMainButton.layer.cornerRadius = 24;
     enterMainButton.alpha = 0;
     enterMainButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    [enterMainButton setTitle:@"进入应用" forState:UIControlStateNormal];
+    [enterMainButton setTitle:NSLocalizedString(@"jinruapp", nil) forState:UIControlStateNormal];
     [self.view addSubview:enterMainButton];
     [enterMainButton addTarget:self action:@selector(enterMainAction:) forControlEvents:UIControlEventTouchUpInside];
 

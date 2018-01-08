@@ -59,7 +59,7 @@
 -(UIButton *)loginGo{
     if(!_loginGo){
         _loginGo=[[UIButton alloc] initWithFrame:CGRectMake(0, screen_height-28*SCREEN_RADIO, screen_width-15*SCREEN_RADIO, 18*SCREEN_RADIO)];
-        [_loginGo setTitle:@"去登录 >" forState:UIControlStateNormal];
+        [_loginGo setTitle:NSLocalizedString(@"qudenglu", nil) forState:UIControlStateNormal];
         [_loginGo setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
         _loginGo.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         [_loginGo addTarget:self action:@selector(LoginClick) forControlEvents:UIControlEventTouchUpInside];

@@ -123,17 +123,17 @@
     _pageControl.currentPage = page;
     
     if (page==0) {
-        self.menuLabel1.text=@"无限次加好友，聊天";
-        self.menuLabel2.text=@"无限次好友互动";
-        self.menuLabel3.text=@"赠送1000金币";
+        self.menuLabel1.text=NSLocalizedString(@"wuxianciliaotian", nil);
+        self.menuLabel2.text=NSLocalizedString(@"wuxiancihudong", nil);
+        self.menuLabel3.text=NSLocalizedString(@"zengsong1000jinbi", nil);
     }else if (page==1){
-        self.menuLabel1.text=@"100次加好友，聊天";
-        self.menuLabel2.text=@"100次好友互动";
-        self.menuLabel3.text=@"赠送100金币";
+        self.menuLabel1.text=NSLocalizedString(@"100ciliaotian", nil);
+        self.menuLabel2.text=NSLocalizedString(@"100cihudong", nil);
+        self.menuLabel3.text=NSLocalizedString(@"zengsong100jinbi", nil);
     }else if (page==2){
-        self.menuLabel1.text=@"50次加好友，聊天";
-        self.menuLabel2.text=@"50次好友互动";
-        self.menuLabel3.text=@"赠送50金币";
+        self.menuLabel1.text=NSLocalizedString(@"50ciliaotian", nil);
+        self.menuLabel2.text=NSLocalizedString(@"50cihudong", nil);
+        self.menuLabel3.text=NSLocalizedString(@"zengsong50jinbi", nil);
     }
 }
 
@@ -152,14 +152,14 @@
         [_basicView addSubview:imgView];
         
         UILabel *simpLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imgView.frame)+20*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 36*SCREEN_RADIO)];
-        simpLabel.text=@"BASIC";
+        simpLabel.text=NSLocalizedString(@"jiben", nil);
         simpLabel.textColor=[UIColor getColor:@"FF7381"];
         simpLabel.font=[UIFont systemFontOfSize:36*SCREEN_RADIO];
         simpLabel.textAlignment=NSTextAlignmentCenter;
         [_basicView addSubview:simpLabel];
         
         UILabel *moneyLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(simpLabel.frame)+8*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 16*SCREEN_RADIO)];
-        moneyLabel.text=@"Individual";
+        moneyLabel.text=NSLocalizedString(@"geren", nil);
         moneyLabel.textColor=[UIColor getColor:@"343434"];
         moneyLabel.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         moneyLabel.textAlignment=NSTextAlignmentCenter;
@@ -203,14 +203,14 @@
         [_premiumView addSubview:imgView];
         
         UILabel *simpLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imgView.frame)+20*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 36*SCREEN_RADIO)];
-        simpLabel.text=@"PREMIUM";
+        simpLabel.text=NSLocalizedString(@"zhuanye", nil);
         simpLabel.textColor=[UIColor getColor:@"FCB755"];
         simpLabel.font=[UIFont systemFontOfSize:36*SCREEN_RADIO];
         simpLabel.textAlignment=NSTextAlignmentCenter;
         [_premiumView addSubview:simpLabel];
         
         UILabel *moneyLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(simpLabel.frame)+8*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 16*SCREEN_RADIO)];
-        moneyLabel.text=@"Business";
+        moneyLabel.text=NSLocalizedString(@"shangye", nil);
         moneyLabel.textColor=[UIColor getColor:@"343434"];
         moneyLabel.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         moneyLabel.textAlignment=NSTextAlignmentCenter;
@@ -255,14 +255,14 @@
         [_ultimateView addSubview:imgView];
         
         UILabel *simpLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imgView.frame)+20*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 36*SCREEN_RADIO)];
-        simpLabel.text=@"ULTIMATE";
+        simpLabel.text=NSLocalizedString(@"zhongji", nil);
         simpLabel.textColor=[UIColor getColor:@"2CCA70"];
         simpLabel.font=[UIFont systemFontOfSize:36*SCREEN_RADIO];
         simpLabel.textAlignment=NSTextAlignmentCenter;
         [_ultimateView addSubview:simpLabel];
         
         UILabel *moneyLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(simpLabel.frame)+8*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 16*SCREEN_RADIO)];
-        moneyLabel.text=@"Enterprise";
+        moneyLabel.text=NSLocalizedString(@"qiye", nil);
         moneyLabel.textColor=[UIColor getColor:@"343434"];
         moneyLabel.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         moneyLabel.textAlignment=NSTextAlignmentCenter;
@@ -298,7 +298,7 @@
         _menuLabel1=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.lineView.frame)+25*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 22*SCREEN_RADIO)];
         _menuLabel1.textColor=[UIColor getColor:@"8093AC"];
         _menuLabel1.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _menuLabel1.text=@"无限次加好友，聊天";
+        _menuLabel1.text=NSLocalizedString(@"wuxianciliaotian", nil);
         _menuLabel1.textAlignment=NSTextAlignmentCenter;
     }
     
@@ -310,7 +310,7 @@
         _menuLabel2=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuLabel1.frame)+10*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 22*SCREEN_RADIO)];
         _menuLabel2.textColor=[UIColor getColor:@"8093AC"];
         _menuLabel2.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _menuLabel2.text=@"无限次好友互动";
+        _menuLabel2.text=NSLocalizedString(@"wuxiancihudong", nil);
         _menuLabel2.textAlignment=NSTextAlignmentCenter;
     }
     
@@ -322,7 +322,7 @@
         _menuLabel3=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuLabel2.frame)+10*SCREEN_RADIO, screen_width-20*SCREEN_RADIO, 22*SCREEN_RADIO)];
         _menuLabel3.textColor=[UIColor getColor:@"8093AC"];
         _menuLabel3.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _menuLabel3.text=@"赠送1000金币";
+        _menuLabel3.text=NSLocalizedString(@"zengsong1000jinbi", nil);
         _menuLabel3.textAlignment=NSTextAlignmentCenter;
     }
     
@@ -332,7 +332,7 @@
 -(UIButton *)confimBtn{
     if (!_confimBtn) {
         _confimBtn=[[UIButton alloc] initWithFrame:CGRectMake((screen_width-20*SCREEN_RADIO)/2-(screen_width-140*SCREEN_RADIO)/2, CGRectGetMaxY(self.menuLabel3.frame)+15*SCREEN_RADIO, screen_width-140*SCREEN_RADIO, 40*SCREEN_RADIO)];
-        [_confimBtn setTitle:@"继续" forState:UIControlStateNormal];
+        [_confimBtn setTitle:NSLocalizedString(@"jixu", nil) forState:UIControlStateNormal];
         [_confimBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _confimBtn.titleLabel.font=[UIFont systemFontOfSize:15*SCREEN_RADIO];
         _confimBtn.layer.cornerRadius=20*SCREEN_RADIO;
@@ -346,7 +346,7 @@
 -(UIButton *)noBtn{
     if (!_noBtn) {
         _noBtn=[[UIButton alloc] initWithFrame:CGRectMake((screen_width-20*SCREEN_RADIO)/2-(screen_width-140*SCREEN_RADIO)/2, CGRectGetMaxY(self.confimBtn.frame), screen_width-140*SCREEN_RADIO, 40*SCREEN_RADIO)];
-        [_noBtn setTitle:@"不，谢谢" forState:UIControlStateNormal];
+        [_noBtn setTitle:NSLocalizedString(@"noxiexie", nil) forState:UIControlStateNormal];
         [_noBtn setTitleColor:[UIColor getColor:@"c2c6cc"] forState:UIControlStateNormal];
         _noBtn.titleLabel.font=[UIFont systemFontOfSize:15*SCREEN_RADIO];
         _noBtn.layer.cornerRadius=20*SCREEN_RADIO;

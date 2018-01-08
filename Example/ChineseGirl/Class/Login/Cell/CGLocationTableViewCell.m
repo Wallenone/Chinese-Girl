@@ -34,7 +34,7 @@
 -(UILabel *)locationName{
     if (!_locationName) {
         _locationName=[[UILabel alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 12*SCREEN_RADIO, SCREEN_WIDTH, 16*SCREEN_RADIO)];
-        _locationName.text=@"当前位置:获取中";
+        _locationName.text=NSLocalizedString(@"dangqianweizhizhong", nil);
         _locationName.textColor=[UIColor blackColor];
         _locationName.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
     }

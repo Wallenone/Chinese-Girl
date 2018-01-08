@@ -67,7 +67,7 @@
         self.goldNum.textColor=[UIColor getColor:@"f4bb00"];
         
         [self.goldNum sizeToFit];
-        self.moneyPit.text=@"送了";
+        self.moneyPit.text=NSLocalizedString(@"songla", nil);
         self.goldImgView.image=[UIImage imageNamed:@"leaderboard_coin"];
         self.goldImgView.frame=CGRectMake(CGRectGetMaxX(self.moneyPit.frame)+2*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+10*SCREEN_RADIO, 12*SCREEN_RADIO, 12*SCREEN_RADIO);
         
@@ -78,7 +78,7 @@
         self.goldNum.text=[NSString stringWithFormat:@"%@",self.cellModel.hotNum];
         self.goldNum.textColor=[UIColor getColor:@"ff43ff"];
         [self.goldNum sizeToFit];
-        self.moneyPit.text=@"粉丝";
+        self.moneyPit.text=NSLocalizedString(@"fensi", nil);
         self.goldImgView.image=[UIImage imageNamed:@"leaderboard_fans"];
         self.goldImgView.frame=CGRectMake(CGRectGetMaxX(self.moneyPit.frame)+2*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+9*SCREEN_RADIO, 16*SCREEN_RADIO, 16*SCREEN_RADIO);
     }

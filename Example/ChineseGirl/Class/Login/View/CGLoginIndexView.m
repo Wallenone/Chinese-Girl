@@ -126,7 +126,7 @@
 -(UILabel *)contentLabel{
     if (!_contentLabel) {
         _contentLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleLabel.frame), screen_width, 19*SCREEN_RADIO)];
-        _contentLabel.text=@"当宁登录或是需要重设密码时，会使用这个电子邮件";
+        _contentLabel.text=NSLocalizedString(@"useyouremail", nil);
         _contentLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _contentLabel.textColor=[UIColor getColor:@"6d6d6d"];
         _contentLabel.textAlignment=NSTextAlignmentCenter;

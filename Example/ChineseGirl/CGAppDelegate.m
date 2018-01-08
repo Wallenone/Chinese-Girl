@@ -18,7 +18,6 @@
 #import "IQKeyboardManager.h"
 #import "CGPinglunModel.h"
 #import "NSObject+NSLocalNotification.h"
-#import "CGFriendsViewcontroller.h"
 #import "CGAnimationIndexViewController.h"
 #import "CGLoginViewController.h"
 #import "CGNewIndexViewController.h"

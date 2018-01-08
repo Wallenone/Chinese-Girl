@@ -137,7 +137,7 @@
                                                         @selector(video:didFinishSavingWithError:contextInfo:), nil);
                 }else{
                     [SVProgressHUD dismiss];
-                    [SVProgressHUD showWithStatus:@"保存失败"];
+                    [SVProgressHUD showWithStatus:NSLocalizedString(@"save_failed", nil)];
                 }
             });
         }else{
@@ -289,7 +289,7 @@
 -(UILabel *)numLook{    
     if (!_numLook) {
         _numLook=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headerIconView.frame)+5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 70*SCREEN_RADIO, 8*SCREEN_RADIO)];
-        _numLook.text=@"3532 观看人数";
+        _numLook.text=[NSString stringWithFormat:@"3532 %@",NSLocalizedString(@"guankanrenshu", nil)];
         _numLook.textColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:0.85];
         _numLook.font=[UIFont systemFontOfSize:8*SCREEN_RADIO];
     }
@@ -358,7 +358,7 @@
             [weakSelf getGlodView];
         } withGetGift:^(NSString *giftName, NSString *giftImgName) {
             GSPChatMessage *msg = [[GSPChatMessage alloc] init];
-            msg.text = [NSString stringWithFormat:@"1个【%@】",giftName];
+            msg.text = [NSString stringWithFormat:@"1【%@】",giftName];
             
             msg.senderChatID = [CGSingleCommitData sharedInstance].nickName;
             msg.senderName = msg.senderChatID;

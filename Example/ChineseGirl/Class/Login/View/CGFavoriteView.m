@@ -133,7 +133,7 @@
 -(UIButton *)following{
     if (!_following) {
         _following=[[UIButton alloc] initWithFrame:CGRectMake(0, 26.5*SCREEN_RADIO-12*SCREEN_RADIO, screen_width/2, 24*SCREEN_RADIO)];
-        [_following setTitle:@"Follows" forState:UIControlStateNormal];
+        [_following setTitle:NSLocalizedString(@"gensuizhe", nil) forState:UIControlStateNormal];
         [_following setTitleColor:[UIColor getColor:@"2979FF"] forState:UIControlStateNormal];
         _following.titleLabel.font=[UIFont boldSystemFontOfSize:24*SCREEN_RADIO];
 //        [_following setImage:[UIImage imageNamed:@"Thumbed"] forState:UIControlStateNormal];
@@ -146,7 +146,7 @@
 -(UIButton *)like{
     if (!_like) {
         _like=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2, 26.5*SCREEN_RADIO-12*SCREEN_RADIO, screen_width/2, 24*SCREEN_RADIO)];
-        [_like setTitle:@"Friends" forState:UIControlStateNormal];
+        [_like setTitle:NSLocalizedString(@"pengyoumeng", nil) forState:UIControlStateNormal];
         [_like setTitleColor:[UIColor getColor:@"575E62"] forState:UIControlStateNormal];
         _like.titleLabel.font=[UIFont boldSystemFontOfSize:24*SCREEN_RADIO];
 //        [_like setImage:[UIImage imageNamed:@"Card"] forState:UIControlStateNormal];

@@ -98,7 +98,7 @@
 -(UIButton *)rightBtn{
     if (!_rightBtn) {
         _rightBtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 30*SCREEN_RADIO, screen_width-15*SCREEN_RADIO, 16*SCREEN_RADIO)];
-        [_rightBtn setTitle:@"Edit" forState:UIControlStateNormal];
+        [_rightBtn setTitle:NSLocalizedString(@"xiugai", nil) forState:UIControlStateNormal];
         [_rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_rightBtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
         _rightBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];

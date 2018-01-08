@@ -134,7 +134,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftIcon.frame)+13*SCREEN_RADIO, 29*SCREEN_RADIO, 0, 35*SCREEN_RADIO)];
-        _titleLabel.text=@"Create an Account";
+        _titleLabel.text=NSLocalizedString(@"chuangjianyonghu", nil);
         _titleLabel.textColor=[UIColor getColor:@"2A2A2A"];
         _titleLabel.font=[UIFont systemFontOfSize:26*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -157,7 +157,7 @@
 -(UILabel *)emailLabel{
     if (!_emailLabel) {
         _emailLabel=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.titleLineView.frame)+30*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _emailLabel.text=@"Your Email";
+        _emailLabel.text=NSLocalizedString(@"yourEmail", nil);
         _emailLabel.textColor=[UIColor getColor:@"2A2A2A"];
         _emailLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_emailLabel sizeToFit];
@@ -182,7 +182,7 @@
 -(UILabel *)username{
     if (!_username)  {
         _username=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.emailContent.frame)+30*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _username.text=@"Nickname";
+        _username.text=NSLocalizedString(@"nicheng", nil);
         _username.textColor=[UIColor getColor:@"2A2A2A"];
         _username.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_username sizeToFit];
@@ -194,7 +194,7 @@
 -(UITextField *)usernameContent{
     if (!_usernameContent) {
         _usernameContent=[[UITextField alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.username.frame)+7*SCREEN_RADIO, SCREEN_WIDTH-60*SCREEN_RADIO, 32*SCREEN_RADIO)];
-        _usernameContent.placeholder=@"your nickname";
+        _usernameContent.placeholder=NSLocalizedString(@"yourNickname", nil);
         [_usernameContent setValue:[UIColor getColor:@"D5D5D5"] forKeyPath:@"_placeholderLabel.textColor"];
         [_usernameContent setValue:[UIFont boldSystemFontOfSize:24*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
         _usernameContent.textColor=[UIColor getColor:@"2A2A2A"];
@@ -207,7 +207,7 @@
 -(UILabel *)password{
     if (!_password)  {
         _password=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.usernameContent.frame)+30*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _password.text=@"Create Password";
+        _password.text=NSLocalizedString(@"chuangjianmima", nil);
         _password.textColor=[UIColor getColor:@"2A2A2A"];
         _password.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_password sizeToFit];
@@ -219,7 +219,7 @@
 -(UITextField *)passwordContent{
     if (!_passwordContent) {
         _passwordContent=[[UITextField alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.password.frame)+7*SCREEN_RADIO, SCREEN_WIDTH-60*SCREEN_RADIO, 32*SCREEN_RADIO)];
-        _passwordContent.placeholder=@"Min 6 symbols";
+        _passwordContent.placeholder=NSLocalizedString(@"zhishao6zifu", nil);
         [_passwordContent setValue:[UIColor getColor:@"D5D5D5"] forKeyPath:@"_placeholderLabel.textColor"];
         [_passwordContent setValue:[UIFont boldSystemFontOfSize:24*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
         _passwordContent.textColor=[UIColor getColor:@"2A2A2A"];
@@ -232,7 +232,7 @@
 -(UILabel *)address{
     if (!_address)  {
         _address=[[UILabel alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.passwordContent.frame)+30*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _address.text=@"Choose Address";
+        _address.text=NSLocalizedString(@"xuanzechengshi", nil);
         _address.textColor=[UIColor getColor:@"2A2A2A"];
         _address.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_address sizeToFit];
@@ -244,7 +244,7 @@
 -(UITextField *)addressContent{
     if (!_addressContent) {
         _addressContent=[[UITextField alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+7*SCREEN_RADIO, SCREEN_WIDTH-60*SCREEN_RADIO, 32*SCREEN_RADIO)];
-        _addressContent.placeholder=@"Your Address";
+        _addressContent.placeholder=NSLocalizedString(@"yourCity", nil);
         [_addressContent setValue:[UIColor getColor:@"D5D5D5"] forKeyPath:@"_placeholderLabel.textColor"];
         [_addressContent setValue:[UIFont boldSystemFontOfSize:24*SCREEN_RADIO] forKeyPath:@"_placeholderLabel.font"];
         _addressContent.textColor=[UIColor getColor:@"2A2A2A"];
@@ -266,7 +266,7 @@
 -(UIButton *)setupBtn{
     if (!_setupBtn) {
         _setupBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
-        [_setupBtn setTitle:@"Start Messaging" forState:UIControlStateNormal];
+        [_setupBtn setTitle:NSLocalizedString(@"fasongxinxi", nil) forState:UIControlStateNormal];
         [_setupBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _setupBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         [_setupBtn setBackgroundColor:[UIColor getColor:@"157CF8"]];

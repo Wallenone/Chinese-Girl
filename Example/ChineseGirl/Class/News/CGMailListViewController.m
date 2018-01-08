@@ -49,7 +49,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 28.5*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=@"我的关注";
+        _titleLabel.text=NSLocalizedString(@"my_favorite", nil);
         _titleLabel.textColor=[UIColor getColor:@"111111"];
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;

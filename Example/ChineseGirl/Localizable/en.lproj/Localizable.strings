@@ -1,10 +1,10 @@
-/* 
-  DemoRemind.strings
-  MegLiveDemo
-
-  Created by megviio on 2017/5/26.
-  Copyright © megvii. All rights reserved.
-*/
+/*
+ DemoRemind.strings
+ MegLiveDemo
+ 
+ Created by megviio on 2017/5/26.
+ Copyright © megvii. All rights reserved.
+ */
 
 "sex_man" = "Male";    //男
 "sex_woman" = "Female";  //女
@@ -37,7 +37,7 @@
 "birthday" = "Birthday";    //生日
 "About" = "About";      //关于我
 "change_password" = "Change Password";    //修改密码
-"choose_language"="Language";    //选择语言
+"choose_language" = "Language";    //选择语言
 "log_out" = "Log Out";     //退出当前账号
 "current_password" = "Current Password";   //当前密码
 "new_password" = "New Password";    //新密码
@@ -63,3 +63,72 @@
 "Area" = "Area";
 "All" = "All";
 "LocaltionName" = "Position to be located";
+"wenxinTips" = "Warm hints";
+"pleaseSettingPay" = "Please open the paid purchase function first";
+"queding" = "Confirm";
+"zhengzaigoumai" = "Being bought...";
+"jinruapp" = "Enter the app";
+"fuhaobang" = "Rich list";
+"remenbang" = "Hot list";
+"songla" = "Send";
+"fensi" = "Fans";
+"pengyou" = "Friend";
+"tianjia" = "Add";
+"xinpengyou" = "New friends";
+"duoshaogeyuehou" = "After a month";
+"dangqianweizhiwu" = "Current location: unable to obtain";
+"dangqianweizhi" = "Current position";
+"dangqianweizhizhong" = "Current position: access";
+"chuangjianyonghu" = "Create an Account";//Create an Account
+"yourEmail" = "Your Email"; //Your Email
+"nicheng" = "NickName";
+"nidemima" = "Your Password";
+"yourNickname" = "Your nickname";  //your nickname
+"chuangjianmima" = "Create Password";  //Create Password
+"zhishao6zifu" = "Min 6 symbols";  //Min 6 symbols
+"xuanzechengshi" = "Choose City";
+"yourCity" = "Your City";
+"fasongxinxi" = "Send information"; //
+"chongzhi" = "Rest";
+"xianzaijiuqu" = "Right Now";
+"zhuceguo" = "The mailbox is not registered";
+"chongzhimima" = "Password Reset"; //Password Reset
+"chongzhiyouxiang" = "To reset your password, enter the email address you use to log inChineseGirl";  //To reset your password, enter the email address you use to sign in to ChineseGirl
+"xiugaimima" = "Update Password";
+"qudenglu" = "Log in >";
+"xiugai" = "modify";
+"shanchuyonghu" = "Delete account";  //Delete account
+"chuangjiannideid" = "Create Your ID";  //Create Your ID
+"agreenTips" = "You further agree with the terms and conditions set forth in this Agreement";   //You further agree with the terms and conditions set forth in this Agreement
+"useyouremail" = "This email is used when you log in or need to reset the password";
+"gensuizhe" = "Follows";  //Follows
+"pengyoumeng" = "Friends";  //Friends
+"wuxianciliaotian" = "Unlimited time to add friends, chat unlimited friends, chat";
+"wuxiancihudong" = "Unlimited friend interaction";
+"zengsong1000jinbi" = "Give 1000 gold coins";
+"100ciliaotian" = "100 time to add friends, chat";
+"100cihudong" = "100 friends interaction";
+"zengsong100jinbi" = "Give 100 gold coins";
+"50ciliaotian" = "50 time to add friends, chat";
+"50cihudong" = "50 friends interaction";
+"zengsong50jinbi" = "Give 50 gold coins";
+"jiben" = "BASIC";  //BASIC
+"geren" = "Personal";  //Individual
+"zhuanye" = "Flagship";  //PREMIUM
+"shangye" = "Major";  //Business
+"zhongji" = "Super";  //ULTIMATE
+"qiye" = "Honorable";  //Enterprise
+"jixu" = "Continue";
+"yuying" = "Voice";
+"noxiexie" = "No, thank you";
+"guankanrenshu" = "Viewing number";
+"yiguanzhu" = "Followed"; //Followed
+"guanzhu" = "Follow";  //Follow
+"xiugaichenggong" = "Amend the success";
+"mimacuowu" = "The current password is incorrect";
+"qingshuruneirong" = "Please enter the content";
+"fasong" = "Send";  //Send
+"tupian" = "picture";
+"shiping" = "video";
+"zonggong" = "view all";  //view all %@ commits
+"liuyan" = "commits";

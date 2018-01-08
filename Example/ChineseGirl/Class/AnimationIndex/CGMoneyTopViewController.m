@@ -97,9 +97,9 @@
 -(UIButton *)moneyTop{
     if (!_moneyTop) {
         CGSize constraint = CGSizeMake(screen_width-20*SCREEN_RADIO, 99999.0f);
-        CGSize size = [@"富豪榜" sizeWithFont:[UIFont systemFontOfSize:16.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize size = [NSLocalizedString(@"fuhaobang", nil) sizeWithFont:[UIFont systemFontOfSize:16.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         _moneyTop=[[UIButton alloc] initWithFrame:CGRectMake(100*SCREEN_RADIO, 31.5*SCREEN_RADIO, size.width, 18*SCREEN_RADIO)];
-        [_moneyTop setTitle:@"富豪榜" forState:UIControlStateNormal];
+        [_moneyTop setTitle:NSLocalizedString(@"fuhaobang", nil) forState:UIControlStateNormal];
         [_moneyTop setTitleColor:[UIColor getColor:@"00ffff"] forState:UIControlStateNormal];
         _moneyTop.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_moneyTop addTarget:self action:@selector(moneyTopClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -111,7 +111,7 @@
 -(UIButton *)hotTop{
     if (!_hotTop) {
         _hotTop=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2, 31.5*SCREEN_RADIO, screen_width/2-100*SCREEN_RADIO, 18*SCREEN_RADIO)];
-        [_hotTop setTitle:@"热门榜" forState:UIControlStateNormal];
+        [_hotTop setTitle:NSLocalizedString(@"remenbang", nil) forState:UIControlStateNormal];
         [_hotTop setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _hotTop.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_hotTop addTarget:self action:@selector(hotTopClick:) forControlEvents:UIControlEventTouchUpInside];
