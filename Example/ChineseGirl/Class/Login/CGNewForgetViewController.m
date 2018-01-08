@@ -9,13 +9,13 @@
 #import "CGNewForgetViewController.h"
 
 @interface CGNewForgetViewController ()
-@property(nonatomic,strong)UIButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *titleLineView;
 @property(nonatomic,strong)UILabel *titleContent;
 @property(nonatomic,strong)UILabel *emailLabel;
 @property(nonatomic,strong)UITextField *emailContent;
-@property(nonatomic,strong)UIButton *signInBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *signInBtn;
 @end
 
 @implementation CGNewForgetViewController
@@ -60,11 +60,12 @@
     }
 }
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }
@@ -131,9 +132,9 @@
     return _emailContent;
 }
 
--(UIButton *)signInBtn{
+-(RkyExtendedHitButton *)signInBtn{
     if (!_signInBtn) {
-        _signInBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _signInBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_signInBtn setTitle:NSLocalizedString(@"xiugaimima", nil) forState:UIControlStateNormal];
         [_signInBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _signInBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
@@ -141,6 +142,7 @@
         _signInBtn.layer.cornerRadius=6;
         _signInBtn.clipsToBounds=YES;
         [_signInBtn addTarget:self action:@selector(setupClick) forControlEvents:UIControlEventTouchUpInside];
+        _signInBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _signInBtn;

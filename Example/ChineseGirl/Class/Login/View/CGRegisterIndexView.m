@@ -14,15 +14,15 @@
     ChooseCityClickBlock chooseCityClickBlock;
 }
 @property(nonatomic,strong)UIImageView *bgImgView;
-@property(nonatomic,strong)UIButton *cancelBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *cancelBtn;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *userNameField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *EmailField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *passwordField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *cityField;
-@property(nonatomic,strong)UIButton *cityBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *cityBtn;
 @property(nonatomic,strong)UILabel *AgreementLabel;
-@property(nonatomic,strong)UIButton *signUpBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *signUpBtn;
 @end
 @implementation CGRegisterIndexView
 
@@ -125,11 +125,12 @@
     return _bgImgView;
 }
 
--(UIButton *)cancelBtn{
+-(RkyExtendedHitButton *)cancelBtn{
     if (!_cancelBtn) {
-        _cancelBtn=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _cancelBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_cancelBtn setBackgroundImage:[UIImage imageNamed:@"Arrowleft"] forState:UIControlStateNormal];
         [_cancelBtn addTarget:self action:@selector(cancelClick) forControlEvents:UIControlEventTouchUpInside];
+        _cancelBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _cancelBtn;
@@ -241,10 +242,11 @@
     return _cityField;
 }
 
--(UIButton *)cityBtn{
+-(RkyExtendedHitButton *)cityBtn{
     if (!_cityBtn) {
-        _cityBtn=[[UIButton alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, CGRectGetMaxY(self.passwordField.frame)+15*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        _cityBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(62.5*SCREEN_RADIO, CGRectGetMaxY(self.passwordField.frame)+15*SCREEN_RADIO, screen_width-125*SCREEN_RADIO, 45*SCREEN_RADIO)];
         [_cityBtn addTarget:self action:@selector(chooseCity) forControlEvents:UIControlEventTouchUpInside];
+        _cityBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _cityBtn;
@@ -267,9 +269,9 @@
 
 
 
--(UIButton *)signUpBtn{
+-(RkyExtendedHitButton *)signUpBtn{
     if (!_signUpBtn) {
-        _signUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.AgreementLabel.frame)+24*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
+        _signUpBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.AgreementLabel.frame)+24*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
         [_signUpBtn setTitle:NSLocalizedString(@"signup", nil) forState:UIControlStateNormal];
         [_signUpBtn addTarget:self action:@selector(singUpClick) forControlEvents:UIControlEventTouchUpInside];
         _signUpBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
@@ -277,6 +279,7 @@
         _signUpBtn.layer.cornerRadius=52/2*SCREEN_RADIO;
         _signUpBtn.layer.borderWidth=2;
         _signUpBtn.layer.borderColor=[UIColor whiteColor].CGColor;
+        _signUpBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _signUpBtn;

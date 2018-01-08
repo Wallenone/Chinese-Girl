@@ -17,8 +17,8 @@
 @property(nonatomic,strong)UILabel *autograph;  //签名
 @property(nonatomic,strong)UIView *contentView;
 @property(nonatomic,strong)UILabel *contentLabel;
-@property(nonatomic,strong)UIButton *drogUpBtn;
-@property(nonatomic,strong)UIButton *RespondBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *drogUpBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *RespondBtn;
 @end
 @implementation CGPickBottleContentView
 
@@ -118,29 +118,31 @@
     return _contentLabel;
 }
 
--(UIButton *)drogUpBtn{
+-(RkyExtendedHitButton *)drogUpBtn{
     if (!_drogUpBtn) {
-        _drogUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.contentView.frame)+20*SCREEN_RADIO, screen_width/2-35*SCREEN_RADIO, 35*SCREEN_RADIO)];
+        _drogUpBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.contentView.frame)+20*SCREEN_RADIO, screen_width/2-35*SCREEN_RADIO, 35*SCREEN_RADIO)];
         _drogUpBtn.backgroundColor=[UIColor getColor:@"2979FF"];
         [_drogUpBtn setTitle:@"扔回海里" forState:UIControlStateNormal];
         [_drogUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _drogUpBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _drogUpBtn.layer.cornerRadius=5*SCREEN_RADIO;
         [_drogUpBtn addTarget:self action:@selector(drogUpClick) forControlEvents:UIControlEventTouchUpInside];
+        _drogUpBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _drogUpBtn;
 }
 
--(UIButton *)RespondBtn{
+-(RkyExtendedHitButton *)RespondBtn{
     if (!_RespondBtn) {
-        _RespondBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2+5*SCREEN_RADIO, CGRectGetMaxY(self.contentView.frame)+20*SCREEN_RADIO, screen_width/2-35*SCREEN_RADIO, 35*SCREEN_RADIO)];
+        _RespondBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2+5*SCREEN_RADIO, CGRectGetMaxY(self.contentView.frame)+20*SCREEN_RADIO, screen_width/2-35*SCREEN_RADIO, 35*SCREEN_RADIO)];
         _RespondBtn.backgroundColor=[UIColor getColor:@"2979FF"];
         [_RespondBtn setTitle:@"回应" forState:UIControlStateNormal];
         [_RespondBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _RespondBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _RespondBtn.layer.cornerRadius=5*SCREEN_RADIO;
         [_RespondBtn addTarget:self action:@selector(RespondClick) forControlEvents:UIControlEventTouchUpInside];
+        _RespondBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _RespondBtn;

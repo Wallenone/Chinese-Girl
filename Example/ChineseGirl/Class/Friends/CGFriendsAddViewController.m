@@ -14,7 +14,7 @@
 @interface CGFriendsAddViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIView *lineView;
-@property(nonatomic,strong)UIButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,assign)NSInteger currentPage;
@@ -94,11 +94,12 @@
 
 
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(19*SCREEN_RADIO, 34*SCREEN_RADIO, 10*SCREEN_RADIO, 16*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(19*SCREEN_RADIO, 34*SCREEN_RADIO, 10*SCREEN_RADIO, 16*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }

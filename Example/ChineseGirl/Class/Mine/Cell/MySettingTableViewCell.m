@@ -13,7 +13,7 @@
 }
 @property(nonatomic,strong)UILabel *leftLabel;
 @property(nonatomic,strong)UILabel *rightLabel;
-@property(nonatomic,strong)UIButton *allowBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *allowBtn;
 @property(nonatomic,strong)UIView *lineView;
 @end
 @implementation MySettingTableViewCell
@@ -84,12 +84,13 @@
     return _rightLabel;
 }
 
--(UIButton *)allowBtn{
+-(RkyExtendedHitButton *)allowBtn{
     if (!_allowBtn) {
-        _allowBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-16*SCREEN_RADIO, 19.5*SCREEN_RADIO, 6*SCREEN_RADIO, 11*SCREEN_RADIO)];
+        _allowBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-16*SCREEN_RADIO, 19.5*SCREEN_RADIO, 6*SCREEN_RADIO, 11*SCREEN_RADIO)];
         [_allowBtn setBackgroundImage:[UIImage imageNamed:@"myAllowLeft"] forState:UIControlStateNormal];
         _allowBtn.userInteractionEnabled=NO;
         _allowBtn.hidden=_allowState;
+        _allowBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _allowBtn;

@@ -14,9 +14,9 @@
 #import "MyIndexViewController.h"
 @interface CGMoneyTopViewController ()
 @property(nonatomic,strong)UIView *headerView;
-@property(nonatomic,strong)UIButton *leftBtn;
-@property(nonatomic,strong)UIButton *moneyTop;
-@property(nonatomic,strong)UIButton *hotTop;
+@property(nonatomic,strong)RkyExtendedHitButton *leftBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *moneyTop;
+@property(nonatomic,strong)RkyExtendedHitButton *hotTop;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,assign)NSInteger modelType;
@@ -84,38 +84,41 @@
 }
 
 
--(UIButton *)leftBtn{
+-(RkyExtendedHitButton *)leftBtn{
     if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 33*SCREEN_RADIO, 10.5*SCREEN_RADIO, 17.5*SCREEN_RADIO)];
+        _leftBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 33*SCREEN_RADIO, 10.5*SCREEN_RADIO, 17.5*SCREEN_RADIO)];
         [_leftBtn setImage:[UIImage imageNamed:@"myIndexLeft"] forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _leftBtn;
 }
 
--(UIButton *)moneyTop{
+-(RkyExtendedHitButton *)moneyTop{
     if (!_moneyTop) {
         CGSize constraint = CGSizeMake(screen_width-20*SCREEN_RADIO, 99999.0f);
         CGSize size = [NSLocalizedString(@"fuhaobang", nil) sizeWithFont:[UIFont systemFontOfSize:16.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        _moneyTop=[[UIButton alloc] initWithFrame:CGRectMake(100*SCREEN_RADIO, 31.5*SCREEN_RADIO, size.width, 18*SCREEN_RADIO)];
+        _moneyTop=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(100*SCREEN_RADIO, 31.5*SCREEN_RADIO, size.width, 18*SCREEN_RADIO)];
         [_moneyTop setTitle:NSLocalizedString(@"fuhaobang", nil) forState:UIControlStateNormal];
         [_moneyTop setTitleColor:[UIColor getColor:@"00ffff"] forState:UIControlStateNormal];
         _moneyTop.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_moneyTop addTarget:self action:@selector(moneyTopClick:) forControlEvents:UIControlEventTouchUpInside];
+        _moneyTop.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _moneyTop;
 }
 
--(UIButton *)hotTop{
+-(RkyExtendedHitButton *)hotTop{
     if (!_hotTop) {
-        _hotTop=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2, 31.5*SCREEN_RADIO, screen_width/2-100*SCREEN_RADIO, 18*SCREEN_RADIO)];
+        _hotTop=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2, 31.5*SCREEN_RADIO, screen_width/2-100*SCREEN_RADIO, 18*SCREEN_RADIO)];
         [_hotTop setTitle:NSLocalizedString(@"remenbang", nil) forState:UIControlStateNormal];
         [_hotTop setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _hotTop.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_hotTop addTarget:self action:@selector(hotTopClick:) forControlEvents:UIControlEventTouchUpInside];
         [_hotTop setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+        _hotTop.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _hotTop;

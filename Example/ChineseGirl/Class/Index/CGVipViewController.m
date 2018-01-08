@@ -19,8 +19,8 @@
 @property(nonatomic,strong)UILabel *menuLabel1;
 @property(nonatomic,strong)UILabel *menuLabel2;
 @property(nonatomic,strong)UILabel *menuLabel3;
-@property(nonatomic,strong)UIButton *confimBtn;
-@property(nonatomic,strong)UIButton *noBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *confimBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *noBtn;
 @end
 
 @implementation CGVipViewController
@@ -329,28 +329,30 @@
     return _menuLabel3;
 }
 
--(UIButton *)confimBtn{
+-(RkyExtendedHitButton *)confimBtn{
     if (!_confimBtn) {
-        _confimBtn=[[UIButton alloc] initWithFrame:CGRectMake((screen_width-20*SCREEN_RADIO)/2-(screen_width-140*SCREEN_RADIO)/2, CGRectGetMaxY(self.menuLabel3.frame)+15*SCREEN_RADIO, screen_width-140*SCREEN_RADIO, 40*SCREEN_RADIO)];
+        _confimBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake((screen_width-20*SCREEN_RADIO)/2-(screen_width-140*SCREEN_RADIO)/2, CGRectGetMaxY(self.menuLabel3.frame)+15*SCREEN_RADIO, screen_width-140*SCREEN_RADIO, 40*SCREEN_RADIO)];
         [_confimBtn setTitle:NSLocalizedString(@"jixu", nil) forState:UIControlStateNormal];
         [_confimBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _confimBtn.titleLabel.font=[UIFont systemFontOfSize:15*SCREEN_RADIO];
         _confimBtn.layer.cornerRadius=20*SCREEN_RADIO;
         [_confimBtn setBackgroundColor:[UIColor getColor:@"1b6ae3"]];
         [_confimBtn addTarget:self action:@selector(confimClick) forControlEvents:UIControlEventTouchUpInside];
+        _confimBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _confimBtn;
 }
 
--(UIButton *)noBtn{
+-(RkyExtendedHitButton *)noBtn{
     if (!_noBtn) {
-        _noBtn=[[UIButton alloc] initWithFrame:CGRectMake((screen_width-20*SCREEN_RADIO)/2-(screen_width-140*SCREEN_RADIO)/2, CGRectGetMaxY(self.confimBtn.frame), screen_width-140*SCREEN_RADIO, 40*SCREEN_RADIO)];
+        _noBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake((screen_width-20*SCREEN_RADIO)/2-(screen_width-140*SCREEN_RADIO)/2, CGRectGetMaxY(self.confimBtn.frame), screen_width-140*SCREEN_RADIO, 40*SCREEN_RADIO)];
         [_noBtn setTitle:NSLocalizedString(@"noxiexie", nil) forState:UIControlStateNormal];
         [_noBtn setTitleColor:[UIColor getColor:@"c2c6cc"] forState:UIControlStateNormal];
         _noBtn.titleLabel.font=[UIFont systemFontOfSize:15*SCREEN_RADIO];
         _noBtn.layer.cornerRadius=20*SCREEN_RADIO;
         [_noBtn addTarget:self action:@selector(noconfimClick) forControlEvents:UIControlEventTouchUpInside];
+        _noBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _noBtn;

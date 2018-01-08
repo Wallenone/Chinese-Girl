@@ -18,7 +18,7 @@
 @property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIView *toplineView;
 @property(nonatomic,strong)UIMessageCustom *messageView;
-@property(nonatomic,strong)UIButton *rightBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *rightBtn;
 @end
 @implementation NewsBottomMessage
 
@@ -178,11 +178,12 @@
     return _messageView;
 }
 
--(UIButton *)rightBtn{
+-(RkyExtendedHitButton *)rightBtn{
     if (!_rightBtn) {
-        _rightBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.messageView.frame)+ 15*SCREEN_RADIO, 16.5*SCREEN_RADIO, 27.1*SCREEN_RADIO, 27.1*SCREEN_RADIO)];
+        _rightBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.messageView.frame)+ 15*SCREEN_RADIO, 16.5*SCREEN_RADIO, 27.1*SCREEN_RADIO, 27.1*SCREEN_RADIO)];
         [_rightBtn setBackgroundImage:[UIImage imageNamed:@"NewsSend"] forState:UIControlStateNormal];
         [_rightBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _rightBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _rightBtn;

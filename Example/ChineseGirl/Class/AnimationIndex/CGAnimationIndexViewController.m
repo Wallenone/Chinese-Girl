@@ -19,7 +19,7 @@
    
 }
 @property(nonatomic,strong)UIView *headerView;
-@property(nonatomic,strong)UIButton *rightIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *rightIcon;
 @property(nonatomic,strong)UIImageView *titleImg;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *lineView;
@@ -103,11 +103,12 @@
     return _headerView;
 }
 
--(UIButton *)rightIcon{
+-(RkyExtendedHitButton *)rightIcon{
     if (!_rightIcon) {
-        _rightIcon=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-32*SCREEN_RADIO, 32*SCREEN_RADIO, 22*SCREEN_RADIO, 22*SCREEN_RADIO)];
+        _rightIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-32*SCREEN_RADIO, 32*SCREEN_RADIO, 22*SCREEN_RADIO, 22*SCREEN_RADIO)];
         [_rightIcon setImage:[UIImage imageNamed:@"discover_fans"] forState:UIControlStateNormal];
         [_rightIcon addTarget:self action:@selector(addFriend) forControlEvents:UIControlEventTouchUpInside];
+        _rightIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _rightIcon;
 }

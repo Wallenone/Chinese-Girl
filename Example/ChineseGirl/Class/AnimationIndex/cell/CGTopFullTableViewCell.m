@@ -17,7 +17,7 @@
 @property(nonatomic,strong)UILabel *moneyPit;
 @property(nonatomic,strong)UIImageView *goldImgView;
 @property(nonatomic,strong)UILabel *goldNum;
-@property(nonatomic,strong)UIButton *addFriend;
+@property(nonatomic,strong)RkyExtendedHitButton *addFriend;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)CGMoneyTopModel *cellModel;
 @property(nonatomic,assign)NSInteger modeltype;
@@ -193,9 +193,9 @@
     return _goldNum;
 }
 
--(UIButton *)addFriend{
+-(RkyExtendedHitButton *)addFriend{
     if (!_addFriend) {
-        _addFriend=[[UIButton alloc]initWithFrame:CGRectMake(screen_width-65*SCREEN_RADIO, 73*SCREEN_RADIO/2-15.5*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
+        _addFriend=[[RkyExtendedHitButton alloc]initWithFrame:CGRectMake(screen_width-65*SCREEN_RADIO, 73*SCREEN_RADIO/2-15.5*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
         NSString *userid;
         if (self.modeltype==1) {
             userid=self.cellModel.moneyuserid;
@@ -208,6 +208,7 @@
             [_addFriend setBackgroundImage:[UIImage imageNamed:@"video_follow"] forState:UIControlStateNormal];
         }
         [_addFriend addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
+        _addFriend.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _addFriend;

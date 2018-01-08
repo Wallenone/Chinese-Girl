@@ -14,9 +14,9 @@
 @interface MineAccountViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLable;
-@property(nonatomic,strong)UIButton *leftBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *leftBtn;
 @property(nonatomic,strong)EZJFastTableView *tbv;
-@property(nonatomic,strong)UIButton *logoutBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *logoutBtn;
 @end
 
 @implementation MineAccountViewController
@@ -79,11 +79,12 @@
     return _titleLable;
 }
 
--(UIButton *)leftBtn{
+-(RkyExtendedHitButton *)leftBtn{
     if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftBtn setBackgroundImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _leftBtn;
@@ -141,9 +142,9 @@
 }
 
 
--(UIButton *)logoutBtn{
+-(RkyExtendedHitButton *)logoutBtn{
     if (!_logoutBtn) {
-        _logoutBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, screen_height-90*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
+        _logoutBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, screen_height-90*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
         [_logoutBtn setTitleColor:[UIColor getColor:@"2979FF"] forState:UIControlStateNormal];
         [_logoutBtn setTitle:NSLocalizedString(@"log_out", nil) forState:UIControlStateNormal];
         _logoutBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
@@ -151,6 +152,7 @@
         _logoutBtn.layer.borderWidth=1;
         _logoutBtn.layer.borderColor=[UIColor getColor:@"2979FF"].CGColor;
         [_logoutBtn addTarget:self action:@selector(logoutClick) forControlEvents:UIControlEventTouchUpInside];
+        _logoutBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _logoutBtn;

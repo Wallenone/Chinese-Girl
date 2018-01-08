@@ -12,7 +12,7 @@
 #import "CGProfileIndexViewController.h"
 #import "CGAppDelegate.h"
 @interface CGNewIndexViewController ()
-@property(nonatomic,strong)UIButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *titleLineView;
 @property(nonatomic,strong)UILabel *emailLabel;
@@ -23,8 +23,8 @@
 @property(nonatomic,strong)UITextField *passwordContent;
 @property(nonatomic,strong)UILabel *address;
 @property(nonatomic,strong)UITextField *addressContent;
-@property(nonatomic,strong)UIButton *cityBtn;
-@property(nonatomic,strong)UIButton *setupBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *cityBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *setupBtn;
 @end
 
 @implementation CGNewIndexViewController
@@ -122,11 +122,12 @@
     [self.navigationController pushViewController:signInVC animated:NO];
 }
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }
@@ -254,18 +255,19 @@
     return _addressContent;
 }
 
--(UIButton *)cityBtn{
+-(RkyExtendedHitButton *)cityBtn{
     if (!_cityBtn) {
-        _cityBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+7*SCREEN_RADIO, SCREEN_WIDTH-60*SCREEN_RADIO, 32*SCREEN_RADIO)];
+        _cityBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+7*SCREEN_RADIO, SCREEN_WIDTH-60*SCREEN_RADIO, 32*SCREEN_RADIO)];
         [_cityBtn addTarget:self action:@selector(chooseCity) forControlEvents:UIControlEventTouchUpInside];
+        _cityBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _cityBtn;
 }
 
--(UIButton *)setupBtn{
+-(RkyExtendedHitButton *)setupBtn{
     if (!_setupBtn) {
-        _setupBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _setupBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_setupBtn setTitle:NSLocalizedString(@"fasongxinxi", nil) forState:UIControlStateNormal];
         [_setupBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _setupBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
@@ -273,6 +275,7 @@
         _setupBtn.layer.cornerRadius=6;
         _setupBtn.clipsToBounds=YES;
         [_setupBtn addTarget:self action:@selector(setupClick) forControlEvents:UIControlEventTouchUpInside];
+        _setupBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _setupBtn;

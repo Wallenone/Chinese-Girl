@@ -10,7 +10,7 @@
 #import "CGNewForgetViewController.h"
 #import "CGNewIndexViewController.h"
 @interface CGNewSignInViewController ()
-@property(nonatomic,strong)UIButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *titleLineView;
 @property(nonatomic,strong)UILabel *emailLabel;
@@ -18,10 +18,10 @@
 @property(nonatomic,strong)UILabel *password;
 @property(nonatomic,strong)UITextField *passwordContent;
 @property(nonatomic,strong)UILabel *ForgetLabel;
-@property(nonatomic,strong)UIButton *ForgetBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *ForgetBtn;
 @property(nonatomic,strong)UILabel *SignUpLabel;
-@property(nonatomic,strong)UIButton *SignUpBtn;
-@property(nonatomic,strong)UIButton *signInBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *SignUpBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *signInBtn;
 @end
 
 @implementation CGNewSignInViewController
@@ -90,11 +90,12 @@
     [self.navigationController pushViewController:indexVC animated:NO];
 }
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }
@@ -184,14 +185,15 @@
     return _ForgetLabel;
 }
 
--(UIButton *)ForgetBtn{
+-(RkyExtendedHitButton *)ForgetBtn{
     if (!_ForgetBtn) {
-        _ForgetBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, screen_height-210*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
+        _ForgetBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, screen_height-210*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.ForgetLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
         [_ForgetBtn setTitle:NSLocalizedString(@"chongzhi", nil) forState:UIControlStateNormal];
         [_ForgetBtn setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
         _ForgetBtn.titleLabel.font=[UIFont systemFontOfSize:21*SCREEN_RADIO];
         _ForgetBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [_ForgetBtn addTarget:self action:@selector(signInClick) forControlEvents:UIControlEventTouchUpInside];
+        _ForgetBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _ForgetBtn;
@@ -209,23 +211,24 @@
     return _SignUpLabel;
 }
 
--(UIButton *)SignUpBtn{
+-(RkyExtendedHitButton *)SignUpBtn{
     if (!_SignUpBtn) {
-        _SignUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.SignUpLabel.frame)+5*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.SignUpLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
+        _SignUpBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.SignUpLabel.frame)+5*SCREEN_RADIO, screen_height-170*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.SignUpLabel.frame)+5*SCREEN_RADIO, 21*SCREEN_RADIO)];
         [_SignUpBtn setTitle:NSLocalizedString(@"xianzaijiuqu", nil) forState:UIControlStateNormal];
         [_SignUpBtn setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
         _SignUpBtn.titleLabel.font=[UIFont systemFontOfSize:21*SCREEN_RADIO];
         _SignUpBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [_SignUpBtn addTarget:self action:@selector(signUpClick) forControlEvents:UIControlEventTouchUpInside];
+        _SignUpBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _SignUpBtn;
 }
 
 
--(UIButton *)signInBtn{
+-(RkyExtendedHitButton *)signInBtn{
     if (!_signInBtn) {
-        _signInBtn=[[UIButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _signInBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(30*SCREEN_RADIO, screen_height-120*SCREEN_RADIO, screen_width-60*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_signInBtn setTitle:NSLocalizedString(@"fasongxinxi", nil) forState:UIControlStateNormal];
         [_signInBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _signInBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
@@ -233,6 +236,7 @@
         _signInBtn.layer.cornerRadius=6;
         _signInBtn.clipsToBounds=YES;
         [_signInBtn addTarget:self action:@selector(setupClick) forControlEvents:UIControlEventTouchUpInside];
+        _signInBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _signInBtn;

@@ -13,7 +13,7 @@
     OnBuyBack onBuyBack;
 }
 @property(nonatomic,strong)UIView *diView;
-@property(nonatomic,strong)UIButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UIView *item1;
 @property(nonatomic,strong)UIView *item2;
 @property(nonatomic,strong)UIView *item3;
@@ -78,11 +78,12 @@
     return _diView;
 }
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 10*SCREEN_RADIO, 16*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 10*SCREEN_RADIO, 16*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }
