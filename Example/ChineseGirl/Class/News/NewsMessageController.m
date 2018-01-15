@@ -19,18 +19,18 @@
 @property(nonatomic,strong)NSMutableArray *subListModel;
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLabel;
-@property(nonatomic,strong)UIButton *leftBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *leftBtn;
 @property(nonatomic,strong)UIImageView *AvatarImgView;
-@property(nonatomic,strong)UIButton *avatarbtn;
+@property(nonatomic,strong)RkyExtendedHitButton *avatarbtn;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *address;
 @property(nonatomic,strong)UIImageView *addressIcon;
-@property(nonatomic,strong)UIButton *talkBtn;
-@property(nonatomic,strong)UIButton *followingBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *talkBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *followingBtn;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)UIView *bottomView;
 @property(nonatomic,strong)UITextView *textView;
-@property(nonatomic,strong)UIButton *sendBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *sendBtn;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)UIView *toolBarView;
 @end
@@ -141,15 +141,15 @@
 }
 
 -(void)followingClick:(UIButton *)button{//C5D4D2  //320AFD
-    if ([button.currentTitle isEqual:@"Follow"]) {
+    if ([button.currentTitle isEqual:NSLocalizedString(@"guanzhu", nil)]) {
         // [button setBackgroundColor:[UIColor getColor:@"320AFD"]];
-        [button setTitle:@"Followed" forState:UIControlStateNormal];
+        [button setTitle:NSLocalizedString(@"yiguanzhu", nil) forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"myindexfollowed"] forState:UIControlStateNormal];
         [[CGSingleCommitData sharedInstance] addFollows:[NSString stringWithFormat:@"%@",self.userid]];
     }
     else {
         // [button setBackgroundColor:[UIColor getColor:@"C5D4D2"]];
-        [button setTitle:@"Follow" forState:UIControlStateNormal];
+        [button setTitle:NSLocalizedString(@"guanzhu", nil) forState:UIControlStateNormal];
         [[CGSingleCommitData sharedInstance] deletefollow:[NSString stringWithFormat:@"%@",self.userid]];
         [button setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
     }
@@ -222,11 +222,12 @@
     return _titleLabel;
 }
 
--(UIButton *)leftBtn{
+-(RkyExtendedHitButton *)leftBtn{
     if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 33*SCREEN_RADIO, 10.5*SCREEN_RADIO, 17.5*SCREEN_RADIO)];
+        _leftBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 33*SCREEN_RADIO, 10.5*SCREEN_RADIO, 17.5*SCREEN_RADIO)];
         [_leftBtn setImage:[UIImage imageNamed:@"myIndexLeft"] forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _leftBtn;
@@ -245,10 +246,11 @@
     return _AvatarImgView;
 }
 
--(UIButton *)avatarbtn{
+-(RkyExtendedHitButton *)avatarbtn{
     if (!_avatarbtn) {
-        _avatarbtn=[[UIButton alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 64*SCREEN_RADIO+15*SCREEN_RADIO, 115*SCREEN_RADIO, 115*SCREEN_RADIO)];
+        _avatarbtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 64*SCREEN_RADIO+15*SCREEN_RADIO, 115*SCREEN_RADIO, 115*SCREEN_RADIO)];
         [_avatarbtn addTarget:self action:@selector(avatarClick) forControlEvents:UIControlEventTouchUpInside];
+        _avatarbtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _avatarbtn;
 }
@@ -286,19 +288,19 @@
 }
 
 
--(UIButton *)followingBtn{
+-(RkyExtendedHitButton *)followingBtn{
     if (!_followingBtn) {
-        _followingBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+25.5*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, 159.5*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        _followingBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+25.5*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, 159.5*SCREEN_RADIO, 45*SCREEN_RADIO)];
         [_followingBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];//C5D4D2  //320AFD
-        [_followingBtn setTitle:@"Follow" forState:UIControlStateNormal];
+        [_followingBtn setTitle:NSLocalizedString(@"guanzhu", nil) forState:UIControlStateNormal];
         _followingBtn.imageEdgeInsets = UIEdgeInsetsMake(13.5*SCREEN_RADIO,16.5*SCREEN_RADIO,14*SCREEN_RADIO,125*SCREEN_RADIO);
         _followingBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -_followingBtn.imageView.frame.size.width, 0, 0);
         
         if ([CGUserInfo getitemWithID:self.userid].followed) {
-            [_followingBtn setTitle:@"Followed" forState:UIControlStateNormal];
+            [_followingBtn setTitle:NSLocalizedString(@"yiguanzhu", nil) forState:UIControlStateNormal];
             [_followingBtn setImage:[UIImage imageNamed:@"myindexfollowed"] forState:UIControlStateNormal];
         }else{
-            [_followingBtn setTitle:@"Follow" forState:UIControlStateNormal];
+            [_followingBtn setTitle:NSLocalizedString(@"guanzhu", nil) forState:UIControlStateNormal];
             [_followingBtn setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
         }
         _followingBtn.layer.cornerRadius=22.5*SCREEN_RADIO;
@@ -306,19 +308,19 @@
         _followingBtn.layer.borderColor=[UIColor getColor:@"ffffff"].CGColor;
         _followingBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         [_followingBtn addTarget:self action:@selector(followingClick:) forControlEvents:UIControlEventTouchUpInside];
-        
+        _followingBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
         
     }
     
     return _followingBtn;
 }
 
--(UIButton *)talkBtn{
+-(RkyExtendedHitButton *)talkBtn{
     if (!_talkBtn) {
-        _talkBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.followingBtn.frame)+15*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, 45*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        _talkBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.followingBtn.frame)+15*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, 45*SCREEN_RADIO, 45*SCREEN_RADIO)];
         [_talkBtn setBackgroundImage:[UIImage imageNamed:@"talkButton"] forState:UIControlStateNormal];
         [_talkBtn addTarget:self action:@selector(talkClick) forControlEvents:UIControlEventTouchUpInside];
-        
+        _talkBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _talkBtn;
@@ -424,7 +426,7 @@
 -(UITextView *)textView{
     if (!_textView) {
         _textView=[[UITextView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 11.5*SCREEN_RADIO, screen_width-108*SCREEN_RADIO, 24*SCREEN_RADIO)];
-        _textView.zw_placeHolder=@"请输入内容";
+        _textView.zw_placeHolder=NSLocalizedString(@"qingshuruneirong", nil);
         _textView.zw_placeHolderColor=[UIColor getColor:@"777777"];
         _textView.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _textView.backgroundColor=[UIColor getColor:@"F9F9F9"];
@@ -434,13 +436,14 @@
     return _textView;
 }
 
--(UIButton *)sendBtn{
+-(RkyExtendedHitButton *)sendBtn{
     if (!_sendBtn) {
-        _sendBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.textView.frame)+8*SCREEN_RADIO, 11.5*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.textView.frame)+8*SCREEN_RADIO, 19.5*SCREEN_RADIO)];
-        [_sendBtn setTitle:@"Send" forState:UIControlStateNormal];
+        _sendBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.textView.frame)+8*SCREEN_RADIO, 11.5*SCREEN_RADIO, screen_width-CGRectGetMaxX(self.textView.frame)+8*SCREEN_RADIO, 19.5*SCREEN_RADIO)];
+        [_sendBtn setTitle:NSLocalizedString(@"fasong", nil) forState:UIControlStateNormal];
         [_sendBtn setTitleColor:[UIColor getColor:@"777777"] forState:UIControlStateNormal];
         [_sendBtn addTarget:self action:@selector(sendClick) forControlEvents:UIControlEventTouchUpInside];
         _sendBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
+        _sendBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _sendBtn;

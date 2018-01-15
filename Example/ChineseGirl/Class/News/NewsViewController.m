@@ -16,7 +16,6 @@
 #import "CGMessageModel.h"
 #import "CGNewSignInViewController.h"
 @interface NewsViewController ()<HzfNavigationBarDelegate>
-@property(nonatomic,strong)UIButton *leftIcon;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @end
 

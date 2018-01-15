@@ -14,14 +14,14 @@
     SignInClickBlock signInClickBlock;
     CanCelClickBlock canCelClickBlock;
 }
-@property(nonatomic,strong)UIButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UILabel *contentLabel;
-@property(nonatomic,strong)UIButton *SignupBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *SignupBtn;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *userNameField;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *passwordField;
-@property(nonatomic,strong)UIButton *forgotPassword;
-@property(nonatomic,strong)UIButton *signInBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *forgotPassword;
+@property(nonatomic,strong)RkyExtendedHitButton *signInBtn;
 @end
 @implementation CGLoginIndexView
 
@@ -100,11 +100,12 @@
     }
 }
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"Arrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }
@@ -126,7 +127,7 @@
 -(UILabel *)contentLabel{
     if (!_contentLabel) {
         _contentLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleLabel.frame), screen_width, 19*SCREEN_RADIO)];
-        _contentLabel.text=@"当宁登录或是需要重设密码时，会使用这个电子邮件";
+        _contentLabel.text=NSLocalizedString(@"useyouremail", nil);
         _contentLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _contentLabel.textColor=[UIColor getColor:@"6d6d6d"];
         _contentLabel.textAlignment=NSTextAlignmentCenter;
@@ -135,13 +136,14 @@
     return _contentLabel;
 }
 
--(UIButton *)SignupBtn{
+-(RkyExtendedHitButton *)SignupBtn{
     if (!_SignupBtn) {
-        _SignupBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.titleLabel.frame), 166*SCREEN_RADIO, 100, 26*SCREEN_RADIO)];
+        _SignupBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.titleLabel.frame), 166*SCREEN_RADIO, 100, 26*SCREEN_RADIO)];
         [_SignupBtn setTitle:NSLocalizedString(@"signup", nil) forState:UIControlStateNormal];
         [_SignupBtn setTitleColor:[UIColor getColor:@"F4F8FA"] forState:UIControlStateNormal];
         _SignupBtn.titleLabel.font=[UIFont boldSystemFontOfSize:24*SCREEN_RADIO];
          [_SignupBtn addTarget:self action:@selector(singUpClick) forControlEvents:UIControlEventTouchUpInside];
+        _SignupBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _SignupBtn;
@@ -193,21 +195,22 @@
     return _passwordField;
 }
 
--(UIButton *)forgotPassword{
+-(RkyExtendedHitButton *)forgotPassword{
     if (!_forgotPassword) {
-        _forgotPassword=[[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.passwordField.frame)+25*SCREEN_RADIO, screen_width, 22*SCREEN_RADIO)];
+        _forgotPassword=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.passwordField.frame)+25*SCREEN_RADIO, screen_width, 22*SCREEN_RADIO)];
         _forgotPassword.titleLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [_forgotPassword setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_forgotPassword setTitle:NSLocalizedString(@"forgot_your_password", nil) forState:UIControlStateNormal];
         [_forgotPassword addTarget:self action:@selector(forgotPasswordClick) forControlEvents:UIControlEventTouchUpInside];
+        _forgotPassword.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _forgotPassword;
 }
 
--(UIButton *)signInBtn{
+-(RkyExtendedHitButton *)signInBtn{
     if (!_signInBtn) {
-        _signInBtn=[[UIButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.forgotPassword.frame)+39*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
+        _signInBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.forgotPassword.frame)+39*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
         [_signInBtn setTitle:NSLocalizedString(@"signin", nil) forState:UIControlStateNormal];
         [_signInBtn addTarget:self action:@selector(signInClick) forControlEvents:UIControlEventTouchUpInside];
         _signInBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
@@ -215,6 +218,7 @@
         _signInBtn.layer.cornerRadius=52/2*SCREEN_RADIO;
         _signInBtn.layer.borderWidth=2;
         _signInBtn.layer.borderColor=[UIColor whiteColor].CGColor;
+        _signInBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _signInBtn;

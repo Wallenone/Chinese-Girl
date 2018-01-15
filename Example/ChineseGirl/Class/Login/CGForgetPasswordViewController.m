@@ -10,10 +10,10 @@
 #import "CGLoginIndexCustomTextField.h"
 @interface CGForgetPasswordViewController ()
 @property(nonatomic,strong)UIImageView *bgImgView;
-@property(nonatomic,strong)UIButton *backBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *backBtn;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)CGLoginIndexCustomTextField *EmailField;
-@property(nonatomic,strong)UIButton *recoverBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *recoverBtn;
 @end
 
 @implementation CGForgetPasswordViewController
@@ -59,11 +59,12 @@
     return _bgImgView;
 }
 
--(UIButton *)backBtn{
+-(RkyExtendedHitButton *)backBtn{
     if (!_backBtn) {
-        _backBtn=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _backBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_backBtn setBackgroundImage:[UIImage imageNamed:@"Arrowleft"] forState:UIControlStateNormal];
         [_backBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+        _backBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _backBtn;
@@ -105,9 +106,9 @@
     return _EmailField;
 }
 
--(UIButton *)recoverBtn{
+-(RkyExtendedHitButton *)recoverBtn{
     if (!_recoverBtn) {
-        _recoverBtn=[[UIButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.EmailField.frame)+139*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
+        _recoverBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(87.5*SCREEN_RADIO, CGRectGetMaxY(self.EmailField.frame)+139*SCREEN_RADIO, screen_width-87.5*2*SCREEN_RADIO, 52*SCREEN_RADIO)];
         [_recoverBtn setTitle:NSLocalizedString(@"recover", nil) forState:UIControlStateNormal];
         [_recoverBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _recoverBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
@@ -115,6 +116,7 @@
         _recoverBtn.layer.borderWidth=2;
         _recoverBtn.layer.borderColor=[UIColor whiteColor].CGColor;
         [_recoverBtn addTarget:self action:@selector(recoverClick) forControlEvents:UIControlEventTouchUpInside];
+        _recoverBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _recoverBtn;

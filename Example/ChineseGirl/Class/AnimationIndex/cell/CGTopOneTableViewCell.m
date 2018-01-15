@@ -20,7 +20,7 @@
 @property(nonatomic,strong)UILabel *moneyPit;
 @property(nonatomic,strong)UIImageView *goldImgView;
 @property(nonatomic,strong)UILabel *goldNum;
-@property(nonatomic,strong)UIButton *addFriend;
+@property(nonatomic,strong)RkyExtendedHitButton *addFriend;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)CGMoneyTopModel *cellModel;
 @property(nonatomic,assign)NSInteger modeltype;
@@ -67,7 +67,7 @@
         self.goldNum.textColor=[UIColor getColor:@"f4bb00"];
         
         [self.goldNum sizeToFit];
-        self.moneyPit.text=@"送了";
+        self.moneyPit.text=NSLocalizedString(@"songla", nil);
         self.goldImgView.image=[UIImage imageNamed:@"leaderboard_coin"];
         self.goldImgView.frame=CGRectMake(CGRectGetMaxX(self.moneyPit.frame)+2*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+10*SCREEN_RADIO, 12*SCREEN_RADIO, 12*SCREEN_RADIO);
         
@@ -78,7 +78,7 @@
         self.goldNum.text=[NSString stringWithFormat:@"%@",self.cellModel.hotNum];
         self.goldNum.textColor=[UIColor getColor:@"ff43ff"];
         [self.goldNum sizeToFit];
-        self.moneyPit.text=@"粉丝";
+        self.moneyPit.text=NSLocalizedString(@"fensi", nil);
         self.goldImgView.image=[UIImage imageNamed:@"leaderboard_fans"];
         self.goldImgView.frame=CGRectMake(CGRectGetMaxX(self.moneyPit.frame)+2*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+9*SCREEN_RADIO, 16*SCREEN_RADIO, 16*SCREEN_RADIO);
     }
@@ -207,7 +207,7 @@
     return _goldNum;
 }
 
--(UIButton *)addFriend{
+-(RkyExtendedHitButton *)addFriend{
     if (!_addFriend) {
         NSString *userid;
         if (self.modeltype==1) {
@@ -215,13 +215,14 @@
         }else{
             userid=self.cellModel.hotuserid;
         }
-        _addFriend=[[UIButton alloc]initWithFrame:CGRectMake(screen_width/2-35*SCREEN_RADIO, CGRectGetMaxY(self.goldNum.frame)+10*SCREEN_RADIO, 70*SCREEN_RADIO, 28*SCREEN_RADIO)];
+        _addFriend=[[RkyExtendedHitButton alloc]initWithFrame:CGRectMake(screen_width/2-35*SCREEN_RADIO, CGRectGetMaxY(self.goldNum.frame)+10*SCREEN_RADIO, 70*SCREEN_RADIO, 28*SCREEN_RADIO)];
         if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:userid]) {
             [_addFriend setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_top_ico"] forState:UIControlStateNormal];
         }else{
             [_addFriend setBackgroundImage:[UIImage imageNamed:@"leaderboard_follow_button"] forState:UIControlStateNormal];
         }
         [_addFriend addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
+        _addFriend.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _addFriend;

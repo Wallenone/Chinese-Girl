@@ -26,8 +26,8 @@
 }
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerImgView;
-@property(nonatomic,strong)UIButton *AvatarImgView;
-@property(nonatomic,strong)UIButton *nickName;
+@property(nonatomic,strong)RkyExtendedHitButton *AvatarImgView;
+@property(nonatomic,strong)RkyExtendedHitButton *nickName;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 
 @end
@@ -111,24 +111,26 @@
 }
 
 
--(UIButton *)AvatarImgView{
+-(RkyExtendedHitButton *)AvatarImgView{
     if (!_AvatarImgView) {
-        _AvatarImgView=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-47*SCREEN_RADIO, 51.5*SCREEN_RADIO, 94*SCREEN_RADIO, 94*SCREEN_RADIO)];
+        _AvatarImgView=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2-47*SCREEN_RADIO, 51.5*SCREEN_RADIO, 94*SCREEN_RADIO, 94*SCREEN_RADIO)];
         //[_AvatarImgView setImage:[UIImage imageNamed:@"Avatar"] forState:UIControlStateNormal];
         _AvatarImgView.layer.cornerRadius=47*SCREEN_RADIO;
         _AvatarImgView.layer.masksToBounds=YES;
         [_AvatarImgView addTarget:self action:@selector(chooseImg) forControlEvents:UIControlEventTouchUpInside];
+        _AvatarImgView.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _AvatarImgView;
 }
 
--(UIButton *)nickName{
+-(RkyExtendedHitButton *)nickName{
     if (!_nickName) {
-        _nickName=[[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.AvatarImgView.frame)+12*SCREEN_RADIO, screen_width, 18*SCREEN_RADIO)];
+        _nickName=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.AvatarImgView.frame)+12*SCREEN_RADIO, screen_width, 18*SCREEN_RADIO)];
         _nickName.titleLabel.font=[UIFont systemFontOfSize:17*SCREEN_RADIO];
         [_nickName setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         [_nickName addTarget:self action:@selector(LoginCheck) forControlEvents:UIControlEventTouchUpInside];
+        _nickName.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _nickName;
 }

@@ -10,8 +10,8 @@
 #import "CGNewSignInViewController.h"
 @interface CGManageRegisterViewController ()
 @property(nonatomic,strong)UIImageView *headerImgView;
-@property(nonatomic,strong)UIButton *leftIcon;
-@property(nonatomic,strong)UIButton *loginGo;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *loginGo;
 @end
 
 @implementation CGManageRegisterViewController
@@ -47,23 +47,25 @@
     return _headerImgView;
 }
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }
 
--(UIButton *)loginGo{
+-(RkyExtendedHitButton *)loginGo{
     if(!_loginGo){
-        _loginGo=[[UIButton alloc] initWithFrame:CGRectMake(0, screen_height-28*SCREEN_RADIO, screen_width-15*SCREEN_RADIO, 18*SCREEN_RADIO)];
-        [_loginGo setTitle:@"去登录 >" forState:UIControlStateNormal];
+        _loginGo=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(0, screen_height-28*SCREEN_RADIO, screen_width-15*SCREEN_RADIO, 18*SCREEN_RADIO)];
+        [_loginGo setTitle:NSLocalizedString(@"qudenglu", nil) forState:UIControlStateNormal];
         [_loginGo setTitleColor:[UIColor getColor:@"157CF8"] forState:UIControlStateNormal];
         _loginGo.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         [_loginGo addTarget:self action:@selector(LoginClick) forControlEvents:UIControlEventTouchUpInside];
         _loginGo.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        _loginGo.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _loginGo;

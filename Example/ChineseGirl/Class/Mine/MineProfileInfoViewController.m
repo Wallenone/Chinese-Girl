@@ -19,10 +19,10 @@
 @interface MineProfileInfoViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLable;
-@property(nonatomic,strong)UIButton *leftBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *leftBtn;
 @property(nonatomic,strong)UIView *bodyView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
-@property(nonatomic,strong)UIButton *addImgs;
+@property(nonatomic,strong)RkyExtendedHitButton *addImgs;
 @property(nonatomic,assign)NSInteger imgsNum;
 @property(nonatomic,strong)NSMutableArray *imgViewArr;
 @property(nonatomic,strong)UIView *bodyCellView;
@@ -239,11 +239,12 @@
     return _titleLable;
 }
 
--(UIButton *)leftBtn{
+-(RkyExtendedHitButton *)leftBtn{
     if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftBtn setBackgroundImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _leftBtn;
@@ -259,11 +260,12 @@
     return _bodyView;
 }
 
--(UIButton *)addImgs{
+-(RkyExtendedHitButton *)addImgs{
     if (!_addImgs) {
-        _addImgs=[[UIButton alloc] initWithFrame:CGRectMake(5*SCREEN_RADIO, 5*SCREEN_RADIO, 79*SCREEN_RADIO, 79*SCREEN_RADIO)];
+        _addImgs=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(5*SCREEN_RADIO, 5*SCREEN_RADIO, 79*SCREEN_RADIO, 79*SCREEN_RADIO)];
         [_addImgs setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
         [_addImgs addTarget:self action:@selector(addImgClick) forControlEvents:UIControlEventTouchUpInside];
+        _addImgs.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _addImgs;

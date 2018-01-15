@@ -28,16 +28,16 @@
 @property(nonatomic,strong)UIImageView *headerIconView;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *numLook;
-@property(nonatomic,strong)UIButton *closeBtn;
-@property(nonatomic,strong)UIButton *menuBtn1;
-@property(nonatomic,strong)UIButton *menuBtn2;
-@property(nonatomic,strong)UIButton *menuBtn3;
-@property(nonatomic,strong)UIButton *menuBtn4;
+@property(nonatomic,strong)RkyExtendedHitButton *closeBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *menuBtn1;
+@property(nonatomic,strong)RkyExtendedHitButton *menuBtn2;
+@property(nonatomic,strong)RkyExtendedHitButton *menuBtn3;
+@property(nonatomic,strong)RkyExtendedHitButton *menuBtn4;
 @property(nonatomic,strong)ZFPlayerView *playerView;
 @property(nonatomic,strong)CGGiftView *giftView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)UIView *giftFriendView;
-@property(nonatomic,strong)UIButton *tbvBtnClose;
+@property(nonatomic,strong)RkyExtendedHitButton *tbvBtnClose;
 @end
 
 @implementation CGVideoViewController
@@ -137,7 +137,7 @@
                                                         @selector(video:didFinishSavingWithError:contextInfo:), nil);
                 }else{
                     [SVProgressHUD dismiss];
-                    [SVProgressHUD showWithStatus:@"保存失败"];
+                    [SVProgressHUD showWithStatus:NSLocalizedString(@"save_failed", nil)];
                 }
             });
         }else{
@@ -289,7 +289,7 @@
 -(UILabel *)numLook{    
     if (!_numLook) {
         _numLook=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headerIconView.frame)+5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 70*SCREEN_RADIO, 8*SCREEN_RADIO)];
-        _numLook.text=@"3532 观看人数";
+        _numLook.text=[NSString stringWithFormat:@"3532 %@",NSLocalizedString(@"guankanrenshu", nil)];
         _numLook.textColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:0.85];
         _numLook.font=[UIFont systemFontOfSize:8*SCREEN_RADIO];
     }
@@ -297,55 +297,60 @@
     return _numLook;
 }
 
--(UIButton *)closeBtn{
+-(RkyExtendedHitButton *)closeBtn{
     if (!_closeBtn) {
-        _closeBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-30*SCREEN_RADIO, 30*SCREEN_RADIO, 14*SCREEN_RADIO, 14*SCREEN_RADIO)];
+        _closeBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-30*SCREEN_RADIO, 30*SCREEN_RADIO, 14*SCREEN_RADIO, 14*SCREEN_RADIO)];
         [_closeBtn setImage:[UIImage imageNamed:@"closeShape"] forState:UIControlStateNormal];
        // [_closeBtn addTarget:self action:@selector(closeClick) forControlEvents:UIControlEventTouchUpInside];
+        _closeBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _closeBtn;
 }
 
--(UIButton *)menuBtn1{
+-(RkyExtendedHitButton *)menuBtn1{
     if (!_menuBtn1) {
-        _menuBtn1=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, screen_height/2, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _menuBtn1=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, screen_height/2, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_menuBtn1 setImage:[UIImage imageNamed:@"level_exclusive_gift_enable"] forState:UIControlStateNormal];
         [_menuBtn1 addTarget:self action:@selector(menuClick1) forControlEvents:UIControlEventTouchUpInside];
+        _menuBtn1.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _menuBtn1;
 }
 
--(UIButton *)menuBtn2{
+-(RkyExtendedHitButton *)menuBtn2{
     if (!_menuBtn2) {
-        _menuBtn2=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn1.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _menuBtn2=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn1.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_menuBtn2 setImage:[UIImage imageNamed:@"level_privilege_message_enable"] forState:UIControlStateNormal];
         [_menuBtn2 addTarget:self action:@selector(menuClick2) forControlEvents:UIControlEventTouchUpInside];
+        _menuBtn2.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _menuBtn2;
 }
 
--(UIButton *)menuBtn3{
+-(RkyExtendedHitButton *)menuBtn3{
     if (!_menuBtn3) {
-        _menuBtn3=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _menuBtn3=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_menuBtn3 setImage:[UIImage imageNamed:@"ic_sticker_download"] forState:UIControlStateNormal];
         [_menuBtn3 addTarget:self action:@selector(menuClick3) forControlEvents:UIControlEventTouchUpInside];
+        _menuBtn3.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _menuBtn3;
 }
 
--(UIButton *)menuBtn4{
+-(RkyExtendedHitButton *)menuBtn4{
     if (!_menuBtn4) {
-        _menuBtn4=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
+        _menuBtn4=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
         if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:self.userInfo.ids]) {
             [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
         }else{
             [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"video_follow"] forState:UIControlStateNormal];
         }
         [_menuBtn4 addTarget:self action:@selector(menuClick4) forControlEvents:UIControlEventTouchUpInside];
+        _menuBtn4.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _menuBtn4;
@@ -358,7 +363,7 @@
             [weakSelf getGlodView];
         } withGetGift:^(NSString *giftName, NSString *giftImgName) {
             GSPChatMessage *msg = [[GSPChatMessage alloc] init];
-            msg.text = [NSString stringWithFormat:@"1个【%@】",giftName];
+            msg.text = [NSString stringWithFormat:@"1【%@】",giftName];
             
             msg.senderChatID = [CGSingleCommitData sharedInstance].nickName;
             msg.senderName = msg.senderChatID;
@@ -473,12 +478,13 @@
     return _tbv;
 }
 
--(UIButton *)tbvBtnClose{
+-(RkyExtendedHitButton *)tbvBtnClose{
     if(!_tbvBtnClose){
-        _tbvBtnClose=[[UIButton alloc] initWithFrame:CGRectMake(screen_width-24*SCREEN_RADIO, 215*SCREEN_RADIO, 14*SCREEN_RADIO, 14*SCREEN_RADIO)];
+        _tbvBtnClose=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-24*SCREEN_RADIO, 215*SCREEN_RADIO, 14*SCREEN_RADIO, 14*SCREEN_RADIO)];
         [_tbvBtnClose setImage:[UIImage imageNamed:@"icon_close"] forState:UIControlStateNormal];
         [_tbvBtnClose addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
         _tbvBtnClose.hidden=YES;
+        _tbvBtnClose.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _tbvBtnClose;

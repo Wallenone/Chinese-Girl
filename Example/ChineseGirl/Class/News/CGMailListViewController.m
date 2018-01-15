@@ -12,7 +12,7 @@
 @interface CGMailListViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLabel;
-@property(nonatomic,strong)UIButton *leftBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *leftBtn;
 @property(nonatomic,strong)CGFavoriteView *favoriteView;
 @end
 
@@ -49,7 +49,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 28.5*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=@"我的关注";
+        _titleLabel.text=NSLocalizedString(@"my_favorite", nil);
         _titleLabel.textColor=[UIColor getColor:@"111111"];
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -57,11 +57,12 @@
     return _titleLabel;
 }
 
--(UIButton *)leftBtn{
+-(RkyExtendedHitButton *)leftBtn{
     if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 33*SCREEN_RADIO, 10.5*SCREEN_RADIO, 17.5*SCREEN_RADIO)];
+        _leftBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 33*SCREEN_RADIO, 10.5*SCREEN_RADIO, 17.5*SCREEN_RADIO)];
         [_leftBtn setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _leftBtn;

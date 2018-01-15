@@ -14,7 +14,6 @@
 @property(nonatomic,strong)UIImageView *icon;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *aboutUs;
-@property(nonatomic,strong)UIButton *addBtn;
 @property(nonatomic,strong)UIView *bottomLineView;
 @end
 

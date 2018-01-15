@@ -21,10 +21,10 @@
     model.birthday =[CGUserInfo getitemWithID:model.ids].birthday;
     NSString *toCityName=@"";
     if ([CGSingleCommitData sharedInstance].cityName.length>0) {
-        toCityName=[NSString stringWithFormat:@"%@个月后去%@",model.month,[CGSingleCommitData sharedInstance].cityName];
+        toCityName=[NSString stringWithFormat:@"%@%@%@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].cityName];
     }else{
         if ([CGSingleCommitData sharedInstance].countryName.length>0) {
-            toCityName=[NSString stringWithFormat:@"%@个月后去%@",model.month,[CGSingleCommitData sharedInstance].countryName];
+            toCityName=[NSString stringWithFormat:@"%@%@%@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].countryName];
         }
     }
     

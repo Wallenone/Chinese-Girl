@@ -14,8 +14,8 @@
 @interface CGProfileIndexViewController ()
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerImgView;
-@property(nonatomic,strong)UIButton *rightBtn;
-@property(nonatomic,strong)UIButton *avaterBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *rightBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *avaterBtn;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *address;
 @property(nonatomic,strong)CGFavoriteView *favoriteView;
@@ -95,27 +95,29 @@
     return _headerImgView;
 }
 
--(UIButton *)rightBtn{
+-(RkyExtendedHitButton *)rightBtn{
     if (!_rightBtn) {
-        _rightBtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 30*SCREEN_RADIO, screen_width-15*SCREEN_RADIO, 16*SCREEN_RADIO)];
-        [_rightBtn setTitle:@"Edit" forState:UIControlStateNormal];
+        _rightBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(0, 30*SCREEN_RADIO, screen_width-15*SCREEN_RADIO, 16*SCREEN_RADIO)];
+        [_rightBtn setTitle:NSLocalizedString(@"xiugai", nil) forState:UIControlStateNormal];
         [_rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_rightBtn addTarget:self action:@selector(editClick) forControlEvents:UIControlEventTouchUpInside];
         _rightBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        _rightBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _rightBtn;
 }
 
--(UIButton *)avaterBtn{
+-(RkyExtendedHitButton *)avaterBtn{
     if (!_avaterBtn) {
-        _avaterBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-55*SCREEN_RADIO, 82*SCREEN_RADIO, 110*SCREEN_RADIO, 110*SCREEN_RADIO)];
+        _avaterBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2-55*SCREEN_RADIO, 82*SCREEN_RADIO, 110*SCREEN_RADIO, 110*SCREEN_RADIO)];
         [_avaterBtn addTarget:self action:@selector(chooseImg) forControlEvents:UIControlEventTouchUpInside];
         [_avaterBtn setImage:[CGSingleCommitData sharedInstance].avatar forState:UIControlStateNormal];
         _avaterBtn.layer.cornerRadius=55*SCREEN_RADIO;
         _avaterBtn.clipsToBounds=YES;
         _avaterBtn.backgroundColor=[UIColor getColor:@"F6F6F6"];
+        _avaterBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _avaterBtn;

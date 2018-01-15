@@ -14,12 +14,12 @@
 }
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLabel;
-@property(nonatomic,strong)UIButton *drogBtn;
-@property(nonatomic,strong)UIButton *pickUpBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *drogBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *pickUpBtn;
 @property(nonatomic,strong)CGPickBottleContentView *bottleContentView;
 @property(nonatomic,strong)CGBottleTextView *wirteView;
 @property(nonatomic,strong)CALayer *maskLayer;
-@property(nonatomic,strong)UIButton *drogedBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *drogedBtn;
 @property(nonatomic,strong)UILabel *lbNums;
 @end
 
@@ -141,28 +141,30 @@
     return _titleLabel;
 }
 
--(UIButton *)drogBtn{
+-(RkyExtendedHitButton *)drogBtn{
     if (!_drogBtn) {
-        _drogBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, 194*SCREEN_RADIO, 220*SCREEN_RADIO, 52*SCREEN_RADIO)];
+        _drogBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, 194*SCREEN_RADIO, 220*SCREEN_RADIO, 52*SCREEN_RADIO)];
         [_drogBtn setBackgroundColor:[UIColor getColor:@"2979FF"]];
         [_drogBtn addTarget:self action:@selector(drogClick) forControlEvents:UIControlEventTouchUpInside];
         [_drogBtn setTitle:@"扔一个(剩余2次)" forState:UIControlStateNormal];
         [_drogBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _drogBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
         _drogBtn.layer.cornerRadius=26*SCREEN_RADIO;
+        _drogBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _drogBtn;
 }
 
--(UIButton *)pickUpBtn{
+-(RkyExtendedHitButton *)pickUpBtn{
     if (!_pickUpBtn) {
-        _pickUpBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, CGRectGetMaxY(self.drogBtn.frame)+20*SCREEN_RADIO, 220*SCREEN_RADIO, 52*SCREEN_RADIO)];
+        _pickUpBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, CGRectGetMaxY(self.drogBtn.frame)+20*SCREEN_RADIO, 220*SCREEN_RADIO, 52*SCREEN_RADIO)];
         [_pickUpBtn setBackgroundColor:[UIColor getColor:@"2979FF"]];
         [_pickUpBtn addTarget:self action:@selector(getBottleClick) forControlEvents:UIControlEventTouchUpInside];
         [_pickUpBtn setTitle:@"捡一个(剩余1次)" forState:UIControlStateNormal];
         [_pickUpBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _pickUpBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
         _pickUpBtn.layer.cornerRadius=26*SCREEN_RADIO;
+        _pickUpBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _pickUpBtn;
 }
@@ -205,15 +207,16 @@
     return _maskLayer;
 }
 
--(UIButton *)drogedBtn{
+-(RkyExtendedHitButton *)drogedBtn{
     if (!_drogedBtn) {
-        _drogedBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, CGRectGetMaxY(self.wirteView.frame)+10*SCREEN_RADIO, 220*SCREEN_RADIO, 52*SCREEN_RADIO)];
+        _drogedBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, CGRectGetMaxY(self.wirteView.frame)+10*SCREEN_RADIO, 220*SCREEN_RADIO, 52*SCREEN_RADIO)];
         [_drogedBtn setBackgroundColor:[UIColor getColor:@"2979FF"]];
         [_drogedBtn addTarget:self action:@selector(drogedClick) forControlEvents:UIControlEventTouchUpInside];
         [_drogedBtn setTitle:@"扔出" forState:UIControlStateNormal];
         [_drogedBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _drogedBtn.titleLabel.font=[UIFont systemFontOfSize:22*SCREEN_RADIO];
         _drogedBtn.layer.cornerRadius=26*SCREEN_RADIO;
+        _drogedBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _drogedBtn;
 }

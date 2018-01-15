@@ -11,13 +11,13 @@
 @interface MinePasswordViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UILabel *titleLable;
-@property(nonatomic,strong)UIButton *leftBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *leftBtn;
 @property(nonatomic,strong)UIView *line;
 @property(nonatomic,strong)UITextField *passwordField;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)UITextField *newpasswordField;
 @property(nonatomic,strong)UILabel *passwordContent;
-@property(nonatomic,strong)UIButton *conformBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *conformBtn;
 @end
 
 @implementation MinePasswordViewController
@@ -84,10 +84,10 @@
 -(void)conformsClick{
     if ([[CGSingleCommitData sharedInstance].password isEqualToString:self.passwordField.text]) {
         [CGSingleCommitData sharedInstance].password=self.newpasswordField.text;
-        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"xiugaichenggong", nil)];
         [self.navigationController popToRootViewControllerAnimated:NO];
     }else{
-        [SVProgressHUD showErrorWithStatus:@"当前密码不正确"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"mimacuowu", nil)];
     }
     
 }
@@ -111,11 +111,12 @@
     return _titleLable;
 }
 
--(UIButton *)leftBtn{
+-(RkyExtendedHitButton *)leftBtn{
     if (!_leftBtn) {
-        _leftBtn=[[UIButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(18.5*SCREEN_RADIO, 35*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftBtn setBackgroundImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+        _leftBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _leftBtn;
@@ -181,15 +182,16 @@
     return _passwordContent;
 }
 
--(UIButton *)conformBtn{
+-(RkyExtendedHitButton *)conformBtn{
     if (!_conformBtn) {
-        _conformBtn=[[UIButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, CGRectGetMaxY(self.passwordContent.frame)+20*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
+        _conformBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width/2-110*SCREEN_RADIO, CGRectGetMaxY(self.passwordContent.frame)+20*SCREEN_RADIO, 220*SCREEN_RADIO, 42*SCREEN_RADIO)];
         [_conformBtn setTitle:NSLocalizedString(@"save", nil) forState:UIControlStateNormal];
         [_conformBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
         _conformBtn.backgroundColor=[UIColor getColor:@"c8d3d2"];
         _conformBtn.titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _conformBtn.layer.cornerRadius=21*SCREEN_RADIO;
         [_conformBtn addTarget:self action:@selector(conformsClick) forControlEvents:UIControlEventTouchUpInside];
+        _conformBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _conformBtn;

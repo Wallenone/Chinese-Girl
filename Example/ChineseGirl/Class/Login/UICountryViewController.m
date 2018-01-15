@@ -17,7 +17,7 @@
     NSString *_cityName;
     BOOL _replayLocation; //已经请求过了
 }
-@property(nonatomic,strong)UIButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *titleLineView;
 @property(nonatomic,strong)NSMutableArray *cityArrs;
@@ -125,13 +125,13 @@
             
         }
         
-        NSString *locationName=@"当前位置:无法获取";
+        NSString *locationName=NSLocalizedString(@"dangqianweizhiwu", nil);
         if (_countyName.length>0) {
-            locationName=[NSString stringWithFormat:@"当前位置:%@",_countyName];
+            locationName=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"dangqianweizhi", nil),_countyName];
         }
         
         if (_cityName.length>0 && _countyName.length>0) {
-            locationName=[NSString stringWithFormat:@"当前位置:%@.%@",_countyName,_cityName];
+            locationName=[NSString stringWithFormat:@"%@:%@.%@",NSLocalizedString(@"dangqianweizhi", nil),_countyName,_cityName];
         }
         
         UITableViewCell *cell = [self.tbv cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -169,11 +169,12 @@
     return _cityArrs;
 }
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(23*SCREEN_RADIO, 37*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }
@@ -217,16 +218,16 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if (index.row==0) {
                 if (!_replayLocation) {
-                    cell.textLabel.text = @"当前位置:获取中";
+                    cell.textLabel.text = NSLocalizedString(@"dangqianweizhizhong", nil);
                 }else{
                     if (_countyName.length>0) {
-                        cell.textLabel.text=[NSString stringWithFormat:@"当前位置:%@",_countyName];
+                        cell.textLabel.text=[NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"dangqianweizhi", nil),_countyName];
                     }
                     
                     if (_cityName.length>0 && _countyName.length>0) {
-                        cell.textLabel.text=[NSString stringWithFormat:@"当前位置:%@.%@",_countyName,_cityName];
+                        cell.textLabel.text=[NSString stringWithFormat:@"%@:%@.%@",NSLocalizedString(@"dangqianweizhi", nil),_countyName,_cityName];
                     }else{
-                        cell.textLabel.text=@"当前位置:无法获取";
+                        cell.textLabel.text=NSLocalizedString(@"dangqianweizhiwu", nil);
                     }
                 }
    

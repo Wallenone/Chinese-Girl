@@ -18,12 +18,12 @@
 #import "UICountryViewController.h"
 @interface CGEditProfileViewController ()
 @property(nonatomic,strong)UIView *headerView;
-@property(nonatomic,strong)UIButton *leftIcon;
+@property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
-@property(nonatomic,strong)UIButton *logoutBtn;
-@property(nonatomic,strong)UIButton *deleteBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *logoutBtn;
+@property(nonatomic,strong)RkyExtendedHitButton *deleteBtn;
 @end
 
 @implementation CGEditProfileViewController
@@ -83,11 +83,12 @@
     return _headerView;
 }
 
--(UIButton *)leftIcon{
+-(RkyExtendedHitButton *)leftIcon{
     if (!_leftIcon) {
-        _leftIcon=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
+        _leftIcon=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, 33*SCREEN_RADIO, 10*SCREEN_RADIO, 19*SCREEN_RADIO)];
         [_leftIcon setImage:[UIImage imageNamed:@"BlackArrowleft"] forState:UIControlStateNormal];
         [_leftIcon addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        _leftIcon.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     return _leftIcon;
 }
@@ -95,7 +96,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 29*SCREEN_RADIO, screen_width, 24*SCREEN_RADIO)];
-        _titleLabel.text=@"Settings";
+        _titleLabel.text=NSLocalizedString(@"settings", nil);
         _titleLabel.font=[UIFont systemFontOfSize:18*SCREEN_RADIO];
         _titleLabel.textColor=[UIColor getColor:@"111111"];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -218,31 +219,33 @@
     return _tbv;
 }
 
--(UIButton *)logoutBtn{
+-(RkyExtendedHitButton *)logoutBtn{
     if (!_logoutBtn) {
-        _logoutBtn=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, screen_height-124*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _logoutBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, screen_height-124*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_logoutBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];
-        [_logoutBtn setTitle:@"Logout" forState:UIControlStateNormal];
+        [_logoutBtn setTitle:NSLocalizedString(@"log_out", nil) forState:UIControlStateNormal];
         _logoutBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _logoutBtn.layer.cornerRadius=8*SCREEN_RADIO;
         [_logoutBtn addTarget:self action:@selector(logoutClick) forControlEvents:UIControlEventTouchUpInside];
         _logoutBtn.backgroundColor=[UIColor getColor:@"FF473D"];
+        _logoutBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _logoutBtn;
 }
 
--(UIButton *)deleteBtn{
+-(RkyExtendedHitButton *)deleteBtn{
     if (!_deleteBtn) {
-        _deleteBtn=[[UIButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, screen_height-66*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _deleteBtn=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(16*SCREEN_RADIO, screen_height-66*SCREEN_RADIO, screen_width-32*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_deleteBtn setTitleColor:[UIColor getColor:@"111111"] forState:UIControlStateNormal];
-        [_deleteBtn setTitle:@"Delete account" forState:UIControlStateNormal];
+        [_deleteBtn setTitle:NSLocalizedString(@"shanchuyonghu", nil) forState:UIControlStateNormal];
         _deleteBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _deleteBtn.layer.cornerRadius=8*SCREEN_RADIO;
         _deleteBtn.layer.borderColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5].CGColor;
         _deleteBtn.layer.borderWidth=2;
         [_deleteBtn addTarget:self action:@selector(deleteClick) forControlEvents:UIControlEventTouchUpInside];
         _deleteBtn.backgroundColor=[UIColor getColor:@"ffffff"];
+        _deleteBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _deleteBtn;
