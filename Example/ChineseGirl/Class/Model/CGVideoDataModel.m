@@ -13,8 +13,16 @@
     CGVideoDataModel *model = [[CGVideoDataModel alloc]init];
     model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
     NSString *videoResource=@"Video";
-    if ([model.ids integerValue]>1000) {
+    if ([model.ids integerValue]>1000 && [model.ids integerValue]<=1999) {
         videoResource=@"Video1";
+    }else if ([model.ids integerValue]>2000 && [model.ids integerValue]<=2999){
+        videoResource=@"Video2";
+    }else if ([model.ids integerValue]>3000 && [model.ids integerValue]<=3999){
+        videoResource=@"Video3";
+    }else if ([model.ids integerValue]>4000 && [model.ids integerValue]<=4999){
+        videoResource=@"Video4";
+    }else if ([model.ids integerValue]>5000 && [model.ids integerValue]<=5999){
+        videoResource=@"Video5";
     }
     
     model.videoIcon = [NSString stringWithFormat:@"https://raw.githubusercontent.com/Wallenone/service/master/%@/%@/%@",videoResource,model.ids,[CGCommonString filterNullString:[dic stringForKey:@"videoIcon"]]];
