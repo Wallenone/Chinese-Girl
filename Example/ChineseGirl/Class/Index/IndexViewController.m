@@ -196,6 +196,8 @@
             _height+=(screen_width-42*SCREEN_RADIO)/3;
         }else if (model.pictureBigs.count==5 || model.pictureBigs.count==6){
             _height+=((screen_width-42*SCREEN_RADIO)/3)*2+6*SCREEN_RADIO;
+        }else{
+            _height+=((screen_width-42*SCREEN_RADIO)/3)*3+12*SCREEN_RADIO;
         }
         return _height;
     }

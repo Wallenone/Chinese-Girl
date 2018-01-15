@@ -98,8 +98,6 @@
 }
 
 
-
-
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     if(viewController == [tabBarController.viewControllers objectAtIndex:3]) {
         if ([CGSingleCommitData sharedInstance].uid.length<=0) {

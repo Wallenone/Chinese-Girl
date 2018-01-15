@@ -16,4 +16,5 @@ target 'ChineseGirl_Example' do
   pod 'WJGlobalTimer'
   pod 'Masonry'
   pod 'WJPlayer'
+  pod 'FMDB'
 end

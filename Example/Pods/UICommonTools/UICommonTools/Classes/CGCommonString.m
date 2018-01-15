@@ -11,7 +11,7 @@
 @implementation CGCommonString
 + (BOOL) isBlankString:(NSString *)string {
     string=[string stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (string == nil || string == NULL || [string isEqualToString:@"<null>"]) {
+    if (string == nil || string == NULL || [string isEqualToString:@"<null>"] || [string isEqualToString:@"<nil>"] || [string isEqualToString:@"NULL"]) {
         return YES;
     }
     if ([string isKindOfClass:[NSNull class]]) {
@@ -20,6 +20,7 @@
     if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
         return YES;
     }
+
     return NO;
 }
 
