@@ -90,9 +90,7 @@
 }
 
 +(CGUserInfo *)getitemWithID:(NSString *)ids{
-    if ([CGCommonString isBlankString:ids]) {
-        
-    }
+  
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userInfo" ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSDictionary *dict= [data1 objectAtIndex:[ids intValue]-1];

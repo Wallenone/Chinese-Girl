@@ -21,7 +21,7 @@ static sqlite3 *db = nil;
 }
 
 + (NSDictionary *)getShuoshuoId:(int)ids{
-    NSDictionary *shuoshuoModel=nil;
+    NSDictionary *shuoshuoModel;
     // 打开数据库
     sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
     // 创建一个语句对象
@@ -31,10 +31,44 @@ static sqlite3 *db = nil;
     const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo where id=%d",ids] UTF8String];
     int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
     if (result == SQLITE_OK){
-        shuoshuoModel =  [self getShuoshuoModel:stmt];
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            shuoshuoModel=[self getShuoshuoModel:stmt];
+        }
+
     }
+   
+    // 关闭数据库
+    sqlite3_finalize(stmt);
+    [self close];
     
     return shuoshuoModel;
+}
+
+
++ (NSMutableArray *)getShuoshuouid:(int)uid{
+    // 打开数据库
+    sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
+    // 创建一个语句对象
+    sqlite3_stmt *stmt = nil;
+    
+    // 声明数组对象
+    NSMutableArray *mArr = nil;
+    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
+    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo where uid=%d",uid] UTF8String];
+    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    if (result == SQLITE_OK){
+        // 为数组开辟空间
+        mArr = [NSMutableArray arrayWithCapacity:0];
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            [mArr addObject:[self getShuoshuoModel:stmt]];
+        }
+        
+    }
+    
+    // 关闭数据库
+    sqlite3_finalize(stmt);
+    [self close];
+    return mArr;
 }
 
 + (int)getShuoshuoTotalNum{
@@ -43,58 +77,71 @@ static sqlite3 *db = nil;
     // 创建一个语句对象
     sqlite3_stmt *stmt = nil;
     
-    NSString *selectSQL = [NSString stringWithFormat:@"SELECT Count(*) FROM MessageList where status = 0"]; //where status =0 是刷选条件，随你写，可不写的
+    const char *sql = [[NSString stringWithFormat:@"SELECT Count(*) FROM Shuoshuo"] UTF8String]; //where status =0 是刷选条件，随你写，可不写的
     
+    int  count =0;
     // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo where id=%d",ids] UTF8String];
     int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    
+    
     if (result == SQLITE_OK){
+        
+    }
     
-    
-    
-    int    count =  [_db intForQuery:selectSQL];
+        
+    return count;
 }
 
 +(NSDictionary *)getShuoshuoModel:(sqlite3_stmt *)stmt{
-    int ID = sqlite3_column_int(stmt, 0);
-    NSString *sort = ((char *)sqlite3_column_text(stmt, 1)) ?
+    NSDictionary *shuoshuoModel;
+    
+    NSString *ID = ((char *)sqlite3_column_text(stmt, 0)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 0)] :
+    nil;
+    
+    NSString *uid = ((char *)sqlite3_column_text(stmt, 1)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] :
     nil;
     
-    NSString *content = ((char *)sqlite3_column_text(stmt, 2)) ?
+    NSString *sort = ((char *)sqlite3_column_text(stmt, 2)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] :
     nil;
     
-    NSString *videoid = ((char *)sqlite3_column_text(stmt, 3)) ?
+    NSString *content = ((char *)sqlite3_column_text(stmt, 3)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 3)] :
     nil;
     
-    NSString *imgs = ((char *)sqlite3_column_text(stmt, 4)) ?
+    NSString *videoid = ((char *)sqlite3_column_text(stmt, 4)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 4)] :
     nil;
     
-    NSString *pinglunid = ((char *)sqlite3_column_text(stmt, 5)) ?
+    NSString *imgs = ((char *)sqlite3_column_text(stmt, 5)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 5)] :
     nil;
     
-    NSString *likes = ((char *)sqlite3_column_text(stmt, 6)) ?
+    NSString *pinglunid = ((char *)sqlite3_column_text(stmt, 6)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 6)] :
     nil;
     
-    NSString *comments = ((char *)sqlite3_column_text(stmt, 7)) ?
+    NSString *likes = ((char *)sqlite3_column_text(stmt, 7)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 7)] :
     nil;
     
-    NSString *type = ((char *)sqlite3_column_text(stmt, 8)) ?
+    NSString *comments = ((char *)sqlite3_column_text(stmt, 8)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 8)] :
     nil;
     
-    NSString *quanzhong = ((char *)sqlite3_column_text(stmt, 9)) ?
+    NSString *type = ((char *)sqlite3_column_text(stmt, 9)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 9)] :
+    nil;
+    
+    NSString *quanzhong = ((char *)sqlite3_column_text(stmt, 10)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 10)] :
     nil;
     
     // 将获取到的C语言字符串转换成OC字符串
     NSString *c_sort = [CGCommonString filterNullString:sort];
+    NSString *c_uid = [CGCommonString filterNullString:uid];
     NSString *c_content = [CGCommonString filterNullString:content];
     NSString *c_videoid = [CGCommonString filterNullString:videoid];
     NSString *c_imgs = [CGCommonString filterNullString:imgs];
@@ -104,7 +151,8 @@ static sqlite3 *db = nil;
     NSString *c_type = [CGCommonString filterNullString:type];
     NSString *c_quanzhong = [CGCommonString filterNullString:quanzhong];
     
-    return @{@"id":@(ID),@"sort":c_sort,@"content":c_content,@"videoid":c_videoid,@"imgs":c_imgs,@"pinglunid":c_pinglunid,@"likes":c_likes,@"comments":c_comments,@"type":c_type,@"quanzhong":c_quanzhong};
+    shuoshuoModel= @{@"id":ID,@"uid":c_uid,@"sort":c_sort,@"content":c_content,@"videoid":c_videoid,@"imgs":c_imgs,@"pinglunid":c_pinglunid,@"likes":c_likes,@"comments":c_comments,@"type":c_type,@"quanzhong":c_quanzhong};
+    return shuoshuoModel;
 }
 
 + (NSArray *)allShuoshuoLimitFrom:(int)from withTo:(int)to{
@@ -133,7 +181,7 @@ static sqlite3 *db = nil;
     
     // 关闭数据库
     sqlite3_finalize(stmt);
-    
+    [self close];
     return mArr;
 }
 
@@ -186,7 +234,105 @@ static sqlite3 *db = nil;
     }
     // 关闭数据库
     sqlite3_finalize(stmt);
+    [self close];
     return mArr;
+}
+
++ (NSDictionary *)getVideoId:(int)ids{
+    NSDictionary *videoModel;
+    // 打开数据库
+    sqlite3 *db = [CGSqliteManager open:@"VideoData"];
+    // 创建一个语句对象
+    sqlite3_stmt *stmt = nil;
+    
+    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
+    const char *sql=[[NSString stringWithFormat:@"select * from VideoData where id=%d",ids] UTF8String];
+    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    if (result == SQLITE_OK){
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            videoModel=[self getVideoModel:stmt];
+        }
+        
+    }else {
+        NSAssert1(0,@"Error:%s",sqlite3_errmsg(db));
+    }
+    
+    // 关闭数据库
+    sqlite3_finalize(stmt);
+    [self close];
+    return videoModel;
+}
++ (int)getVideoTotalNum{
+    sqlite3 *db = [CGSqliteManager open:@"VideoData"];
+    // 创建一个语句对象
+    sqlite3_stmt *stmt = nil;
+    
+    const char *sql = [[NSString stringWithFormat:@"SELECT Count(*) FROM VideoData"] UTF8String]; //where status =0 是刷选条件，随你写，可不写的
+    
+    int  count =0;
+    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
+    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    
+    
+    if (result == SQLITE_OK){
+        
+    }
+    
+    
+    return count;
+}
++ (NSMutableArray *)getVideouid:(int)uid{
+    // 打开数据库
+    sqlite3 *db = [CGSqliteManager open:@"VideoData"];
+    // 创建一个语句对象
+    sqlite3_stmt *stmt = nil;
+    
+    // 声明数组对象
+    NSMutableArray *mArr = nil;
+    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
+    const char *sql=[[NSString stringWithFormat:@"select * from VideoData where uid=%d",uid] UTF8String];
+    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    if (result == SQLITE_OK){
+        // 为数组开辟空间
+        mArr = [NSMutableArray arrayWithCapacity:0];
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            [mArr addObject:[self getVideoModel:stmt]];
+        }
+        
+    }
+    
+    // 关闭数据库
+    sqlite3_finalize(stmt);
+    [self close];
+    return mArr;
+}
+
+
++(NSDictionary *)getVideoModel:(sqlite3_stmt *)stmt{
+    NSDictionary *videoModel;
+    
+    int ID = sqlite3_column_int(stmt, 0);
+    NSString *videoIcon = ((char *)sqlite3_column_text(stmt, 1)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] :
+    nil;
+    
+    NSString *videoUrl = ((char *)sqlite3_column_text(stmt, 2)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] :
+    nil;
+    
+    NSString *userid = ((char *)sqlite3_column_text(stmt, 3)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 3)] :
+    nil;
+    
+    
+    
+    // 将获取到的C语言字符串转换成OC字符串
+    NSString *c_videoIcon = [CGCommonString filterNullString:videoIcon];
+    NSString *c_videoUrl = [CGCommonString filterNullString:videoUrl];
+    NSString *c_userid = [CGCommonString filterNullString:userid];
+    videoModel= @{@"id":@(ID),@"videoIcon":c_videoIcon,@"videoUrl":c_videoUrl,@"userid":c_userid};
+    
+    return videoModel;
 }
 
 

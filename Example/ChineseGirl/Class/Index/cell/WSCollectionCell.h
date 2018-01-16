@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CGIndexModel.h"
+#import "CGShuoShuo.h"
 @interface WSCollectionCell : UITableViewCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGIndexModel *)commitModel;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)commitModel;
 @end

@@ -14,11 +14,11 @@
 @implementation CGIndexModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGIndexModel *model = [[CGIndexModel alloc]init];
-    model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
+    model.uid = [CGCommonString filterNullString:[dic stringForKey:@"uid"]];
     model.month = [CGCommonString filterNullString:[dic stringForKey:@"month"]];
-    model.icon =[CGUserInfo getitemWithID:model.ids].avater;
-    model.nickName =[CGUserInfo getitemWithID:model.ids].nickname;
-    model.birthday =[CGUserInfo getitemWithID:model.ids].birthday;
+    model.icon =[CGUserInfo getitemWithID:model.uid].avater;
+    model.nickName =[CGUserInfo getitemWithID:model.uid].nickname;
+    model.birthday =[CGUserInfo getitemWithID:model.uid].birthday;
     NSString *toCityName=@"";
     if ([CGSingleCommitData sharedInstance].cityName.length>0) {
         toCityName=[NSString stringWithFormat:@"%@%@%@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].cityName];
@@ -29,12 +29,12 @@
     }
     
     model.toContent =toCityName;
-    model.address =[CGUserInfo getitemWithID:model.ids].address;
+    model.address =[CGUserInfo getitemWithID:model.uid].address;
     model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     model.videoid=[CGCommonString filterNullString:[dic stringForKey:@"videoid"]];
-    model.userInfo=[CGUserInfo getitemWithID:model.ids];
+    model.userInfo=[CGUserInfo getitemWithID:model.uid];
     if ([model.type integerValue]==1) {
-        model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"bigIcon"]] withId:model.ids];
+        model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"bigIcon"]] withId:model.uid];
         model.videoPicUrl=@"";
         model.videoUrl=@"";
     }else if ([model.type integerValue]==2){
@@ -55,15 +55,16 @@
     NSInteger currentNum=fromNum+lenth;
     if ([CGSingleCommitData sharedInstance].indexDataArr.count>currentNum) {
         NSMutableArray *data2 = [[[CGSingleCommitData sharedInstance].indexDataArr subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
-        for (CGIndexModel *model in data2) {
-            [newData addObject:model];
+        
+        for (NSString *ids in data2) {
+            [newData addObject:[CGShuoShuo getTableWithId:ids]];
         }
     }else{
         NSInteger t_num=[CGSingleCommitData sharedInstance].indexDataArr.count-fromNum;
         if (t_num>0) {
             NSMutableArray *data2 = [[[CGSingleCommitData sharedInstance].indexDataArr subarrayWithRange:NSMakeRange(fromNum, [CGSingleCommitData sharedInstance].indexDataArr.count-fromNum)] mutableCopy];
-            for (CGIndexModel *model in data2) {
-                [newData addObject:model];
+            for (NSString *ids in data2) {
+                [newData addObject:[CGShuoShuo getTableWithId:ids]];
             }
         }
         

@@ -16,21 +16,22 @@
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGShuoShuo *model = [[CGShuoShuo alloc]init];
     model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
+    model.uid =[CGCommonString filterNullString:[dic stringForKey:@"uid"]];
     model.videoid=[CGCommonString filterNullString:[dic stringForKey:@"videoid"]];
     model.sort = [CGCommonString filterNullString:[dic stringForKey:@"sort"]];
     model.content = [CGCommonString filterNullString:[dic stringForKey:@"content"]];
-    model.pictures =  [self getFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
-   // model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
+    model.pictures =  [self getFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.uid];
+   // model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.uid];
     model.pinglunid = [self getPinglunids:[CGCommonString filterNullString:[dic stringForKey:@"pinglunid"]]];
-    model.icon= [CGUserInfo getitemWithID:model.ids].avater;
-    model.nickName = [CGUserInfo getitemWithID:model.ids].nickname;
+    model.icon= [CGUserInfo getitemWithID:model.uid].avater;
+    model.nickName = [CGUserInfo getitemWithID:model.uid].nickname;
     model.timeDate = @"1999-09-09";
     model.likes= [CGCommonString filterNullString:[dic stringForKey:@"likes"]];
     model.comments= [CGCommonString filterNullString:[dic stringForKey:@"comments"]];
-    model.address= [CGUserInfo getitemWithID:model.ids].address;
+    model.address= [CGUserInfo getitemWithID:model.uid].address;
     model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     if ([model.type integerValue]==1) {
-        model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.ids];
+        model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.uid];
         model.videoUrl = @"";
         model.videoPicUrl=@"";
     }else if ([model.type integerValue]==2){
@@ -38,6 +39,18 @@
         model.videoPicUrl=[CGVideoDataModel reloadTableWithIds:[model.videoid integerValue]].videoIcon;
         model.pictureBigs=@[];
     }
+    
+    model.month = [NSString stringWithFormat:@"%d",[CGCommonToolsNode getRandomNumber:1 to:3]];
+    NSString *toCityName=@"";
+    if ([CGSingleCommitData sharedInstance].cityName.length>0) {
+        toCityName=[NSString stringWithFormat:@"%@%@%@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].cityName];
+    }else{
+        if ([CGSingleCommitData sharedInstance].countryName.length>0) {
+            toCityName=[NSString stringWithFormat:@"%@%@%@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].countryName];
+        }
+    }
+    
+    model.toContent =toCityName;
     
     return model;
 }
@@ -55,67 +68,58 @@
     return newData;
 }
 
-+(NSMutableArray *)reloadTableWithId:(int)ids{
++(NSMutableArray *)reloadTableWithId:(int)uid{
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo1" ofType:@"plist"];
 //    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSMutableArray *newData=[NSMutableArray new];
-        CGShuoShuo *model1= [self modelWithDic:[CGSqliteManager getShuoshuoId:ids]];
-        if ([model1.ids integerValue]==ids) {
+    
+    for (NSDictionary *model in [CGSqliteManager getShuoshuouid:uid]) {
+        CGShuoShuo *model1= [self modelWithDic:model];
+        if ([model1.uid intValue]==uid) {
             BOOL _isLike=NO;
             for (NSString *content in [CGSingleCommitData sharedInstance].favourites) {
                 if (content.length>0) {
                     NSArray *array = [content componentsSeparatedByString:@"-"];
-                    if ([array[0] isEqualToString:model1.ids] && [array[1] isEqualToString:model1.sort]) {
+                    if ([array[0] isEqualToString:model1.uid] && [array[1] isEqualToString:model1.sort]) {
                         _isLike = YES;
                     }
                 }
             }
             model1.isLike=_isLike;
             
-           [newData addObject:model1];
+            [newData addObject:model1];
         }
+    }
     
     return newData;
 }
 
 +(CGShuoShuo *)getTableWithId:(NSString *)ids{
-    NSArray *array = [ids componentsSeparatedByString:@"-"];
-    if (array>0) {
-       NSMutableArray *newData = [[self reloadTableWithId:[array[0] integerValue]] mutableCopy];
-        if (newData.count>0) {
-            for (CGShuoShuo *model in newData) {
-                if ([array[1] isEqualToString:model.sort]) {
-                    return model;
+    CGShuoShuo *model1= [self modelWithDic:[CGSqliteManager getShuoshuoId:[ids intValue]]];
+    if ([model1.ids integerValue]==[ids integerValue]) {
+        BOOL _isLike=NO;
+        for (NSString *content in [CGSingleCommitData sharedInstance].favourites) {
+            if (content.length>0) {
+                NSArray *array = [content componentsSeparatedByString:@"-"];
+                if ([array[0] isEqualToString:model1.uid] && [array[1] isEqualToString:model1.sort]) {
+                    _isLike = YES;
                 }
             }
         }
+        model1.isLike=_isLike;
+        
     }
-    
-    
-    return [CGShuoShuo new];
+    return model1;
 }
 
 +(void)reloadTableRondom{
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo" ofType:@"plist"];
-//    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    NSArray *data1=[CGSqliteManager allShuoshuoLimitFrom:0 withTo:0];
-    NSMutableArray *newData=[NSMutableArray new];
+    int count=2000;
     
-    NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
-    for (NSString *ids in newarr1) {
-        NSDictionary *model=[data1 objectAtIndex:[ids integerValue]];
-        NSString *ids=[CGCommonString filterNullString:[model stringForKey:@"id"]];
-        NSString *month=[NSString stringWithFormat:@"%d",[CGCommonToolsNode getRandomNumber:1 to:3]];
-        NSString *bigIcon=[CGCommonString filterNullString:[model stringForKey:@"imgs"]];
-        NSString *type=[CGCommonString filterNullString:[model stringForKey:@"type"]];
-        NSString *videoid=[CGCommonString filterNullString:[model stringForKey:@"videoid"]];
-        NSDictionary *newModel=@{@"id":ids,@"month":month,@"bigIcon":bigIcon,@"type":type,@"videoid":videoid};
-        
-        CGIndexModel *indexModel=[CGIndexModel modelWithDic:newModel];
-        [newData addObject:indexModel];
-    }
-
-    [CGSingleCommitData sharedInstance].indexDataArr=[newData mutableCopy];
+    NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:1 endNum:count count:count];
+    [CGSingleCommitData sharedInstance].indexDataArr=[newarr1 mutableCopy];
+    
+    [self reloadTableWithRangeFrom:0 rangeTLenth:10];
+    
 }
 
 

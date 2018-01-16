@@ -13,6 +13,10 @@
 + (NSArray *)allShuoshuoLimitFrom:(int)from withTo:(int)to;
 + (NSDictionary *)getShuoshuoId:(int)ids;
 + (int)getShuoshuoTotalNum;
++ (NSMutableArray *)getShuoshuouid:(int)uid;
 //获取表中所有的视频
 + (NSArray *)allVideoDataLimitFrom:(int)from withTo:(int)to;
++ (NSDictionary *)getVideoId:(int)ids;
++ (int)getVideoTotalNum;
++ (NSMutableArray *)getVideouid:(int)uid;
 @end

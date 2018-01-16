@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MyIndexViewController : UIViewController
-@property(nonatomic,assign)NSInteger ids;
+@property(nonatomic,assign)NSInteger ids;  //uid
 @end

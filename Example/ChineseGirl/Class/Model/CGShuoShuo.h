@@ -10,6 +10,7 @@
 
 @interface CGShuoShuo : NSObject
 @property(nonatomic,copy)NSString *ids;
+@property(nonatomic,copy)NSString *uid;
 @property(nonatomic,copy)NSString *sort;
 @property(nonatomic,copy)NSString *content;
 @property(nonatomic,strong)NSArray *pictures;
@@ -25,9 +26,12 @@
 @property(nonatomic,copy)NSString *videoUrl;
 @property(nonatomic,copy)NSString *videoPicUrl;
 @property(nonatomic,copy)NSString *videoid;
+@property(nonatomic,copy)NSString *month;
+@property(nonatomic,copy)NSString *toContent;
 @property(nonatomic,assign)BOOL isLike;   //点赞
 +(CGShuoShuo *)getTableWithId:(NSString *)ids;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
-+(NSMutableArray *)reloadTableWithId:(int)ids;
++(NSMutableArray *)reloadTableWithId:(int)uid;
++(NSMutableArray *)reloadTableWithRangeFrom:(int)fromNum rangeTLenth:(int)lenth;
 +(void)reloadTableRondom;//随机排序说说内容，主要用在首页数据
 @end

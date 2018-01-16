@@ -66,7 +66,7 @@
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
         MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-        indexVC.ids=[self.userInfo.ids integerValue];
+        indexVC.ids=[self.uid integerValue];
         [self.navigationController pushViewController:indexVC animated:NO];
     }
 }
@@ -106,8 +106,8 @@
     }else{
         if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
             NewsMessageController *newMessage=[[NewsMessageController alloc] init];
-            newMessage.userid=self.userInfo.ids;
-            newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.userInfo.ids];
+            newMessage.userid=self.uid;
+            newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.uid];
             [self.navigationController pushViewController:newMessage animated:NO];
         }else{
             CGVipViewController *vipVC=[[CGVipViewController alloc] init];
@@ -162,7 +162,7 @@
             NSData *data1 = UIImagePNGRepresentation(self.menuBtn4.currentBackgroundImage);
             NSData *data = UIImagePNGRepresentation([UIImage imageNamed:@"leaderboard_discover_following_ico"]);
             if (![data isEqual:data1]) {
-                [[CGSingleCommitData sharedInstance] addFriendArr:self.userInfo.ids];
+                [[CGSingleCommitData sharedInstance] addFriendArr:self.uid];
                 [self.menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
             }
         }else{
@@ -267,7 +267,7 @@
 -(UIImageView *)headerIconView{
     if (!_headerIconView) {
         _headerIconView=[[UIImageView alloc] initWithFrame:CGRectMake(2*SCREEN_RADIO, 2*SCREEN_RADIO, 31*SCREEN_RADIO, 31*SCREEN_RADIO)];
-        [_headerIconView sd_setImageWithURL:[NSURL URLWithString:self.userInfo.avater]];
+        [_headerIconView sd_setImageWithURL:[NSURL URLWithString:[CGUserInfo getitemWithID:self.uid].avater]];
         _headerIconView.layer.cornerRadius=31/2*SCREEN_RADIO;
         _headerIconView.clipsToBounds=YES;
     }
@@ -280,7 +280,7 @@
         _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headerIconView.frame)+5*SCREEN_RADIO, 4*SCREEN_RADIO, 70*SCREEN_RADIO, 12*SCREEN_RADIO)];
         _nickName.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         _nickName.textColor=[UIColor getColor:@"ffffff"];
-        _nickName.text=self.userInfo.nickname;
+        _nickName.text=[CGUserInfo getitemWithID:self.uid].nickname;
     }
     
     return _nickName;
@@ -344,7 +344,7 @@
 -(RkyExtendedHitButton *)menuBtn4{
     if (!_menuBtn4) {
         _menuBtn4=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
-        if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:self.userInfo.ids]) {
+        if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:self.uid]) {
             [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
         }else{
             [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"video_follow"] forState:UIControlStateNormal];

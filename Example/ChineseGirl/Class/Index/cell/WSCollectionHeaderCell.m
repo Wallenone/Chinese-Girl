@@ -76,7 +76,7 @@
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
     videoVC.videoIcon=indexMend.videoIcon;
     videoVC.videoStr=indexMend.videoUrl;;
-    videoVC.userInfo=[CGUserInfo getitemWithID:indexMend.userId];
+    videoVC.uid=indexMend.userId;
     [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
 }
 

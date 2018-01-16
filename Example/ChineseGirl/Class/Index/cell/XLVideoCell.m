@@ -10,7 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "MyIndexViewController.h"
 @interface XLVideoCell ()
-@property (strong, nonatomic)CGIndexModel *model;
+@property (strong, nonatomic)CGShuoShuo *model;
 @property(nonatomic,strong)NSString *imgUrl;
 @property(nonatomic,strong)UIView *menuView;
 @property(nonatomic,strong)UIImageView *iconImgView;
@@ -22,7 +22,7 @@
 @end
 @implementation XLVideoCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGIndexModel *)tmodel withImg:(NSString *)imgUrl{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGShuoShuo *)tmodel withImg:(NSString *)imgUrl{
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor getColor:@"EBEBEB"];
@@ -42,7 +42,7 @@
 
 -(void)iconClick{
     MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-    indexVC.ids=[self.model.ids integerValue];
+    indexVC.ids=[self.model.uid integerValue];
     [[CGCommonToolsNode getCurrentVC].navigationController pushViewController:indexVC animated:NO];
 }
 

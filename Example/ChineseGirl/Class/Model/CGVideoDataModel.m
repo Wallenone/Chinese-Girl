@@ -8,6 +8,7 @@
 
 #import "CGVideoDataModel.h"
 #import "CGUserInfo.h"
+#import "CGSqliteManager.h"
 @implementation CGVideoDataModel
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGVideoDataModel *model = [[CGVideoDataModel alloc]init];
@@ -33,36 +34,67 @@
 }
 
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"videoData" ofType:@"plist"];
-//    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    NSMutableArray *data2= [[NSMutableArray alloc] init];
+    
+//    NSMutableArray *data2= [[NSMutableArray alloc] init];
+//    NSMutableArray *newData=[NSMutableArray new];
+//
+//    for (int i=0; i<[CGSingleCommitData sharedInstance].videoListDataArr.count; i++) {
+//        if (i%2!=0) {
+//            NSMutableArray *newData2=[[NSMutableArray alloc] init];
+//            [newData2 addObject:[[CGSingleCommitData sharedInstance].videoListDataArr objectAtIndex:i-1]];
+//            [newData2 addObject:[[CGSingleCommitData sharedInstance].videoListDataArr objectAtIndex:i]];
+//            [data2 addObject:newData2];
+//        }
+//    }
+//
+//    NSInteger currentNum=fromNum+lenth;
+//    if (data2.count>currentNum) {
+//        newData = [[data2 subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
+//    }else{
+//        NSInteger t_num=data2.count-fromNum;
+//        if (t_num>0) {
+//            newData = [[data2 subarrayWithRange:NSMakeRange(fromNum, t_num)] mutableCopy];
+//        }
+//
+//    }
+//
+//
+//
+//
+//    return newData;
+    
+    NSMutableArray *DataArr= [[NSMutableArray alloc] init];
     NSMutableArray *newData=[NSMutableArray new];
     
-    for (int i=0; i<[CGSingleCommitData sharedInstance].videoListDataArr.count; i++) {
-        if (i%2!=0) {
-            NSMutableArray *newData2=[[NSMutableArray alloc] init];
-            [newData2 addObject:[[CGSingleCommitData sharedInstance].videoListDataArr objectAtIndex:i-1]];
-            [newData2 addObject:[[CGSingleCommitData sharedInstance].videoListDataArr objectAtIndex:i]];
-            [data2 addObject:newData2];
-        }
-    }
-    
     NSInteger currentNum=fromNum+lenth;
-    if (data2.count>currentNum) {
-        newData = [[data2 subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
+    if ([CGSingleCommitData sharedInstance].videoListDataArr.count>currentNum) {
+        newData = [[[CGSingleCommitData sharedInstance].videoListDataArr subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
     }else{
-        NSInteger t_num=data2.count-fromNum;
+        NSInteger t_num=[CGSingleCommitData sharedInstance].videoListDataArr.count-fromNum;
         if (t_num>0) {
-            newData = [[data2 subarrayWithRange:NSMakeRange(fromNum, t_num)] mutableCopy];
+            newData = [[[CGSingleCommitData sharedInstance].videoListDataArr subarrayWithRange:NSMakeRange(fromNum, t_num)] mutableCopy];
         }
         
     }
-    
-    return newData;
+    for (int i=0; i<newData.count; i++) {
+        if (i%2!=0) {
+            NSMutableArray *data2=[[NSMutableArray alloc] init];
+            [data2 addObject:[self modelWithDic:[CGSqliteManager getVideoId:[[newData objectAtIndex:i-1] intValue]]]];
+            [data2 addObject:[self modelWithDic:[CGSqliteManager getVideoId:[[newData objectAtIndex:i] intValue]]]];
+            [DataArr addObject:data2];
+        }
+    }
+ 
+    return DataArr;
 }
 
 +(void)updateReloadRondom{
-    [CGSingleCommitData sharedInstance].videoListDataArr= [[self reloadTableRondomCount:99999999] mutableCopy];
+    int count=1877;
+    
+    NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:1 endNum:count count:count];
+    [CGSingleCommitData sharedInstance].videoListDataArr=[newarr1 mutableCopy];
+    
+    [self reloadTableWithRangeFrom:0 rangeTLenth:20];
 }
 
 +(NSArray *)reloadTableRondomCount:(NSInteger)count{

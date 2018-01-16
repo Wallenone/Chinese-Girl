@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CGUserInfo.h"
 @interface CGIndexModel : NSObject
-@property(nonatomic,copy)NSString *ids;
+@property(nonatomic,copy)NSString *uid;
 @property(nonatomic,copy)NSString *bigIcon;
 @property(nonatomic,copy)NSString *month;
 @property(nonatomic,copy)NSString *icon;

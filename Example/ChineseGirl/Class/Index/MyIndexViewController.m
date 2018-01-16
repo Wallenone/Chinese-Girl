@@ -161,7 +161,7 @@
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"171616"];
-        NSMutableArray *newarr=[CGShuoShuo reloadTableWithId:self.ids];
+        NSMutableArray *newarr=[CGShuoShuo reloadTableWithId:(int)self.ids];
         [newarr insertObject:[CGUserInfo getitemWithID:[NSString stringWithFormat:@"%ld",(long)self.ids]] atIndex:0];
         //给tableview赋值
          [_tbv setDataArray:newarr];
@@ -236,7 +236,7 @@
                     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
                     videoVC.videoStr=indexModel.videoUrl;
                     videoVC.videoIcon=indexModel.videoPicUrl;
-                    videoVC.userInfo=[CGUserInfo getitemWithID:indexModel.ids];
+                    videoVC.uid=indexModel.uid;
                     [weakSelf.navigationController presentViewController:videoVC animated:NO completion:nil];
                     
                 }

@@ -7,9 +7,9 @@
 //  https://github.com/ShelinShelin
 
 #import <UIKit/UIKit.h>
-#import "CGIndexModel.h"
+#import "CGShuoShuo.h"
 @interface XLVideoCell : UITableViewCell
 @property(nonatomic,strong)UIImageView *videoImageView;
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGIndexModel *)tmodel withImg:(NSString *)imgUrl;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGShuoShuo *)tmodel withImg:(NSString *)imgUrl;
 -(void)hiddenPlayView:(BOOL)state;
 @end

@@ -75,7 +75,7 @@
 }
 
 -(void)getCollectionData{
-    NSMutableArray *array = [CGVideoDataModel reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
+    NSMutableArray *array = [CGVideoDataModel reloadTableWithRangeFrom:_currentPage*20 rangeTLenth:20];
     if (array.count>0) {
         [self.tbv addContentData:array];
         _currentPage++;
@@ -85,7 +85,7 @@
 }
 
 -(void)updateData{
-    NSMutableArray *array = [CGVideoDataModel reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
+    NSMutableArray *array = [CGVideoDataModel reloadTableWithRangeFrom:_currentPage*20 rangeTLenth:20];
     if (array.count>0) {
         [self.tbv updateData:array];
         _currentPage++;
@@ -153,7 +153,7 @@
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"EEEEEE"];
         //给tableview赋值
-        NSMutableArray *newArr=[CGVideoDataModel reloadTableWithRangeFrom:0 rangeTLenth:10];
+        NSMutableArray *newArr=[CGVideoDataModel reloadTableWithRangeFrom:0 rangeTLenth:20];
         [_tbv setDataArray:newArr];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
@@ -208,7 +208,7 @@
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
     videoVC.videoIcon=videoIcon;
     videoVC.videoStr=videoUrl;
-    videoVC.userInfo=userinfo;
+    videoVC.uid=userinfo.ids;
     [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 

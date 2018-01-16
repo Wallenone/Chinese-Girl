@@ -15,7 +15,7 @@
 @interface WSCollectionCell(){
 
 }
-@property(nonatomic,strong)CGIndexModel *model;
+@property(nonatomic,strong)CGShuoShuo *model;
 @property(nonatomic,strong)UIView *menuView;
 @property(nonatomic,strong)UIImageView *iconImgView;
 @property(nonatomic,strong)UIButton *iconBtn;
@@ -26,7 +26,7 @@
 @end
 
 @implementation WSCollectionCell
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGIndexModel *)commitModel{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)commitModel{
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -47,8 +47,8 @@
         [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
     }else{
         MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-        indexVC.ids=[self.model.ids integerValue];
-        [[CGCommonToolsNode getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+        indexVC.ids=[self.model.uid integerValue];
+        [[CGCommonToolsNode getCurrentVC]   .navigationController pushViewController:indexVC animated:NO];
     }
     
 }

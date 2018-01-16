@@ -11,5 +11,5 @@
 @interface CGVideoViewController : UIViewController
 @property(nonatomic,strong)NSString *videoIcon;
 @property(nonatomic,strong)NSString *videoStr;
-@property(nonatomic,strong)CGUserInfo *userInfo;
+@property(nonatomic,strong)NSString *uid;
 @end

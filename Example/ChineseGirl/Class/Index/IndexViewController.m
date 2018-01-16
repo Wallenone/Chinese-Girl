@@ -20,6 +20,7 @@
 #import "CGVideoViewController.h"
 #import "CGNewSignInViewController.h"
 #import "KNMovieViewController.h"
+#import "CGShuoShuo.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate,UIScrollViewDelegate>{
     NSIndexPath *_indexPath;
     
@@ -227,7 +228,7 @@
                 
                 return (UITableViewCell *)cell;
             }else{
-                CGIndexModel *indexModel=(CGIndexModel *)cellData;
+                CGShuoShuo *indexModel=(CGShuoShuo *)cellData;
                 if ([indexModel.type integerValue]==1) {
                     WSCollectionCell *cell = [[WSCollectionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier WithModel:indexModel];
                     return (UITableViewCell *)cell;
@@ -278,13 +279,13 @@
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
             if (indexPath.row!=0) {
-                CGIndexModel *indexModel=(CGIndexModel *)cellData;
+                CGShuoShuo *indexModel=(CGShuoShuo *)cellData;
                 if ([indexModel.type integerValue]==2) {
                     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
                     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
                     videoVC.videoIcon=indexModel.videoPicUrl;
                     videoVC.videoStr=indexModel.videoUrl;
-                    videoVC.userInfo=indexModel.userInfo;
+                    videoVC.uid=indexModel.uid;
                     [weakSelf.navigationController presentViewController:nav animated:NO completion:nil];
                 }
             }

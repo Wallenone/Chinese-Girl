@@ -104,7 +104,7 @@
         UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
         videoVC.videoIcon=self.addModel.picturesBig[0];
         videoVC.videoStr=self.addModel.videoUrlS[0];
-        videoVC.userInfo=self.addModel;
+        videoVC.uid=self.addModel.ids;
         [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
     }
 }
@@ -117,7 +117,7 @@
         UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
         videoVC.videoIcon=self.addModel.picturesBig[1];
         videoVC.videoStr=self.addModel.videoUrlS[1];
-        videoVC.userInfo=self.addModel;
+        videoVC.uid=self.addModel.ids;
         [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
     }
 }
@@ -130,7 +130,7 @@
         UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
         videoVC.videoIcon=self.addModel.picturesBig[2];
         videoVC.videoStr=self.addModel.videoUrlS[2];
-        videoVC.userInfo=self.addModel;
+        videoVC.uid=self.addModel.ids;
         [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
     }
 }
