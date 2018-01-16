@@ -43,15 +43,9 @@
 }
 
 
-+(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
-    
-   // NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo1" ofType:@"plist"];
-    NSArray *data1;
-    if (fromNum==0 && lenth==0) {
-        data1=[CGSqliteManager allShuoshuo];
-    }else{
-        data1 = [[CGSqliteManager allShuoshuo] subarrayWithRange:NSMakeRange(fromNum, lenth)];
-    }
++(NSMutableArray *)reloadTableWithRangeFrom:(int)fromNum rangeTLenth:(int)lenth{
+
+    NSArray *data1=[CGSqliteManager allShuoshuoLimitFrom:fromNum withTo:lenth];
     
     NSMutableArray *newData=[NSMutableArray new];
     for (NSDictionary *model in data1) {
@@ -61,13 +55,11 @@
     return newData;
 }
 
-+(NSMutableArray *)reloadTableWithId:(NSInteger)ids{
++(NSMutableArray *)reloadTableWithId:(int)ids{
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo1" ofType:@"plist"];
 //    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    NSArray *data1=[CGSqliteManager allShuoshuo];
     NSMutableArray *newData=[NSMutableArray new];
-    for (NSDictionary *model in data1) {
-        CGShuoShuo *model1= [self modelWithDic:model];
+        CGShuoShuo *model1= [self modelWithDic:[CGSqliteManager getShuoshuoId:ids]];
         if ([model1.ids integerValue]==ids) {
             BOOL _isLike=NO;
             for (NSString *content in [CGSingleCommitData sharedInstance].favourites) {
@@ -82,7 +74,6 @@
             
            [newData addObject:model1];
         }
-    }
     
     return newData;
 }
@@ -107,7 +98,7 @@
 +(void)reloadTableRondom{
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo" ofType:@"plist"];
 //    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    NSArray *data1=[CGSqliteManager allShuoshuo];
+    NSArray *data1=[CGSqliteManager getShuoshuoI];
     NSMutableArray *newData=[NSMutableArray new];
     
     NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];
