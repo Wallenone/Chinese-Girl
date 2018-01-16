@@ -98,7 +98,7 @@
 +(void)reloadTableRondom{
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo" ofType:@"plist"];
 //    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    NSArray *data1=[CGSqliteManager getShuoshuoI];
+    NSArray *data1=[CGSqliteManager allShuoshuoLimitFrom:0 withTo:0];
     NSMutableArray *newData=[NSMutableArray new];
     
     NSArray *newarr1= [CGCommonToolsNode genertateRandomNumberStartNum:0 endNum:(int)(data1.count)-1 count:(int)data1.count];

@@ -37,6 +37,24 @@ static sqlite3 *db = nil;
     return shuoshuoModel;
 }
 
++ (int)getShuoshuoTotalNum{
+    
+    sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
+    // 创建一个语句对象
+    sqlite3_stmt *stmt = nil;
+    
+    NSString *selectSQL = [NSString stringWithFormat:@"SELECT Count(*) FROM MessageList where status = 0"]; //where status =0 是刷选条件，随你写，可不写的
+    
+    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
+    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo where id=%d",ids] UTF8String];
+    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    if (result == SQLITE_OK){
+    
+    
+    
+    int    count =  [_db intForQuery:selectSQL];
+}
+
 +(NSDictionary *)getShuoshuoModel:(sqlite3_stmt *)stmt{
     int ID = sqlite3_column_int(stmt, 0);
     NSString *sort = ((char *)sqlite3_column_text(stmt, 1)) ?
