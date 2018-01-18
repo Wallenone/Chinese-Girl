@@ -29,6 +29,7 @@
 @property(nonatomic,strong)UIView *infoView;
 @property(nonatomic,strong)UIView *bottomLine;
 @property(nonatomic,strong)EZJFastTableView *tbv;
+@property(nonatomic,assign)NSInteger currentPage;
 @end
 
 @implementation MyIndexViewController
@@ -49,8 +50,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _currentPage=1;
     self.view.backgroundColor=[UIColor getColor:@"EEEEEE"];
-    //self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self addSubViews];
 }
 
@@ -60,6 +62,8 @@
     [self.headerView addSubview:self.titleLabel];
     [self.headerView addSubview:self.leftBtn];
     [self.view addSubview:self.tbv];
+    //[self performSelector:@selector(delayMethod) withObject:nil afterDelay:0.3];
+    
 }
 
 -(void)back{
@@ -117,6 +121,16 @@
     return 0;
 }
 
+-(void)getCollectionData{
+    NSMutableArray *array = [CGShuoShuo reloadTableWithUid:(int)self.ids WithRangeFrom:_currentPage*10 rangeTLenth:10];
+    if (array.count>0) {
+        [self.tbv addContentData:array];
+        _currentPage++;
+    }else{
+        [self.tbv noMoreData];
+    }
+}
+
 -(UIView *)headerView{
     if (!_headerView) {
         _headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 64*SCREEN_RADIO)];
@@ -161,7 +175,7 @@
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"171616"];
-        NSMutableArray *newarr=[CGShuoShuo reloadTableWithId:(int)self.ids];
+        NSMutableArray *newarr=[CGShuoShuo reloadTableWithUid:(int)self.ids WithRangeFrom:0 rangeTLenth:10];
         [newarr insertObject:[CGUserInfo getitemWithID:[NSString stringWithFormat:@"%ld",(long)self.ids]] atIndex:0];
         //给tableview赋值
          [_tbv setDataArray:newarr];
@@ -213,15 +227,10 @@
         
         
         
-        //    //允许上行滑动
-        //    [_tbv onDragUp:^NSArray * (int page) {
-        //        return [self loadNewData:page];
-        //    }];
-        //
-        //    //允许下行滑动刷新
-        //    [_tbv onDragDown:^{
-        //
-        //    }];
+        //允许上行滑动
+        [_tbv onDragUp:^(int page) {
+            [weakSelf getCollectionData];
+        }];
         
         
         //设置选中事件 block设置方式

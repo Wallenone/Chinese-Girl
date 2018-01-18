@@ -132,3 +132,4 @@
 "shiping" = "ビデオ";
 "zonggong" = "全部で";  //view all %@ commits
 "liuyan" = "メッセージ";
+"jiazaifail" = "失敗をロードして、やり直しをする";

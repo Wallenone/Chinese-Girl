@@ -31,7 +31,7 @@
 @property(nonatomic,assign)BOOL isLike;   //点赞
 +(CGShuoShuo *)getTableWithId:(NSString *)ids;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
-+(NSMutableArray *)reloadTableWithId:(int)uid;
++(NSMutableArray *)reloadTableWithUid:(int)uid WithRangeFrom:(int)fromNum rangeTLenth:(int)lenth;
 +(NSMutableArray *)reloadTableWithRangeFrom:(int)fromNum rangeTLenth:(int)lenth;
 +(void)reloadTableRondom;//随机排序说说内容，主要用在首页数据
 @end

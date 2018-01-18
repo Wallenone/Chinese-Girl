@@ -68,12 +68,12 @@
     return newData;
 }
 
-+(NSMutableArray *)reloadTableWithId:(int)uid{
++(NSMutableArray *)reloadTableWithUid:(int)uid WithRangeFrom:(int)fromNum rangeTLenth:(int)lenth{
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"shuoshuo1" ofType:@"plist"];
 //    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSMutableArray *newData=[NSMutableArray new];
     
-    for (NSDictionary *model in [CGSqliteManager getShuoshuouid:uid]) {
+    for (NSDictionary *model in [CGSqliteManager getShuoshuouid:uid withLimitFrom:fromNum withTo:lenth]) {
         CGShuoShuo *model1= [self modelWithDic:model];
         if ([model1.uid intValue]==uid) {
             BOOL _isLike=NO;

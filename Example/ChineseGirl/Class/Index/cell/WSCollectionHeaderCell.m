@@ -29,7 +29,7 @@
 }
 
 -(void)getData{
-    self.indexMendArr= [CGVideoDataModel reloadTableRondomCount:150];
+    self.indexMendArr= [CGVideoDataModel reloadTableRondomCount:40];
 }
 
 -(void)addSubViews{

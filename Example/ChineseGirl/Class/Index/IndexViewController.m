@@ -210,12 +210,14 @@
     if (!_tbv) {
         
         __weak typeof(self) weakSelf = self;
-        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO, self.view.frame.size.width, screen_height-104*SCREEN_RADIO);
+        CGRect tbvFrame = CGRectMake(0, 64*SCREEN_RADIO, self.view.frame.size.width, screen_height-64*SCREEN_RADIO);
         //初始化
         
         _tbv = [[EZJFastTableView alloc]initWithFrame:tbvFrame];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         _tbv.backgroundColor=[UIColor getColor:@"EEEEEE"];
+        
+        
         //给tableview赋值
         NSMutableArray *newArr=[CGIndexModel reloadTableWithRangeFrom:0 rangeTLenth:10];
         [newArr insertObject:@"headerView" atIndex:0];

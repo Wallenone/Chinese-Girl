@@ -160,9 +160,8 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
-            CGUserInfo *model=cellData;
             MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-            indexVC.ids=[model.ids integerValue];
+            indexVC.ids=[cellData integerValue];
             [weakSelf.navigationController pushViewController:indexVC animated:NO];
         }];
         

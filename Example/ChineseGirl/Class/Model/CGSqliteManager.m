@@ -45,7 +45,7 @@ static sqlite3 *db = nil;
 }
 
 
-+ (NSMutableArray *)getShuoshuouid:(int)uid{
++ (NSMutableArray *)getShuoshuouid:(int)uid withLimitFrom:(int)from withTo:(int)to{
     // 打开数据库
     sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
     // 创建一个语句对象
@@ -54,7 +54,7 @@ static sqlite3 *db = nil;
     // 声明数组对象
     NSMutableArray *mArr = nil;
     // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo where uid=%d",uid] UTF8String];
+    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo where uid=%d limit %d,%d",uid,from,to] UTF8String];
     int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
     if (result == SQLITE_OK){
         // 为数组开辟空间

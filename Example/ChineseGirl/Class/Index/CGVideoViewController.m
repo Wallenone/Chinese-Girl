@@ -23,6 +23,7 @@
 #import "GSPChatMessage.h"
 #import "EZJFastTableView.h"
 #import "CGGiftGetTableViewCell.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 @interface CGVideoViewController ()<ZFPlayerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
@@ -33,6 +34,9 @@
 @property(nonatomic,strong)RkyExtendedHitButton *menuBtn2;
 @property(nonatomic,strong)RkyExtendedHitButton *menuBtn3;
 @property(nonatomic,strong)RkyExtendedHitButton *menuBtn4;
+@property(nonatomic,strong)UIImageView *goldImgView;
+@property(nonatomic,strong)UILabel *goldNumText;
+@property(nonatomic,strong)UIImageView *goldhandbigView;
 @property(nonatomic,strong)ZFPlayerView *playerView;
 @property(nonatomic,strong)CGGiftView *giftView;
 @property(nonatomic,strong)EZJFastTableView *tbv;
@@ -47,6 +51,9 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
+    if (self.playerView.state==ZFPlayerStatePause) {
+        [self.playerView play];
+    }
 }
 
 
@@ -55,11 +62,17 @@
     self.view.backgroundColor=[UIColor blackColor];
     UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapViewAction:)];
     [self.view addGestureRecognizer:tapGesturRecognizer];
+    [self performSelector:@selector(delayMethod) withObject:nil afterDelay:0.2];
+    
+}
+
+- (void)delayMethod{
     [self showVideoPlayer];
     [self addSubViews];
 }
 
 -(void)tapAction {
+    [self.playerView pause];
     if ([CGSingleCommitData sharedInstance].uid.length<=0) {
         CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
@@ -104,6 +117,7 @@
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
+        [self.playerView pause];
         if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
             NewsMessageController *newMessage=[[NewsMessageController alloc] init];
             newMessage.userid=self.uid;
@@ -126,20 +140,18 @@
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
         if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
-            NSURL *url = [NSURL URLWithString:self.videoStr];
-            NSString *path = url.path;
-            [SVProgressHUD show];
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                //判断能不能保存到相簿
-                if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
-                    //保存视频到相簿
-                    UISaveVideoAtPathToSavedPhotosAlbum(path, self,
-                                                        @selector(video:didFinishSavingWithError:contextInfo:), nil);
-                }else{
-                    [SVProgressHUD dismiss];
-                    [SVProgressHUD showWithStatus:NSLocalizedString(@"save_failed", nil)];
-                }
-            });
+            if ([CGSingleCommitData sharedInstance].goldNum>=30) {
+                [CGSingleCommitData sharedInstance].goldNum-=30;
+                self.goldhandbigView.layer.opacity=1;
+                [UIView animateWithDuration:0.5 delay:2.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    self.goldhandbigView.layer.opacity=0;
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }else{
+                [self getGlodView];
+            }
+            
         }else{
             CGVipViewController *vipVC=[[CGVipViewController alloc] init];
             vipVC.definesPresentationContext = YES;
@@ -216,11 +228,14 @@
     [self.headerView addSubview:self.nickName];
     [self.headerView addSubview:self.numLook];
     [self.view addSubview:self.giftFriendView];
+    [self.view addSubview:self.goldhandbigView];
    // [self.view addSubview:self.closeBtn];
     [self.view addSubview:self.menuBtn1];
     [self.view addSubview:self.menuBtn2];
     [self.view addSubview:self.menuBtn3];
     [self.view addSubview:self.menuBtn4];
+    [self.view addSubview:self.goldImgView];
+    [self.view addSubview:self.goldNumText];
     [self.view addSubview:self.giftView];
     [self.view addSubview:self.tbv];
     [self.view addSubview:self.tbvBtnClose];
@@ -228,25 +243,27 @@
 }
 
 - (void)showVideoPlayer{
-    self.playerView = [[ZFPlayerView alloc] init];
-    [self.view addSubview:self.playerView];
-    [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(20);
-        make.left.right.equalTo(self.view);
-        // Here a 16:9 aspect ratio, can customize the video aspect ratio
-        make.height.equalTo(self.playerView.mas_width).multipliedBy(9.0f/16.0f);
-    }];
-    ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
-    // model
-    ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
-    playerModel.fatherView=self.view;
-    playerModel.videoURL = [NSURL URLWithString:self.videoStr];
-    [self.playerView playerControlView:controlView playerModel:playerModel];
-    self.playerView.delegate=self;
-    // delegate
-    [self.playerView.screenImgView sd_setImageWithURL:[NSURL URLWithString:self.videoIcon]];
-    self.playerView.playerLayerGravity=ZFPlayerLayerGravityResize;
-    [self.playerView autoPlayTheVideo];
+        //回调或者说是通知主线程刷新，
+        self.playerView = [[ZFPlayerView alloc] init];
+        [self.view addSubview:self.playerView];
+        [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).offset(20);
+            make.left.right.equalTo(self.view);
+            // Here a 16:9 aspect ratio, can customize the video aspect ratio
+            make.height.equalTo(self.playerView.mas_width).multipliedBy(9.0f/16.0f);
+        }];
+        ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
+        // model
+        ZFPlayerModel *playerModel = [[ZFPlayerModel alloc] init];
+        playerModel.fatherView=self.view;
+        playerModel.videoURL = [NSURL URLWithString:self.videoStr];
+        [self.playerView playerControlView:controlView playerModel:playerModel];
+        self.playerView.delegate=self;
+        // delegate
+        [self.playerView.screenImgView sd_setImageWithURL:[NSURL URLWithString:self.videoIcon]];
+        self.playerView.playerLayerGravity=ZFPlayerLayerGravityResize;
+        [self.playerView autoPlayTheVideo];
+    
     
 }
 
@@ -277,7 +294,7 @@
 
 -(UILabel *)nickName{
     if (!_nickName) {
-        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headerIconView.frame)+5*SCREEN_RADIO, 4*SCREEN_RADIO, 70*SCREEN_RADIO, 12*SCREEN_RADIO)];
+        _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headerIconView.frame)+5*SCREEN_RADIO, 4*SCREEN_RADIO, 70*SCREEN_RADIO, 14*SCREEN_RADIO)];
         _nickName.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         _nickName.textColor=[UIColor getColor:@"ffffff"];
         _nickName.text=[CGUserInfo getitemWithID:self.uid].nickname;
@@ -289,7 +306,7 @@
 -(UILabel *)numLook{    
     if (!_numLook) {
         _numLook=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headerIconView.frame)+5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 70*SCREEN_RADIO, 8*SCREEN_RADIO)];
-        _numLook.text=[NSString stringWithFormat:@"3532 %@",NSLocalizedString(@"guankanrenshu", nil)];
+        _numLook.text=[NSString stringWithFormat:@"%d %@",[CGCommonToolsNode getRandomNumber:2000 to:10000],NSLocalizedString(@"guankanrenshu", nil)];
         _numLook.textColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:0.85];
         _numLook.font=[UIFont systemFontOfSize:8*SCREEN_RADIO];
     }
@@ -310,7 +327,7 @@
 
 -(RkyExtendedHitButton *)menuBtn1{
     if (!_menuBtn1) {
-        _menuBtn1=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, screen_height/2, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
+        _menuBtn1=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, screen_height/2+85*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
         [_menuBtn1 setImage:[UIImage imageNamed:@"level_exclusive_gift_enable"] forState:UIControlStateNormal];
         [_menuBtn1 addTarget:self action:@selector(menuClick1) forControlEvents:UIControlEventTouchUpInside];
         _menuBtn1.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
@@ -332,8 +349,8 @@
 
 -(RkyExtendedHitButton *)menuBtn3{
     if (!_menuBtn3) {
-        _menuBtn3=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 50*SCREEN_RADIO)];
-        [_menuBtn3 setImage:[UIImage imageNamed:@"ic_sticker_download"] forState:UIControlStateNormal];
+        _menuBtn3=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-70*SCREEN_RADIO, screen_height/2, 70*SCREEN_RADIO, 70*SCREEN_RADIO)];
+        [_menuBtn3 setImage:[UIImage imageNamed:@"gold_hand_19yeah"] forState:UIControlStateNormal];
         [_menuBtn3 addTarget:self action:@selector(menuClick3) forControlEvents:UIControlEventTouchUpInside];
         _menuBtn3.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
@@ -341,9 +358,32 @@
     return _menuBtn3;
 }
 
+-(UIImageView *)goldImgView{
+    if (!_goldImgView) {
+        _goldImgView=[[UIImageView alloc]initWithFrame:CGRectMake(screen_width-50*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)-10*SCREEN_RADIO, 12*SCREEN_RADIO, 12*SCREEN_RADIO)];
+        _goldImgView.image=[UIImage imageNamed:@"leaderboard_coin"];
+    }
+    
+    return _goldImgView;
+}
+
+-(UILabel *)goldNumText{
+    if(!_goldNumText){
+        _goldNumText=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.goldImgView.frame)+5*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)-10*SCREEN_RADIO, 0, 12*SCREEN_RADIO)];
+        _goldNumText.text=@"30";
+        _goldNumText.textColor=[UIColor getColor:@"ffffff"];
+        _goldNumText.font=[UIFont boldSystemFontOfSize:12*SCREEN_RADIO];
+        [_goldNumText sizeToFit];
+    }
+    
+    return _goldNumText;
+}
+
+
+
 -(RkyExtendedHitButton *)menuBtn4{
     if (!_menuBtn4) {
-        _menuBtn4=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn3.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
+        _menuBtn4=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
         if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:self.uid]) {
             [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
         }else{
@@ -425,11 +465,6 @@
     return _giftFriendView;
 }
 
-- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    [SVProgressHUD dismiss];
-    [SVProgressHUD showWithStatus:@"保存视频完成"];
-    NSLog(@"保存视频完成");
-}
 
 - (void)zf_playerBackAction{
     [self closeClick];
@@ -490,5 +525,15 @@
     return _tbvBtnClose;
 }
 
+
+-(UIImageView *)goldhandbigView{
+    if (!_goldhandbigView) {
+        _goldhandbigView=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width/2-(292/2), screen_height/2-(275/2), 292, 275)];
+        _goldhandbigView.image=[UIImage imageNamed:@"gold_hand_19big"];
+        _goldhandbigView.layer.opacity=0.0;
+    }
+    
+    return _goldhandbigView;
+}
 
 @end

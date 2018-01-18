@@ -132,4 +132,5 @@
 "shiping" = "视频";
 "zonggong" = "总共";  //view all %@ commits
 "liuyan" = "留言";
+"jiazaifail" = "加载失败,点击重试";
 

@@ -9,7 +9,9 @@
 #import "XLVideoCell.h"
 #import "UIImageView+WebCache.h"
 #import "MyIndexViewController.h"
-@interface XLVideoCell ()
+@interface XLVideoCell (){
+    CGFloat _imgHeight;
+}
 @property (strong, nonatomic)CGShuoShuo *model;
 @property(nonatomic,strong)NSString *imgUrl;
 @property(nonatomic,strong)UIView *menuView;
@@ -25,6 +27,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGShuoShuo *)tmodel withImg:(NSString *)imgUrl{
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        _imgHeight=284*SCREEN_RADIO;
         self.backgroundColor=[UIColor getColor:@"EBEBEB"];
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.model=tmodel;
@@ -123,7 +126,7 @@
 
 -(UIImageView *)videoImageView{
     if (!_videoImageView) {
-        _videoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), screen_width, 284*SCREEN_RADIO)];
+        _videoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), screen_width, _imgHeight)];
         _videoImageView.contentMode =  UIViewContentModeScaleAspectFill;
         _videoImageView.clipsToBounds=YES;
         [_videoImageView sd_setImageWithURL:[NSURL URLWithString:self.imgUrl]];

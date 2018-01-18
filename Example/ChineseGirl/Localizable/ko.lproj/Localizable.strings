@@ -132,3 +132,4 @@
 "shiping" = "비디오";
 "zonggong" = "총";  //view all %@ commits
 "liuyan" = "메모";
+"jiazaifail" = "불러오기 실패, 클릭; 다시 시도";

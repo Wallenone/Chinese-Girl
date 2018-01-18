@@ -13,7 +13,7 @@
 #import "MJPhotoBrowser.h"
 #import "CGNewSignInViewController.h"
 @interface WSCollectionCell(){
-
+    CGFloat _imgHeight;
 }
 @property(nonatomic,strong)CGShuoShuo *model;
 @property(nonatomic,strong)UIView *menuView;
@@ -29,6 +29,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithModel:(CGShuoShuo *)commitModel{
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        _imgHeight=284*SCREEN_RADIO;
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         self.backgroundColor=[UIColor getColor:@"ffffff"];
         self.model=commitModel;
@@ -134,7 +135,7 @@
     CGFloat margin = 6*SCREEN_RADIO;
     CGFloat startX = 15 *SCREEN_RADIO;
     CGFloat startY =CGRectGetMaxY(self.menuView.frame);
-
+    
     
     if (self.model.pictureBigs.count==1) {
         [self setpictureFrame:CGRectMake(10*SCREEN_RADIO, CGRectGetMaxY(self.menuView.frame), screen_width-20*SCREEN_RADIO, 284*SCREEN_RADIO) withTag:0 withUrl:self.model.pictureBigs[0]];
