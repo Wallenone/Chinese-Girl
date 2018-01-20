@@ -186,7 +186,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioRouteChangeListenerCallback:) name:AVAudioSessionRouteChangeNotification object:nil];
     
     // 监测设备方向
-    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    /*[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onDeviceOrientationChange)
                                                  name:UIDeviceOrientationDidChangeNotification
@@ -195,7 +195,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onStatusBarOrientationChange)
                                                  name:UIApplicationDidChangeStatusBarOrientationNotification
-                                               object:nil];
+                                               object:nil];*/
 }
 
 #pragma mark - layoutSubviews
@@ -692,7 +692,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 
 - (void)toOrientation:(UIInterfaceOrientation)orientation {
     // 获取到当前状态条的方向
-    UIInterfaceOrientation currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
+   /* UIInterfaceOrientation currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
     // 判断如果当前方向和要旋转的方向一致,那么不做任何操作
     if (currentOrientation == orientation) { return; }
     
@@ -721,7 +721,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     self.transform = CGAffineTransformIdentity;
     self.transform = [self getTransformRotationAngle];
     // 开始旋转
-    [UIView commitAnimations];
+    [UIView commitAnimations];*/
 }
 
 /**
@@ -751,13 +751,13 @@ typedef NS_ENUM(NSInteger, PanDirection){
  *  @param orientation 屏幕方向
  */
 - (void)interfaceOrientation:(UIInterfaceOrientation)orientation {
-    if (orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft) {
-        // 设置横屏
-        [self setOrientationLandscapeConstraint:orientation];
-    } else if (orientation == UIInterfaceOrientationPortrait) {
-        // 设置竖屏
-        [self setOrientationPortraitConstraint];
-    }
+//    if (orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft) {
+//        // 设置横屏
+//        [self setOrientationLandscapeConstraint:orientation];
+//    } else if (orientation == UIInterfaceOrientationPortrait) {
+//        // 设置竖屏
+//        [self setOrientationPortraitConstraint];
+//    }
 }
 
 /**
@@ -991,23 +991,23 @@ typedef NS_ENUM(NSInteger, PanDirection){
 
 /** 全屏 */
 - (void)_fullScreenAction {
-    if (ZFPlayerShared.isLockScreen) {
-        [self unLockTheScreen];
-        return;
-    }
-    if (self.isFullScreen) {
-        [self interfaceOrientation:UIInterfaceOrientationPortrait];
-        self.isFullScreen = NO;
-        return;
-    } else {
-        UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
-        if (orientation == UIDeviceOrientationLandscapeRight) {
-            [self interfaceOrientation:UIInterfaceOrientationLandscapeLeft];
-        } else {
-            [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
-        }
-        self.isFullScreen = YES;
-    }
+//    if (ZFPlayerShared.isLockScreen) {
+//        [self unLockTheScreen];
+//        return;
+//    }
+//    if (self.isFullScreen) {
+//        [self interfaceOrientation:UIInterfaceOrientationPortrait];
+//        self.isFullScreen = NO;
+//        return;
+//    } else {
+//        UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+//        if (orientation == UIDeviceOrientationLandscapeRight) {
+//            [self interfaceOrientation:UIInterfaceOrientationLandscapeLeft];
+//        } else {
+//            [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
+//        }
+//        self.isFullScreen = YES;
+//    }
 }
 
 #pragma mark - NSNotification Action

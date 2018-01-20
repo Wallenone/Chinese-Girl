@@ -95,7 +95,8 @@
 "chongzhimima" = "암호 초기화"; //Password Reset
 "chongzhiyouxiang" = "초기화 비밀번호가 필요 입력 사용할 전자메일 주소 로그인 까지ChineseGirl";  //To reset your password, enter the email address you use to sign in to ChineseGirl
 "xiugaimima" = "비밀번호 변경";
-"qudenglu" = "가서 로그인 >";
+"qudenglu" = "로그인";
+"quzhuce" = "등록";
 "xiugai" = "수정";
 "shanchuyonghu" = "사용자 삭제";  //Delete account
 "chuangjiannideid" = "创建新账号";  //Create Your ID

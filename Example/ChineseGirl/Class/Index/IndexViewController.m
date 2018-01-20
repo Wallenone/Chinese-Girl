@@ -54,13 +54,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    BOOL isFirstUp =  [[NSUserDefaults standardUserDefaults] objectForKey:@"FirstLoad"];
-    if (!isFirstUp) {
-        [self LaunchVideo];
-        [self performSelector:@selector(delayMethod) withObject:nil afterDelay:2.0];
-    }else{
-        [self delayMethod];
-    }
+    [self delayMethod];
+//    BOOL isFirstUp =  [[NSUserDefaults standardUserDefaults] objectForKey:@"FirstLoad"];
+//    if (!isFirstUp) {
+//        [self LaunchVideo];
+//        [self performSelector:@selector(delayMethod) withObject:nil afterDelay:2.0];
+//    }else{
+//        [self delayMethod];
+//    }
 }
 
 -(void)delayMethod{

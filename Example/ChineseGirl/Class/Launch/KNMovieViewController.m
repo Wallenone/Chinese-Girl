@@ -78,7 +78,7 @@
     
 
     //定时器。延迟3秒再出现进入应用按钮
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(setupLoginView) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setupLoginView) userInfo:nil repeats:YES];
     
 }
 

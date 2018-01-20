@@ -95,7 +95,8 @@
 "chongzhimima" = "Password Reset"; //Password Reset
 "chongzhiyouxiang" = "To reset your password, enter the email address you use to log inChineseGirl";  //To reset your password, enter the email address you use to sign in to ChineseGirl
 "xiugaimima" = "Update Password";
-"qudenglu" = "Log in >";
+"qudenglu" = "Sign in";
+"quzhuce" = "Register";
 "xiugai" = "modify";
 "shanchuyonghu" = "Delete account";  //Delete account
 "chuangjiannideid" = "Create Your ID";  //Create Your ID

@@ -318,7 +318,7 @@
 -(UILabel *)likeLabel{
     if (!_likeLabel) {
         _likeLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
-        _likeLabel.text=[NSString stringWithFormat:@"%@ likes",self.myIndexModel.likes];
+        _likeLabel.text=[NSString stringWithFormat:@"%d likes",0];
         _likeLabel.textColor=[UIColor getColor:@"274E6E"];
         _likeLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
         [_likeLabel sizeToFit];
@@ -340,7 +340,7 @@
 -(UILabel *)allCommitLabel{
     if (!_allCommitLabel) {
         _allCommitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.likeImgView.frame)+10*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 14*SCREEN_RADIO)];
-        _allCommitLabel.text=[NSString stringWithFormat:@"%@ %@ %@",NSLocalizedString(@"zonggong", nil),self.myIndexModel.comments,NSLocalizedString(@"liuyan", nil)];
+        _allCommitLabel.text=[NSString stringWithFormat:@"%@ %d %@",NSLocalizedString(@"zonggong", nil),0,NSLocalizedString(@"liuyan", nil)];
         _allCommitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
         _allCommitLabel.textColor=[UIColor getColor:@"B1B1B1"];
     }
@@ -353,6 +353,7 @@
     if (!_commitView) {
         _commitView=[[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.allCommit.frame), screen_width, 80*SCREEN_RADIO)];
         _commitView.backgroundColor=[UIColor clearColor];
+        _commitView.hidden=YES;
         [_commitView addTarget:self action:@selector(allCommitClick) forControlEvents:UIControlEventTouchUpInside];
     }
     

@@ -95,7 +95,8 @@
 "chongzhimima" = "重置密碼"; //Password Reset
 "chongzhiyouxiang" = "要重置您的密碼，輸入您使用的電子郵寄地址登入到ChineseGirl";  //To reset your password, 要重置您的密碼，輸入您使用的電子郵寄地址登入到enter the email address you use to sign in to ChineseGirl
 "xiugaimima" = "修改密碼";
-"qudenglu" = "去登入 >";
+"qudenglu" = "登入";
+"quzhuce" = "注册";
 "xiugai" = "修改";
 "shanchuyonghu" = "删除用戶";  //Delete account
 "chuangjiannideid" = "創建新帳號";  //Create Your ID

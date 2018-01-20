@@ -40,6 +40,8 @@
 		E51ED2DC1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DB1F5FFFEC0080BBA1 /* NewsContentTableViewCell.m */; };
 		E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */; };
 		E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */; };
+		E5287B5B201306930097AC27 /* movie1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5287B5A201306930097AC27 /* movie1.mp4 */; };
+		E5287B5F201312C50097AC27 /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5287B5E201312C40097AC27 /* movie.mp4 */; };
 		E52E450D1FE7F54400C4B8C2 /* CGGoldCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */; };
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
 		E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */; };
@@ -81,7 +83,6 @@
 		E5581FDC1FF77FF100D13F6A /* CGTopFullTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5581FDB1FF77FF100D13F6A /* CGTopFullTableViewCell.m */; };
 		E5581FE31FF787C500D13F6A /* CGMoneyTopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5581FE21FF787C500D13F6A /* CGMoneyTopModel.m */; };
 		E5581FEE1FF78FC700D13F6A /* moneyTop.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5581FED1FF78FC600D13F6A /* moneyTop.plist */; };
-		E55B71591FEA5F99000F2FDB /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E55B71581FEA5F99000F2FDB /* movie.mp4 */; };
 		E55B715C1FEA6E39000F2FDB /* KNMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55B715B1FEA6E38000F2FDB /* KNMovieViewController.m */; };
 		E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DF4BC1FBB2F2600E5215E /* CGLocationTableViewCell.m */; };
 		E55DF4BF1FBB315100E5215E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55DF4BE1FBB315100E5215E /* CoreLocation.framework */; };
@@ -167,7 +168,6 @@
 		E5F999C51FCEEC8000C47C60 /* CGFavoriteView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F999C41FCEEC8000C47C60 /* CGFavoriteView.m */; };
 		E5FA64141F585ED80032D1BB /* CGRegisterIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */; };
 		E5FA64171F5865C70032D1BB /* CGRegisterIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FA64161F5865C70032D1BB /* CGRegisterIndexViewController.m */; };
-		E5FC800B1FC9BCC60094615B /* qidong.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5FC800A1FC9BCC60094615B /* qidong.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +254,8 @@
 		E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentModel.m; sourceTree = "<group>"; };
 		E5260ED81F69698E001824F1 /* CGPickBottleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPickBottleContentView.h; sourceTree = "<group>"; };
 		E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPickBottleContentView.m; sourceTree = "<group>"; };
+		E5287B5A201306930097AC27 /* movie1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie1.mp4; sourceTree = "<group>"; };
+		E5287B5E201312C40097AC27 /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
 		E52E450B1FE7F54400C4B8C2 /* CGGoldCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGoldCoinViewController.h; sourceTree = "<group>"; };
 		E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGoldCoinViewController.m; sourceTree = "<group>"; };
 		E534E1C01FBBDF9A00F4962E /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
@@ -335,7 +337,6 @@
 		E5581FE11FF787C500D13F6A /* CGMoneyTopModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMoneyTopModel.h; sourceTree = "<group>"; };
 		E5581FE21FF787C500D13F6A /* CGMoneyTopModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMoneyTopModel.m; sourceTree = "<group>"; };
 		E5581FED1FF78FC600D13F6A /* moneyTop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = moneyTop.plist; sourceTree = "<group>"; };
-		E55B71581FEA5F99000F2FDB /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
 		E55B715A1FEA6E37000F2FDB /* KNMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNMovieViewController.h; sourceTree = "<group>"; };
 		E55B715B1FEA6E38000F2FDB /* KNMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMovieViewController.m; sourceTree = "<group>"; };
 		E55DF4BB1FBB2F2600E5215E /* CGLocationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLocationTableViewCell.h; sourceTree = "<group>"; };
@@ -487,7 +488,6 @@
 		E5FA64131F585ED80032D1BB /* CGRegisterIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRegisterIndexView.m; sourceTree = "<group>"; };
 		E5FA64151F5865C70032D1BB /* CGRegisterIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRegisterIndexViewController.h; sourceTree = "<group>"; };
 		E5FA64161F5865C70032D1BB /* CGRegisterIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRegisterIndexViewController.m; sourceTree = "<group>"; };
-		E5FC800A1FC9BCC60094615B /* qidong.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = qidong.mp4; sourceTree = "<group>"; };
 		EDE47200CF11454084840064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FBA77A7CBE9FFE2BA1642376 /* Pods-ChineseGirl_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChineseGirl_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChineseGirl_Example/Pods-ChineseGirl_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -578,6 +578,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5287B5E201312C40097AC27 /* movie.mp4 */,
+				E5287B5A201306930097AC27 /* movie1.mp4 */,
 				E55F566F200E329A00A35A8A /* Shuoshuo.sqlite */,
 				E55F5671200E492700A35A8A /* VideoData.sqlite */,
 				E5E3D6D5200CDD7D00F3DAF0 /* shuoshuo1.plist */,
@@ -585,8 +587,6 @@
 				E536F54D200B3CD1004100C6 /* userInfo.plist */,
 				E536F54E200B3CD1004100C6 /* videoData.plist */,
 				E5581FED1FF78FC600D13F6A /* moneyTop.plist */,
-				E55B71581FEA5F99000F2FDB /* movie.mp4 */,
-				E5FC800A1FC9BCC60094615B /* qidong.mp4 */,
 				E5D291921FC5A96C003718CB /* Billabong.ttf */,
 				E5B2A24C1FD8072B006F57AD /* message.plist */,
 				E5C0CD661FB80BEB002394C9 /* pinglun.plist */,
@@ -1275,6 +1275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5287B5F201312C50097AC27 /* movie.mp4 in Resources */,
 				E5B2A24D1FD8072B006F57AD /* message.plist in Resources */,
 				E5E3D6D6200CDD7D00F3DAF0 /* shuoshuo1.plist in Resources */,
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
@@ -1290,13 +1291,12 @@
 				E536F550200B3CD1004100C6 /* userInfo.plist in Resources */,
 				E55F5670200E329B00A35A8A /* Shuoshuo.sqlite in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
-				E5FC800B1FC9BCC60094615B /* qidong.mp4 in Resources */,
-				E55B71591FEA5F99000F2FDB /* movie.mp4 in Resources */,
 				E5E0FE4E1F9AF15700B5228E /* 返回@2x.png in Resources */,
 				E511CB141FB00013006BA362 /* InfoPlist.strings in Resources */,
 				E5C0CD691FB80BEC002394C9 /* pinglunren.plist in Resources */,
 				E5E3D6D4200CDC1000F3DAF0 /* shuoshuo.plist in Resources */,
 				E536F551200B3CD1004100C6 /* videoData.plist in Resources */,
+				E5287B5B201306930097AC27 /* movie1.mp4 in Resources */,
 				E5944C001FB9757600013F78 /* city.txt in Resources */,
 				E5C0CD6A1FB80BEC002394C9 /* pinglun.plist in Resources */,
 				E55F5672200E492800A35A8A /* VideoData.sqlite in Resources */,
