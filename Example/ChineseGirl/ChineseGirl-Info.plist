@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>LSHasLocalizedDisplayName</key>
 	<true/>
 	<key>LSRequiresIPhoneOS</key>
@@ -74,14 +74,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    <key>UILaunchImages</key>
-    <array>
-        <dict>
-            <key>UILaunchImageName</key>
-            <string>Default-568</string>
-            <key>UILaunchImageSize</key>
-            <string>{320, 568}</string>
-        </dict>
-    </array>
 </dict>
 </plist>
