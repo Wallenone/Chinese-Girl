@@ -142,6 +142,7 @@
         _avaterImgView.layer.borderWidth=1;
         _avaterImgView.layer.borderColor=[UIColor getColor:@"ffc142"].CGColor;
         _avaterImgView.clipsToBounds=YES;
+        _avaterImgView.contentMode = UIViewContentModeScaleAspectFill;
     }
     
     return _avaterImgView;

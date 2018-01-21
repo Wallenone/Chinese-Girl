@@ -9,6 +9,7 @@
 #import "CGPinglun.h"
 #import "CGPinglunren.h"
 #import "CGPinglunModel.h"
+#import "CGSqliteManager.h"
 @implementation CGPinglun
 
 +(NSMutableArray *)reloadCommits:(NSArray *)commitS{
@@ -48,31 +49,15 @@
 }
 
 +(NSString *)reloadTableWithIds:(NSString *)ids{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"pinglun" ofType:@"plist"];
-    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    NSString *nickName=@"";
-    for (NSDictionary *model in data1) {
-        CGPinglunModel *model1= [CGPinglunModel modelWithDic:model];
-        if ([ids intValue]==[model1.ids intValue]) {
-            nickName=model1.content;
-        }
-    }
+    NSDictionary *dict= [CGSqliteManager getPinglunId:[ids intValue]];
     
-    return nickName;
+    return [dict stringForKey:@"content"];
 }
 
 
 +(NSString *)reloadPinlunRenTableWithIds:(NSString *)ids{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"pinglunren" ofType:@"plist"];
-    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    NSString *nickName=@"";
-    for (NSDictionary *model in data1) {
-        CGPinglunren *model1= [CGPinglunren modelWithDic:model];
-        if ([ids intValue]==[model1.ids intValue]) {
-            nickName=model1.username;
-        }
-    }
+    NSDictionary *dict= [CGSqliteManager getPinglunrenId:[ids intValue]];
     
-    return nickName;
+    return [dict stringForKey:@"username"];
 }
 @end

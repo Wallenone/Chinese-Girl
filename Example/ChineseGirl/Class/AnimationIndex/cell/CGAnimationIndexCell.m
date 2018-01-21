@@ -71,9 +71,10 @@
         _leftImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO)];
 //        _leftImgView.image=[self getGifImage];
         CGVideoDataModel *model=self.dataModel[0];
-        [_leftImgView sd_setImageWithURL:[NSURL URLWithString:model.videoIcon]];
         _leftImgView.layer.cornerRadius=5;
         _leftImgView.clipsToBounds=YES;
+        _leftImgView.contentMode = UIViewContentModeScaleAspectFill;
+        [_leftImgView sd_setImageWithURL:[NSURL URLWithString:model.videoIcon]];
         _leftImgView.userInteractionEnabled=YES;
         UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO)];
         [btn addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
@@ -104,10 +105,11 @@
     if (!_rightImgView) {
         CGVideoDataModel *model=self.dataModel[1];
         _rightImgView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO)];
-       [_rightImgView sd_setImageWithURL:[NSURL URLWithString:model.videoIcon]];
         _rightImgView.layer.cornerRadius=5;
         _rightImgView.clipsToBounds=YES;
+        _rightImgView.contentMode = UIViewContentModeScaleAspectFill;
         _rightImgView.userInteractionEnabled=YES;
+        [_rightImgView sd_setImageWithURL:[NSURL URLWithString:model.videoIcon]];
         UIButton *btn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, screen_width/2-7.5*SCREEN_RADIO, 220*SCREEN_RADIO)];
         [btn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
         [_rightImgView addSubview:btn];

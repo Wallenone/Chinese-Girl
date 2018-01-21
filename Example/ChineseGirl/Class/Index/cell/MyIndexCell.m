@@ -102,8 +102,7 @@
     
     imageView.frame = imgViewFrame;
     
-    // 下载图片
-    [imageView setImageURLStr:_url placeholder:placeholder];
+    
     
     // 事件监听
     imageView.tag = _tag;
@@ -113,6 +112,9 @@
     // 内容模式
     imageView.clipsToBounds = YES;
     imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    // 下载图片
+    [imageView setImageURLStr:_url placeholder:placeholder];
     
     [self.imgViewArr addObject:imageView];
     total_height=CGRectGetMaxY(imageView.frame);
@@ -239,7 +241,7 @@
         [nickName sizeToFit];
         [self.commitView addSubview:nickName];
         
-        UILabel *commitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(nickName.frame)+10*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, screen_width-52*SCREEN_RADIO, 17*SCREEN_RADIO)];
+        UILabel *commitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(nickName.frame)+10*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, screen_width-102*SCREEN_RADIO, 17*SCREEN_RADIO)];
         commitLabel.text=contentStr;
         commitLabel.textColor=[UIColor getColor:@"99A3A9"];
         commitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
@@ -318,7 +320,7 @@
 -(UILabel *)likeLabel{
     if (!_likeLabel) {
         _likeLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, total_height+ 10*SCREEN_RADIO, 0, 18*SCREEN_RADIO)];
-        _likeLabel.text=[NSString stringWithFormat:@"%d likes",0];
+        _likeLabel.text=[NSString stringWithFormat:@"%@ likes",self.myIndexModel.likes];
         _likeLabel.textColor=[UIColor getColor:@"274E6E"];
         _likeLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
         [_likeLabel sizeToFit];
@@ -340,7 +342,7 @@
 -(UILabel *)allCommitLabel{
     if (!_allCommitLabel) {
         _allCommitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, CGRectGetMaxY(self.likeImgView.frame)+10*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 14*SCREEN_RADIO)];
-        _allCommitLabel.text=[NSString stringWithFormat:@"%@ %d %@",NSLocalizedString(@"zonggong", nil),0,NSLocalizedString(@"liuyan", nil)];
+        _allCommitLabel.text=[NSString stringWithFormat:@"%@ %@ %@",NSLocalizedString(@"zonggong", nil),self.myIndexModel.comments,NSLocalizedString(@"liuyan", nil)];
         _allCommitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
         _allCommitLabel.textColor=[UIColor getColor:@"B1B1B1"];
     }
@@ -351,9 +353,8 @@
 
 -(UIButton *)commitView{
     if (!_commitView) {
-        _commitView=[[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.allCommit.frame), screen_width, 80*SCREEN_RADIO)];
+        _commitView=[[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.allCommit.frame), screen_width-10*SCREEN_RADIO, 80*SCREEN_RADIO)];
         _commitView.backgroundColor=[UIColor clearColor];
-        _commitView.hidden=YES;
         [_commitView addTarget:self action:@selector(allCommitClick) forControlEvents:UIControlEventTouchUpInside];
     }
     

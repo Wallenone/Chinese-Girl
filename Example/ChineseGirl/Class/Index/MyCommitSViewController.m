@@ -99,7 +99,7 @@
 
 -(EZJFastTableView *)tbv{
     if (!_tbv) {
-        _tbv = [[EZJFastTableView alloc]initWithFrame:CGRectMake(0, 64*SCREEN_RADIO, screen_width, screen_height-64*SCREEN_RADIO)];
+        _tbv = [[EZJFastTableView alloc]initWithFrame:CGRectMake(0, 64*SCREEN_RADIO, screen_width, screen_height-64*2*SCREEN_RADIO)];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
         NSMutableArray *pingluns=[[CGPinglun reloadCommits:self.commitModel.pinglunid] mutableCopy];
         [pingluns insertObject:self.commitModel atIndex:0];
@@ -195,7 +195,7 @@
 -(NewsBottomMessage *)messageView{
     if (!_messageView) {
         __weak __typeof(self)weakSelf = self;
-        _messageView=[[NewsBottomMessage alloc] initWithFrame:CGRectMake(0, screen_height-60*SCREEN_RADIO, screen_width, 60*SCREEN_RADIO) withDidBeginEditing:^(UITextView *textView) {
+        _messageView=[[NewsBottomMessage alloc] initWithFrame:CGRectMake(0, screen_height-64*SCREEN_RADIO, screen_width, 64*SCREEN_RADIO) withDidBeginEditing:^(UITextView *textView) {
 
         } withDidSubmitEdit:^(NSString *text) {
             if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {

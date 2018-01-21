@@ -119,9 +119,10 @@
 -(UIImageView *)AvatarImgView{
     if (!_AvatarImgView) {
         _AvatarImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 15*SCREEN_RADIO, 100*SCREEN_RADIO, 100*SCREEN_RADIO)];
-        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater]];
         _AvatarImgView.layer.cornerRadius=50*SCREEN_RADIO;
         _AvatarImgView.clipsToBounds=YES;
+        _AvatarImgView.contentMode = UIViewContentModeScaleAspectFill;
+        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater]];
     }
     
     return _AvatarImgView;

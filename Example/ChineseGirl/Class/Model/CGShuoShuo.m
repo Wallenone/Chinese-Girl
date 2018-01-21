@@ -12,6 +12,9 @@
 #import "CGIndexModel.h"
 #import "CGVideoDataModel.h"
 #import "CGSqliteManager.h"
+@interface CGShuoShuo()
+@property(nonatomic,assign)int commitNum;
+@end
 @implementation CGShuoShuo
 + (instancetype)modelWithDic:(NSDictionary *)dic{
     CGShuoShuo *model = [[CGShuoShuo alloc]init];
@@ -22,12 +25,12 @@
     model.content = [CGCommonString filterNullString:[dic stringForKey:@"content"]];
     model.pictures =  [self getFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.uid];
    // model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.uid];
-    model.pinglunid = [self getPinglunids:[CGCommonString filterNullString:[dic stringForKey:@"pinglunid"]]];
+    model.pinglunid = [self getPinglunids:[CGCommonString filterNullString:[self getRandomItemCommits]]];
     model.icon= [CGUserInfo getitemWithID:model.uid].avater;
     model.nickName = [CGUserInfo getitemWithID:model.uid].nickname;
     model.timeDate = @"1999-09-09";
     model.likes= [CGCommonString filterNullString:[dic stringForKey:@"likes"]];
-    model.comments= [CGCommonString filterNullString:[dic stringForKey:@"comments"]];
+    model.comments= [CGCommonString filterNullString:[NSString stringWithFormat:@"%lu",(unsigned long)model.pinglunid.count]];
     model.address= [CGUserInfo getitemWithID:model.uid].address;
     model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     if ([model.type integerValue]==1) {
@@ -156,4 +159,7 @@
     return newArr;
 }
 
++(NSString *)getRandomItemCommits{
+    return [CGSqliteManager getRandomItemCommits];
+}
 @end

@@ -179,13 +179,13 @@
 
 -(void)setpictureFrame:(CGRect)imgViewFrame withTag:(NSInteger)_tag withUrl:(NSString *)_url{
     UIImage *placeholder = [UIImage imageNamed:@"timeline_image_loading.png"];
+
     UIImageView *imageView = [[UIImageView alloc] init];
     [self addSubview:imageView];
     
     imageView.frame = imgViewFrame;
     
-    // 下载图片
-    [imageView setImageURLStr:_url placeholder:placeholder];
+    
     
     // 事件监听
     imageView.tag = _tag;
@@ -195,6 +195,9 @@
     // 内容模式
     imageView.clipsToBounds = YES;
     imageView.contentMode = UIViewContentModeScaleAspectFill;
+
+    // 下载图片
+    [imageView setImageURLStr:_url placeholder:placeholder];
     
     [self.imgViewArr addObject:imageView];
 }

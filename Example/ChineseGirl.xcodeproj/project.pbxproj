@@ -41,7 +41,6 @@
 		E51ED2DF1F6000130080BBA1 /* NewsContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ED2DE1F6000130080BBA1 /* NewsContentModel.m */; };
 		E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */; };
 		E5287B5B201306930097AC27 /* movie1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5287B5A201306930097AC27 /* movie1.mp4 */; };
-		E5287B5F201312C50097AC27 /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5287B5E201312C40097AC27 /* movie.mp4 */; };
 		E52E450D1FE7F54400C4B8C2 /* CGGoldCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */; };
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
 		E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */; };
@@ -159,6 +158,9 @@
 		E5E3D6DB200CE38E00F3DAF0 /* CGSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E3D6DA200CE38E00F3DAF0 /* CGSqliteManager.m */; };
 		E5E518321FCD97DA00919205 /* CGManageRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E518311FCD97DA00919205 /* CGManageRegisterViewController.m */; };
 		E5E518351FCDA48700919205 /* CGProfileIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E518341FCDA48700919205 /* CGProfileIndexViewController.m */; };
+		E5E6429020147860008FA739 /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5E6428F20147860008FA739 /* movie.mp4 */; };
+		E5E642992014A2E8008FA739 /* Pinglun.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E5E642972014A2E8008FA739 /* Pinglun.sqlite */; };
+		E5E6429A2014A2E8008FA739 /* Pinglunren.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E5E642982014A2E8008FA739 /* Pinglunren.sqlite */; };
 		E5EFC82B1F492CEB0078F856 /* MyIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */; };
 		E5F0A3EC1F57F7FD0051699B /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3E91F57F7FD0051699B /* CGLoginViewController.m */; };
 		E5F0A3EF1F57F8750051699B /* CGLoginIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F0A3EE1F57F8750051699B /* CGLoginIndexView.m */; };
@@ -255,7 +257,6 @@
 		E5260ED81F69698E001824F1 /* CGPickBottleContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPickBottleContentView.h; sourceTree = "<group>"; };
 		E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPickBottleContentView.m; sourceTree = "<group>"; };
 		E5287B5A201306930097AC27 /* movie1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie1.mp4; sourceTree = "<group>"; };
-		E5287B5E201312C40097AC27 /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
 		E52E450B1FE7F54400C4B8C2 /* CGGoldCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGoldCoinViewController.h; sourceTree = "<group>"; };
 		E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGoldCoinViewController.m; sourceTree = "<group>"; };
 		E534E1C01FBBDF9A00F4962E /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
@@ -470,6 +471,9 @@
 		E5E518311FCD97DA00919205 /* CGManageRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGManageRegisterViewController.m; sourceTree = "<group>"; };
 		E5E518331FCDA48700919205 /* CGProfileIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGProfileIndexViewController.h; sourceTree = "<group>"; };
 		E5E518341FCDA48700919205 /* CGProfileIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGProfileIndexViewController.m; sourceTree = "<group>"; };
+		E5E6428F20147860008FA739 /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
+		E5E642972014A2E8008FA739 /* Pinglun.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pinglun.sqlite; sourceTree = "<group>"; };
+		E5E642982014A2E8008FA739 /* Pinglunren.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pinglunren.sqlite; sourceTree = "<group>"; };
 		E5EFC8291F492CEB0078F856 /* MyIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIndexViewController.h; sourceTree = "<group>"; };
 		E5EFC82A1F492CEB0078F856 /* MyIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIndexViewController.m; sourceTree = "<group>"; };
 		E5F0A3E81F57F7FD0051699B /* CGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginViewController.h; sourceTree = "<group>"; };
@@ -578,7 +582,9 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E5287B5E201312C40097AC27 /* movie.mp4 */,
+				E5E642972014A2E8008FA739 /* Pinglun.sqlite */,
+				E5E642982014A2E8008FA739 /* Pinglunren.sqlite */,
+				E5E6428F20147860008FA739 /* movie.mp4 */,
 				E5287B5A201306930097AC27 /* movie1.mp4 */,
 				E55F566F200E329A00A35A8A /* Shuoshuo.sqlite */,
 				E55F5671200E492700A35A8A /* VideoData.sqlite */,
@@ -1275,12 +1281,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5287B5F201312C50097AC27 /* movie.mp4 in Resources */,
 				E5B2A24D1FD8072B006F57AD /* message.plist in Resources */,
 				E5E3D6D6200CDD7D00F3DAF0 /* shuoshuo1.plist in Resources */,
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
+				E5E642992014A2E8008FA739 /* Pinglun.sqlite in Resources */,
 				E511CB241FB005EF006BA362 /* Localizable.strings in Resources */,
 				E5D04A4D1F68097A00844B2F /* icon_bubble_left.png in Resources */,
+				E5E6429A2014A2E8008FA739 /* Pinglunren.sqlite in Resources */,
 				E5D04A4F1F68099600844B2F /* icon_bubble_right.png in Resources */,
 				E5D9F0331FB2E2D400DAEB7A /* CNCity.plist in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
@@ -1297,6 +1304,7 @@
 				E5E3D6D4200CDC1000F3DAF0 /* shuoshuo.plist in Resources */,
 				E536F551200B3CD1004100C6 /* videoData.plist in Resources */,
 				E5287B5B201306930097AC27 /* movie1.mp4 in Resources */,
+				E5E6429020147860008FA739 /* movie.mp4 in Resources */,
 				E5944C001FB9757600013F78 /* city.txt in Resources */,
 				E5C0CD6A1FB80BEC002394C9 /* pinglun.plist in Resources */,
 				E55F5672200E492800A35A8A /* VideoData.sqlite in Resources */,
@@ -1661,7 +1669,7 @@
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wallen.chineseGirlapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d8b5149b-7a87-4785-a9ce-4a60239b66f3";
@@ -1685,7 +1693,7 @@
 				INFOPLIST_FILE = "ChineseGirl/ChineseGirl-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wallen.chineseGirlapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dd28c74e-6942-4fc4-a494-63d924b2f57d";

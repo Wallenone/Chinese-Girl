@@ -49,6 +49,7 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
     if (self.playerView.state==ZFPlayerStatePause) {
@@ -56,6 +57,10 @@
     }
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -270,7 +275,7 @@
 
 -(UIView *)headerView{
     if (!_headerView) {
-        _headerView=[[UIView alloc] initWithFrame:CGRectMake(6*SCREEN_RADIO, 20*SCREEN_RADIO, 130*SCREEN_RADIO, 35*SCREEN_RADIO)];
+        _headerView=[[UIView alloc] initWithFrame:CGRectMake(6*SCREEN_RADIO, 20*SCREEN_RADIO, 150*SCREEN_RADIO, 35*SCREEN_RADIO)];
         _headerView.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
         _headerView.layer.cornerRadius=17.5*SCREEN_RADIO;
         UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
@@ -305,10 +310,11 @@
 
 -(UILabel *)numLook{    
     if (!_numLook) {
-        _numLook=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headerIconView.frame)+5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 70*SCREEN_RADIO, 8*SCREEN_RADIO)];
+        _numLook=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headerIconView.frame)+5*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 0, 8*SCREEN_RADIO)];
         _numLook.text=[NSString stringWithFormat:@"%d %@",[CGCommonToolsNode getRandomNumber:2000 to:10000],NSLocalizedString(@"guankanrenshu", nil)];
         _numLook.textColor=[UIColor colorWithRed:1 green:1 blue:1 alpha:0.85];
         _numLook.font=[UIFont systemFontOfSize:8*SCREEN_RADIO];
+        [_numLook sizeToFit];
     }
     
     return _numLook;

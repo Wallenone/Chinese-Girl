@@ -73,23 +73,7 @@ static sqlite3 *db = nil;
 
 + (int)getShuoshuoTotalNum{
     
-    sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
-    // 创建一个语句对象
-    sqlite3_stmt *stmt = nil;
-    
-    const char *sql = [[NSString stringWithFormat:@"SELECT Count(*) FROM Shuoshuo"] UTF8String]; //where status =0 是刷选条件，随你写，可不写的
-    
-    int  count =0;
-    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
-    
-    
-    if (result == SQLITE_OK){
-        
-    }
-    
-        
-    return count;
+    return [self getTotalNumTable:@"Shuoshuo"];
 }
 
 +(NSDictionary *)getShuoshuoModel:(sqlite3_stmt *)stmt{
@@ -262,25 +246,11 @@ static sqlite3 *db = nil;
     [self close];
     return videoModel;
 }
+
 + (int)getVideoTotalNum{
-    sqlite3 *db = [CGSqliteManager open:@"VideoData"];
-    // 创建一个语句对象
-    sqlite3_stmt *stmt = nil;
-    
-    const char *sql = [[NSString stringWithFormat:@"SELECT Count(*) FROM VideoData"] UTF8String]; //where status =0 是刷选条件，随你写，可不写的
-    
-    int  count =0;
-    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
-    
-    
-    if (result == SQLITE_OK){
-        
-    }
-    
-    
-    return count;
+    return [self getTotalNumTable:@"VideoData"];
 }
+
 + (NSMutableArray *)getVideouid:(int)uid{
     // 打开数据库
     sqlite3 *db = [CGSqliteManager open:@"VideoData"];
@@ -333,6 +303,140 @@ static sqlite3 *db = nil;
     videoModel= @{@"id":@(ID),@"videoIcon":c_videoIcon,@"videoUrl":c_videoUrl,@"userid":c_userid};
     
     return videoModel;
+}
+
+
++ (NSDictionary *)getPinglunrenId:(int)ids{
+    NSDictionary *pinglunrenModel;
+    // 打开数据库
+    sqlite3 *db = [CGSqliteManager open:@"Pinglunren"];
+    // 创建一个语句对象
+    sqlite3_stmt *stmt = nil;
+    
+    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
+    const char *sql=[[NSString stringWithFormat:@"select * from Pinglunren where id=%d",ids] UTF8String];
+    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    if (result == SQLITE_OK){
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            
+            int ID = sqlite3_column_int(stmt, 0);
+            NSString *username = ((char *)sqlite3_column_text(stmt, 1)) ?
+            [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] :
+            nil;
+            
+            NSString *avater = ((char *)sqlite3_column_text(stmt, 2)) ?
+            [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] :
+            nil;
+            
+            // 将获取到的C语言字符串转换成OC字符串
+            NSString *c_username = [CGCommonString filterNullString:username];
+            NSString *c_avater = [CGCommonString filterNullString:avater];
+            
+            pinglunrenModel= @{@"id":@(ID),@"username":c_username,@"avater":c_avater};
+        }
+        
+    }
+    
+    // 关闭数据库
+    sqlite3_finalize(stmt);
+    [self close];
+    return pinglunrenModel;
+}
++ (NSDictionary *)getPinglunId:(int)ids{
+    NSDictionary *pinglunModel;
+    // 打开数据库
+    sqlite3 *db = [CGSqliteManager open:@"Pinglun"];
+    // 创建一个语句对象
+    sqlite3_stmt *stmt = nil;
+    
+    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
+    const char *sql=[[NSString stringWithFormat:@"select * from Pinglun where id=%d",ids] UTF8String];
+    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    if (result == SQLITE_OK){
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            
+            int ID = sqlite3_column_int(stmt, 0);
+            NSString *content = ((char *)sqlite3_column_text(stmt, 1)) ?
+            [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] :
+            nil;
+            
+            // 将获取到的C语言字符串转换成OC字符串
+            NSString *c_content = [CGCommonString filterNullString:content];
+            
+            pinglunModel= @{@"id":@(ID),@"content":c_content};
+        }
+        
+    }
+    
+    // 关闭数据库
+    sqlite3_finalize(stmt);
+    [self close];
+    return pinglunModel;
+}
+
++(int)getPinglunTotalNum{
+    return [self getTotalNumTable:@"Pinglun"];
+}
+
++(int)getPinglunRenTotalNum{
+    return [self getTotalNumTable:@"Pinglunren"];
+}
+
+
++ (NSString *)getRandomItemCommits{
+    NSString *commitStr=@"";
+    int totalNum=[CGCommonToolsNode getRandomNumber:2 to:20];
+    NSArray *rodomPinglunrenArr= [CGCommonToolsNode genertateRandomNumberStartNum:1 endNum:[self getPinglunRenTotalNum] count:totalNum];
+    
+    NSArray *rodomPinglunArr= [CGCommonToolsNode genertateRandomNumberStartNum:1 endNum:[self getPinglunTotalNum] count:totalNum];
+    
+    for (int i=0; i<rodomPinglunrenArr.count; i++) {
+        int pinglunrenId=[[rodomPinglunrenArr objectAtIndex:i] intValue];
+        int pinglunId=[[rodomPinglunArr objectAtIndex:i] intValue];
+        
+        if (i==rodomPinglunrenArr.count-1) {
+            commitStr=[NSString stringWithFormat:@"%@%d-%d",commitStr,pinglunrenId,pinglunId];
+        }else{
+            commitStr=[NSString stringWithFormat:@"%@%d-%d/",commitStr,pinglunrenId,pinglunId];
+        }
+        
+        
+    }
+    
+    return commitStr;
+}
+
++ (int)getTotalNumTable:(NSString *)table{
+    sqlite3 *db = [CGSqliteManager open:table];
+    char *errmsg=NULL;    //用来存储错误信息字符串
+    char ret=0;
+    char **dbResult;
+    int nRow=0, nColumn=0;     //nRow 查找出的总行数,nColumn 存储列
+    
+    const char *sql=[[NSString stringWithFormat:@"select * from %@",table] UTF8String];
+    
+    ret=sqlite3_get_table(db, sql, &dbResult, &nRow, &nColumn, &errmsg);
+    
+    if(1 == ret)     //数据库创建未成功
+    {
+        fprintf(stderr, "Can't open this database: %s\n", sqlite3_errmsg(db));    //用sqlite3_errmsg()得到错误字符串
+        [self close];
+        return -1;
+    }
+    
+    
+    
+    if(NULL!=errmsg)
+    {
+        sqlite3_free_table(dbResult);
+        errmsg=NULL;
+        [self close];
+        return -1;
+    }
+    
+    sqlite3_free_table(dbResult);
+    [self close];
+    return nRow;
 }
 
 

@@ -127,8 +127,9 @@
 -(UIImageView *)videoImageView{
     if (!_videoImageView) {
         _videoImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), screen_width, _imgHeight)];
-        _videoImageView.contentMode =  UIViewContentModeScaleAspectFill;
-        _videoImageView.clipsToBounds=YES;
+        // 内容模式
+        _videoImageView.clipsToBounds = YES;
+        _videoImageView.contentMode = UIViewContentModeScaleAspectFill;
         [_videoImageView sd_setImageWithURL:[NSURL URLWithString:self.imgUrl]];
     }
     

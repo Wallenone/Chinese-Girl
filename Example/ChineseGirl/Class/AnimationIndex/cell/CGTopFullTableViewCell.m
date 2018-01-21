@@ -141,10 +141,10 @@
 -(UIImageView *)avaterImgView{
     if (!_avaterImgView) {
         _avaterImgView=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.topIcon.frame)+15*SCREEN_RADIO, 73*SCREEN_RADIO/2-22.5*SCREEN_RADIO, 45*SCREEN_RADIO, 45*SCREEN_RADIO)];
-        _avaterImgView.image=[UIImage imageNamed:@"Avatar"];
-        
         _avaterImgView.layer.cornerRadius=22.5*SCREEN_RADIO;
         _avaterImgView.clipsToBounds=YES;
+        _avaterImgView.contentMode = UIViewContentModeScaleAspectFill;
+        _avaterImgView.image=[UIImage imageNamed:@"Avatar"];
     }
     
     return _avaterImgView;

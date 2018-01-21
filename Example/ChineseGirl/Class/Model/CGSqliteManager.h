@@ -19,4 +19,9 @@
 + (NSDictionary *)getVideoId:(int)ids;
 + (int)getVideoTotalNum;
 + (NSMutableArray *)getVideouid:(int)uid;
+//获取表中所有的评论内容
++ (NSDictionary *)getPinglunrenId:(int)ids;
++ (NSDictionary *)getPinglunId:(int)ids;
++ (NSString *)getRandomItemCommits;  //随机得到一个item的评论
+
 @end

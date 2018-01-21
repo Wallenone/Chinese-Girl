@@ -186,11 +186,12 @@
         }
         UIImage *placeholder = [UIImage imageNamed:@"timeline_image_loading.png"];
         _itemImgView=[[UIImageView alloc] initWithFrame:CGRectMake(_textX, CGRectGetMaxY(self.timeLabel.frame)+15*SCREEN_RADIO, 220*SCREEN_RADIO, 135*SCREEN_RADIO)];
-        [_itemImgView sd_setImageWithURL:[NSURL URLWithString:self.messageModel.message] placeholderImage:placeholder];
+        
         _itemImgView.layer.cornerRadius=20*SCREEN_RADIO;
         _itemImgView.clipsToBounds=YES;
         _itemImgView.contentMode =  UIViewContentModeScaleAspectFill;
         _itemImgView.userInteractionEnabled = YES;
+        [_itemImgView sd_setImageWithURL:[NSURL URLWithString:self.messageModel.message] placeholderImage:placeholder];
         [_itemImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)]];
     }
     
@@ -207,10 +208,10 @@
         }
         UIImage *placeholder = [UIImage imageNamed:@"timeline_image_loading.png"];
         _itemVideoView=[[UIImageView alloc] initWithFrame:CGRectMake(_textX, CGRectGetMaxY(self.timeLabel.frame)+15*SCREEN_RADIO, 220*SCREEN_RADIO, 135*SCREEN_RADIO)];
-        [_itemVideoView sd_setImageWithURL:[NSURL URLWithString:self.messageModel.message_videoIcon] placeholderImage:placeholder];
         _itemVideoView.layer.cornerRadius=20*SCREEN_RADIO;
         _itemVideoView.clipsToBounds=YES;
         _itemVideoView.contentMode =  UIViewContentModeScaleAspectFill;
+        [_itemVideoView sd_setImageWithURL:[NSURL URLWithString:self.messageModel.message_videoIcon] placeholderImage:placeholder];
         _itemVideoView.userInteractionEnabled = YES;
         [_itemVideoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVideoImage:)]];
         UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(110*SCREEN_RADIO-19*SCREEN_RADIO, 67.5*SCREEN_RADIO-19*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];

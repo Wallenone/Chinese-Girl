@@ -75,9 +75,10 @@
 -(UIImageView *)leftIcon{
     if (!_leftIcon) {
         _leftIcon=[[UIImageView alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, CGRectGetMaxY(self.resultTitle.frame)+40*SCREEN_RADIO, 84*SCREEN_RADIO, 84*SCREEN_RADIO)];
-        [_leftIcon sd_setImageWithURL:[NSURL URLWithString:_avater]];
         _leftIcon.layer.cornerRadius=42*SCREEN_RADIO;
         _leftIcon.clipsToBounds=YES;
+        _leftIcon.contentMode = UIViewContentModeScaleAspectFill;
+        [_leftIcon sd_setImageWithURL:[NSURL URLWithString:_avater]];
     }
     
     return _leftIcon;
@@ -110,9 +111,11 @@
 -(UIImageView *)rightIcon{
     if (!_rightIcon) {
         _rightIcon=[[UIImageView alloc] initWithFrame:CGRectMake(screen_width-104*SCREEN_RADIO, CGRectGetMaxY(self.resultTitle.frame)+40*SCREEN_RADIO, 84*SCREEN_RADIO, 84*SCREEN_RADIO)];
-        _rightIcon.image=[CGSingleCommitData sharedInstance].avatar;
+        
         _rightIcon.layer.cornerRadius=42*SCREEN_RADIO;
         _rightIcon.clipsToBounds=YES;
+        _rightIcon.contentMode = UIViewContentModeScaleAspectFill;
+        _rightIcon.image=[CGSingleCommitData sharedInstance].avatar;
     }
     
     return _rightIcon;
