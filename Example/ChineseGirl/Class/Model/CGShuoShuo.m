@@ -22,15 +22,22 @@
     model.uid =[CGCommonString filterNullString:[dic stringForKey:@"uid"]];
     model.videoid=[CGCommonString filterNullString:[dic stringForKey:@"videoid"]];
     model.sort = [CGCommonString filterNullString:[dic stringForKey:@"sort"]];
+    model.english = [CGCommonString filterNullString:[dic stringForKey:@"english"]];
+    model.france = [CGCommonString filterNullString:[dic stringForKey:@"france"]];
+    model.spain = [CGCommonString filterNullString:[dic stringForKey:@"spain"]];
+    model.russia = [CGCommonString filterNullString:[dic stringForKey:@"russia"]];
+    model.tw = [CGCommonString filterNullString:[dic stringForKey:@"tw"]];
+    model.korea = [CGCommonString filterNullString:[dic stringForKey:@"korea"]];
+    model.japan = [CGCommonString filterNullString:[dic stringForKey:@"japan"]];
     model.content = [CGCommonString filterNullString:[dic stringForKey:@"content"]];
     model.pictures =  [self getFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.uid];
    // model.pictureBigs = [self getBigFromString:[CGCommonString filterNullString:[dic stringForKey:@"imgs"]] withId:model.uid];
-    model.pinglunid = [self getPinglunids:[CGCommonString filterNullString:[self getRandomItemCommits]]];
+    model.pinglunid = [self getPinglunids:[CGCommonString filterNullString:[dic stringForKey:@"pinglunid"]]];
     model.icon= [CGUserInfo getitemWithID:model.uid].avater;
     model.nickName = [CGUserInfo getitemWithID:model.uid].nickname;
     model.timeDate = @"1999-09-09";
     model.likes= [CGCommonString filterNullString:[dic stringForKey:@"likes"]];
-    model.comments= [CGCommonString filterNullString:[NSString stringWithFormat:@"%lu",(unsigned long)model.pinglunid.count]];
+    model.comments= [CGCommonString filterNullString:[dic stringForKey:@"comments"]];
     model.address= [CGUserInfo getitemWithID:model.uid].address;
     model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     if ([model.type integerValue]==1) {
@@ -46,18 +53,46 @@
     model.month = [NSString stringWithFormat:@"%d",[CGCommonToolsNode getRandomNumber:1 to:3]];
     NSString *toCityName=@"";
     if ([CGSingleCommitData sharedInstance].cityName.length>0) {
-        toCityName=[NSString stringWithFormat:@"%@%@%@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].cityName];
+        toCityName=[NSString stringWithFormat:@"%@ %@ %@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].cityName];
     }else{
         if ([CGSingleCommitData sharedInstance].countryName.length>0) {
-            toCityName=[NSString stringWithFormat:@"%@%@%@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].countryName];
+            toCityName=[NSString stringWithFormat:@"%@ %@ %@",model.month,NSLocalizedString(@"duoshaogeyuehou", nil),[CGSingleCommitData sharedInstance].countryName];
         }
     }
     
     model.toContent =toCityName;
-    
+    model.shuoshuoContent = [self getShuoshuoContent:model];
     return model;
 }
 
+
++(NSString *)getShuoshuoContent:(CGShuoShuo *)dic{
+    NSString *language = [NSLocale preferredLanguages].firstObject;
+    NSString *content=@"";
+    if ([language hasPrefix:@"en"]) {
+        content = dic.english;
+    } else if ([language hasPrefix:@"zh"]) {
+        if ([language rangeOfString:@"Hans"].location != NSNotFound) {
+            content = dic.content; // 简体中文
+        } else { // zh-Hant\zh-HK\zh-TW
+            content = dic.tw; // 繁體中文
+        }
+    }else if ([language hasPrefix:@"fr"]){
+        content = dic.france;
+    }else if ([language hasPrefix:@"ko"]){
+        content = dic.korea;
+    }else if ([language hasPrefix:@"ru"]){
+        content = dic.russia;
+    }else if ([language hasPrefix:@"ja"]){
+        content = dic.japan;
+    }else if ([language hasPrefix:@"es"]){
+        content = dic.spain;
+    }else {
+        content = dic.english;
+    }
+    
+    return content;
+}
 
 +(NSMutableArray *)reloadTableWithRangeFrom:(int)fromNum rangeTLenth:(int)lenth{
 
@@ -159,7 +194,4 @@
     return newArr;
 }
 
-+(NSString *)getRandomItemCommits{
-    return [CGSqliteManager getRandomItemCommits];
-}
 @end

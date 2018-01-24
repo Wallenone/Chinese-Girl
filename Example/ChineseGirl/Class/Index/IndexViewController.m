@@ -21,6 +21,7 @@
 #import "CGNewSignInViewController.h"
 #import "KNMovieViewController.h"
 #import "CGShuoShuo.h"
+#import "CGSqliteManager.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate,UIScrollViewDelegate>{
     NSIndexPath *_indexPath;
     
@@ -63,6 +64,7 @@
 //        [self delayMethod];
 //    }
 }
+
 
 -(void)delayMethod{
     self.automaticallyAdjustsScrollViewInsets = NO;

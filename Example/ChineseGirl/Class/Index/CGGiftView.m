@@ -52,10 +52,10 @@
     NSInteger moneyNum= [[monetNumArr objectAtIndex:sender.tag] integerValue];
     NSString *giftName=[giftNameArr objectAtIndex:sender.tag];
     if (moneyNum<=[CGSingleCommitData sharedInstance].goldNum) {
+        [CGSingleCommitData sharedInstance].goldNum-=moneyNum;
         if (getGiftBlock) {
             getGiftBlock(giftName,[NSString stringWithFormat:@"gift%ld",sender.tag+1]);
         }
-        [CGSingleCommitData sharedInstance].goldNum-=sender.tag;
         [self setData];
     }else{
         if (buyGiftClickBlock) {

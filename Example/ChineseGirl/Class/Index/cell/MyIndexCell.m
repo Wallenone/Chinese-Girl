@@ -288,10 +288,10 @@
 -(UITextView *)contentLabel{
     if (!_contentLabel) {
         CGSize constraint = CGSizeMake(screen_width-30*SCREEN_RADIO, 99999.0f);
-        CGSize size = [self.myIndexModel.content sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize size = [self.myIndexModel.shuoshuoContent sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         
         _contentLabel=[[UITextView alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO, CGRectGetMaxY(self.timeDateLabel.frame), screen_width-30*SCREEN_RADIO, size.height+15*SCREEN_RADIO)];
-        _contentLabel.text=self.myIndexModel.content;
+        _contentLabel.text=self.myIndexModel.shuoshuoContent;
         _contentLabel.textColor=[UIColor getColor:@"000000"];
         _contentLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         [_contentLabel setEditable:NO];

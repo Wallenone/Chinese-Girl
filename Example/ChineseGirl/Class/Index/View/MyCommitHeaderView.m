@@ -81,7 +81,7 @@
         _commitLabel=[[UILabel alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, CGRectGetMaxY(self.dateLabel.frame)+18*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 0)];
         _commitLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         _commitLabel.textColor=[UIColor getColor:@"232627"];
-        _commitLabel.text=self.commitModel.content;
+        _commitLabel.text=self.commitModel.shuoshuoContent;
         _commitLabel.numberOfLines=0;
         [_commitLabel sizeToFit];
     }

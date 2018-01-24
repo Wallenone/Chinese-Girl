@@ -67,12 +67,12 @@
 -(CGFloat)getCellHeightWithModel:(NSDictionary *)dict withIndex:(NSInteger)index{
     
     NSString *contentStr=@"";
-    CGFloat _height=50*SCREEN_RADIO;
+    CGFloat _height=60*SCREEN_RADIO;
     
     if (index==0) {
         _height=97;
         CGShuoShuo *shuoshuo=(CGShuoShuo *)dict;
-        contentStr=shuoshuo.content;
+        contentStr=shuoshuo.shuoshuoContent;
     }else{
         contentStr=[dict objectForKey:@"content"];
     }

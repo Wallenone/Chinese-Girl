@@ -18,7 +18,6 @@ static NSString *const kBirthDayKey = @"birthDayKey";
 static NSString *const kAboutUsKey = @"aboutUsKey";
 static NSString *const kAlbumSKey = @"albumSKey";
 static NSString *const kVipLevelKey = @"vipLevelKey";
-static NSString *const kLanguageNameKey = @"languageNameKey";
 static NSString *const kFavouriteSKey = @"favouriteSKey";
 static NSString *const kFollowSKey = @"followSKey";
 static NSString *const kNewsListArrKey = @"newsListArrKey";
@@ -128,13 +127,6 @@ static CGSingleCommitData *_instance = nil;
             self.vipLevel=kLevel;
         }else{
             self.vipLevel=@"";
-        }
-        
-        NSString *kLanguageName=[[NSUserDefaults standardUserDefaults] stringForKey:kLanguageNameKey];
-        if (![CGCommonString isBlankString:kLanguageName]) {
-            self.languageName=kLanguageName;
-        }else{
-            self.languageName=@"English";
         }
         
         NSInteger goldNum=[[NSUserDefaults standardUserDefaults] integerForKey:kgoldNumKey];
@@ -330,15 +322,6 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] setValue:_vipLevel forKey:kVipLevelKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-}
-
--(void)setLanguageName:(NSString *)languageName{
-    if ([CGCommonString isBlankString:languageName]) {
-        _languageName=@"English";
-    }
-    _languageName=languageName;
-    [[NSUserDefaults standardUserDefaults] setValue:_languageName forKey:kLanguageNameKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 

@@ -12,6 +12,13 @@
 @property(nonatomic,copy)NSString *ids;
 @property(nonatomic,copy)NSString *uid;
 @property(nonatomic,copy)NSString *sort;
+@property(nonatomic,copy)NSString *english; //英语
+@property(nonatomic,copy)NSString *france;  //法语
+@property(nonatomic,copy)NSString *spain;   //西班牙语
+@property(nonatomic,copy)NSString *russia;  //俄语
+@property(nonatomic,copy)NSString *tw;      //繁体
+@property(nonatomic,copy)NSString *korea;   //韩语
+@property(nonatomic,copy)NSString *japan;   //日语
 @property(nonatomic,copy)NSString *content;
 @property(nonatomic,strong)NSArray *pictures;
 @property(nonatomic,strong)NSArray *pictureBigs;
@@ -29,9 +36,11 @@
 @property(nonatomic,copy)NSString *month;
 @property(nonatomic,copy)NSString *toContent;
 @property(nonatomic,assign)BOOL isLike;   //点赞
+@property(nonatomic,copy)NSString *shuoshuoContent;
 +(CGShuoShuo *)getTableWithId:(NSString *)ids;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithUid:(int)uid WithRangeFrom:(int)fromNum rangeTLenth:(int)lenth;
 +(NSMutableArray *)reloadTableWithRangeFrom:(int)fromNum rangeTLenth:(int)lenth;
 +(void)reloadTableRondom;//随机排序说说内容，主要用在首页数据
++(NSArray *)getPinglunids:(NSString *)pinglunids;
 @end

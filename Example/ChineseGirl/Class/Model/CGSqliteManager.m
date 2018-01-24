@@ -1,23 +1,28 @@
 #import "CGSqliteManager.h"
+#import "CGShuoShuo.h"
 #import <sqlite3.h>
 static CGSqliteManager *tool = nil;
 
 @implementation CGSqliteManager
 
 // 创建数据库指针
-static sqlite3 *db = nil;
+static sqlite3 *t_db = nil;
 
 // 打开数据库
 + (sqlite3 *)open:(NSString *)dbname {
-    if (db != nil) {
-        return db;
+    if (t_db != nil) {
+        return t_db;
     }
+    
+//    NSString *pathDocuments = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+//    NSString *sqlPath = [NSString stringWithFormat:@"%@/%@.sqlite",pathDocuments,dbname];
+    
     
      NSString *sqlPath = [[NSBundle mainBundle] pathForResource:dbname ofType:@"sqlite"];
 
-    sqlite3_open([sqlPath UTF8String], &db);
+    sqlite3_open([sqlPath UTF8String], &t_db);
     
-    return db;
+    return t_db;
 }
 
 + (NSDictionary *)getShuoshuoId:(int)ids{
@@ -71,6 +76,32 @@ static sqlite3 *db = nil;
     return mArr;
 }
 
++ (NSMutableArray *)getShuoshuoAll{
+    // 打开数据库
+    sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
+    // 创建一个语句对象
+    sqlite3_stmt *stmt = nil;
+    
+    // 声明数组对象
+    NSMutableArray *mArr = nil;
+    // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
+    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo"] UTF8String];
+    int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
+    if (result == SQLITE_OK){
+        // 为数组开辟空间
+        mArr = [NSMutableArray arrayWithCapacity:0];
+        while (sqlite3_step(stmt) == SQLITE_ROW) {
+            [mArr addObject:[self getShuoshuoModel:stmt]];
+        }
+        
+    }
+    
+    // 关闭数据库
+    sqlite3_finalize(stmt);
+    [self close];
+    return mArr;
+}
+
 + (int)getShuoshuoTotalNum{
     
     return [self getTotalNumTable:@"Shuoshuo"];
@@ -91,41 +122,76 @@ static sqlite3 *db = nil;
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] :
     nil;
     
-    NSString *content = ((char *)sqlite3_column_text(stmt, 3)) ?
+    NSString *english = ((char *)sqlite3_column_text(stmt, 3)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 3)] :
     nil;
     
-    NSString *videoid = ((char *)sqlite3_column_text(stmt, 4)) ?
+    NSString *france = ((char *)sqlite3_column_text(stmt, 4)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 4)] :
     nil;
     
-    NSString *imgs = ((char *)sqlite3_column_text(stmt, 5)) ?
+    NSString *spain = ((char *)sqlite3_column_text(stmt, 5)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 5)] :
     nil;
     
-    NSString *pinglunid = ((char *)sqlite3_column_text(stmt, 6)) ?
+    NSString *russia = ((char *)sqlite3_column_text(stmt, 6)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 6)] :
     nil;
     
-    NSString *likes = ((char *)sqlite3_column_text(stmt, 7)) ?
+    NSString *tw = ((char *)sqlite3_column_text(stmt, 7)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 7)] :
     nil;
     
-    NSString *comments = ((char *)sqlite3_column_text(stmt, 8)) ?
+    NSString *korea = ((char *)sqlite3_column_text(stmt, 8)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 8)] :
     nil;
     
-    NSString *type = ((char *)sqlite3_column_text(stmt, 9)) ?
+    NSString *japan = ((char *)sqlite3_column_text(stmt, 9)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 9)] :
     nil;
     
-    NSString *quanzhong = ((char *)sqlite3_column_text(stmt, 10)) ?
+    NSString *content = ((char *)sqlite3_column_text(stmt, 10)) ?
     [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 10)] :
     nil;
     
+    NSString *videoid = ((char *)sqlite3_column_text(stmt, 11)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 11)] :
+    nil;
+    
+    NSString *imgs = ((char *)sqlite3_column_text(stmt, 12)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 12)] :
+    nil;
+    
+    NSString *pinglunid = ((char *)sqlite3_column_text(stmt, 13)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 13)] :
+    nil;
+    
+    NSString *likes = ((char *)sqlite3_column_text(stmt, 14)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 14)] :
+    nil;
+    
+    NSString *comments = ((char *)sqlite3_column_text(stmt, 15)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 15)] :
+    nil;
+    
+    NSString *type = ((char *)sqlite3_column_text(stmt, 16)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 16)] :
+    nil;
+    
+    NSString *quanzhong = ((char *)sqlite3_column_text(stmt, 17)) ?
+    [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 17)] :
+    nil;
+    
     // 将获取到的C语言字符串转换成OC字符串
-    NSString *c_sort = [CGCommonString filterNullString:sort];
     NSString *c_uid = [CGCommonString filterNullString:uid];
+    NSString *c_sort = [CGCommonString filterNullString:sort];
+    NSString *c_english = [CGCommonString filterNullString:english];
+    NSString *c_france = [CGCommonString filterNullString:france];
+    NSString *c_spain = [CGCommonString filterNullString:spain];
+    NSString *c_russia = [CGCommonString filterNullString:russia];
+    NSString *c_tw = [CGCommonString filterNullString:tw];
+    NSString *c_korea = [CGCommonString filterNullString:korea];
+    NSString *c_japan = [CGCommonString filterNullString:japan];
     NSString *c_content = [CGCommonString filterNullString:content];
     NSString *c_videoid = [CGCommonString filterNullString:videoid];
     NSString *c_imgs = [CGCommonString filterNullString:imgs];
@@ -135,7 +201,7 @@ static sqlite3 *db = nil;
     NSString *c_type = [CGCommonString filterNullString:type];
     NSString *c_quanzhong = [CGCommonString filterNullString:quanzhong];
     
-    shuoshuoModel= @{@"id":ID,@"uid":c_uid,@"sort":c_sort,@"content":c_content,@"videoid":c_videoid,@"imgs":c_imgs,@"pinglunid":c_pinglunid,@"likes":c_likes,@"comments":c_comments,@"type":c_type,@"quanzhong":c_quanzhong};
+    shuoshuoModel= @{@"id":ID,@"uid":c_uid,@"sort":c_sort,@"english":c_english,@"france":c_france,@"spain":c_spain,@"russia":c_russia,@"tw":c_tw,@"korea":c_korea,@"japan":c_japan,@"content":c_content,@"videoid":c_videoid,@"imgs":c_imgs,@"pinglunid":c_pinglunid,@"likes":c_likes,@"comments":c_comments,@"type":c_type,@"quanzhong":c_quanzhong};
     return shuoshuoModel;
 }
 
@@ -374,37 +440,37 @@ static sqlite3 *db = nil;
     return pinglunModel;
 }
 
-+(int)getPinglunTotalNum{
-    return [self getTotalNumTable:@"Pinglun"];
-}
-
-+(int)getPinglunRenTotalNum{
-    return [self getTotalNumTable:@"Pinglunren"];
-}
-
-
-+ (NSString *)getRandomItemCommits{
-    NSString *commitStr=@"";
-    int totalNum=[CGCommonToolsNode getRandomNumber:2 to:20];
-    NSArray *rodomPinglunrenArr= [CGCommonToolsNode genertateRandomNumberStartNum:1 endNum:[self getPinglunRenTotalNum] count:totalNum];
-    
-    NSArray *rodomPinglunArr= [CGCommonToolsNode genertateRandomNumberStartNum:1 endNum:[self getPinglunTotalNum] count:totalNum];
-    
-    for (int i=0; i<rodomPinglunrenArr.count; i++) {
-        int pinglunrenId=[[rodomPinglunrenArr objectAtIndex:i] intValue];
-        int pinglunId=[[rodomPinglunArr objectAtIndex:i] intValue];
-        
-        if (i==rodomPinglunrenArr.count-1) {
-            commitStr=[NSString stringWithFormat:@"%@%d-%d",commitStr,pinglunrenId,pinglunId];
-        }else{
-            commitStr=[NSString stringWithFormat:@"%@%d-%d/",commitStr,pinglunrenId,pinglunId];
-        }
-        
-        
-    }
-    
-    return commitStr;
-}
+//+(int)getPinglunTotalNum{
+//    return 461;
+//}
+//
+//+(int)getPinglunRenTotalNum{
+//    return 108;
+//}
+//
+//
+//+ (NSString *)getRandomItemCommits{
+//    NSString *commitStr=@"";
+//    int totalNum=[CGCommonToolsNode getRandomNumber:2 to:20];
+//    NSArray *rodomPinglunrenArr= [CGCommonToolsNode genertateRandomNumberStartNum:1 endNum:[self getPinglunRenTotalNum] count:totalNum];
+//    
+//    NSArray *rodomPinglunArr= [CGCommonToolsNode genertateRandomNumberStartNum:1 endNum:[self getPinglunTotalNum] count:totalNum];
+//    
+//    for (int i=0; i<rodomPinglunrenArr.count; i++) {
+//        int pinglunrenId=[[rodomPinglunrenArr objectAtIndex:i] intValue];
+//        int pinglunId=[[rodomPinglunArr objectAtIndex:i] intValue];
+//        
+//        if (i==rodomPinglunrenArr.count-1) {
+//            commitStr=[NSString stringWithFormat:@"%@%d-%d",commitStr,pinglunrenId,pinglunId];
+//        }else{
+//            commitStr=[NSString stringWithFormat:@"%@%d-%d/",commitStr,pinglunrenId,pinglunId];
+//        }
+//        
+//        
+//    }
+//    
+//    return commitStr;
+//}
 
 + (int)getTotalNumTable:(NSString *)table{
     sqlite3 *db = [CGSqliteManager open:table];
@@ -416,6 +482,8 @@ static sqlite3 *db = nil;
     const char *sql=[[NSString stringWithFormat:@"select * from %@",table] UTF8String];
     
     ret=sqlite3_get_table(db, sql, &dbResult, &nRow, &nColumn, &errmsg);
+    
+    NSLog(@"num:=%d",nRow);
     
     if(1 == ret)     //数据库创建未成功
     {
@@ -443,9 +511,9 @@ static sqlite3 *db = nil;
 // 关闭数据库
 + (void)close {
     // 关闭数据库
-    sqlite3_close(db);
+    sqlite3_close(t_db);
     // 将数据库的指针置空
-    db = nil;
+    t_db = nil;
 }
 
 @end

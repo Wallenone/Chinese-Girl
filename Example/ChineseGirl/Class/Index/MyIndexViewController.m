@@ -85,9 +85,9 @@
 -(CGFloat)getCellHeightWithModel:(CGShuoShuo*)model{
     if([model.type integerValue]==1){
         CGFloat _height=194*SCREEN_RADIO;
-        if(model.content.length>0){
+        if(model.shuoshuoContent.length>0){
             CGSize constraint = CGSizeMake(screen_width-20*SCREEN_RADIO, 99999.0f);
-            CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+            CGSize size = [model.shuoshuoContent sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
             _height+=size.height;
         }
         
@@ -107,9 +107,9 @@
         return _height;
     }else if ([model.type integerValue]==2){
         CGFloat _height=194*SCREEN_RADIO;
-        if(model.content.length>0){
+        if(model.shuoshuoContent.length>0){
             CGSize constraint = CGSizeMake(screen_width-20*SCREEN_RADIO, 99999.0f);
-            CGSize size = [model.content sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+            CGSize size = [model.shuoshuoContent sizeWithFont:[UIFont systemFontOfSize:13.0f*SCREEN_RADIO] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
             _height+=size.height;
         }
         
