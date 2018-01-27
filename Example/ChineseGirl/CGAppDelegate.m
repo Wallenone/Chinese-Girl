@@ -94,35 +94,15 @@
     //定时任务启动
     [CGGlobalTimerNode reloadTask];
     
-    [self setLocalLanguage];
+    [self getNetWorkAppInfo];
     
     return YES;
 }
 
--(void)setLocalLanguage{
-    NSString *language = [NSLocale preferredLanguages].firstObject;
-    if ([language hasPrefix:@"en"]) {
-        language = @"english";
-    } else if ([language hasPrefix:@"zh"]) {
-        if ([language rangeOfString:@"Hans"].location != NSNotFound) {
-            language = @"en"; // 简体中文
-        } else { // zh-Hant\zh-HK\zh-TW
-            language = @"tw"; // 繁體中文
-        }
-    }else if ([language hasPrefix:@"fr"]){
-        language = @"france";
-    }else if ([language hasPrefix:@"ko"]){
-        language = @"korea";
-    }else if ([language hasPrefix:@"ru"]){
-        language = @"russia";
-    }else if ([language hasPrefix:@"ja"]){
-        language = @"japan";
-    }else if ([language hasPrefix:@"es"]){
-        language = @"spain";
-    }else {
-        language = @"english";
-    }
-    [CGSingleCommitData sharedInstance].languageName=language;
+-(void)getNetWorkAppInfo{
+    NSURL *url=[NSURL URLWithString:@"https://github.com/Wallenone/service/blob/master/appinfo.txt"];
+    NSString *content=[[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"app数据:=%@",content);
 }
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
