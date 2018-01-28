@@ -229,23 +229,25 @@
     
     for (int i=0; i<_count; i++) {
         
-        NSDictionary *dict= [[CGPinglun reloadCommits:self.myIndexModel.pinglunid] objectAtIndex:i];
-        
-        NSString *nickNameStr=[dict objectForKey:@"nickName"];
-        NSString *contentStr=[dict objectForKey:@"content"];
-    
-        UILabel *nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, 0, 14*SCREEN_RADIO)];
-        nickName.text=  nickNameStr;
-        nickName.textColor=[UIColor getColor:@"274E6E"];
-        nickName.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
-        [nickName sizeToFit];
-        [self.commitView addSubview:nickName];
-        
-        UILabel *commitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(nickName.frame)+10*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, screen_width-102*SCREEN_RADIO, 17*SCREEN_RADIO)];
-        commitLabel.text=contentStr;
-        commitLabel.textColor=[UIColor getColor:@"99A3A9"];
-        commitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
-        [self.commitView addSubview:commitLabel];
+        if ([CGPinglun reloadCommits:self.myIndexModel.pinglunid].count>0) {
+            NSDictionary *dict= [[CGPinglun reloadCommits:self.myIndexModel.pinglunid] objectAtIndex:i];
+            
+            NSString *nickNameStr=[dict objectForKey:@"nickName"];
+            NSString *contentStr=[dict objectForKey:@"content"];
+            
+            UILabel *nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.likeImgView.frame)+8.5*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, 0, 14*SCREEN_RADIO)];
+            nickName.text=  nickNameStr;
+            nickName.textColor=[UIColor getColor:@"274E6E"];
+            nickName.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
+            [nickName sizeToFit];
+            [self.commitView addSubview:nickName];
+            
+            UILabel *commitLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(nickName.frame)+10*SCREEN_RADIO, 5*SCREEN_RADIO+(14+10)*i, screen_width-102*SCREEN_RADIO, 17*SCREEN_RADIO)];
+            commitLabel.text=contentStr;
+            commitLabel.textColor=[UIColor getColor:@"99A3A9"];
+            commitLabel.font=[UIFont boldSystemFontOfSize:14*SCREEN_RADIO];
+            [self.commitView addSubview:commitLabel];
+        }
     }
 }
 

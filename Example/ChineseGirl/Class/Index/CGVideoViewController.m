@@ -52,9 +52,6 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
-    if (self.playerView.state==ZFPlayerStatePause) {
-        [self.playerView play];
-    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -67,8 +64,7 @@
     self.view.backgroundColor=[UIColor blackColor];
     UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapViewAction:)];
     [self.view addGestureRecognizer:tapGesturRecognizer];
-    [self performSelector:@selector(delayMethod) withObject:nil afterDelay:0.2];
-    
+    [self delayMethod];
 }
 
 - (void)delayMethod{
@@ -77,7 +73,6 @@
 }
 
 -(void)tapAction {
-    [self.playerView pause];
     if ([CGSingleCommitData sharedInstance].uid.length<=0) {
         CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
@@ -122,7 +117,6 @@
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
-        [self.playerView pause];
         if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
             NewsMessageController *newMessage=[[NewsMessageController alloc] init];
             newMessage.userid=self.uid;
@@ -268,8 +262,6 @@
         [self.playerView.screenImgView sd_setImageWithURL:[NSURL URLWithString:self.videoIcon]];
         self.playerView.playerLayerGravity=ZFPlayerLayerGravityResize;
         [self.playerView autoPlayTheVideo];
-    
-    
 }
 
 

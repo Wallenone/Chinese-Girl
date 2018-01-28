@@ -20,9 +20,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor getColor:@"fafafa"];
-        [self getData];
-        [self addSubViews];
-        [self setScrollViewPoint];
+        if (![CGSingleCommitData sharedInstance].isDebug) {
+            [self getData];
+            [self addSubViews];
+            [self setScrollViewPoint];
+        }
     }
     
     return self;

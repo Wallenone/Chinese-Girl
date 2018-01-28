@@ -333,6 +333,7 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+
 -(void)addAlbumS:(UIImage *)img{
     if (img) {
         [self.albumS addObject:UIImagePNGRepresentation(img)];

@@ -23,11 +23,11 @@
 @property(nonatomic,strong)UILabel *aboutUs;
 @property(nonatomic,strong)RkyExtendedHitButton *addBtn;
 @property(nonatomic,strong)UIImageView *contentImg1;
-@property(nonatomic,strong)RkyExtendedHitButton *contentBtn1;
+@property(nonatomic,strong)UIButton *contentBtn1;
 @property(nonatomic,strong)UIImageView *contentImg2;
-@property(nonatomic,strong)RkyExtendedHitButton *contentBtn2;
+@property(nonatomic,strong)UIButton *contentBtn2;
 @property(nonatomic,strong)UIImageView *contentImg3;
-@property(nonatomic,strong)RkyExtendedHitButton *contentBtn3;
+@property(nonatomic,strong)UIButton *contentBtn3;
 @property(nonatomic,strong)NSMutableArray *imgViewArr;
 @end
 @implementation CGNewFriendTableViewCell
@@ -229,11 +229,10 @@
     return _contentImg1;
 }
 
--(RkyExtendedHitButton *)contentBtn1{
+-(UIButton *)contentBtn1{
     if (!_contentBtn1) {
-        _contentBtn1=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        _contentBtn1=[[UIButton alloc] initWithFrame:CGRectMake(1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentBtn1 addTarget:self action:@selector(ImgClick1) forControlEvents:UIControlEventTouchUpInside];
-        _contentBtn1.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _contentBtn1;
@@ -254,11 +253,10 @@
     return _contentImg2;
 }
 
--(RkyExtendedHitButton *)contentBtn2{
+-(UIButton *)contentBtn2{
     if (!_contentBtn2) {
-        _contentBtn2=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg1.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        _contentBtn2=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg1.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentBtn2 addTarget:self action:@selector(ImgClick2) forControlEvents:UIControlEventTouchUpInside];
-        _contentBtn2.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _contentBtn2;
@@ -278,11 +276,10 @@
     return _contentImg3;
 }
 
--(RkyExtendedHitButton *)contentBtn3{
+-(UIButton *)contentBtn3{
     if (!_contentBtn3) {
-        _contentBtn3=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg2.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
+        _contentBtn3=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg2.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
         [_contentBtn3 addTarget:self action:@selector(ImgClick3) forControlEvents:UIControlEventTouchUpInside];
-        _contentBtn3.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     
     return _contentBtn3;

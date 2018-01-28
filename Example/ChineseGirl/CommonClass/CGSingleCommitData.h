@@ -30,7 +30,8 @@
 @property(nonatomic,strong)NSMutableArray *userListDataArr;  //随机用户数据(存的都是聊过天的用户)
 @property(nonatomic,strong)NSMutableArray *newsListArr;  //聊天页面列表
 @property(nonatomic,strong)NSMutableArray *addFriendArr;  //添加好友
-
+@property(nonatomic,assign)BOOL isDebug;  //yes是测试数据 no是正式数据
+@property(nonatomic,copy)NSString *resultName;  //资源名称
 + (instancetype)sharedInstance;
 - (void)logout;
 -(void)addAlbumS:(UIImage *)img;   //增加一个相册

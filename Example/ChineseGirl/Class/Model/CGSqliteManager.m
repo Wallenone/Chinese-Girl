@@ -5,6 +5,8 @@ static CGSqliteManager *tool = nil;
 
 @implementation CGSqliteManager
 
+#define shuoshuo [CGSingleCommitData sharedInstance].isDebug?@"Shuoshuo1":@"Shuoshuo"
+
 // 创建数据库指针
 static sqlite3 *t_db = nil;
 
@@ -28,12 +30,12 @@ static sqlite3 *t_db = nil;
 + (NSDictionary *)getShuoshuoId:(int)ids{
     NSDictionary *shuoshuoModel;
     // 打开数据库
-    sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
+    sqlite3 *db = [CGSqliteManager open:shuoshuo];
     // 创建一个语句对象
     sqlite3_stmt *stmt = nil;
     
     // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo where id=%d",ids] UTF8String];
+    const char *sql=[[NSString stringWithFormat:@"select * from %@ where id=%d",shuoshuo,ids] UTF8String];
     int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
     if (result == SQLITE_OK){
         while (sqlite3_step(stmt) == SQLITE_ROW) {
@@ -52,14 +54,14 @@ static sqlite3 *t_db = nil;
 
 + (NSMutableArray *)getShuoshuouid:(int)uid withLimitFrom:(int)from withTo:(int)to{
     // 打开数据库
-    sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
+    sqlite3 *db = [CGSqliteManager open:shuoshuo];
     // 创建一个语句对象
     sqlite3_stmt *stmt = nil;
     
     // 声明数组对象
     NSMutableArray *mArr = nil;
     // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo where uid=%d limit %d,%d",uid,from,to] UTF8String];
+    const char *sql=[[NSString stringWithFormat:@"select * from %@ where uid=%d limit %d,%d",shuoshuo,uid,from,to] UTF8String];
     int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
     if (result == SQLITE_OK){
         // 为数组开辟空间
@@ -78,14 +80,14 @@ static sqlite3 *t_db = nil;
 
 + (NSMutableArray *)getShuoshuoAll{
     // 打开数据库
-    sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
+    sqlite3 *db = [CGSqliteManager open:shuoshuo];
     // 创建一个语句对象
     sqlite3_stmt *stmt = nil;
     
     // 声明数组对象
     NSMutableArray *mArr = nil;
     // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo"] UTF8String];
+    const char *sql=[[NSString stringWithFormat:@"select * from %@",shuoshuo] UTF8String];
     int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
     if (result == SQLITE_OK){
         // 为数组开辟空间
@@ -104,7 +106,7 @@ static sqlite3 *t_db = nil;
 
 + (int)getShuoshuoTotalNum{
     
-    return [self getTotalNumTable:@"Shuoshuo"];
+    return [self getTotalNumTable:shuoshuo];
 }
 
 +(NSDictionary *)getShuoshuoModel:(sqlite3_stmt *)stmt{
@@ -207,7 +209,7 @@ static sqlite3 *t_db = nil;
 
 + (NSArray *)allShuoshuoLimitFrom:(int)from withTo:(int)to{
     // 打开数据库
-    sqlite3 *db = [CGSqliteManager open:@"Shuoshuo"];
+    sqlite3 *db = [CGSqliteManager open:shuoshuo];
     
     // 创建一个语句对象
     sqlite3_stmt *stmt = nil;
@@ -216,7 +218,7 @@ static sqlite3 *t_db = nil;
     NSMutableArray *mArr = nil;
     
     // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo limit %d,%d",from,to] UTF8String];
+    const char *sql=[[NSString stringWithFormat:@"select * from %@ limit %d,%d",shuoshuo,from,to] UTF8String];
     int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
     if (result == SQLITE_OK) {
         
@@ -248,7 +250,7 @@ static sqlite3 *t_db = nil;
     NSMutableArray *mArr = nil;
     
     // 此函数的作用是生成一个语句对象，此时sql语句并没有执行，创建的语句对象，保存了关联的数据库，执行的sql语句，sql语句的长度等信息
-    const char *sql=[[NSString stringWithFormat:@"select * from Shuoshuo limit %d,%d",from,to] UTF8String];
+    const char *sql=[[NSString stringWithFormat:@"select * from %@ limit %d,%d",shuoshuo,from,to] UTF8String];
     int result = sqlite3_prepare_v2(db, sql, -1, &stmt, nil);
     if (result == SQLITE_OK) {
         

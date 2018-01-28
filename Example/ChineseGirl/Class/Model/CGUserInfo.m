@@ -8,6 +8,8 @@
 
 #import "CGUserInfo.h"
 #import "CGMessageModel.h"
+
+#define userInfo [CGSingleCommitData sharedInstance].isDebug?@"userInfo1":@"userInfo"
 @interface CGUserInfo()
 @end
 @implementation CGUserInfo
@@ -18,7 +20,7 @@
     model.sex = [CGCommonString filterNullString:[dic stringForKey:@"sex"]];
     model.birthday = [CGCommonString filterNullString:[dic stringForKey:@"birthday"]];
     model.aboutus = [CGCommonString filterNullString:[dic stringForKey:@"aboutus"]];
-    model.avater = [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.ids,@"/Enclosure/",[CGCommonString filterNullString:[dic stringForKey:@"avater"]]];
+    model.avater = [NSString stringWithFormat:@"%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,model.ids,@"/Enclosure/",[CGCommonString filterNullString:[dic stringForKey:@"avater"]]];
     model.address = [NSString stringWithFormat:@"China,%@",[CGCommonString filterNullString:[dic stringForKey:@"city"]]] ;
     model.bigAvater = [self getBigAvater:model.avater withIds:model.ids];
     model.pictures = [self getPictures:[CGCommonString filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
@@ -32,7 +34,7 @@
 }
 
 +(NSArray *)reloadTableRondomCount:(NSInteger)count{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userInfo" ofType:@"plist"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:userInfo ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSMutableArray *newData=[NSMutableArray new];
     
@@ -46,7 +48,7 @@
 }
 
 +(void)getTableRondomNewsUser{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userInfo" ofType:@"plist"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:userInfo ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     int _userid=[CGCommonToolsNode getRandomNumber:0 to:(int)data1.count-1];
     
@@ -64,7 +66,7 @@
 }
 
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth{
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userinfo" ofType:@"plist"];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:userInfo ofType:@"plist"];
 //    NSMutableArray *data1 = [[[[NSMutableArray alloc] initWithContentsOfFile:filePath] subarrayWithRange:NSMakeRange(fromNum, lenth)] mutableCopy];
 //
     NSMutableArray *newData=[NSMutableArray new];
@@ -91,7 +93,7 @@
 
 +(CGUserInfo *)getitemWithID:(NSString *)ids{
   
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"userInfo" ofType:@"plist"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:userInfo ofType:@"plist"];
     NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     NSDictionary *dict= [data1 objectAtIndex:[ids intValue]-1];
     
@@ -116,7 +118,7 @@
     NSString *iconTstr=[array objectAtIndex:array.count-1];
     NSArray *array1 = [iconTstr componentsSeparatedByString:@"."];
     NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
-    NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+    NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
     
     return newIcon;
 }
@@ -125,7 +127,7 @@
     NSArray *array = [icon componentsSeparatedByString:@"/"];
     NSMutableArray *newArr=[NSMutableArray new];
     for (NSString *img in array) {
-        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",img];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",img];
         [newArr addObject:newIcon];
     }
     
@@ -138,7 +140,7 @@
     for (NSString *img in array) {
         NSArray *array1 = [img componentsSeparatedByString:@"."];
         NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
-        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
         [newArr addObject:newIcon];
     }
     
@@ -159,7 +161,7 @@
 +(NSMutableArray *)getVideoUrlsId:(NSString *)ids{
     NSMutableArray *newArr=[NSMutableArray new];
     for (int i=1; i<=3; i++) {
-        NSString *videoUrl= [NSString stringWithFormat:@"%@%@%@%@%d%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",ids,@"/Enclosure/",@"V",i,@".mp4"];
+        NSString *videoUrl= [NSString stringWithFormat:@"%@%@%@%@%@%d%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",@"V",i,@".mp4"];
         [newArr addObject:videoUrl];
     }
     

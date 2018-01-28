@@ -56,6 +56,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self delayMethod];
+    
+    
+    
 //    BOOL isFirstUp =  [[NSUserDefaults standardUserDefaults] objectForKey:@"FirstLoad"];
 //    if (!isFirstUp) {
 //        [self LaunchVideo];
@@ -230,7 +233,6 @@
             UITableViewCell *inCell;
             if (index.row==0) {
                 WSCollectionHeaderCell *cell = [[WSCollectionHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-                
                 return (UITableViewCell *)cell;
             }else{
                 CGShuoShuo *indexModel=(CGShuoShuo *)cellData;
@@ -255,6 +257,9 @@
         [_tbv onChangeCellHeight:^CGFloat(NSIndexPath *indexPath,id cellData) {
             
             if (indexPath.row==0) {
+                if ([CGSingleCommitData sharedInstance].isDebug) {
+                    return 0;
+                }
                  return 104*SCREEN_RADIO;
             }
             
@@ -283,17 +288,18 @@
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
             NSLog(@"click");
-            if (indexPath.row!=0) {
-                CGShuoShuo *indexModel=(CGShuoShuo *)cellData;
-                if ([indexModel.type integerValue]==2) {
-                    CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
-                    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
-                    videoVC.videoIcon=indexModel.videoPicUrl;
-                    videoVC.videoStr=indexModel.videoUrl;
-                    videoVC.uid=indexModel.uid;
-                    [weakSelf.navigationController presentViewController:nav animated:NO completion:nil];
-                }
-            }
+//            if (indexPath.row!=0) {
+//                CGShuoShuo *indexModel=(CGShuoShuo *)cellData;
+//                if ([indexModel.type integerValue]==2) {
+//                    CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+//                    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+//                    videoVC.videoIcon=indexModel.videoPicUrl;
+//                    videoVC.videoStr=indexModel.videoUrl;
+//                    videoVC.uid=indexModel.uid;
+//                    [weakSelf.navigationController presentViewController:nav animated:YES completion:nil];
+//
+//                }
+//            }
         }];
         
         

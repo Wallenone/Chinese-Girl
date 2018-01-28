@@ -27,8 +27,8 @@
         NSArray *array = [model.message componentsSeparatedByString:@"/"];
         NSArray *array1 = [array[array.count-1] componentsSeparatedByString:@"."];
         NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
-        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",array[0],@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
-        model.message=[NSString stringWithFormat:@"%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/imgData/",model.message];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,array[0],@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+        model.message=[NSString stringWithFormat:@"%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,model.message];
         model.message_Bigpicture=newIcon;
     }else if ([model.type integerValue]==4){
         CGVideoDataModel *videoModel =[CGVideoDataModel reloadTableWithIds:[model.ids integerValue]];

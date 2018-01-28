@@ -31,16 +31,19 @@
             
            
         }else{
-            NSArray *array = [item componentsSeparatedByString:@"-"];
-            if (array.count>0) {
-                NSString *nickName= [self reloadPinlunRenTableWithIds:[array objectAtIndex:0]];
-                NSString *content = [self reloadTableWithIds:[array objectAtIndex:1]];
-                
-                NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
-                [dict setObject:nickName forKey:@"nickName"];
-                [dict setObject:content forKey:@"content"];
-                [newArr addObject:dict];
+            if(item.length>0){
+                NSArray *array = [item componentsSeparatedByString:@"-"];
+                if (array.count>0) {
+                    NSString *nickName= [self reloadPinlunRenTableWithIds:[array objectAtIndex:0]];
+                    NSString *content = [self reloadTableWithIds:[array objectAtIndex:1]];
+                    
+                    NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
+                    [dict setObject:nickName forKey:@"nickName"];
+                    [dict setObject:content forKey:@"content"];
+                    [newArr addObject:dict];
+                }
             }
+            
         }
     }
     

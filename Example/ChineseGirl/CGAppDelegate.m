@@ -24,6 +24,8 @@
 #import "CGManageRegisterViewController.h"
 #import "CGProfileIndexViewController.h"
 #import "CGGlobalTimerNode.h"
+#import "AFURLSessionManager.h"
+#import "CGLaunchViewController.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 
@@ -38,9 +40,51 @@
     
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-    //1.创建Window
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+//    CGLaunchViewController *indeVC=[[CGLaunchViewController alloc] init];
+//    self.window.rootViewController=indeVC;
+    [self.window makeKeyAndVisible];
+    
+    [CGSingleCommitData sharedInstance].isDebug=NO;
+    if ([CGSingleCommitData sharedInstance].isDebug){
+        [CGSingleCommitData sharedInstance].resultName=@"Debug/imgData/";
+        [CGSingleCommitData sharedInstance].vipLevel=@"1";
+    }else{
+        [CGSingleCommitData sharedInstance].resultName=@"imgData/";
+    }
+    
+    
+    [self setRootView];
+    
+    return YES;
+}
+
+-(void)getNetWorkAppInfo{
+//    __weak __typeof(self)weakSelf = self;
+//    UIImageView *im=[[UIImageView alloc] init];
+//    [im sd_setImageWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/Wallenone/service/master/appinfo/0.png"] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//        if (error==nil) {
+//            [CGSingleCommitData sharedInstance].isDebug=YES;
+//        }else{
+//            [CGSingleCommitData sharedInstance].isDebug=NO;
+//        }
+//        if ([CGSingleCommitData sharedInstance].isDebug){
+//            [CGSingleCommitData sharedInstance].resultName=@"Debug/imgData/";
+//            [CGSingleCommitData sharedInstance].vipLevel=@"1";
+//        }else{
+//            [CGSingleCommitData sharedInstance].resultName=@"imgData/";
+//        }
+//
+//
+//        [weakSelf setRootView];
+//    }];
+//    [self.window.rootViewController.view addSubview:im];
+
+}
+
+-(void)setRootView{
     
     //a.初始化一个tabBar控制器
     UITabBarController *tb=[[UITabBarController alloc]init];
@@ -65,8 +109,8 @@
     animationVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     NewsViewController *newsVC=[[NewsViewController alloc] init];
-    newsVC.tabBarItem.image=[UIImage imageNamed:@"Home"];
-    newsVC.tabBarItem.selectedImage=[UIImage imageNamed:@"Homeed"];
+    newsVC.tabBarItem.image=[UIImage imageNamed:@"news"];
+    newsVC.tabBarItem.selectedImage=[UIImage imageNamed:@"newsed"];
     newsVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
     
     CGProfileIndexViewController *mineVC=[[CGProfileIndexViewController alloc] init];
@@ -81,32 +125,36 @@
     
     //c.2第二种方式
     
-    UINavigationController *c1=[[UINavigationController alloc]initWithRootViewController:indeVC];
-    UINavigationController *c2=[[UINavigationController alloc]initWithRootViewController:animationVC];
-    UINavigationController *c3=[[UINavigationController alloc]initWithRootViewController:newsVC];
-    UINavigationController *c4=[[UINavigationController alloc]initWithRootViewController:mineVC];
     
-    tb.viewControllers=@[c1,c2,c3,c4];
     
-    //2.设置Window为主窗口并显示出来
+    if ([CGSingleCommitData sharedInstance].isDebug) {
+        UINavigationController *c1=[[UINavigationController alloc]initWithRootViewController:indeVC];
+        UINavigationController *c3=[[UINavigationController alloc]initWithRootViewController:newsVC];
+        UINavigationController *c4=[[UINavigationController alloc]initWithRootViewController:mineVC];
+        
+        tb.viewControllers=@[c1,c3,c4];
+    }else{
+        UINavigationController *c1=[[UINavigationController alloc]initWithRootViewController:indeVC];
+        UINavigationController *c2=[[UINavigationController alloc]initWithRootViewController:animationVC];
+        UINavigationController *c3=[[UINavigationController alloc]initWithRootViewController:newsVC];
+        UINavigationController *c4=[[UINavigationController alloc]initWithRootViewController:mineVC];
+    
+        tb.viewControllers=@[c1,c2,c3,c4];
+    }
+    
+    
     [self.window makeKeyAndVisible];
     
     //定时任务启动
     [CGGlobalTimerNode reloadTask];
-    
-    [self getNetWorkAppInfo];
-    
-    return YES;
-}
-
--(void)getNetWorkAppInfo{
-    NSURL *url=[NSURL URLWithString:@"https://github.com/Wallenone/service/blob/master/appinfo.txt"];
-    NSString *content=[[NSString alloc] initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"app数据:=%@",content);
 }
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-    if(viewController == [tabBarController.viewControllers objectAtIndex:3]) {
+    NSInteger _index=3;
+    if ([CGSingleCommitData sharedInstance].isDebug) {
+        _index=2;
+    }
+    if(viewController == [tabBarController.viewControllers objectAtIndex:_index]) {
         if ([CGSingleCommitData sharedInstance].uid.length<=0) {
             CGManageRegisterViewController *rootVC=[[CGManageRegisterViewController alloc] init];
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];

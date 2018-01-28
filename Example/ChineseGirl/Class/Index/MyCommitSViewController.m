@@ -138,9 +138,10 @@
         //cellData 是当前行的数据
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
+            CGShuoShuo *shuoshuo=(CGShuoShuo *)cellData;
             NSLog(@"click");
-            weakSelf.selectNickName=[cellData objectForKey:@"nickName"];
-            [weakSelf.messageView setMessageContent:[NSString stringWithFormat:@"@%@",[cellData objectForKey:@"nickName"]]];
+            weakSelf.selectNickName=shuoshuo.nickName;
+            [weakSelf.messageView setMessageContent:[NSString stringWithFormat:@"@%@",shuoshuo.nickName]];
             
         }];
         

@@ -102,6 +102,9 @@
 		E5944C061FB975FC00013F78 /* UICitySViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5944C051FB975FC00013F78 /* UICitySViewController.m */; };
 		E59F2EA81F511DB600A238CE /* myHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */; };
 		E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */; };
+		E5AD81A9201C544D00F6474F /* CGLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD81A8201C544D00F6474F /* CGLaunchViewController.m */; };
+		E5AD81B1201C72BC00F6474F /* userInfo1.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5AD81B0201C72BC00F6474F /* userInfo1.plist */; };
+		E5AD81B3201C782500F6474F /* Shuoshuo1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E5AD81B2201C782500F6474F /* Shuoshuo1.sqlite */; };
 		E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */; };
 		E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */; };
 		E5B2A24D1FD8072B006F57AD /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5B2A24C1FD8072B006F57AD /* message.plist */; };
@@ -374,6 +377,10 @@
 		E59F2EA71F511DB600A238CE /* myHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myHeaderViewCell.m; sourceTree = "<group>"; };
 		E5A513B41F60328100B4AC1F /* NewsContentCustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentCustomLabel.h; sourceTree = "<group>"; };
 		E5A513B51F60328100B4AC1F /* NewsContentCustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentCustomLabel.m; sourceTree = "<group>"; };
+		E5AD81A7201C544D00F6474F /* CGLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLaunchViewController.h; sourceTree = "<group>"; };
+		E5AD81A8201C544D00F6474F /* CGLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGLaunchViewController.m; sourceTree = "<group>"; };
+		E5AD81B0201C72BC00F6474F /* userInfo1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userInfo1.plist; sourceTree = "<group>"; };
+		E5AD81B2201C782500F6474F /* Shuoshuo1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shuoshuo1.sqlite; sourceTree = "<group>"; };
 		E5B0A1441F62827A00FD6476 /* CGForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGForgetPasswordViewController.h; sourceTree = "<group>"; };
 		E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGForgetPasswordViewController.m; sourceTree = "<group>"; };
 		E5B174ED1F9CAA180055E16A /* CGSingleCommitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSingleCommitData.h; sourceTree = "<group>"; };
@@ -583,6 +590,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* CGViewController.h */,
 				6003F5A6195388D20070C39A /* CGViewController.m */,
+				E5AD81A7201C544D00F6474F /* CGLaunchViewController.h */,
+				E5AD81A8201C544D00F6474F /* CGLaunchViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -594,6 +603,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5AD81B2201C782500F6474F /* Shuoshuo1.sqlite */,
 				E5D043682018C70400272DB4 /* Shuoshuo.sqlite */,
 				E5E642972014A2E8008FA739 /* Pinglun.sqlite */,
 				E5E642982014A2E8008FA739 /* Pinglunren.sqlite */,
@@ -603,6 +613,7 @@
 				E5E3D6D5200CDD7D00F3DAF0 /* shuoshuo1.plist */,
 				E5E3D6D3200CDC1000F3DAF0 /* shuoshuo.plist */,
 				E536F54D200B3CD1004100C6 /* userInfo.plist */,
+				E5AD81B0201C72BC00F6474F /* userInfo1.plist */,
 				E536F54E200B3CD1004100C6 /* videoData.plist */,
 				E5581FED1FF78FC600D13F6A /* moneyTop.plist */,
 				E5D291921FC5A96C003718CB /* Billabong.ttf */,
@@ -1325,7 +1336,9 @@
 				E55F5672200E492800A35A8A /* VideoData.sqlite in Resources */,
 				E5581FEE1FF78FC700D13F6A /* moneyTop.plist in Resources */,
 				E5E0FE461F9AF15700B5228E /* CityData.plist in Resources */,
+				E5AD81B1201C72BC00F6474F /* userInfo1.plist in Resources */,
 				E5D9F0341FB2E2D400DAEB7A /* ENCity.plist in Resources */,
+				E5AD81B3201C782500F6474F /* Shuoshuo1.sqlite in Resources */,
 				E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1504,6 +1517,7 @@
 				E5C0CD8C1FB83EF5002394C9 /* CGPinglun.m in Sources */,
 				E5E2716C1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m in Sources */,
 				E5E3D6DB200CE38E00F3DAF0 /* CGSqliteManager.m in Sources */,
+				E5AD81A9201C544D00F6474F /* CGLaunchViewController.m in Sources */,
 				E55DF4BD1FBB2F2600E5215E /* CGLocationTableViewCell.m in Sources */,
 				E538D74A1F429ACC0079AE94 /* AFNetworkReachabilityManager.m in Sources */,
 				E54FAA5A1F5A9E71006C65AF /* MyCommitHeaderView.m in Sources */,
@@ -1641,7 +1655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1675,7 +1689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

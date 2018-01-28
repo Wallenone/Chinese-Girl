@@ -9,6 +9,7 @@
 #import "XLVideoCell.h"
 #import "UIImageView+WebCache.h"
 #import "MyIndexViewController.h"
+#import "CGVideoViewController.h"
 @interface XLVideoCell (){
     CGFloat _imgHeight;
 }
@@ -21,6 +22,7 @@
 @property(nonatomic,strong)UILabel *location;
 @property(nonatomic,strong)UILabel *content;
 @property(nonatomic,strong)UIImageView *playView;
+@property(nonatomic,strong)UIButton *touchBtn;
 @end
 @implementation XLVideoCell
 
@@ -47,6 +49,15 @@
     MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
     indexVC.ids=[self.model.uid integerValue];
     [[CGCommonToolsNode getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+}
+
+-(void)touchClick{
+    CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
+    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
+    videoVC.videoIcon=self.model.videoPicUrl;
+    videoVC.videoStr=self.model.videoUrl;
+    videoVC.uid=self.model.uid;
+    [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
 }
 
 -(UIView *)menuView{
@@ -145,6 +156,16 @@
     [self.menuView addSubview:self.content];
     [self addSubview:self.videoImageView];
     [self.videoImageView addSubview:self.playView];
+    [self addSubview:self.touchBtn];
+}
+
+-(UIButton *)touchBtn{
+    if (!_touchBtn) {
+        _touchBtn=[[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.menuView.frame), screen_width, _imgHeight)];
+        [_touchBtn addTarget:self action:@selector(touchClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return _touchBtn;
 }
 
 @end
