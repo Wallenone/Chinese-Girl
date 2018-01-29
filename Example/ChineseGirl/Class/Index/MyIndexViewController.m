@@ -122,7 +122,7 @@
 }
 
 -(void)getCollectionData{
-    NSMutableArray *array = [CGShuoShuo reloadTableWithUid:(int)self.ids WithRangeFrom:_currentPage*10 rangeTLenth:10];
+    NSMutableArray *array = [CGShuoShuo reloadTableWithUid:(int)self.ids WithRangeFrom:(int)_currentPage*10 rangeTLenth:10];
     if (array.count>0) {
         [self.tbv addContentData:array];
         _currentPage++;
