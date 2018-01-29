@@ -35,6 +35,7 @@
 @property(nonatomic,copy)NSString *videoid;
 @property(nonatomic,copy)NSString *month;
 @property(nonatomic,copy)NSString *toContent;
+@property(nonatomic,copy)NSString *address;
 @property(nonatomic,assign)BOOL isLike;   //点赞
 @property(nonatomic,copy)NSString *shuoshuoContent;
 +(CGShuoShuo *)getTableWithId:(NSString *)ids;

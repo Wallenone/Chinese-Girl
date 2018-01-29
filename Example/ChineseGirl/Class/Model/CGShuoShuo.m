@@ -62,6 +62,7 @@
     
     model.toContent =toCityName;
     model.shuoshuoContent = [self getShuoshuoContent:model];
+    model.address=@"China.Beijing";
     return model;
 }
 

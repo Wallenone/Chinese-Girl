@@ -76,7 +76,7 @@
         _date=[[UILabel alloc] initWithFrame:CGRectMake(0, 10*SCREEN_RADIO, SCREEN_WIDTH-15*SCREEN_RADIO, 18*SCREEN_RADIO)];
         _date.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
         _date.textColor=[UIColor getColor:@"7C858A"];
-        _date.text=@"2017-04-09";
+        _date.text=
         _date.textAlignment=NSTextAlignmentRight;
     }
     

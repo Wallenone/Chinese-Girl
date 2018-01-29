@@ -70,7 +70,7 @@
         _dateLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImgView.frame)+15*SCREEN_RADIO,CGRectGetMaxY(self.nickName.frame)+2*SCREEN_RADIO, screen_width, 18*SCREEN_RADIO)];
         _dateLabel.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
         _dateLabel.textColor=[UIColor getColor:@"7C858A"];
-        _dateLabel.text=@"2017-04-09 17:09.in China BeiJing";
+        _dateLabel.text=[NSString stringWithFormat:@"%@ %@",self.commitModel.address,self.commitModel.timeDate];
     }
     
     return _dateLabel;

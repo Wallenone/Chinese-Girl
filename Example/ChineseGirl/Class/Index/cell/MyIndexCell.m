@@ -14,6 +14,7 @@
 #import "CGPinglunren.h"
 #import "CGPinglunModel.h"
 #import "CGPinglun.h"
+#import "CGUserInfo.h"
 @interface MyIndexCell(){
     CGFloat total_height;
     CommitClick commitClick;
@@ -279,7 +280,7 @@
 -(UILabel *)timeDateLabel{
     if (!_timeDateLabel) {
         _timeDateLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame)+10*SCREEN_RADIO, CGRectGetMaxY(self.nickNameLabel.frame)*SCREEN_RADIO, 200*SCREEN_RADIO, 15*SCREEN_RADIO)];
-        _timeDateLabel.text=@"China.BeiJing";
+        _timeDateLabel.text=[NSString stringWithFormat:@"%@ %@",self.myIndexModel.address,self.myIndexModel.timeDate];
         _timeDateLabel.textColor=[UIColor getColor:@"7C858A"];
         _timeDateLabel.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
     }

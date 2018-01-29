@@ -21,7 +21,7 @@
     model.birthday = [CGCommonString filterNullString:[dic stringForKey:@"birthday"]];
     model.aboutus = [CGCommonString filterNullString:[dic stringForKey:@"aboutus"]];
     model.avater = [NSString stringWithFormat:@"%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,model.ids,@"/Enclosure/",[CGCommonString filterNullString:[dic stringForKey:@"avater"]]];
-    model.address = [NSString stringWithFormat:@"China,%@",[CGCommonString filterNullString:[dic stringForKey:@"city"]]] ;
+    model.address = [NSString stringWithFormat:@"China.%@",[CGCommonString filterNullString:[dic stringForKey:@"city"]]] ;
     model.bigAvater = [self getBigAvater:model.avater withIds:model.ids];
     model.pictures = [self getPictures:[CGCommonString filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
     model.picturesBig = [self getBigPictures:[CGCommonString filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
