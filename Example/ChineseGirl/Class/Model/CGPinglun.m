@@ -22,10 +22,12 @@
                 
                 NSString *nickName= [self reloadPinlunRenTableWithIds:huifu];
                 NSString *content = [self reloadTableWithIds:[array objectAtIndex:1]];
+                NSString *avater=[NSString stringWithFormat:@"https://raw.githubusercontent.com/Wallenone/service/master/manavater/%@",[self reloadPinlunavaterRenTableWithIds:[array objectAtIndex:0]]];
                 
                 NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
                 [dict setObject:[NSString stringWithFormat:@"%@%@",NSLocalizedString(@"reply", nil),nickName] forKey:@"nickName"];
                 [dict setObject:content forKey:@"content"];
+                [dict setObject:avater forKey:@"avater"];
                 [newArr addObject:dict];
             }
             
@@ -36,10 +38,12 @@
                 if (array.count>0) {
                     NSString *nickName= [self reloadPinlunRenTableWithIds:[array objectAtIndex:0]];
                     NSString *content = [self reloadTableWithIds:[array objectAtIndex:1]];
+                   NSString *avater=[NSString stringWithFormat:@"https://raw.githubusercontent.com/Wallenone/service/master/manavater/%@",[self reloadPinlunavaterRenTableWithIds:[array objectAtIndex:0]]];
                     
                     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
                     [dict setObject:nickName forKey:@"nickName"];
                     [dict setObject:content forKey:@"content"];
+                    [dict setObject:avater forKey:@"avater"];
                     [newArr addObject:dict];
                 }
             }
@@ -60,7 +64,11 @@
 
 +(NSString *)reloadPinlunRenTableWithIds:(NSString *)ids{
     NSDictionary *dict= [CGSqliteManager getPinglunrenId:[ids intValue]];
-    
     return [dict stringForKey:@"username"];
+}
+
++(NSString *)reloadPinlunavaterRenTableWithIds:(NSString *)ids{
+    NSDictionary *dict= [CGSqliteManager getPinglunrenId:[ids intValue]];
+    return [dict stringForKey:@"avater"];
 }
 @end

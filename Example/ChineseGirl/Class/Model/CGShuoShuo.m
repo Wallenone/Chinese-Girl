@@ -199,24 +199,24 @@
     NSString *date=@"";
     if (ids==0) {
         int randomHour=[CGCommonToolsNode getRandomNumber:1 to:10];
-        date = [NSString stringWithFormat:@"%d%@",randomHour,NSLocalizedString(@"hourfont", nil)];
+        date = [NSString stringWithFormat:@"%d %@",randomHour,NSLocalizedString(@"hourfont", nil)];
     }else{
         if (ids<15) {
-            date = [NSString stringWithFormat:@"%d%@",ids*2,NSLocalizedString(@"dayfont", nil)];
+            date = [NSString stringWithFormat:@"%d %@",ids*2,NSLocalizedString(@"dayfont", nil)];
         }else if(ids>=15 && ids<=20){
-            date = [NSString stringWithFormat:@"%d%@",1,NSLocalizedString(@"dayfont", nil)];
+            date = [NSString stringWithFormat:@"%d %@",1,NSLocalizedString(@"dayfont", nil)];
         }else if(ids>=20 && ids<=25){
-            date = [NSString stringWithFormat:@"%d%@",2,NSLocalizedString(@"dayfont", nil)];
+            date = [NSString stringWithFormat:@"%d %@",2,NSLocalizedString(@"dayfont", nil)];
         }else if(ids>=20 && ids<=25){
-            date = [NSString stringWithFormat:@"%d%@",3,NSLocalizedString(@"dayfont", nil)];
+            date = [NSString stringWithFormat:@"%d %@",3,NSLocalizedString(@"dayfont", nil)];
         }else if(ids>=25 && ids<=30){
-            date = [NSString stringWithFormat:@"%d%@",5,NSLocalizedString(@"dayfont", nil)];
+            date = [NSString stringWithFormat:@"%d %@",5,NSLocalizedString(@"dayfont", nil)];
         }else if(ids>=35 && ids<=40){
-            date = [NSString stringWithFormat:@"%d%@",6,NSLocalizedString(@"dayfont", nil)];
+            date = [NSString stringWithFormat:@"%d %@",6,NSLocalizedString(@"dayfont", nil)];
         }else if(ids>=45 && ids<=50){
-            date = [NSString stringWithFormat:@"%d%@",8,NSLocalizedString(@"dayfont", nil)];
+            date = [NSString stringWithFormat:@"%d %@",8,NSLocalizedString(@"dayfont", nil)];
         }else{
-            date = [NSString stringWithFormat:@"%d%@",1,NSLocalizedString(@"yearfont", nil)];
+            date = [NSString stringWithFormat:@"%d %@",1,NSLocalizedString(@"yearfont", nil)];
         }
     }
     

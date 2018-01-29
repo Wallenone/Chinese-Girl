@@ -53,7 +53,7 @@
 -(UIImageView *)AvatarImgView{
     if (!_AvatarImgView) {
         _AvatarImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 10*SCREEN_RADIO, 24*SCREEN_RADIO, 24*SCREEN_RADIO)];
-        _AvatarImgView.image=[UIImage imageNamed:@"Avatar"];
+        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:[self.myCommitModel objectForKey:@"avater"]]];
         _AvatarImgView.layer.cornerRadius=12*SCREEN_RADIO;
     }
     
@@ -76,7 +76,7 @@
         _date=[[UILabel alloc] initWithFrame:CGRectMake(0, 10*SCREEN_RADIO, SCREEN_WIDTH-15*SCREEN_RADIO, 18*SCREEN_RADIO)];
         _date.font=[UIFont systemFontOfSize:11*SCREEN_RADIO];
         _date.textColor=[UIColor getColor:@"7C858A"];
-        _date.text=
+        _date.text=@"tt";
         _date.textAlignment=NSTextAlignmentRight;
     }
     
