@@ -192,7 +192,7 @@
 -(UILabel *)aboutUs{
     if (!_aboutUs) {
         _aboutUs=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.icon.frame)+13*SCREEN_RADIO, CGRectGetMaxY(self.nickName.frame)+3*SCREEN_RADIO, 250*SCREEN_RADIO, 15*SCREEN_RADIO)];
-        _aboutUs.text=self.addModel.aboutus;
+        _aboutUs.text=self.addModel.content;
         _aboutUs.textColor=[UIColor getColor:@"AAAAAA"];
         _aboutUs.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         _aboutUs.lineBreakMode = NSLineBreakByTruncatingTail;

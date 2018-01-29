@@ -136,3 +136,5 @@
 "jiazaifail" = "加載失敗，點擊重試";
 "hourfont" = "小時前";
 "dayfont" = "日前";
+"monthfont" = "月前";
+"yearfont" = "年前";

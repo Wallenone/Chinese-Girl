@@ -23,6 +23,11 @@
 @property(nonatomic,copy)NSString *type;   //1代表图片 2代表视频
 @property(nonatomic,strong)NSMutableArray *videoUrlS;
 @property(nonatomic,assign)BOOL followed;   //是否加关注
+@property(nonatomic,copy)NSString *english;
+@property(nonatomic,copy)NSString *korea;
+@property(nonatomic,copy)NSString *japan;
+@property(nonatomic,copy)NSString *tw;
+@property(nonatomic,copy)NSString *content;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
 +(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
 +(CGUserInfo *)getitemWithID:(NSString *)ids;

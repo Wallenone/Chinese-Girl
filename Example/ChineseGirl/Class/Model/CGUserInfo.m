@@ -30,7 +30,42 @@
     if ([model.type integerValue]==2){
         model.videoUrlS=[self getVideoUrlsId:model.ids];
     }
+    
+    model.english=[CGCommonString filterNullString:[dic stringForKey:@"english"]];
+    model.korea=[CGCommonString filterNullString:[dic stringForKey:@"korea"]];
+    model.japan=[CGCommonString filterNullString:[dic stringForKey:@"japan"]];
+    model.tw=[CGCommonString filterNullString:[dic stringForKey:@"tw"]];
+    model.content=[self getUserInfoContent:model];
+    
     return model;
+}
+
++(NSString *)getUserInfoContent:(CGUserInfo *)dic{
+    NSString *language = [NSLocale preferredLanguages].firstObject;
+    NSString *content=@"";
+    if ([language hasPrefix:@"en"]) {
+        content = dic.english;
+    } else if ([language hasPrefix:@"zh"]) {
+        if ([language rangeOfString:@"Hans"].location != NSNotFound) {
+            content = dic.aboutus; // 简体中文
+        } else { // zh-Hant\zh-HK\zh-TW
+            content = dic.tw; // 繁體中文
+        }
+    }else if ([language hasPrefix:@"fr"]){
+        content = dic.english;
+    }else if ([language hasPrefix:@"ko"]){
+        content = dic.korea;
+    }else if ([language hasPrefix:@"ru"]){
+        content = dic.english;
+    }else if ([language hasPrefix:@"ja"]){
+        content = dic.japan;
+    }else if ([language hasPrefix:@"es"]){
+        content = dic.english;
+    }else {
+        content = dic.english;
+    }
+    
+    return content;
 }
 
 +(NSArray *)reloadTableRondomCount:(NSInteger)count{

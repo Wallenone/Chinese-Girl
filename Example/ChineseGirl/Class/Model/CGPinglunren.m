@@ -12,9 +12,15 @@
     CGPinglunren *model = [[CGPinglunren alloc]init];
     model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
     model.username = [CGCommonString filterNullString:[dic stringForKey:@"username"]];
-    model.avater = [CGCommonString filterNullString:[dic stringForKey:@"avater"]];
+    model.avater = [self getAvater:[CGCommonString filterNullString:[dic stringForKey:@"avater"]]];
     model.date =  [CGCommonString filterNullString:[dic stringForKey:@"date"]];
     return model;
+}
+
++(NSString *)getAvater:(NSString *)avaterStr{
+    NSString *avater=[NSString stringWithFormat:@"https://raw.githubusercontent.com/Wallenone/service/master/manavater/%@",avaterStr];
+    
+    return avater;
 }
 
 +(NSMutableArray *)reloadRandom{

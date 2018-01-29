@@ -135,4 +135,5 @@
 "liuyan" = "commits";
 "jiazaifail" = "load failure, click Retry";
 "hourfont" = "час  назад ";
-"dayfont" = "до ";
+"dayfont" = "Anos atrás";
+"yearfont" = "лет назад ";

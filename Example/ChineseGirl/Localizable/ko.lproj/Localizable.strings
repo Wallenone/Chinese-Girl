@@ -136,3 +136,5 @@
 "jiazaifail" = "불러오기 실패, 클릭; 다시 시도";
 "hourfont" = "시간 전에";
 "dayfont" = "일전에";
+"monthfont" = "달 전";
+"yearfont" = "년 전";

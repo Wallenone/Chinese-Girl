@@ -136,3 +136,5 @@
 "jiazaifail" = "load failure, click Retry";
 "hourfont" = "Hours ago";
 "dayfont" = "Day ago";
+"monthfont" = "Month ago";
+"yearfont" = "Year ago";

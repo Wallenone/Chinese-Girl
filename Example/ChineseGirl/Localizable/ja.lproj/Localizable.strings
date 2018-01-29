@@ -136,3 +136,5 @@
 "jiazaifail" = "失敗をロードして、やり直しをする";
 "hourfont" = "時間前";
 "dayfont" = "日前";
+"monthfont" = "月の前に";
+"yearfont" = "年前";
