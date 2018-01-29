@@ -134,4 +134,5 @@
 "zonggong" = "view all";  //view all %@ commits
 "liuyan" = "commits";
 "jiazaifail" = "load failure, click Retry";
-
+"hourfont" = "Hours ago";
+"dayfont" = "Day ago";

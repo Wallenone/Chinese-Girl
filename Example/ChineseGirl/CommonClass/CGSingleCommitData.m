@@ -24,6 +24,7 @@ static NSString *const kNewsListArrKey = @"newsListArrKey";
 static NSString *const kUserListDataArrKey = @"userListDataArrKey";
 static NSString *const kAddFriendArrKey = @"addFriendArrKey";
 static NSString *const kgoldNumKey = @"goldNumKey";
+static NSString *const KcommitsKey = @"commitsKey";
 #import "CGSingleCommitData.h"
 static CGSingleCommitData *_instance = nil;
 @implementation CGSingleCommitData
@@ -167,6 +168,14 @@ static CGSingleCommitData *_instance = nil;
             self.addFriendArr = [addFriends mutableCopy];
         }else{
             self.addFriendArr = [[NSMutableArray alloc] init];
+        }
+        
+        
+        NSArray *commitsArr=[[NSUserDefaults standardUserDefaults] arrayForKey:KcommitsKey];
+        if (commitsArr.count>0) {
+            self.commits = [commitsArr mutableCopy];
+        }else{
+            self.commits = [[NSMutableArray alloc] init];
         }
    
     }
@@ -330,6 +339,14 @@ static CGSingleCommitData *_instance = nil;
     NSArray *arr=[NSArray arrayWithArray:_addFriendArr];
     
     [[NSUserDefaults standardUserDefaults] setObject:arr forKey:kAddFriendArrKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)setCommits:(NSMutableArray *)commits{
+    _commits=commits;
+    NSArray *arr=[NSArray arrayWithArray:_commits];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:arr forKey:KcommitsKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

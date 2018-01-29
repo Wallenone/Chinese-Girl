@@ -134,3 +134,5 @@
 "zonggong" = "總共";  //view all %@ commits
 "liuyan" = "留言";
 "jiazaifail" = "加載失敗，點擊重試";
+"hourfont" = "小時前";
+"dayfont" = "日前";

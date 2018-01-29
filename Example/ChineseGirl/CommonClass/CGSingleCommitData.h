@@ -32,6 +32,7 @@
 @property(nonatomic,strong)NSMutableArray *addFriendArr;  //添加好友
 @property(nonatomic,assign)BOOL isDebug;  //yes是测试数据 no是正式数据
 @property(nonatomic,copy)NSString *resultName;  //资源名称
+@property(nonatomic,strong)NSMutableArray *commits;//评论内容
 + (instancetype)sharedInstance;
 - (void)logout;
 -(void)addAlbumS:(UIImage *)img;   //增加一个相册

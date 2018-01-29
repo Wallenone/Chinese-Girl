@@ -11,6 +11,8 @@
 @interface CGPinglunren : NSObject
 @property(nonatomic,copy)NSString *ids;
 @property(nonatomic,copy)NSString *username;
+@property(nonatomic,copy)NSString *avater;
+@property(nonatomic,copy)NSString *date;
 + (instancetype)modelWithDic:(NSDictionary *)dic;
-+(NSMutableArray *)reloadTableWithRangeFrom:(NSInteger)fromNum rangeTLenth:(NSInteger)lenth;
++(NSMutableArray *)reloadRandom;
 @end

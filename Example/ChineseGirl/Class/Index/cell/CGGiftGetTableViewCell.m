@@ -9,6 +9,7 @@
 #import "CGGiftGetTableViewCell.h"
 
 @interface CGGiftGetTableViewCell()
+@property(nonatomic,strong)CGPinglunren *model;
 @property(nonatomic,strong)UIImageView *iconImg;
 @property(nonatomic,strong)UILabel *nickName;
 @property(nonatomic,strong)UILabel *timeLabel;
@@ -17,10 +18,11 @@
 @end
 @implementation CGGiftGetTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withModel:(CGPinglunren *)model{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
+        self.model=model;
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         [self creatSubView];
     }
@@ -39,7 +41,7 @@
 -(UIImageView *)iconImg{
     if (!_iconImg) {
         _iconImg=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 10*SCREEN_RADIO, 45*SCREEN_RADIO, 45*SCREEN_RADIO)];
-        _iconImg.image=[UIImage imageNamed:@"Avatar"];
+        [_iconImg sd_setImageWithURL:[NSURL URLWithString:self.model.avater]];
         _iconImg.layer.cornerRadius=23.5*SCREEN_RADIO;
         _iconImg.clipsToBounds=YES;
     }
@@ -50,7 +52,7 @@
 -(UILabel *)nickName{
     if (!_nickName) {
         _nickName=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImg.frame)+8*SCREEN_RADIO, 10*SCREEN_RADIO, 0, 12*SCREEN_RADIO)];
-        _nickName.text=@"wallen";
+        _nickName.text=self.model.username;
         _nickName.font=[UIFont boldSystemFontOfSize:12*SCREEN_RADIO];
         _nickName.textColor=[UIColor getColor:@"9b9b99"];
         [_nickName sizeToFit];
@@ -62,7 +64,7 @@
 -(UILabel *)timeLabel{
     if (!_timeLabel) {
         _timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.nickName.frame)+10*SCREEN_RADIO, 10*SCREEN_RADIO, 0, 12*SCREEN_RADIO)];
-        _timeLabel.text=@"2小时前";
+        _timeLabel.text=self.model.date;
         _timeLabel.font=[UIFont systemFontOfSize:12*SCREEN_RADIO];
         _timeLabel.textColor=[UIColor getColor:@"9b9b99"];
         [_timeLabel sizeToFit];
@@ -74,7 +76,8 @@
 -(UILabel *)contentLabel{
     if (!_contentLabel) {
         _contentLabel=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.iconImg.frame)+20*SCREEN_RADIO, CGRectGetMaxY(self.timeLabel.frame)+10*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        _contentLabel.text=@"+ 10";
+        int goldNum=[CGCommonToolsNode getRandomNumber:10 to:100];
+        _contentLabel.text=[NSString stringWithFormat:@"+ %d",goldNum];
         _contentLabel.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         _contentLabel.textColor=[UIColor getColor:@"ffffff"];
         [_contentLabel sizeToFit];

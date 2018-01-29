@@ -24,6 +24,7 @@
 #import "EZJFastTableView.h"
 #import "CGGiftGetTableViewCell.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "CGPinglunren.h"
 @interface CGVideoViewController ()<ZFPlayerDelegate>
 @property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView *headerIconView;
@@ -42,6 +43,7 @@
 @property(nonatomic,strong)EZJFastTableView *tbv;
 @property(nonatomic,strong)UIView *giftFriendView;
 @property(nonatomic,strong)RkyExtendedHitButton *tbvBtnClose;
+@property(nonatomic,strong)NSArray *pinglunrenArr;
 @end
 
 @implementation CGVideoViewController
@@ -64,7 +66,12 @@
     self.view.backgroundColor=[UIColor blackColor];
     UITapGestureRecognizer *tapGesturRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapViewAction:)];
     [self.view addGestureRecognizer:tapGesturRecognizer];
+    [self setData];
     [self delayMethod];
+}
+
+-(void)setData{
+    self.pinglunrenArr= [CGPinglunren reloadRandom];
 }
 
 - (void)delayMethod{
@@ -432,25 +439,29 @@
         _giftFriendView=[[UIView alloc] initWithFrame:CGRectMake(6*SCREEN_RADIO, CGRectGetMaxY(self.headerView.frame)+6*SCREEN_RADIO, 200*SCREEN_RADIO, 21*SCREEN_RADIO)];
         _giftFriendView.backgroundColor=[UIColor clearColor];
         UIImageView *friend1=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        friend1.image=[UIImage imageNamed:@"Avatar"];
+       // friend1.image= [UIImage imageNamed:@"Avatar"];
+        CGPinglunren *model=(CGPinglunren *)self.pinglunrenArr[0];
+        [friend1 sd_setImageWithURL:[NSURL URLWithString:model.avater]];
         friend1.layer.cornerRadius=10.5*SCREEN_RADIO;
         friend1.clipsToBounds=YES;
         [_giftFriendView addSubview:friend1];
         
         UIImageView *friend2=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(friend1.frame)+10*SCREEN_RADIO, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        friend2.image=[UIImage imageNamed:@"Avatar"];
+        CGPinglunren *model1=(CGPinglunren *)self.pinglunrenArr[1];
+        [friend2 sd_setImageWithURL:[NSURL URLWithString:model1.avater]];
         friend2.layer.cornerRadius=10.5*SCREEN_RADIO;
         friend2.clipsToBounds=YES;
         [_giftFriendView addSubview:friend2];
         
         UIImageView *friend3=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(friend2.frame)+10*SCREEN_RADIO, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
-        friend3.image=[UIImage imageNamed:@"Avatar"];
+        CGPinglunren *model2=(CGPinglunren *)self.pinglunrenArr[2];
+        [friend3 sd_setImageWithURL:[NSURL URLWithString:model2.avater]];
         friend3.layer.cornerRadius=10.5*SCREEN_RADIO;
         friend3.clipsToBounds=YES;
         [_giftFriendView addSubview:friend3];
         
         UILabel *friendTotal=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(friend3.frame)+10*SCREEN_RADIO, 3.5*SCREEN_RADIO, 0, 14*SCREEN_RADIO)];
-        friendTotal.text=@"19 >";
+        friendTotal.text=[NSString stringWithFormat:@"%lu >",(unsigned long)self.pinglunrenArr.count];
         friendTotal.textColor=[UIColor whiteColor];
         friendTotal.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [friendTotal sizeToFit];
@@ -479,10 +490,10 @@
         _tbv.backgroundColor=[UIColor colorWithRed:28/255 green:28/255 blue:28/255 alpha:0.8];
         //给tableview赋值
         
-        [_tbv setDataArray:@[@1,@2,@3,@4]];
+        [_tbv setDataArray:self.pinglunrenArr];
         
         [_tbv onBuildCell:^(id cellData,NSString *cellIdentifier,NSIndexPath *index) {
-            CGGiftGetTableViewCell *cell=[[CGGiftGetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            CGGiftGetTableViewCell *cell=[[CGGiftGetTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier withModel:cellData];
             
             return cell;
         }];
@@ -532,6 +543,14 @@
     }
     
     return _goldhandbigView;
+}
+
+-(NSArray *)pinglunrenArr{
+    if (!_pinglunrenArr) {
+        _pinglunrenArr=[[NSArray alloc] init];
+    }
+    
+    return _pinglunrenArr;
 }
 
 @end
