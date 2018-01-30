@@ -13,9 +13,9 @@ PODS:
     - SDWebImage/Core (= 4.2.3)
   - SDWebImage/Core (4.2.3)
   - SVProgressHUD (2.2.2)
-  - UICommonTools (0.2.0)
+  - UICommonTools (0.2.1)
   - UIFastTabBarController (0.1.1)
-  - UIFastTableView (0.2.6):
+  - UIFastTableView (0.3.0):
     - MJRefresh
   - WJFastDialogView (0.1.0)
   - WJFastScrollViewPoint (0.1.1):
@@ -56,9 +56,9 @@ SPEC CHECKSUMS:
   RouterManager: 5fae26a349743cefff30c44336c500169d8ac30c
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
-  UICommonTools: c63dd7a87c0f1e846f0e641621bda01c6fd22568
+  UICommonTools: d71dc1f78378c5fe165b61b5d0f2fad1ce164007
   UIFastTabBarController: 88a01f27ff0eaca1277622c2fffcd5881447f2ab
-  UIFastTableView: 789ae6726ebbc9ca83ba630fd4e01a3df70527fe
+  UIFastTableView: ae0f5d7e718f97b5e3344666b7e427566244fddd
   WJFastDialogView: f376833e8c248066ec04626421e4539e9c1233d5
   WJFastScrollViewPoint: 1cdba392da20c0b9cb1f4a2b61af24d78a75e312
   WJGlobalTimer: 2f535bce28acf0ebded89ea69393f58752cb3702
