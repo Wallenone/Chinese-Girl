@@ -109,7 +109,7 @@
     // 初始化动画label
     _skLabel =  [[ShakeLabel alloc] init];
     _skLabel.font = [UIFont systemFontOfSize:16];
-    _skLabel.borderColor = [UIColor yellowColor];
+    _skLabel.borderColor = [UIColor getColor:@"CED86B"];
     _skLabel.textColor = [UIColor greenColor];
     _skLabel.textAlignment = NSTextAlignmentCenter;
     _animCount = 0;
@@ -128,7 +128,7 @@
     _headImageView.image = model.headImage;
     _giftImageView.image = model.giftImage;
     _nameLabel.text = model.name;
-    _giftLabel.text = [NSString stringWithFormat:@"送了%@",model.giftName];
+    _giftLabel.text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"songla", nil),model.giftName];
     _giftCount = model.giftCount;
 }
 

@@ -177,12 +177,8 @@
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
         if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
-            NSData *data1 = UIImagePNGRepresentation(self.menuBtn4.currentBackgroundImage);
-            NSData *data = UIImagePNGRepresentation([UIImage imageNamed:@"leaderboard_discover_following_ico"]);
-            if (![data isEqual:data1]) {
-                [[CGSingleCommitData sharedInstance] addFriendArr:self.uid];
-                [self.menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
-            }
+            [[CGSingleCommitData sharedInstance] addFriendArr:self.uid];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"tianjiachenggong", nil)];
         }else{
             CGVipViewController *vipVC=[[CGVipViewController alloc] init];
             vipVC.definesPresentationContext = YES;
@@ -390,9 +386,10 @@
     if (!_menuBtn4) {
         _menuBtn4=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 54*SCREEN_RADIO)];
         if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:self.uid]) {
-            [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
+            _menuBtn4.hidden=YES;
         }else{
             [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"video_addfriend"] forState:UIControlStateNormal];
+            _menuBtn4.hidden=NO;
         }
         [_menuBtn4 addTarget:self action:@selector(menuClick4) forControlEvents:UIControlEventTouchUpInside];
         _menuBtn4.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
@@ -408,7 +405,7 @@
             [weakSelf getGlodView];
         } withGetGift:^(NSString *giftName, NSString *giftImgName) {
             GSPChatMessage *msg = [[GSPChatMessage alloc] init];
-            msg.text = [NSString stringWithFormat:@"1【%@】",giftName];
+            msg.text = [NSString stringWithFormat:@"1 %@",giftName];
             
             msg.senderChatID = [CGSingleCommitData sharedInstance].nickName;
             msg.senderName = msg.senderChatID;
