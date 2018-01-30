@@ -44,7 +44,7 @@
     if(!_iconImgView){
         
         _iconImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 10*SCREEN_RADIO, 42*SCREEN_RADIO, 42*SCREEN_RADIO)];
-        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater]];
+        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         _iconImgView.layer.cornerRadius=21*SCREEN_RADIO;
         _iconImgView.clipsToBounds=YES;
     }

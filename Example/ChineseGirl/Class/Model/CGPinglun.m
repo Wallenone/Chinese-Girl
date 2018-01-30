@@ -12,7 +12,7 @@
 #import "CGSqliteManager.h"
 @implementation CGPinglun
 
-+(NSMutableArray *)reloadCommits:(NSArray *)commitS{
++(NSMutableArray *)reloadCommits:(NSArray *)commitS withfromDate:(NSString *)fromDate withShuoshuoId:(NSString *)ids{
     NSMutableArray *newArr=[NSMutableArray new];
     for (NSString *item in commitS) {
         if([item rangeOfString:@"@"].location !=NSNotFound){
@@ -28,6 +28,7 @@
                 [dict setObject:[NSString stringWithFormat:@"%@%@",NSLocalizedString(@"reply", nil),nickName] forKey:@"nickName"];
                 [dict setObject:content forKey:@"content"];
                 [dict setObject:avater forKey:@"avater"];
+                [dict setObject:[self randomDateTimeFrom:[CGDateData convertDateFromString:fromDate]] forKey:@"date"];
                 [newArr addObject:dict];
             }
             
@@ -44,10 +45,17 @@
                     [dict setObject:nickName forKey:@"nickName"];
                     [dict setObject:content forKey:@"content"];
                     [dict setObject:avater forKey:@"avater"];
+                    [dict setObject:[self randomDateTimeFrom:[CGDateData convertDateFromString:fromDate]] forKey:@"date"];
                     [newArr addObject:dict];
                 }
             }
             
+        }
+    }
+    
+    for (NSDictionary *model in [CGSingleCommitData sharedInstance].commits) {
+        if ([ids isEqualToString:[model stringForKey:@"id"]]) {
+            [newArr addObject:model];
         }
     }
     
@@ -70,5 +78,16 @@
 +(NSString *)reloadPinlunavaterRenTableWithIds:(NSString *)ids{
     NSDictionary *dict= [CGSqliteManager getPinglunrenId:[ids intValue]];
     return [dict stringForKey:@"avater"];
+}
+
+//随机评论时间
++(NSString *)randomDateTimeFrom:(NSDate *)fromDate{
+    int day = [CGDateData dateTimeDifferenceWithStartTime:[CGDateData DateFormatterDate:fromDate] endTime:[CGDateData DateFormatterDate:[CGDateData getCurrentTime]]];
+    
+    int randomDay=[CGCommonToolsNode getRandomNumber:0 to:day];
+    
+    NSString *dateStr = [CGDateData DateFormatterDate:[CGDateData datejisuanYear:0 Month:0 Day:+randomDay withData:fromDate]];
+    
+    return dateStr;
 }
 @end

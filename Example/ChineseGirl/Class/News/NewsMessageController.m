@@ -238,7 +238,7 @@
 -(UIImageView *)AvatarImgView{
     if (!_AvatarImgView) {
         _AvatarImgView=[[UIImageView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 64*SCREEN_RADIO+15*SCREEN_RADIO, 100*SCREEN_RADIO, 100*SCREEN_RADIO)];
-        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:[CGUserInfo getitemWithID:self.userid].avater]];
+        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:[CGUserInfo getitemWithID:self.userid].avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         _AvatarImgView.layer.cornerRadius=50*SCREEN_RADIO;
         _AvatarImgView.clipsToBounds=YES;
     }

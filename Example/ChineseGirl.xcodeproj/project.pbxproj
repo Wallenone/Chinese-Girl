@@ -153,6 +153,7 @@
 		E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E21BE21FCC593B00B6DF61 /* CGNewForgetViewController.m */; };
 		E5E271671FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */; };
 		E5E2716C1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */; };
+		E5E2E9252020189500DB7113 /* CGDateData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E2E9242020189500DB7113 /* CGDateData.m */; };
 		E5E351461FE1574D00E5A7AC /* CGVipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E351451FE1574D00E5A7AC /* CGVipViewController.m */; };
 		E5E35D361F9B426600322F9D /* UICustomPickImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E35D351F9B426600322F9D /* UICustomPickImgView.m */; };
 		E5E3D6D4200CDC1000F3DAF0 /* shuoshuo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E3D6D3200CDC1000F3DAF0 /* shuoshuo.plist */; };
@@ -477,6 +478,8 @@
 		E5E271661FC7BF8600BA1AC1 /* CGAnimationIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnimationIndexViewController.m; sourceTree = "<group>"; };
 		E5E2716A1FC7C1E700BA1AC1 /* CGAnimationIndexCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAnimationIndexCell.h; sourceTree = "<group>"; };
 		E5E2716B1FC7C1E700BA1AC1 /* CGAnimationIndexCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAnimationIndexCell.m; sourceTree = "<group>"; };
+		E5E2E9232020189500DB7113 /* CGDateData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGDateData.h; sourceTree = "<group>"; };
+		E5E2E9242020189500DB7113 /* CGDateData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGDateData.m; sourceTree = "<group>"; };
 		E5E351441FE1574D00E5A7AC /* CGVipViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGVipViewController.h; sourceTree = "<group>"; };
 		E5E351451FE1574D00E5A7AC /* CGVipViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGVipViewController.m; sourceTree = "<group>"; };
 		E5E35D341F9B426600322F9D /* UICustomPickImgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomPickImgView.h; sourceTree = "<group>"; };
@@ -931,6 +934,8 @@
 				E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */,
 				E5527AC11FDB80970077D8B8 /* CGGlobalTimerNode.h */,
 				E5527AC21FDB80970077D8B8 /* CGGlobalTimerNode.m */,
+				E5E2E9232020189500DB7113 /* CGDateData.h */,
+				E5E2E9242020189500DB7113 /* CGDateData.m */,
 			);
 			path = CommonClass;
 			sourceTree = "<group>";
@@ -1384,7 +1389,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF417B7723E0ED6C9C70033F /* [CP] Copy Pods Resources */ = {
@@ -1442,6 +1447,7 @@
 				E5E351461FE1574D00E5A7AC /* CGVipViewController.m in Sources */,
 				E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */,
 				6003F5A7195388D20070C39A /* CGViewController.m in Sources */,
+				E5E2E9252020189500DB7113 /* CGDateData.m in Sources */,
 				E5581FD91FF76E9E00D13F6A /* CGTopOneTableViewCell.m in Sources */,
 				E5A513B61F60328100B4AC1F /* NewsContentCustomLabel.m in Sources */,
 				E5C960871F93507500EB654A /* MySettingTableViewCell.m in Sources */,

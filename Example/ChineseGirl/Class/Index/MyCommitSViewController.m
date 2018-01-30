@@ -101,7 +101,7 @@
     if (!_tbv) {
         _tbv = [[EZJFastTableView alloc]initWithFrame:CGRectMake(0, 64*SCREEN_RADIO, screen_width, screen_height-64*2*SCREEN_RADIO)];
         _tbv.separatorStyle=UITableViewCellSeparatorStyleNone;
-        NSMutableArray *pingluns=[[CGPinglun reloadCommits:self.commitModel.pinglunid] mutableCopy];
+        NSMutableArray *pingluns=[CGPinglun reloadCommits:self.commitModel.pinglunid withfromDate:self.commitModel.timeDate withShuoshuoId:self.commitModel.ids];
         [pingluns insertObject:self.commitModel atIndex:0];
         [_tbv setDataArray:pingluns];
         
@@ -131,6 +131,23 @@
             
         }];
         
+        
+        
+        [_tbv onCellediting:^(NSIndexPath *indexPath, id cellData) {
+            
+        } withCelleditBlock:^NSArray *(NSIndexPath *indexPath, id cellData) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
+            if ([[cellData stringForKey:@"uid"] isEqualToString:[CGSingleCommitData sharedInstance].uid]) {
+                UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                    [[CGSingleCommitData sharedInstance] deleteCommits:[[strongSelf.tbv getDataArray] objectAtIndex:indexPath.row]];
+                    [strongSelf.tbv deleteCell:[NSArray arrayWithObject:indexPath]];
+                }];
+                return @[action1];
+            }
+
+            return @[];
+        }];
+        
 
         
         //设置选中事件 block设置方式
@@ -138,10 +155,9 @@
         //cellData 是当前行的数据
         
         [_tbv onCellSelected:^(NSIndexPath *indexPath, id cellData) {
-            CGShuoShuo *shuoshuo=(CGShuoShuo *)cellData;
             NSLog(@"click");
-            weakSelf.selectNickName=shuoshuo.nickName;
-            [weakSelf.messageView setMessageContent:[NSString stringWithFormat:@"@%@",shuoshuo.nickName]];
+            weakSelf.selectNickName=[cellData stringForKey:@"nickName"];
+            [weakSelf.messageView setMessageContent:[NSString stringWithFormat:@"@ %@",[cellData stringForKey:@"nickName"]]];
             
         }];
         
@@ -201,8 +217,11 @@
         } withDidSubmitEdit:^(NSString *text) {
             if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
                 NSMutableArray *arr=[[NSMutableArray alloc] init];
-                [arr addObject:@{@"nickName":[CGSingleCommitData sharedInstance].nickName,@"Avatar":@"Avatar",@"date":@"2017.9.1 14:30:21",@"content":text}];
+                [arr addObject:@{@"nickName":[CGSingleCommitData sharedInstance].nickName,@"avater":@"avater",@"date":[CGDateData DateFormatterDate:[CGDateData getCurrentTime]],@"content":text,@"uid":[CGSingleCommitData sharedInstance].uid}];
+                
+                [[CGSingleCommitData sharedInstance] addCommitsDict:@{@"nickName":[CGSingleCommitData sharedInstance].nickName,@"avater":@"avater",@"date":[CGDateData DateFormatterDate:[CGDateData getCurrentTime]],@"content":text,@"uid":[CGSingleCommitData sharedInstance].uid,@"id":self.commitModel.ids}];
                 [weakSelf.tbv addContentData:arr];
+                [weakSelf.tbv scrollToBottom:YES];
             }else{
                 CGVipViewController *vipVC=[[CGVipViewController alloc] init];
                 vipVC.definesPresentationContext = YES;

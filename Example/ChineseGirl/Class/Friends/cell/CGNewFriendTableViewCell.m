@@ -167,7 +167,7 @@
 -(UIImageView *)icon{
     if (!_icon) {
         _icon=[[UIImageView alloc] initWithFrame:CGRectMake(9*SCREEN_RADIO, 9*SCREEN_RADIO, 38*SCREEN_RADIO, 38*SCREEN_RADIO)];
-        [_icon sd_setImageWithURL:[NSURL URLWithString:self.addModel.avater]];
+        [_icon sd_setImageWithURL:[NSURL URLWithString:self.addModel.avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         _icon.layer.borderWidth=1;
         _icon.layer.borderColor=[UIColor getColor:@"DDDDDD"].CGColor;
         _icon.layer.cornerRadius=19*SCREEN_RADIO;

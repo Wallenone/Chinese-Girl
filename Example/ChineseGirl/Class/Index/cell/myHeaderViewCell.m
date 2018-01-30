@@ -122,7 +122,7 @@
         _AvatarImgView.layer.cornerRadius=50*SCREEN_RADIO;
         _AvatarImgView.clipsToBounds=YES;
         _AvatarImgView.contentMode = UIViewContentModeScaleAspectFill;
-        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater]];
+        [_AvatarImgView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
     }
     
     return _AvatarImgView;

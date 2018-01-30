@@ -11,7 +11,7 @@
 @implementation CGCommonString
 + (BOOL) isBlankString:(NSString *)string {
     string=[string stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (string == nil || string == NULL || [string isEqualToString:@"<null>"] || [string isEqualToString:@"<nil>"] || [string isEqualToString:@"NULL"]) {
+    if (string == nil || string == NULL || [string isEqualToString:@"<null>"]) {
         return YES;
     }
     if ([string isKindOfClass:[NSNull class]]) {
@@ -20,7 +20,6 @@
     if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
         return YES;
     }
-
     return NO;
 }
 
@@ -57,4 +56,19 @@
 {
     return (int)(from + (arc4random() % (to-from + 1)));
 }
+//字典转json格式字符串：
++ (NSString*)dictionaryToJson:(NSDictionary *)dic
+{
+    NSError *parseError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
+    
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
+//字符串转字典
++(NSDictionary *)parseJSONStringToNSDictionary:(NSString *)JSONString {
+    NSData *JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableLeaves error:nil];
+    return responseJSON;
+}
+
 @end

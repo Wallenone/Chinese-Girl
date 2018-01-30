@@ -10,5 +10,5 @@
 
 @interface CGPinglun : NSObject
 @property(nonatomic,strong)NSMutableArray *commits;
-+(NSMutableArray *)reloadCommits:(NSArray *)commitS;
++(NSMutableArray *)reloadCommits:(NSArray *)commitS withfromDate:(NSString *)fromDate withShuoshuoId:(NSString *)ids;
 @end

@@ -35,7 +35,7 @@
     NSMutableArray *newData=[NSMutableArray new];
     for (int i=0; i<newarr1.count; i++) {
         NSMutableDictionary *dict=[NSMutableDictionary new];
-        dict = [data1 objectAtIndex:[[newarr1 objectAtIndex:i] integerValue]+1];
+        dict = [data1 objectAtIndex:[[newarr1 objectAtIndex:i] integerValue]];
         [dict setObject:[self getDateNum:i] forKey:@"date"];
         [newData addObject:[self modelWithDic:dict]];
     }
@@ -43,31 +43,33 @@
     return newData;
 }
 
-+(NSArray *)getDateNum:(int)ids{
-    NSArray *arr=@[[NSString stringWithFormat:@"1%@",NSLocalizedString(@"hourfont", nil)],
-                   [NSString stringWithFormat:@"2%@",NSLocalizedString(@"hourfont", nil)],
-                   [NSString stringWithFormat:@"4%@",NSLocalizedString(@"hourfont", nil)],
-                   [NSString stringWithFormat:@"6%@",NSLocalizedString(@"hourfont", nil)],
-                   [NSString stringWithFormat:@"10%@",NSLocalizedString(@"hourfont", nil)],
-                   [NSString stringWithFormat:@"14%@",NSLocalizedString(@"hourfont", nil)],
-                   [NSString stringWithFormat:@"20%@",NSLocalizedString(@"hourfont", nil)],
-                   [NSString stringWithFormat:@"1%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"2%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"3%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"4%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"5%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"6%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"8%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"11%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"14%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"15%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"16%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"18%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"19%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"23%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"24%@",NSLocalizedString(@"dayfont", nil)],
-                   [NSString stringWithFormat:@"27%@",NSLocalizedString(@"dayfont", nil)]];
-   
++(NSString *)getDateNum:(int)ids{
+    NSArray *arr=@[[NSString stringWithFormat:@"1 %@",NSLocalizedString(@"hourfont", nil)],
+                   [NSString stringWithFormat:@"2 %@",NSLocalizedString(@"hourfont", nil)],
+                   [NSString stringWithFormat:@"4 %@",NSLocalizedString(@"hourfont", nil)],
+                   [NSString stringWithFormat:@"6 %@",NSLocalizedString(@"hourfont", nil)],
+                   [NSString stringWithFormat:@"10 %@",NSLocalizedString(@"hourfont", nil)],
+                   [NSString stringWithFormat:@"14 %@",NSLocalizedString(@"hourfont", nil)],
+                   [NSString stringWithFormat:@"20 %@",NSLocalizedString(@"hourfont", nil)],
+                   [NSString stringWithFormat:@"1 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"2 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"3 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"4 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"5 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"6 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"8 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"11 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"14 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"15 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"16 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"18 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"19 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"23 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"24 %@",NSLocalizedString(@"dayfont", nil)],
+                   [NSString stringWithFormat:@"27 %@",NSLocalizedString(@"dayfont", nil)]];
+    if (ids>22) {
+        return  [arr objectAtIndex:arr.count-1];
+    }
     return  [arr objectAtIndex:ids];
 }
 

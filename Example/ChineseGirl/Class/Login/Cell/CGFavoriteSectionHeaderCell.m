@@ -173,7 +173,7 @@
         _icon.layer.cornerRadius=19*SCREEN_RADIO;
         _icon.clipsToBounds=YES;
         _icon.contentMode = UIViewContentModeScaleAspectFill;
-        [_icon sd_setImageWithURL:[NSURL URLWithString:self.addModel.avater]];
+        [_icon sd_setImageWithURL:[NSURL URLWithString:self.addModel.avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
     }
     return _icon;
 }
@@ -236,7 +236,7 @@
 -(UIImageView *)contentImg1{
     if (!_contentImg1) {
         _contentImg1=[[UIImageView alloc] initWithFrame:CGRectMake(1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
-        [_contentImg1 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:0]]];
+        [_contentImg1 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:0]] placeholderImage:[UIImage imageNamed:@"timeline_image_loading"]];
         if ([self.addModel.type integerValue]==2) {
             UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
             playView.image=[UIImage imageNamed:@"smallPlayVideo"];
@@ -260,7 +260,7 @@
 -(UIImageView *)contentImg2{
     if (!_contentImg2) {
         _contentImg2=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg1.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
-        [_contentImg2 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:1]]];
+        [_contentImg2 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:1]] placeholderImage:[UIImage imageNamed:@"timeline_image_loading"]];
         if ([self.addModel.type integerValue]==2) {
             UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
             playView.image=[UIImage imageNamed:@"smallPlayVideo"];
@@ -284,7 +284,7 @@
 -(UIImageView *)contentImg3{
     if (!_contentImg3) {
         _contentImg3=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.contentImg2.frame)+1, CGRectGetMaxY(self.aboutUs.frame)+10*SCREEN_RADIO, (screen_width-17*SCREEN_RADIO)/3, (screen_width-17*SCREEN_RADIO)/3)];
-        [_contentImg3 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:2]]];
+        [_contentImg3 sd_setImageWithURL:[NSURL URLWithString:[self.addModel.pictures objectAtIndex:2]] placeholderImage:[UIImage imageNamed:@"timeline_image_loading"]];
         if ([self.addModel.type integerValue]==2) {
             UIImageView *playView=[[UIImageView alloc] initWithFrame:CGRectMake(((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, ((screen_width-17*SCREEN_RADIO)/3)/2-14*SCREEN_RADIO, 28*SCREEN_RADIO, 28*SCREEN_RADIO)];
             playView.image=[UIImage imageNamed:@"smallPlayVideo"];

@@ -25,6 +25,7 @@ static NSString *const kUserListDataArrKey = @"userListDataArrKey";
 static NSString *const kAddFriendArrKey = @"addFriendArrKey";
 static NSString *const kgoldNumKey = @"goldNumKey";
 static NSString *const KcommitsKey = @"commitsKey";
+static NSString *const KfirstAppDateKey = @"firstAppDateKey";
 #import "CGSingleCommitData.h"
 static CGSingleCommitData *_instance = nil;
 @implementation CGSingleCommitData
@@ -176,6 +177,13 @@ static CGSingleCommitData *_instance = nil;
             self.commits = [commitsArr mutableCopy];
         }else{
             self.commits = [[NSMutableArray alloc] init];
+        }
+        
+        NSString *firstAppDate = [[NSUserDefaults standardUserDefaults] stringForKey:KfirstAppDateKey];
+        if (![CGCommonString isBlankString:firstAppDate]) {
+            self.firstAppDate = firstAppDate;
+        }else{
+            self.firstAppDate = [CGDateData DateFormatterDate:[CGDateData getCurrentTime]];
         }
    
     }
@@ -350,6 +358,14 @@ static CGSingleCommitData *_instance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(void)setFirstAppDate:(NSString *)firstAppDate{
+    if ([CGCommonString isBlankString:firstAppDate]) {
+        _firstAppDate=@"";
+    }
+    _firstAppDate=firstAppDate;
+    [[NSUserDefaults standardUserDefaults] setValue:_firstAppDate forKey:KfirstAppDateKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 -(void)addAlbumS:(UIImage *)img{
     if (img) {
@@ -427,6 +443,14 @@ static CGSingleCommitData *_instance = nil;
     }
 }
 
+-(void)addCommitsDict:(NSDictionary *)dict{
+    if ([dict stringForKey:@"id"].length>0) {
+        [self.commits addObject:dict];
+        NSArray *arr=[NSArray arrayWithArray:self.commits];
+        self.commits=[arr mutableCopy];
+    }
+}
+
 -(NSArray *)getNewSubListWithUserid:(NSString *)userid{
     NSArray *arr=@[];
     for (NSDictionary *model in self.newsListArr) {
@@ -459,6 +483,12 @@ static CGSingleCommitData *_instance = nil;
         [self.favourites removeObject:obj];
         NSArray *arr=[NSArray arrayWithArray:self.favourites];
         self.favourites=[arr mutableCopy];
+    }
+}
+
+-(void)deleteCommits:(NSDictionary *)dict{
+    if([self.commits indexOfObject:dict] !=NSNotFound){
+        [self.commits removeObject:dict];
     }
 }
 
@@ -503,4 +533,6 @@ static CGSingleCommitData *_instance = nil;
 -(void)deleteAccout{
     self.uid = @"";
 }
+
+
 @end

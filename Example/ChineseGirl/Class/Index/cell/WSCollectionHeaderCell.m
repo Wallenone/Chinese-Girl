@@ -43,7 +43,7 @@
         CGVideoDataModel *indexMend=[self.indexMendArr objectAtIndex:i];
         UIImageView *imgView=[[UIImageView alloc] initWithFrame:CGRectMake(17.5*SCREEN_RADIO+i*(26+57)*SCREEN_RADIO, 15*SCREEN_RADIO, 58*SCREEN_RADIO, 58*SCREEN_RADIO)];
         imgView.layer.cornerRadius=29*SCREEN_RADIO;
-        [imgView sd_setImageWithURL:[NSURL URLWithString:indexMend.videoIcon]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:indexMend.videoIcon] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         imgView.layer.borderWidth=1;
         imgView.layer.borderColor=[UIColor getColor:@"DCDCDC"].CGColor;
         imgView.contentMode =  UIViewContentModeScaleAspectFill;

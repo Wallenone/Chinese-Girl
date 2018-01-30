@@ -230,8 +230,8 @@
     
     for (int i=0; i<_count; i++) {
         
-        if ([CGPinglun reloadCommits:self.myIndexModel.pinglunid].count>0) {
-            NSDictionary *dict= [[CGPinglun reloadCommits:self.myIndexModel.pinglunid] objectAtIndex:i];
+        if ([CGPinglun reloadCommits:self.myIndexModel.pinglunid withfromDate:self.myIndexModel.timeDate withShuoshuoId:self.myIndexModel.ids].count>0) {
+            NSDictionary *dict= [[CGPinglun reloadCommits:self.myIndexModel.pinglunid withfromDate:self.myIndexModel.timeDate withShuoshuoId:self.myIndexModel.ids] objectAtIndex:i];
             
             NSString *nickNameStr=[dict objectForKey:@"nickName"];
             NSString *contentStr=[dict objectForKey:@"content"];
@@ -255,7 +255,7 @@
 -(UIImageView *)iconImageView{
     if (!_iconImageView) {
         _iconImageView=[[UIImageView alloc] initWithFrame:CGRectMake(10*SCREEN_RADIO, 12*SCREEN_RADIO, 32*SCREEN_RADIO, 32*SCREEN_RADIO)];
-        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.icon]];
+        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:self.myIndexModel.icon] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         _iconImageView.layer.cornerRadius = 16*SCREEN_RADIO;
         _iconImageView.layer.borderColor=[UIColor getColor:@"DCDCDC"].CGColor;
         _iconImageView.layer.borderWidth=1;

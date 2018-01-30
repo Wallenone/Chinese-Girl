@@ -288,7 +288,7 @@
 -(UIImageView *)headerIconView{
     if (!_headerIconView) {
         _headerIconView=[[UIImageView alloc] initWithFrame:CGRectMake(2*SCREEN_RADIO, 2*SCREEN_RADIO, 31*SCREEN_RADIO, 31*SCREEN_RADIO)];
-        [_headerIconView sd_setImageWithURL:[NSURL URLWithString:[CGUserInfo getitemWithID:self.uid].avater]];
+        [_headerIconView sd_setImageWithURL:[NSURL URLWithString:[CGUserInfo getitemWithID:self.uid].avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         _headerIconView.layer.cornerRadius=31/2*SCREEN_RADIO;
         _headerIconView.clipsToBounds=YES;
     }
@@ -388,11 +388,11 @@
 
 -(RkyExtendedHitButton *)menuBtn4{
     if (!_menuBtn4) {
-        _menuBtn4=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 31*SCREEN_RADIO)];
+        _menuBtn4=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-60*SCREEN_RADIO, CGRectGetMaxY(self.menuBtn2.frame)+15*SCREEN_RADIO, 50*SCREEN_RADIO, 54*SCREEN_RADIO)];
         if ([[CGSingleCommitData sharedInstance].addFriendArr containsObject:self.uid]) {
             [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"leaderboard_discover_following_ico"] forState:UIControlStateNormal];
         }else{
-            [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"video_follow"] forState:UIControlStateNormal];
+            [_menuBtn4 setBackgroundImage:[UIImage imageNamed:@"video_addfriend"] forState:UIControlStateNormal];
         }
         [_menuBtn4 addTarget:self action:@selector(menuClick4) forControlEvents:UIControlEventTouchUpInside];
         _menuBtn4.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
@@ -441,21 +441,21 @@
         UIImageView *friend1=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
        // friend1.image= [UIImage imageNamed:@"Avatar"];
         CGPinglunren *model=(CGPinglunren *)self.pinglunrenArr[0];
-        [friend1 sd_setImageWithURL:[NSURL URLWithString:model.avater]];
+        [friend1 sd_setImageWithURL:[NSURL URLWithString:model.avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         friend1.layer.cornerRadius=10.5*SCREEN_RADIO;
         friend1.clipsToBounds=YES;
         [_giftFriendView addSubview:friend1];
         
         UIImageView *friend2=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(friend1.frame)+10*SCREEN_RADIO, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
         CGPinglunren *model1=(CGPinglunren *)self.pinglunrenArr[1];
-        [friend2 sd_setImageWithURL:[NSURL URLWithString:model1.avater]];
+        [friend2 sd_setImageWithURL:[NSURL URLWithString:model1.avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         friend2.layer.cornerRadius=10.5*SCREEN_RADIO;
         friend2.clipsToBounds=YES;
         [_giftFriendView addSubview:friend2];
         
         UIImageView *friend3=[[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(friend2.frame)+10*SCREEN_RADIO, 0, 21*SCREEN_RADIO, 21*SCREEN_RADIO)];
         CGPinglunren *model2=(CGPinglunren *)self.pinglunrenArr[2];
-        [friend3 sd_setImageWithURL:[NSURL URLWithString:model2.avater]];
+        [friend3 sd_setImageWithURL:[NSURL URLWithString:model2.avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
         friend3.layer.cornerRadius=10.5*SCREEN_RADIO;
         friend3.clipsToBounds=YES;
         [_giftFriendView addSubview:friend3];

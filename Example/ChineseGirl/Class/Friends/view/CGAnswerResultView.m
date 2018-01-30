@@ -78,7 +78,7 @@
         _leftIcon.layer.cornerRadius=42*SCREEN_RADIO;
         _leftIcon.clipsToBounds=YES;
         _leftIcon.contentMode = UIViewContentModeScaleAspectFill;
-        [_leftIcon sd_setImageWithURL:[NSURL URLWithString:_avater]];
+        [_leftIcon sd_setImageWithURL:[NSURL URLWithString:_avater] placeholderImage:[UIImage imageNamed:@"default_nor_avatar"]];
     }
     
     return _leftIcon;

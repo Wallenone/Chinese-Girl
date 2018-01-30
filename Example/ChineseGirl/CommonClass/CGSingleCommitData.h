@@ -33,6 +33,7 @@
 @property(nonatomic,assign)BOOL isDebug;  //yes是测试数据 no是正式数据
 @property(nonatomic,copy)NSString *resultName;  //资源名称
 @property(nonatomic,strong)NSMutableArray *commits;//评论内容
+@property(nonatomic,copy)NSString *firstAppDate;  //第一次进入app存的一个日期
 + (instancetype)sharedInstance;
 - (void)logout;
 -(void)addAlbumS:(UIImage *)img;   //增加一个相册
@@ -51,4 +52,6 @@
 -(NSArray *)getNewSubListWithUserid:(NSString *)userid;   //查看某个用户下的聊天记录
 -(void)addFriendArr:(NSString *)userid;  //添加一个用户
 -(void)deleteFriendUserid:(NSString *)userid;   //删除一个用户
+-(void)addCommitsDict:(NSDictionary *)dict;    //增加一个评论
+-(void)deleteCommits:(NSDictionary *)dict;  //删除一个评论
 @end

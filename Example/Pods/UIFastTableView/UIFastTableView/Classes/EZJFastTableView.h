@@ -15,11 +15,12 @@
 typedef UITableViewCell * (^BuildCellBlock)(id,NSString *,NSIndexPath *);
 typedef void (^CellSelectedBlock)(id,id);
 typedef void (^DragUpBlock)(int);
-typedef void (^DragDownBlock)();
+typedef void (^DragDownBlock)(void);
 typedef CGFloat (^AutoChangeCellHeightBlock)(id,id);
 typedef NSArray*(^TitleForHeaderInSection)(void);
 typedef void (^Cellediting)(NSIndexPath *,id);
 typedef void (^ScollViewDidBlock)(UIScrollView *);
+typedef NSArray *(^CelleditArrBlock) (NSIndexPath *,id);
 @interface EZJFastTableView : UITableView<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) void(^onTableViewDidScroll)(EZJFastTableView *tableView, CGPoint contentOffset);
@@ -76,6 +77,10 @@ typedef void (^ScollViewDidBlock)(UIScrollView *);
 - (void)setDataArray:(NSArray *)arr;
 
 /**
+ *  得到当前所有数据
+ */
+-(NSArray *)getDataArray;
+/**
  *  动态改变cell的高度
  */
 - (void)onChangeCellHeight:(AutoChangeCellHeightBlock)block;
@@ -93,6 +98,9 @@ typedef void (^ScollViewDidBlock)(UIScrollView *);
 //右滑动删除
 - (void)onCellediting:(Cellediting)block;
 
+//右滑动删除  arrBlock菜单内容
+- (void)onCellediting:(Cellediting)block withCelleditBlock:(CelleditArrBlock)arrBlock;
+
 //滚动到顶部
 - (void)scrollToTop:(BOOL)animated;
 
@@ -103,6 +111,9 @@ typedef void (^ScollViewDidBlock)(UIScrollView *);
 -(void)onScrollDid:(ScollViewDidBlock)block;
 
 - (void)noMoreData;
+
+//手动删除某一行或者多行cell
+-(void)deleteCell:(NSArray *)arr;
 @end
 
 

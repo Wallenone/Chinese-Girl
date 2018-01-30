@@ -12,6 +12,7 @@
 #import "CGIndexModel.h"
 #import "CGVideoDataModel.h"
 #import "CGSqliteManager.h"
+#import "CGPinglun.h"
 @interface CGShuoShuo()
 @property(nonatomic,assign)int commitNum;
 @end
@@ -37,7 +38,7 @@
     model.nickName = [CGUserInfo getitemWithID:model.uid].nickname;
     model.timeDate = [self getDateNum:[model.sort intValue]];
     model.likes= [CGCommonString filterNullString:[dic stringForKey:@"likes"]];
-    model.comments= [CGCommonString filterNullString:[dic stringForKey:@"comments"]];
+    model.comments= [NSString stringWithFormat:@"%lu",(unsigned long)[CGPinglun reloadCommits:model.pinglunid withfromDate:model.timeDate withShuoshuoId:model.ids].count];
     model.address= [CGUserInfo getitemWithID:model.uid].address;
     model.type = [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     if ([model.type integerValue]==1) {
@@ -62,7 +63,6 @@
     
     model.toContent =toCityName;
     model.shuoshuoContent = [self getShuoshuoContent:model];
-    model.address=@"China.Beijing";
     return model;
 }
 
@@ -196,30 +196,8 @@
 }
 
 +(NSString *)getDateNum:(int)ids{
-    NSString *date=@"";
-    if (ids==0) {
-        int randomHour=[CGCommonToolsNode getRandomNumber:1 to:10];
-        date = [NSString stringWithFormat:@"%d %@",randomHour,NSLocalizedString(@"hourfont", nil)];
-    }else{
-        if (ids<15) {
-            date = [NSString stringWithFormat:@"%d %@",ids*2,NSLocalizedString(@"dayfont", nil)];
-        }else if(ids>=15 && ids<=20){
-            date = [NSString stringWithFormat:@"%d %@",1,NSLocalizedString(@"dayfont", nil)];
-        }else if(ids>=20 && ids<=25){
-            date = [NSString stringWithFormat:@"%d %@",2,NSLocalizedString(@"dayfont", nil)];
-        }else if(ids>=20 && ids<=25){
-            date = [NSString stringWithFormat:@"%d %@",3,NSLocalizedString(@"dayfont", nil)];
-        }else if(ids>=25 && ids<=30){
-            date = [NSString stringWithFormat:@"%d %@",5,NSLocalizedString(@"dayfont", nil)];
-        }else if(ids>=35 && ids<=40){
-            date = [NSString stringWithFormat:@"%d %@",6,NSLocalizedString(@"dayfont", nil)];
-        }else if(ids>=45 && ids<=50){
-            date = [NSString stringWithFormat:@"%d %@",8,NSLocalizedString(@"dayfont", nil)];
-        }else{
-            date = [NSString stringWithFormat:@"%d %@",1,NSLocalizedString(@"yearfont", nil)];
-        }
-    }
-    
+    NSDate *dateSr = [CGDateData datejisuanYear:0 Month:0 Day:-ids*5 withData:[CGDateData getCurrentTime]];
+    NSString *date = [CGDateData DateFormatterDate:dateSr];
     
     return  date;
 }
