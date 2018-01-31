@@ -13,5 +13,5 @@
 -(void)addTransactionObserver;    // 添加观察者
 -(void)removeTransactionObserver;   // 移除观察者
 -(void)replyToBuy;    //恢复购买(主要是针对非消耗产品)
--(void)purchasePay;  //开始购买
+-(void)purchasePay:(NSString *)selectProductID;  //开始购买
 @end

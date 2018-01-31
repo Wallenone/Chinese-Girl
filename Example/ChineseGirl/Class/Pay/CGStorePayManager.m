@@ -9,7 +9,6 @@
 #import "CGStorePayManager.h"
 #import <StoreKit/StoreKit.h>
 #import "SVProgressHUD.h"
-#define ProductID1 @"910082734011"
 @interface CGStorePayManager ()<SKProductsRequestDelegate,SKPaymentTransactionObserver>{
     NSString *selectProductID;
 }
@@ -44,11 +43,11 @@
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 #pragma mark 购买
--(void)purchasePay{
+-(void)purchasePay:(NSString *)selectProductID{
     if([SKPaymentQueue canMakePayments]){
         
         // productID就是你在创建购买项目时所填写的产品ID
-        selectProductID = [NSString stringWithFormat:@"%@",ProductID1];
+       // selectProductID = [NSString stringWithFormat:@"%@",ProductID1];
         [self requestProductID:selectProductID];
         
     }else{

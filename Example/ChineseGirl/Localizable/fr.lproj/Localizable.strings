@@ -67,6 +67,8 @@
 "pleaseSettingPay" = "Please open the paid purchase function first";
 "queding" = "Confirm";
 "zhengzaigoumai" = "Being bought...";
+"goumaishibai" = "Purchase failure";
+"goumaichenggong" = "Purchase success";
 "jinruapp" = "Enter the app";
 "fuhaobang" = "Rich list";
 "remenbang" = "Hot list";

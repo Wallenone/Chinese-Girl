@@ -147,6 +147,18 @@
     
     //定时任务启动
     [CGGlobalTimerNode reloadTask];
+    
+    [self setIapHelperData];
+}
+
+-(void)setIapHelperData{
+    if(![IAPShare sharedHelper].iap) {
+        NSSet* dataSet = [[NSSet alloc] initWithObjects:@"com.comquas.iap.test", nil];  //需要加产品id
+        
+        [IAPShare sharedHelper].iap = [[IAPHelper alloc] initWithProductIdentifiers:dataSet];
+    }
+    
+    [IAPShare sharedHelper].iap.production = NO;  //测试
 }
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
