@@ -66,19 +66,14 @@
 -(void)btnClick:(UIButton *)sender{
     if (sender.tag==1001) {  //$0.99
         [self setIapHelper:0];
-        [CGSingleCommitData sharedInstance].goldNum+=79;
     }else if (sender.tag==1002){ //$9.99
         [self setIapHelper:1];
-        [CGSingleCommitData sharedInstance].goldNum+=819;
     }else if (sender.tag==1003){ //$99.99
         [self setIapHelper:2];
-        [CGSingleCommitData sharedInstance].goldNum+=8499;
     }else if (sender.tag==1004){ //$4.99
         [self setIapHelper:3];
-        [CGSingleCommitData sharedInstance].goldNum+=399;
     }else if (sender.tag==1005){  //$49.99
         [self setIapHelper:4];
-        [CGSingleCommitData sharedInstance].goldNum+=4199;
     }
     self.mineMoneyLabel.text=[NSString stringWithFormat:@"%ld",(long)[CGSingleCommitData sharedInstance].goldNum];
     [self.mineMoneyLabel sizeToFit];
@@ -115,6 +110,17 @@
                                                         [[SKPaymentQueue defaultQueue] finishTransaction:trans];
                                                         NSLog(@"SUCCESS %@",response);
                                                         NSLog(@"Pruchases %@",[IAPShare sharedHelper].iap.purchasedProducts);
+                                                        if (iapIndex==0) {
+                                                            [CGSingleCommitData sharedInstance].goldNum+=79;
+                                                        }else if (iapIndex==1){
+                                                            [CGSingleCommitData sharedInstance].goldNum+=819;
+                                                        }else if (iapIndex==2){
+                                                            [CGSingleCommitData sharedInstance].goldNum+=8499;
+                                                        }else if (iapIndex==3){
+                                                            [CGSingleCommitData sharedInstance].goldNum+=399;
+                                                        }else if (iapIndex==4){
+                                                            [CGSingleCommitData sharedInstance].goldNum+=4199;
+                                                        }
                                                     }
                                                     else {
                                                         NSLog(@"Fail");

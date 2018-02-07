@@ -153,7 +153,7 @@
 
 -(void)setIapHelperData{
     if(![IAPShare sharedHelper].iap) {
-        NSSet* dataSet = [[NSSet alloc] initWithObjects:@"com.comquas.iap.test", nil];  //需要加产品id
+        NSSet* dataSet = [[NSSet alloc] initWithObjects:@"9100827340001",@"9100827340002",@"9100827340003",@"9100827340004",@"9100827340005",@"9100827340006",@"9100827340007",@"9100827340008", nil];  //需要加产品id
         
         [IAPShare sharedHelper].iap = [[IAPHelper alloc] initWithProductIdentifiers:dataSet];
     }
