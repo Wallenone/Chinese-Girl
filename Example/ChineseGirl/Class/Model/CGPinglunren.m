@@ -18,7 +18,7 @@
 }
 
 +(NSString *)getAvater:(NSString *)avaterStr{
-    NSString *avater=[NSString stringWithFormat:@"https://raw.githubusercontent.com/Wallenone/service/master/manavater/%@",avaterStr];
+    NSString *avater=[NSString stringWithFormat:@"%@manavater/%@",applocalHost,avaterStr];
     
     return avater;
 }

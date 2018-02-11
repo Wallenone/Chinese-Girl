@@ -12,6 +12,7 @@
 @property(nonatomic,copy)NSString *ids;
 @property(nonatomic,copy)NSString *type;
 @property(nonatomic,copy)NSString *message;
+@property(nonatomic,copy)NSString *english;
 @property(nonatomic,copy)NSString *message_radio;
 @property(nonatomic,copy)NSString *message_Bigpicture;
 @property(nonatomic,copy)NSString *message_videoUrl;

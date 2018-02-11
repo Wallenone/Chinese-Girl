@@ -124,7 +124,7 @@
         
         __weak __typeof(self)weakSelf = self;
         if (_state) {
-            [[ZXCCycleTimer shareInstance] addCountDownWithTimeInterval:10 endBlock:^() {
+            [[ZXCCycleTimer shareInstance] addCountDownWithTimeInterval:30 endBlock:^() {
                 NSLog(@"十秒钟后执行了这个时间，并且添加系统聊天");
                 [[CGSingleCommitData sharedInstance] addNewSubList:@{@"type":@"0",@"message":@"",@"userid":self.userid}];
                 NSMutableArray *_tarr=[[NSMutableArray alloc] init];

@@ -14,9 +14,9 @@
 }
 
 +(void)addTalkData{
-    [[ZXCCycleTimer shareInstance] addCountDownWithTimeInterval:10 endBlock:^() {
-        //NSLog(@"十秒钟后执行了这个时间，并且添加系统聊天");
-       // [CGUserInfo getTableRondomNewsUser];
-    }];
+//    [[ZXCCycleTimer shareInstance] addCountDownWithTimeInterval:10 endBlock:^() {
+//        //NSLog(@"十秒钟后执行了这个时间，并且添加系统聊天");
+//       // [CGUserInfo getTableRondomNewsUser];
+//    }];
 }
 @end

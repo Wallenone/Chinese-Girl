@@ -22,6 +22,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		E503AA05202FE40D009F39AF /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E503AA04202FE40D009F39AF /* message.plist */; };
 		E504AB8F1F507C0100E1F48C /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = E504AB6D1F507C0100E1F48C /* MBProgressHUD+Add.m */; };
 		E504AB901F507C0100E1F48C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E504AB6E1F507C0100E1F48C /* MBProgressHUD.bundle */; };
 		E504AB911F507C0100E1F48C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E504AB701F507C0100E1F48C /* MBProgressHUD.m */; };
@@ -108,7 +109,6 @@
 		E5AD81B3201C782500F6474F /* Shuoshuo1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E5AD81B2201C782500F6474F /* Shuoshuo1.sqlite */; };
 		E5B0A1461F62827A00FD6476 /* CGForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */; };
 		E5B174EF1F9CAA180055E16A /* CGSingleCommitData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */; };
-		E5B2A24D1FD8072B006F57AD /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5B2A24C1FD8072B006F57AD /* message.plist */; };
 		E5B4756C1FD6CDE70045B960 /* CGMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */; };
 		E5BCE6BE1FEBFA160043DF88 /* AnimOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6B31FEBFA150043DF88 /* AnimOperation.m */; };
 		E5BCE6BF1FEBFA160043DF88 /* AnimOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BCE6B51FEBFA150043DF88 /* AnimOperationManager.m */; };
@@ -212,6 +212,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB82E5B9B0C14A6C085BB2E9 /* Pods_ChineseGirl_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChineseGirl_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E503AA04202FE40D009F39AF /* message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = message.plist; sourceTree = "<group>"; };
 		E504AB6C1F507C0100E1F48C /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		E504AB6D1F507C0100E1F48C /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		E504AB6E1F507C0100E1F48C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -388,7 +389,6 @@
 		E5B0A1451F62827A00FD6476 /* CGForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGForgetPasswordViewController.m; sourceTree = "<group>"; };
 		E5B174ED1F9CAA180055E16A /* CGSingleCommitData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSingleCommitData.h; sourceTree = "<group>"; };
 		E5B174EE1F9CAA180055E16A /* CGSingleCommitData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSingleCommitData.m; sourceTree = "<group>"; };
-		E5B2A24C1FD8072B006F57AD /* message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = message.plist; sourceTree = "<group>"; };
 		E5B4756A1FD6CDE70045B960 /* CGMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMessageModel.h; sourceTree = "<group>"; };
 		E5B4756B1FD6CDE70045B960 /* CGMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMessageModel.m; sourceTree = "<group>"; };
 		E5BCE6B21FEBFA150043DF88 /* AnimOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimOperation.h; sourceTree = "<group>"; };
@@ -619,8 +619,8 @@
 				E5AD81B0201C72BC00F6474F /* userInfo1.plist */,
 				E536F54E200B3CD1004100C6 /* videoData.plist */,
 				E5581FED1FF78FC600D13F6A /* moneyTop.plist */,
+				E503AA04202FE40D009F39AF /* message.plist */,
 				E5D291921FC5A96C003718CB /* Billabong.ttf */,
-				E5B2A24C1FD8072B006F57AD /* message.plist */,
 				E5E84A6E201F6FDF005C16AB /* pinglunren.plist */,
 				E5C0CD661FB80BEB002394C9 /* pinglun.plist */,
 				E5D9F0301FB2E2D300DAEB7A /* CNCity.plist */,
@@ -1313,7 +1313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E84A71201F7287005C16AB /* Pinglunren.sqlite in Resources */,
-				E5B2A24D1FD8072B006F57AD /* message.plist in Resources */,
 				E5E3D6D6200CDD7D00F3DAF0 /* shuoshuo1.plist in Resources */,
 				E504AB931F507C0100E1F48C /* MJPhotoBrowser.bundle in Resources */,
 				E5D043692018C70500272DB4 /* Shuoshuo.sqlite in Resources */,
@@ -1345,6 +1344,7 @@
 				E5AD81B3201C782500F6474F /* Shuoshuo1.sqlite in Resources */,
 				E5E84A6F201F6FE0005C16AB /* pinglunren.plist in Resources */,
 				E5D9F0321FB2E2D400DAEB7A /* TWCity.plist in Resources */,
+				E503AA05202FE40D009F39AF /* message.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

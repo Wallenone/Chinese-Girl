@@ -31,3 +31,6 @@
 #import "CGDateData.h"
 #import "IAPShare.h"
 #import <StoreKit/StoreKit.h>
+
+
+#define applocalHost @"https://hk-1256071792.cos.ap-hongkong.myqcloud.com/ChineseGirl/"

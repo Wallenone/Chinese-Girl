@@ -20,7 +20,7 @@
     model.sex = [CGCommonString filterNullString:[dic stringForKey:@"sex"]];
     model.birthday = [CGCommonString filterNullString:[dic stringForKey:@"birthday"]];
     model.aboutus = [CGCommonString filterNullString:[dic stringForKey:@"aboutus"]];
-    model.avater = [NSString stringWithFormat:@"%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,model.ids,@"/Enclosure/",[CGCommonString filterNullString:[dic stringForKey:@"avater"]]];
+    model.avater = [NSString stringWithFormat:@"%@%@%@%@%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,model.ids,@"/Enclosure/",[CGCommonString filterNullString:[dic stringForKey:@"avater"]]];
     model.address = [NSString stringWithFormat:@"China.%@",[CGCommonString filterNullString:[dic stringForKey:@"city"]]] ;
     model.bigAvater = [self getBigAvater:model.avater withIds:model.ids];
     model.pictures = [self getPictures:[CGCommonString filterNullString:[dic stringForKey:@"pictures"]] withIds:model.ids];
@@ -153,7 +153,7 @@
     NSString *iconTstr=[array objectAtIndex:array.count-1];
     NSArray *array1 = [iconTstr componentsSeparatedByString:@"."];
     NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
-    NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+    NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
     
     return newIcon;
 }
@@ -162,7 +162,7 @@
     NSArray *array = [icon componentsSeparatedByString:@"/"];
     NSMutableArray *newArr=[NSMutableArray new];
     for (NSString *img in array) {
-        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",img];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",img];
         [newArr addObject:newIcon];
     }
     
@@ -175,7 +175,7 @@
     for (NSString *img in array) {
         NSArray *array1 = [img componentsSeparatedByString:@"."];
         NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
-        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
         [newArr addObject:newIcon];
     }
     
@@ -196,7 +196,7 @@
 +(NSMutableArray *)getVideoUrlsId:(NSString *)ids{
     NSMutableArray *newArr=[NSMutableArray new];
     for (int i=1; i<=3; i++) {
-        NSString *videoUrl= [NSString stringWithFormat:@"%@%@%@%@%@%d%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",@"V",i,@".mp4"];
+        NSString *videoUrl= [NSString stringWithFormat:@"%@%@%@%@%@%d%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",@"V",i,@".mp4"];
         [newArr addObject:videoUrl];
     }
     

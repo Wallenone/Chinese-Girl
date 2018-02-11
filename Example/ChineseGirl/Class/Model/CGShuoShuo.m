@@ -166,7 +166,7 @@
     NSArray *array = [string componentsSeparatedByString:@"/"];
     NSMutableArray *newArr=[NSMutableArray new];
     for (NSString *icon in array) {
-       NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",icon];
+       NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",icon];
        [newArr addObject:newIcon];
     }
     return newArr;
@@ -189,7 +189,7 @@
     for (NSString *icon in array) {
         NSArray *array1 = [icon componentsSeparatedByString:@"."];
         NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
-        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,ids,@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
         [newArr addObject:newIcon];
     }
     return newArr;

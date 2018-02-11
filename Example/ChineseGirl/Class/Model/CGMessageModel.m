@@ -14,6 +14,8 @@
     model.ids = [CGCommonString filterNullString:[dic stringForKey:@"id"]];
     model.type= [CGCommonString filterNullString:[dic stringForKey:@"type"]];
     model.message = [CGCommonString filterNullString:[dic stringForKey:@"message"]];
+    model.english = [CGCommonString filterNullString:[dic stringForKey:@"english"]];
+    model.message = [self getCurrentMessage:model.message withEnglishMessage:model.english];
     model.message_radio = @"";
     model.message_Bigpicture = @"";
     model.message_videoUrl = @"";
@@ -22,13 +24,13 @@
     model.message_radioUrl=@"";
     if ([model.type integerValue]==2){
         model.message_radioSecond = @"3";
-        model.message_radioUrl = [NSString stringWithFormat:@"%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/radio/",model.message];
+        model.message_radioUrl = [NSString stringWithFormat:@"%@%@%@",applocalHost,@"radio/",model.message];
     }else if ([model.type integerValue]==3){
         NSArray *array = [model.message componentsSeparatedByString:@"/"];
         NSArray *array1 = [array[array.count-1] componentsSeparatedByString:@"."];
         NSString *bstr=[[array1 objectAtIndex:0] stringByReplacingOccurrencesOfString:@"S" withString:@"B"];
-        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,array[0],@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
-        model.message=[NSString stringWithFormat:@"%@%@%@",@"https://raw.githubusercontent.com/Wallenone/service/master/",[CGSingleCommitData sharedInstance].resultName,model.message];
+        NSString *newIcon= [NSString stringWithFormat:@"%@%@%@%@%@%@%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,array[0],@"/Enclosure/",bstr,@".",[array1 objectAtIndex:1]];
+        model.message=[NSString stringWithFormat:@"%@%@%@",applocalHost,[CGSingleCommitData sharedInstance].resultName,model.message];
         model.message_Bigpicture=newIcon;
     }else if ([model.type integerValue]==4){
         CGVideoDataModel *videoModel =[CGVideoDataModel reloadTableWithIds:[model.ids integerValue]];
@@ -46,6 +48,22 @@
     return model;
 }
 
+
++(NSString *)getCurrentMessage:(NSString *)message withEnglishMessage:(NSString *)messageEnglish{
+    NSString *language = [NSLocale preferredLanguages].firstObject;
+    NSString *content=@"";
+    if ([language hasPrefix:@"en"]) {
+        content = messageEnglish;
+    } else if ([language hasPrefix:@"zh"]) {
+        if ([language rangeOfString:@"Hans"].location != NSNotFound) {
+            content = message; // 简体中文
+        }
+    }else{
+        content = messageEnglish;
+    }
+    
+    return content;
+}
 
 @end
 

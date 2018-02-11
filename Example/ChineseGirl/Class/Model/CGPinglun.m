@@ -39,7 +39,7 @@
                 if (array.count>0) {
                     NSString *nickName= [self reloadPinlunRenTableWithIds:[array objectAtIndex:0]];
                     NSString *content = [self reloadTableWithIds:[array objectAtIndex:1]];
-                   NSString *avater=[NSString stringWithFormat:@"https://raw.githubusercontent.com/Wallenone/service/master/manavater/%@",[self reloadPinlunavaterRenTableWithIds:[array objectAtIndex:0]]];
+                    NSString *avater=[NSString stringWithFormat:@"%@manavater/%@",applocalHost,[self reloadPinlunavaterRenTableWithIds:[array objectAtIndex:0]]];
                     
                     NSMutableDictionary *dict=[[NSMutableDictionary alloc] init];
                     [dict setObject:nickName forKey:@"nickName"];
