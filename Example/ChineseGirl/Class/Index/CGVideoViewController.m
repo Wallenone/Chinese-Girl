@@ -147,7 +147,7 @@
     }else{
         if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
             if ([CGSingleCommitData sharedInstance].goldNum>=30) {
-                [CGSingleCommitData sharedInstance].goldNum-=30;
+                [CGSingleCommitData sharedInstance].goldNum=[CGSingleCommitData sharedInstance].goldNum-30;
                 self.goldhandbigView.layer.opacity=1;
                 [UIView animateWithDuration:0.5 delay:2.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
                     self.goldhandbigView.layer.opacity=0;
