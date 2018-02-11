@@ -17,4 +17,5 @@ target 'ChineseGirl_Example' do
   pod 'Masonry'
   pod 'WJPlayer'
   pod 'FMDB'
+  pod 'IAPHelper'
 end

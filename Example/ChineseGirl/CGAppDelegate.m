@@ -147,6 +147,18 @@
     
     //定时任务启动
     [CGGlobalTimerNode reloadTask];
+    
+    [self setIapHelperData];
+}
+
+-(void)setIapHelperData{
+    if(![IAPShare sharedHelper].iap) {
+        NSSet* dataSet = [[NSSet alloc] initWithObjects:@"9100827340001",@"9100827340002",@"9100827340003",@"9100827340004",@"9100827340005",@"9100827340006",@"9100827340007",@"9100827340008", nil];  //需要加产品id
+        
+        [IAPShare sharedHelper].iap = [[IAPHelper alloc] initWithProductIdentifiers:dataSet];
+    }
+    
+    [IAPShare sharedHelper].iap.production = NO;  //测试
 }
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{

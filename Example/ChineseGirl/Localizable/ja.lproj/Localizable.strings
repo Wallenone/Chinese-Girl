@@ -67,6 +67,8 @@
 "pleaseSettingPay" = "まず、アプリケーション内の有料購入機能を開いてください";
 "queding" = "確定";
 "zhengzaigoumai" = "購入中...";
+"goumaishibai" = "購入に失敗する";
+"goumaichenggong" = "購入に成功する";
 "jinruapp" = "応用に入り";
 "fuhaobang" = "長者番付";
 "remenbang" = "人気ランキング";

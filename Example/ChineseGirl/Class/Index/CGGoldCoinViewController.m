@@ -8,7 +8,7 @@
 
 
 #import "CGGoldCoinViewController.h"
-
+#import "CGStorePayManager.h"
 @interface CGGoldCoinViewController (){
     OnBuyBack onBuyBack;
 }
@@ -24,6 +24,16 @@
 @end
 
 @implementation CGGoldCoinViewController
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[CGStorePayManager sharedManager] addTransactionObserver];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[CGStorePayManager sharedManager] removeTransactionObserver];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,18 +65,79 @@
 
 -(void)btnClick:(UIButton *)sender{
     if (sender.tag==1001) {  //$0.99
-        [CGSingleCommitData sharedInstance].goldNum+=79;
+        [self setIapHelper:0];
     }else if (sender.tag==1002){ //$9.99
-        [CGSingleCommitData sharedInstance].goldNum+=819;
+        [self setIapHelper:1];
     }else if (sender.tag==1003){ //$99.99
-        [CGSingleCommitData sharedInstance].goldNum+=8499;
+        [self setIapHelper:2];
     }else if (sender.tag==1004){ //$4.99
-        [CGSingleCommitData sharedInstance].goldNum+=399;
+        [self setIapHelper:3];
     }else if (sender.tag==1005){  //$49.99
-        [CGSingleCommitData sharedInstance].goldNum+=4199;
+        [self setIapHelper:4];
     }
     self.mineMoneyLabel.text=[NSString stringWithFormat:@"%ld",(long)[CGSingleCommitData sharedInstance].goldNum];
     [self.mineMoneyLabel sizeToFit];
+}
+
+-(void)setIapHelper:(NSInteger)iapIndex{
+    [[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response)
+     {
+         if(response > 0 ) {
+             SKProduct* product =[[IAPShare sharedHelper].iap.products objectAtIndex:iapIndex];
+             
+             NSLog(@"Price: %@",[[IAPShare sharedHelper].iap getLocalePrice:product]);
+             NSLog(@"Title: %@",product.localizedTitle);
+             [SVProgressHUD showWithStatus:NSLocalizedString(@"zhengzaigoumai", nil)];
+             [[IAPShare sharedHelper].iap buyProduct:product
+                                        onCompletion:^(SKPaymentTransaction* trans){
+                                            if(trans.error)
+                                            {
+                                                [SVProgressHUD showWithStatus:NSLocalizedString(@"goumaishibai", nil)];
+                                                [[SKPaymentQueue defaultQueue] finishTransaction:trans];
+                                                NSLog(@"Fail %@",[trans.error localizedDescription]);
+                                            }
+                                            else if(trans.transactionState == SKPaymentTransactionStatePurchased) {
+                                                
+                                                [[IAPShare sharedHelper].iap checkReceipt:[NSData dataWithContentsOfURL:[[NSBundle mainBundle] appStoreReceiptURL]] AndSharedSecret:iapShareSecret onCompletion:^(NSString *response, NSError *error) {
+                                                    
+                                                    //Convert JSON String to NSDictionary
+                                                    NSDictionary* rec = [IAPShare toJSON:response];
+                                                    
+                                                    if([rec[@"status"] integerValue]==0)
+                                                    {
+                                                        [[IAPShare sharedHelper].iap provideContentWithTransaction:trans];
+                                                        [SVProgressHUD showWithStatus:NSLocalizedString(@"goumaichenggong", nil)];
+                                                        [[SKPaymentQueue defaultQueue] finishTransaction:trans];
+                                                        NSLog(@"SUCCESS %@",response);
+                                                        NSLog(@"Pruchases %@",[IAPShare sharedHelper].iap.purchasedProducts);
+                                                        if (iapIndex==0) {
+                                                            [CGSingleCommitData sharedInstance].goldNum+=79;
+                                                        }else if (iapIndex==1){
+                                                            [CGSingleCommitData sharedInstance].goldNum+=819;
+                                                        }else if (iapIndex==2){
+                                                            [CGSingleCommitData sharedInstance].goldNum+=8499;
+                                                        }else if (iapIndex==3){
+                                                            [CGSingleCommitData sharedInstance].goldNum+=399;
+                                                        }else if (iapIndex==4){
+                                                            [CGSingleCommitData sharedInstance].goldNum+=4199;
+                                                        }
+                                                    }
+                                                    else {
+                                                        NSLog(@"Fail");
+                                                        [SVProgressHUD showWithStatus:NSLocalizedString(@"goumaishibai", nil)];
+                                                        [[SKPaymentQueue defaultQueue] finishTransaction:trans];
+                                                    }
+                                                }];
+                                            }
+                                            else if(trans.transactionState == SKPaymentTransactionStateFailed) {
+                                                NSLog(@"Fail");
+                                                [SVProgressHUD showWithStatus:NSLocalizedString(@"goumaishibai", nil)];
+                                                [[SKPaymentQueue defaultQueue] finishTransaction:trans];
+                                            }
+                                            
+                                        }];//end of buy product
+         }
+     }];
 }
 
 -(UIView *)diView{

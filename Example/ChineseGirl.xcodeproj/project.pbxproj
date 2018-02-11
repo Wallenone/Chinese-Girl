@@ -42,6 +42,7 @@
 		E5260EDA1F69698E001824F1 /* CGPickBottleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5260ED91F69698E001824F1 /* CGPickBottleContentView.m */; };
 		E5287B5B201306930097AC27 /* movie1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E5287B5A201306930097AC27 /* movie1.mp4 */; };
 		E52E450D1FE7F54400C4B8C2 /* CGGoldCoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */; };
+		E5346DBC20216AC700D236D2 /* IAPManage.m in Sources */ = {isa = PBXBuildFile; fileRef = E5346DBA20216AC700D236D2 /* IAPManage.m */; };
 		E534E1C31FBBDF9A00F4962E /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */; };
 		E534E2081FBC1B9F00F4962E /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E534E2071FBC1B9F00F4962E /* NSObject+NSLocalNotification.m */; };
 		E53503B11F9C721900E1D8C5 /* MyCommitSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53503B01F9C721900E1D8C5 /* MyCommitSViewController.m */; };
@@ -262,6 +263,8 @@
 		E5287B5A201306930097AC27 /* movie1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie1.mp4; sourceTree = "<group>"; };
 		E52E450B1FE7F54400C4B8C2 /* CGGoldCoinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGGoldCoinViewController.h; sourceTree = "<group>"; };
 		E52E450C1FE7F54400C4B8C2 /* CGGoldCoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGGoldCoinViewController.m; sourceTree = "<group>"; };
+		E5346DBA20216AC700D236D2 /* IAPManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPManage.m; sourceTree = "<group>"; };
+		E5346DBB20216AC700D236D2 /* IAPManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPManage.h; sourceTree = "<group>"; };
 		E534E1C01FBBDF9A00F4962E /* NSString+PinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin.h"; sourceTree = "<group>"; };
 		E534E1C11FBBDF9A00F4962E /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
 		E534E2061FBC1B9F00F4962E /* NSObject+NSLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSLocalNotification.h"; sourceTree = "<group>"; };
@@ -1002,6 +1005,8 @@
 		E590FBCD1FF4C4C30003B838 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				E5346DBB20216AC700D236D2 /* IAPManage.h */,
+				E5346DBA20216AC700D236D2 /* IAPManage.m */,
 				E590FC181FF4E3080003B838 /* CGStorePayManager.h */,
 				E590FC171FF4E3070003B838 /* CGStorePayManager.m */,
 			);
@@ -1384,7 +1389,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF417B7723E0ED6C9C70033F /* [CP] Copy Pods Resources */ = {
@@ -1436,6 +1441,7 @@
 				E5BCE6BF1FEBFA160043DF88 /* AnimOperationManager.m in Sources */,
 				E53CD2E41F4F15B600CF913D /* MyIndexModel.m in Sources */,
 				E538D76B1F429BE80079AE94 /* WSLayout.m in Sources */,
+				E5346DBC20216AC700D236D2 /* IAPManage.m in Sources */,
 				E5E21BE31FCC593B00B6DF61 /* CGNewForgetViewController.m in Sources */,
 				E53CD2E71F4F17DC00CF913D /* MyIndexCell.m in Sources */,
 				E590FC191FF4E3080003B838 /* CGStorePayManager.m in Sources */,

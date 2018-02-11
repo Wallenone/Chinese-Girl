@@ -67,6 +67,8 @@
 "pleaseSettingPay" = "请先开启应用内付费购买功能";
 "queding" = "确定";
 "zhengzaigoumai" = "正在购买...";
+"goumaishibai" = "购买失败";
+"goumaichenggong" = "购买成功";
 "jinruapp" = "进入应用";
 "fuhaobang" = "富豪榜";
 "remenbang" = "热门榜";

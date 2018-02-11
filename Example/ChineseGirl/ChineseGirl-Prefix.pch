@@ -16,7 +16,6 @@
 
 #endif
 
-
 #import "UIViewController+NavigationBar.h"
 #import "Macro.h"
 #import "UIColor+getColor.h"
@@ -30,3 +29,5 @@
 #import "ZXCGlobalTimer.h"
 #import "CGCommonString.h"
 #import "CGDateData.h"
+#import "IAPShare.h"
+#import <StoreKit/StoreKit.h>
