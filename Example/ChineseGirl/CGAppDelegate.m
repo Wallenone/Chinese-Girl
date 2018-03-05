@@ -26,6 +26,7 @@
 #import "CGGlobalTimerNode.h"
 #import "AFURLSessionManager.h"
 #import "CGLaunchViewController.h"
+#import "UMMobClick/MobClick.h"
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 
@@ -35,6 +36,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    [self setUMConfig];
     //发送本地推送
     // [CGAppDelegate registerLocalNotification:5 title:@"收到的标题" content:@"你收到啦消息"];
     
@@ -82,6 +84,15 @@
 //    }];
 //    [self.window.rootViewController.view addSubview:im];
 
+}
+
+-(void)setUMConfig{
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    
+    UMConfigInstance.appKey = @"5a93d60da40fa34e5f0000bf";
+    UMConfigInstance.channelId = @"App Store";
+    [MobClick startWithConfigure:UMConfigInstance];
 }
 
 -(void)setRootView{

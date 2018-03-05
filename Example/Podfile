@@ -18,4 +18,5 @@ target 'ChineseGirl_Example' do
   pod 'WJPlayer'
   pod 'FMDB'
   pod 'IAPHelper'
+  pod 'UMengAnalytics-NO-IDFA'
 end
