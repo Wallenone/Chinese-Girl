@@ -1,1 +1,0 @@
-../../../WJFastScrollViewPoint/WJFastScrollViewPoint/Classes/BHInfiniteScrollView/Views/BHInfiniteScrollViewCell.h

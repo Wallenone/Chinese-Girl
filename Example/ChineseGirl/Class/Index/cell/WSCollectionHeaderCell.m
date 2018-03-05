@@ -73,7 +73,14 @@
 -(void)iconClick:(UIButton *)button{
     NSInteger index=button.tag;
     CGVideoDataModel *indexMend=[self.indexMendArr objectAtIndex:index];
-    
+    NSMutableArray *marr = [[NSMutableArray alloc]initWithArray:[CGCommonToolsNode getCurrentVC].navigationController.viewControllers];
+    for (UIViewController *vc in marr) {
+        if ([vc isKindOfClass:[CGVideoViewController class]]) {
+            [marr removeObject:vc];
+            break;
+        }
+    }
+    [CGCommonToolsNode getCurrentVC].navigationController.viewControllers = marr;
     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
     videoVC.videoIcon=indexMend.videoIcon;

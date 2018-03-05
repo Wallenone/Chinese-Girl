@@ -98,6 +98,14 @@
     if ([self.addModel.type integerValue]==1) {
         [self setCheckPhotos:0];
     }else if ([self.addModel.type integerValue]==2){
+        NSMutableArray *marr = [[NSMutableArray alloc]initWithArray:[CGCommonToolsNode getCurrentVC].navigationController.viewControllers];
+        for (UIViewController *vc in marr) {
+            if ([vc isKindOfClass:[CGVideoViewController class]]) {
+                [marr removeObject:vc];
+                break;
+            }
+        }
+        [CGCommonToolsNode getCurrentVC].navigationController.viewControllers = marr;
         CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
         UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
         videoVC.videoIcon=self.addModel.picturesBig[0];
@@ -112,6 +120,14 @@
     if ([self.addModel.type integerValue]==1) {
         [self setCheckPhotos:1];
     }else if ([self.addModel.type integerValue]==2){
+        NSMutableArray *marr = [[NSMutableArray alloc]initWithArray:[CGCommonToolsNode getCurrentVC].navigationController.viewControllers];
+        for (UIViewController *vc in marr) {
+            if ([vc isKindOfClass:[CGVideoViewController class]]) {
+                [marr removeObject:vc];
+                break;
+            }
+        }
+        [CGCommonToolsNode getCurrentVC].navigationController.viewControllers = marr;
         CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
         UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
         videoVC.videoIcon=self.addModel.picturesBig[1];
@@ -125,6 +141,14 @@
     if ([self.addModel.type integerValue]==1) {
         [self setCheckPhotos:2];
     }else if ([self.addModel.type integerValue]==2){
+        NSMutableArray *marr = [[NSMutableArray alloc]initWithArray:[CGCommonToolsNode getCurrentVC].navigationController.viewControllers];
+        for (UIViewController *vc in marr) {
+            if ([vc isKindOfClass:[CGVideoViewController class]]) {
+                [marr removeObject:vc];
+                break;
+            }
+        }
+        [CGCommonToolsNode getCurrentVC].navigationController.viewControllers = marr;
         CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
         UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
         videoVC.videoIcon=self.addModel.picturesBig[2];

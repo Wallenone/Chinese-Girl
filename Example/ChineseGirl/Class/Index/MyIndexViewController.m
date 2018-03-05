@@ -242,6 +242,14 @@
             if (indexPath.row!=0) {
                 CGShuoShuo *indexModel=(CGShuoShuo *)cellData;
                 if ([indexModel.type integerValue]==2) {
+                    NSMutableArray *marr = [[NSMutableArray alloc]initWithArray:self.navigationController.viewControllers];
+                    for (UIViewController *vc in marr) {
+                        if ([vc isKindOfClass:[CGVideoViewController class]]) {
+                            [marr removeObject:vc];
+                            break;
+                        }
+                    }
+                    self.navigationController.viewControllers = marr;
                     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
                     videoVC.videoStr=indexModel.videoUrl;
                     videoVC.videoIcon=indexModel.videoPicUrl;

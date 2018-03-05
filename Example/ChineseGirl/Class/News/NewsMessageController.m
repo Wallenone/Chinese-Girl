@@ -395,7 +395,7 @@
 -(UIView *)bottomView{
     if (!_bottomView) {
         _bottomView=[[UIView alloc] initWithFrame:CGRectMake(0, screen_height-50*SCREEN_RADIO, screen_width, 50*SCREEN_RADIO)];
-        _bottomView.backgroundColor=[UIColor getColor:@"F9F9F9"];
+        _bottomView.backgroundColor=[UIColor getColor:@"eeeeee"];
 //
 //        UIButton *new_videoBar=[[UIButton alloc] initWithFrame:CGRectMake(20*SCREEN_RADIO, 52*SCREEN_RADIO, 23*SCREEN_RADIO, 15*SCREEN_RADIO)];
 //        new_videoBar.userInteractionEnabled=YES;
@@ -429,7 +429,7 @@
         _textView.zw_placeHolder=NSLocalizedString(@"qingshuruneirong", nil);
         _textView.zw_placeHolderColor=[UIColor getColor:@"777777"];
         _textView.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
-        _textView.backgroundColor=[UIColor getColor:@"F9F9F9"];
+        _textView.backgroundColor=[UIColor getColor:@"eeeeee"];
         _textView.delegate=self;
     }
     
@@ -451,7 +451,7 @@
 
 -(UIView *)lineView{
     if (!_lineView) {
-        _lineView=[[UIView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 42*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 0.5)];
+        _lineView=[[UIView alloc] initWithFrame:CGRectMake(15*SCREEN_RADIO, 42*SCREEN_RADIO, screen_width-30*SCREEN_RADIO, 1)];
         _lineView.backgroundColor=[UIColor getColor:@"D8D8D8"];
     }
     

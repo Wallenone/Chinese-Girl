@@ -183,8 +183,7 @@
                 [strongSelf.view addSubview:customPickerSex];
             }else if ([[cellData objectForKey:@"left"] isEqualToString:NSLocalizedString(@"city", nil)]){
                 //                NSString *cityName=[CGSingleCommitData sharedInstance].cityName.length>0?[CGSingleCommitData sharedInstance].cityName:[CGSingleCommitData sharedInstance].countryName;
-                //                [cell updateCellContent:cityName];
-                　                            
+                //                [cell updateCellContent:cityName];
                 UICountryViewController *countryVC=[[UICountryViewController alloc] init];
                 [strongSelf.navigationController pushViewController:countryVC animated:NO];
                 

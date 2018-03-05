@@ -8,7 +8,6 @@
 
 #import "CGVideoViewController.h"
 #import "ZFPlayer.h"
-#import "MyIndexViewController.h"
 #import "CGGiftView.h"
 #import "SVProgressHUD.h"
 #import "CGVipViewController.h"
@@ -85,6 +84,7 @@
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
+        
         MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
         indexVC.ids=[self.uid integerValue];
         [self.navigationController pushViewController:indexVC animated:NO];
@@ -139,7 +139,7 @@
     }
 }
 
--(void)menuClick3{
+-(void)menuClick3:(UIButton *)sender{
     if ([CGSingleCommitData sharedInstance].uid.length<=0) {
         CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
@@ -149,10 +149,11 @@
             if ([CGSingleCommitData sharedInstance].goldNum>=30) {
                 [CGSingleCommitData sharedInstance].goldNum=[CGSingleCommitData sharedInstance].goldNum-30;
                 self.goldhandbigView.layer.opacity=1;
+                sender.userInteractionEnabled=NO;
                 [UIView animateWithDuration:0.5 delay:2.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
                     self.goldhandbigView.layer.opacity=0;
                 } completion:^(BOOL finished) {
-                    
+                    sender.userInteractionEnabled=YES;
                 }];
             }else{
                 [self getGlodView];
@@ -352,7 +353,7 @@
     if (!_menuBtn3) {
         _menuBtn3=[[RkyExtendedHitButton alloc] initWithFrame:CGRectMake(screen_width-70*SCREEN_RADIO, screen_height/2, 70*SCREEN_RADIO, 70*SCREEN_RADIO)];
         [_menuBtn3 setImage:[UIImage imageNamed:@"gold_hand_19yeah"] forState:UIControlStateNormal];
-        [_menuBtn3 addTarget:self action:@selector(menuClick3) forControlEvents:UIControlEventTouchUpInside];
+        [_menuBtn3 addTarget:self action:@selector(menuClick3:) forControlEvents:UIControlEventTouchUpInside];
         _menuBtn3.hitTestEdgeInsets = UIEdgeInsetsMake(-25, -25, -25, -25);
     }
     

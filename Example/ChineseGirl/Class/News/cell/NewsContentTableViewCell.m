@@ -87,6 +87,14 @@
 }
 
 -(void)tapVideoImage:(UITapGestureRecognizer *)tap{
+    NSMutableArray *marr = [[NSMutableArray alloc]initWithArray:[CGCommonToolsNode getCurrentVC].navigationController.viewControllers];
+    for (UIViewController *vc in marr) {
+        if ([vc isKindOfClass:[CGVideoViewController class]]) {
+            [marr removeObject:vc];
+            break;
+        }
+    }
+    [CGCommonToolsNode getCurrentVC].navigationController.viewControllers = marr;
     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
     videoVC.videoStr=self.messageModel.message_videoUrl;
     [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:videoVC animated:NO completion:nil];
@@ -161,8 +169,8 @@
             _textColor=[UIColor getColor:@"FFFFFF"];
         }
         
-        _textCentent=[[NewsContentCustomLabel alloc] initWithFrame:CGRectMake(_textX, CGRectGetMaxY(self.timeLabel.frame)+15*SCREEN_RADIO, ceil(_textWidth), ceil(size.height+24*SCREEN_RADIO))];
-        _textCentent.layer.cornerRadius=ceil(size.height+24*SCREEN_RADIO)*0.1;
+        _textCentent=[[NewsContentCustomLabel alloc] initWithFrame:CGRectMake(_textX, CGRectGetMaxY(self.timeLabel.frame)+15*SCREEN_RADIO, fabs(_textWidth), fabs(size.height+24*SCREEN_RADIO))];
+        _textCentent.layer.cornerRadius=fabs(size.height+24*SCREEN_RADIO)*0.1;
         _textCentent.clipsToBounds = YES;
         _textCentent.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];
         _textCentent.textColor = _textColor;

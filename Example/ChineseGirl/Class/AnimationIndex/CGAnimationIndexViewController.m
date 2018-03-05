@@ -203,6 +203,14 @@
 }
 
 -(void)playwithVideoUrl:(NSString *)videoUrl withVideoIcon:(NSString *)videoIcon withUserInfo:(CGUserInfo *)userinfo{
+    NSMutableArray *marr = [[NSMutableArray alloc]initWithArray:self.navigationController.viewControllers];
+    for (UIViewController *vc in marr) {
+        if ([vc isKindOfClass:[CGVideoViewController class]]) {
+            [marr removeObject:vc];
+            break;
+        }
+    }
+    self.navigationController.viewControllers = marr;
     
     CGVideoViewController *videoVC=[[CGVideoViewController alloc] init];
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:videoVC];
