@@ -71,6 +71,7 @@
 }
 
 -(void)addClick{
+    [MobClick endEvent:NewFriend_addFrined_touch];
     if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
         NSData *data1 = UIImagePNGRepresentation(self.addBtn.currentBackgroundImage);
         NSData *data = UIImagePNGRepresentation([UIImage imageNamed:@"addTalk"]);

@@ -80,6 +80,7 @@
 }
 
 -(void)setIapHelper:(NSInteger)iapIndex{
+    [MobClick event:PayPage_beginLog];
     [[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response)
      {
          if(response > 0 ) {
@@ -110,6 +111,7 @@
                                                         [[SKPaymentQueue defaultQueue] finishTransaction:trans];
                                                         NSLog(@"SUCCESS %@",response);
                                                         NSLog(@"Pruchases %@",[IAPShare sharedHelper].iap.purchasedProducts);
+                                                        [MobClick event:PayPage_Success];
                                                         if (iapIndex==0) {
                                                             [CGSingleCommitData sharedInstance].goldNum+=79;
                                                         }else if (iapIndex==1){
@@ -126,6 +128,7 @@
                                                         NSLog(@"Fail");
                                                         [SVProgressHUD showWithStatus:NSLocalizedString(@"goumaishibai", nil)];
                                                         [[SKPaymentQueue defaultQueue] finishTransaction:trans];
+                                                        [MobClick event:PayPage_Fail];
                                                     }
                                                 }];
                                             }

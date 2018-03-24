@@ -124,7 +124,7 @@
     if (!_content) {
         _content=[[UILabel alloc] initWithFrame:CGRectMake(0, 19*SCREEN_RADIO, screen_width-10*SCREEN_RADIO,15*SCREEN_RADIO)];
         _content.text=self.model.toContent;
-        _content.textColor=[UIColor getColor:@"000000"];
+        _content.textColor=[UIColor redColor];
         _content.font=[UIFont systemFontOfSize:13*SCREEN_RADIO];
         _content.textAlignment=NSTextAlignmentRight;
     }

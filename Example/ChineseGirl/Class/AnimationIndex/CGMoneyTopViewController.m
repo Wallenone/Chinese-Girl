@@ -29,7 +29,12 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
-    
+    [MobClick event:RichPage_beginLog];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick event:RichPage_endLog];
 }
 
 - (void)viewDidLoad {

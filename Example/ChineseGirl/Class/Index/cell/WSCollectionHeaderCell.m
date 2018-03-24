@@ -87,6 +87,7 @@
     videoVC.videoStr=indexMend.videoUrl;;
     videoVC.uid=indexMend.userId;
     [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    [MobClick event:HomePage_Tuijian_Touch];
 }
 
 -(UIScrollView *)scrollViewPointView{

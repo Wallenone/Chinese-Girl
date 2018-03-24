@@ -46,11 +46,12 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
-    
+    [MobClick event:HomePage_beginLog];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [MobClick event:HomePage_endLog];
 }
 
 
@@ -99,6 +100,7 @@
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
+        [MobClick event:HomePage_AddFrined_Touch];
         CGFriendsAddViewController *addVC=[[CGFriendsAddViewController alloc] init];
         [self.navigationController pushViewController:addVC animated:NO];
     }

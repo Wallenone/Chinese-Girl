@@ -53,11 +53,13 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
+    [MobClick event:VideoSubPage_beginLog];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [MobClick event:VideoSubPage_endLog];
 }
 
 - (void)viewDidLoad {

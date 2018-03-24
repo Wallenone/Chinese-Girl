@@ -35,6 +35,12 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
+    [MobClick event:VideoPage_beginLog];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick event:VideoPage_endLog];
 }
 
 -(void)setData{

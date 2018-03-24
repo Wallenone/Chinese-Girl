@@ -485,8 +485,6 @@ static sqlite3 *t_db = nil;
     
     ret=sqlite3_get_table(db, sql, &dbResult, &nRow, &nColumn, &errmsg);
     
-    NSLog(@"num:=%d",nRow);
-    
     if(1 == ret)     //数据库创建未成功
     {
         fprintf(stderr, "Can't open this database: %s\n", sqlite3_errmsg(db));    //用sqlite3_errmsg()得到错误字符串

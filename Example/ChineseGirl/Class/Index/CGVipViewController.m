@@ -25,13 +25,18 @@
 
 @implementation CGVipViewController
 
-//-(void)viewWillAppear:(BOOL)animated
-//{
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-//    [self.navigationController setNavigationBarHidden:YES animated:animated];
-//    [super viewWillAppear:animated];
-//    [self.tabBarController.tabBar setHidden:YES];
-//}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+    [MobClick event:VipPage_beginLog];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick event:VipPage_endLog];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,15 +60,19 @@
 
 -(void)confimClick{
     if (_pageControl.currentPage==0) {
+        [MobClick event:VipPage_1];
         [self setIapHelper:7];
     }else if (_pageControl.currentPage==1){
+        [MobClick event:VipPage_2];
         [self setIapHelper:6];
     }else if (_pageControl.currentPage==2){
+        [MobClick event:VipPage_3];
         [self setIapHelper:5];
     }
 }
 
 -(void)setIapHelper:(NSInteger)iapIndex{
+    [MobClick event:PayPage_beginLog];
     [[IAPShare sharedHelper].iap requestProductsWithCompletion:^(SKProductsRequest* request,SKProductsResponse* response)
      {
          if(response > 0 ) {
@@ -94,7 +103,7 @@
                                                         [[SKPaymentQueue defaultQueue] finishTransaction:trans];
                                                         NSLog(@"SUCCESS %@",response);
                                                         NSLog(@"Pruchases %@",[IAPShare sharedHelper].iap.purchasedProducts);
-                                                        
+                                                        [MobClick event:PayPage_Success];
                                                         if (_pageControl.currentPage==0) {
                                                             [CGSingleCommitData sharedInstance].goldNum+=1000;
                                                         }else if (_pageControl.currentPage==1){
@@ -106,6 +115,7 @@
                                                         [CGSingleCommitData sharedInstance].vipLevel=[NSString stringWithFormat:@"%ld",(long)_pageControl.currentPage+1];
                                                     }
                                                     else {
+                                                        [MobClick event:PayPage_Fail];
                                                         NSLog(@"Fail");
                                                         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"goumaishibai", nil)];
                                                         [[SKPaymentQueue defaultQueue] finishTransaction:trans];

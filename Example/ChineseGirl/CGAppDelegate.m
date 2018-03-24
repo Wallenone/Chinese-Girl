@@ -26,7 +26,7 @@
 #import "CGGlobalTimerNode.h"
 #import "AFURLSessionManager.h"
 #import "CGLaunchViewController.h"
-#import "UMMobClick/MobClick.h"
+
 @interface CGAppDelegate()<UITabBarControllerDelegate>
 @property(nonatomic,strong)LCTabBarController *tabBarC;
 
@@ -89,7 +89,7 @@
 -(void)setUMConfig{
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
-    
+    [MobClick setLogEnabled:YES];
     UMConfigInstance.appKey = @"5a93d60da40fa34e5f0000bf";
     UMConfigInstance.channelId = @"App Store";
     [MobClick startWithConfigure:UMConfigInstance];
