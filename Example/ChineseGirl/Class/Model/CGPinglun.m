@@ -53,11 +53,11 @@
         }
     }
     
-    for (NSDictionary *model in [CGSingleCommitData sharedInstance].commits) {
-        if ([ids isEqualToString:[model stringForKey:@"id"]]) {
-            [newArr addObject:model];
-        }
-    }
+//    for (NSDictionary *model in [CGSingleCommitData sharedInstance].commits) {
+//        if ([ids isEqualToString:[model stringForKey:@"id"]]) {
+//            [newArr addObject:model];
+//        }
+//    }
     
     return newArr;
     

@@ -49,10 +49,33 @@
 //    self.window.rootViewController=indeVC;
     [self.window makeKeyAndVisible];
     
-    [CGSingleCommitData sharedInstance].isDebug=NO;
+    
+    
+    
+//    NSInteger dis = 10; //前后的天数
+//
+//    NSDate*nowDate = [NSDate date];
+//
+//    NSDate* theDate;
+//
+//    NSTimeInterval  oneDay = 24*60*60*1;  //1天的长度
+//
+//    //之后的天数
+//
+//    theDate = [nowDate initWithTimeIntervalSinceNow: +oneDay*dis ];
+//
+//    CGFloat timeSp = [theDate timeIntervalSince1970];
+    
+    CGFloat currentTimeSp=[[NSDate date] timeIntervalSince1970];
+    
+    if (currentTimeSp>1524123477) {
+        [CGSingleCommitData sharedInstance].isDebug=NO;
+    }else{
+        [CGSingleCommitData sharedInstance].isDebug=YES;
+    }
+    
     if ([CGSingleCommitData sharedInstance].isDebug){
         [CGSingleCommitData sharedInstance].resultName=@"Debug/imgData/";
-        [CGSingleCommitData sharedInstance].vipLevel=@"1";
     }else{
         [CGSingleCommitData sharedInstance].resultName=@"imgData/";
     }
@@ -252,6 +275,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 
 @end

@@ -71,4 +71,13 @@
     return responseJSON;
 }
 
++(CAGradientLayer *)setChangColorWithView:(UIView *)view andColorArrs:(NSArray *)colors{
+    CAGradientLayer *gradLayer = [CAGradientLayer layer];
+    gradLayer.frame = view.bounds;
+    gradLayer.colors = colors;
+    gradLayer.startPoint = CGPointMake(0.5, 0.0);
+    gradLayer.endPoint = CGPointMake(1.0, 1.0);
+    return gradLayer;
+}
+
 @end

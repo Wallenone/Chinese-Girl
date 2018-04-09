@@ -63,6 +63,21 @@
     
     model.toContent =toCityName;
     model.shuoshuoContent = [self getShuoshuoContent:model];
+ //   model.isLike=[self getTableWithId:model.ids];
+    model.isLike = NO;
+    
+    for (NSString *content in [CGSingleCommitData sharedInstance].favourites) {
+        if (content.length>0) {
+            NSArray *array = [content componentsSeparatedByString:@"-"];
+            if ([array[0] isEqualToString:model.uid] && [array[1] isEqualToString:model.sort]) {
+                model.isLike = YES;
+            }
+        }
+    }
+    
+    if (model.isLike) {
+        model.likes=[NSString stringWithFormat:@"%ld",[model.likes integerValue]+1];
+    }
     return model;
 }
 

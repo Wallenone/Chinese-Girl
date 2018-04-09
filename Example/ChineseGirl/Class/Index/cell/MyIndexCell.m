@@ -212,12 +212,16 @@
     if ([button.currentImage isEqual:[UIImage imageNamed:@"Likecell"]]) {
         [button setImage:[UIImage imageNamed:@"LikeTo"] forState:UIControlStateNormal];
         self.myIndexModel.isLike=YES;
-        [[CGSingleCommitData sharedInstance] addfavourites:[NSString stringWithFormat:@"%@-%@",self.myIndexModel.ids,self.myIndexModel.sort]];
+        self.likeLabel.text=[NSString stringWithFormat:@"%ld likes",[self.myIndexModel.likes integerValue]+1];
+        [self.likeLabel sizeToFit];
+        [[CGSingleCommitData sharedInstance] addfavourites:[NSString stringWithFormat:@"%@-%@",self.myIndexModel.uid,self.myIndexModel.sort]];
     }
     else {
         [button setImage:[UIImage imageNamed:@"Likecell"] forState:UIControlStateNormal];
         self.myIndexModel.isLike=NO;
-        [[CGSingleCommitData sharedInstance] deletefavourite:[NSString stringWithFormat:@"%@-%@",self.myIndexModel.ids,self.myIndexModel.sort]];
+        self.likeLabel.text=[NSString stringWithFormat:@"%ld likes",[self.likeLabel.text integerValue]-1];
+        [self.likeLabel sizeToFit];
+        [[CGSingleCommitData sharedInstance] deletefavourite:[NSString stringWithFormat:@"%@-%@",self.myIndexModel.uid,self.myIndexModel.sort]];
     }
     
 }

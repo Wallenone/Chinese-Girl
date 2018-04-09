@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "MyIndexViewController.h"
 #import "CGVideoViewController.h"
+#import "CGNewSignInViewController.h"
 @interface XLVideoCell (){
     CGFloat _imgHeight;
 }
@@ -46,9 +47,16 @@
 }
 
 -(void)iconClick{
-    MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
-    indexVC.ids=[self.model.uid integerValue];
-    [[CGCommonToolsNode getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        [[CGCommonToolsNode getCurrentVC].navigationController presentViewController:nav animated:YES completion:nil];
+    }else{
+        MyIndexViewController *indexVC=[[MyIndexViewController alloc] init];
+        indexVC.ids=[self.model.uid integerValue];
+        [[CGCommonToolsNode getCurrentVC].navigationController pushViewController:indexVC animated:NO];
+    }
+    
 }
 
 -(void)touchClick{
