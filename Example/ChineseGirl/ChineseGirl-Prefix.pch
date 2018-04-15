@@ -34,3 +34,4 @@
 #import "UMEventCommon.h"
 #import "UMMobClick/MobClick.h"
 #define applocalHost @"https://hk-1256071792.cos.ap-hongkong.myqcloud.com/ChineseGirl/"
+#define KIsiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO) 

@@ -170,11 +170,22 @@
 
 -(UIButton *)followingBtn{
     if (!_followingBtn) {
-        _followingBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+25.5*SCREEN_RADIO, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, 159.5*SCREEN_RADIO, 45*SCREEN_RADIO)];
+        CGFloat _x=25.5*SCREEN_RADIO;
+        CGFloat _width=159.5*SCREEN_RADIO;
+        CGFloat _height=45*SCREEN_RADIO;
+        CGFloat _roadio=22.5*SCREEN_RADIO;
+        if(KIsiPhoneX){
+            _width=129.5;
+            _x=15.5;
+            _height=45;
+            _roadio=22.5;
+        }
+        
+        _followingBtn=[[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.AvatarImgView.frame)+_x, CGRectGetMaxY(self.address.frame)+20*SCREEN_RADIO, _width, _height)];
         [_followingBtn setTitleColor:[UIColor getColor:@"ffffff"] forState:UIControlStateNormal];//C5D4D2  //320AFD
         [_followingBtn setTitle:NSLocalizedString(@"guanzhu", nil) forState:UIControlStateNormal];
-        _followingBtn.imageEdgeInsets = UIEdgeInsetsMake(13.5*SCREEN_RADIO,16.5*SCREEN_RADIO,14*SCREEN_RADIO,125*SCREEN_RADIO);
-        _followingBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -_followingBtn.imageView.frame.size.width, 0, 0);
+        _followingBtn.imageEdgeInsets = UIEdgeInsetsMake(13.5*SCREEN_RADIO,16.5*SCREEN_RADIO,14*SCREEN_RADIO,_width/2);
+        _followingBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -_width/2+70*SCREEN_RADIO, 0, 0);
         
         if (self.myIndexModel.followed) {
             [_followingBtn setTitle:NSLocalizedString(@"yiguanzhu", nil) forState:UIControlStateNormal];
@@ -183,7 +194,7 @@
             [_followingBtn setTitle:NSLocalizedString(@"guanzhu", nil) forState:UIControlStateNormal];
             [_followingBtn setImage:[UIImage imageNamed:@"myindexplus"] forState:UIControlStateNormal];
         }
-        _followingBtn.layer.cornerRadius=22.5*SCREEN_RADIO;
+        _followingBtn.layer.cornerRadius=_roadio;
         _followingBtn.layer.borderWidth=0.5;
         _followingBtn.layer.borderColor=[UIColor getColor:@"ffffff"].CGColor;
         _followingBtn.titleLabel.font=[UIFont systemFontOfSize:16*SCREEN_RADIO];

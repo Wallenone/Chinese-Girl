@@ -243,7 +243,7 @@
         [_basicView addSubview:moneyLabel1];
 
         UILabel *moneyLabel2=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel1.frame), CGRectGetMaxY(simpLabel.frame)+35*SCREEN_RADIO, 0, 66*SCREEN_RADIO)];
-        moneyLabel2.text=@"19.99";
+        moneyLabel2.text=@"9.99";
         moneyLabel2.textColor=[UIColor getColor:@"343434"];
         moneyLabel2.font=[UIFont boldSystemFontOfSize:60*SCREEN_RADIO];
         [moneyLabel2 sizeToFit];
@@ -294,7 +294,7 @@
         [_premiumView addSubview:moneyLabel1];
         
         UILabel *moneyLabel2=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel1.frame), CGRectGetMaxY(simpLabel.frame)+35*SCREEN_RADIO, 0, 66*SCREEN_RADIO)];
-        moneyLabel2.text=@"39.99";
+        moneyLabel2.text=@"19.99";
         moneyLabel2.textColor=[UIColor getColor:@"343434"];
         moneyLabel2.font=[UIFont boldSystemFontOfSize:60*SCREEN_RADIO];
         [moneyLabel2 sizeToFit];
@@ -346,14 +346,14 @@
         [_ultimateView addSubview:moneyLabel1];
         
         UILabel *moneyLabel2=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel1.frame), CGRectGetMaxY(simpLabel.frame)+35*SCREEN_RADIO, 0, 66*SCREEN_RADIO)];
-        moneyLabel2.text=@"59.99";
+        moneyLabel2.text=@"29.99";
         moneyLabel2.textColor=[UIColor getColor:@"343434"];
         moneyLabel2.font=[UIFont boldSystemFontOfSize:60*SCREEN_RADIO];
         [moneyLabel2 sizeToFit];
         [_ultimateView addSubview:moneyLabel2];
         
         UILabel *moneyLabel3=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(moneyLabel2.frame), CGRectGetMaxY(simpLabel.frame)+73*SCREEN_RADIO, 0, 19*SCREEN_RADIO)];
-        moneyLabel3.text=@"/Year";
+        moneyLabel3.text=@"/Month";
         moneyLabel3.textColor=[UIColor getColor:@"343434"];
         moneyLabel3.font=[UIFont systemFontOfSize:14*SCREEN_RADIO];
         [moneyLabel3 sizeToFit];

@@ -64,11 +64,17 @@
 //
 //    theDate = [nowDate initWithTimeIntervalSinceNow: +oneDay*dis ];
 //
+//    NSTimeInterval time=[theDate timeIntervalSince1970];// *1000 是精确到毫秒，不乘就是精确到秒
+//    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+//
+//
+//
+//
 //    CGFloat timeSp = [theDate timeIntervalSince1970];
     
     CGFloat currentTimeSp=[[NSDate date] timeIntervalSince1970];
     
-    if (currentTimeSp>1524123477) {
+    if (currentTimeSp>1524638548) {
         [CGSingleCommitData sharedInstance].isDebug=NO;
     }else{
         [CGSingleCommitData sharedInstance].isDebug=YES;
@@ -79,7 +85,6 @@
     }else{
         [CGSingleCommitData sharedInstance].resultName=@"imgData/";
     }
-    
     
     [self setRootView];
     
@@ -187,7 +192,7 @@
 
 -(void)setIapHelperData{
     if(![IAPShare sharedHelper].iap) {
-        NSSet* dataSet = [[NSSet alloc] initWithObjects:@"9100827340001",@"9100827340002",@"9100827340003",@"9100827340004",@"9100827340005",@"9100827340006",@"9100827340007",@"9100827340008", nil];  //需要加产品id
+        NSSet* dataSet = [[NSSet alloc] initWithObjects:@"9100827340001",@"9100827340002",@"9100827340003",@"9100827340004",@"9100827340005",@"9100827340009",@"91008273400010",@"91008273400011", nil];  //需要加产品id
         
         [IAPShare sharedHelper].iap = [[IAPHelper alloc] initWithProductIdentifiers:dataSet];
     }
