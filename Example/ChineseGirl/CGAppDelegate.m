@@ -74,10 +74,13 @@
     
     CGFloat currentTimeSp=[[NSDate date] timeIntervalSince1970];
     
-    if (currentTimeSp>1524638548) {
+    if (currentTimeSp>1527126023) {
         [CGSingleCommitData sharedInstance].isDebug=NO;
     }else{
         [CGSingleCommitData sharedInstance].isDebug=YES;
+        [CGSingleCommitData sharedInstance].email=@"910082734@qq.com";
+        [CGSingleCommitData sharedInstance].password=@"qwer123";
+        [CGSingleCommitData sharedInstance].vipLevel=@"1";
     }
     
     if ([CGSingleCommitData sharedInstance].isDebug){
