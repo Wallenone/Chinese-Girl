@@ -130,7 +130,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 30*SCREEN_RADIO)];
-        _titleLabel.text=@"ChineseGirl";
+        _titleLabel.text=@"Trip Date";
         _titleLabel.textColor=[UIColor getColor:@"1D1D1B"];
         _titleLabel.font=[UIFont fontWithName:@"Billabong" size:25*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;

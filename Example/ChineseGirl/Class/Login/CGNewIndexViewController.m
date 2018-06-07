@@ -11,6 +11,7 @@
 #import "UICountryViewController.h"
 #import "CGProfileIndexViewController.h"
 #import "CGAppDelegate.h"
+#import "CGNetworkData.h"
 @interface CGNewIndexViewController ()
 @property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -82,8 +83,8 @@
     if ([self isValidateEmail:self.emailContent.text]) {
             if (self.usernameContent.text.length>0) {
             if (self.passwordContent.text.length>=6) {
-                
                 if (self.addressContent.text.length>0) {
+                    [CGNetworkData postData:@{@"nickName":self.usernameContent.text,@"email":self.emailContent.text,@"password":self.passwordContent.text} withUrl:@"https://www.llstudy.com/zxt/cg/reg.aspx"];
                     [CGSingleCommitData sharedInstance].uid=self.emailContent.text;
                     [CGSingleCommitData sharedInstance].nickName=self.usernameContent.text;
                     [CGSingleCommitData sharedInstance].email=self.emailContent.text;

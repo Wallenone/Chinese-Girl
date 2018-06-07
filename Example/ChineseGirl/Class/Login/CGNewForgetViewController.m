@@ -7,7 +7,7 @@
 //
 
 #import "CGNewForgetViewController.h"
-
+#import "CGNetworkData.h"
 @interface CGNewForgetViewController ()
 @property(nonatomic,strong)RkyExtendedHitButton *leftIcon;
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -48,6 +48,7 @@
 
 -(void)setupClick{
     if (self.emailContent.text.length>0) {
+        [CGNetworkData postData:@{@"email":self.emailContent.text} withUrl:@"https://www.llstudy.com/zxt/cg/fgt.aspx "];
         if([self.emailContent.text isEqualToString:[CGSingleCommitData sharedInstance].email]){
             self.emailLabel.text=NSLocalizedString(@"nidemima", nil);
             self.emailContent.userInteractionEnabled=NO;

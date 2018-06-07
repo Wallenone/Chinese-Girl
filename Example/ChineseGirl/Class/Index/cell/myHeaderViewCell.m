@@ -70,6 +70,7 @@
 }
 
 -(void)talkClick{
+    
     if (talkCallBack) {
         talkCallBack(self.myIndexModel);
     }

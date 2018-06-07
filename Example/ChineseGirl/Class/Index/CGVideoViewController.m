@@ -121,24 +121,38 @@
 }
 
 -(void)menuClick2{
-    if ([CGSingleCommitData sharedInstance].uid.length<=0) {
-        CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-        [self.navigationController presentViewController:nav animated:YES completion:nil];
-    }else{
-        if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+    if([CGSingleCommitData sharedInstance].isDebug){
+        if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+            CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+            [self.navigationController presentViewController:nav animated:YES completion:nil];
+        }else{
             NewsMessageController *newMessage=[[NewsMessageController alloc] init];
             newMessage.userid=self.uid;
             newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.uid];
             [self.navigationController pushViewController:newMessage animated:NO];
+        }
+    }else{
+        if ([CGSingleCommitData sharedInstance].uid.length<=0) {
+            CGNewSignInViewController *loginVC=[[CGNewSignInViewController alloc] init];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+            [self.navigationController presentViewController:nav animated:YES completion:nil];
         }else{
-            CGVipViewController *vipVC=[[CGVipViewController alloc] init];
-            vipVC.definesPresentationContext = YES;
-            vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-            vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-            [self presentViewController:vipVC animated:NO completion:nil];
+            if ([CGSingleCommitData sharedInstance].vipLevel.length>0) {
+                NewsMessageController *newMessage=[[NewsMessageController alloc] init];
+                newMessage.userid=self.uid;
+                newMessage.myIndexModel=[[CGSingleCommitData sharedInstance] getNewSubListWithUserid:self.uid];
+                [self.navigationController pushViewController:newMessage animated:NO];
+            }else{
+                CGVipViewController *vipVC=[[CGVipViewController alloc] init];
+                vipVC.definesPresentationContext = YES;
+                vipVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                vipVC.view.backgroundColor=[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+                [self presentViewController:vipVC animated:NO completion:nil];
+            }
         }
     }
+    
 }
 
 -(void)menuClick3:(UIButton *)sender{

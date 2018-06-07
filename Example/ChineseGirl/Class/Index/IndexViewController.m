@@ -22,6 +22,7 @@
 #import "KNMovieViewController.h"
 #import "CGShuoShuo.h"
 #import "CGSqliteManager.h"
+#import "CGNetworkData.h"
 @interface IndexViewController ()<BHInfiniteScrollViewDelegate,HzfNavigationBarDelegate,UIScrollViewDelegate>{
     NSIndexPath *_indexPath;
     
@@ -58,7 +59,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self delayMethod];
-    
+    [CGNetworkData postData:@{@"page":@"1",@"pageNum":@"10"} withUrl:@"https://www.llstudy.com/zxt/cg/home.aspx"];
     
     
 //    BOOL isFirstUp =  [[NSUserDefaults standardUserDefaults] objectForKey:@"FirstLoad"];
@@ -157,7 +158,7 @@
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 32*SCREEN_RADIO, screen_width, 30*SCREEN_RADIO)];
-        _titleLabel.text=@"ChineseGirl";
+        _titleLabel.text=@"Trip Date";
         _titleLabel.textColor=[UIColor getColor:@"1D1D1B"];
         _titleLabel.font=[UIFont fontWithName:@"Billabong" size:25*SCREEN_RADIO];
         _titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -176,6 +177,7 @@
 }
 
 -(void)getCollectionData{
+    [CGNetworkData postData:@{@"page":@(_currentPage),@"pageNum":@"10"} withUrl:@"https://www.llstudy.com/zxt/cg/home.aspx"];
     NSMutableArray *array = [CGIndexModel reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
     if (array.count>0) {
         [self.tbv addContentData:array];
@@ -186,6 +188,7 @@
 }
 
 -(void)updateData{
+    [CGNetworkData postData:@{@"page":@(_currentPage),@"pageNum":@"10"} withUrl:@"https://www.llstudy.com/zxt/cg/home.aspx"];
     NSMutableArray *array = [CGIndexModel reloadTableWithRangeFrom:_currentPage*10 rangeTLenth:10];
     if (array.count>0) {
         [self.tbv updateData:array];

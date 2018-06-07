@@ -95,7 +95,7 @@
 "xianzaijiuqu" = "今から行って";
 "zhuceguo" = "このメールは登録していない";
 "chongzhimima" = "パスワードリセット"; //Password Reset
-"chongzhiyouxiang" = "あなたのパスワードをリセットして、あなたの使用したメールアドレスを入力して登録しますChineseGirl";  //To reset your password, enter the email address you use to sign in to ChineseGirl
+"chongzhiyouxiang" = "あなたのパスワードをリセットして、あなたの使用したメールアドレスを入力して登録します Trip Date";  //To reset your password, enter the email address you use to sign in to ChineseGirl
 "xiugaimima" = "パスワードを改正する";
 "qudenglu" = "ログイン";
 "quzhuce" = "登録する";
